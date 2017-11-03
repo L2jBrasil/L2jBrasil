@@ -1,8 +1,7 @@
 #  <a name="top"></a> L2jBrasil
 
 [![License badge](https://img.shields.io/badge/license-AGPL-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
-[![Documentation badge](https://www.l2jbrasil.com)
-[![Support badge]( https://img.shields.io/badge/support-sof-yellowgreen.svg)](https://www.l2jbrasil.com/index.php?/forum/18-d%C3%BAvidas)
+[![Support badge](https://img.shields.io/badge/support-sof-yellowgreen.svg)](https://www.l2jbrasil.com/index.php?/forum/18-d%C3%BAvidas)
 
 This is the code repository for the L2jBrasil V# , a implementation of a emulator server for a MMORPG game.
 
