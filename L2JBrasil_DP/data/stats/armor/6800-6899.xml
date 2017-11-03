@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='6834' name="Circlet of Innadrill">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6835' name="Circlet of Dion">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6836' name="Circlet of Goddard">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6837' name="Circlet of Oren">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6838' name="Circlet of Gludio">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6839' name="Circlet of Giran">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6840' name="Circlet of Aden">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6841' name="Crown of Lord">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6842' name="Wings of Destiny Circlet">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6843' name="Cat Ear">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6844' name="Lady's Hair Pin">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6845' name="Pirate's Eye Patch">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='6846' name="Monocle">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

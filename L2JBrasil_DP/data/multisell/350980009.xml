@@ -1,0 +1,2271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list maintainEnchantment="true">
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="1">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="3000"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="2">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="3000"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="3">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="1500"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="4">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="1500"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="5">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="500"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="6">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="500"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="7">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="750"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="8">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="750"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="9">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="300"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="10">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="300"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="11">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="300"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="12">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="300"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="13">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="375"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="14">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="375"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="15">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="375"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="16">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="375"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="17">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="300"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="18">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="300"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="19">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="8000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="20">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="8000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="21">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="4000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="22">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="4000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="23">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="1333"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="24">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="1333"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="25">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="2000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="26">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="2000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="27">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="800"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="28">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="800"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="29">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="800"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="30">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="800"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="31">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="1000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="32">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="1000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="33">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="1000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="34">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="1000"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="35">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="800"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="36">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="800"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="37">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="300"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="38">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="300"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="39">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="150"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="40">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="150"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="41">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="50"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="42">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="50"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="43">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="75"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="44">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="75"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="45">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="46">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="47">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="48">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="49">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="37"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="50">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="37"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="51">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="37"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="52">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="37"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="53">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="54">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="55">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="180"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="56">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="180"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="57">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="90"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="58">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="90"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="59">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="30"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="60">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="30"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="61">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="45"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="62">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="45"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="63">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="18"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="64">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="18"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="65">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="18"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="66">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="18"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="67">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="22"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="68">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="22"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="69">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="22"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="70">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="22"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="71">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="18"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="72">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="18"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="73">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="500"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="74">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="500"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="75">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="250"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="76">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="250"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="77">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="83"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="78">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="83"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="79">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="125"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="80">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="125"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="81">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="50"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="82">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="50"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="83">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="50"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="84">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="50"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="85">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="62"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="86">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="62"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="87">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="62"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="88">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="62"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="89">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="50"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="90">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="50"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="91">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="200"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="92">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="200"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="93">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="100"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="94">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="100"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="95">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="33"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="96">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="33"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="97">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="50"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="98">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="50"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="99">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="100">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="101">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="102">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="103">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="104">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="105">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="106">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="107">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="108">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="109">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="72"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="110">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="72"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="111">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="36"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="112">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="36"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="113">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="12"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="114">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="12"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="115">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="18"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="116">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="18"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="117">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="7"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="118">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="7"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="119">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="7"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="120">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="7"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="121">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="9"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="122">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="9"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="123">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="9"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="124">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="9"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="125">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="7"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="126">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="7"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="127">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="144"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="128">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="144"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="129">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="72"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="130">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="72"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="131">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="24"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="132">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="24"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="133">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="36"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="134">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="36"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="135">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="14"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="136">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="14"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="137">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="14"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="138">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="14"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="139">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="18"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="140">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="18"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="141">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="18"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="142">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="18"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="143">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="14"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="144">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="14"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="145">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="200"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="146">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="200"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="147">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="100"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="148">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="100"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="149">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="33"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="150">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="33"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="151">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="50"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="152">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="50"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="153">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="154">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="155">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="156">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="157">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="158">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="159">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="160">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="25"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="161">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="162">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="20"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="163">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="4800"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="164">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="4800"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="165">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="4800"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="166">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="4800"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="167">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="1200"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="168">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="1200"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="169">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="1200"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="170">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="1200"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="171">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="960"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="172">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="960"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="173">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="174">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="175">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="176">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="600"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="177">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="178">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="179">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="180">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="181">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="1600"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="182">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="1600"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="183">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="1600"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="184">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="1600"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="185">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="400"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="186">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="400"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="187">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="400"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="188">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="400"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="189">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="320"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="190">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="320"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="191">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="192">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="193">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="194">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="200"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="195">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="196">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="197">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="198">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="199">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="300"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="200">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="300"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="201">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="300"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="202">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="300"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="203">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="75"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="204">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="75"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="205">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="75"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="206">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="75"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="207">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="60"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="208">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="60"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="209">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="210">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="211">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="212">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="37"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="213">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="214">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="215">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="216">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="217">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="120"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="218">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="120"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="219">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="120"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="220">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="120"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="221">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="30"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="222">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="30"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="223">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="30"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="224">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="30"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="225">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="24"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="226">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="24"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="227">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="228">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="229">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="230">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="15"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="231">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="232">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="233">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="234">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="235">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="36000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="236">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="36000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="237">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="36000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="238">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="36000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="239">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="9000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="240">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="9000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="241">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="9000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="242">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="9000"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="243">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="7200"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="244">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="7200"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="245">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="246">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="247">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="248">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="4500"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="249">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="250">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="251">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="252">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="253">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="10000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="254">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="10000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="255">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="10000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="256">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="10000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="257">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="2500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="258">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="2500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="259">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="2500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="260">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="2500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="261">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="2000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="262">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="2000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="263">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="264">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="265">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="266">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="1250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="267">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="268">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="269">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="270">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="271">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="2200"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="272">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="2200"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="273">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="2200"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="274">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="2200"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="275">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="550"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="276">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="550"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="277">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="550"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="278">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="550"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="279">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="440"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="280">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="440"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="281">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="282">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="283">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="284">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="275"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="285">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="286">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="287">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="288">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="289">
+        <!--Mature Dark Coda-->
+        <ingredient id="5103" count="1000"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="290">
+        <!--Mature Alternative Dark Coda-->
+        <ingredient id="5838" count="1000"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="291">
+        <!--Mature Chilly Coda-->
+        <ingredient id="5095" count="1000"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="292">
+        <!--Mature Alternative Chilly Coda-->
+        <ingredient id="5840" count="1000"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="293">
+        <!--Mature Golden Coda-->
+        <ingredient id="5099" count="250"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="294">
+        <!--Mature Alternative Golden Coda-->
+        <ingredient id="5842" count="250"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="295">
+        <!--Mature Desert Coda-->
+        <ingredient id="5100" count="250"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="296">
+        <!--Mature Alternative Desert Coda-->
+        <ingredient id="5844" count="250"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="297">
+        <!--Mature Chilly Cobol-->
+        <ingredient id="5105" count="200"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="298">
+        <!--Mature Alternative Chilly Cobol-->
+        <ingredient id="5846" count="200"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="299">
+        <!--Mature Thorn Cobol-->
+        <ingredient id="5112" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="300">
+        <!--Mature Alternative Thorn Cobol-->
+        <ingredient id="5848" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="301">
+        <!--Mature Great Cobol-->
+        <ingredient id="5114" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="302">
+        <!--Mature Alternative Great Cobol-->
+        <ingredient id="5850" count="125"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="303">
+        <!--Mature Sea Codran-->
+        <ingredient id="5121" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="304">
+        <!--Mature Alternative Sea Codran-->
+        <ingredient id="5852" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="305">
+        <!--Mature Blue Codran-->
+        <ingredient id="5117" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="306">
+        <!--Mature Alternative Blue Codran-->
+        <ingredient id="5854" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="307">
+        <!--Mature Red Coda-->
+        <ingredient id="5098" count="10000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="308">
+        <!--Mature Alternative Red Coda-->
+        <ingredient id="5839" count="10000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="309">
+        <!--Mature Blue Coda-->
+        <ingredient id="5097" count="5000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="310">
+        <!--Mature Alternative Blue Coda-->
+        <ingredient id="5841" count="5000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="311">
+        <!--Mature Lute Coda-->
+        <ingredient id="5101" count="1666"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="312">
+        <!--Mature Alternative Lute Coda-->
+        <ingredient id="5843" count="1666"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="313">
+        <!--Mature Red Cobol-->
+        <ingredient id="5108" count="2500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="314">
+        <!--Mature Alternative Red Cobol-->
+        <ingredient id="5845" count="2500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="315">
+        <!--Mature Blue Cobol-->
+        <ingredient id="5107" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="316">
+        <!--Mature Alternative Blue Cobol-->
+        <ingredient id="5847" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="317">
+        <!--Mature Golden Cobol-->
+        <ingredient id="5109" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="318">
+        <!--Mature Alternative Golden Cobol-->
+        <ingredient id="5849" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="319">
+        <!--Mature Red Codran-->
+        <ingredient id="5118" count="1250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="320">
+        <!--Mature Alternative Red Codran-->
+        <ingredient id="5851" count="1250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="321">
+        <!--Mature Chilly Codran-->
+        <ingredient id="5115" count="1250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="322">
+        <!--Mature Alternative Chilly Codran-->
+        <ingredient id="5853" count="1250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="323">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="324">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+</list>

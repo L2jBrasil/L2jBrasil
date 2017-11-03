@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<!-- region sec0 sec1 sec2 sec3 sec4 sec5 sec6 sec7 sec8 sec9 -->
+	<!-- 0 = "Talking Island Village"
+		1 = "Elven Village"
+		2 = "Dark Elven Village"
+		3 = "Orc Village"
+		4 = "Dwarven Village"
+		5 = "Town of Gludio"
+		6 = "Gludin Village"
+		7 = "Town of Dion"
+		8 = "Town of Giran"
+		9 = "Town of Oren"
+		10 = "Town of Aden"
+		11 = "Hunters Village"
+		12 = "Giran Harbor"
+		13 = "Heine"
+		14 = "Rune Township"
+		15 = "Town of Goddard"
+		16 = "Town of Shuttgart"
+		17 = "Floran Village"
+		18 = "Primeval Isle"
+		default = "Town of Aden" -->
+	<!-- _8 -->
+	<map region="0" sec0="3" sec1="3" sec2="3" sec3="3" sec4="3" sec5="4" sec6="4" sec7="4" sec8="4" sec9="4"/>
+	<!-- _9 -->
+	<map region="1" sec0="3" sec1="3" sec2="3" sec3="3" sec4="3" sec5="4" sec6="4" sec7="4" sec8="4" sec9="4"/>
+	<!-- _10 -->
+	<map region="2" sec0="3" sec1="3" sec2="7" sec3="9" sec4="11" sec5="4" sec6="4" sec7="4" sec8="4" sec9="4"/>
+	<!-- _11 -->
+	<map region="3" sec0="3" sec1="3" sec2="3" sec3="3" sec4="3" sec5="4" sec6="4" sec7="4" sec8="4" sec9="4"/>
+	<!-- _12 -->
+	<map region="4" sec0="3" sec1="3" sec2="3" sec3="3" sec4="3" sec5="4" sec6="4" sec7="4" sec8="4" sec9="4"/>
+	<!-- _13 -->
+	<map region="5" sec0="3" sec1="3" sec2="3" sec3="3" sec4="3" sec5="16" sec6="16" sec7="16" sec8="15" sec9="15"/>
+	<!-- _14 -->
+	<map region="6" sec0="3" sec1="3" sec2="3" sec3="3" sec4="3" sec5="16" sec6="16" sec7="16" sec8="15" sec9="15"/>
+	<!-- _15 -->
+	<map region="7" sec0="3" sec1="3" sec2="3" sec3="3" sec4="3" sec5="14" sec6="14" sec7="15" sec8="15" sec9="15"/>
+	<!-- _16 -->
+	<map region="8" sec0="3" sec1="3" sec2="3" sec3="14" sec4="14" sec5="14" sec6="14" sec7="15" sec8="15" sec9="15"/>
+	<!-- _17 -->
+	<map region="9" sec0="2" sec1="2" sec2="2" sec3="2" sec4="18" sec5="2" sec6="9" sec7="9" sec8="10" sec9="10"/>
+	<!-- _18 -->
+	<map region="10" sec0="2" sec1="2" sec2="2" sec3="2" sec4="2" sec5="9" sec6="9" sec7="10" sec8="10" sec9="10"/>
+	<!-- _19 -->
+	<map region="11" sec0="2" sec1="2" sec2="2" sec3="2" sec4="1" sec5="1" sec6="9" sec7="11" sec8="10" sec9="10"/>
+	<!-- _20 -->
+	<map region="12" sec0="6" sec1="6" sec2="2" sec3="5" sec4="1" sec5="1" sec6="9" sec7="11" sec8="11" sec9="11"/>
+	<!-- _21 -->
+	<map region="13" sec0="6" sec1="6" sec2="5" sec3="5" sec4="7" sec5="7" sec6="8" sec7="8" sec8="8" sec9="8"/>
+	<!-- _22 -->
+	<map region="14" sec0="6" sec1="6" sec2="6" sec3="5" sec4="7" sec5="7" sec6="8" sec7="8" sec8="8" sec9="8"/>
+	<!-- _23 -->
+	<map region="15" sec0="0" sec1="6" sec2="6" sec3="5" sec4="17" sec5="12" sec6="13" sec7="13" sec8="13" sec9="13"/>
+	<!-- _24 -->
+	<map region="16" sec0="0" sec1="0" sec2="6" sec3="6" sec4="12" sec5="12" sec6="13" sec7="13" sec8="13" sec9="13"/>
+	<!-- _25 -->
+	<map region="17" sec0="0" sec1="0" sec2="0" sec3="0" sec4="0" sec5="0" sec6="13" sec7="13" sec8="13" sec9="13"/>
+</list>

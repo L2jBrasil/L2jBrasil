@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='500' name="Great Helmet">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='501' name="Armet">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='502' name="Close Helmet">
+  <for>
+    <add val='64' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='503' name="Zubei's Helmet">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='504' name="Dragon Helmet">
+  <for>
+    <add val='77' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='505' name="Wolf Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='506' name="Shining Dragon Helmet">
+  <for>
+    <add val='69' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='507' name="Helmet of Victory">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='508' name="Helmet of Valor">
+  <for>
+    <add val='67' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='509' name="Glorious Helmet">
+  <for>
+    <add val='65' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='510' name="Red Flame Helmet">
+  <for>
+    <add val='71' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='511' name="Elven Crystal Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='512' name="Dark Crystal Helmet">
+  <for>
+    <add val='69' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='513' name="Implosion Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='514' name="Dark Dragon Helmet">
+  <for>
+    <add val='67' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='515' name="Elven Vagian Helm">
+  <for>
+    <add val='65' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='516' name="Dark Vagian Helm">
+  <for>
+    <add val='71' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='517' name="Composite Helmet">
+  <for>
+    <add val='54' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='518' name="Hell Helm">
+  <for>
+    <add val='71' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='519' name="Art of Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='520' name="Masterpiece Helm">
+  <for>
+    <add val='71' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='521' name="Helmet of Silence">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='522' name="Gust Helmet">
+  <for>
+    <add val='67' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='523' name="Prairie Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='524' name="Helm of The Underworld">
+  <for>
+    <add val='67' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='525' name="Helmet of Concentration">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='526' name="ace'Ace's Helmet">
+  <for>
+    <add val='67' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='527' name="Guardian's Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='528' name="Marksman Helmet">
+  <for>
+    <add val='67' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='529' name="Cap of Mana">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='530' name="Sage's Cap">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='531' name="Paradia Hood">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='532' name="Inferno Hood">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='533' name="Hood of Solar Eclipse">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='534' name="Hood of Black Ore">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='535' name="Hood of Summoning">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='536' name="Otherworldly Hood">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='537' name="Elemental Hood">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='538' name="Hood of Phantom">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='539' name="Hood of Grace">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='540' name="Hood of Holy Spirit">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='541' name="Phoenix Hood">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='542' name="Cerberus Hood">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='543' name="Hood of Aid">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='544' name="Hood of Blessing">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='545' name="Flame Helm">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='546' name="Helm of Bravery">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='547' name="Tallum Helm">
+  <for>
+    <add val='69' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='548' name="Absolute Helm">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='549' name="Helm of Avadon">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='550' name="Helm of Doom">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='551' name="Helmet of Pledge">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='552' name="Divine Helm">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='553' name="Iron Boots">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='554' name="Zubei's Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='555' name="Dragon Boots">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='556' name="Wolf Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='557' name="Shining Dragon Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='558' name="Boots of Victory">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='559' name="Boots of Valor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='560' name="Glorious Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='561' name="Red Flame Boots">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='562' name="Elven Crystal Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='563' name="Dark Crystal Boots">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='564' name="Implosion Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='565' name="Dark Dragon Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='566' name="Elven Vagian Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='567' name="Dark Vagian Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='568' name="Composite Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='569' name="Hell Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='570' name="Art of Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='571' name="Masterpiece Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='572' name="Boots of Silence">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='573' name="Gust Boots">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='574' name="Prairie Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='575' name="Boots of The Underworld">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='576' name="Boots of Concentration">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='577' name="Ace's Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='578' name="Guardian's Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='579' name="Marksman Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='580' name="Boots of Mana">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='581' name="Sage's Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='582' name="Paradia Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='583' name="Majestic Boots">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='584' name="Boots of Solar Eclipse">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='585' name="Boots of Black Ore">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='586' name="Boots of Summoning">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='587' name="Otherworldly Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='588' name="Elemental Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='589' name="Boots of Phantom">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='590' name="Boots of Grace">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='591' name="Boots of Holy Spirit">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='592' name="Phoenix Boots">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='593' name="Cerberus Boots">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='594' name="Boots of Aid">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='595' name="Boots of Blessing">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='596' name="Flame Boots">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='597' name="Boots of Bravery">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='598' name="Blood Boots">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='599' name="Absolute Boots">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+</list>

@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='7701' name="stick_of_faith_mana_up">
+  <for>
+    <set val='85' order='0x08' stat='pAtk'/>
+    <set val='81' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7702' name="stick_of_faith_magic_hold">
+  <for>
+    <set val='85' order='0x08' stat='pAtk'/>
+    <set val='81' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7703' name="stick_of_faith_magic_shield">
+  <for>
+    <set val='85' order='0x08' stat='pAtk'/>
+    <set val='81' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7704' name="stick_of_eternity_empower">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Empower -->
+    <add val='24' order='0x40' stat='mAtk'/>
+  </for>
+</item>
+<item id='7705' name="stick_of_eternity_rsk.,_evasion">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Rsk. Evasion -->
+    <add order='0x40' stat='rEvas' val='7'>
+      <and>
+        <player hp="60"/>
+      </and>
+    </add>
+  </for>
+</item>
+<item id='7706' name="stick_of_eternity_bless_the_body">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Bodily Blessing -->
+    <skill onCast='1' id='1045' lvl='3' chance='20'/>
+  </for>
+</item>
+<item id='7707' name="nirvana_axe_magic_power">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+	<!-- SA: Magic Power -->
+    <add val='99' order='0x40' stat='mAtk'/>
+    <mul val='1.15' order='0x30' stat='MpConsume'/> 
+  </for>
+</item>
+<item id='7708' name="nirvana_axe_magic_poison">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7709' name="nirvana_axe_magic_weakness">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7710' name="club_of_nature_acumen">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7711' name="club_of_nature_magic_mental_shield">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7712' name="club_of_nature_magic_hold">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7713' name="mace_of_the_underworld_mana_up">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7714' name="mace_of_the_underworld_magic_silence">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Silence -->
+    <skill onCast='1' id='1064' lvl='1' chance='10'/>
+  </for>
+</item>
+<item id='7715' name="mace_of_the_underworld_conversion">
+  <for>
+    <set val='111' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Conversion -->
+    <mul val='0.6' order='0x30' stat='maxHp'/>
+    <mul val='1.6' order='0x30' stat='maxMp'/>
+  </for>
+</item>
+<item id='7716' name="inferno_staff_acumen">
+  <for>
+    <set val='135' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7717' name="inferno_staff_magic_silence">
+  <for>
+    <set val='135' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Silence -->
+    <skill onCast='1' id='1064' lvl='1' chance='10'/>
+  </for>
+</item>
+<item id='7718' name="inferno_staff_magic_paralyze">
+  <for>
+    <set val='135' order='0x08' stat='pAtk'/>
+    <set val='101' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Magic Paralyze -->
+    <skill onCast='1' id='1170' lvl='1' chance='5'/>
+  </for>
+</item>
+<item id='7719' name="poleaxe_critical_stun">
+  <for>
+    <set val='139' order='0x08' stat='pAtk'/>
+    <set val='76' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <!-- SA: Critical Stun -->
+    <skill onCrit='1' id='3070' lvl='1' chance='25'/>
+  </for>
+</item>
+<item id='7720' name="poleaxe_long_blow">
+  <for>
+    <set val='139' order='0x08' stat='pAtk'/>
+    <set val='76' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <!-- SA: Long Blow -->
+    <set val='80' order='0x08' stat='pAtkRange'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7721' name="poleaxe_wide_blow">
+  <for>
+    <set val='139' order='0x08' stat='pAtk'/>
+    <set val='76' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <!-- SA: Wide Blow -->
+    <set val='180' order='0x08' stat='pAtkAngle'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7722' name="sword_of_valhalla_acumen">
+  <for>
+    <set val='140' order='0x08' stat='pAtk'/>
+    <set val='122' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7723' name="sword_of_valhalla_magic_weakness">
+  <for>
+    <set val='140' order='0x08' stat='pAtk'/>
+    <set val='122' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='7724' name="sword_of_valhalla_magic_regeneration">
+  <for>
+    <set val='140' order='0x08' stat='pAtk'/>
+    <set val='122' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+</list>

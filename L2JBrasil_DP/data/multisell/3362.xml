@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 336: Coins of Magic, Rewards level 2 -->
+<list maintainEnchantment="true">
+	<!-- Demon Boots -->
+	<item id="1">
+		<production id="2435" count="1"/>
+		<ingredient id="3488" count="1"/>
+	</item>
+	<!-- Demon Stockings -->
+	<item id="2">
+		<production id="472" count="1"/>
+		<ingredient id="3497" count="1"/>
+		<ingredient id="3492" count="1"/>
+	</item>
+	<!-- Demon Gloves -->
+	<item id="3">
+		<production id="2459" count="1"/>
+		<ingredient id="3488" count="1"/>
+	</item>
+	<!-- Full Plate Helmet -->
+	<item id="4">
+		<production id="2414" count="1"/>
+		<ingredient id="3479" count="1"/>
+		<ingredient id="3486" count="1"/>
+		<ingredient id="3484" count="1"/>
+	</item>
+</list>

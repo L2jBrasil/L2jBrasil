@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='1506' name="Necklace of Courage">
+  <for>
+    <add val='15' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='1507' name="Necklace of Valor">
+  <for>
+    <add val='21' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='1508' name="Ring of Raccoon">
+  <for>
+    <add val='11' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='1509' name="Ring of Firefly">
+  <for>
+    <add val='11' order='0x10' stat='mDef'/>
+  </for>
+</item>
+</list>

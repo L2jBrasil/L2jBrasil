@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='6323' name="Sealed Phoenix Necklace's_necklace">
+  <for>
+    <add val='76' order='0x10' stat='mDef'/>
+    <enchant val='0' order='0x0C' stat='mDef'/>
+  </for>
+</item>
+<item id='6324' name="Sealed Phoenix Earring">
+  <for>
+    <add val='57' order='0x10' stat='mDef'/>
+    <enchant val='0' order='0x0C' stat='mDef'/>
+  </for>
+</item>
+<item id='6325' name="Sealed Phoenix Ring">
+  <for>
+    <add val='38' order='0x10' stat='mDef'/>
+    <enchant val='0' order='0x0C' stat='mDef'/>
+  </for>
+</item>
+<item id='6326' name="Sealed Majestic Necklace">
+  <for>
+    <add val='80' order='0x10' stat='mDef'/>
+    <enchant val='0' order='0x0C' stat='mDef'/>
+  </for>
+</item>
+<item id='6327' name="Sealed Majestic Earring">
+  <for>
+    <add val='60' order='0x10' stat='mDef'/>
+    <enchant val='0' order='0x0C' stat='mDef'/>
+  </for>
+</item>
+<item id='6328' name="Sealed Majestic Ring">
+  <for>
+    <add val='40' order='0x10' stat='mDef'/>
+    <enchant val='0' order='0x0C' stat='mDef'/>
+  </for>
+</item>
+<item id='6373' name="Imperial Crusader Breastplate">
+  <for> 
+    <add val='205' order='0x10' stat='pDef'/> 
+    <enchant val='0' order='0x0C' stat='pDef'/> 
+  </for> 
+</item>
+<item id='6374' name="Imperial Crusader Gaiters">
+  <for>
+    <add val='128' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6375' name="Imperial Crusader Gauntlets">
+  <for>
+    <add val='55' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6376' name="Imperial Crusader Boots">
+  <for>
+    <add val='55' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6378' name="Imperial Crusader Helmet">
+  <for>
+    <add val='83' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6379' name="Draconic Leather Armor"> 
+  <for> 
+	<add val='249' order='0x10' stat='pDef'/> 
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for> 
+</item>
+<item id='6380' name="Draconic Leather Gloves">
+  <for>
+    <add val='55' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6381' name="Draconic Leather Boots">
+  <for>
+    <add val='55' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6382' name="Draconic Leather Helmet">
+  <for>
+    <add val='83' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6383' name="Major Arcana Robe">
+  <for> 
+	<add val='166' order='0x10' stat='pDef'/> 
+	<add val='866' order='0x60' stat='maxMp'/> 
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for> 
+</item>
+<item id='6384' name="Major Arcana Gloves">
+  <for>
+    <add val='55' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6385' name="Major Arcana Boots">
+  <for>
+    <add val='55' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6386' name="Major Arcana Circlet">
+  <for>
+    <add val='83' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='6394' name="Red Party Mask">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

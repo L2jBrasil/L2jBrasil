@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='9129' name="Shadow Weapon: Shield of Nightmare">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='256' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+  </for>
+</item>
+<item id='9136' name="Sword of Valakas (1-Handed)">
+  <for>
+    <set val='156' order='0x08' stat='pAtk'/>
+    <set val='83' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9137' name="Sword of Valakas (2-Handed)">
+  <for>
+    <set val='78' order='0x08' stat='pAtk'/>
+    <set val='39' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9140' name="Cupid\'s Bow">
+  <for>
+    <set val='1' order='0x08' stat='pAtk'/>
+    <set val='1' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='293' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9141' name="Cupid\'s Bow - Event Use">
+  <for>
+    <set val='1' order='0x08' stat='pAtk'/>
+    <set val='1' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='293' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+</list>

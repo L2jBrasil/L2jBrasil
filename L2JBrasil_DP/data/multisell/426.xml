@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Quest 426: Fishing Shots -->
+<list>
+  <!-- No Grade -->
+  <item id="1">
+    <ingredient id="7586" count="1"/>
+    <production id="6535" count="66"/>
+  </item>
+  <!-- D-Grade -->
+  <item id="2">
+    <ingredient id="7586" count="1"/>
+    <production id="6536" count="40"/>
+  </item>
+  <!-- C-Grade -->
+  <item id="3">
+    <ingredient id="7586" count="1"/>
+    <production id="6537" count="28"/>
+  </item>
+  <!-- B-Grade -->
+  <item id="4">
+    <ingredient id="7586" count="1"/>
+    <production id="6538" count="8"/>
+  </item>
+  <!-- A-Grade -->
+  <item id="5">
+    <ingredient id="7586" count="1"/>
+    <production id="6539" count="5"/>
+  </item>
+  <!-- S-Grade -->
+  <item id="6">
+    <ingredient id="7586" count="1"/>
+    <production id="6540" count="4"/>
+  </item>
+</list>

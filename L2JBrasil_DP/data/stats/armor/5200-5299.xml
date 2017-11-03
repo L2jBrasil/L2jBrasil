@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='5216' name="Wolf Level 75 Armor">
+  <for>
+    <add val='71' order='0x10' stat='pDef'/>
+    <add val='58' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5287' name="Sealed Dark Crystal breastplate">
+  <for>
+    <add val='171' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5288' name="Sealed Dark Crystal Gaiters">
+  <for>
+    <add val='107' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5289' name="Sealed Dark Crystal Helmet">
+  <for>
+    <add val='69' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5290' name="Sealed Dark Crystal Gloves">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5291' name="Sealed Dark Crystal Boots">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5293' name="Sealed Tallum Plate Armor">
+  <for>
+    <add val='278' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5294' name="Sealed Tallum Helmet">
+  <for>
+    <add val='69' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5295' name="Sealed Tallum Gloves">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5296' name="Sealed Tallum Boots">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5297' name="Sealed Dark Crystal Leather Armor">
+  <for>
+    <add val='128' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5298' name="Sealed Dark Crystalline Leggings">
+  <for>
+    <add val='80' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5299' name="Sealed Gloves of The Underworld">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+</list>

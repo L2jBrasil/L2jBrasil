@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='7014' name="monster_only_(shield_of_dark_dragon)">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='230' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+    <enchant val='0' order='0x0C' stat='sDef'/>
+  </for>
+</item>
+<item id='7015' name="shield_of_castle_pledge">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='90' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+    <enchant val='0' order='0x0C' stat='sDef'/>
+  </for>
+</item>
+<item id='7058' name="chrono_darbuka">
+  <for>
+    <set val='1' order='0x08' stat='pAtk'/>
+    <set val='1' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+</list>

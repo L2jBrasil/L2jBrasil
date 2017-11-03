@@ -1,0 +1,46 @@
+<html><body>
+<table width=260><tr>
+<td width=40><button value="Main" action="bypass -h admin_admin" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td width=180><center>Character Information</center></td>
+<td width=40><button value="Back" action="bypass -h admin_show_characters 0" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table>
+<center>
+<table width=240>
+<tr>
+<td><button value="Go To" action="bypass -h admin_goto_char_menu %name%" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Kick" action="bypass -h admin_kick_menu %name%" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Ban Acc" action="bypass -h admin_ban_menu %name%" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Ban Chr" action="bypass -h admin_changelvl %name% -100" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr><tr>
+<td><button value="Recall" action="bypass -h admin_recall_char_menu %name%" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Skills" action="bypass -h admin_show_skills" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Edit" action="bypass -h admin_edit_character" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Class" action="bypass -h admin_setclass" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr><tr>
+<td><button value="Lv/Exp/Sp" action="bypass -h admin_add_exp_sp_to_character" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr>
+</table>
+</center><br>
+<table width=270>		
+<tr><td width=135>Account: <font color="LEVEL"><a action="bypass -h admin_find_account %name%">%account%</a></font></td><td width=135>IP: <font color="LEVEL"><a action="bypass -h admin_find_ip %ip%">%ip%</a></font></td></tr>	
+<tr><td width=135>Name: %name%</td><td width=135>Level: %level%</td></tr>	
+<tr><td width=135>Clan: %clan%</td><td width=135>Exp: %xp%</td></tr>
+<tr><td width=135>Class: %class%</td><td width=135>SP: %sp%</td></tr>      
+</table>
+<table width=270>
+<tr><td width=270>Character Coordinates: %x% %y% %z%</td></tr>
+</table>
+<br>
+<table width=270>
+<tr><td width=40></td><td width=70>Current:</td><td width=70>Maximum:</td><td width=90></td></tr>
+<tr><td width=40>HP:</td><td width=70>%currenthp%</td><td width=70>%maxhp%</td><td width=70>Karma: %karma%</td><td width=20></td></tr>
+<tr><td width=40>MP:</td><td width=70>%currentmp%</td><td width=70>%maxmp%</td><td width=70>PvP Flag: %pvpflag%</td><td width=20></td></tr>
+<tr><td width=40>CP:</td><td width=70>%currentcp%</td><td width=70>%maxcp%</td><td width=70>PvP Kills: %pvpkills%</td><td width=20></td></tr>
+<tr><td width=40>Load:</td><td width=70>%currentload%</td><td width=70>%maxload%</td><td width=70></td><td width=20></td></tr>
+</table>
+<table width=270>		
+<tr><td width=65>Patk: %patk%</td><td width=65>Matk: %matk%</td><td width=65>Pdef: %pdef%</td><td width=65>Mdef: %mdef%</td></tr>
+<tr><td width=65>Accu: %accuracy%</td><td width=65>Evas: %evasion%</td><td width=65>Crit: %critical%</td><td width=65>Speed: %runspeed%</td></tr>
+<tr><td width=65>AtkSpd: %patkspd%</td><td width=65>MSpd: %matkspd%</td></tr>
+</table>
+</body></html>

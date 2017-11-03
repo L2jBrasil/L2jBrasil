@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='1000' name="Book of Aklantoth - Part 3">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

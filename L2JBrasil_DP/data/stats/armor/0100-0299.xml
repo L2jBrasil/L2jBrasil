@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='112' name="Apprentice's Earring">
+  <for>
+    <add val='11' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='113' name="Mystic's Earring">
+  <for>
+    <add val='13' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='114' name="Earring of Strength">
+  <for>
+    <add val='16' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='115' name="Earring of Wisdom">
+  <for>
+    <add val='16' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='116' name="Magic Ring">
+  <for>
+    <add val='7' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='117' name="Ring of Mana">
+  <for>
+    <add val='34' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='118' name="Necklace of Magic">
+  <for>
+    <add val='15' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='119' name="Necklace of Binding">
+  <for>
+    <add val='64' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+</list>

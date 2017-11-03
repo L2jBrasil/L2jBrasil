@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Travelers give weapon -->
+<list>
+	<!-- [Traveler's Mace] -->
+	<item id="1">
+		<production id="7833" count="1" />
+		<ingredient id="7822" count="1" />
+	</item>
+	<!-- [Traveler's Dark Elven Bow] -->
+	<item id="2">
+		<production id="7833" count="1" />
+		<ingredient id="7823" count="1" />
+	</item>
+	<!-- [Traveler's Long Bow] -->
+	<item id="3">
+		<production id="7833" count="1" />
+		<ingredient id="7824" count="1" />
+	</item>
+	<!-- [Traveler's Staff] -->
+	<item id="4">
+		<production id="7833" count="1" />
+		<ingredient id="7825" count="1" />
+	</item>
+	<!-- [Traveler's Bastard Sword] -->
+	<item id="5">
+		<production id="7833" count="1" />
+		<ingredient id="7826" count="1" />
+	</item>
+	<!-- [Traveler's Spellbook] -->
+	<item id="6">
+		<production id="7833" count="1" />
+		<ingredient id="7827" count="1" />
+	</item>
+	<!-- [Traveler's Jamadhr] -->
+	<item id="7">
+		<production id="7833" count="1" />
+		<ingredient id="7828" count="1" />
+	</item>
+	<!-- [Traveler's Tomahawk] -->
+	<item id="8">
+		<production id="7833" count="1" />
+		<ingredient id="7829" count="1" />
+	</item>
+	<!-- [Traveler's Poniard Dagger] -->
+	<item id="9">
+		<production id="7833" count="1" />
+		<ingredient id="7830" count="1" />
+	</item>
+	<!-- [Traveler's Pike] -->
+	<item id="10">
+		<production id="7833" count="1" />
+		<ingredient id="7831" count="1" />
+	</item>
+</list>

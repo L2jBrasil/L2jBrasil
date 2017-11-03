@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='9100' name="Shadow Item: Magestic Boots">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9101' name="Shadow Item: Magestic Robe">
+  <for>
+    <add val='147' order='0x10' stat='pDef'/>
+    <add val='718' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9102' name="Shadow Item: Magestic Gauntlet">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9103' name="Shadow Item: Magestic Boots">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9128' name="Shadow Item: Mithril Gauntlet">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9138' name="Santa\'s Hat">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9145' name="Little Angel Wings - For Event">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9158' name="Gold Circlet - For Event">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9159' name="Silver Circlet - For Event">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9160' name="Medieval Leather Cap - For Event">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9177' name="Teddy Bear Hat - Blessed Scroll of Resurrection">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9178' name="Piggy Hat - Blessed Scroll of Resurrection">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9179' name="Jester Hat - Blessed Scroll of Resurrection">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9180' name="Wizard\'s Hat - Blessed Scroll of Resurrection">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9181' name="Dapper Cap - Blessed Scroll of Resurrection">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9182' name="Romantic Chapeau - Blessed Scroll of Resurrection">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9183' name="Iron Circlet - Blessed Scroll of Resurrection">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9184' name="Teddy Bear Hat - Blessed Scroll of Escape">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9185' name="Piggy Hat - Blessed Scroll of Escape">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9186' name="Jester Hat - Blessed Scroll of Escape">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9187' name="Wizard\'s Hat - Blessed Scroll of Escape">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9188' name="Dapper Cap - Blessed Scroll of Escape">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9189' name="Romantic Chapeau - Blessed Scroll of Escape">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9190' name="Iron Circlet - Blessed Scroll of Escape">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9191' name="Teddy Bear Hat - Big Head">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9192' name="Piggy Hat - Big Head">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9193' name="Jester Hat - Big Head">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9194' name="Wizard\'s Hat - Big Head">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9195' name="Dapper Hat - Big Head">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9196' name="Romantic Chapeau - Big Head">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9197' name="Iron Circlet - Big Head">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9198' name="Teddy Bear Hat - Firework">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9199' name="Piggy Hat - Firework">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

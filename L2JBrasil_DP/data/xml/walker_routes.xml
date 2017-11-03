@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<!-- route_id;npc_id;move_point;chatText;move_x;move_y;move_z;delay;running -->
+	<walker_route route_id="1" npc_id="31361" move_point="1" chatText="NULL" move_x="22418" move_y="10249" move_z="-3648" delay="61" running="true"/>
+	<walker_route route_id="1" npc_id="31361" move_point="2" chatText="NULL" move_x="23423" move_y="11165" move_z="-3720" delay="0" running="true"/>
+	<walker_route route_id="1" npc_id="31361" move_point="3" chatText="NULL" move_x="20182" move_y="11101" move_z="-3720" delay="0" running="true"/>
+	<walker_route route_id="1" npc_id="31361" move_point="4" chatText="NULL" move_x="17327" move_y="13603" move_z="-3728" delay="1" running="true"/>
+	<walker_route route_id="1" npc_id="31361" move_point="5" chatText="The mass of darkness will start in a couple of days. Pay more attention to the guard!" move_x="17410" move_y="13038" move_z="-3736" delay="10" running="true"/>
+	<walker_route route_id="1" npc_id="31361" move_point="6" chatText="NULL" move_x="20176" move_y="12902" move_z="-3712" delay="0" running="true"/>
+	<walker_route route_id="1" npc_id="31361" move_point="7" chatText="NULL" move_x="21669" move_y="13378" move_z="-3616" delay="0" running="true"/>
+	<walker_route route_id="1" npc_id="31361" move_point="8" chatText="NULL" move_x="20675" move_y="10401" move_z="-3712" delay="0" running="true"/>
+	<walker_route route_id="2" npc_id="31360" move_point="1" chatText="NULL" move_x="10826" move_y="14777" move_z="-4240" delay="62" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="2" chatText="NULL" move_x="10966" move_y="14626" move_z="-4240" delay="0" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="3" chatText="NULL" move_x="11264" move_y="15838" move_z="-4584" delay="0" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="4" chatText="NULL" move_x="12100" move_y="16378" move_z="-4590" delay="2" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="5" chatText="Youre a hard worker Rayla!" move_x="15088" move_y="15664" move_z="-4376" delay="6" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="6" chatText="NULL" move_x="15232" move_y="16279" move_z="-4383" delay="7" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="7" chatText="NULL" move_x="12217" move_y="16916" move_z="-4590" delay="0" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="8" chatText="NULL" move_x="11811" move_y="17553" move_z="-4580" delay="0" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="9" chatText="NULL" move_x="11275" move_y="17628" move_z="-4589" delay="0" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="10" chatText="NULL" move_x="10649" move_y="17284" move_z="-4584" delay="0" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="11" chatText="Youre a hard worker!" move_x="7691" move_y="18030" move_z="-4376" delay="6" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="12" chatText="NULL" move_x="10593" move_y="16738" move_z="-4590" delay="2" running="false"/>
+	<walker_route route_id="2" npc_id="31360" move_point="13" chatText="NULL" move_x="11127" move_y="16044" move_z="-4589" delay="2" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="1" chatText="Mr. Lid Murdoc and Airy! How are you doing?" move_x="114847" move_y="-180066" move_z="-877" delay="30" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="2" chatText="NULL" move_x="114834" move_y="-179685" move_z="-877" delay="2" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="3" chatText="NULL" move_x="116122" move_y="-179457" move_z="-1068" delay="1" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="4" chatText="NULL" move_x="116798" move_y="-180391" move_z="-1200" delay="2" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="5" chatText="NULL" move_x="116324" move_y="-181564" move_z="-1384" delay="2" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="6" chatText="NULL" move_x="115797" move_y="-181563" move_z="-1336" delay="0" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="7" chatText="Care to go a round?" move_x="116054" move_y="-181575" move_z="-1352" delay="0" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="8" chatText="NULL" move_x="116506" move_y="-181478" move_z="-1384" delay="2" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="9" chatText="NULL" move_x="116634" move_y="-180029" move_z="-1160" delay="1" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="10" chatText="NULL" move_x="115347" move_y="-178623" move_z="-928" delay="1" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="11" chatText="NULL" move_x="115763" move_y="-177591" move_z="-888" delay="2" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="12" chatText="Have a nice day Mr. Garita and Mion!" move_x="115801" move_y="-177342" move_z="-880" delay="1" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="13" chatText="NULL" move_x="115869" move_y="-177340" move_z="-880" delay="15" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="14" chatText="NULL" move_x="115788" move_y="-177482" move_z="-880" delay="3" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="15" chatText="NULL" move_x="115124" move_y="-179821" move_z="-885" delay="1" running="false"/>
+	<walker_route route_id="3" npc_id="31362" move_point="16" chatText="NULL" move_x="115103" move_y="-180065" move_z="-877" delay="1" running="false"/>
+	<walker_route route_id="4" npc_id="31363" move_point="1" chatText="Where is that fool hiding?" move_x="116731" move_y="-182477" move_z="-1512" delay="10" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="2" chatText="NULL" move_x="115870" move_y="-183280" move_z="-1472" delay="0" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="3" chatText="NULL" move_x="115746" move_y="-183428" move_z="-1472" delay="1" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="4" chatText="NULL" move_x="115870" move_y="-183280" move_z="-1472" delay="1" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="5" chatText="NULL" move_x="115999" move_y="-183246" move_z="-1480" delay="0" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="6" chatText="NULL" move_x="116094" move_y="-183113" move_z="-1480" delay="1" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="7" chatText="Have you seen Torocco today?" move_x="116584" move_y="-184294" move_z="-1568" delay="11" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="8" chatText="NULL" move_x="116392" move_y="-184100" move_z="-1560" delay="1" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="9" chatText="NULL" move_x="117093" move_y="-182524" move_z="-1528" delay="1" running="true"/>
+	<walker_route route_id="4" npc_id="31363" move_point="10" chatText="Have you seen Torocco?" move_x="117789" move_y="-182540" move_z="-1528" delay="11" running="true"/>
+	<walker_route route_id="5" npc_id="31359" move_point="1" chatText="NULL" move_x="45744" move_y="50561" move_z="-3065" delay="61" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="2" chatText="NULL" move_x="46444" move_y="49742" move_z="-3065" delay="2" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="3" chatText="How can we save the Mother Tree?" move_x="46103" move_y="48798" move_z="-3065" delay="5" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="4" chatText="The Mother Tree is slowly dying" move_x="45403" move_y="48436" move_z="-3065" delay="5" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="5" chatText="NULL" move_x="44444" move_y="49078" move_z="-3065" delay="0" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="6" chatText="NULL" move_x="44414" move_y="50025" move_z="-3065" delay="0" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="7" chatText="NULL" move_x="44957" move_y="50568" move_z="-3065" delay="0" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="8" chatText="NULL" move_x="44414" move_y="50025" move_z="-3065" delay="0" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="9" chatText="NULL" move_x="44444" move_y="49078" move_z="-3065" delay="0" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="10" chatText="The Mother Tree is slowly dying" move_x="45403" move_y="48436" move_z="-3065" delay="5" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="11" chatText="How can we save the Mother Tree?" move_x="46103" move_y="48798" move_z="-3065" delay="5" running="false"/>
+	<walker_route route_id="5" npc_id="31359" move_point="12" chatText="NULL" move_x="46444" move_y="49742" move_z="-3065" delay="2" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="1" chatText="Lady Mirabel may the peace of the lake be with you!" move_x="47015" move_y="51278" move_z="-2992" delay="65" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="2" chatText="NULL" move_x="47437" move_y="50441" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="3" chatText="NULL" move_x="47509" move_y="49038" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="4" chatText="NULL" move_x="46725" move_y="47755" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="5" chatText="The Mother Tree is always so gorgeous!" move_x="45319" move_y="47339" move_z="-2992" delay="5" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="6" chatText="NULL" move_x="43998" move_y="47672" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="7" chatText="NULL" move_x="43037" move_y="49310" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="8" chatText="NULL" move_x="43310" move_y="50382" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="9" chatText="NULL" move_x="43896" move_y="51060" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="10" chatText="NULL" move_x="43312" move_y="50362" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="11" chatText="NULL" move_x="43040" move_y="49311" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="12" chatText="NULL" move_x="44018" move_y="47645" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="13" chatText="The Mother Tree is always so gorgeous!" move_x="45301" move_y="47340" move_z="-2992" delay="5" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="14" chatText="NULL" move_x="46693" move_y="47752" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="15" chatText="NULL" move_x="47489" move_y="48976" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="6" npc_id="31358" move_point="16" chatText="NULL" move_x="47441" move_y="50455" move_z="-2992" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="1" chatText="Where did he go?" move_x="-86328" move_y="241120" move_z="-3734" delay="60" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="2" chatText="NULL" move_x="-86505" move_y="240727" move_z="-3704" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="3" chatText="NULL" move_x="-86081" move_y="240402" move_z="-3712" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="4" chatText="Have you seen Windawood?" move_x="-86078" move_y="240853" move_z="-3720" delay="15" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="5" chatText="NULL" move_x="-85957" move_y="241389" move_z="-3728" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="6" chatText="Where has he gone?" move_x="-83993" move_y="242766" move_z="-3728" delay="10" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="7" chatText="NULL" move_x="-82952" move_y="244461" move_z="-3728" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="8" chatText="NULL" move_x="-82370" move_y="244919" move_z="-3720" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="9" chatText="NULL" move_x="-82129" move_y="245020" move_z="-3720" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="10" chatText="NULL" move_x="-82198" move_y="245350" move_z="-3712" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="11" chatText="NULL" move_x="-82554" move_y="245137" move_z="-3716" delay="1" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="12" chatText="NULL" move_x="-82198" move_y="245350" move_z="-3712" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="13" chatText="NULL" move_x="-82129" move_y="245020" move_z="-3720" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="14" chatText="NULL" move_x="-82370" move_y="244919" move_z="-3720" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="15" chatText="NULL" move_x="-82952" move_y="244461" move_z="-3728" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="16" chatText="Where has he gone?" move_x="-83993" move_y="242766" move_z="-3728" delay="10" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="17" chatText="NULL" move_x="-85957" move_y="241389" move_z="-3728" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="18" chatText="Have you seen Windawood?" move_x="-86078" move_y="240853" move_z="-3720" delay="15" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="19" chatText="NULL" move_x="-86081" move_y="240402" move_z="-3712" delay="0" running="false"/>
+	<walker_route route_id="7" npc_id="31357" move_point="20" chatText="NULL" move_x="-86505" move_y="240727" move_z="-3704" delay="0" running="false"/>
+	<walker_route route_id="8" npc_id="31356" move_point="1" chatText="A delivery for Mr. Lector? Very good!" move_x="-81681" move_y="243384" move_z="-3712" delay="61" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="2" chatText="NULL" move_x="-81915" move_y="243870" move_z="-3712" delay="1" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="3" chatText="NULL" move_x="-82084" move_y="243659" move_z="-3712" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="4" chatText="NULL" move_x="-83148" move_y="243731" move_z="-3728" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="5" chatText="I need a break!" move_x="-84497" move_y="243241" move_z="-3728" delay="6" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="6" chatText="NULL" move_x="-85212" move_y="243184" move_z="-3728" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="7" chatText="NULL" move_x="-86161" move_y="242898" move_z="-3728" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="8" chatText="NULL" move_x="-86281" move_y="242963" move_z="-3720" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="9" chatText="Hello Mr. Lector! Long time no see Mr. Jackson!" move_x="-86356" move_y="243201" move_z="-3720" delay="7" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="10" chatText="NULL" move_x="-86491" move_y="242781" move_z="-3720" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="11" chatText="NULL" move_x="-86497" move_y="242585" move_z="-3728" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="12" chatText="NULL" move_x="-86114" move_y="241587" move_z="-3728" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="13" chatText="NULL" move_x="-85184" move_y="240679" move_z="-3728" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="14" chatText="Lulu! Lulu!" move_x="-84099" move_y="241264" move_z="-3728" delay="6" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="15" chatText="Lulu!" move_x="-83709" move_y="241238" move_z="-3728" delay="0" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="16" chatText="NULL" move_x="-83075" move_y="241150" move_z="-3728" delay="1" running="true"/>
+	<walker_route route_id="8" npc_id="31356" move_point="17" chatText="NULL" move_x="-82383" move_y="242926" move_z="-3720" delay="1" running="true"/>
+	<walker_route route_id="9" npc_id="31364" move_point="1" chatText="NULL" move_x="-46506" move_y="-109402" move_z="-238" delay="10" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="2" chatText="NULL" move_x="-45752" move_y="-111652" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="3" chatText="NULL" move_x="-44028" move_y="-112688" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="4" chatText="NULL" move_x="-44049" move_y="-114536" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="5" chatText="NULL" move_x="-45540" move_y="-115415" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="6" chatText="NULL" move_x="-46526" move_y="-117731" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="7" chatText="NULL" move_x="-45540" move_y="-115415" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="8" chatText="NULL" move_x="-44049" move_y="-114536" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="9" chatText="NULL" move_x="-44028" move_y="-112688" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="9" npc_id="31364" move_point="10" chatText="NULL" move_x="-45752" move_y="-111652" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="1" chatText="NULL" move_x="-48807" move_y="-113489" move_z="-241" delay="61" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="2" chatText="NULL" move_x="-48821" move_y="-113746" move_z="-232" delay="1" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="3" chatText="NULL" move_x="-48823" move_y="-113505" move_z="-232" delay="61" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="4" chatText="NULL" move_x="-47339" move_y="-113581" move_z="-232" delay="1" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="5" chatText="NULL" move_x="-45740" move_y="-113562" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="6" chatText="NULL" move_x="-44851" move_y="-112965" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="7" chatText="NULL" move_x="-44308" move_y="-113207" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="8" chatText="NULL" move_x="-44204" move_y="-113743" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="9" chatText="NULL" move_x="-44659" move_y="-114171" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="10" chatText="NULL" move_x="-45167" move_y="-114034" move_z="-224" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="11" chatText="NULL" move_x="-45658" move_y="-113633" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="12" chatText="NULL" move_x="-47363" move_y="-113621" move_z="-224" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="13" chatText="NULL" move_x="-48829" move_y="-113746" move_z="-232" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="14" chatText="NULL" move_x="-47363" move_y="-113621" move_z="-224" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="15" chatText="NULL" move_x="-45658" move_y="-113633" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="16" chatText="NULL" move_x="-45167" move_y="-114034" move_z="-224" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="17" chatText="NULL" move_x="-44659" move_y="-114171" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="18" chatText="NULL" move_x="-44204" move_y="-113743" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="19" chatText="NULL" move_x="-44308" move_y="-113207" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="20" chatText="NULL" move_x="-44851" move_y="-112965" move_z="-240" delay="0" running="false"/>
+	<walker_route route_id="10" npc_id="31365" move_point="21" chatText="NULL" move_x="-45740" move_y="-113562" move_z="-240" delay="1" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="1" chatText="NULL" move_x="84429" move_y="-144065" move_z="-1542" delay="10" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="2" chatText="NULL" move_x="84465" move_y="-142493" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="3" chatText="NULL" move_x="85234" move_y="-140963" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="4" chatText="NULL" move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="5" chatText="NULL" move_x="89343" move_y="-140746" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="6" chatText="NULL" move_x="90605" move_y="-143167" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="7" chatText="NULL" move_x="90271" move_y="-143869" move_z="-1536" delay="10" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="8" chatText="NULL" move_x="90605" move_y="-143167" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="9" chatText="NULL" move_x="89343" move_y="-140746" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="10" chatText="NULL" move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="11" chatText="NULL" move_x="85234" move_y="-140963" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="11" npc_id="32072" move_point="12" chatText="NULL" move_x="84465" move_y="-142493" move_z="-1536" delay="0" running="false"/>
+	<walker_route route_id="12" npc_id="32070" move_point="1" chatText="NULL" move_x="90271" move_y="-143869" move_z="-1547" delay="10" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="2" chatText="NULL" move_x="90605" move_y="-143167" move_z="-1536" delay="1" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="3" chatText="NULL" move_x="89343" move_y="-140746" move_z="-1536" delay="1" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="4" chatText="NULL" move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="5" chatText="NULL" move_x="85234" move_y="-140963" move_z="-1536" delay="1" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="6" chatText="NULL" move_x="84465" move_y="-142493" move_z="-1536" delay="1" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="7" chatText="NULL" move_x="84434" move_y="-144061" move_z="-1528" delay="10" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="8" chatText="NULL" move_x="84465" move_y="-142493" move_z="-1536" delay="1" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="9" chatText="NULL" move_x="85234" move_y="-140963" move_z="-1536" delay="1" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="10" chatText="NULL" move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="11" chatText="NULL" move_x="89343" move_y="-140746" move_z="-1536" delay="1" running="true"/>
+	<walker_route route_id="12" npc_id="32070" move_point="12" chatText="NULL" move_x="90605" move_y="-143167" move_z="-1536" delay="1" running="true"/>
+</list>

@@ -1,0 +1,31 @@
+<html><title>L2JBrasil Login server Panel</title><body>
+<table width=260><tr>
+<td width=40><button value="Main" action="bypass -h admin_admin" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td width=180><center>Server Management Menu</center></td>
+<td width=40><button value="Back" action="bypass -h admin_admin4" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table>
+<br><br>
+<table width=240>
+<tr>
+<td width=100>Max Players:</td>
+<td><edit var="menu_command" width=120 height=15></td>
+<td><button value="Help" action="bypass -h admin_help help/login.htm" width=45 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table><br><br>
+<table width=260><tr>
+<td>Registered as:</td><td>%server_name%</td>
+</tr><tr>
+<td>Status: %status%</td><td>Clock: %clock%</td>
+</tr><tr>
+<td>Brackets: %brackets%</td><td>Max Players %max_players%</td>
+</tr></table>
+<center>
+<br><br>
+<table width=260><tr>
+<td><button value="Gm Only" action="bypass -h admin_server_gm_only" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Kick all non GMs" action="bypass -h admin_kick_non_gm" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Everyone" action="bypass -h admin_server_all" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td></tr><tr>
+<td><button value="Clock On" action="bypass -h admin_server_list_clock on" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Clock Off" action="bypass -h admin_server_list_clock off" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Set Max Players" action="bypass -h admin_server_max_player $menu_command" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td></tr></table>
+</center>
+</body></html>

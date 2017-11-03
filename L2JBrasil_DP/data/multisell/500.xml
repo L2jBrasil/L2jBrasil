@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Seven Signs - Purchase consumable items -->
+<list applyTaxes="true">
+
+  <!-- Greater Healing Potion for 1080 Ancient Adena  -->
+  <item id="1">
+    <ingredient id="5575" count="1080"/>
+    <production id="1539" count="1"/>
+    <ingredient id="57" count="900" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Blessed Resurrection Scroll for Pet for 6000 Ancient Adena -->
+  <item id="2">
+    <ingredient id="5575" count="6000"/>
+    <production id="6387" count="1"/>
+    <ingredient id="57" count="5000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Greater Haste Potion for 3600 Ancient Adena  -->
+  <item id="3">
+    <ingredient id="5575" count="3600"/>
+    <production id="1374" count="1"/>
+    <ingredient id="57" count="3000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Greater Swift Attack Potion for 7200 Ancient Adena -->
+  <item id="4">
+    <ingredient id="5575" count="7200"/>
+    <production id="1375" count="1"/>
+    <ingredient id="57" count="6000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Greater Magic Haste Potion for 7200 Ancient Adena  -->
+  <item id="5">
+    <ingredient id="5575" count="7200"/>
+    <production id="6036" count="1"/>
+    <ingredient id="57" count="6000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- CP Potion for 240 Ancient Adena  -->
+  <item id="6">
+    <ingredient id="5575" count="240"/>
+    <production id="5591" count="1"/>
+    <ingredient id="57" count="200" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Greater CP Potion for 600 Ancient Adena -->
+  <item id="7">
+    <ingredient id="5575" count="600"/>
+    <production id="5592" count="1"/>
+    <ingredient id="57" count="500" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Charm of Luck (No Grade) --> 
+  <item id="8"> 
+    <ingredient id="5575" count="120"/> 
+    <production id="5703" count="1"/> 
+    <ingredient id="57" count="100" isTaxIngredient="true"/>
+  </item> 
+  
+  <!-- Charm of Luck: D-Grade --> 
+  <item id="9"> 
+    <ingredient id="5575" count="396"/> 
+    <production id="5803" count="1"/> 
+    <ingredient id="57" count="330" isTaxIngredient="true"/>
+  </item> 
+  
+  <!-- Charm of Luck: C-Grade --> 
+  <item id="10"> 
+    <ingredient id="5575" count="792"/> 
+    <production id="5804" count="1"/> 
+    <ingredient id="57" count="660" isTaxIngredient="true"/>
+  </item> 
+  
+  <!-- Charm of Luck: B-Grade --> 
+  <item id="11"> 
+    <ingredient id="5575" count="1560"/> 
+    <production id="5805" count="1"/> 
+    <ingredient id="57" count="1300" isTaxIngredient="true"/>
+  </item> 
+  
+  <!-- Charm of Luck: A-Grade --> 
+  <item id="12"> 
+    <ingredient id="5575" count="3240"/> 
+    <production id="5806" count="1"/> 
+    <ingredient id="57" count="2700" isTaxIngredient="true"/>
+  </item> 
+ 
+  <!-- Charm of Luck: S Grade --> 
+  <item id="13"> 
+    <ingredient id="5575" count="6000"/> 
+    <production id="5807" count="1"/> 
+    <ingredient id="57" count="500" isTaxIngredient="true"/>
+  </item> 
+ 
+  <!-- SP Scroll - Low Grade for 2400 Ancient Adena -->
+  <item id="14">
+    <ingredient id="5575" count="2400"/>
+    <production id="5593" count="1"/>
+    <ingredient id="57" count="2000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- SP Scroll - Medium Grade for 24000 Ancient Adena  -->
+  <item id="15">
+    <ingredient id="5575" count="24000"/>
+    <production id="5594" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- SP Scroll - High Grade for 480000 Ancient Adena -->
+  <item id="16">
+    <ingredient id="5575" count="480000"/>
+    <production id="5595" count="1"/>
+    <ingredient id="57" count="40000" isTaxIngredient="true"/>
+  </item>
+ 
+  <!-- Mystery Potion for 12000 Ancient Adena -->
+  <item id="17">
+    <ingredient id="5575" count="12000"/>
+    <production id="5234" count="1"/>
+    <ingredient id="57" count="10000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Facelifting Potion A for 24000 Ancient Adena -->
+  <item id="18">
+    <ingredient id="5575" count="24000"/>
+    <production id="5235" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Facelifting Potion B for 24000 Ancient Adena -->
+  <item id="19">
+    <ingredient id="5575" count="24000"/>
+    <production id="5236" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Facelifting Potion C for 24000 Ancient Adena -->
+  <item id="20">
+    <ingredient id="5575" count="24000"/>
+    <production id="5237" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Dye Potion A for 24000 Ancient Adena -->
+  <item id="21">
+    <ingredient id="5575" count="24000"/>
+    <production id="5238" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Dye Potion B for 24000 Ancient Adena  -->
+  <item id="22">
+    <ingredient id="5575" count="24000"/>
+    <production id="5239" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Dye Potion C for 24000 Ancient Adena  -->
+  <item id="23">
+    <ingredient id="5575" count="24000"/>
+    <production id="5240" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Dye Potion D for 24000 Ancient Adena  -->
+  <item id="24">
+    <ingredient id="5575" count="24000"/>
+    <production id="5241" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Style Change Potion A for 24000 Ancient Adena  -->
+  <item id="25">
+    <ingredient id="5575" count="24000"/>
+    <production id="5242" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Style Change Potion B for 24000 Ancient Adena -->
+  <item id="26">
+    <ingredient id="5575" count="24000"/>
+    <production id="5243" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Style Change Potion C for 24000 Ancient Adena -->
+  <item id="27">
+    <ingredient id="5575" count="24000"/>
+    <production id="5244" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Style Change Potion D for 24000 Ancient Adena -->
+  <item id="28">
+    <ingredient id="5575" count="24000"/>
+    <production id="5245" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Style Change Potion E for 24000 Ancient Adena -->
+  <item id="29">
+    <ingredient id="5575" count="24000"/>
+    <production id="5246" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Style Change Potion F for 24000 Ancient Adena -->
+  <item id="30">
+    <ingredient id="5575" count="24000"/>
+    <production id="5247" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Hair Style Change Potion G for 24000 Ancient Adena -->
+  <item id="31">
+    <ingredient id="5575" count="24000"/>
+    <production id="5248" count="1"/>
+    <ingredient id="57" count="20000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Party Mask for 600000 Ancient Adena -->
+  <item id="32">
+    <ingredient id="5575" count="600000"/>
+    <production id="5808" count="1"/>
+    <ingredient id="57" count="500000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Squeaking Shoes for 420000 Ancient Adena -->
+  <item id="33">
+    <ingredient id="5575" count="420000"/>
+    <production id="5590" count="1"/>
+    <ingredient id="57" count="350000" isTaxIngredient="true"/>
+  </item>
+
+  <!-- Record of the Seven Signs for 600 Ancient Adena -->
+  <item id="34">
+    <ingredient id="5575" count="600"/>
+    <production id="5707" count="1"/>
+    <ingredient id="57" count="500" isTaxIngredient="true"/>
+  </item>
+
+</list>

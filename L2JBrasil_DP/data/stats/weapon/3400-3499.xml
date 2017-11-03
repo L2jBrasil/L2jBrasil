@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='3439' name="shining_canine">
+  <for>
+    <add val='7' order='0x10' stat='pAtk'/>
+    <add val='8' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3471' name="cybellins_dagger">
+  <for>
+    <set val='10' order='0x08' stat='pAtk'/>
+    <set val='9' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='433' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+</list>

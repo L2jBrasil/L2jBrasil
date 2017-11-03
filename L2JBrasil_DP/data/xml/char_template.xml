@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<list>
+	<class Id="0" name="Human Fighter" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="80" hpadd="11.83" hpmod="0.37" cpbase="32" cpadd="4.73" cpmod="0.22" mpbase="30" mpadd="5.46" mpmod="0.14" class_lvl="1">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="1" name="Warrior" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="327" hpadd="33" hpmod="0.37" cpbase="261.6" cpadd="26.4" cpmod="0.22" mpbase="144" mpadd="9.9" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="2" name="Gladiator" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="1044" hpadd="49.4" hpmod="0.37" cpbase="939.6" cpadd="44.46" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="3" name="Warlord" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="1044" hpadd="54.6" hpmod="0.37" cpbase="835.2" cpadd="43.68" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">	
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="4" name="Human Knight" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="327" hpadd="29.7" hpmod="0.37" cpbase="196.2" cpadd="17.82" cpmod="0.22" mpbase="144" mpadd="9.9" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="5" name="Paladin" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="972.3" hpadd="46.8" hpmod="0.37" cpbase="583.3" cpadd="28.08" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="6" name="Dark Avenger" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="972.3" hpadd="46.8" hpmod="0.37" cpbase="583.3" cpadd="28.08" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="7" name="Rogue" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="327" hpadd="27.5" hpmod="0.37" cpbase="130.8" cpadd="11" cpmod="0.22" mpbase="144" mpadd="9.9" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="8" name="Treasure Hunter" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="924.5" hpadd="41.6" hpmod="0.37" cpbase="369.8" cpadd="16.64" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="9" name="Hawkeye" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="924.5" hpadd="44.2" hpmod="0.37" cpbase="647.1" cpadd="30.94" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="10" name="Human Mage" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="101" hpadd="15.57" hpmod="0.37" cpbase="50.5" cpadd="7.84" cpmod="0.22" mpbase="40" mpadd="7.38" mpmod="0.14" class_lvl="1">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="11" name="Human Wizard" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="424" hpadd="27.6" hpmod="0.37" cpbase="212" cpadd="13.85" cpmod="0.22" mpbase="192" mpadd="13.3" mpmod="0.14" class_lvl="20">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="12" name="Sorcerer" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="1021.5" hpadd="45.6" hpmod="0.37" cpbase="510.7" cpadd="22.85" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="13" name="Necromancer" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="1021.5" hpadd="45.6" hpmod="0.37" cpbase="510.7" cpadd="22.85" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="14" name="Warlock" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="1021.5" hpadd="49.5" hpmod="0.37" cpbase="612.9" cpadd="29.74" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="15" name="Cleric" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="424" hpadd="34.2" hpmod="0.37" cpbase="212" cpadd="17.15" cpmod="0.22" mpbase="192" mpadd="13.3" mpmod="0.14" class_lvl="20">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="16" name="Bishop" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="1164.9" hpadd="49.5" hpmod="0.37" cpbase="815.4" cpadd="34.68" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="17" name="Human Prophet" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="1164.9" hpadd="53.4" hpmod="0.37" cpbase="582.4" cpadd="26.75" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="18" name="Elf Fighter" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="89" hpadd="12.74" hpmod="0.37" cpbase="35.6" cpadd="5" cpmod="0.22" mpbase="30" mpadd="5.46" mpmod="0.14" class_lvl="1">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="19" name="Elf Knight" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="355" hpadd="33" hpmod="0.37" cpbase="177.5" cpadd="16.5" cpmod="0.22" mpbase="144" mpadd="9.9" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="20" name="Temple Knight" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="1072" hpadd="52" hpmod="0.37" cpbase="643.2" cpadd="31.2" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="21" name="Swordsinger" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="1072" hpadd="54.6" hpmod="0.37" cpbase="536" cpadd="27.3" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="22" name="Scout" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="355" hpadd="30.8" hpmod="0.37" cpbase="142" cpadd="12.32" cpmod="0.22" mpbase="144" mpadd="9.9" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="23" name="Plains Walker" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="1024.2" hpadd="46.8" hpmod="0.37" cpbase="409.6" cpadd="18.72" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="24" name="Silver Ranger" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="1024.2" hpadd="49.4" hpmod="0.37" cpbase="512.1" cpadd="24.7" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="25" name="Elf Mage" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="104" hpadd="15.57" hpmod="0.37" cpbase="52" cpadd="7.84" cpmod="0.22" mpbase="40" mpadd="7.38" mpmod="0.14" class_lvl="1">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="26" name="Elf Wizard" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="427" hpadd="28.7" hpmod="0.37" cpbase="213.5" cpadd="14.4" cpmod="0.22" mpbase="192" mpadd="13.3" mpmod="0.14" class_lvl="20">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="27" name="Spellsinger" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="1048.4" hpadd="48.2" hpmod="0.37" cpbase="524.2" cpadd="24.15" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="28" name="Elemental Summoner" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="1048.4" hpadd="50.8" hpmod="0.37" cpbase="629" cpadd="30.52" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="29" name="Oracle" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="427" hpadd="35.3" hpmod="0.37" cpbase="213.5" cpadd="17.7" cpmod="0.22" mpbase="192" mpadd="13.3" mpmod="0.14" class_lvl="20">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="30" name="Oracle" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="1191.8" hpadd="54.7" hpmod="0.37" cpbase="595.9" cpadd="27.4" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="31" name="DE Fighter" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="94" hpadd="13.65" hpmod="0.37" cpbase="37.6" cpadd="5.46" cpmod="0.22" mpbase="30" mpadd="5.46" mpmod="0.14" class_lvl="1">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="32" name="Palus Knight" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="379" hpadd="35.2" hpmod="0.37" cpbase="189.5" cpadd="17.6" cpmod="0.22" mpbase="144" mpadd="9.9" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="33" name="Shillien Knight" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="1143.8" hpadd="54.6" hpmod="0.37" cpbase="686.2" cpadd="32.76" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="34" name="Bladedancer" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="1143.8" hpadd="58.5" hpmod="0.37" cpbase="571.9" cpadd="29.25" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="35" name="Assassin" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="379" hpadd="33" hpmod="0.37" cpbase="151.6" cpadd="13.2" cpmod="0.22" mpbase="144" mpadd="9.9" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="36" name="Abyss Walker" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="1096" hpadd="49.4" hpmod="0.37" cpbase="438.4" cpadd="19.76" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="37" name="Phantom Ranger" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="1096" hpadd="52" hpmod="0.37" cpbase="548" cpadd="26" cpmod="0.22" mpbase="359.1" mpadd="19.5" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="38" name="DE Mage" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="106" hpadd="15.57" hpmod="0.37" cpbase="53" cpadd="7.84" cpmod="0.22" mpbase="40" mpadd="7.38" mpmod="0.14" class_lvl="1">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="39" name="DE Wizard" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="429" hpadd="29.8" hpmod="0.37" cpbase="214.5" cpadd="14.95" cpmod="0.22" mpbase="192" mpadd="13.3" mpmod="0.14" class_lvl="20">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="40" name="Spell Howler" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="1074.3" hpadd="48.2" hpmod="0.37" cpbase="537.1" cpadd="24.15" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="41" name="Phantom Summoner" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="1074.3" hpadd="52.1" hpmod="0.37" cpbase="644.5" cpadd="31.3" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="42" name="Shillien Oracle" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="429" hpadd="36.4" hpmod="0.37" cpbase="214.5" cpadd="18.25" cpmod="0.22" mpbase="192" mpadd="13.3" mpmod="0.14" class_lvl="20">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="43" name="Shillien Elder" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="1217.7" hpadd="54.7" hpmod="0.37" cpbase="608.8" cpadd="27.4" cpmod="0.22" mpbase="478.8" mpadd="26.1" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="44" name="Orc Fighter" RaceId="3">
+		<stats str="40" con="47" dex="26" _int="18" wit="12" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="31" critical="42" evasion="31" move_spd="117" _load="87000" x="-56693" y="-113610" z="-690" canCraft="0" m_unk1="1.06" m_unk2="1.1448" m_col_r="11" m_col_h="28" f_unk1="1.06" f_unk2="1.1448" f_col_r="7" f_col_h="27">
+			<lvlup hpbase="80" hpadd="12.64" hpmod="0.37" cpbase="40" cpadd="6.27" cpmod="0.22" mpbase="30" mpadd="5.36" mpmod="0.14" class_lvl="1">
+				<item item1="1147" item2="1146" item3="2368" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="45" name="Raider" RaceId="3">
+		<stats str="40" con="47" dex="26" _int="18" wit="12" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="31" critical="42" evasion="31" move_spd="117" _load="87000" x="-56693" y="-113610" z="-690" canCraft="0" m_unk1="1.06" m_unk2="1.1448" m_col_r="11" m_col_h="28" f_unk1="1.06" f_unk2="1.1448" f_col_r="7" f_col_h="27">
+			<lvlup hpbase="346" hpadd="35.1" hpmod="0.37" cpbase="242.2" cpadd="24.54" cpmod="0.22" mpbase="144" mpadd="9.8" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="2368" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="46" name="Destroyer" RaceId="3">
+		<stats str="40" con="47" dex="26" _int="18" wit="12" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="31" critical="42" evasion="31" move_spd="117" _load="87000" x="-56693" y="-113610" z="-690" canCraft="0" m_unk1="1.06" m_unk2="1.1448" m_col_r="11" m_col_h="28" f_unk1="1.06" f_unk2="1.1448" f_col_r="7" f_col_h="27">
+			<lvlup hpbase="1110.8" hpadd="57.1" hpmod="0.37" cpbase="777.5" cpadd="39.94" cpmod="0.22" mpbase="359.1" mpadd="19.4" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="2368" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="47" name="Monk" RaceId="3">
+		<stats str="40" con="47" dex="26" _int="18" wit="12" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="31" critical="42" evasion="31" move_spd="117" _load="87000" x="-56682" y="-113610" z="-690" canCraft="0" m_unk1="1.06" m_unk2="1.1448" m_col_r="11" m_col_h="28" f_unk1="1.06" f_unk2="1.1448" f_col_r="7" f_col_h="27">
+			<lvlup hpbase="346" hpadd="32.9" hpmod="0.37" cpbase="173" cpadd="16.4" cpmod="0.22" mpbase="144" mpadd="9.8" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="2368" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="48" name="Tyrant" RaceId="3">
+		<stats str="40" con="47" dex="26" _int="18" wit="12" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="31" critical="42" evasion="31" move_spd="117" _load="87000" x="-56693" y="-113610" z="-690" canCraft="0" m_unk1="1.06" m_unk2="1.1448" m_col_r="11" m_col_h="28" f_unk1="1.06" f_unk2="1.1448" f_col_r="7" f_col_h="27">
+			<lvlup hpbase="1063" hpadd="54.5" hpmod="0.37" cpbase="531.5" cpadd="27.2" cpmod="0.22" mpbase="359.1" mpadd="19.4" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="2368" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="49" name="Orc Mage" RaceId="3">
+		<stats str="27" con="31" dex="24" _int="31" wit="15" men="42" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="121" _load="68000" x="-56682" y="-113730" z="-690" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7" m_col_h="27.5" f_unk1="1.04" f_unk2="0.89856" f_col_r="8" f_col_h="25.5">
+			<lvlup hpbase="95" hpadd="15.47" hpmod="0.37" cpbase="47.5" cpadd="7.74" cpmod="0.22" mpbase="40" mpadd="7.28" mpmod="0.14" class_lvl="1">
+				<item item1="425" item2="461" item3="2368" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="50" name="Shaman" RaceId="3">
+		<stats str="27" con="31" dex="24" _int="31" wit="15" men="42" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="121" _load="68000" x="-56682" y="-113730" z="-690" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7" m_col_h="27.5" f_unk1="1.04" f_unk2="0.89856" f_col_r="8" f_col_h="25.5">
+			<lvlup hpbase="418" hpadd="35.2" hpmod="0.37" cpbase="209" cpadd="17.6" cpmod="0.22" mpbase="192" mpadd="13.2" mpmod="0.14" class_lvl="20">
+				<item item1="425" item2="461" item3="2368" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="51" name="Overlord" RaceId="3">
+		<stats str="27" con="31" dex="24" _int="31" wit="15" men="42" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="121" _load="68000" x="-56682" y="-113730" z="-690" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7" m_col_h="27.5" f_unk1="1.04" f_unk2="0.89856" f_col_r="8" f_col_h="25.5">
+			<lvlup hpbase="1182.8" hpadd="53.3" hpmod="0.37" cpbase="946.2" cpadd="42.64" cpmod="0.22" mpbase="478.8" mpadd="26" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="2368" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="52" name="Warcryer" RaceId="3">
+		<stats str="27" con="31" dex="24" _int="31" wit="15" men="42" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="121" _load="68000" x="-56682" y="-113730" z="-690" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7" m_col_h="27.5" f_unk1="1.04" f_unk2="0.89856" f_col_r="8" f_col_h="25.5">
+			<lvlup hpbase="1182.8" hpadd="53.3" hpmod="0.37" cpbase="591.4" cpadd="26.65" cpmod="0.22" mpbase="478.8" mpadd="26" mpmod="0.14" class_lvl="40">
+				<item item1="425" item2="461" item3="2368" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="53" name="Dwarf Fighter" RaceId="4">
+		<stats str="39" con="45" dex="29" _int="20" wit="10" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="43" evasion="33" move_spd="115" _load="83000" x="108512" y="-174026" z="-400" canCraft="1" m_unk1="1.09" m_unk2="1.487196" m_col_r="9" m_col_h="18" f_unk1="1.09" f_unk2="1.487196" f_col_r="5" f_col_h="19">
+			<lvlup hpbase="80" hpadd="12.64" hpmod="0.37" cpbase="56" cpadd="8.82" cpmod="0.22" mpbase="30" mpadd="5.36" mpmod="0.14" class_lvl="1">
+				<item item1="1147" item2="1146" item3="10" item4="2370" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="54" name="Scavenger" RaceId="4">
+		<stats str="39" con="45" dex="29" _int="20" wit="10" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="43" evasion="33" move_spd="115" _load="83000" x="108512" y="-174026" z="-400" canCraft="1" m_unk1="1.09" m_unk2="1.487196" m_col_r="9" m_col_h="18" f_unk1="1.09" f_unk2="1.487196" f_col_r="5" f_col_h="19">
+			<lvlup hpbase="346" hpadd="35.1" hpmod="0.37" cpbase="242.2" cpadd="24.54" cpmod="0.22" mpbase="144" mpadd="9.8" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2370" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="55" name="Bounty Hunter" RaceId="4">
+		<stats str="39" con="45" dex="29" _int="20" wit="10" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="43" evasion="33" move_spd="115" _load="83000" x="108512" y="-174026" z="-400" canCraft="1" m_unk1="1.09" m_unk2="1.487196" m_col_r="9" m_col_h="18" f_unk1="1.09" f_unk2="1.487196" f_col_r="5" f_col_h="19">
+			<lvlup hpbase="1110.8" hpadd="57.1" hpmod="0.37" cpbase="777.5" cpadd="39.94" cpmod="0.22" mpbase="359.1" mpadd="19.4" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2370" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="56" name="Artisan" RaceId="4">
+		<stats str="39" con="45" dex="29" _int="20" wit="10" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="43" evasion="33" move_spd="115" _load="83000" x="108512" y="-174026" z="-400" canCraft="1" m_unk1="1.09" m_unk2="1.487196" m_col_r="9" m_col_h="18" f_unk1="1.09" f_unk2="1.487196" f_col_r="5" f_col_h="19">
+			<lvlup hpbase="346" hpadd="35.1" hpmod="0.37" cpbase="242.2" cpadd="24.54" cpmod="0.22" mpbase="144" mpadd="9.8" mpmod="0.14" class_lvl="20">
+				<item item1="1147" item2="1146" item3="10" item4="2370" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="57" name="Warsmith" RaceId="4">
+		<stats str="39" con="45" dex="29" _int="20" wit="10" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="43" evasion="33" move_spd="115" _load="83000" x="108512" y="-174026" z="-400" canCraft="1" m_unk1="1.09" m_unk2="1.487196" m_col_r="9" m_col_h="18" f_unk1="1.09" f_unk2="1.487196" f_col_r="5" f_col_h="19">
+			<lvlup hpbase="1063" hpadd="54.5" hpmod="0.37" cpbase="850.4" cpadd="43.58" cpmod="0.22" mpbase="359.1" mpadd="19.4" mpmod="0.14" class_lvl="40">
+				<item item1="1147" item2="1146" item3="10" item4="2370" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="88" name="Duelist" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="3061.8" hpadd="63.08" hpmod="0.37" cpbase="2755.6" cpadd="56.77" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="89" name="DreadNought" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="3274.2" hpadd="69.72" hpmod="0.37" cpbase="2619.3" cpadd="55.78" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="90" name="Phoenix Knight" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="2883.9" hpadd="59.76" hpmod="0.37" cpbase="1730.3" cpadd="35.86" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="91" name="Hell Knight" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="2883.9" hpadd="59.76" hpmod="0.37" cpbase="1730.3" cpadd="35.86" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="92" name="Sagittarius" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="2729.9" hpadd="56.44" hpmod="0.37" cpbase="1910.9" cpadd="39.51" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="93" name="Adventurer" RaceId="0">
+		<stats str="40" con="43" dex="30" _int="21" wit="11" men="25" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="44" evasion="33" move_spd="115" _load="81900" x="-71338" y="258271" z="-3104" canCraft="0" m_unk1="1.1" m_unk2="1.188" m_col_r="9" m_col_h="23" f_unk1="1.1" f_unk2="1.188" f_col_r="8" f_col_h="23.5">
+			<lvlup hpbase="2623.7" hpadd="53.12" hpmod="0.37" cpbase="1049.4" cpadd="21.25" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="94" name="Archmage" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="2880" hpadd="58.1" hpmod="0.37" cpbase="1440" cpadd="29.05" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="95" name="Soultaker" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="2880" hpadd="58.1" hpmod="0.37" cpbase="1440" cpadd="29.05" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="96" name="Arcana Lord" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="3039.3" hpadd="63.08" hpmod="0.37" cpbase="1823.5" cpadd="37.85" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="97" name="Cardinal" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="3182.7" hpadd="63.08" hpmod="0.37" cpbase="2227.8" cpadd="44.16" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="98" name="Hierophant" RaceId="0">
+		<stats str="22" con="27" dex="21" _int="41" wit="20" men="39" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="28" critical="40" evasion="28" move_spd="120" _load="62500" x="-90890" y="248027" z="-3570" canCraft="0" m_unk1="1.01" m_unk2="0.87264" m_col_r="7.5" m_col_h="22.8" f_unk1="1.01" f_unk2="0.87264" f_col_r="6.5" f_col_h="22.5">
+			<lvlup hpbase="3342" hpadd="68.06" hpmod="0.37" cpbase="1671" cpadd="34.03" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="99" name="Eva Templar" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="3196" hpadd="66.4" hpmod="0.37" cpbase="1917.6" cpadd="39.84" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="100" name="Sword Muse" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="3302.2" hpadd="69.72" hpmod="0.37" cpbase="1651.1" cpadd="34.86" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="101" name="Wind Rider" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="2935.8" hpadd="59.76" hpmod="0.37" cpbase="1174.3" cpadd="23.9" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="102" name="Moonlight Sentinel" RaceId="1">
+		<stats str="36" con="36" dex="35" _int="23" wit="14" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="36" critical="46" evasion="36" move_spd="125" _load="73000" x="45978" y="41196" z="-3440" canCraft="0" m_unk1="1.15" m_unk2="1.242" m_col_r="7.5" m_col_h="24" f_unk1="1.15" f_unk2="1.242" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="3042" hpadd="63.08" hpmod="0.37" cpbase="1521" cpadd="31.54" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="103" name="Mystic Muse" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="3013.1" hpadd="61.42" hpmod="0.37" cpbase="1506.5" cpadd="30.71" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="104" name="Elemental Master" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="3119.3" hpadd="64.74" hpmod="0.37" cpbase="1871.5" cpadd="38.84" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="105" name="Eva Saint" RaceId="1">
+		<stats str="21" con="25" dex="24" _int="37" wit="23" men="40" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="122" _load="62400" x="46182" y="41198" z="-3440" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7.5" m_col_h="24" f_unk1="1.04" f_unk2="0.89856" f_col_r="7.5" f_col_h="23">
+			<lvlup hpbase="3422" hpadd="69.72" hpmod="0.37" cpbase="1711" cpadd="34.86" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="106" name="Shillien Templar" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="3374" hpadd="69.72" hpmod="0.37" cpbase="2024.4" cpadd="41.83" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="107" name="Spectral Dancer" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="3533.3" hpadd="74.7" hpmod="0.37" cpbase="1766.6" cpadd="37.35" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="108" name="Ghost Hunter" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="3113.8" hpadd="63.08" hpmod="0.37" cpbase="1245.5" cpadd="25.23" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="109" name="Ghost Sentinel" RaceId="2">
+		<stats str="41" con="32" dex="34" _int="25" wit="12" men="26" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="35" critical="45" evasion="35" move_spd="122" _load="69000" x="28377" y="10916" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.14" f_unk2="1.2312" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="3220" hpadd="66.4" hpmod="0.37" cpbase="1610" cpadd="33.2" cpmod="0.22" mpbase="1155.6" mpadd="24.9" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="110" name="Storm Screamer" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="3039" hpadd="61.42" hpmod="0.37" cpbase="1519.5" cpadd="30.71" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="111" name="Spectral Master" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="3198.3" hpadd="66.4" hpmod="0.37" cpbase="1918.9" cpadd="39.84" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="112" name="Shillen Saint" RaceId="2">
+		<stats str="23" con="24" dex="23" _int="44" wit="19" men="37" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="29" critical="41" evasion="29" move_spd="122" _load="61000" x="28295" y="11063" z="-4224" canCraft="0" m_unk1="1.14" m_unk2="1.2312" m_col_r="7.5" m_col_h="24" f_unk1="1.03" f_unk2="0.88992" f_col_r="7" f_col_h="23.5">
+			<lvlup hpbase="3447.9" hpadd="69.72" hpmod="0.37" cpbase="1723.9" cpadd="34.86" cpmod="0.22" mpbase="1540.8" mpadd="33.2" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="6" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="113" name="Titan" RaceId="3">
+		<stats str="40" con="47" dex="26" _int="18" wit="12" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="31" critical="42" evasion="31" move_spd="117" _load="87000" x="-56693" y="-113610" z="-690" canCraft="0" m_unk1="1.06" m_unk2="1.1448" m_col_r="11" m_col_h="28" f_unk1="1.06" f_unk2="1.1448" f_col_r="7" f_col_h="27">
+			<lvlup hpbase="3447.2" hpadd="72.94" hpmod="0.37" cpbase="2413" cpadd="51.03" cpmod="0.22" mpbase="1155.6" mpadd="24.8" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="2368" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="114" name="Grand Khauatari" RaceId="3">
+		<stats str="40" con="47" dex="26" _int="18" wit="12" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="31" critical="42" evasion="31" move_spd="117" _load="87000" x="-56693" y="-113610" z="-690" canCraft="0" m_unk1="1.06" m_unk2="1.1448" m_col_r="11" m_col_h="28" f_unk1="1.06" f_unk2="1.1448" f_col_r="7" f_col_h="27">
+			<lvlup hpbase="3293.2" hpadd="69.62" hpmod="0.37" cpbase="1646.6" cpadd="34.76" cpmod="0.22" mpbase="1155.6" mpadd="24.8" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="2368" item4="2369" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="115" name="Dominator" RaceId="3">
+		<stats str="27" con="31" dex="24" _int="31" wit="15" men="42" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="121" _load="68000" x="-56682" y="-113730" z="-690" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7" m_col_h="27.5" f_unk1="1.04" f_unk2="0.89856" f_col_r="8" f_col_h="25.5">
+			<lvlup hpbase="3359.9" hpadd="67.96" hpmod="0.37" cpbase="2687.9" cpadd="54.35" cpmod="0.22" mpbase="1540.8" mpadd="33.1" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="2368" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="116" name="Doomcryer" RaceId="3">
+		<stats str="27" con="31" dex="24" _int="31" wit="15" men="42" p_atk="3" p_def="54" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="30" critical="41" evasion="30" move_spd="121" _load="68000" x="-56682" y="-113730" z="-690" canCraft="0" m_unk1="1.04" m_unk2="0.89856" m_col_r="7" m_col_h="27.5" f_unk1="1.04" f_unk2="0.89856" f_col_r="8" f_col_h="25.5">
+			<lvlup hpbase="3359.9" hpadd="67.96" hpmod="0.37" cpbase="1679.9" cpadd="33.93" cpmod="0.22" mpbase="1540.8" mpadd="33.1" mpmod="0.14" class_lvl="76">
+				<item item1="425" item2="461" item3="2368" item4="5588" item5="0"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="117" name="Fortune Seeker" RaceId="4">
+		<stats str="39" con="45" dex="29" _int="20" wit="10" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="43" evasion="33" move_spd="115" _load="83000" x="108512" y="-174026" z="-400" canCraft="1" m_unk1="1.09" m_unk2="1.487196" m_col_r="9" m_col_h="18" f_unk1="1.09" f_unk2="1.487196" f_col_r="5" f_col_h="19">
+			<lvlup hpbase="3447.2" hpadd="72.94" hpmod="0.37" cpbase="2413" cpadd="51.03" cpmod="0.22" mpbase="1155.6" mpadd="24.8" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2370" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+	<class Id="118" name="Maestro" RaceId="4">
+		<stats str="39" con="45" dex="29" _int="20" wit="10" men="27" p_atk="4" p_def="80" m_atk="6" m_def="41" p_spd="300" m_spd="333" acc="33" critical="43" evasion="33" move_spd="115" _load="83000" x="108512" y="-174026" z="-400" canCraft="1" m_unk1="1.09" m_unk2="1.487196" m_col_r="9" m_col_h="18" f_unk1="1.09" f_unk2="1.487196" f_col_r="5" f_col_h="19">
+			<lvlup hpbase="3293.2" hpadd="69.62" hpmod="0.37" cpbase="2634.5" cpadd="55.68" cpmod="0.22" mpbase="1155.6" mpadd="24.8" mpmod="0.14" class_lvl="76">
+				<item item1="1147" item2="1146" item3="10" item4="2370" item5="5588"/>
+			</lvlup>
+		</stats>
+	</class>
+</list>

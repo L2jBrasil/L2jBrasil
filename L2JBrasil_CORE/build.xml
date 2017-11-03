@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="L2JBrasil_CORE" default="dist" basedir=".">
+
+	<property name="src" location="java"/>
+    <property name="lib" location="lib"/>
+    <property name="build" location="build"/>
+    <property name="build.classes" location="${build}/classes"/>
+    <property name="build.dist" location="${build}/dist"/>
+	<property name="build.dist.login" location="${build.dist}/Login"/>
+	<property name="build.dist.game" location="${build.dist}/Game"/>
+	<property name="build.dist.game.lib" location="${build.dist}/Game/lib"/>
+	<property name="properties-file" location="${build.dist.game}/config/other/l2jcore.properties"/>
+
+    <path id="classpath"> 
+    	<fileset dir="${lib}">
+			<include name="*.jar"/>
+    	</fileset>
+    </path>
+
+	<target name="init" depends="clean" description="Create the output directories.">
+		<mkdir dir="${build}"/>
+		<mkdir dir="${build.classes}"/>
+		<mkdir dir="${build.dist}"/>
+		<mkdir dir="${build.dist.login}"/>
+		<mkdir dir="${build.dist.game}"/>
+		<mkdir dir="${build.dist.game.lib}"/>
+	</target>
+
+	<target name="compile" depends="init" description="Compile the source.">
+		<javac srcdir="${src}" classpathref="classpath" destdir="${build.classes}" compiler="javac1.8" debug="true" debuglevel="lines,vars,source" includeantruntime="false" source="1.8" target="1.8" />
+	</target>
+
+    <target name="jar" depends="compile" description="Create the jar file">
+        <jar destfile="${build}/L2JBrasil.jar">
+            <fileset dir="${build.classes}"/>
+        </jar>
+
+    	<copy todir="${build.dist.game}/lib">
+            <fileset dir="${build}">
+                <include name="L2JBrasil.jar"/>
+			</fileset>
+        </copy>
+	</target>
+
+    <target name="dist" depends="jar">
+		<copy todir="${build.dist.game.lib}">
+			<fileset dir="${src}/../lib">
+				<include name="*.jar"/>
+			</fileset>
+		</copy>
+
+        <copy todir="${build.dist.login}">
+            <fileset dir="dist">
+                <include name="Login.bat"/>
+            	<include name="Register.bat"/>
+            </fileset>
+        </copy>
+
+    	<copy todir="${build.dist.game}">
+            <fileset dir="dist">
+                <include name="Game.bat"/>
+            </fileset>
+        </copy>
+
+    	<mkdir dir="${build.dist.login}/config"/>
+		<mkdir dir="${build.dist.game}/config/"/>
+
+    	<copy todir="${build.dist.login}/config">
+			<fileset dir="config">
+				<include name="login.properties"/>
+				<include name="telnet.properties"/>
+				<include name="mmocore.properties"/>
+			</fileset>
+		</copy>
+    	
+    	<copy todir="${build.dist.login}/config">
+			<fileset dir="config">
+				<include name="other/log.*"/>
+				<include name="other/banned_ip.*"/>
+				<include name="other/console.*"/>
+				<include name="other/servername.*"/>
+				<include name="login.*"/>
+			</fileset>
+		</copy>
+
+    	<copy todir="${build.dist.game}/config">
+			<fileset dir="config">
+				<include name="**/*.*"/>
+				<exclude name="login.*"/>
+				<exclude name="other/banned_ip.*"/>
+				<exclude name="other/servername.*"/>
+			</fileset>
+        </copy>
+					
+        <copy todir="${build.dist.game}/data">
+            <fileset dir="data">
+                <include name="*.csv"/>
+            	<include name="*.txt"/>
+			</fileset>
+        </copy>
+
+        <copy todir="${build.dist.game}/data/geodata">
+            <fileset dir="data/geodata">
+                <include name="*.txt"/>
+                <include name="*.l2j"/>
+            </fileset>
+        </copy>
+
+    	<copy todir="${build.dist.game}/data/pathnode">
+    	    <fileset dir="data/pathnode">
+    	        <include name="*.txt"/>
+    	        <include name="*.pn"/>
+    	    </fileset>
+    	</copy>
+        <zip destfile="${build}/L2JBrasil_CORE.zip" basedir="${build.dist}"/>
+    </target>
+
+    <target name="clean" description="Remove the output directories">
+        <delete dir="${build}"/>
+    </target>
+</project>

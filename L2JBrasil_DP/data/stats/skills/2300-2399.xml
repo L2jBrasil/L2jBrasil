@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2300" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="8673"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2301" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="8674"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2302" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="8675"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2303" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="8676"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2304" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="8677"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2305" levels="1" name="Primeval Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="120000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackType="PrimevalPotion">
+      <mul order="0x30" stat="stunVuln" val="0.85"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2306" levels="3" name="Primeval Crystals">
+<table name="#power"> 50000 100000 200000 </table> 
+  <set name="hitTime" val="200"/> 
+  <set name="magicLvl" val="1"/> 
+  <set name="operateType" val="OP_ACTIVE"/> 
+  <set name="power" val="#power"/> 
+  <set name="reuseDelay" val="3000"/> 
+  <set name="skillType" val="GIVE_SP"/> 
+  <set name="target" val="TARGET_SELF"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2307" levels="1" name="Remove Petrification Scroll">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="NEGATE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="isMagic" val="true"/>
+  <set name="negateStats" val="PARALYZE"/>
+  <set name="aggroPoints" val="566"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2308" levels="36" name="Event Item">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2309" levels="1" name="Pig Chest">
+  <set name="itemConsumeId" val="9144"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2310" levels="1" name="Scroll of Guidance - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="5" stackType="accuracyUp">
+      <add order="0x40" stat="accCombat" val="4"/>
+    </effect>
+  </for>
+</skill>
+<skill id="2311" levels="1" name="Scroll of Death Whisper - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.35" stackType="cAtk">
+      <mul order="0x30" stat="cAtk" val="1.35"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2312" levels="1" name="Scroll of Focus - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="0.3" stackType="rCrit">
+      <basemul order="0x30" stat="rCrit" val="0.3"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2313" levels="1" name="Scroll of Acumen - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="1.3" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="1.3"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2314" levels="1" name="Scroll of Haste - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="1.33" stackType="pAtkSpeedUp">
+      <mul order="0x30" stat="pAtkSpd" val="1.33"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2315" levels="1" name="Scroll of Agility - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="8" stackType="rEvas">
+      <add order="0x40" stat="rEvas" val="4"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2316" levels="1" name="Scroll of Empower - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="1.75" stackType="mAtk">
+      <mul order="0x30" stat="mAtk" val="1.75"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2317" levels="1" name="Scroll of Might - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="1.15" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2318" levels="1" name="Scroll of Wind Walk - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="33" stackType="SpeedUp">
+      <add order="0x40" stat="runSpd" val="33"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2319" levels="1" name="Scroll of Shield - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="1.15" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2320" levels="1" name="Blessed Scroll of Escape - Event Use">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="RECALL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="hitTime" val="200"/>
+  <set name="staticHitTime" val="true"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2321" levels="1" name="Blessed Scroll of Resurrection - Event Use">
+  <set name="power" val="100"/>
+  <set name="target" val="TARGET_CORPSE_PLAYER"/>
+  <set name="hitTime" val="3000"/>
+  <set name="skillType" val="RESURRECT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="600"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2322" levels="1" name="Chest Key - For Events Only">
+  <table name="#itemConsume">6665 6666 6667 6668 6669 6670 6671 6672</table>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="500"/>
+  <set name="reuseDelay" val="3000"/>
+  <set name="skillType" val="DELUXE_KEY_UNLOCK"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="#itemConsume"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="400"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2323" levels="1" name="Red Sage's Stone">
+  <set name="itemConsumeId" val="9171"/> 
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2324" levels="1" name="Blue Sage's Stone">
+  <set name="itemConsumeId" val="9172"/> 
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2325" levels="1" name="Orange Sage's Stone">
+  <set name="itemConsumeId" val="9173"/> 
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2326" levels="1" name="Black Sage's Stone">
+  <set name="itemConsumeId" val="9174"/> 
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2327" levels="1" name="White Sage's Stone">
+  <set name="itemConsumeId" val="9175"/> 
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2328" levels="1" name="Green Sage's Stone">
+  <set name="itemConsumeId" val="9176"/> 
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+</list>

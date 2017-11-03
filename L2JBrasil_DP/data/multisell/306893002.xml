@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Shadow Weapon Exchange C Grade - by BiTi -->
+<list maintainEnchantment="true">
+	<!-- Shadow Weapon: Swords of Revolution Duals for 1 C Grade Coupon -->
+	<item id="1">
+		<ingredient id="8870" count="1"/>
+		<production id="8837" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Knuckle Duster for 1 C Grade Coupon -->
+	<item id="2">
+		<ingredient id="8870" count="1"/>
+		<production id="8838" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Dwarven Warhammer for 1 C Grade Coupon -->
+	<item id="3">
+		<ingredient id="8870" count="1"/>
+		<production id="8836" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Elemental Bow for 1 C Grade Coupon -->
+	<item id="4">
+		<ingredient id="8870" count="1"/>
+		<production id="8835" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Soulfire Dirk for 1 C Grade Coupon -->
+	<item id="5">
+		<ingredient id="8870" count="1"/>
+		<production id="8834" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Stiletto for 1 C Grade Coupon -->
+	<item id="6">
+		<ingredient id="8870" count="1"/>
+		<production id="8833" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Cursed Staff for 1 C Grade Coupon -->
+	<item id="7">
+		<ingredient id="8870" count="1"/>
+		<production id="8832" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Katana for 1 C Grade Coupon -->
+	<item id="8">
+		<ingredient id="8870" count="1"/>
+		<production id="8830" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Bec de Corbin for 1 C Grade Coupon -->
+	<item id="9">
+		<ingredient id="8870" count="1"/>
+		<production id="8831" count="1"/>
+	</item>
+</list>

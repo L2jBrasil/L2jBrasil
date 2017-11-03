@@ -1,0 +1,558 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3600" levels="9" name="Special Ability: Anger">
+  <table name="#val">20.44 22.64 24.77 26.78 28.59 30.12 31.30 39 45</table>
+  <table name="#pvpDam">1 1 1 1 1 1 1.05 1.05 1.05</table>
+  <table name="#magicLvl">46 49 52 55 58 61 64 67 75 80</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+  	<add order="0x40" stat="pAtk" val="#val"/>
+  	<mul order="0x30" stat="maxHp" val="0.85"/>
+	<add order="0x30" stat="atkCountMax" val="4"/>
+	<mul order="0x30" stat="pvpPhysDmg" val="#pvpDam"/>
+	<mul order="0x30" stat="pvpPhysSkillsDmg" val="#pvpDam"/>
+    <mul order="0x30" stat="pvpMagicalDmg" val="#pvpDam"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3601" levels="9" name="Special Ability: Haste">
+  <table name="#val"> 1.08 1.07 1.07 1.07 1.06 1.06 1.06 1.06 1.07 </table>
+  <table name="#pvpDam">1 1 1 1 1 1 1.05 1.05 1.05</table>
+  <table name="#magicLvl">46 49 52 55 58 61 64 67 75</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+  	<mul order="0x30" stat="pAtkSpd" val="#val"/>
+ 	<mul order="0x30" stat="pvpPhysDmg" val="#pvpDam"/>
+	<mul order="0x30" stat="pvpPhysSkillsDmg" val="#pvpDam"/>
+    <mul order="0x30" stat="pvpMagicalDmg" val="#pvpDam"/>
+  	<add order="0x40" stat="atkCountMax" val="4"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3602" levels="9" name="Special Ability: Guidance">
+  <table name="#val">5.27 3.95 4.34 4.68 5.02 5.37 5.72 6.88 7.5</table>
+  <table name="#pvpDam">1 1 1 1 1 1 1.05 1.05 1.05</table>
+  <table name="#magicLvl">46 49 52 55 58 61 64 67 75</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+  	<add order="0x40" stat="accCombat" val="#val"/>
+	<mul order="0x30" stat="pvpPhysDmg" val="#pvpDam"/>
+	<mul order="0x30" stat="pvpPhysSkillsDmg" val="#pvpDam"/>
+    <mul order="0x30" stat="pvpMagicalDmg" val="#pvpDam"/>
+	<add order="0x40" stat="atkCountMax" val="4"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3603" levels="10" name="Demonic Sword Zariche">
+  <table name="#maxCp">12 13 14 15 17 19 21 23 25 27</table>
+  <table name="#pAtk">3 4.5 6 7.5 9 10.5 11 11.5 12 12.5</table>
+  <table name="#mAtk">3 3.25 3.5 3.75 4 4.25 4.5 5 5.5 5.75</table>
+  <table name="#pDef">2.5 2.6 2.7 2.8 2.9 3 3.25 3.5 3.75 4</table>
+  <table name="#mDef">3 3.1 3.2 3.3 3.4 3.5 3.75 4 4.25 4.5</table>
+  <table name="#runSpd">2 4 6 8 10 12 14 16 18 20</table>
+  <table name="#accCombat">1 4 9 16 25 36 49 64 81 100</table>
+  <set name="magicLvl" val="78"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="minPledgeClass" val="2"/>
+  <for>
+    <mul order="0x30" stat="maxCp" val="#maxCp"/>
+    <mul order="0x30" stat="pAtk" val="#pAtk"/>
+    <mul order="0x30" stat="mAtk" val="#mAtk"/>
+    <mul order="0x30" stat="pDef" val="#pDef"/>
+    <mul order="0x30" stat="mDef" val="#mDef"/>
+    <add order="0x40" stat="accCombat" val="#accCombat"/>
+    <add order="0x40" stat="runSpd" val="#runSpd"/>
+    <add order="0x40" stat="absorbDam" val="100"/>
+    <mul order="0x30" stat="regCp" val="20"/>
+    <set order="0x08" stat="STR" val="40"/> 
+    <set order="0x08" stat="DEX" val="30"/>
+    <set order="0x08" stat="CON" val="43"/>
+    <set order="0x08" stat="INT" val="21"/>
+	<set order="0x08" stat="WIT" val="15"/>
+	<set order="0x08" stat="MEN" val="21"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3604" levels="1" name="Frintezza's Necklace">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="sleepVuln" val="0.85"/>
+    <mul order="0x30" stat="poisonVuln" val="0.75"/>
+    <mul order="0x30" stat="bleedVuln" val="0.75"/>
+    <mul order="0x30" stat="paralyzeVuln" val="0.85"/>
+    <mul order="0x30" stat="stunVuln" val="0.85"/>
+    <mul order="0x30" stat="darkVuln" val="0.85"/>
+    <add order="0x40" stat="reflectDam" val="4"/>
+    <mul order="0x30" stat="mReuse" val="0.95"/>
+    <mul order="0x30" stat="pReuse" val="0.95"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3605" levels="1" name="Clan Oath Heavy Armor Set">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="pDef" val="1.05"/>
+    <add order="0x40" stat="maxHp" val="85"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3606" levels="1" name="Clan Oath Light Armor Set">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="pDef" val="1.05"/>
+    <add order="0x40" stat="rEvas" val="3"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3607" levels="1" name="Clan Oath Robe Set">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <mul order="0x30" stat="pDef" val="1.05"/>
+    <mul order="0x30" stat="mAtkSpd" val="1.05"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3608" levels="1" name="Apella Heavy Armor Set">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="maxCp" val="232"/>
+    <mul order="0x30" stat="regCp" val="1.4"/>
+  </for>
+</skill>
+<skill id="3609" levels="1" name="Apella Light Armor Set">
+<!--
+  Needs to be finished.
+
+  Description(s):
+      Increases maximum CP/CP regeneration and decreases experience value penalty if killed by another player. Casts a Speed reduction curse on an attacking player.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="maxCp" val="195"/>
+    <mul order="0x30" stat="regCp" val="1.4"/>
+    <!-- decreases experience value penalty if killed by another player -->
+    <!-- Casts a Speed reduction curse on an attacking player -->
+  </for>
+</skill>
+<skill id="3610" levels="1" name="Apella Robe Set">
+<!--
+  Needs to be finished.
+
+  Description(s):
+      Increases maximum CP/CP regeneration and decreases experience value penalty if killed by a player. Casts an Atk. Spd. reduction curse on attacking player.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="maxCp" val="177"/>
+    <mul order="0x30" stat="regCp" val="1.4"/>
+    <!-- decreases experience value penalty if killed by a player -->
+    <!-- Casts an Atk. Spd. reduction curse on attacking player -->
+  </for>
+</skill>
+<skill id="3611" levels="1" name="Enchant Heavy Armor (Grade D)">
+<!--
+  Description(s):
+      Increases P. Def. and MP regeneration by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="25"/>
+    <add order="0x40" stat="regMp" val="2"/>
+  </for>
+</skill>
+<skill id="3612" levels="1" name="Enchant Light Armor (Grade D)">
+<!--
+  Description(s):
+      Increases M. Def. and Evasion by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="rEvas" val="2"/>
+    <add order="0x40" stat="mDef" val="12"/>
+  </for>
+</skill>
+<skill id="3613" levels="1" name="Enchant Robe (Grade D)">
+<!--
+  Description(s):
+      Increases P. Def. and weight capacity by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="16"/>
+    <mul order="0x30" stat="maxLoad" val="1.3"/>
+  </for>
+</skill>
+<skill id="3614" levels="1" name="Enchant Heavy Armor (Grade C)">
+<!--
+  Description(s):
+      Increases P. Def. and MP regeneration by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="38"/>
+    <add order="0x40" stat="regMp" val="2"/>
+  </for>
+</skill>
+<skill id="3615" levels="1" name="Enchant Light Armor (Grade C)">
+<!--
+  Description(s):
+      Increases M. Def. and Evasion by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="rEvas" val="2"/>
+    <add order="0x40" stat="mDef" val="20"/>
+  </for>
+</skill>
+<skill id="3616" levels="1" name="Enchant Robe (Grade C)">
+<!--
+  Description(s):
+      Increases P. Def. and weight capacity by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="24"/>
+    <mul order="0x30" stat="maxLoad" val="1.3"/>
+  </for>
+</skill>
+<skill id="3617" levels="1" name="Enchant Heavy Armor (Grade B)">
+<!--
+  Description(s):
+      Increases P. Def. and MP regeneration by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="44"/>
+    <add order="0x40" stat="regMp" val="2"/>
+  </for>
+</skill>
+<skill id="3618" levels="1" name="Enchant Light Armor (Grade B)">
+<!--
+  Description(s):
+      Increases M. Def. and Evasion by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="rEvas" val="2"/>
+    <add order="0x40" stat="mDef" val="24"/>
+  </for>
+</skill>
+<skill id="3619" levels="1" name="Enchant Robe (Grade B)">
+<!--
+  Description(s):
+      Increases P. Def. and weight capacity by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="28"/>
+    <mul order="0x30" stat="maxLoad" val="1.3"/>
+  </for>
+</skill>
+<skill id="3620" levels="1" name="Enchant Heavy Armor (Grade A)">
+<!--
+  Description(s):
+      Increases P. Def. and MP regeneration by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="50"/>
+    <add order="0x40" stat="regMp" val="2"/>
+  </for>
+</skill>
+<skill id="3621" levels="1" name="Enchant Light Armor (Grade A)">
+<!--
+  Description(s):
+      Increases M. Def. and Evasion by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="rEvas" val="2"/>
+    <add order="0x40" stat="mDef" val="28"/>
+  </for>
+</skill>
+<skill id="3622" levels="1" name="Enchant Robe (Grade A)">
+<!--
+  Description(s):
+      Increases P. Def. and weight capacity by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="32"/>
+    <mul order="0x30" stat="maxLoad" val="1.3"/>
+  </for>
+</skill>
+<skill id="3623" levels="1" name="Enchant Heavy Armor (Grade S)">
+<!--
+  Description(s):
+      Increases P. Def. and MP regeneration by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="56"/>
+    <add order="0x40" stat="regMp" val="2"/>
+  </for>
+</skill>
+<skill id="3624" levels="1" name="Enchant Light Armor (Grade S)">
+<!--
+  Description(s):
+      Increases M. Def. and Evasion by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="rEvas" val="2"/>
+    <add order="0x40" stat="mDef" val="32"/>
+  </for>
+</skill>
+<skill id="3625" levels="1" name="Enchant Robe (Grade S)">
+<!--
+  Description(s):
+      Increases P. Def. and weight capacity by enchanting set items.
+-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <for>
+    <add order="0x40" stat="pDef" val="36"/>
+    <mul order="0x30" stat="maxLoad" val="1.3"/>
+  </for>
+</skill>
+ <skill id="3626" levels="1" name="Kabokula">
+    <set name="target" val="TARGET_SELF"/>
+    <set name="reuseDelay" val="50000"/>
+    <set name="hitTime" val="500"/>
+    <set name="skillType" val="DEBUFF"/>
+    <set name="operateType" val="OP_PASSIVE"/>
+    <set name="castRange" val="300"/>
+    <set name="effectRange" val="600"/>
+    <set name="isMagic" val="true"/>
+    <set name="power" val="80"/>
+    <set name="mpConsume" val="300"/>
+    <set name="itemConsumeId" val="8764"/>
+    <set name="itemConsumeCount" val="1"/>
+    <for>
+      <effect self="0" count="1" name="Buff" time="20" val="0" stackType="Kabokula">
+        <mul order="0x30" stat="runSpd" val="0.0"/>
+      </effect>
+    </for>
+  </skill>
+  <skill id="3627" levels="1" name="Tapirawa">
+    <set name="target" val="TARGET_SELF"/>
+    <set name="reuseDelay" val="50000"/>
+    <set name="hitTime" val="25000"/>
+    <set name="skillType" val="DEBUFF"/>
+    <set name="operateType" val="OP_PASSIVE"/>
+    <set name="castRange" val="300"/>
+    <set name="effectRange" val="600"/>
+    <set name="isMagic" val="true"/>
+    <set name="power" val="80"/>
+    <set name="mpConsume" val="300"/>
+    <set name="itemConsumeId" val="8764"/>
+    <set name="itemConsumeCount" val="1"/>
+    <for>
+      <effect self="0" count="1" name="Buff" time="20" val="0" stackType="Tapiwara">
+        <mul order="0x30" stat="runSpd" val="0.0"/>
+        <mul order="0x30" stat="pAtk" val="0.7"/>
+      </effect>
+    </for>
+  </skill>
+  <skill id="3628" levels="1" name="Shabonoba">
+    <set name="target" val="TARGET_SELF"/>
+    <set name="reuseDelay" val="50000"/>
+    <set name="hitTime" val="25000"/>
+    <set name="skillType" val="DEBUFF"/>
+    <set name="operateType" val="OP_PASSIVE"/>
+    <set name="castRange" val="300"/>
+    <set name="effectRange" val="600"/>
+    <set name="isMagic" val="true"/>
+    <set name="power" val="80"/>
+    <set name="mpConsume" val="300"/>
+    <set name="itemConsumeId" val="8764"/>
+    <set name="itemConsumeCount" val="1"/>
+    <for>
+      <effect self="0" count="1" name="Buff" time="20" val="0" stackType="Shabonoba">
+        <mul order="0x30" stat="runSpd" val="0.0"/>
+        <mul order="0x30" stat="mDef" val="0.7"/>
+      </effect>
+    </for>
+  </skill>
+<skill id="3629" levels="10" name="Blood Sword Akamanah">
+  <table name="#maxCp">12 13 14 15 17 19 21 23 25 27</table>
+  <table name="#pAtk">3 4.5 6 7.5 9 10.5 11 11.5 12 12.5</table>
+  <table name="#mAtk">3 3.25 3.5 3.75 4 4.25 4.5 5 5.5 5.75</table>
+  <table name="#pDef">2.5 2.6 2.7 2.8 2.9 3 3.25 3.5 3.75 4</table>
+  <table name="#mDef">3 3.1 3.2 3.3 3.4 3.5 3.75 4 4.25 4.5</table>
+  <table name="#runSpd">4 6 8 10 12 14 16 18 19 20</table>
+  <table name="#accCombat">15 20 25 30 35 40 45 50 55 60</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="minPledgeClass" val="2"/>
+  <for>
+    <mul order="0x30" stat="maxCp" val="#maxCp"/>
+	<mul order="0x30" stat="pAtk" val="#pAtk"/>
+	<mul order="0x30" stat="mAtk" val="#mAtk"/>
+	<mul order="0x30" stat="pDef" val="#pDef"/>
+	<mul order="0x30" stat="mDef" val="#mDef"/>
+	<add order="0x40" stat="accCombat" val="#accCombat"/>
+	<add order="0x40" stat="runSpd" val="#runSpd"/>
+	<add order="0x40" stat="absorbDam" val="100"/>
+	<mul order="0x30" stat="regCp" val="20"/>
+	<set order="0x08" stat="STR" val="40"/> 
+	<set order="0x08" stat="DEX" val="30"/>
+	<set order="0x08" stat="CON" val="43"/>
+	<set order="0x08" stat="INT" val="21"/>
+	<set order="0x08" stat="WIT" val="15"/>
+	<set order="0x08" stat="MEN" val="21"/>
+  </for>
+</skill>
+<skill id="3630" levels="1" name="Void Burst">
+  <set name="mpConsume" val="140"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="hitTime" val="2000"/>
+  <set name="power" val="3000"/>
+  <set name="condition" val="128"/>
+  <set name="reuseDelay" val="60000"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="-1"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="skillRadius" val="200"/>
+  <for>
+  </for>
+</skill>
+<skill id="3631" levels="1" name="Void Flow">
+  <set name="mpConsume" val="140"/>
+  <set name="power" val="2131.0"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="1900"/>
+  <set name="condition" val="128"/>
+  <set name="reuseDelay" val="60000"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+   </for>
+ </skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3632" name="Clan Gate" levels="1">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="hitTime" val="10000"/>
+  <Set name="magicLvl" val="60"/>
+  <set name="reuseDelay" val="3600000"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="ClanGate" time="120" val="0"/>
+    <effect count="1" name="ImmobileBuff" time="120" val="0" noicon="1"/>
+  </for>
+</skill>
+<skill id="3633" levels="2" name="Residential Shock Immunity">
+  <table name="#vuln">0.5 1.0</table>
+  <table name="#stack">50 100</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="1800000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+     <effect count="1" name="Buff" time="30" val="0" stackOrder="#stack" stackType="ShockVuln">
+      <mul order="0x30" stat="stunVuln" val="#vuln"/>
+    </effect>
+  </for>
+</skill>
+</list>

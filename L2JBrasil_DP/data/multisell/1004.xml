@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Blacksmith Crafting Service -->
+<list applyTaxes="true">
+	<item id="1"><!-- Braided Hemp -->
+		<production id="1878" count="1"/>
+		<ingredient id="2135" count="1" mantainIngredient="true"/>
+		<ingredient id="1864" count="5"/>
+		<ingredient id="57" count="500" isTaxIngredient="true"/>
+	</item>
+	<item id="2"><!-- Cokes -->
+		<production id="1879" count="1"/>
+		<ingredient id="2136" count="1" mantainIngredient="true"/>
+		<ingredient id="1870" count="3"/>
+		<ingredient id="1871" count="3"/>
+		<ingredient id="57" count="1200" isTaxIngredient="true"/>
+	</item>
+	<item id="3"><!-- Steel -->
+		<production id="1880" count="1"/>
+		<ingredient id="2137" count="1" mantainIngredient="true"/>
+		<ingredient id="1865" count="5"/>
+		<ingredient id="1869" count="5"/>
+		<ingredient id="57" count="2000" isTaxIngredient="true"/>
+	</item>
+	<item id="4"><!-- Coarse Bone Powder -->
+		<production id="1881" count="1"/>
+		<ingredient id="2138" count="1" mantainIngredient="true"/>
+		<ingredient id="1872" count="10"/>
+		<ingredient id="57" count="1500" isTaxIngredient="true"/>
+	</item>
+	<item id="5"><!-- Leather -->
+		<production id="1882" count="1"/>
+		<ingredient id="1814" count="1" mantainIngredient="true"/>
+		<ingredient id="1867" count="6"/>
+		<ingredient id="57" count="900" isTaxIngredient="true"/>
+	</item>
+	<item id="6"><!-- Steel Mold -->
+		<production id="1883" count="1"/>
+		<ingredient id="2139" count="1" mantainIngredient="true"/>
+		<ingredient id="1878" count="5"/>
+		<ingredient id="1869" count="5"/>
+		<ingredient id="1870" count="5"/>
+		<ingredient id="57" count="4500" isTaxIngredient="true"/>
+	</item>
+	<item id="7"><!-- Cord -->
+		<production id="1884" count="20"/>
+		<ingredient id="1817" count="1" mantainIngredient="true"/>
+		<ingredient id="1880" count="2"/>
+		<ingredient id="1868" count="25"/>
+		<ingredient id="57" count="320" isTaxIngredient="true"/>
+	</item>
+	<item id="8"><!-- High Grade Suede -->
+		<production id="1885" count="1"/>
+		<ingredient id="2140" count="1" mantainIngredient="true"/>
+		<ingredient id="1881" count="1"/>
+		<ingredient id="1866" count="3"/>
+		<ingredient id="57" count="2400" isTaxIngredient="true"/>
+	</item>
+	<item id="9"><!-- Silver Mold -->
+		<production id="1886" count="1"/>
+		<ingredient id="2141" count="1" mantainIngredient="true"/>
+		<ingredient id="1878" count="5"/>
+		<ingredient id="1879" count="5"/>
+		<ingredient id="1873" count="10"/>
+		<ingredient id="57" count="13500" isTaxIngredient="true"/>
+	</item>
+	<item id="10"><!-- Varnish of Purity -->
+		<production id="1887" count="1"/>
+		<ingredient id="2142" count="1" mantainIngredient="true"/>
+		<ingredient id="1881" count="3"/>
+		<ingredient id="1865" count="3"/>
+		<ingredient id="1875" count="1"/>
+		<ingredient id="57" count="8100" isTaxIngredient="true"/>
+	</item>
+	<item id="11"><!-- Synthethic Cokes -->
+		<production id="1888" count="1"/>
+		<ingredient id="2143" count="1" mantainIngredient="true"/>
+		<ingredient id="1879" count="3"/>
+		<ingredient id="1874" count="1"/>
+		<ingredient id="57" count="6600" isTaxIngredient="true"/>
+	</item>
+	<item id="12"><!-- Compound Braid -->
+		<production id="1889" count="1"/>
+		<ingredient id="2144" count="1" mantainIngredient="true"/>
+		<ingredient id="1878" count="5"/>
+		<ingredient id="1868" count="5"/>
+		<ingredient id="57" count="3000" isTaxIngredient="true"/>
+	</item>
+	<item id="13"><!-- Mithril alloy -->
+		<production id="1890" count="1"/>
+		<ingredient id="2145" count="1" mantainIngredient="true"/>
+		<ingredient id="1887" count="1"/>
+		<ingredient id="1880" count="2"/>
+		<ingredient id="1876" count="1"/>
+		<ingredient id="57" count="13100" isTaxIngredient="true"/>
+	</item>
+	<item id="14"><!-- Artisan's Frame -->
+		<production id="1891" count="1"/>
+		<ingredient id="2146" count="1" mantainIngredient="true"/>
+		<ingredient id="1883" count="1"/>
+		<ingredient id="1887" count="5"/>
+		<ingredient id="1877" count="10"/>
+		<ingredient id="57" count="95000" isTaxIngredient="true"/>
+	</item>
+	<item id="15"><!-- Blacksmith Frame -->
+		<production id="1892" count="1"/>
+		<ingredient id="2147" count="1" mantainIngredient="true"/>
+		<ingredient id="1886" count="1"/>
+		<ingredient id="1887" count="5"/>
+		<ingredient id="1876" count="10"/>
+		<ingredient id="57" count="64000" isTaxIngredient="true"/>
+	</item>
+	<item id="16"><!-- Oriharukon -->
+		<production id="1893" count="1"/>
+		<ingredient id="1825" count="1" mantainIngredient="true"/>
+		<ingredient id="1888" count="1"/>
+		<ingredient id="1873" count="12"/>
+		<ingredient id="1874" count="4"/>
+		<ingredient id="57" count="24600" isTaxIngredient="true"/>
+	</item>
+	<item id="17"><!-- Crafted Leather -->
+		<production id="1894" count="1"/>
+		<ingredient id="2148" count="1" mantainIngredient="true"/>
+		<ingredient id="1884" count="4"/>
+		<ingredient id="1882" count="4"/>
+		<ingredient id="1870" count="4"/>
+		<ingredient id="57" count="5700" isTaxIngredient="true"/>
+	</item>
+	<item id="18"><!-- Metallic Fiber -->
+		<production id="1895" count="20"/>
+		<ingredient id="2149" count="1" mantainIngredient="true"/>
+		<ingredient id="1884" count="20"/>
+		<ingredient id="1873" count="15"/>
+		<ingredient id="57" count="700" isTaxIngredient="true"/>
+	</item>
+	<item id="19"><!-- Metallic Thread -->
+		<production id="5549" count="1"/>
+		<ingredient id="5472" count="1" mantainIngredient="true"/>
+		<ingredient id="1868" count="10"/>
+		<ingredient id="1869" count="5"/>
+		<ingredient id="57" count="2000" isTaxIngredient="true"/>
+	</item>
+	<item id="20"><!-- Metal Hardener -->
+		<production id="5220" count="1"/>
+		<ingredient id="5231" count="1" mantainIngredient="true"/>
+		<ingredient id="1864" count="10"/>
+		<ingredient id="1865" count="10"/>
+		<ingredient id="1869" count="10"/>
+		<ingredient id="57" count="5000" isTaxIngredient="true"/>
+	</item>
+	<item id="21"><!-- Durable Metal Plate -->
+		<production id="5550" count="1"/>
+		<ingredient id="5473" count="1" mantainIngredient="true"/>
+		<ingredient id="5549" count="5"/>
+		<ingredient id="1876" count="5"/>
+		<ingredient id="57" count="15000" isTaxIngredient="true"/>
+	</item>
+	<item id="22"><!-- Leolin's Mold -->
+		<production id="5551" count="1"/>
+		<ingredient id="1884" count="40"/>
+		<ingredient id="5550" count="10"/>
+		<ingredient id="1877" count="15"/>
+		<ingredient id="57" count="244760" isTaxIngredient="true"/>
+	</item>
+	<item id="23"><!-- Warsmith's Mold -->
+		<production id="5552" count="1"/>
+		<ingredient id="1891" count="1"/>
+		<ingredient id="4041" count="10"/>
+		<ingredient id="4042" count="5"/>
+		<ingredient id="57" count="392700" isTaxIngredient="true"/>
+	</item>
+	<item id="24"><!-- Arcsmith's Anvil -->
+		<production id="5553" count="1"/>
+		<ingredient id="4046" count="3"/>
+		<ingredient id="4040" count="20"/>
+		<ingredient id="4044" count="10"/>
+		<ingredient id="57" count="541820" isTaxIngredient="true"/>
+	</item>
+	<item id="25"><!-- Warsmith's Holder -->
+		<production id="5554" count="1"/>
+		<ingredient id="4045" count="2"/>
+		<ingredient id="4039" count="10"/>
+		<ingredient id="1868" count="20"/>
+		<ingredient id="57" count="901680" isTaxIngredient="true"/>
+	</item>
+</list>

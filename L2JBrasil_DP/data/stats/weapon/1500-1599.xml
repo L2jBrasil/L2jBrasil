@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='1510' name="butchers_sword">
+  <for>
+    <set val='13' order='0x08' stat='pAtk'/>
+    <set val='10' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='1511' name="silversmith_hammer">
+  <for>
+    <set val='13' order='0x08' stat='pAtk'/>
+    <set val='10' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+</list>

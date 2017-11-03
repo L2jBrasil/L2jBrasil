@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='3891' name="Wolf's Hide Armor">
+  <for>
+    <add val='13' order='0x10' stat='pDef'/>
+    <add val='16' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3892' name="Wolf's Hard Leather Mail">
+  <for>
+    <add val='16' order='0x10' stat='pDef'/>
+    <add val='18' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3893' name="Wolf's Wooden Armor">
+  <for>
+    <add val='19' order='0x10' stat='pDef'/>
+    <add val='20' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3894' name="Wolf's Ring Mail">
+  <for>
+    <add val='22' order='0x10' stat='pDef'/>
+    <add val='23' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3895' name="Wolf's Bone Armor">
+  <for>
+    <add val='26' order='0x10' stat='pDef'/>
+    <add val='26' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3896' name="Wolf's Scale Male">
+  <for>
+    <add val='30' order='0x10' stat='pDef'/>
+    <add val='29' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3897' name="Wof's Bronze Armor">
+  <for>
+    <add val='33' order='0x10' stat='pDef'/>
+    <add val='31' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3898' name="Wolf's Plate Mail">
+  <for>
+    <add val='37' order='0x10' stat='pDef'/>
+    <add val='33' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3899' name="Wolf's Steel Armor">
+  <for>
+    <add val='40' order='0x10' stat='pDef'/>
+    <add val='36' order='0x10' stat='mDef'/>
+  </for>
+</item>
+</list>

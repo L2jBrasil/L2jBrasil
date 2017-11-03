@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Adventure guildsman - Use Life Crystals (Goddard) -->
+<list maintainEnchantment="true">
+	<!-- Crystallized Ice Bow -->
+ 	<item id="1">
+		<ingredient id="8158" count="102"/>
+		<ingredient id="8161" count="28"/>
+		<ingredient id="8164" count="112"/>
+		<ingredient id="8167" count="56"/>
+		<production id="281" count="1"/>
+ 	</item>
+	<!-- Elemental Bow -->
+	<item id="2">
+		<ingredient id="8158" count="128"/>
+		<ingredient id="8161" count="35"/>
+		<ingredient id="8164" count="140"/>
+		<ingredient id="8167" count="70"/>
+		<production id="282" count="1"/>
+ 	</item>
+	<!-- Akat Long Bow -->
+	<item id="3">
+		<ingredient id="8158" count="207"/>
+		<ingredient id="8161" count="56"/>
+		<ingredient id="8164" count="226"/>
+		<ingredient id="8167" count="113"/>
+		<production id="283" count="1"/>
+ 	</item>
+	<!-- Eminence Bow -->
+	<item id="4">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="286" count="1"/>
+ 	</item>
+	<!--  Dark Elven Long Bow  -->
+	<item id="5">
+ 		<ingredient id="8159" count="193"/>
+ 		<ingredient id="8162" count="58"/>
+ 		<ingredient id="8165" count="193"/>
+ 		<ingredient id="8168" count="135"/>
+ 		<ingredient id="8171" count="116"/>
+ 		<production id="284" count="1"/>
+ 	</item>
+	<!--  Bow of Peril  -->
+	<item id="6">
+ 		<ingredient id="8159" count="309"/>
+ 		<ingredient id="8162" count="93"/>
+ 		<ingredient id="8165" count="309"/>
+ 		<ingredient id="8168" count="216"/>
+ 		<ingredient id="8171" count="186"/>
+ 		<production id="287" count="1"/>
+ 	</item>
+	<!-- Chain Gloves  -->
+	<item id="7">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="2453" count="1"/>
+ 	</item>
+	<!-- Reinforced Mithril Gloves  -->
+	<item id="8">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="2452" count="1"/>
+ 	</item>
+	<!-- Karmian Gloves  -->
+	<item id="9">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="2454" count="1"/>
+ 	</item>
+	<!-- Dwarven Chain Gloves  -->
+	<item id="10">
+ 		<ingredient id="8158" count="9"/>
+ 		<ingredient id="8164" count="9"/>
+ 		<ingredient id="8170" count="2"/>
+ 		<production id="2456" count="1"/>
+ 	</item>
+	<!-- Rind Leather Gloves  -->
+	<item id="11">
+ 		<ingredient id="8158" count="9"/>
+ 		<ingredient id="8164" count="9"/>
+ 		<ingredient id="8170" count="2"/>
+ 		<production id="2458" count="1"/>
+ 	</item>
+	<!-- Gloves of Seal -->
+	<item id="12">
+ 		<ingredient id="8158" count="9"/>
+ 		<ingredient id="8164" count="9"/>
+ 		<ingredient id="8170" count="2"/>
+ 		<production id="2457" count="1"/>
+ 	</item>
+	<!-- Theca Leather Gloves -->
+	<item id="13">
+ 		<ingredient id="8158" count="16"/>
+ 		<ingredient id="8164" count="17"/>
+ 		<ingredient id="8170" count="3"/>
+ 		<production id="2460" count="1"/>
+ 	</item>
+	<!-- Full Plate Gauntlets -->
+	<item id="14">
+ 		<ingredient id="8158" count="16"/>
+ 		<ingredient id="8164" count="17"/>
+ 		<ingredient id="8170" count="3"/>
+ 		<production id="2462" count="1"/>
+ 	</item>
+	<!-- Drake Leather Gloves -->
+	<item id="15">
+ 		<ingredient id="8158" count="20"/>
+ 		<ingredient id="8164" count="22"/>
+ 		<ingredient id="8170" count="4"/>
+ 		<production id="2461" count="1"/>
+ 	</item>
+	<!-- Divine Gloves -->
+	<item id="16">
+ 		<ingredient id="8158" count="20"/>
+ 		<ingredient id="8164" count="22"/>
+ 		<ingredient id="8170" count="4"/>
+ 		<production id="2463" count="1"/>
+ 	</item>
+</list>

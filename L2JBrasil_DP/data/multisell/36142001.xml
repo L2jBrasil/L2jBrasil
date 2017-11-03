@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Siege Shop -->
+<list>
+	<item id="1">
+	<!-- Potion of Alacrity -->
+		<ingredient id="57" count="4000"/>
+		<production id="735" count="1"/>
+	</item>
+	<item id="2">
+	<!-- Greater Swift Attack Potion -->
+		<ingredient id="57" count="7500"/>
+		<production id="1375" count="1"/>
+	</item>
+	<item id="3">
+	<!-- Healing Potion,Effect 2. -->
+		<ingredient id="57" count="1500"/>
+		<production id="1061" count="1"/>
+	</item>
+	<item id="4">
+	<!-- Greater Healing Potion,Effect 3!!!!delete maybe!!! -->
+		<ingredient id="57" count="11000"/>
+		<production id="1539" count="1"/>
+	</item>
+	<item id="5">
+	<!-- Haste Potion -->
+		<ingredient id="57" count="2000"/>
+		<production id="734" count="1"/>
+	</item>
+	<item id="6">
+	<!-- Greater Haste Potion -->
+		<ingredient id="57" count="5500"/>
+		<production id="1374" count="1"/>
+	</item>
+	<item id="7">
+	<!-- CP Potion(50 CP),for CP Potion(200 CP use production id - 5592). -->
+		<ingredient id="57" count="5500"/>
+		<production id="5591" count="1"/>
+	</item>
+	<item id="8">
+	<!-- Scroll of escape -->
+		<ingredient id="57" count="3000"/>
+		<production id="736" count="1"/>
+	</item>
+	<item id="9">
+	<!-- Scroll of Resurrection -->
+		<ingredient id="57" count="3000"/>
+		<production id="737" count="1"/>
+	</item>
+	<item id="10">
+	<!-- Scroll of Escape: Clan Hall -->
+		<ingredient id="57" count="3000"/>
+		<production id="1829" count="1"/>
+	</item>
+	<item id="11">
+	<!-- Scroll of Escape: Castle -->
+		<ingredient id="57" count="3000"/>
+		<production id="1830" count="1"/>
+	</item>
+	<item id="11">
+	<!-- Gemstone C -->
+		<ingredient id="57" count="3500"/>
+		<production id="2131" count="1"/>
+	</item>
+	<item id="12">
+	<!-- Magic Haste Potion -->
+		<ingredient id="57" count="3500"/>
+		<production id="6035" count="1"/>
+	</item>
+	<item id="13">
+	<!-- Greater Magic Haste Potion -->
+		<ingredient id="57" count="8000"/>
+		<production id="6036" count="1"/>
+	</item>
+	<item id="14">
+	<!-- Bone Arrow: D Grade -->
+		<ingredient id="57" count="3"/>
+		<production id="1341" count="1"/>
+	</item>
+	<item id="14">
+	<!-- Fine Steel Arrow: C Grade -->
+		<ingredient id="57" count="5"/>
+		<production id="1342" count="1"/>
+	</item>
+	<item id="15">
+	<!-- Silver Arrow: B Grade -->
+		<ingredient id="57" count="7"/>
+		<production id="1342" count="1"/>
+	</item>
+	<item id="16">
+	<!-- Wooden Arrow: NG Grade :) -->
+		<ingredient id="57" count="2"/>
+		<production id="17" count="1"/>
+	</item>
+	<item id="16">
+	<!-- Enerty Stone -->
+		<ingredient id="57" count="150"/>
+		<production id="5589" count="1"/>
+	</item>
+	<item id="17">
+	<!-- Spirit Ore -->
+		<ingredient id="57" count="450"/>
+		<production id="3031" count="1"/>
+	</item>
+	<item id="18">
+	<!-- Soul Ore -->
+		<ingredient id="57" count="250"/>
+		<production id="1785" count="1"/>
+	</item>
+</list>

@@ -1,0 +1,23 @@
+<html><title>L2JBrasilShutdown Server Menu</title><body>
+<table width=260><tr>
+<td width=40><button value="Main" action="bypass -h admin_admin" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td width=180><center>Server Management</center></td>
+<td width=40><button value="Back" action="bypass -h admin_admin4" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table>
+<table width=240><tr>
+<td width=100>Shutdown time:</td>
+<td><edit var="menu_command" width=120 height=15></td>
+<td><button value="Help" action="bypass -h admin_help help/shutdown.htm" width=45 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table><br><br>
+<table width=260>	
+<tr><td>Players Online:</td><td>%count%</td></tr>
+<tr><td>Used Memory:</td><td>%used% bytes</td></tr>
+<tr><td>Server Rates:</td><td>%xp%x, %sp%x, %adena%x, %drop%x</td></tr>
+<tr><td>Game Time:</td><td>%time%</td></tr>
+</table><br><br>
+<center><table><tr><td>
+<button value="Shutdown" action="bypass -h admin_server_shutdown $menu_command" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td><td>			
+<button value="Restart" action="bypass -h admin_server_restart $menu_command" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td><td>			
+<button value="Abort" action="bypass -h admin_server_abort" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td></tr>
+</table></center>
+</body></html>

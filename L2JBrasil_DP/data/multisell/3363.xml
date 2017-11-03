@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 336: Coins of Magic, Rewards level 3 -->
+<list maintainEnchantment="true">
+	<!-- Moonstone Earring -->
+	<item id="1">
+		<production id="852" count="1"/>
+		<ingredient id="3480" count="2"/>
+		<ingredient id="3475" count="2"/>
+		<ingredient id="3485" count="2"/>
+		<ingredient id="3483" count="2"/>
+	</item>
+	<!-- Nassens Earring -->
+	<item id="2">
+		<production id="855" count="1"/>
+		<ingredient id="3480" count="7"/>
+		<ingredient id="3475" count="5"/>
+		<ingredient id="3494" count="5"/>
+		<ingredient id="3483" count="5"/>
+	</item>
+	<!-- Ring of Binding -->
+	<item id="3">
+		<production id="886" count="1"/>
+		<ingredient id="3489" count="5"/>
+		<ingredient id="3485" count="4"/>
+		<ingredient id="3494" count="4"/>
+		<ingredient id="3475" count="4"/>
+	</item>
+	<!-- Necklace of Protection -->
+	<item id="4">
+		<production id="916" count="1"/>
+		<ingredient id="3498" count="5"/>
+		<ingredient id="3491" count="3"/>
+		<ingredient id="3483" count="3"/>
+		<ingredient id="3475" count="3"/>
+	</item>
+</list>

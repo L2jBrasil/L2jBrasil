@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Varka lv1 multisell -->
+<list maintainEnchantment="true">
+	<!-- Brown Pouch -->
+	<item id="1">
+		<ingredient id="7187" count="55" enchant="0"/>
+		<production id="7634" count="1" enchant="0"/>
+	</item>
+	<!-- Scroll of Escape - Varka -->
+	<item id="2">
+		<ingredient id="7187" count="80" enchant="0"/>
+		<production id="7619" count="1" enchant="0"/>
+	</item>
+</list>

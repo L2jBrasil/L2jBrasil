@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="**/.svn/*|.svn" kind="src" path="data/jscript"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/L2JBrasil_CORE"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

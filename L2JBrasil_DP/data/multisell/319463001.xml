@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Buy Shadow Weapons from Merchants - by BiTi -->
+<list maintainEnchantment="true" applyTaxes="true">
+<!-- Buy C Grade Shadow Weapons -->
+ 	<!-- Shadow Weapon: Swords of Revolution Duals for 87600 Adena -->
+ 	<item id="1">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8837" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Knuckle Duster for 87600 Adena -->
+ 	<item id="2">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8838" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Dwarven Warhammer for 87600 Adena -->
+ 	<item id="3">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8836" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Elemental Bow for 87600 Adena -->
+ 	<item id="4">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8835" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Soulfire Dirk for 87600 Adena -->
+ 	<item id="5">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8834" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Stiletto for 87600 Adena -->
+ 	<item id="6">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8833" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Cursed Staff for 87600 Adena -->
+ 	<item id="7">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8832" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Katana for 87600 Adena -->
+ 	<item id="8">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8830" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Bec de Corbin for 87600 Adena -->
+ 	<item id="9">
+ 		<ingredient id="57" count="87600"/>
+ 		<production id="8831" count="1"/>
+ 		<ingredient id="57" count="87600" isTaxIngredient="true"/>
+ 	</item>
+
+ 	<!-- Shadow Weapon: Fisted Blade for 84500 Adena -->
+ 	<item id="10">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8847" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Pa'agrian Sword for 84500 Adena -->
+ 	<item id="11">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8846" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Akat Long Bow for 84500 Adena -->
+ 	<item id="12">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8845" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Dark Screamer for 84500 Adena -->
+ 	<item id="13">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8844" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Pa'agrian Hammer for 84500 Adena -->
+ 	<item id="14">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8843" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Inferno Staff for 84500 Adena -->
+ 	<item id="15">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8842" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Stick of Eternity for 84500 Adena -->
+ 	<item id="16">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8841" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Poleaxe for 84500 Adena -->
+ 	<item id="17">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8840" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Sword of Delusion for 84500 Adena -->
+ 	<item id="18">
+ 		<ingredient id="57" count="84500"/>
+ 		<production id="8839" count="1"/>
+ 		<ingredient id="57" count="84500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: StormBringer Duals for 102235 Adena -->
+ 	<item id="19">
+ 		<ingredient id="57" count="102235"/>
+ 		<production id="8848" count="1"/>
+ 		<ingredient id="57" count="102235" isTaxIngredient="true"/>
+ 	</item>
+<!-- Buy B Grade Shadow Weapons -->
+ 	<!-- Shadow Weapon: Great Axe for 93500 Adena -->
+ 	<item id="20">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8858" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Swords of Delusion Duals for 93500 Adena -->
+ 	<item id="21">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8857" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Dark Elven Long Bow for 93500 Adena -->
+ 	<item id="22">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8856" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Arthro Nail for 93500 Adena -->
+ 	<item id="23">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8855" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Kris for 93500 Adena -->
+ 	<item id="24">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8854" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Sword of Valhalla for 93500 Adena -->
+ 	<item id="25">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8853" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Keshanberk for 93500 Adena -->
+ 	<item id="26">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8852" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Sprite's Staff for 93500 Adena -->
+ 	<item id="27">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8851" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Heavy War Axe for 93500 Adena -->
+ 	<item id="28">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8850" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+ 	<!-- Shadow Weapon: Great Sword for 93500 Adena -->
+ 	<item id="29">
+ 		<ingredient id="57" count="93500"/>
+ 		<production id="8849" count="1"/>
+ 		<ingredient id="57" count="93500" isTaxIngredient="true"/>
+ 	</item>
+</list>

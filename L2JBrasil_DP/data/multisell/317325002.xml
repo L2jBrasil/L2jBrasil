@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- adventure guildsman - Adventurer's Box -->
+<list maintainEnchantment="true">
+	<!-- Adventurer's Box: C-Grade Accessory (Low Grade) -->
+	<item id="1">
+		<ingredient id="8176" count="20"/>
+		<production id="8534" count="1"/>
+	</item>
+	<!-- Adventurer's Box: C-Grade Accessory (Medium Grade) -->
+	<item id="2">
+		<ingredient id="8176" count="30"/>
+		<production id="8535" count="1"/>
+	</item>
+	<!--Adventurer's Box: C-Grade Accessory (High Grade) -->
+	<item id="3">
+		<ingredient id="8176" count="40"/>
+		<production id="8536" count="1"/>
+		</item>
+	<!-- Adventurer's Box: B-Grade Accessory (Low Grade) -->
+	<item id="4">
+		<ingredient id="8176" count="60"/>
+		<production id="8537" count="1"/>
+		</item>
+	<!-- Adventurer's Box: B-Grade Accessory (High Grade)-->
+	<item id="5">
+		<ingredient id="8176" count="80"/>
+		<production id="8538" count="1"/>
+		</item>
+	<!-- Adventurer's Box: Hair Accessory -->
+	<item id="6">
+		<ingredient id="8176" count="80"/>
+		<production id="8539" count="1"/>
+		</item>
+	<!-- Adventurer's Box: Cradle of Creation -->
+	<item id="7">
+		<ingredient id="8176" count="3"/>
+		<production id="8540" count="1"/>
+	</item>
+</list>

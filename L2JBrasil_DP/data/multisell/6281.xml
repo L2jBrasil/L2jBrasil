@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Swamp of Screams -->
+<list maintainEnchantment="true">
+	<!-- Loot Grey Puch - 1 Golden Ram Chit -->
+	<item id="1">
+		<ingredient id="7251" count="1"/>
+		<production id="7725" count="1"/>
+	</item>
+	<!-- Dimension Diamond - 10 Golden Ram Chit -->
+	<item id="2">
+		<ingredient id="7251" count="10"/>
+		<production id="7562" count="1"/>
+	</item>
+</list>

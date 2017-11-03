@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='900' name="Ring of Grace">
+  <for>
+    <add val='34' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='901' name="Ring of Holy Spirit">
+  <for>
+    <add val='36' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='902' name="Phoenix Ring">
+  <for>
+    <add val='40' order='0x10' stat='mDef'/>
+    <add val='13' order='0x60' stat='maxMp'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='903' name="Cerberus Ring">
+  <for>
+    <add val='40' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='904' name="Ring of Aid">
+  <for>
+    <add val='34' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='905' name="Ring of Blessing">
+  <for>
+    <add val='34' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='906' name="Necklace of Knowledge">
+  <for>
+    <add val='18' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='907' name="Necklace of Anguish">
+  <for>
+    <add val='21' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='908' name="Necklace of Wisdom">
+  <for>
+    <add val='25' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='909' name="Blue Diamond Necklace">
+  <for>
+    <add val='28' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='910' name="Necklace of Devotion">
+  <for>
+    <add val='32' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='911' name="Enchanted Necklace">
+  <for>
+    <add val='36' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='912' name="Near Forest Necklace">
+  <for>
+    <add val='40' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='913' name="Elven Necklace">
+  <for>
+    <add val='45' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='914' name="Necklace of Darkness">
+  <for>
+    <add val='48' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='915' name="Aquastone Necklace">
+  <for>
+    <add val='52' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='916' name="Necklace of Protection">
+  <for>
+    <add val='56' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='917' name="Necklace of Mermaid">
+  <for>
+    <add val='60' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='918' name="Adamantite Necklace">
+  <for>
+    <add val='68' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='919' name="Blessed Necklace">
+  <for>
+    <add val='64' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='920' name="Tateossian Necklace">
+  <for>
+    <add val='95' order='0x10' stat='mDef'/>
+    <add val='42' order='0x60' stat='maxMp'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='921' name="Necklace of Mana">
+  <for>
+    <add val='72' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='922' name="Sage's Necklace">
+  <for>
+    <add val='72' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='923' name="Paradia Necklace">
+  <for>
+    <add val='72' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='924' name="Majestic Necklace">
+  <for>
+    <add val='85' order='0x10' stat='mDef'/>
+    <add val='33' order='0x60' stat='maxMp'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='925' name="Necklace of Solar Eclipse">
+  <for>
+    <add val='68' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='926' name="Necklace of Black Ore">
+  <for>
+    <add val='72' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='927' name="Necklace of Summoning">
+  <for>
+    <add val='68' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='928' name="Otherworldly Necklace">
+  <for>
+    <add val='72' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='929' name="Elemental Necklace">
+  <for>
+    <add val='72' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='930' name="Necklace of Phantom">
+  <for>
+    <add val='80' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='931' name="Necklace of Grace">
+  <for>
+    <add val='68' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='932' name="Necklace of Holy Spirit">
+  <for>
+    <add val='72' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='933' name="Phoenix Necklace">
+  <for>
+    <add val='80' order='0x10' stat='mDef'/>
+    <add val='26' order='0x60' stat='maxMp'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='934' name="Cerberus Necklace">
+  <for>
+    <add val='80' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='935' name="Necklace of Aid">
+  <for>
+    <add val='68' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='936' name="Necklace of Blessing">
+  <for>
+    <add val='68' order='0x10' stat='mDef'/>
+  <enchant val='0' order='0x0C' stat='mDef'/>
+</for>
+</item>
+<item id='990' name="Mandragora Essence">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='991' name="Royen's Key">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='992' name="Shilen's 1st Mark">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='993' name="Shilen's 2nd Mark">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='994' name="Eye of Abyss">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='995' name="Wanted Poster">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='996' name="Alex's Dagger">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='997' name="Pinter's Bill">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='998' name="Book of Aklantoth - Part 1">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='999' name="Book of Aklantoth - Part 2">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

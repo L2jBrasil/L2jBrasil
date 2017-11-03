@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Adventure guildsman - Use Life Crystals (Gludio) -->
+<list maintainEnchantment="true">
+	<!-- Skull Graver -->
+	<item id="1">
+		<ingredient id="8158" count="102"/>
+		<ingredient id="8161" count="28"/>
+		<ingredient id="8164" count="112"/>
+		<ingredient id="8167" count="56"/>
+		<production id="173" count="1"/>
+	</item>
+	<!-- Dwarven War Hammer -->
+	<item id="2">
+		<ingredient id="8158" count="128"/>
+		<ingredient id="8161" count="35"/>
+		<ingredient id="8164" count="140"/>
+		<ingredient id="8167" count="70"/>
+		<production id="2502" count="1"/>
+	</item>
+	<!-- War Axe -->
+	<item id="3">
+		<ingredient id="8158" count="207"/>
+		<ingredient id="8161" count="56"/>
+		<ingredient id="8164" count="226"/>
+		<ingredient id="8167" count="113"/>
+		<production id="162" count="1"/>
+	</item>
+	<!-- Karik Horn -->
+	<item id="4">
+		<ingredient id="8158" count="207"/>
+		<ingredient id="8161" count="56"/>
+		<ingredient id="8164" count="226"/>
+		<ingredient id="8167" count="113"/>
+		<production id="7898" count="1"/>
+	</item>
+	<!-- Yaksa Mace -->
+	<item id="5">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="2503" count="1"/>
+	</item>
+	<!-- Dwarven Hammer -->
+	<item id="6">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="7897" count="1"/>
+	</item>
+	<!-- Heavy War Axe -->
+	<item id="7">
+		<ingredient id="8159" count="193"/>
+		<ingredient id="8162" count="58"/>
+		<ingredient id="8165" count="193"/>
+		<ingredient id="8168" count="135"/>
+		<ingredient id="8171" count="116"/>
+		<production id="91" count="1"/>
+	</item>
+	<!-- Deadman's Glory -->
+	<item id="8">
+		<ingredient id="8159" count="309"/>
+		<ingredient id="8162" count="93"/>
+		<ingredient id="8165" count="309"/>
+		<ingredient id="8168" count="216"/>
+		<ingredient id="8171" count="186"/>
+		<production id="171" count="1"/>
+	</item>
+	<!-- Art of Battle Axe -->
+	<item id="9">
+		<ingredient id="8159" count="309"/>
+		<ingredient id="8162" count="93"/>
+		<ingredient id="8165" count="309"/>
+		<ingredient id="8168" count="216"/>
+		<ingredient id="8171" count="186"/>
+		<production id="175" count="1"/>
+	</item>
+	<!-- Ice Storm Hammer -->
+	<item id="10">
+		<ingredient id="8159" count="193"/>
+		<ingredient id="8162" count="58"/>
+		<ingredient id="8165" count="193"/>
+		<ingredient id="8168" count="135"/>
+		<ingredient id="8171" count="116"/>
+		<production id="7900" count="1"/>
+	</item>
+	<!-- Star Buster -->
+	<item id="11">
+		<ingredient id="8159" count="309"/>
+		<ingredient id="8162" count="93"/>
+		<ingredient id="8165" count="309"/>
+		<ingredient id="8168" count="216"/>
+		<ingredient id="8171" count="186"/>
+		<production id="7901" count="1"/>
+	</item>
+</list>

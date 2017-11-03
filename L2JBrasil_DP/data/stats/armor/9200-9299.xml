@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='9200' name="Jester Hat - Firework">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9201' name="Wizard\'s Hat - Firework">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9202' name="Dapper Hat - Firework">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9203' name="Romantic Chapeau - Firework">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9204' name="Iron Circlet - Firework">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9208' name="Phantom Mask - For Events Only">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

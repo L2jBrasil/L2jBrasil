@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='5709' name="Sealed Zubei's Gauntlets">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5710' name="Zubei's Gauntlets Heavy Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5711' name="Zubei's Gauntlets Light Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5712' name="Zubei's Gauntlets Robe">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5713' name="Sealed Avadon Gloves">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5714' name="Avadon Gloves Heavy Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5715' name="Avadon Gloves Light Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5716' name="Avadon Gloves Robe">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5717' name="Sealed Blue Wolf Gloves">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5718' name="Blue Wolf Gloves Heavy Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5719' name="Blue Wolf Gloves Light Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5720' name="Blue Wolf Gloves Robe">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5721' name="Sealed Doom Gloves">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5722' name="Doom Gloves Heavy Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5723' name="Doom Gloves Light Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5724' name="Doom Gloves Robe">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5725' name="Sealed Zubei's Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5726' name="Zubei's Boots Heavy Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5727' name="Zubei's Boots Light Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5728' name="Zubei's Boots Robe">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5729' name="Sealed Avadon Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5730' name="Avadon Boots Heavy Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5731' name="Avadon Boots Light Armor">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5732' name="Avadon Boots Robe">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5733' name="Sealed Blue Wolf Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5734' name="Blue Wolf Boots Heavy Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5735' name="Blue Wolf Boots Light Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5736' name="Blue Wolf Boots Robe">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5737' name="Sealed Boots of Doom">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5738' name="Doom Boots Heavy Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5739' name="Doom Boots Light Armor">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5740' name="Doom Boots Robe">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5765' name="Dark Crystal Gloves Heavy Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5766' name="Dark Crystal Gloves Light Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5767' name="Dark Crystal Gloves Robe">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5768' name="Tallum Gloves Heavy Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5769' name="Tallum Gloves Light Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5770' name="Tallum Gloves Robe">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5771' name="Gloves of Nightmare Heavy Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5772' name="Gloves of Nightmare Light Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5773' name="Gloves of Nightmare Robe">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5774' name="Majestic Gloves Heavy Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5775' name="Majestic Gloves Light Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5776' name="Majestic Gloves Robe">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5777' name="Dark Crystal Boots Heavy Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5778' name="Dark Crystal Boots Light Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5779' name="Dark Crystal Boots Robe">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5780' name="Tallum Boots Heavy Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5781' name="Tallum Boots Light Armor">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5782' name="Tallum Boots Robe">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5783' name="Boots of Nightmare Heavy Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5784' name="Boots of Nightmare Light Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5785' name="Boots of Nightmare Robe">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5786' name="Majestic Boots Heavy Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5787' name="Majestic Boots Light Armor">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='5788' name="Majestic Boots Robe">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+</list>

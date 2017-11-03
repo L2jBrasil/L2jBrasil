@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Syntax: itemID;npcID;summonType - summonType: 0 = static, 1 = pet, 2 = wyvern -->
+<list>
+	<!-- Static -->
+	<summon_item itemID="5560" npcID="13006" summonType="0"/> <!-- Christmas Tree -->
+	<summon_item itemID="5561" npcID="13007" summonType="0"/> <!-- Special Cristmas Tree -->
+	
+	<!-- Pets -->
+	<summon_item itemID="2375" npcID="12077" summonType="1"/> <!-- Wolf -->
+	<summon_item itemID="3500" npcID="12311" summonType="1"/> <!-- Hatchling of Wind -->
+	<summon_item itemID="3501" npcID="12312" summonType="1"/> <!-- Hatchling of Star -->
+	<summon_item itemID="3502" npcID="12313" summonType="1"/> <!-- Hatchling of Twilight -->
+	<summon_item itemID="4422" npcID="12526" summonType="1"/> <!-- Hatchling of Twilight -->
+	<summon_item itemID="4423" npcID="12527" summonType="1"/> <!-- Wind Strider -->
+	<summon_item itemID="4424" npcID="12528" summonType="1"/> <!-- Twilight Strider -->
+	<summon_item itemID="4425" npcID="12564" summonType="1"/> <!-- Sin Eater -->
+	<summon_item itemID="6648" npcID="12780" summonType="1"/> <!-- Baby Bufallo -->
+	<summon_item itemID="6649" npcID="12782" summonType="1"/> <!-- Baby Cougar -->
+	<summon_item itemID="6650" npcID="12781" summonType="1"/> <!-- Baby Kookaburra -->
+	
+	<!-- Wyvern -->
+	<summon_item itemID="8663" npcID="12621" summonType="2"/> <!-- Wyvern -->
+
+</list>

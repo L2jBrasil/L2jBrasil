@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='9030' name="Shadow Item: Bronze Breastplate">
+  <for>
+    <add val='68' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9031' name="Shadow Item: Bronze Gaiters">
+  <for>
+    <add val='43' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9032' name="Shadow Item: Hard Leather Shirt">
+  <for>
+    <add val='53' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9033' name="Shadow Item: Hard Leather Gaiters">
+  <for>
+    <add val='33' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9034' name="Shadow Item: Tunic of Magic">
+  <for>
+    <add val='34' order='0x10' stat='pDef'/>
+    <add val='86' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9035' name="Shadow Item: Stockings of Magic">
+  <for>
+    <add val='21' order='0x10' stat='pDef'/>
+    <add val='54' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9037' name="Shadow Item: Hard Leather Helmet">
+  <for>
+    <add val='26' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9038' name="Shadow Item: Boots">
+  <for>
+    <add val='17' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9039' name="Shadow Item: Bracer">
+  <for>
+    <add val='17' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9040' name="Shadow Item: Mithril Breastplate">
+  <for>
+    <add val='95' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9041' name="Shadow Item: Mithril Gaiters">
+  <for>
+    <add val='61' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9042' name="Shadow Item: Gauntlet">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9043' name="Shadow Item: Iron Boots">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9045' name="Shadow Item: Reinforced Leather Shirt">
+  <for>
+    <add val='73' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9046' name="Shadow Item: Reinforced Leather Gaiters">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9047' name="Shadow Item: Reinforced Leather Gloves">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9048' name="Shadow Item: Reinforced Leather Boots">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9049' name="Shadow Item: Tunic of Knowledge">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+    <add val='147' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9050' name="Shadow Item: Stockings of Knowledge">
+  <for>
+    <add val='30' order='0x10' stat='pDef'/>
+    <add val='92' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9051' name="Shadow Item: Gloves of Knowledge">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9052' name="Shadow Item: Boots of Knowledge">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9053' name="Shadow Item: Helmet">
+  <for>
+    <add val='37' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9054' name="Shadow Item: Composite Armor">
+  <for>
+    <add val='224' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9055' name="Shadow Item: Composite Boots">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9057' name="Shadow Item: Composite Helmet">
+  <for>
+    <add val='54' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9058' name="Shadow Item: Theca Leather Armor">
+  <for>
+    <add val='106' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9059' name="Shadow Item: Theca Leather Gaiters">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9060' name="Shadow Item: Theca Leather Boots">
+  <for>
+    <add val='37' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9061' name="Shadow Item: Theca Leather Gloves">
+  <for>
+    <add val='37' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9062' name="Shadow Item: Demon\'s Tunic">
+  <for>
+    <add val='69' order='0x10' stat='pDef'/>
+    <add val='284' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9063' name="Shadow Item: Demon\'s Stockings">
+  <for>
+    <add val='43' order='0x10' stat='pDef'/>
+    <add val='177' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9064' name="Shadow Item: Demon\'s Boots">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9065' name="Shadow Item: Demon\'s Gloves">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9066' name="Shadow Item: Shining Circlet">
+  <for>
+    <add val='54' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9067' name="Shadow Item: Zubei\'s Breastplate">
+  <for>
+    <add val='157' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9068' name="Shadow Item: Zubei\'s Gaiters">
+  <for>
+    <add val='98' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9069' name="Shadow Item: Zubei\'s Helmet">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9071' name="Shadow Item: Zubei\'s Gauntlet">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9072' name="Shadow Item: Zubei\'s Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9073' name="Shadow Item: Zubei\'s Leather Shirt">
+  <for>
+    <add val='117' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9074' name="Shadow Item: Zubei\'s Leather Gaiters">
+  <for>
+    <add val='73' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9075' name="Shadow Item: Zubei\'s Gauntlet">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9076' name="Shadow Item: Zubei\'s Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9077' name="Shadow Item: Tunic of Zubei">
+  <for>
+    <add val='78' order='0x10' stat='pDef'/>
+    <add val='345' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9078' name="Shadow Item: Stockings of Zubei">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+    <add val='216' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9079' name="Shadow Item: Zubei\'s Gauntlet">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9080' name="Shadow Item: Zubei\'s Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9081' name="Shadow Item: Dark Crystal Breastplate">
+  <for>
+    <add val='171' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9082' name="Shadow Item: Dark Crystal Gaiters">
+  <for>
+    <add val='107' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9083' name="Shadow Item: Dark Crystal Helmet">
+  <for>
+    <add val='69' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9085' name="Shadow Item: Dark Crystal Gloves">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9086' name="Shadow Item: Dark Crystal Boots">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9087' name="Shadow Item: Dark Crystal Leather Armor">
+  <for>
+    <add val='128' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9088' name="Shadow Item: Dark Crystal Leggings">
+  <for>
+    <add val='80' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9089' name="Shadow Item: Dark Crystal Gloves">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9090' name="Shadow Item: Dark Crystal Boots">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9091' name="Shadow Item: Dark Crystal Robe">
+  <for>
+    <add val='139' order='0x10' stat='pDef'/>
+    <add val='665' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='9092' name="Shadow Item: Dark Crystal Gloves">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9093' name="Shadow Item: Dark Crystal Boots">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9094' name="Shadow Item: Majestic Plate Armor">
+  <for>
+    <add val='293' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9095' name="Shadow Item: Magestic Circlet">
+  <for>
+    <add val='73' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9096' name="Shadow Item: Magestic Gauntlet">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9097' name="Shadow Item: Magestic Boots">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9098' name="Shadow Item: Majestic Leather Armor">
+  <for>
+    <add val='220' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='9099' name="Shadow Item: Magestic Gauntlet">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

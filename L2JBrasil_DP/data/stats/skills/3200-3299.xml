@@ -1,0 +1,737 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3200" levels="3" name="Item Skill: Spell Refresh">
+  <table name="#mpConsume">43 49 55</table>
+  <table name="#mpConsume_Init">11 13 14</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="600000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="60" val="0">
+      <mul order="0x30" stat="mReuse" val="0.85"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3201" levels="3" name="Item Skill: Music Refresh">
+  <table name="#mpConsume">43 49 55</table>
+  <table name="#mpConsume_Init">11 13 14</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="600000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="120" val="0">
+      <mul order="0x30" stat="pReuse" val="0.85"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3202" levels="3" name="Item Skill: Refresh">
+  <table name="#mpConsume">43 49 55</table>
+  <table name="#mpConsume_Init">11 13 14</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="600000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="60" val="0">
+      <mul order="0x30" stat="mReuse" val="0.85"/>
+	  <mul order="0x30" stat="pReuse" val="0.85"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3203" levels="1" name="Item Skill: Mystery Skill">
+  <set name="mpConsume" val="10"/>
+  <set name="reuseDelay" val="1800000"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="target" val="TARGET_SELF"/>
+  <for>
+    <effect count="1" name="BigHead" time="300" val="0" abnormal="bighead" stackOrder="300" stackType="big_head"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3204" levels="3" name="Item Skill: Reflect Damage">
+  <table name="#mpConsume_Init">4 5 5</table>
+  <table name="#mpConsume">14 17 19</table>
+  <table name="#power">10 15 20</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="300" val="0" stackOrder="#power" stackType="DmgShield">
+      <add order="0x40" stat="reflectDam" val="#power"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3205" levels="2" name="Item Skill: Party Recall">
+  <table name="#mpConsume_Init">52 61</table>
+  <table name="#mpConsume">171 244</table>
+  <table name="#hitTime">20000 3500</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_PARTY"/>
+  <set name="skillRadius" val="1000"/>
+  <set name="reuseDelay" val="3600000"/>
+  <set name="hitTime" val="#hitTime"/>
+  <set name="skillType" val="RECALL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3206" levels="10" name="Item Skill: Music">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="reuseDelay" val="12000"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3207" levels="10" name="Item Skill: Heal">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5146"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_HIT"/>
+  <set name="activationChance" val="2"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3208" levels="10" name="Item Skill: Blessed Body">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5147"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_HIT"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3209" levels="10" name="Item Skill: Prayer">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5148"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_MAGIC_GOOD"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3210" levels="10" name="Item Skill: Recharge">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5149"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_CAST"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3211" levels="10" name="Item Skill: Blessed Soul">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5150"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3212" levels="10" name="Item Skill: Mana Gain">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5151"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3213" levels="10" name="Item Skill: Ritual">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5152"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3214" levels="10" name="Item Skill: Cheer">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5153"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3215" levels="10" name="Item Skill: Might">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5154"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3216" levels="10" name="Item Skill: Empower">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5156"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3217" levels="10" name="Item Skill: Duel Might">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5157"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3218" levels="10" name="Item Skill: Shield">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5158"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3219" levels="10" name="Item Skill: Magic Barrier">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5159"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3220" levels="10" name="Item Skill: Duel Weakness">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5160"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3221" levels="10" name="Item Skill: Agility">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5161"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3222" levels="10" name="Item Skill: Guidance">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5162"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3223" levels="10" name="Item Skill: Focus">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5163"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3224" levels="10" name="Item Skill: Wild Magic">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5164"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3225" levels="10" name="Item Skill: Charm">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5165"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3226" levels="10" name="Item Skill: Slow">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5166"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3227" levels="10" name="Item Skill: Winter">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5167"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3228" levels="10" name="Item Skill: Stun">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5168"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3229" levels="10" name="Item Skill: Hold">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5169"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3230" levels="10" name="Item Skill: Sleep">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5170"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3231" levels="10" name="Item Skill: Paralyze">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5171"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3232" levels="10" name="Item Skill: Medusa">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5172"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3233" levels="10" name="Item Skill: Fear">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5173"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="FEAR"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3234" levels="10" name="Item Skill: Poison">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5174"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3235" levels="10" name="Item Skill: Bleed">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5175"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3236" levels="10" name="Item Skill: Silence">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5176"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3237" levels="10" name="Item Skill: Doom">
+  <table name="#triggeredLevel">1 2 3 4 5 6 7 8 9 10</table>
+  <set name="triggeredId" val="5177"/>
+  <set name="triggeredLevel" val="#triggeredLevel"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="chanceType" val="ON_ATTACKED"/>
+  <set name="activationChance" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3238" levels="10" name="Item Skill: Prayer">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="gainHp" val="1.01"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3239" levels="10" name="Item Skill: Mana Gain">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="gainMp" val="1.01"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3240" levels="10" name="Item Skill: Might">
+  <table name="#val"> 10.26 11.22 11.94 12.94 13.55 14.44 14.85 15.92 16.68 17.84</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="pAtk" val="#val"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3241" levels="10" name="Item Skill: Empower">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="mAtk" val="55"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3243" levels="10" name="Item Skill: Duel Might">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="pvpPhysDmg" val="1.05"/>
+	<mul order="0x30" stat="pvpPhysSkillsDmg" val="1.05"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3244" levels="10" name="Item Skill: Shield">
+  <table name="#val">12.78 13.73 14.14 15.13 16.46 17.43 17.69 18.63 19.77 20.3</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="pDef" val="#val"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3245" levels="10" name="Item Skill: Magic Barrier">
+  <table name="#val">10.8 11.62 11.96 12.66 13.01 13.08 14 14.99 15.88 16.32</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="mDef" val="#val"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3246" levels="10" name="Item Skill: Heal Empower">>
+  <table name="#val">10 11 12 13 14 16 17 18 19 20</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="gainHp" val="#val"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3247" levels="10" name="Item Skill: Agility">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="rEvas" val="2"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3248" levels="10" name="Item Skill: Guidance">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="accCombat" val="2"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3249" levels="10" name="Item Skill: Focus">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <basemul order="0x30" stat="rCrit" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3250" levels="10" name="Item Skill: Wild Magic">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <basemul order="0x30" stat="mCritRate" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3251" levels="10" name="Item Skill: Weight Limit">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="maxLoad" val="2"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3252" levels="10" name="Item Skill: Kiss of Eva">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="breath" val="6"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3253" levels="10" name="Item Skill: Acrobatics">
+  <set name="magicLvl" val="75"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <sub order="0x30" stat="fall" val="100"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3254" levels="10" name="Item Skill: Iron Body">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <sub order="0x30" stat="fall" val="40"/>
+  </for>
+</skill>
+<skill id="3255" levels="3" name="Item Skill: Skill Clarity">
+  <table name="#Atk">0.96 0.93 0.9</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="PhysicalMpConsumeRate" val="#Atk"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3256" levels="3" name="Item Skill: Spell Clarity">
+  <table name="#Atk">0.9 0.85 0.8</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="MagicalMpConsumeRate" val="#Atk"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3257" levels="3" name="Item Skill: Music Clarity">
+  <table name="#Atk">0.96 0.93 0.9</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="DanceMpConsumeRate" val="#Atk"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3258" levels="3" name="Item Skill: Clarity">
+  <table name="#Atk">0.9 0.85 0.8</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="PhysicalMpConsumeRate" val="#Atk"/>
+	<mul order="0x30" stat="MagicalMpConsumeRate" val="#Atk"/>
+	<mul order="0x30" stat="DanceMpConsumeRate" val="0.9"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3259" levels="3" name="Item Skill: Reflect Damage">
+  <table name="#Atk">10 15 20</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x30" stat="reflectDam" val="#Atk"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3260" levels="1" name="Heart Shot"> 
+  <set name="weaponsAllowed" val="32"/> 
+  <set name="coolTime" val="800"/>
+  <set name="hitTime" val="2500"/> 
+  <set name="mpConsume" val="1"/> 
+  <set name="power" val="100"/> 
+  <set name="reuseDelay" val="3000"/> 
+  <set name="target" val="TARGET_COUPLE"/> 
+  <set name="skillType" val="PDAM"/> 
+  <set name="operateType" val="OP_ACTIVE"/> 
+  <set name="castRange" val="500"/> 
+  <Set name="effectRange" val="700"/>
+</skill>
+<skill id="3261" levels="1" name="Heart Shot"> 
+  <set name="weaponsAllowed" val="32"/> 
+  <set name="aggroPoints" val="1"/>
+  <set name="coolTime" val="800"/> 
+  <set name="hitTime" val="2500"/> 
+  <set name="mpConsume" val="1"/> 
+  <set name="reuseDelay" val="3000"/> 
+  <set name="target" val="TARGET_COUPLE"/> 
+  <set name="skillType" val="MANARECHARGE"/> 
+  <set name="operateType" val="OP_ACTIVE"/> 
+  <set name="castRange" val="500"/>
+  <set name="effectRange" val="700"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3262" levels="1" name="Double Heart Shot"> 
+  <set name="weaponsAllowed" val="32"/> 
+  <set name="coolTime" val="800"/>
+  <set name="hitTime" val="3200"/> 
+  <set name="mpConsume" val="1"/> 
+  <set name="power" val="200"/> 
+  <set name="reuseDelay" val="200"/> 
+  <set name="reuseDelay" val="40000"/> 
+  <set name="target" val="TARGET_COUPLE"/> 
+  <set name="skillType" val="HEAL"/> 
+  <set name="operateType" val="OP_ACTIVE"/> 
+  <set name="castRange" val="500"/> 
+  <set name="effectRange" val="700"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3263" levels="1" name="Blessed Resurrection">
+  <set name="target" val="TARGET_CORPSE_PLAYER"/>
+  <set name="hitTime" val="3000"/>
+  <set name="reuseDelay" val="1800000"/>
+  <set name="skillType" val="RESURRECT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <Set name="power" val="100"/>
+  <set name="mpConsume" val="65"/>
+  <set name="mpInitialConsume" val="17"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3264" levels="1" name="Blessed Escape">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="mpInitialConsume" val="31"/>
+  <set name="mpConsume" val="122"/>
+  <Set name="reuseDelay" val="1800000"/>
+  <set name="hitTime" val="200"/>
+  <set name="skillType" val="RECALL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3265" levels="1" name="Mysterious Ability">
+  <set name="magicLvl" val="1"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="reuseDelay" val="1800000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <for>
+    <effect count="1" name="BigHead" time="300" val="0" abnormal="bighead" stackOrder="300" stackType="big_head"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="3266" levels="1" name="Large Fireworks Ability">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="mpInitialConsume" val="5"/>
+  <set name="mpConsume" val="19"/>
+  <set name="reuseDelay" val="300000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="HOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+</list>

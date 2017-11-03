@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 336: Coins of Magic, Rewards level 1 -->
+    <list>
+        <!-- Demon's Staff -->
+        <item id="1">
+            <production id="206" count="1"/>
+            <ingredient id="3478" count="1"/>
+            <ingredient id="3493" count="1"/>
+            <ingredient id="3486" count="13"/>
+        </item>
+        <item id="2">
+        <!-- Dark Screamer -->
+            <production id="233" count="1"/>
+            <ingredient id="3487" count="1"/>
+            <ingredient id="3477" count="1"/>
+            <ingredient id="3492" count="1"/>
+            <ingredient id="3484" count="1"/>
+        </item>
+        <item id="3">
+        <!-- Widow Maker -->
+            <production id="303" count="1"/>
+            <ingredient id="3496" count="1"/>
+            <ingredient id="3481" count="1"/>
+            <ingredient id="3476" count="1"/>
+            <ingredient id="3474" count="2"/>
+        </item>
+        <item id="4">
+        <!-- Sword of Limit -->
+            <production id="132" count="1"/>
+            <ingredient id="3481" count="1"/>
+            <ingredient id="3493" count="1"/>
+            <ingredient id="3477" count="1"/>
+            <ingredient id="3495" count="1"/>
+        </item>
+    </list>

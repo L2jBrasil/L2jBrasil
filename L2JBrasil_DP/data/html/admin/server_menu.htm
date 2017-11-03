@@ -1,0 +1,62 @@
+<html><title>L2JBrasil Server Management</title><body><br>
+<center>
+<table width=260>
+<tr>
+<td><button value="Main" action="bypass -h admin_admin" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Game" action="bypass -h admin_admin2" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Effects" action="bypass -h admin_admin3" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Server" action="bypass -h admin_admin4" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Mods" action="bypass -h admin_admin5" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr>
+</table><br>
+<table width=240><tr>
+<td>QuickBox:</td><td><edit var="menu_command" width=120 height=15></td>
+<td><button value="Help" action="bypass -h admin_help help/server_menu.htm" width=45 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table><br>
+<table width=260><tr>
+<td><button value="Reload" action="bypass -h admin_reload $menu_command" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Reload HTM" action="bypass -h admin_cache_htm_rebuild" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Reload File" action="bypass -h admin_cache_reload_file $menu_command" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Skill Test" action="bypass -h admin_skill_test $menu_command" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr><tr>
+<td><button value="Reload CW" action="bypass -h admin_cw_reload" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Reload Zone" action="bypass -h admin_zone_reload" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Reload Crest" action="bypass -h admin_cache_crest_rebuild" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Crest Fix" action="bypass -h admin_cache_crest_fix" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr><tr>
+<td><button value="Reload Tele" action="bypass -h admin_teleport_reload" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Open All" action="bypass -h admin_openall" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Close All" action="bypass -h admin_closeall" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Zone Check" action="bypass -h admin_zone_check" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr>
+</table>
+<br><br>
+Geodata:
+<table width=240><tr>
+<td><button value="Z" action="bypass -h admin_geo_z" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Type" action="bypass -h admin_geo_type" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="NSWE" action="bypass -h admin_geo_nswe" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="LoS" action="bypass -h admin_geo_los" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Pos" action="bypass -h admin_geo_position" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr>
+</table>
+Development:
+<table width=240><tr>
+<td><button value="Fight Calc" action="bypass -h admin_fight_calculator_show" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Packet Forge" action="bypass -h admin_forge" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="System Message" action="bypass -h admin_msg $menu_command" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td></td>
+</tr>
+</table>
+<br><br>
+Maintenance:
+<table width=240><tr>
+<td><button value="Stats" action="bypass -h admin_stats" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Login" action="bypass -h admin_server_login" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Shutdown" action="bypass -h admin_server_shutdown" width=80 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td></td>
+</tr></table>
+<br>
+</center>
+<center>--------------</center>
+</body></html>

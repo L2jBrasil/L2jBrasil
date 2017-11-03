@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="9001" levels="99" name="INT">
+  <table name="#lvl">
+     1  2  3  4  5  6  7  8  9 10
+    11 12 13 14 15 16 17 18 19 20
+    21 22 23 24 25 26 27 28 29 30
+    31 32 33 34 35 36 37 38 39 40
+    41 42 43 44 45 46 47 48 49 50
+    51 52 53 54 55 56 57 58 59 60
+    61 62 63 64 65 66 67 68 69 70
+    71 72 73 74 75 76 77 78 79 80
+    81 82 83 84 85 86 87 88 89 90
+    91 92 93 94 95 96 97 98 99
+  </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="LUCK"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <!-- cannot be learned, given -->
+  <set name="canLearn" val=""/>
+  <for>
+    <add val="#lvl" order="0x10" stat="INT"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="9002" levels="99" name="WIT">
+  <table name="#lvl">
+     1  2  3  4  5  6  7  8  9 10
+    11 12 13 14 15 16 17 18 19 20
+    21 22 23 24 25 26 27 28 29 30
+    31 32 33 34 35 36 37 38 39 40
+    41 42 43 44 45 46 47 48 49 50
+    51 52 53 54 55 56 57 58 59 60
+    61 62 63 64 65 66 67 68 69 70
+    71 72 73 74 75 76 77 78 79 80
+    81 82 83 84 85 86 87 88 89 90
+    91 92 93 94 95 96 97 98 99
+  </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="LUCK"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <!-- cannot be learned, given -->
+  <set name="canLearn" val=""/>
+  <for>
+    <add val="#lvl" order="0x10" stat="WIT"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="9003" levels="99" name="MEN">
+  <table name="#lvl">
+     1  2  3  4  5  6  7  8  9 10
+    11 12 13 14 15 16 17 18 19 20
+    21 22 23 24 25 26 27 28 29 30
+    31 32 33 34 35 36 37 38 39 40
+    41 42 43 44 45 46 47 48 49 50
+    51 52 53 54 55 56 57 58 59 60
+    61 62 63 64 65 66 67 68 69 70
+    71 72 73 74 75 76 77 78 79 80
+    81 82 83 84 85 86 87 88 89 90
+    91 92 93 94 95 96 97 98 99
+  </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="LUCK"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <!-- cannot be learned, given -->
+  <set name="canLearn" val=""/>
+  <for>
+    <add val="#lvl" order="0x10" stat="MEN"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="9004" levels="99" name="CON">
+  <table name="#lvl">
+     1  2  3  4  5  6  7  8  9 10
+    11 12 13 14 15 16 17 18 19 20
+    21 22 23 24 25 26 27 28 29 30
+    31 32 33 34 35 36 37 38 39 40
+    41 42 43 44 45 46 47 48 49 50
+    51 52 53 54 55 56 57 58 59 60
+    61 62 63 64 65 66 67 68 69 70
+    71 72 73 74 75 76 77 78 79 80
+    81 82 83 84 85 86 87 88 89 90
+    91 92 93 94 95 96 97 98 99
+  </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="LUCK"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <!-- cannot be learned, given -->
+  <set name="canLearn" val=""/>
+  <for>
+    <add val="#lvl" order="0x10" stat="CON"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="9005" levels="99" name="DEX">
+  <table name="#lvl">
+     1  2  3  4  5  6  7  8  9 10
+    11 12 13 14 15 16 17 18 19 20
+    21 22 23 24 25 26 27 28 29 30
+    31 32 33 34 35 36 37 38 39 40
+    41 42 43 44 45 46 47 48 49 50
+    51 52 53 54 55 56 57 58 59 60
+    61 62 63 64 65 66 67 68 69 70
+    71 72 73 74 75 76 77 78 79 80
+    81 82 83 84 85 86 87 88 89 90
+    91 92 93 94 95 96 97 98 99
+  </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="LUCK"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <!-- cannot be learned, given -->
+  <set name="canLearn" val=""/>
+  <for>
+    <add val="#lvl" order="0x10" stat="DEX"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="9006" levels="99" name="STR">
+  <table name="#lvl">
+     1  2  3  4  5  6  7  8  9 10
+    11 12 13 14 15 16 17 18 19 20
+    21 22 23 24 25 26 27 28 29 30
+    31 32 33 34 35 36 37 38 39 40
+    41 42 43 44 45 46 47 48 49 50
+    51 52 53 54 55 56 57 58 59 60
+    61 62 63 64 65 66 67 68 69 70
+    71 72 73 74 75 76 77 78 79 80
+    81 82 83 84 85 86 87 88 89 90
+    91 92 93 94 95 96 97 98 99
+  </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="LUCK"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <!-- cannot be learned, given -->
+  <set name="canLearn" val=""/>
+  <for>
+    <add val="#lvl" order="0x10" stat="STR"/>
+  </for>
+</skill>
+</list>

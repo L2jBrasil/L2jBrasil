@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='5217' name="wolf_level_75_weapon">
+  <for>
+    <add val='194' order='0x10' stat='pAtk'/>
+    <add val='136' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='5233' name="keshanberk*keshanberk">
+  <for>
+    <set val='259' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+    <mul val='1.08' order='0x30' stat='pAtkSpd'>
+      <and>
+  	    <using slotitem="5233;14;4"/>
+  	  </and>
+  	</mul>
+  	<!-- Enhances damage to target during PvP -->
+    <mul val='1.05' order='0x30' stat='pvpPhysDmg'/>
+    <mul val='1.05' order='0x30' stat='pvpMagicalDmg'/>
+  </for>
+</item>
+<item id='5284' name="zweihander">
+  <for>
+    <set val='38' order='0x08' stat='pAtk'/>
+    <set val='21' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='5285' name="heavy_sword">
+  <for>
+    <set val='49' order='0x08' stat='pAtk'/>
+    <set val='26' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='5286' name="berserker_blade">
+  <for>
+    <set val='190' order='0x08' stat='pAtk'/>
+    <set val='83' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='5292' name="sealed_dark_crystal_shield">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='243' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+    <enchant val='0' order='0x0C' stat='sDef'/>
+  </for>
+</item>
+</list>

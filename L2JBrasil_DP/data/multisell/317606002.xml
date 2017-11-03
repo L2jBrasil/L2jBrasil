@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Newbie return weapon -->
+<list>
+	<!-- [Apprentice Adventurer's Staff] -->
+	<item id="1">
+		<production id="7832" count="1" />
+		<ingredient id="7816" count="1" />
+	</item>
+	<!-- [Apprentice Adventurer's Bone Club] -->
+	<item id="2">
+		<production id="7832" count="1" />
+		<ingredient id="7817" count="1" />
+	</item>
+	<!-- [Apprentice Adventurer's Knife] -->
+	<item id="3">
+		<production id="7832" count="1" />
+		<ingredient id="7818" count="1" />
+	</item>
+	<!-- [Apprentice Adventurer's Cestus] -->
+	<item id="4">
+		<production id="7832" count="1" />
+		<ingredient id="7819" count="1" />
+	</item>
+	<!-- [Apprentice Adventurer's Bow] -->
+	<item id="5">
+		<production id="7832" count="1" />
+		<ingredient id="7820" count="1" />
+	</item>
+	<!-- [Apprentice Adventurer's Long Sword] -->
+	<item id="6">
+		<production id="7832" count="1" />
+		<ingredient id="7821" count="1" />
+	</item>
+</list>

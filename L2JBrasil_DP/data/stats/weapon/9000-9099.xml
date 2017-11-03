@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='9000' name="Shadow Item: Stormbringer*Stormbringer">
+  <for>
+    <set val='175' order='0x08' stat='pAtk'/>
+    <set val='78' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9001' name="Shadow Item: Great Sword">
+  <for>
+    <set val='213' order='0x08' stat='pAtk'/>
+    <set val='91' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9002' name="Shadow Item: Heavy War Axe">
+  <for>
+    <set val='175' order='0x08' stat='pAtk'/>
+    <set val='91' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9003' name="Shadow Item: Sprite\'s Staff">
+  <for>
+    <set val='170' order='0x08' stat='pAtk'/>
+    <set val='122' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9004' name="Shadow Item: Keshanberk">
+  <for>
+    <set val='175' order='0x08' stat='pAtk'/>
+    <set val='91' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9005' name="Shadow Item: Sword of Valhalla">
+  <for>
+    <set val='140' order='0x08' stat='pAtk'/>
+    <set val='122' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9006' name="Shadow Item: Kris">
+  <for>
+    <set val='153' order='0x08' stat='pAtk'/>
+    <set val='91' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='433' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9007' name="Shadow Item: Arthro Nail">
+  <for>
+    <set val='213' order='0x08' stat='pAtk'/>
+    <set val='91' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9008' name="Shadow Item: Dark Elven Long Bow">
+  <for>
+    <set val='397' order='0x08' stat='pAtk'/>
+    <set val='100' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='227' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9009' name="Shadow Item: Sword of Delusion*Sword of Delusion">
+  <for>
+    <set val='213' order='0x08' stat='pAtk'/>
+    <set val='91' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9010' name="Shadow Item: Great Axe">
+  <for>
+    <set val='175' order='0x08' stat='pAtk'/>
+    <set val='91' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+  </for>
+</item>
+<item id='9011' name="Shadow Item: Tallum Blade">
+  <for>
+    <set val='213' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9012' name="Shadow Item: Halberd">
+  <for>
+    <set val='213' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9013' name="Shadow Item: Dasparion\'s Staff">
+  <for>
+    <set val='207' order='0x08' stat='pAtk'/>
+    <set val='143' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9014' name="Shadow Item: Bloody Orchid">
+  <for>
+    <set val='186' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='433' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9015' name="Shadow Item: Blood Tornado">
+  <for>
+    <set val='259' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9016' name="Shadow Item: Carnage Bow">
+  <for>
+    <set val='440' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='293' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9017' name="Shadow Item: Keshanberk*Keshanberk">
+  <for>
+    <set val='259' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9018' name="Shadow Item: Meteor Shower">
+  <for>
+    <set val='213' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9019' name="Shadow Item: Inferno Master">
+  <for>
+    <set val='259' order='0x08' stat='pAtk'/>
+    <set val='107' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9020' name="Shadow Item: Keshanberk*Damascus">
+  <for>
+    <set val='275' order='0x08' stat='pAtk'/>
+    <set val='112' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9021' name="Shadow Item: Dragon Slayer">
+  <for>
+    <set val='282' order='0x08' stat='pAtk'/>
+    <set val='114' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9022' name="Shadow Item: Sword of Miracles">
+  <for>
+    <set val='186' order='0x08' stat='pAtk'/>
+    <set val='152' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9023' name="Shadow Item: Elysian">
+  <for>
+    <set val='232' order='0x08' stat='pAtk'/>
+    <set val='114' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9024' name="Shadow Item: Branch of the Mother Tree">
+  <for>
+    <set val='226' order='0x08' stat='pAtk'/>
+    <set val='152' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9025' name="Shadow Item: Soul Separator">
+  <for>
+    <set val='203' order='0x08' stat='pAtk'/>
+    <set val='114' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='433' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9026' name="Shadow Item: Dragon Grinder">
+  <for>
+    <set val='282' order='0x08' stat='pAtk'/>
+    <set val='114' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9027' name="Shadow Item: Soul Bow">
+  <for>
+    <set val='528' order='0x08' stat='pAtk'/>
+    <set val='125' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='227' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9028' name="Shadow Item: Tallum Glaive">
+  <for>
+    <set val='232' order='0x08' stat='pAtk'/>
+    <set val='114' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+  </for>
+</item>
+<item id='9029' name="Shadow Item: Dark Legion">
+  <for>
+    <set val='232' order='0x08' stat='pAtk'/>
+    <set val='114' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='9036' name="Shadow Item: Bone Shield">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='90' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+  </for>
+</item>
+<item id='9044' name="Shadow Item: Hoplon">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='128' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+  </for>
+</item>
+<item id='9056' name="Shadow Item: Composite Shield">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='190' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+  </for>
+</item>
+<item id='9070' name="Shadow Item: Zubei\'s Shield">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='216' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+  </for>
+</item>
+<item id='9084' name="Shadow Item: Dark Crystal Shield">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='243' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+  </for>
+</item>
+</list>

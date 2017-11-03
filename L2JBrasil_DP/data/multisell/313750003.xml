@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Ketra lv3 multisell -->
+<list maintainEnchantment="true">
+	<!-- Brown Pouch -->
+	<item id="1">
+		<ingredient id="7186" count="55" enchant="0"/>
+		<production id="7634" count="1" enchant="0"/>
+	</item>
+	<!-- Scroll of Escape - Ketra -->
+	<item id="2">
+		<ingredient id="7186" count="80" enchant="0"/>
+		<production id="7618" count="1" enchant="0"/>
+	</item>
+	<!-- Gray Pouch -->
+	<item id="3">
+		<ingredient id="7186" count="55" enchant="0"/>
+		<production id="7635" count="1" enchant="0"/>
+	</item>
+	<!-- White Cargo Box -->
+	<item id="4">
+		<ingredient id="7186" count="150" enchant="0"/>
+		<production id="7629" count="1" enchant="0"/>
+	</item>
+	<!-- Blue Cargo Box -->
+	<item id="5">
+		<ingredient id="7186" count="60" enchant="0"/>
+		<production id="7630" count="1" enchant="0"/>
+	</item>
+	<!-- Yellow Cargo Box -->
+	<item id="6">
+		<ingredient id="7186" count="60" enchant="0"/>
+		<production id="7631" count="1" enchant="0"/>
+	</item>
+	<!-- Red Cargo Box -->
+	<item id="7">
+		<ingredient id="7186" count="150" enchant="0"/>
+		<production id="7632" count="1" enchant="0"/>
+	</item>
+	<!-- Purple Cargo Box -->
+	<item id="8">
+		<ingredient id="7186" count="500" enchant="0"/>
+		<production id="7633" count="1" enchant="0"/>
+	</item>
+</list>

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 373: Supplier of Reagents - Wesley -->
+<list maintainEnchantment="true">
+	<item id="1">
+		<production id="4042" count="1"/>
+		<ingredient id="6022" count="2"/>
+	</item>
+	<item id="2">
+		<production id="4043" count="1"/>
+		<ingredient id="6021" count="6"/>
+	</item>
+	<item id="3">
+		<production id="4044" count="1"/>
+		<ingredient id="6024" count="4"/>
+	</item>
+	<item id="4">
+		<production id="2508" count="100"/>
+		<ingredient id="6026" count="4"/>
+	</item>
+	<item id="5">
+		<production id="735" count="10"/>
+		<ingredient id="6025" count="7"/>
+	</item>
+	<item id="6">
+		<production id="737" count="10"/>
+		<ingredient id="6023" count="8"/>
+	</item>
+	<item id="7">
+		<production id="4953" count="1"/>
+		<ingredient id="6027" count="1"/>
+	</item>
+	<item id="8">
+		<production id="4960" count="1"/>
+		<ingredient id="6027" count="1"/>
+	</item>
+	<item id="9">
+		<production id="4959" count="1"/>
+		<ingredient id="6030" count="1"/>
+	</item>
+	<item id="10">
+		<production id="4958" count="1"/>
+		<ingredient id="6030" count="1"/>
+	</item>
+	<item id="11">
+		<production id="4998" count="1"/>
+		<ingredient id="6030" count="1"/>
+	</item>
+	<item id="12">
+		<production id="4992" count="1"/>
+		<ingredient id="6030" count="1"/>
+	</item>
+	<item id="13">
+		<production id="4993" count="1"/>
+		<ingredient id="6030" count="1"/>
+	</item>
+	<item id="14">
+		<production id="4999" count="1"/>
+		<ingredient id="6030" count="1"/>
+	</item>
+	<item id="15">
+		<production id="5524" count="1"/>
+		<ingredient id="6029" count="1"/>
+	</item>
+	<item id="16">
+		<production id="5478" count="1"/>
+		<ingredient id="6029" count="1"/>
+	</item>
+	<item id="17">
+		<production id="5520" count="1"/>
+		<ingredient id="6031" count="1"/>
+	</item>
+	<item id="18">
+		<production id="5479" count="1"/>
+		<ingredient id="6031" count="1"/>
+	</item>
+	<item id="19">
+		<production id="5521" count="1"/>
+		<ingredient id="6032" count="1"/>
+	</item>
+	<item id="20">
+		<production id="5480" count="1"/>
+		<ingredient id="6032" count="1"/>
+	</item>
+	<item id="21">
+		<production id="5481" count="1"/>
+		<ingredient id="6032" count="1"/>
+	</item>
+	<item id="22">
+		<production id="5522" count="1"/>
+		<ingredient id="6028" count="1"/>
+	</item>
+	<item id="23">
+		<production id="5523" count="1"/>
+		<ingredient id="6028" count="1"/>
+	</item>
+	<item id="24">
+		<production id="103" count="1"/>
+		<ingredient id="6031" count="8"/>
+	</item>
+	<item id="25">
+		<production id="2437" count="1"/>
+		<ingredient id="6032" count="8"/>
+	</item>
+	<item id="26">
+		<production id="630" count="1"/>
+		<ingredient id="6029" count="5"/>
+	</item>
+	<item id="27">
+		<production id="612" count="1"/>
+		<ingredient id="6033" count="1"/>
+	</item>
+	<item id="28">
+		<production id="2464" count="1"/>
+		<ingredient id="6033" count="1"/>
+	</item>
+	<item id="29">
+		<production id="554" count="1"/>
+		<ingredient id="6033" count="1"/>
+	</item>
+	<item id="30">
+		<production id="600" count="1"/>
+		<ingredient id="6033" count="1"/>
+	</item>
+	<item id="31">
+		<production id="2439" count="1"/>
+		<ingredient id="6034" count="4"/>
+	</item>
+	<item id="32">
+		<production id="601" count="1"/>
+		<ingredient id="6034" count="4"/>
+	</item>
+	<item id="33">
+		<production id="2487" count="1"/>
+		<ingredient id="6034" count="4"/>
+	</item>
+	<item id="34">
+		<production id="2475" count="1"/>
+		<ingredient id="6034" count="4"/>
+	</item>
+	<item id="35">
+		<production id="7562" count="1"/>
+		<ingredient id="6024" count="5"/>
+	</item>
+</list>

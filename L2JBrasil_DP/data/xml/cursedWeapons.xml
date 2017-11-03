@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<item id="8190" skillId="3603" name="Demonic Sword Zariche">
+		<dropRate val="10" /> <!-- 100000 for 100% -->
+		<duration val="1440" /> <!-- in minutes -->
+		<durationLost val="3" /> <!-- in minutes -->
+		<disapearChance val="50" /> <!-- in % -->
+		<stageKills val="10" /> <!-- Integer -->
+	</item>
+	<item id="8689" skillId="3629" name="Blood Sword Akamanah">
+		<dropRate val="10" /> <!-- 100000 for 100% -->
+		<duration val="1440" /> <!-- in minutes -->
+		<durationLost val="3" /> <!-- in minutes -->
+		<disapearChance val="50" /> <!-- in % -->
+		<stageKills val="10" /> <!-- Integer -->
+	</item>
+</list>

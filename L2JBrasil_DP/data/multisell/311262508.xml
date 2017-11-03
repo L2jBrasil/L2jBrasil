@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Seven Signs - Blacksmith of Mammon - Reseal A-grade Armor -->
+<list maintainEnchantment="true">
+	<!-- Reseal Dark Crystal Gloves Heavy -->
+	<item id="1">
+		<ingredient id="5765" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5290" count="1"/>
+	</item>
+	<!-- Reseal Dark Crystal Gloves Light -->
+	<item id="2">
+		<ingredient id="5766" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5290" count="1"/>
+	</item>
+	<!-- Reseal Dark Crystal Gloves Robe -->
+	<item id="3">
+		<ingredient id="5767" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5290" count="1"/>
+	</item>
+	<!-- Reseal Dark Crystal Boots Heavy -->
+	<item id="4">
+		<ingredient id="5777" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5291" count="1"/>
+	</item>
+	<!-- Reseal Dark Crystal Boots Light -->
+	<item id="5">
+		<ingredient id="5778" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5291" count="1"/>
+	</item>
+	<!-- Reseal Dark Crystal Boots Robe -->
+	<item id="6">
+		<ingredient id="5779" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5291" count="1"/>
+	</item>
+	<!-- Reseal Tallum Gloves Heavy -->
+	<item id="7">
+		<ingredient id="5768" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5295" count="1"/>
+	</item>
+	<!-- Reseal Tallum Gloves Light -->
+	<item id="8">
+		<ingredient id="5769" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5295" count="1"/>
+	</item>
+	<!-- Reseal Tallum Gloves Robe -->
+	<item id="9">
+		<ingredient id="5770" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5295" count="1"/>
+	</item>
+	<!-- Reseal Tallum Boots Heavy -->
+	<item id="10">
+		<ingredient id="5780" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5296" count="1"/>
+	</item>
+	<!-- Reseal Tallum Boots Light -->
+	<item id="11">
+		<ingredient id="5781" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5296" count="1"/>
+	</item>
+	<!-- Reseal Tallum Boots Robe -->
+	<item id="12">
+		<ingredient id="5782" count="1"/>
+		<ingredient id="5575" count="4350"/>
+		<production id="5296" count="1"/>
+	</item>
+	<!-- Reseal Nightmare Gloves Heavy -->
+	<item id="13">
+		<ingredient id="5771" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5313" count="1"/>
+	</item>
+	<!-- Reseal Nightmare Gloves Light -->
+	<item id="14">
+		<ingredient id="5772" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5313" count="1"/>
+	</item>
+	<!-- Reseal Nightmare Gloves Robe -->
+	<item id="15">
+		<ingredient id="5773" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5313" count="1"/>
+	</item>
+	<!-- Reseal Nightmare Boots Heavy -->
+	<item id="16">
+		<ingredient id="5783" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5314" count="1"/>
+	</item>
+	<!-- Reseal Nightmare Boots Light -->
+	<item id="17">
+		<ingredient id="5784" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5314" count="1"/>
+	</item>
+	<!-- Reseal Nightmare Boots Robe -->
+	<item id="18">
+		<ingredient id="5785" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5314" count="1"/>
+	</item>
+	<!-- Reseal Majestic Gloves Heavy -->
+	<item id="19">
+		<ingredient id="5774" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5318" count="1"/>
+	</item>
+	<!-- Reseal Majestic Gloves Light -->
+	<item id="20">
+		<ingredient id="5775" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5318" count="1"/>
+	</item>
+	<!-- Reseal Majestic Gloves Robe -->
+	<item id="21">
+		<ingredient id="5776" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5318" count="1"/>
+	</item>
+	<!-- Reseal Majestic Boots Heavy -->
+	<item id="22">
+		<ingredient id="5786" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5319" count="1"/>
+	</item>
+	<!-- Reseal Majestic Boots Light -->
+	<item id="23">
+		<ingredient id="5787" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5319" count="1"/>
+	</item>
+	<!-- Reseal Majestic Boots Robe -->
+	<item id="24">
+		<ingredient id="5788" count="1"/>
+		<ingredient id="5575" count="6600"/>
+		<production id="5319" count="1"/>
+	</item>
+</list>

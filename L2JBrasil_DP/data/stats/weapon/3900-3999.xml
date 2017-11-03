@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='3902' name="ghost_canine">
+  <for>
+    <add val='11' order='0x10' stat='pAtk'/>
+    <add val='10' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3903' name="mithril_canine">
+  <for>
+    <add val='16' order='0x10' stat='pAtk'/>
+    <add val='14' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3904' name="sylvan_canine">
+  <for>
+    <add val='23' order='0x10' stat='pAtk'/>
+    <add val='18' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3905' name="orikarukon_canine">
+  <for>
+    <add val='31' order='0x10' stat='pAtk'/>
+    <add val='24' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3906' name="fang_of_saltydog">
+  <for>
+    <add val='40' order='0x10' stat='pAtk'/>
+    <add val='30' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3907' name="fang_of_cerberus">
+  <for>
+    <add val='49' order='0x10' stat='pAtk'/>
+    <add val='36' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3908' name="fang_of_coyote">
+  <for>
+    <add val='58' order='0x10' stat='pAtk'/>
+    <add val='42' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3909' name="crystalized_ice_canine">
+  <for>
+    <add val='69' order='0x10' stat='pAtk'/>
+    <add val='50' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3910' name="fang_of_the_blue_wolf">
+  <for>
+    <add val='80' order='0x10' stat='pAtk'/>
+    <add val='58' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3911' name="fang_of_fenril">
+  <for>
+    <add val='93' order='0x10' stat='pAtk'/>
+    <add val='66' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3919' name="serpent_fang">
+  <for>
+    <add val='8' order='0x10' stat='pAtk'/>
+    <add val='7' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3920' name="viperbite">
+  <for>
+    <add val='9' order='0x10' stat='pAtk'/>
+    <add val='10' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3921' name="shadow_fang">
+  <for>
+    <add val='10' order='0x10' stat='pAtk'/>
+    <add val='11' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3922' name="alya_fang">
+  <for>
+    <add val='12' order='0x10' stat='pAtk'/>
+    <add val='13' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3923' name="torturer">
+  <for>
+    <add val='13' order='0x10' stat='pAtk'/>
+    <add val='16' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3924' name="unuk_alhay_fang">
+  <for>
+    <add val='15' order='0x10' stat='pAtk'/>
+    <add val='18' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3925' name="antiplague">
+  <for>
+    <add val='17' order='0x10' stat='pAtk'/>
+    <add val='21' order='0x10' stat='mAtk'/>
+    <set val='80' order='0x08' stat='rCrit'/>
+    <set val='304' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='3937' name="giant_bar">
+  <for>
+    <set val='50' order='0x08' stat='pAtk'/>
+    <set val='26' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='3938' name="giant_rod">
+  <for>
+    <set val='50' order='0x08' stat='pAtk'/>
+    <set val='26' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+<item id='3939' name="ladys_fan">
+  <for>
+    <set val='50' order='0x08' stat='pAtk'/>
+    <set val='26' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+    <enchant val='0' order='0x0C' stat='pAtk'/>
+    <enchant val='0' order='0x0C' stat='mAtk'/>
+  </for>
+</item>
+</list>

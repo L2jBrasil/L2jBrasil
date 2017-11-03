@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Adventure guildsman - Use Life Crystals (Hunters Village) -->
+<list maintainEnchantment="true">
+	<!-- Orcish Glaive -->
+ 	<item id="1">
+		<ingredient id="8158" count="102"/>
+		<ingredient id="8161" count="28"/>
+		<ingredient id="8164" count="112"/>
+		<ingredient id="8167" count="56"/>
+		<production id="298" count="1"/>
+ 	</item>
+	<!-- Bec de Corbin -->
+	<item id="2">
+		<ingredient id="8158" count="128"/>
+		<ingredient id="8161" count="35"/>
+		<ingredient id="8164" count="140"/>
+		<ingredient id="8167" count="70"/>
+		<production id="94" count="1"/>
+ 	</item>
+	<!-- Widow Maker -->
+	<item id="3">
+		<ingredient id="8158" count="230"/>
+		<ingredient id="8161" count="63"/>
+		<ingredient id="8164" count="251"/>
+		<ingredient id="8167" count="126"/>
+		<production id="303" count="1"/>
+ 	</item>
+	<!-- Orcish Poleaxe -->
+	<item id="4">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="299" count="1"/>
+ 	</item>
+	<!-- Great Axe -->
+	<item id="5">
+ 		<ingredient id="8159" count="193"/>
+ 		<ingredient id="8162" count="58"/>
+ 		<ingredient id="8165" count="193"/>
+ 		<ingredient id="8168" count="135"/>
+ 		<ingredient id="8171" count="116"/>
+ 		<production id="300" count="1"/>
+ 	</item>
+	<!-- Lance -->
+	<item id="6">
+ 		<ingredient id="8159" count="309"/>
+ 		<ingredient id="8162" count="93"/>
+ 		<ingredient id="8165" count="309"/>
+ 		<ingredient id="8168" count="216"/>
+ 		<ingredient id="8171" count="186"/>
+ 		<production id="97" count="1"/>
+ 	</item>
+</list>

@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='600' name="Avadon Boots">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='601' name="Boots of Doom">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='602' name="Boots of Pledge">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='603' name="Divine Boots">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='604' name="Excellent Leather Gloves">
+  <for>
+    <add val='19' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='605' name="Leather Gauntlets">
+  <for>
+    <add val='22' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='606' name="Rip Gauntlets">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='607' name="Ogre Power Gauntlets">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='608' name="Mithril Gauntlets">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='609' name="Gauntlets of Ghost">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='610' name="Saint Knight's Gauntlets">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='611' name="Soul Leech Gauntlets">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='612' name="Zubei's Gauntlets">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='613' name="Sand Dragon Gloves">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='614' name="Knight's Cloak">
+  <for>
+    <add val='7' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='615' name="Cobweb Cloak">
+  <for>
+    <add val='8' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='616' name="Cloak of Magic">
+  <for>
+    <add val='11' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='617' name="Mithril Cloak">
+  <for>
+    <add val='11' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='618' name="Cloak of Self Protection">
+  <for>
+    <add val='13' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='619' name="Ancient Cloak">
+  <for>
+    <add val='15' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='620' name="Cloak of Protection">
+  <for>
+    <add val='16' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='621' name="Cloak of Hell">
+  <for>
+    <add val='18' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='622' name="Holy Spirit's Cloak">
+  <for>
+    <add val='18' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='623' name="Divine Cloak">
+  <for>
+    <add val='19' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='624' name="Cloak of Invisibility">
+  <for>
+    <add val='2' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='675' name="Silk Yarn Undergarment Set">
+  <for>
+    <add val='6' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='676' name="Pure White Undergarment Set">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='677' name="One-Piece Swimsuit">
+  <for>
+    <add val='10' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='678' name="Bikini Set">
+  <for>
+    <add val='11' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='679' name="Cursed Undergarment Set">
+  <for>
+    <add val='12' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='680' name="Mithril Undergarment Set">
+  <for>
+    <add val='16' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='681' name="Fascination Undergarment Set">
+  <for>
+    <add val='17' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='682' name="Demon's Undergarment Set">
+  <for>
+    <add val='19' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='683' name="Holy Undergarment Set">
+  <for>
+    <add val='22' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='684' name="Underwear of Rule">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='685' name="Crystal Swimsuit Set">
+  <for>
+    <add val='26' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+</list>

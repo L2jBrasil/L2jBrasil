@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Shadow Weapon Exchange D Grade - by BiTi -->
+<list maintainEnchantment="true">
+	<!-- Shadow Weapon: Two Handed Sword for 1 D Grade Coupon -->
+	<item id="1">
+		<ingredient id="8869" count="1"/>
+		<production id="8821" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Crimson Sword for 1 D Grade Coupon -->
+	<item id="2">
+		<ingredient id="8869" count="1"/>
+		<production id="8822" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Spiked Club for 1 D Grade Coupon -->
+	<item id="3">
+		<ingredient id="8869" count="1"/>
+		<production id="8823" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Staff of Magic for 1 D Grade Coupon -->
+	<item id="4">
+		<ingredient id="8869" count="1"/>
+		<production id="8824" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Kukuri for 1 D Grade Coupon -->
+	<item id="5">
+		<ingredient id="8869" count="1"/>
+		<production id="8825" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Dagger of Mana for 1 D Grade Coupon -->
+	<item id="6">
+		<ingredient id="8869" count="1"/>
+		<production id="8826" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Triple-Edged Jamadhr for 1 D Grade Coupon -->
+	<item id="7">
+		<ingredient id="8869" count="1"/>
+		<production id="8827" count="1"/>
+	</item>
+	<!-- Shadow Weapon: Gastraphetes for 1 D Grade Coupon -->
+	<item id="8">
+		<ingredient id="8869" count="1"/>
+		<production id="8828" count="1"/>
+	</item>
+	<!-- Shadow Weapon: War Hammer for 1 D Grade Coupon -->
+	<item id="9">
+		<ingredient id="8869" count="1"/>
+		<production id="8829" count="1"/>
+	</item>
+</list>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<!-- WindWalk -->
+	<buff id="0" skill_id="4322" skill_level="1" lower_level="8" upper_level="39" is_magic_class="false"/>
+	<!-- Shield -->
+	<buff id="1" skill_id="4323" skill_level="1" lower_level="11" upper_level="39" is_magic_class="false"/>
+	<!-- Life Cubic -->
+	<buff id="2" skill_id="4338" skill_level="1" lower_level="16" upper_level="36" is_magic_class="false"/>
+	<!-- Bless the Body -->
+	<buff id="3" skill_id="4324" skill_level="1" lower_level="12" upper_level="38" is_magic_class="false"/>
+	<!-- Vampiric Rage -->
+	<buff id="4" skill_id="4325" skill_level="1" lower_level="13" upper_level="38" is_magic_class="false"/>
+	<!-- Regeneration -->
+	<buff id="5" skill_id="4326" skill_level="1" lower_level="14" upper_level="38" is_magic_class="false"/>
+	<!-- Haste -->
+	<buff id="6" skill_id="4327" skill_level="1" lower_level="15" upper_level="37" is_magic_class="false"/>
+	<!-- WindWalk -->
+	<buff id="7" skill_id="4322" skill_level="1" lower_level="8" upper_level="39" is_magic_class="true"/>
+	<!-- Shield -->
+	<buff id="8" skill_id="4323" skill_level="1" lower_level="11" upper_level="39" is_magic_class="true"/>
+	<!-- Life Cubic -->
+	<buff id="9" skill_id="4338" skill_level="1" lower_level="16" upper_level="36" is_magic_class="true"/>
+	<!-- Bless the Soul -->
+	<buff id="10" skill_id="4328" skill_level="1" lower_level="12" upper_level="38" is_magic_class="true"/>
+	<!-- Acumen -->
+	<buff id="11" skill_id="4329" skill_level="1" lower_level="13" upper_level="38" is_magic_class="true"/>
+	<!-- Concentration -->
+	<buff id="12" skill_id="4330" skill_level="1" lower_level="14" upper_level="38" is_magic_class="true"/>
+	<!-- Empower -->
+	<buff id="13" skill_id="4331" skill_level="1" lower_level="15" upper_level="37" is_magic_class="true"/>
+</list>

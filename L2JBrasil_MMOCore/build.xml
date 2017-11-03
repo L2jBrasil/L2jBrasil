@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="L2JBrasil_MMOCore" default="dist" basedir=".">
+	<description>
+        MMOCore
+    </description>
+    
+    <property name="src" location="src"/>
+    <property name="lib" location="lib"/>
+    <property name="build" location="build"/>
+    <property name="build.classes" location="${build}/classes"/>
+    <property name="build.dist" location="${build}/dist"/>
+
+    <path id="classpath">
+        <fileset dir="${lib}">
+            <include name="javolution.jar"/>
+        </fileset>
+    </path>
+
+    <target name="init"
+    	depends="clean"
+    	description="Create the output directories.">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${build.classes}"/>
+        <mkdir dir="${build.dist}" />
+    </target>
+    
+    <target name="compile"
+            depends="init"
+            description="Compile the source.">
+
+        <javac destdir="${build.classes}"
+               optimize="off"
+               debug="on"
+               source="1.8"
+               target="1.8"
+               nowarn="off">
+            <src path="${src}"/>
+            <classpath refid="classpath"/>   
+        </javac>
+    </target>
+    
+    <target name="jar"
+            depends="compile"
+            description="Create the jar file">
+
+        <jar destfile="${build}/mmocore.jar">
+            <fileset dir="${build.classes}"/>
+            <manifest>
+                <attribute name="Main-Class" value="com.l2jserver.mmocore.MMOCore"/>
+                <attribute name="Class-Path" value="javolution.jar"/>
+            </manifest>
+        </jar>
+        
+   		<copy todir="${build.dist}">
+			<fileset dir="${src}/../lib">
+				<include name="*.jar"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="dist"
+		depends="jar"
+		description="Generates a happy zip with the MMOCore">
+        <zip destfile="${build}/mmocore.zip"
+             basedir="${build.dist}" />
+    </target>
+    
+    
+    <target name="clean"
+            description="Remove the output directories">
+        <delete dir="${build}"/>
+    </target>
+</project>

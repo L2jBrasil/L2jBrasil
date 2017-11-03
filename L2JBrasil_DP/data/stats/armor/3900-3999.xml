@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='3900' name="Wolf's Luxury Plate">
+  <for>
+    <add val='43' order='0x10' stat='pDef'/>
+    <add val='38' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3901' name="Wolf's Mithril Armor">
+  <for>
+    <add val='47' order='0x10' stat='pDef'/>
+    <add val='41' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3912' name="Hatchling's Soft Leather">
+  <for>
+    <add val='26' order='0x10' stat='pDef'/>
+    <add val='26' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3913' name="Hatchling's Scale Mail">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+    <add val='29' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3914' name="Hatchling's Brigandine">
+  <for>
+    <add val='31' order='0x10' stat='pDef'/>
+    <add val='31' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3915' name="Hatchling's Bronze Coat">
+  <for>
+    <add val='33' order='0x10' stat='pDef'/>
+    <add val='33' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3916' name="Hatchling's Steel Coat">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+    <add val='36' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3917' name="Hatchling's Shadowplate">
+  <for>
+    <add val='38' order='0x10' stat='pDef'/>
+    <add val='38' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='3918' name="Hatchling's Mithril Coat">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+    <add val='41' order='0x10' stat='mDef'/>
+  </for>
+</item>
+</list>

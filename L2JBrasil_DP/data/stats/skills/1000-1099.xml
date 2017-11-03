@@ -1,0 +1,1764 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1001" levels="10" name="Soul Cry">
+  <table name="#patk"> 4.5 14 33.5 66.5 90.5 141.5 208.5 247 310 375.5 </table>
+  <table name="#val"> 0 0 5 10 10 10 15 15 20 20 </table>
+  <table name="#mpConsume_Init"> 1 2 3 3 4 5 6 6 7 7 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CONT"/>
+  <set name="operateType" val="OP_TOGGLE"/>
+  <for>
+    <effect count="0x7fffffff" name="ManaDamOverTime" time="5" val="#val">
+      <add order="0x40" stat="pAtk" val="#patk"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1002" levels="3" name="Flame Chant" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 160 157 154 152 149 146 143 141 138 135 133 130 127 124 122 119 116 114 111 108 105 103 100 97 95 92 89 86 84 81 </table>
+  <table name="#ench2MpConsume_Init"> 40 39 38 38 37 36 36 35 34 34 33 32 32 31 30 30 29 28 28 27 26 25 25 24 23 23 22 21 21 20 </table>
+  <table name="#mpConsume_Init"> 21 31 41 </table>
+  <table name="#mpConsume"> 84 123 163 </table>
+  <table name="#mAtkSpd"> 1.15 1.23 1.3 </table>
+  <table name="#aggro"> 285 418 532 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_PARTY"/>
+  <set name="skillRadius" val="1000"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mAtkSpd" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="#mAtkSpd"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.3" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="1.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1003" levels="3" name="Pa'agrian Gift" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 134 132 130 127 125 123 121 118 116 114 111 109 107 105 102 100 98 95 93 91 89 86 84 82 79 77 75 73 70 68 </table>
+  <table name="#ench2MpConsume_Init"> 34 33 33 32 32 31 30 30 29 29 28 28 27 26 26 25 25 24 23 23 22 22 21 21 20 19 19 18 18 17 </table>
+  <table name="#mpConsume_Init"> 21 28 35 </table>
+  <table name="#mpConsume"> 84 111 137 </table>
+  <table name="#pAtk"> 1.08 1.12 1.15 </table>
+  <table name="#aggro"> 285 379 457 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ALLY"/>
+  <set name="skillRadius" val="900"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pAtk" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.15" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="1.15"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1004" levels="3" name="The Wisdom of Pa'agrio" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 160 157 154 152 149 146 143 141 138 135 133 130 127 124 122 119 116 114 111 108 105 103 100 97 95 92 89 86 84 81 </table>
+  <table name="#ench2MpConsume_Init"> 40 39 38 38 37 36 36 35 34 34 33 32 32 31 30 30 29 28 28 27 26 25 25 24 23 23 22 21 21 20 </table>
+  <table name="#mpConsume_Init"> 28 35 41 </table>
+  <table name="#mpConsume"> 111 137 163 </table>
+  <table name="#mAtkSpd"> 1.15 1.23 1.3 </table>
+  <table name="#aggro"> 379 457 532 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ALLY"/>
+  <set name="skillRadius" val="900"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mAtkSpd" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="#mAtkSpd"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.3" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="1.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1005" levels="3" name="Blessings of Pa'agrio" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 147 145 142 140 137 135 132 130 127 125 122 120 117 115 112 110 107 105 102 100 97 95 92 90 87 85 82 80 77 75 </table>
+  <table name="#ench2MpConsume_Init"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#pDef"> 1.08 1.12 1.15 </table>
+  <table name="#mpConsume_Init"> 24 31 38 </table>
+  <table name="#mpConsume"> 96 123 150 </table>
+  <table name="#aggro"> 331 418 495 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ALLY"/>
+  <set name="skillRadius" val="900"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pDef" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="#pDef"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.15" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1006" levels="3" name="Chant of Fire" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 147 145 142 140 137 135 132 130 127 125 122 120 117 115 112 110 107 105 102 100 97 95 92 90 87 85 82 80 77 75 </table>
+  <table name="#ench2MpConsume_Init"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#mpConsume_Init"> 16 28 38 </table>
+  <table name="#mpConsume"> 61 111 150 </table>
+  <table name="#mDef"> 1.15 1.23 1.3 </table>
+  <table name="#aggro"> 204 379 495 </table>
+  <set name="aggroPoints" val="#aggro"/>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_PARTY"/>
+  <set name="skillRadius" val="1000"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mDef" stackType="MagicDefUp">
+      <mul order="0x30" stat="mDef" val="#mDef"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.3" stackType="MagicDefUp">
+      <mul order="0x30" stat="mDef" val="1.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1007" levels="3" name="Chant of Battle" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 120 118 116 114 112 110 108 106 104 102 100 98 96 94 92 90 88 86 84 82 79 77 75 73 71 69 67 65 63 61 </table>
+  <table name="#ench2MpConsume_Init"> 30 29 29 28 28 27 27 26 26 25 25 24 24 23 23 22 22 21 21 20 20 19 19 18 18 17 17 16 16 15 </table>
+  <table name="#mpConsume_Init"> 12 18 31 </table>
+  <table name="#mpConsume"> 48 70 123 </table>
+  <table name="#pAtk"> 1.08 1.12 1.15 </table>
+  <table name="#aggro"> 162 243 418 </table>
+  <set name="aggroPoints" val="#aggro"/>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_PARTY"/>
+  <set name="skillRadius" val="1000"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pAtk" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.15" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="1.15"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1008" levels="3" name="The Glory of Pa'agrio" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 160 157 154 152 149 146 143 141 138 135 133 130 127 124 122 119 116 114 111 108 105 103 100 97 95 92 89 86 84 81 </table>
+  <table name="#ench2MpConsume_Init"> 40 39 38 38 37 36 36 35 34 34 33 32 32 31 30 30 29 28 28 27 26 25 25 24 23 23 22 21 21 20 </table>
+  <table name="#mpConsume_Init"> 28 35 41 </table>
+  <table name="#mpConsume"> 111 137 163 </table>
+  <table name="#mDef"> 1.15 1.23 1.3 </table>
+  <table name="#aggro"> 379 457 532 </table>
+  <set name="aggroPoints" val="#aggro"/>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ALLY"/>
+  <set name="skillRadius" val="900"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mDef" stackType="MagicDefUp">
+      <mul order="0x30" stat="mDef" val="#mDef"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.3" stackType="MagicDefUp">
+      <mul order="0x30" stat="mDef" val="1.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1009" levels="3" name="Chant of Shielding" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 109 107 105 103 101 99 98 96 94 92 90 88 86 85 83 81 79 77 75 74 72 70 68 66 64 62 61 59 57 55 </table>
+  <table name="#ench2MpConsume_Init"> 27 27 26 26 25 25 24 24 23 23 22 22 21 21 21 20 20 19 19 18 18 17 17 16 16 15 15 14 14 14 </table>
+  <table name="#mpConsume_Init"> 16 21 28 </table>
+  <table name="#mpConsume"> 61 84 111 </table>
+  <table name="#pDef"> 1.08 1.12 1.15 </table>
+  <table name="#aggro"> 204 285 379 </table>
+  <set name="aggroPoints" val="#aggro"/>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="0"/>
+  <set name="target" val="TARGET_PARTY"/>
+  <set name="skillRadius" val="1000"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="-1"/>
+  <set name="effectRange" val="-1"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pDef" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="#pDef"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.15" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1010" levels="3" name="Soul Shield" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 23 23 22 22 22 21 21 20 20 20 19 19 18 18 18 17 17 16 16 16 15 15 14 14 14 13 13 12 12 12 </table>
+  <table name="#ench2MpConsume_Init"> 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 3 </table>
+  <table name="#mpConsume_Init"> 2 5 6 </table>
+  <table name="#mpConsume"> 8 18 24 </table>
+  <table name="#pDef"> 1.08 1.12 1.15 </table>
+  <table name="#aggro"> 121 243 331 </table>
+  <set name="aggroPoints" val="#aggro"/>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="5000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pDef" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="#pDef"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.15" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1011" levels="18" name="Heal">
+  <table name="#mpConsume_Init"> 2 3 3 4 4 5 5 6 6 7 7 8 9 9 9 10 10 11 </table>
+  <table name="#mpConsume"> 8 10 11 13 15 17 19 21 24 26 28 29 33 35 35 38 40 41 </table>
+  <table name="#power"> 50 58 67 83 95 107 121 135 151 176 185 195 224 234 245 278 289 301 </table>
+  <table name="#aggro"> 50 58 67 83 95 107 121 135 151 176 185 195 224 234 245 278 289 301 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="10000"/>
+  <set name="hitTime" val="5000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="#aggro"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1012" levels="3" name="Cure Poison">
+  <table name="#mpConsume_Init"> 2 6 11 </table>
+  <table name="#mpConsume"> 8 24 44 </table>
+  <table name="#power"> 3 7 9 </table>
+  <table name="#aggro"> 121 331 566 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="15000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="UNPOISON"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="#aggro"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1013" levels="32" name="Recharge" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 108 107 106 105 104 103 102 100 99 98 97 96 95 94 93 92 91 90 89 88 87 86 85 84 83 82 81 80 79 78 </table>
+  <table name="#ench2MpConsume_Init"> 27 26 26 26 26 25 25 25 24 24 24 24 23 23 23 23 22 22 22 22 21 21 21 21 20 20 20 20 19 19 </table>
+  <table name="#ench1power"> 137 137 138 139 139 140 141 141 142 143 143 144 145 146 146 147 148 148 149 150 150 151 152 152 153 154 154 155 156 156 </table>
+  <table name="#mpConsume_Init"> 10 11 12 12 14 14 15 16 17 18 18 19 20 21 21 22 22 22 23 23 24 24 24 25 25 26 26 26 27 27 27 28 </table>
+  <table name="#mpConsume"> 39 42 45 48 53 56 59 62 65 69 72 75 78 82 83 85 87 88 90 92 93 95 96 98 99 101 102 104 105 106 108 109 </table>
+  <table name="#power"> 49 52 57 60 66 70 73 77 81 86 90 94 98 102 104 106 108 110 113 115 116 118 120 122 124 126 128 129 131 133 134 136 </table>
+  <table name="#aggro"> 268 285 313 331 360 379 399 418 438 457 477 495 514 532 541 549 558 566 574 582 590 597 604 611 617 624 630 635 641 646 650 655 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="12000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="MANARECHARGE"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant1 name="power" val="#ench1power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <cond msg="Recharge cannot be used due to unsuitable terms.">
+  <target class_id_restriction="29, 30, 105, 42, 43, 112"/>
+  </cond>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1015" levels="15" name="Battle Heal">
+  <table name="#mpConsume_Init"> 5 6 7 7 8 9 10 11 11 13 13 14 15 15 16 </table>
+  <table name="#mpConsume"> 20 22 25 28 32 35 39 41 43 49 52 53 57 59 62 </table>
+  <table name="#power"> 83 95 107 121 135 151 176 185 195 224 234 245 278 289 301 </table>
+  <table name="#aggro"> 66 76 86 97 108 121 141 148 156 179 188 196 222 231 241 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="3000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="#aggro"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1016" levels="9" name="Resurrection">
+  <table name="#mpConsume_Init"> 12 18 25 31 36 39 42 46 48 </table>
+  <table name="#mpConsume"> 47 70 97 121 144 156 165 182 191 </table>
+  <table name="#power"> 0 20 30 40 50 55 60 65 70 </table>
+  <table name="#aggro"> 121 196 290 374 460 502 542 595 624 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_CORPSE_PLAYER"/>
+  <set name="reuseDelay" val="120000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="RESURRECT"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1018" levels="3" name="Purify">
+  <table name="#mpConsume_Init"> 8 10 11 </table>
+  <table name="#mpConsume"> 31 38 44 </table>
+  <table name="#negatePower"> 3 7 9 </table>
+  <table name="#aggro"> 418 495 566 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="15000"/>
+  <set name="hitTime" val="3000"/>
+  <set name="skillType" val="NEGATE"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="negateStats" val="POISON BLEED PARALYZE"/>
+  <set name="negatePower" val="#negatePower"/>
+  <set name="aggroPoints" val="#aggro"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1020" levels="27" name="Vitalize" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 113 112 111 110 109 108 107 106 105 104 103 102 101 100 99 98 97 96 95 94 93 92 91 90 89 88 87 86 85 84 </table>
+  <table name="#ench2MpConsume_Init"> 28 28 27 27 27 27 26 26 26 26 25 25 25 25 24 24 24 24 23 23 23 23 22 22 22 22 21 21 21 21 </table>
+  <table name="#mpConsume_Init"> 18 18 19 20 20 20 21 22 22 23 23 24 24 24 24 25 25 26 26 27 27 27 28 28 28 29 29 </table>
+  <table name="#mpConsume"> 69 71 73 77 77 79 83 85 87 89 91 93 94 94 96 98 99 101 103 105 106 108 109 111 112 113 115 </table>
+  <table name="#power"> 440 454 467 494 508 521 548 562 575 588 602 615 627 640 653 665 677 689 700 711 722 733 743 753 763 772 780 </table>
+  <table name="#negatePower"> 3 3 3 3 3 7 7 7 7 7 7 7 7 7 7 7 7 7 9 9 9 9 9 9 9 9 9 </table>
+  <table name="#ench1Power">785 789 794 798 803 807 812 816 821 825 829 834 838 843 847 852 856 861 865 870 874 879 883 887 892 896 901 905 910 914 </table>
+  <table name="#aggro"> 528 544 561 593 609 626 658 674 690 706 722 737 753 768 783 798 812 826 840 854 867 879 892 904 915 926 936 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="10000"/>
+  <set name="hitTime" val="5000"/>
+  <set name="skillType" val="NEGATE"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="negateStats" val="HEAL POISON BLEED"/>
+  <set name="negatePower" val="#negatePower"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1027" levels="15" name="Group Heal">
+  <table name="#mpConsume_Init"> 7 8 9 10 11 12 13 14 15 17 18 18 19 20 21 </table>
+  <table name="#mpConsume"> 26 30 34 38 42 47 52 55 57 66 69 70 76 79 82 </table>
+  <table name="#power"> 66 76 86 97 108 121 141 148 156 179 188 196 222 231 241 </table>
+  <table name="#aggro"> 66 76 86 97 108 121 141 148 156 179 188 196 222 231 241 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_PARTY"/>
+  <set name="skillRadius" val="1000"/>
+  <set name="reuseDelay" val="25000"/>
+  <set name="hitTime" val="7000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="#aggro"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1028" levels="19" name="Might of Heaven" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 54 53 52 51 51 52 49 48 48 47 46 45 44 44 43 42 41 41 40 39 38 38 37 36 35 34 34 33 32 31 </table>
+  <table name="#ench2MpConsume_Init"> 13 13 13 12 12 12 12 12 12 11 11 11 11 11 10 10 10 10 10 9 9 9 9 9 8 8 8 8 8 7 </table>
+  <table name="#mpConsume_Init"> 7 7 8 8 9 9 9 10 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 27 28 30 31 33 35 36 38 39 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 </table>
+  <table name="#power"> 39 42 44 47 49 52 55 57 60 63 66 68 71 74 77 79 82 84 87 </table>
+  <table name="#ench1Power"> 87 88 89 89 89 90 90 91 91 92 92 93 93 94 94 95 95 96 96 97 97 98 98 99 99 100 100 101 102 102 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_UNDEAD"/>
+  <set name="element" val="5"/>
+  <set name="reuseDelay" val="4000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1031" levels="8" name="Disrupt Undead">
+  <table name="#mpConsume_Init"> 4 4 5 5 5 6 6 6 </table>
+  <table name="#mpConsume"> 14 16 17 18 20 21 23 24 </table>
+  <table name="#magicLvl"> 17 20 23 25 28 30 33 35 </table>
+  <table name="#power"> 19 21 24 25 28 30 33 36 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_UNDEAD"/>
+  <set name="element" val="5"/>
+  <set name="reuseDelay" val="4000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1032" levels="3" name="Invigor" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 40 39 38 38 37 36 36 35 34 34 33 32 32 31 30 30 29 28 28 27 26 25 25 24 23 23 22 21 21 20 </table>
+  <table name="#ench2MpConsume_Init"> 10 10 10 10 10 9 9 9 9 9 8 8 8 8 8 8 7 7 7 7 7 6 6 6 6 6 6 5 5 5 </table>
+  <table name="#mpConsume"> 28 35 41 </table>
+  <table name="#vuln"> 0.7 0.6 0.5 </table>
+  <table name="#aggro"> 379 457 532 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect name="Buff" time="1200" count="1" val="0">
+      <mul order="0x30" stat="bleedVuln" val="#vuln"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect name="Buff" time="#ench1time" count="1" val="0">
+      <mul order="0x30" stat="bleedVuln" val="0.5"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1033" levels="3" name="Resist Poison" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 30 29 29 28 28 27 27 26 26 25 25 24 24 23 23 22 22 21 21 20 20 19 19 18 18 17 17 16 16 15 </table>
+  <table name="#ench2MpConsume_Init"> 7 7 7 7 7 7 7 6 6 6 6 6 6 6 6 5 5 5 5 5 5 5 4 4 4 4 4 4 4 4 </table>
+  <table name="#mpConsume_Init"> 6 7 8 </table>
+  <table name="#mpConsume"> 24 28 31 </table>
+  <table name="#vuln"> 0.7 0.6 0.5 </table>
+  <table name="#aggro"> 331 379 418 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0">
+      <mul order="0x30" stat="poisonVuln" val="#vuln"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0">
+      <mul order="0x30" stat="poisonVuln" val="0.5"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1034" levels="13" name="Repose">
+  <table name="#mpConsume_Init"> 12 13 14 16 16 17 18 18 19 19 20 20 21 </table>
+  <table name="#mpConsume"> 47 52 56 61 64 66 69 71 74 76 78 80 82 </table>
+  <table name="#power"> 30 40 50 60 70 80 90 100 110 120 130 140 150 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_UNDEAD"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="AGGREMOVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1035" levels="4" name="Mental Shield" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 40 39 38 38 37 36 36 35 34 34 33 32 32 31 30 30 29 28 28 27 26 25 25 24 23 23 22 21 21 20 </table>
+  <table name="#ench2MpConsume_Init"> 10 10 10 10 10 9 9 9 9 9 8 8 8 8 8 8 7 7 7 7 7 6 6 6 6 6 6 5 5 5 </table>
+  <table name="#mpConsume_Init"> 5 7 9 11 </table>
+  <table name="#mpConsume"> 18 28 35 41 </table>
+  <!-- C5 decreased resistance values by unknown amount -->
+  <table name="#vuln"> 0.8 0.7 0.6 0.5 </table>
+  <table name="#stack"> 20 30 40 50 </table>
+  <table name="#aggro"> 243 379 457 532 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#stack" stackType="MentalShield">
+      <mul order="0x30" stat="rootVuln" val="#vuln"/>
+      <mul order="0x30" stat="sleepVuln" val="#vuln"/>
+      <mul order="0x30" stat="confusionVuln" val="#vuln"/>
+      <mul order="0x30" stat="derangementVuln" val="#vuln"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0">
+      <mul order="0x30" stat="rootVuln" val="0.5"/>
+      <mul order="0x30" stat="sleepVuln" val="0.5"/>
+      <mul order="0x30" stat="confusionVuln" val="0.5"/>
+      <mul order="0x30" stat="derangementVuln" val="0.5"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1036" levels="2" name="Magic Barrier" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#ench2MpConsume_Init"> 9 9 9 9 9 9 8 8 8 8  8 8 7 7 7 7 7 7 6 6  6 6 6 6 5 5 5 5 5 5 </table>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#mpConsume_Init"> 8 10 </table>
+  <table name="#mpConsume"> 31 38 </table>
+  <table name="#mDef"> 1.23 1.3 </table>
+  <table name="#aggro"> 418 495 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mDef" stackType="MagicDefUp">
+      <mul order="0x30" stat="mDef" val="#mDef"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.3" stackType="MagicDefUp">
+      <mul order="0x30" stat="mDef" val="1.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1040" levels="3" name="Shield" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 30 29 29 28 28 27 27 26 26 25 25 24 24 23 23 22 22 21 21 20 20 19 19 18 18 17 17 16 16 15 </table>
+  <table name="#ench2MpConsume_Init"> 7 7 7 7 7 7 7 6 6 6 6 6 6 6 6 5 5 5 5 5 5 5 4 4 4 4 4 4 4 4 </table>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#mpConsume_Init"> 2 5 8 </table>
+  <table name="#mpConsume"> 8 18 31 </table>
+  <table name="#rate"> 1.08 1.12 1.15 </table>
+  <table name="#aggro"> 121 243 418 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#rate" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="#rate"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.15" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1042" levels="12" name="Hold Undead" enchantLevels1="30" enchantLevels2="30">
+  <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1Power"> 41 42 44 45 46 48 49 50 52 53 54 56 57 58 60 61 62 64 65 66 68 69 70 72 73 74 76 77 78 80 </table>
+  <table name="#mpConsume_Init">26 28 31 32 33 35 36 37 38 39 40 41</table>
+  <table name="#mpConsume">103 112 122 127 132 137 142 147 151 155 159 163</table>
+  <table name="#magicLvl">48 52 56 58 60 62 64 66 68 70 72 74</table>
+  <table name="#ench2MpConsume">201 200 198 196 195 192 191 188 187 185 183 181 180 177 176 175 172 171 168 167 165 163 161 160 157 156 153 152 151 148</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="40"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_UNDEAD"/>
+  <set name="reuseDelay" val="60000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="PARALYZE"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <for>
+    <effect count="1" name="Paralyze" time="30" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1043" levels="1" name="Holy Weapon" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 17 17 17 16 16 16 15 15 15 15 14 14 14 13 13 13 12 12 12 12 11 11 11 10 10 10 9 9 9 9 </table>
+  <table name="#ench2MpConsume_Init"> 4 4 4 4 4 4 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 </table>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <set name="mpInitialConsume" val="5"/>
+  <set name="magicLvl" val="25"/>
+  <set name="mpConsume" val="23"/>
+  <set name="target" val="TARGET_PARTY_MEMBER"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="element" val="5"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="243"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0">
+      <mul order="0x30" stat="pAtk-undead" val="1.3"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0">
+      <mul order="0x30" stat="pAtk-undead" val="1.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1044" levels="3" name="Regeneration" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 40 39 38 38 37 36 36 35 34 34 33 32 32 31 30 30 29 28 28 27 26 25 25 24 23 23 22 21 21 20 </table>
+  <table name="#ench2MpConsume_Init"> 10 10 10 10 10 9 9 9 9 9 8 8 8 8 8 8 7 7 7 7 7 6 6 6 6 6 6 5 5 5 </table>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#mpConsume_Init"> 6 9 11 </table>
+  <table name="#mpConsume"> 24 35 41 </table>
+  <table name="#rate"> 1.1 1.15 1.2 </table>
+  <table name="#aggro"> 331 457 532 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#rate" stackType="HPregen">
+      <mul order="0x30" stat="regHp" val="#rate"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.2" stackType="HPregen">
+      <mul order="0x30" stat="regHp" val="1.2"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1045" levels="6" name="Bless the Body" enchantLevels1="30" enchantLevels2="30">
+  <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time">1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400</table>
+  <table name="#ench2mpInitialConsume">13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10</table>
+  <table name="#ench2mpConsume">52 51 50 49 47 46 46 45 44 43 42 41 39 38 38 37 36 35 34 33 32 30 30 29 28 27 26 25 24 23</table>
+  <table name="#mpConsume_Init">8 9 10 11 12 14</table>
+  <table name="#mpConsume">31 35 38 41 48 53</table>
+  <table name="#maxHp">1.1 1.15 1.2 1.25 1.3 1.35</table>
+  <table name="#aggro">418 457 495 532 597 646</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2mpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2mpInitialConsume"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#maxHp" stackType="MaxHPUp">
+      <mul order="0x30" stat="maxHp" val="#maxHp"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect name="Buff" time="#ench1time" val="0" stackOrder="1.35" stackType="MaxHPUp">
+      <mul order="0x30" stat="maxHp" val="1.35"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1047" levels="4" name="Mana Regeneration">
+  <table name="#regMp"> 1.72 2.16 2.74 3.09 </table>
+  <table name="#itemConsumeCount"> 7 9 12 15 </table>
+  <table name="#mpConsume_Init"> 7 9 11 13 </table>
+  <table name="#mpConsume"> 28 35 44 52 </table>
+  <table name="#aggro"> 379 457 566 635 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="itemConsumeId" val="3031"/>
+  <set name="itemConsumeCount" val="#itemConsumeCount"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0">
+      <add order="0x40" stat="regMp" val="#regMp"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1048" levels="6" name="Bless the Soul" enchantLevels1="30" enchantLevels2="30">
+  <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time">1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400</table>
+  <table name="#ench2mpInitialConsume">13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10</table>
+  <table name="#ench2mpConsume">50 49 48 47 45 44 44 44 43 41 40 39 38 36 37 36 35 34 32 31 30 29 30 28 27 26 25 23 22 22</table>
+  <table name="#mpConsume_Init">8 9 10 11 12 13</table>
+  <table name="#maxMp">1.1 1.15 1.2 1.25 1.3 1.35</table>
+  <table name="#mpConsume"> 31 35 38 41 46 52 </table>
+  <table name="#aggro">418 457 495 532 582 635</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2mpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2mpInitialConsume"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#maxMp" stackType="MPregen">
+      <mul order="0x30" stat="maxMp" val="#maxMp"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect name="Buff" time="#ench1time" val="0" stackOrder="1.35" stackType="MaxMPUp">
+      <mul order="0x30" stat="maxMp" val="1.35"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1049" levels="14" name="Requiem">
+  <table name="#mpConsume_Init"> 11 12 13 14 16 16 17 18 18 19 19 20 20 21 </table>
+  <table name="#mpConsume"> 42 47 52 56 61 64 66 69 71 74 76 78 80 82 </table>
+  <table name="#magicLvl"> 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="35"/>
+  <set name="target" val="TARGET_AREA_UNDEAD"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="skillRadius" val="1000"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="7000"/>
+  <set name="isDebuff" val="true"/>
+  <set name="skillType" val="AGGREMOVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="lvlDepend" val="1"/>
+  <for>
+    <effect name="Buff" time="13" count="1" val="0">
+      <sub order="0x30" stat="aggression" val="100000"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1050" levels="2" name="Return">
+  <table name="#mpConsume_Init"> 21 31 </table>
+  <table name="#mpConsume"> 84 122 </table>
+  <table name="#hitTime"> 20000 1500 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="300000"/>
+  <set name="hitTime" val="#hitTime"/>
+  <set name="skillType" val="RECALL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1056" levels="12" name="Cancellation">
+  <table name="#mpConsume_Init"> 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="25"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="120000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="CANCEL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="negateStats" val="BUFF"/>
+  <set name="negatePower" val="5"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1059" levels="3" name="Empower" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#ench2MpConsume_Init"> 9 9 9 9 9 9 8 8 8 8  8 8 7 7 7 7 7 7 6 6  6 6 6 6 5 5 5 5 5 5 </table>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#mpConsume_Init"> 5 8 10 </table>
+  <table name="#mpConsume"> 18 31 38 </table>
+  <table name="#mAtk"> 1.55 1.65 1.75 </table>
+  <table name="#aggro"> 243 418 495 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mAtk" stackType="mAtk">
+      <mul order="0x30" stat="mAtk" val="#mAtk"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.75" stackType="mAtk">
+      <mul order="0x30" stat="mAtk" val="1.75"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1062" levels="2" name="Berserker Spirit" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#ench2MpConsume_Init"> 9 9 9 9 9 9 8 8 8 8  8 8 7 7 7 7 7 7 6 6  6 6 6 6 5 5 5 5 5 5 </table>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#mAtk"> 1.1 1.16 </table>
+  <table name="#pAtk"> 1.05 1.08 </table>
+  <table name="#mDef"> 0.9 0.84 </table>
+  <table name="#pDef"> 0.95 0.92 </table>
+  <table name="#mAtkSpd"> 1.05 1.08 </table>
+  <table name="#pAtkSpd"> 1.05 1.08 </table>
+  <table name="#runSpd"> 5 8 </table>
+  <table name="#rEvas"> 2 4 </table>
+  <table name="#mpConsume_Init"> 6 10 </table>
+  <table name="#mpConsume"> 24 38 </table>
+  <table name="#aggro"> 331 495 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_PARTY_MEMBER"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="1" stackType="berserk">
+      <mul order="0x30" stat="mAtk" val="#mAtk"/>
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+      <mul order="0x30" stat="mDef" val="#mDef"/>
+      <mul order="0x30" stat="pDef" val="#pDef"/>
+      <mul order="0x30" stat="mAtkSpd" val="#mAtkSpd"/>
+      <mul order="0x30" stat="pAtkSpd" val="#pAtkSpd"/>
+      <add order="0x40" stat="runSpd" val="#runSpd"/>
+      <sub order="0x40" stat="rEvas" val="#rEvas"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1" stackType="berserk">
+      <mul order="0x30" stat="mAtk" val="1.16"/>
+      <mul order="0x30" stat="pAtk" val="1.08"/>
+      <mul order="0x30" stat="mDef" val="0.84"/>
+      <mul order="0x30" stat="pDef" val="0.92"/>
+      <mul order="0x30" stat="mAtkSpd" val="1.08"/>
+      <mul order="0x30" stat="pAtkSpd" val="1.08"/>
+      <add order="0x40" stat="runSpd" val="8"/>
+      <sub order="0x40" stat="rEvas" val="4"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1064" levels="14" name="Silence" enchantLevels1="30" enchantLevels2="30" >
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <table name="#ench2MpConsume"> 54 54 53 53 52 52 51 51 50 50 49 49 48 48 47 47 46 46 45 45 44 44 43 43 42 42 41 41 40 40 </table>
+  <table name="#ench2MpConsume_Init"> 13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10 </table>
+  <table name="#mpConsume_Init"> 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <table name="#ench1Power"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 90 91 92 92 93 94 94 95 96 96 97 98 98 99 100 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="80"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="32000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="skillType" val="MUTE"/>
+  <set name="isDebuff" val="true"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+	<effect count="1" name="Mute" time="60" val="0" stackOrder="1" stackType="silence" effectPower="80" effectType="MUTE"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1068" levels="3" name="Might" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 27 27 26 26 25 25 24 24 23 23 22 22 21 21 21 20 20 19 19 18 18 17 17 16 16 15 15 14 14 14 </table>
+  <table name="#ench2MpConsume_Init"> 6 6 6 6 6 6 6 6 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 4 3 3 3 3 3 </table>
+  <table name="#mpConsume_Init"> 2 4 7 </table>
+  <table name="#mpConsume"> 8 16 28 </table>
+  <table name="#rate"> 1.08 1.12 1.15 </table>
+  <table name="#aggro"> 121 204 379 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#rate" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="#rate"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.15" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="1.15"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1069" levels="42" name="Sleep" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 54 54 53 53 52 52 51 51 50 50 49 49 48 48 47 47 46 46 45 45 44 44 43 43 42 42 41 41 40 40 </table>
+  <table name="#ench2MpConsume_Init"> 13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10 </table>
+  <table name="#mpConsume_Init"> 5 5 5 5 6 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11 11 12 12 12 12 12 13 13 13 13 13 14 14 14 14 </table>
+  <table name="#mpConsume"> 17 17 18 20 21 21 23 24 24 27 27 28 30 30 31 33 34 35 36 37 38 39 40 41 42 43 44 44 45 46 47 48 48 49 50 51 51 52 53 53 54 55 </table>
+  <table name="#magicLvl"> 23 24 25 28 29 30 33 34 35 38 39 40 42 43 44 46 47 48 50 51 52 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 </table>
+  <table name="#ench1Power"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 90 91 92 92 93 94 94 95 96 96 97 98 98 99 100 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="4000"/>
+  <set name="hitTime" val="10000"/>
+  <set name="skillType" val="SLEEP"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Sleep" time="30" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1071" levels="14" name="Surrender To Water" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 54 54 53 53 52 52 51 51 50 50 49 49 48 48 47 47 46 46 45 45 44 44 43 43 42 42 41 41 40 40 </table>
+  <table name="#ench2MpConsume_Init"> 13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10 </table>
+  <table name="#mpConsume_Init"> 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <table name="#ench1Power"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 90 91 92 92 93 94 94 95 96 96 97 98 98 99 100 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="80"/>
+  <set name="element" val="3"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <Set name="saveVs" val="MEN"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="900"/>
+  <set name="effectRange" val="1400"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="15" val="0" stackOrder="2" stackType="AquaAtr">
+      <mul order="0x30" stat="waterVuln" val="1.2"/>
+	  <mul order="0x30" stat="fireVuln" val="0.9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1072" levels="5" name="Sleeping Cloud" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 77 76 75 74 74 73 72 71 70 70 69 68 67 66 65 65 64 63 62 61 61 60 59 58 57 56 56 55 54 53 </table>
+  <table name="#ench2MpConsume_Init"> 19 19 18 18 18 18 18 17 17 17 17 17 16 16 16 16 16 15 15 15 15 15 14 14 14 14 14 13 13 13 </table>
+  <table name="#ench1Power"> 40 40 41 41 41 42 42 42 43 43 43 44 44 44 45 45 45 46 46 46 47 47 47 48 48 48 49 49 49 50 </table>
+  <table name="#mpConsume_Init"> 12 16 18 19 20 </table>
+  <table name="#mpConsume"> 47 61 69 74 78 </table>
+  <table name="#magicLvl"> 44 56 62 66 70 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="WIT"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="40"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="32000"/>
+  <set name="hitTime" val="15000"/>
+  <set name="skillType" val="SLEEP"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="500"/>
+  <set name="effectRange" val="1000"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Sleep" time="30" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1073" levels="2" name="Kiss of Eva" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#ench2MpConsume_Init"> 9 9 9 9 9 9 8 8 8 8 8 8 7 7 7 7 7 7 6 6 6 6 6 6 5 5 5 5 5 5 </table>
+  <table name="#mpConsume"> 20 48 </table>
+  <table name="#breath"> 5 7 </table>
+  <table name="#aggro"> 121 417 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0">
+      <mul order="0x30" stat="breath" val="#breath"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0">
+      <mul order="0x30" stat="breath" val="7"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1074" levels="14" name="Surrender To Wind" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 54 54 53 53 52 52 51 51 50 50 49 49 48 48 47 47 46 46 45 45 44 44 43 43 42 42 41 41 40 40 </table>
+  <table name="#ench2MpConsume_Init"> 13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10 </table>
+  <table name="#mpConsume_Init"> 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <table name="#ench1Power"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 90 91 92 92 93 94 94 95 96 96 97 98 98 99 100 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="80"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="element" val="1"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="900"/>
+  <set name="effectRange" val="1400"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Debuff" time="30" val="0">
+      <mul order="0x3" stat="windVuln" val="1.2"/>
+	  <mul order="0x3" stat="earthVuln" val="0.9"/>	 
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1075" levels="15" name="Peace">
+  <table name="#mpConsume_Init"> 6 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 24 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="40"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="AGGREMOVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1077" levels="3" name="Focus" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#ench2MpConsume_Init"> 9 9 9 9 9 9 8 8 8 8 8 8 7 7 7 7 7 7 6 6 6 6 6 6 5 5 5 5 5 5 </table>
+  <table name="#mpConsume_Init"> 5 8 10 </table>
+  <table name="#mpConsume"> 18 31 38 </table>
+  <table name="#rCrit"> 0.2 0.25 0.3 </table>
+  <table name="#aggro"> 243 418 495 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#rCrit" stackType="rCrit">
+      <basemul order="0x30" stat="rCrit" val="#rCrit"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.3" stackType="rCrit">
+      <basemul order="0x30" stat="rCrit" val="0.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1078" levels="6" name="Concentration" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 51 50 49 48 47 46 45 45 44 43 42 41 40 39 39 38 37 36 35 34 33 32 32 31 31 30 29 28 27 26 </table>
+  <table name="#ench2MpConsume_Init"> 12 12 12 12 11 11 11 11 11 10 10 10 10 9 9 9 9 9 8 8 8 8 8 7 7 7 7 7 6 6 </table>
+  <table name="#mpConsume_Init"> 4 6 8 10 11 13 </table>
+  <table name="#mpConsume"> 16 21 31 38 44 51 </table>
+  <table name="#cancel"> 18 25 36 42 48 53 </table>
+  <table name="#aggro"> 204 285 418 495 566 624 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#cancel" stackType="Concentration">
+      <sub order="0x40" stat="cancel" val="#cancel"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="53" stackType="Concentration">
+      <sub order="0x40" stat="cancel" val="53"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1083" levels="17" name="Surrender To Fire" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 54 54 53 53 52 52 51 51 50 50 49 49 48 48 47 47 46 46 45 45 44 44 43 43 42 42 41 41 40 40 </table>
+  <table name="#ench2MpConsume_Init"> 13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10 </table>
+  <table name="#ench1Power"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 90 91 92 92 93 94 94 95 96 96 97 98 98 99 100 </table>
+  <table name="#mpConsume_Init"> 3 3 3 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 9 11 12 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 25 30 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <table name="#cast"> 750 750 750 900 900 900 900 900 900 900 900 900 900 900 900 900 900 </table>
+  <table name="#effectRange">1250 1250 1250 1400 1400 1400 1400 1400 1400 1400 1400 1400 1400 1400 1400 1400 1400</table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="element" val="2"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="80"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="#cast"/>
+  <set name="effectRange" val="#effectRange"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="30" val="0">
+      <mul order="0x30" stat="fireVuln" val="1.2"/>
+	  <mul order="0x30" stat="waterVuln" val="0.9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1085" levels="3" name="Acumen" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 34 33 33 32 32 31 30 30 29 29 28 28 27 26 26 25 25 24 23 23 22 22 21 21 20 19 19 18 18 17 </table>
+  <table name="#ench2MpConsume_Init"> 8 8 8 8 8 8 7 7 7 7 7 7 7 6 6 6 6 6 6 6 5 5 5 5 5 5 4 4 4 4 </table>
+  <table name="#mpConsume_Init"> 4 6 9 </table>
+  <table name="#mpConsume"> 16 24 35 </table>
+  <table name="#mAtkSpd"> 1.15 1.23 1.3 </table>
+  <table name="#aggro"> 204 331 457 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mAtkSpd" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="#mAtkSpd"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.3" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="1.3"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1086" levels="2" name="Haste" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#ench2MpConsume_Init">  9 9 9 9 9 9 8 8 8 8  8 8 7 7 7 7 7 7 6 6  6 6 6 6 5 5 5 5 5 5 </table>
+  <table name="#mpConsume_Init"> 8 10 </table>
+  <table name="#mpConsume"> 31 38 </table>
+  <table name="#pAtkSpd"> 1.15 1.33 </table>
+  <table name="#aggro"> 418 495 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pAtkSpd" stackType="pAtkSpeedUp">
+      <mul order="0x30" stat="pAtkSpd" val="#pAtkSpd"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="1.33" stackType="pAtkSpeedUp">
+      <mul order="0x30" stat="pAtkSpd" val="1.33"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1087" levels="3" name="Agility" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+  <table name="#ench2MpConsume"> 37 36 36 35 34 34 33 32 32 31 31 30 29 29 28 27 27 26 25 25 24 24 23 22 22 21 20 20 19 19 </table>
+  <table name="#ench2MpConsume_Init">  9 9 9 9 9 9 8 8 8 8  8 8 7 7 7 7 7 7 6 6  6 6 6 6 5 5 5 5 5 5 </table>
+  <table name="#mpConsume_Init"> 5 8 10 </table>
+  <table name="#mpConsume"> 18 31 38 </table>
+  <table name="#rEvas"> 2 3 4 </table>
+  <table name="#aggro"> 243 418 495 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#rEvas" stackType="rEvas">
+      <add order="0x40" stat="rEvas" val="#rEvas"/>
+    </effect>
+  </for>
+  <enchant1for>
+    <effect count="1" name="Buff" time="#ench1time" val="0" stackOrder="4" stackType="rEvas">
+      <add order="0x40" stat="rEvas" val="4"/>
+    </effect>
+  </enchant1for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1090" levels="6" name="Life Drain">
+  <table name="#mpConsume_Init"> 5 8 10 12 14 16 </table>
+  <table name="#mpConsume"> 22 32 40 46 54 63 </table>
+  <table name="#magicLvl"> 7 14 20 25 30 35 </table>
+  <table name="#power"> 15 21 26 32 38 44 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="DRAIN"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="absorbPart" val="0.8"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1092" levels="19" name="Fear">
+  <table name="#mpConsume_Init"> 3 4 5 6 6 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 12 16 18 21 24 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 14 20 25 30 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="40"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="FEAR"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="5" name="Fear" time="2" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1095" levels="5" name="Venom">
+  <table name="#mpConsume_Init"> 2 3 4 7 10 </table>
+  <table name="#mpConsume"> 8 12 16 28 38 </table>
+  <table name="#magicLvl"> 7 14 20 40 52 </table>
+  <table name="#dmg"> 33 48 72 123 150 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="CON"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="70"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="12000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="POISON"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="10" name="DamOverTime" time="3" val="#dmg" abnormal="poison"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1096" levels="16" name="Seal of Chaos" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 81 80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 65 64 63 62 61 60 59 58 57 56 55 54 53 </table>
+  <table name="#ench2MpConsume_Init"> 20 20 19 19 19 19 18 18 18 18 17 17 17 17 16 16 16 16 16 15 15 15 15 14 14 14 14 13 13 13 </table>
+  <table name="#mpConsume_Init"> 4 5 11 12 13 14 16 16 17 18 18 19 19 20 20 21 </table>
+  <table name="#mpConsume"> 16 18 42 47 52 56 61 64 66 69 71 74 76 78 80 82 </table>
+  <table name="#magicLvl"> 30 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <table name="#Acc"> 9 9 12 12 12 12 12 12 12 12 12 12 12 12 12 12 </table>
+  <table name="#ench1Power"> 61 62 64 65 66 68 69 70 72 73 74 76 77 78 80 81 82 84 85 86 88 89 90 92 93 94 96 97 98 100 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="60"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="30" val="0" stackOrder="#Acc" stackType="accuracyDown">
+      <sub order="0x40" stat="accCombat" val="#Acc"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1097" levels="20" name="Dreaming Spirit" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 54 54 53 53 52 52 51 51 50 50 49 49 48 48 47 47 46 46 45 45 44 44 43 43 42 42 41 41 40 40 </table>
+  <table name="#ench2MpConsume_Init"> 13 13 13 13 13 13 12 12 12 12 12 12 12 12 11 11 11 11 11 11 11 11 10 10 10 10 10 10 10 10 </table>
+  <table name="#ench1Power"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 90 91 92 92 93 94 94 95 96 96 97 98 98 99 100 </table>
+  <table name="#mpConsume_Init"> 2 3 4 5 6 6 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
+  <table name="#mpConsume"> 8 12 16 18 21 24 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
+  <table name="#magicLvl"> 7 14 20 25 30 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="SLEEP"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Sleep" time="30" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="1099" levels="15" name="Seal of Slow" enchantLevels1="30" enchantLevels2="30" >
+  <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
+  <enchant1 name="magicLvl" val="#enchantMagicLvl"/>
+  <enchant2 name="magicLvl" val="#enchantMagicLvl"/>
+  <table name="#ench2MpConsume"> 81 80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 65 64 63 62 61 60 59 58 57 56 55 54 53 </table>
+  <table name="#ench2MpConsume_Init"> 20 20 19 19 19 19 18 18 18 18 17 17 17 17 16 16 16 16 16 15 15 15 15 14 14 14 14 13 13 13 </table>
+  <table name="#ench1Power"> 41 42 44 45 46 48 49 50 52 53 54 56 57 58 60 61 62 64 65 66 68 69 70 72 73 74 76 77 78 80 </table>
+  <table name="#runSpd"> 0.8 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 </table>
+  <table name="#mpConsume_Init"> 9 11 12 13 14 16 16 17 18 18 19 19 20 20 21 </table>
+  <table name="#mpConsume"> 36 42 47 52 56 61 64 66 69 71 74 76 78 80 82 </table>
+  <table name="#magicLvl"> 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+  <set name="mpInitialConsume" val="#mpConsume_Init"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="40"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <enchant1 name="power" val="#ench1Power"/>
+  <enchant2 name="mpConsume" val="#ench2MpConsume"/>
+  <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init"/>
+  <for>
+    <effect count="1" name="Buff" time="30" val="0" stackOrder="#runSpd" stackType="RunSpeedDown" >
+      <mul order="0x30" stat="runSpd" val="#runSpd"/>
+    </effect>
+  </for>
+</skill>
+</list>

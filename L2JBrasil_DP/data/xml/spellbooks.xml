@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<book skill_id="2" item_id="1512"/> <!-- Spellbook: Confusion -->
+	<book skill_id="10" item_id="3039"/> <!-- Spellbook: Summon Storm Cubic -->
+	<book skill_id="13" item_id="3940"/> <!-- Blueprint: Summon Siege Golem -->
+	<book skill_id="15" item_id="1513"/> <!-- Spellbook: Charm -->
+	<book skill_id="21" item_id="1377"/> <!-- Spellbook: Poison Recovery -->
+	<book skill_id="22" item_id="3040"/> <!-- Spellbook: Summon Vampiric Cubic -->
+	<book skill_id="25" item_id="3038"/> <!-- Blueprint: Summon Mechanic Golem -->
+	<book skill_id="33" item_id="3041"/> <!-- Spellbook: Summon Phantom Cubic -->
+	<book skill_id="44" item_id="3432"/> <!-- Spellbook: Remedy -->
+	<book skill_id="45" item_id="1378"/> <!-- Spellbook: Divine Heal -->
+	<book skill_id="46" item_id="3042"/> <!-- Spellbook: Life Scavenge -->
+	<book skill_id="49" item_id="3043"/> <!-- Spellbook: Holy Strike -->
+	<book skill_id="58" item_id="1096"/> <!-- Spellbook: Elemental Heal -->
+	<book skill_id="61" item_id="1379"/> <!-- Spellbook: Cure Bleeding -->
+	<book skill_id="65" item_id="3044"/> <!-- Spellbook: Horror -->
+	<book skill_id="67" item_id="3045"/> <!-- Spellbook: Summon Life Cubic -->
+	<book skill_id="69" item_id="3046"/> <!-- Spellbook: Sacrifice -->
+	<book skill_id="70" item_id="1097"/> <!-- Spellbook: Drain Health -->
+	<book skill_id="72" item_id="3047"/> <!-- Spellbook: Iron Will -->
+	<book skill_id="77" item_id="1095"/> <!-- Spellbook: Attack Aura -->
+	<book skill_id="86" item_id="3048"/> <!-- Spellbook: Reflect Damage -->
+	<book skill_id="91" item_id="1294"/> <!-- Spellbook: Defense Aura -->
+	<book skill_id="102" item_id="1380"/> <!-- Spellbook: Entangle -->
+	<book skill_id="103" item_id="3049"/> <!-- Spellbook: Corpse Plague -->
+	<book skill_id="105" item_id="1381"/> <!-- Spellbook: Freezing Strike -->
+	<book skill_id="115" item_id="1382"/> <!-- Spellbook: Power Break -->
+	<book skill_id="122" item_id="3050"/> <!-- Spellbook: Hex -->
+	<book skill_id="123" item_id="3051"/> <!-- Spellbook: Spirit Barrier -->
+	<book skill_id="127" item_id="3052"/> <!-- Spellbook: Hamstring -->
+	<book skill_id="129" item_id="1383"/> <!-- Spellbook: Poison -->
+	<book skill_id="230" item_id="1384"/> <!-- Spellbook: Sprint -->
+	<book skill_id="262" item_id="3053"/> <!-- Spellbook: Holy Blessing -->
+	<book skill_id="278" item_id="3054"/> <!-- Spellbook: Summon Viper Cubic -->
+	<book skill_id="279" item_id="3055"/> <!-- Spellbook: Lightening Strike -->
+	<book skill_id="283" item_id="3056"/> <!-- Spellbook: Summon Dark Panther -->
+	<book skill_id="289" item_id="4203"/> <!-- Spellbook: Life Leech -->
+	<book skill_id="301" item_id="4921"/> <!-- Blueprint: Summon Big Boom -->
+	<book skill_id="1002" item_id="1518"/> <!-- Amulet: Flame Chant -->
+	<book skill_id="1003" item_id="1519"/> <!-- Amulet: Pa'agrio's Gift -->
+	<book skill_id="1004" item_id="3103"/> <!-- Amulet: Pa'agrio's Wisdom -->
+	<book skill_id="1005" item_id="1520"/> <!-- Amulet: Pa'agrio's Blessing -->
+	<book skill_id="1006" item_id="1521"/> <!-- Amulet: Chant of Fire -->
+	<book skill_id="1007" item_id="1522"/> <!-- Amulet: Chant of Battle -->
+	<book skill_id="1008" item_id="3104"/> <!-- Amulet: Pa'agrio's Glory -->
+	<book skill_id="1009" item_id="1523"/> <!-- Amulet: Chant of Shielding -->
+	<book skill_id="1010" item_id="1524"/> <!-- Amulet: Soul Shield -->
+	<book skill_id="1011" item_id="1152"/> <!-- Spellbook: Heal -->
+	<book skill_id="1012" item_id="1053"/> <!-- Spellbook: Cure Poison -->
+	<book skill_id="1013" item_id="1385"/> <!-- Spellbook: Recharge -->
+	<book skill_id="1015" item_id="1050"/> <!-- Spellbook: Battle Heal -->
+	<book skill_id="1016" item_id="1514"/> <!-- Spellbook: Resurrection -->
+	<book skill_id="1018" item_id="3072"/> <!-- Spellbook: Purify -->
+	<book skill_id="1020" item_id="3068"/> <!-- Spellbook: Vitalize -->
+	<book skill_id="1027" item_id="1054"/> <!-- Spellbook: Group Heal -->
+	<book skill_id="1028" item_id="3073"/> <!-- Spellbook: Might of Heaven -->
+	<book skill_id="1031" item_id="1386"/> <!-- Spellbook: Disrupt Undead -->
+	<book skill_id="1032" item_id="3094"/> <!-- Spellbook: Invigor -->
+	<book skill_id="1033" item_id="1387"/> <!-- Spellbook: Resist Poison -->
+	<book skill_id="1034" item_id="3069"/> <!-- Spellbook: Repose -->
+	<book skill_id="1035" item_id="1388"/> <!-- Spellbook: Mental Shield -->
+	<book skill_id="1036" item_id="3095"/> <!-- Spellbook: Magic Barrier -->
+	<book skill_id="1040" item_id="1058"/> <!-- Spellbook: Shield -->
+	<book skill_id="1042" item_id="3070"/> <!-- Spellbook: Hold Undead -->
+	<book skill_id="1043" item_id="1389"/> <!-- Spellbook: Holy Weapon -->
+	<book skill_id="1044" item_id="1390"/> <!-- Spellbook: Regeneration -->
+	<book skill_id="1045" item_id="3096"/> <!-- Spellbook: Blessed Body -->
+	<book skill_id="1047" item_id="4207"/> <!-- Spellbook: Mana Regeneration -->
+	<book skill_id="1048" item_id="3097"/> <!-- Spellbook: Blessed Soul -->
+	<book skill_id="1049" item_id="3071"/> <!-- Spellbook: Requiem -->
+	<book skill_id="1050" item_id="3098"/> <!-- Spellbook: Return -->
+	<book skill_id="1056" item_id="3079"/> <!-- Spellbook: Cancel -->
+	<book skill_id="1059" item_id="1391"/> <!-- Spellbook: Empower -->
+	<book skill_id="1062" item_id="1392"/> <!-- Spellbook: Berserker Spirit -->
+	<book skill_id="1064" item_id="3064"/> <!-- Spellbook: Silence -->
+	<book skill_id="1068" item_id="1048"/> <!-- Spellbook: Might -->
+	<book skill_id="1069" item_id="1394"/> <!-- Spellbook: Sleep -->
+	<book skill_id="1071" item_id="3082"/> <!-- Spellbook: Surrender to Water -->
+	<book skill_id="1072" item_id="3080"/> <!-- Spellbook: Sleeping Cloud -->
+	<book skill_id="1073" item_id="1515"/> <!-- Spellbook: Kiss of Eva -->
+	<book skill_id="1074" item_id="3074"/> <!-- Spellbook: Surrender to Wind -->
+	<book skill_id="1075" item_id="1397"/> <!-- Spellbook: Peace -->
+	<book skill_id="1077" item_id="1398"/> <!-- Spellbook: Focus -->
+	<book skill_id="1078" item_id="1399"/> <!-- Spellbook: Concentration -->
+	<book skill_id="1085" item_id="1401"/> <!-- Spellbook: Acumen -->
+	<book skill_id="1086" item_id="3099"/> <!-- Spellbook: Haste -->
+	<book skill_id="1087" item_id="1402"/> <!-- Spellbook: Agility -->
+	<book skill_id="1090" item_id="1525"/> <!-- Amulet: Life Drain -->
+	<book skill_id="1092" item_id="1526"/> <!-- Amulet: Fear -->
+	<book skill_id="1095" item_id="1527"/> <!-- Amulet: Venom -->
+	<book skill_id="1096" item_id="1528"/> <!-- Amulet: Seal of Chaos -->
+	<book skill_id="1097" item_id="1529"/> <!-- Amulet: Dreaming Spirit -->
+	<book skill_id="1099" item_id="1530"/> <!-- Amulet: Seal of Slow -->
+	<book skill_id="1100" item_id="1531"/> <!-- Amulet: Chill Flame -->
+	<book skill_id="1101" item_id="1532"/> <!-- Amulet: Blaze Quake -->
+	<book skill_id="1102" item_id="1533"/> <!-- Amulet: Aura Sink -->
+	<book skill_id="1104" item_id="3105"/> <!-- Amulet: Seal of Winter -->
+	<book skill_id="1105" item_id="1534"/> <!-- Amulet: Madness -->
+	<book skill_id="1107" item_id="1535"/> <!-- Amulet: Frost Flame -->
+	<book skill_id="1108" item_id="3106"/> <!-- Amulet: Seal of Flame -->
+	<book skill_id="1111" item_id="1403"/> <!-- Spellbook: Summon Kat the Cat -->
+	<book skill_id="1126" item_id="1404"/> <!-- Spellbook: Servitor Recharge -->
+	<book skill_id="1127" item_id="1405"/> <!-- Spellbook: Servitor Heal -->
+	<book skill_id="1128" item_id="1667"/> <!-- Spellbook: Summon Shadow -->
+	<book skill_id="1129" item_id="3057"/> <!-- Spellbook: Summon Reanimated Man -->
+	<book skill_id="1139" item_id="3091"/> <!-- Spellbook: Servitor Magic Shield -->
+	<book skill_id="1140" item_id="3092"/> <!-- Spellbook: Servitor Physical Shield -->
+	<book skill_id="1141" item_id="3093"/> <!-- Spellbook: Servitor Haste -->
+	<book skill_id="1144" item_id="1406"/> <!-- Spellbook: Servitor Wind Walk -->
+	<book skill_id="1145" item_id="1407"/> <!-- Spellbook: Servitor Magic Boost -->
+	<book skill_id="1146" item_id="1408"/> <!-- Spellbook: Mighty Servitor -->
+	<book skill_id="1147" item_id="1051"/> <!-- Spellbook: Vampiric Touch -->
+	<book skill_id="1148" item_id="3065"/> <!-- Spellbook: Death Spike -->
+	<book skill_id="1151" item_id="1516"/> <!-- Spellbook: Corpse Life Drain -->
+	<book skill_id="1154" item_id="3058"/> <!-- Spellbook: Summon Corrupted Man -->
+	<book skill_id="1155" item_id="3059"/> <!-- Spellbook: Corpse Burst -->
+	<book skill_id="1156" item_id="3060"/> <!-- Spellbook: Forget -->
+	<book skill_id="1157" item_id="1517"/> <!-- Spellbook: Body To Mind -->
+	<book skill_id="1159" item_id="3066"/> <!-- Spellbook: Curse Death Link -->
+	<book skill_id="1160" item_id="1409"/> <!-- Spellbook: Slow -->
+	<book skill_id="1163" item_id="3061"/> <!-- Spellbook: Curse Discord -->
+	<book skill_id="1164" item_id="1056"/> <!-- Spellbook: Curse: Weakness -->
+	<book skill_id="1167" item_id="1410"/> <!-- Spellbook: Poisonous Cloud -->
+	<book skill_id="1168" item_id="1055"/> <!-- Spellbook: Curse: Poison -->
+	<book skill_id="1169" item_id="3062"/> <!-- Spellbook: Curse Fear -->
+	<book skill_id="1170" item_id="3063"/> <!-- Spellbook: Anchor -->
+	<book skill_id="1171" item_id="3075"/> <!-- Spellbook: Blazing Circle -->
+	<book skill_id="1172" item_id="1411"/> <!-- Spellbook: Aura Burn -->
+	<book skill_id="1174" item_id="3083"/> <!-- Spellbook: Frost Wall -->
+	<book skill_id="1175" item_id="1370"/> <!-- Spellbook: Aqua Swirl -->
+	<book skill_id="1176" item_id="3089"/> <!-- Spellbook: Tempest -->
+	<book skill_id="1178" item_id="1371"/> <!-- Spellbook: Twister -->
+	<book skill_id="1181" item_id="1052"/> <!-- Spellbook: Flame Strike -->
+	<book skill_id="1182" item_id="1412"/> <!-- Spellbook: Resist Aqua -->
+	<book skill_id="1183" item_id="3084"/> <!-- Spellbook: Freezing Shackle -->
+	<book skill_id="1184" item_id="1049"/> <!-- Spellbook: Ice Bolt -->
+	<book skill_id="1189" item_id="1413"/> <!-- Spellbook: Resist Wind -->
+	<book skill_id="1191" item_id="1414"/> <!-- Spellbook: Resist Fire -->
+	<book skill_id="1201" item_id="1415"/> <!-- Spellbook: Dryad Root -->
+	<book skill_id="1204" item_id="1098"/> <!-- Spellbook: Wind Walk -->
+	<book skill_id="1206" item_id="1099"/> <!-- Spellbook: Wind Shackle -->
+	<book skill_id="1208" item_id="1536"/> <!-- Amulet: Seal of Binding -->
+	<book skill_id="1209" item_id="1537"/> <!-- Amulet: Seal of Poison -->
+	<book skill_id="1210" item_id="3107"/> <!-- Amulet: Seal of Gloom -->
+	<book skill_id="1213" item_id="3108"/> <!-- Amulet: Seal of Mirage -->
+	<book skill_id="1217" item_id="3429"/> <!-- Spellbook: Greater Heal -->
+	<book skill_id="1218" item_id="3430"/> <!-- Spellbook: Greater Battle Heal -->
+	<book skill_id="1219" item_id="3431"/> <!-- Spellbook: Greater Group Heal -->
+	<book skill_id="1220" item_id="1372"/> <!-- Spellbook: Blaze -->
+	<book skill_id="1222" item_id="1416"/> <!-- Spellbook: Curse of Chaos -->
+	<book skill_id="1223" item_id="1417"/> <!-- Spellbook: Surrender To Earth -->
+	<book skill_id="1224" item_id="1418"/> <!-- Spellbook: Surrender To Poison -->
+	<book skill_id="1225" item_id="1668"/> <!-- Spellbook: Summon Mew the Cat -->
+	<book skill_id="1226" item_id="1669"/> <!-- Spellbook: Summon Boxer the Unicorn -->
+	<book skill_id="1227" item_id="1670"/> <!-- Spellbook: Summon Mirage the Unicorn -->
+	<book skill_id="1228" item_id="1671"/> <!-- Spellbook: Summon Silhouette -->
+	<book skill_id="1229" item_id="1856"/> <!-- Amulet: Chant of Life -->
+	<book skill_id="1230" item_id="3076"/> <!-- Spellbook: Prominence -->
+	<book skill_id="1231" item_id="3081"/> <!-- Spellbook: Aura Flare -->
+	<book skill_id="1232" item_id="3077"/> <!-- Spellbook: Blazing Skin -->
+	<book skill_id="1233" item_id="3078"/> <!-- Spellbook: Decay -->
+	<book skill_id="1234" item_id="3067"/> <!-- Spellbook: Vampiric Claw -->
+	<book skill_id="1235" item_id="3085"/> <!-- Spellbook: Hydro Blast -->
+	<book skill_id="1236" item_id="3086"/> <!-- Spellbook: Frost Bolt -->
+	<book skill_id="1237" item_id="3087"/> <!-- Spellbook: Ice Dagger -->
+	<book skill_id="1238" item_id="3088"/> <!-- Spellbook: Freezing Skin -->
+	<book skill_id="1239" item_id="3090"/> <!-- Spellbook: Hurricane -->
+	<book skill_id="1240" item_id="3100"/> <!-- Spellbook: Guidance -->
+	<book skill_id="1242" item_id="3101"/> <!-- Spellbook: Death Whisper -->
+	<book skill_id="1243" item_id="3102"/> <!-- Spellbook: Bless Shield -->
+	<book skill_id="1244" item_id="3115"/> <!-- Amulet: Freezing Flame -->
+	<book skill_id="1245" item_id="3114"/> <!-- Amulet: Steal Essence -->
+	<book skill_id="1246" item_id="3109"/> <!-- Amulet: Seal of Silence -->
+	<book skill_id="1247" item_id="3110"/> <!-- Amulet: Seal of Scourge -->
+	<book skill_id="1248" item_id="3111"/> <!-- Amulet: Seal of Suspension -->
+	<book skill_id="1249" item_id="3112"/> <!-- Amulet: Pa'agrio's Eye -->
+	<book skill_id="1250" item_id="3113"/> <!-- Amulet: Pa'agrio's Protection -->
+	<book skill_id="1251" item_id="3116"/> <!-- Amulet: Chant of Fury -->
+	<book skill_id="1252" item_id="3117"/> <!-- Amulet: Chant of Evasion -->
+	<book skill_id="1253" item_id="3118"/> <!-- Amulet: Chant of Rage -->
+	<book skill_id="1254" item_id="3941"/> <!-- Spellbook: Mass Resurrection -->
+	<book skill_id="1256" item_id="3943"/> <!-- Amulet: Pa'agrio's Heart -->
+	<book skill_id="1257" item_id="3944"/> <!-- Spellbook: Decrease Weight -->
+	<book skill_id="1258" item_id="4200"/> <!-- Spellbook: Restore Life -->
+	<book skill_id="1259" item_id="4201"/> <!-- Spellbook: Resist Shock -->
+	<book skill_id="1260" item_id="4204"/> <!-- Amulet: Pa'agrio's Tact -->
+	<book skill_id="1261" item_id="4205"/> <!-- Amulet: Pa'agrio's Rage -->
+	<book skill_id="1262" item_id="4206"/> <!-- Spellbook: Transfer Pain -->
+	<book skill_id="1263" item_id="4208"/> <!-- Spellbook: Curse Gloom -->
+	<book skill_id="1264" item_id="4906"/> <!-- Spellbook: Solar Spark -->
+	<book skill_id="1265" item_id="4907"/> <!-- Spellbook: Solar Flare -->
+	<book skill_id="1266" item_id="4908"/> <!-- Spellbook: Shadow Spark -->
+	<book skill_id="1267" item_id="4909"/> <!-- Spellbook: Shadow Flare -->
+	<book skill_id="1268" item_id="4910"/> <!-- Spellbook: Vampiric Rage -->
+	<book skill_id="1269" item_id="4911"/> <!-- Spellbook: Curse Disease -->
+	<book skill_id="1271" item_id="4912"/> <!-- Spellbook: Benediction -->
+	<book skill_id="1272" item_id="4913"/> <!-- Spellbook: Word of Fear -->
+	<book skill_id="1273" item_id="4914"/> <!-- Spellbook: Serenade of Eva -->
+	<book skill_id="299" item_id="4915"/> <!-- Blueprint: Summon Wild Hog Cannon -->
+	<book skill_id="1274" item_id="4916"/> <!-- Spellbook: Energy Bolt -->
+	<book skill_id="1275" item_id="4917"/> <!-- Spellbook: Aura Bolt -->
+	<book skill_id="1276" item_id="4918"/> <!-- Spellbook: Summon Kai the Cat -->
+	<book skill_id="1277" item_id="4919"/> <!-- Spellbook: Summon Merrow the Unicorn -->
+	<book skill_id="1278" item_id="4920"/> <!-- Spellbook: Summon Soulless -->
+	<book skill_id="1279" item_id="4922"/> <!-- Spellbook: Summon Binding Cubic -->
+	<book skill_id="1280" item_id="4923"/> <!-- Spellbook: Summon Aqua Cubic -->
+	<book skill_id="1281" item_id="4924"/> <!-- Spellbook: Summon Spark Cubic -->
+	<book skill_id="1282" item_id="4925"/> <!-- Amulet: Pa'agrio's Haste -->
+	<book skill_id="1283" item_id="4926"/> <!-- Amulet: Soul Guard -->
+	<book skill_id="1284" item_id="4927"/> <!-- Amulet: Chant of Revenge -->
+	<book skill_id="1285" item_id="4928"/> <!-- Spellbook: Seed of Fire -->
+	<book skill_id="1286" item_id="4929"/> <!-- Spellbook: Seed of Water -->
+	<book skill_id="1287" item_id="4930"/> <!-- Spellbook: Seed of Wind -->
+	<book skill_id="1288" item_id="4931"/> <!-- Spellbook: Aura Symphony -->
+	<book skill_id="1289" item_id="4932"/> <!-- Spellbook: Inferno -->
+	<book skill_id="1290" item_id="4933"/> <!-- Spellbook: Blizzard -->
+	<book skill_id="1291" item_id="4934"/> <!-- Spellbook: Demon Wind -->
+	<book skill_id="1292" item_id="5013"/> <!-- Spellbook: Elemental Assault -->
+	<book skill_id="1293" item_id="5014"/> <!-- Spellbook: Elemental Symphony -->
+	<book skill_id="1294" item_id="5015"/> <!-- Spellbook: Elemental Storm -->
+	<book skill_id="1295" item_id="5809"/> <!-- Spellbook: Aqua Splash -->
+	<book skill_id="1296" item_id="5810"/> <!-- Spellbook: Rain of Fire -->
+	<book skill_id="1298" item_id="5811"/> <!-- Spellbook: Mass Slow -->
+	<book skill_id="1299" item_id="5812"/> <!-- Spellbook: Servitor Empowerment -->
+	<book skill_id="1300" item_id="5813"/> <!-- Spellbook: Servitor Cure -->
+	<book skill_id="1301" item_id="5814"/> <!-- Spellbook: Servitor Blessing -->
+	<book skill_id="1303" item_id="5815"/> <!-- Spellbook: Wild Magic -->
+	<book skill_id="1304" item_id="5816"/> <!-- Spellbook: Advanced Block -->
+	<book skill_id="1305" item_id="6350"/> <!-- Amulet: Pa'agrio's Honor -->
+	<book skill_id="1306" item_id="6351"/> <!-- Amulet: Ritual of Life -->
+	<book skill_id="1307" item_id="6352"/> <!-- Spellbook: Prayer -->
+	<book skill_id="1308" item_id="6395"/> <!-- Amulet: Chant of Predator -->
+	<book skill_id="1309" item_id="6396"/> <!-- Amulet: Chant of Eagle -->
+	<book skill_id="1310" item_id="6397"/> <!-- Amulet: Chant of Vampire -->
+	<book skill_id="1311" item_id="6398"/> <!-- Spellbook: Body of Avatar -->
+	<book skill_id="1328" item_id="7638"/> <!-- Spellbook - Mass Summon Storm Cubic -->
+	<book skill_id="1329" item_id="7639"/> <!-- Spellbook - Mass Summon Aqua Cubic -->
+	<book skill_id="1330" item_id="7640"/> <!-- Spellbook - Mass Summon Phantom Cubic -->
+	<book skill_id="1331" item_id="7641"/> <!-- Spellbook - Summon Feline Queen -->
+	<book skill_id="1332" item_id="7642"/> <!-- Spellbook - Summon Unicorn Seraphim -->
+	<book skill_id="1333" item_id="7643"/> <!-- Spellbook - Summon Nightshade -->
+	<book skill_id="1334" item_id="7644"/> <!-- Spellbook - Summon Cursed Man -->
+	<book skill_id="1335" item_id="7645"/> <!-- Spellbook - Balance Life -->
+	<book skill_id="1336" item_id="7646"/> <!-- Spellbook - Curse of Doom -->
+	<book skill_id="1337" item_id="7647"/> <!-- Spellbook - Curse of Abyss -->
+	<book skill_id="1338" item_id="7648"/> <!-- Spellbook - Arcane Chaos -->
+	<book skill_id="1339" item_id="7649"/> <!-- Spellbook - Fire Vortex -->
+	<book skill_id="1340" item_id="7650"/> <!-- Spellbook - Ice Vortex -->
+	<book skill_id="1341" item_id="7651"/> <!-- Spellbook - Wind Vortex -->
+	<book skill_id="1342" item_id="7652"/> <!-- Spellbook - Light Vortex -->
+	<book skill_id="1343" item_id="7653"/> <!-- Spellbook - Dark Vortex -->
+	<book skill_id="1344" item_id="7654"/> <!-- Spellbook - Mass Warrior Bane -->
+	<book skill_id="1345" item_id="7655"/> <!-- Spellbook - Mass Mage Bane -->
+	<book skill_id="1346" item_id="7656"/> <!-- Spellbook - Warrior Servitor -->
+	<book skill_id="1347" item_id="7657"/> <!-- Spellbook - Wizard Servitor -->
+	<book skill_id="1348" item_id="7658"/> <!-- Spellbook - Assassin Servitor -->
+	<book skill_id="1349" item_id="7659"/> <!-- Spellbook - Final Servitor -->
+	<book skill_id="1350" item_id="7660"/> <!-- Spellbook - Warrior Bane -->
+	<book skill_id="1351" item_id="7661"/> <!-- Spellbook - Mage Bane -->
+	<book skill_id="1352" item_id="7662"/> <!-- Spellbook - Elemental Protection -->
+	<book skill_id="1353" item_id="7663"/> <!-- Spellbook - Divine Protection -->
+	<book skill_id="1354" item_id="7664"/> <!-- Spellbook - Arcane Protection -->
+	<book skill_id="1355" item_id="7665"/> <!-- Spellbook - Prophecy of Water -->
+	<book skill_id="1356" item_id="7666"/> <!-- Spellbook - Prophecy of Fire -->
+	<book skill_id="1357" item_id="7667"/> <!-- Spellbook - Prophecy of Wind -->
+	<book skill_id="1358" item_id="7668"/> <!-- Spellbook - Block Shield -->
+	<book skill_id="1359" item_id="7669"/> <!-- Spellbook - Block Wind Walk -->
+	<book skill_id="1360" item_id="7670"/> <!-- Spellbook - Mass Block Shield -->
+	<book skill_id="1361" item_id="7671"/> <!-- Spellbook - Mass Block Wind Walk -->
+	<book skill_id="1362" item_id="7672"/> <!-- Amulet - Chant of Spirit -->
+	<book skill_id="1363" item_id="7673"/> <!-- Amulet - Chant of Victory -->
+	<book skill_id="1364" item_id="7674"/> <!-- Amulet - Pa'agrio's Eye -->
+	<book skill_id="1365" item_id="7675"/> <!-- Amulet - Pa'agrio's Soul -->
+	<book skill_id="1366" item_id="7676"/> <!-- Amulet - Seal of Despair -->
+	<book skill_id="1367" item_id="7835"/> <!-- Amulet: Seal of Disease -->
+	<book skill_id="1380" item_id="8380"/> <!-- Spellbook: Betray -->
+	<book skill_id="1381" item_id="8381"/> <!-- Spellbook: Mass Curse Fear -->
+	<book skill_id="1382" item_id="8382"/> <!-- Spellbook: Mass Curse Gloom -->
+	<book skill_id="1383" item_id="8383"/> <!-- Spellbook: Mass Surrender to Fire -->
+	<book skill_id="1384" item_id="8384"/> <!-- Spellbook: Mass Surrender to Water -->
+	<book skill_id="1385" item_id="8385"/> <!-- Spellbook: Mass Surrender to Wind -->
+	<book skill_id="1386" item_id="8386"/> <!-- Spellbook - Arcane Disruption -->
+	<book skill_id="1387" item_id="8387"/> <!-- Spellbook - Summon Cursed Bones -->
+	<book skill_id="1388" item_id="8388"/> <!-- Spellbook: Greater Might -->
+	<book skill_id="1389" item_id="8389"/> <!-- Spellbook: Greater Shield -->
+	<book skill_id="1390" item_id="8390"/> <!-- Amulet: War Chant -->
+	<book skill_id="1391" item_id="8391"/> <!-- Amulet: Earth Chant -->
+	<book skill_id="1392" item_id="8392"/> <!-- Spellbook: Holy Resistance -->
+	<book skill_id="1393" item_id="8393"/> <!-- Spellbook: Unholy Resistance -->
+	<book skill_id="1394" item_id="8394"/> <!-- Spellbook: Trance -->
+	<book skill_id="1395" item_id="8395"/> <!-- Spellbook: Erase -->
+	<book skill_id="1396" item_id="8396"/> <!-- Spellbook: Magical Backfire -->
+	<book skill_id="1397" item_id="8397"/> <!-- Spellbook: Clarity -->
+	<book skill_id="1398" item_id="8398"/> <!-- Spellbook: Mana Burn -->
+	<book skill_id="1399" item_id="8399"/> <!-- Spellbook: Mana Storm -->
+	<book skill_id="1400" item_id="8400"/> <!-- Spellbook: Turn Undead -->
+	<book skill_id="1401" item_id="8401"/> <!-- Spellbook: Major Heal -->
+	<book skill_id="1402" item_id="8402"/> <!-- Spellbook: Major Group Heal -->
+	<book skill_id="1403" item_id="8616"/> <!-- Spellbook: Summon Friend -->
+	<book skill_id="1404" item_id="8617"/> <!-- Spellbook: Word of Invitation -->
+	<book skill_id="438" item_id="8877"/> <!-- Spellbook: Soul of the Phoenix -->
+	<book skill_id="1406" item_id="8878"/> <!-- Spellbook: Summon Feline King -->
+	<book skill_id="1407" item_id="8879"/> <!-- Spellbook: Summon Magnus the Unicorn -->
+	<book skill_id="1408" item_id="8880"/> <!-- Spellbook: Summon Spectral Knight -->
+	<book skill_id="1409" item_id="8881"/> <!-- Spellbook: Cleanse -->
+	<book skill_id="1410" item_id="8882"/> <!-- Spellbook: Salvation -->
+	<book skill_id="1411" item_id="8883"/> <!-- Spellbook: Mystic Immunity -->
+	<book skill_id="1412" item_id="8884"/> <!-- Spellbook: Spell Turning -->
+	<book skill_id="1413" item_id="8885"/> <!-- Amulet: Magnus' Chant -->
+	<book skill_id="1414" item_id="8886"/> <!-- Amulet: Victories of Pa'agrio -->
+	<book skill_id="1415" item_id="8887"/> <!-- Amulet: Pa'agrio's Emblem -->
+	<book skill_id="1416" item_id="8888"/> <!-- Amulet: Pa'agrio's Fist -->
+	<book skill_id="1429" item_id="8889"/> <!-- Amulet: Gate Chant -->
+	<book skill_id="449" item_id="8890"/> <!-- Spellbook: Summon Attractive Cubic -->
+	<book skill_id="1417" item_id="8891"/> <!-- Spellbook: Aura Flash -->
+	<book skill_id="454" item_id="8892"/> <!-- Ancient Tactical Manual: Symbol of Defense -->
+	<book skill_id="455" item_id="8893"/> <!-- Ancient Tactical Manual: Symbol of Noise -->
+	<book skill_id="456" item_id="8894"/> <!-- Ancient Tactical Manual: Symbol of Resistance -->
+	<book skill_id="457" item_id="8895"/> <!-- Ancient Tactical Manual: Symbol of Honor -->
+	<book skill_id="458" item_id="8896"/> <!-- Ancient Tactical Manual: Symbol of Energy -->
+	<book skill_id="459" item_id="8897"/> <!-- Ancient Tactical Manual: Symbol of the Sniper -->
+	<book skill_id="460" item_id="8898"/> <!-- Ancient Tactical Manual: Symbol of the Assassin -->
+	<book skill_id="1419" item_id="8899"/> <!-- Ancient Spellbook: Volcano -->
+	<book skill_id="1420" item_id="8900"/> <!-- Ancient Spellbook: Cyclone -->
+	<book skill_id="1421" item_id="8901"/> <!-- Ancient Spellbook: Raging Waves -->
+	<book skill_id="1422" item_id="8902"/> <!-- Ancient Spellbook: Day of Doom -->
+	<book skill_id="1423" item_id="8903"/> <!-- Ancient Spellbook: Gehenna -->
+	<book skill_id="1424" item_id="8904"/> <!-- Ancient Spellbook: Anti-Summoning Field -->
+	<book skill_id="1425" item_id="8905"/> <!-- Ancient Spellbook: Purification Field -->
+	<book skill_id="1426" item_id="8906"/> <!-- Ancient Spellbook: Miracle -->
+	<book skill_id="1427" item_id="8907"/> <!-- Ancient Spellbook: Flames of Invincibility -->
+	<book skill_id="1428" item_id="8908"/> <!-- Ancient Spellbook: Mass Recharge -->
+	<book skill_id="448" item_id="8909"/> <!-- Blueprint: Summon Swoop Cannon -->
+	<book skill_id="1418" item_id="8945"/> <!-- Spellbook: Celestial Shield -->
+	<book skill_id="1430" item_id="8946"/> <!-- Spellbook: Invocation -->
+	</list>

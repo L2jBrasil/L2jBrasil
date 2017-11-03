@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5200" levels="3" name="Pet Recharge">
+  <table name="#mpConsume">96 99 102</table> 
+  <table name="#power">120 124 128</table> 
+  <table name="#aggro">604 617 630</table> 
+  <set name="mpConsume" val="#mpConsume"/> 
+  <set name="power" val="#power"/> 
+  <set name="target" val="TARGET_OWNER_PET"/> 
+  <set name="reuseDelay" val="12000"/> 
+  <set name="hitTime" val="6000"/> 
+  <set name="skillType" val="MANARECHARGE"/> 
+  <set name="isMagic" val="true"/> 
+  <set name="operateType" val="OP_ACTIVE"/> 
+  <set name="castRange" val="400"/> 
+  <set name="effectRange" val="900"/> 
+  <set name="aggroPoints" val="#aggro"/> 
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5201" levels="2" name="Pet Concentration">
+  <table name="#mpConsume">39 48</table> 
+  <table name="#cancel">36 42</table> 
+  <table name="#aggro">418 495</table> 
+  <table name="#effect">1 2</table> 
+  <set name="mpConsume" val="#mpConsume"/> 
+  <set name="target" val="TARGET_OWNER_PET"/> 
+  <set name="reuseDelay" val="6000"/> 
+  <set name="hitTime" val="4000"/> 
+  <set name="skillType" val="BUFF"/> 
+  <set name="isMagic" val="true"/> 
+  <set name="operateType" val="OP_ACTIVE"/> 
+  <set name="castRange" val="400"/> 
+  <set name="effectRange" val="900"/> 
+  <set name="aggroPoints" val="#aggro"/> 
+  <for> 
+    <effect count="1" name="Buff" time="120" val="0" stackOrder="#effect" stackType="Concentration"> 
+      <sub order="0x40" stat="cancel" val="#cancel"/> 
+    </effect> 
+  </for> 
+</skill> 
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5202" levels="12" name="NPC Ranged Stun">
+  <table name="#mpConsume">3 5 7 9 12 14 17 18 18 19 20 20</table>
+  <table name="#magicLvl">10 20 30 40 50 60 70 75 80 85 90 95</table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="50"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="150"/>
+  <set name="skillType" val="STUN"/>
+  <set name="saveVs" val="CON"/>
+  <set name="hitTime" val="4000"/>
+  <set name="reuseDelay" val="12000"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5203" levels="12" name="NPC Ranged Fear">
+  <table name="#magicLvl">46 49 52 55 58 61 64 67 70 73 76 80</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="50"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="150"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="CoolTime" val="500"/>
+  <set name="skillType" val="FEAR"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isDebuff" val="true"/>
+  <for>
+ 	<effect count="3" name="Fear" time="5" val="0"/>
+ </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5204" levels="1" name="Production-First Gigantic Pig Combination">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="hitTime" val="5800"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5205" levels="1" name="Boss Regeneration">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="regHp" val="1.2"/>
+	<mul order="0x30" stat="regMp" val="1.2"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5206" levels="1" name="Decrease Speed">
+  <set name="magicLvl" val="95"/>
+  <set name="MpInitialConsume" val="16"/>
+  <set name="MpConsume" val="62"/>
+  <set name="power" val="80"/>
+  <set name="isDEbuff" val="true"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="2000"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="reuseDelay" val="24000"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1000"/>
+  <for>
+    <effect name="Debuff" time="15" count="1" val="0" stackOrder="0.5" stackType="RunSpeedDown">
+      <mul order="0x30" stat="runSpd" val="0.85"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5207" levels="1" name="Decrease Atk. Spd.">
+  <set name="lvlDepend" val="1"/>
+  <set name="magicLvl" val="95"/>
+  <set name="MpInitialConsume" val="16"/>
+  <set name="MpConsume" val="62"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="reuseDelay" val="24000"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isDebuff" val="true"/>
+  <set name="hitTime" val="1500"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect name="Debuff" time="15" count="1" val="0" stackOrder="0.77" stackType="pAtkSpdDown">
+      <mul order="0x30" stat="pAtkSpd" val="0.85"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5208" levels="1" name="Golden Pig Wind Walk">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="33" stackType="SpeedUp">
+      <add order="0x40" stat="runSpd" val="33"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5209" levels="1" name="Golden Pig Shield">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="4" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5210" levels="1" name="Golden Pig Blessed Body">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.35" stackType="MaxHPUp">
+      <mul order="0x30" stat="maxHp" val="1.35"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5211" levels="1" name="Golden Pig Vampiric Rage">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="7" stackType="vampRage">
+      <add order="0x40" stat="absorbDam" val="9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5212" levels="1" name="Golden Pig Regeneration">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.2" stackType="HPregen">
+      <mul order="0x30" stat="regHp" val="1.2"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5213" levels="1" name="Golden Pig Haste">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.15" stackType="pAtkSpeedUp">
+      <mul order="0x30" stat="pAtkSpd" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5214" levels="1" name="Golden Pig Blessed Soul">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.35" stackType="MPregen">
+      <mul order="0x30" stat="maxMp" val="1.35"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5215" levels="1" name="Golden Pig Acumen">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="4" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="1.3"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5216" levels="1" name="Golden Pig Concentration">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="18" stackType="Concentration">
+      <sub order="0x40" stat="cancel" val="18"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5217" levels="1" name="Golden Pig Empower">
+  <set name="magicLvl" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.55" stackType="mAtk">
+      <mul order="0x30" stat="mAtk" val="1.55"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5218" levels="1" name="Production: Event Teleport">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="hitTime" val="2000"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5219" levels="1" name="Huge Pig Stun">
+  <set name="magicLvl" val="95"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="power" val="50"/>
+  <set name="mpConsume" val="43"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="hitTime" val="6000"/>
+  <set name="saveVs" val="CON"/>
+  <set name="skillType" val="STUN"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="900"/>
+  <set name="effectRange" val="1100"/>
+  <set name="isDebuff" val="true"/>
+  <for>
+    <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5220" levels="1" name="Huge Pig Fear">
+  <set name="magicLvl" val="95"/>
+  <set name="power" val="50"/>
+  <set name="mpConsume" val="43"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="FEAR"/>
+  <set name="CollTime" val="2000"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="5" name="Fear" time="3" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5267" levels="9" name="Trap Explosion">
+  <table name="#magicLvl">28 36 44 48 52 56 60 68 74</table> <!-- Guessing levels 3-9 -->
+  <table name="#power">50 54 60 78 84 92 120 130 140</table> <!-- Guessing -->
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="600"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5268" levels="6" name="Poison">
+  <table name="#dmg">54 72 93 114 132 144</table>
+  <table name="#magicLvl">49 55 60 64 68 72</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="isDebuff" val="true"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="skillType" val="POISON"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="10" name="DamOverTime" time="3" val="#dmg" abnormal="poison"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5269" levels="6" name="Slow Trap">
+  <table name="#magicLvl">52 58 62 66 70 74</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="80"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="isDebuff" val="true"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Debuff" time="30" val="0">
+      <mul order="0x30" stat="runSpd" val="0.7"/>
+      <mul order="0x30" stat="pAtkSpd" val="0.77"/>
+      <mul order="0x30" stat="mAtkSpd" val="0.7"/>
+      <mul order="0x30" stat="mReuse" val="1.15"/>
+      <mul order="0x30" stat="pReuse" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5270" levels="5" name="Flash Trap">
+  <table name="#magicLvl">55 60 64 68 72</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="80"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="saveVs" val="CON"/>
+  <set name="skillType" val="STUN"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Stun" time="3" val="0" stackOrder="1" stackType="Stun"/>
+    <effect count="1" name="RemoveTarget" time="1" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5271" levels="8" name="Hold">
+  <table name="#magicLvl">40 46 52 58 62 66 70 74</table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="80"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="isDebuff" val="true"/>
+  <set name="skillType" val="ROOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="1" name="Root" time="30" val="0" stackOrder="1" stackType="Root"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="5272" levels="6" name="Decoy Provocation">
+  <table name="#mpConsume">50 51 53 54 55 57</table>
+  <table name="#magicLvl">38 39 40 41 42 43</table>
+  <table name="#power">2000 2800 3600 4400 5200 6000</table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="hitTime" val="1200"/>
+  <set name="skillType" val="AGGDAMAGE"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="TargetMe" time="1" val="0"/>
+  </for>
+</skill>
+</list>

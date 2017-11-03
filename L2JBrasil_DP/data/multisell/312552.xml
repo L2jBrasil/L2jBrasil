@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<!-- Chrono Cithara -->
+	<item id="1">
+		<ingredient id="6391" count="10" enchant="0"/>
+		<production id="4202" count="1" enchant="0"/>
+	</item>
+	<!-- Chrono Unitus-->
+	<item id="2">
+		<ingredient id="6391" count="10" enchant="0"/>
+		<production id="5133" count="1" enchant="0"/>
+	</item>
+	<!-- Chrono Campana -->
+	<item id="3">
+		<ingredient id="6391" count="10" enchant="0"/>
+		<production id="5817" count="1" enchant="0"/>
+	</item>
+		<!-- Chrono Darubka -->
+	<item id="4">
+		<ingredient id="6391" count="10" enchant="0"/>
+		<production id="7058" count="1" enchant="0"/>
+	</item>
+</list>

@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<list>
+	<SkillTree skill_id="1312" level="1" name="Fishing" sp="0" min_level="10" costid="57" cost="1000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="1" name="Pumping" sp="0" min_level="10" costid="57" cost="10" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="2" name="Pumping" sp="0" min_level="12" costid="57" cost="50" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="3" name="Pumping" sp="0" min_level="15" costid="57" cost="200" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="4" name="Pumping" sp="0" min_level="17" costid="57" cost="300" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="5" name="Pumping" sp="0" min_level="20" costid="57" cost="500" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="6" name="Pumping" sp="0" min_level="22" costid="57" cost="800" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="7" name="Pumping" sp="0" min_level="25" costid="57" cost="1600" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="8" name="Pumping" sp="0" min_level="27" costid="57" cost="2600" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="9" name="Pumping" sp="0" min_level="30" costid="57" cost="4000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="10" name="Pumping" sp="0" min_level="32" costid="57" cost="6700" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="11" name="Pumping" sp="0" min_level="35" costid="57" cost="8000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="12" name="Pumping" sp="0" min_level="37" costid="57" cost="10000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="13" name="Pumping" sp="0" min_level="40" costid="57" cost="16000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="14" name="Pumping" sp="0" min_level="42" costid="57" cost="23000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="15" name="Pumping" sp="0" min_level="45" costid="57" cost="30000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="16" name="Pumping" sp="0" min_level="47" costid="57" cost="40000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="17" name="Pumping" sp="0" min_level="49" costid="57" cost="53000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="18" name="Pumping" sp="0" min_level="52" costid="57" cost="66000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="19" name="Pumping" sp="0" min_level="54" costid="57" cost="80000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="20" name="Pumping" sp="0" min_level="57" costid="57" cost="93000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="21" name="Pumping" sp="0" min_level="59" costid="57" cost="100000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="22" name="Pumping" sp="0" min_level="62" costid="57" cost="120000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="23" name="Pumping" sp="0" min_level="64" costid="57" cost="130000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="24" name="Pumping" sp="0" min_level="67" costid="57" cost="140000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="25" name="Pumping" sp="0" min_level="69" costid="57" cost="160000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="26" name="Pumping" sp="0" min_level="71" costid="57" cost="173000" isfordwarf="0"/>
+	<SkillTree skill_id="1313" level="27" name="Pumping" sp="0" min_level="74" costid="57" cost="180000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="1" name="Reeling" sp="0" min_level="10" costid="57" cost="10" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="2" name="Reeling" sp="0" min_level="12" costid="57" cost="50" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="3" name="Reeling" sp="0" min_level="15" costid="57" cost="200" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="4" name="Reeling" sp="0" min_level="17" costid="57" cost="300" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="5" name="Reeling" sp="0" min_level="20" costid="57" cost="500" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="6" name="Reeling" sp="0" min_level="22" costid="57" cost="800" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="7" name="Reeling" sp="0" min_level="25" costid="57" cost="1600" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="8" name="Reeling" sp="0" min_level="27" costid="57" cost="2600" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="9" name="Reeling" sp="0" min_level="30" costid="57" cost="4000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="10" name="Reeling" sp="0" min_level="32" costid="57" cost="6700" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="11" name="Reeling" sp="0" min_level="35" costid="57" cost="8000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="12" name="Reeling" sp="0" min_level="37" costid="57" cost="10000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="13" name="Reeling" sp="0" min_level="40" costid="57" cost="16000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="14" name="Reeling" sp="0" min_level="42" costid="57" cost="23000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="15" name="Reeling" sp="0" min_level="45" costid="57" cost="30000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="16" name="Reeling" sp="0" min_level="47" costid="57" cost="40000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="17" name="Reeling" sp="0" min_level="49" costid="57" cost="53000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="18" name="Reeling" sp="0" min_level="52" costid="57" cost="66000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="19" name="Reeling" sp="0" min_level="54" costid="57" cost="80000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="20" name="Reeling" sp="0" min_level="57" costid="57" cost="93000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="21" name="Reeling" sp="0" min_level="59" costid="57" cost="100000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="22" name="Reeling" sp="0" min_level="62" costid="57" cost="120000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="23" name="Reeling" sp="0" min_level="64" costid="57" cost="130000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="24" name="Reeling" sp="0" min_level="67" costid="57" cost="140000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="25" name="Reeling" sp="0" min_level="69" costid="57" cost="160000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="26" name="Reeling" sp="0" min_level="71" costid="57" cost="173000" isfordwarf="0"/>
+	<SkillTree skill_id="1314" level="27" name="Reeling" sp="0" min_level="74" costid="57" cost="180000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="1" name="Fishing Expertise" sp="0" min_level="10" costid="57" cost="10" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="2" name="Fishing Expertise" sp="0" min_level="12" costid="57" cost="50" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="3" name="Fishing Expertise" sp="0" min_level="15" costid="57" cost="200" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="4" name="Fishing Expertise" sp="0" min_level="17" costid="57" cost="300" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="5" name="Fishing Expertise" sp="0" min_level="20" costid="57" cost="500" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="6" name="Fishing Expertise" sp="0" min_level="22" costid="57" cost="800" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="7" name="Fishing Expertise" sp="0" min_level="25" costid="57" cost="1600" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="8" name="Fishing Expertise" sp="0" min_level="27" costid="57" cost="2600" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="9" name="Fishing Expertise" sp="0" min_level="30" costid="57" cost="4000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="10" name="Fishing Expertise" sp="0" min_level="32" costid="57" cost="6700" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="11" name="Fishing Expertise" sp="0" min_level="35" costid="57" cost="8000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="12" name="Fishing Expertise" sp="0" min_level="37" costid="57" cost="10000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="13" name="Fishing Expertise" sp="0" min_level="40" costid="57" cost="16000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="14" name="Fishing Expertise" sp="0" min_level="42" costid="57" cost="23000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="15" name="Fishing Expertise" sp="0" min_level="45" costid="57" cost="30000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="16" name="Fishing Expertise" sp="0" min_level="47" costid="57" cost="40000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="17" name="Fishing Expertise" sp="0" min_level="49" costid="57" cost="53000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="18" name="Fishing Expertise" sp="0" min_level="52" costid="57" cost="66000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="19" name="Fishing Expertise" sp="0" min_level="54" costid="57" cost="80000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="20" name="Fishing Expertise" sp="0" min_level="57" costid="57" cost="93000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="21" name="Fishing Expertise" sp="0" min_level="59" costid="57" cost="100000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="22" name="Fishing Expertise" sp="0" min_level="62" costid="57" cost="120000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="23" name="Fishing Expertise" sp="0" min_level="64" costid="57" cost="130000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="24" name="Fishing Expertise" sp="0" min_level="67" costid="57" cost="140000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="25" name="Fishing Expertise" sp="0" min_level="69" costid="57" cost="160000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="26" name="Fishing Expertise" sp="0" min_level="71" costid="57" cost="173000" isfordwarf="0"/>
+	<SkillTree skill_id="1315" level="27" name="Fishing Expertise" sp="0" min_level="74" costid="57" cost="180000" isfordwarf="0"/>
+	<SkillTree skill_id="1368" level="1" name="Expand Dwarven Craft" sp="0" min_level="10" costid="7609" cost="2000" isfordwarf="1"/>
+	<SkillTree skill_id="1368" level="2" name="Expand Dwarven Craft" sp="0" min_level="20" costid="7609" cost="4000" isfordwarf="1"/>
+	<SkillTree skill_id="1368" level="3" name="Expand Dwarven Craft" sp="0" min_level="30" costid="7609" cost="6000" isfordwarf="1"/>
+	<SkillTree skill_id="1368" level="4" name="Expand Dwarven Craft" sp="0" min_level="40" costid="7609" cost="10000" isfordwarf="1"/>
+	<SkillTree skill_id="1368" level="5" name="Expand Dwarven Craft" sp="0" min_level="50" costid="7609" cost="10000" isfordwarf="1"/>
+	<SkillTree skill_id="1368" level="6" name="Expand Dwarven Craft" sp="0" min_level="60" costid="7609" cost="10000" isfordwarf="1"/>
+	<SkillTree skill_id="1368" level="7" name="Expand Dwarven Craft" sp="0" min_level="70" costid="7609" cost="20000" isfordwarf="1"/>
+	<SkillTree skill_id="1368" level="8" name="Expand Dwarven Craft" sp="0" min_level="76" costid="7609" cost="20000" isfordwarf="1"/>
+	<SkillTree skill_id="1369" level="1" name="Expand Common Craft" sp="0" min_level="10" costid="7609" cost="2000" isfordwarf="0"/>
+	<SkillTree skill_id="1369" level="2" name="Expand Common Craft" sp="0" min_level="20" costid="7609" cost="4000" isfordwarf="0"/>
+	<SkillTree skill_id="1369" level="3" name="Expand Common Craft" sp="0" min_level="30" costid="7609" cost="6000" isfordwarf="0"/>
+	<SkillTree skill_id="1369" level="4" name="Expand Common Craft" sp="0" min_level="40" costid="7609" cost="10000" isfordwarf="0"/>
+	<SkillTree skill_id="1369" level="5" name="Expand Common Craft" sp="0" min_level="50" costid="7609" cost="10000" isfordwarf="0"/>
+	<SkillTree skill_id="1369" level="6" name="Expand Common Craft" sp="0" min_level="60" costid="7609" cost="10000" isfordwarf="0"/>
+	<SkillTree skill_id="1369" level="7" name="Expand Common Craft" sp="0" min_level="70" costid="7609" cost="20000" isfordwarf="0"/>
+	<SkillTree skill_id="1369" level="8" name="Expand Common Craft" sp="0" min_level="76" costid="7609" cost="20000" isfordwarf="0"/>
+	<SkillTree skill_id="1370" level="1" name="Expand Trade" sp="0" min_level="40" costid="7609" cost="10000" isfordwarf="0"/>
+	<SkillTree skill_id="1370" level="2" name="Expand Trade" sp="0" min_level="55" costid="7609" cost="20000" isfordwarf="0"/>
+	<SkillTree skill_id="1370" level="3" name="Expand Trade" sp="0" min_level="65" costid="7609" cost="40000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="1" name="Expand Storage" sp="0" min_level="10" costid="7609" cost="4000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="2" name="Expand Storage" sp="0" min_level="20" costid="7609" cost="8000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="3" name="Expand Storage" sp="0" min_level="30" costid="7609" cost="20000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="4" name="Expand Storage" sp="0" min_level="40" costid="7609" cost="20000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="5" name="Expand Storage" sp="0" min_level="50" costid="7609" cost="60000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="6" name="Expand Storage" sp="0" min_level="60" costid="7609" cost="60000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="7" name="Expand Storage" sp="0" min_level="70" costid="7609" cost="100000" isfordwarf="0"/>
+	<SkillTree skill_id="1371" level="8" name="Expand Storage" sp="0" min_level="76" costid="7609" cost="100000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="1" name="Expand Inventory" sp="0" min_level="10" costid="7609" cost="4000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="2" name="Expand Inventory" sp="0" min_level="20" costid="7609" cost="8000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="3" name="Expand Inventory" sp="0" min_level="30" costid="7609" cost="20000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="4" name="Expand Inventory" sp="0" min_level="40" costid="7609" cost="20000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="5" name="Expand Inventory" sp="0" min_level="50" costid="7609" cost="60000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="6" name="Expand Inventory" sp="0" min_level="60" costid="7609" cost="60000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="7" name="Expand Inventory" sp="0" min_level="70" costid="7609" cost="100000" isfordwarf="0"/>
+	<SkillTree skill_id="1372" level="8" name="Expand Inventory" sp="0" min_level="76" costid="7609" cost="100000" isfordwarf="0"/>
+</list>

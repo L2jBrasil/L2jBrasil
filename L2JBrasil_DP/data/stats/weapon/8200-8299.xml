@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='8203' name="(monster_only)venom_sword">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8204' name="(monster_only)frintessa_follower_calibur">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8205' name="(monster_only)heretic_priest_sickle">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8206' name="(monster_only)heretic_priest_sword">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8207' name="(monster_only)heretic_privates_axe">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8208' name="(monster_only)heretic_privates_staff">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8209' name="(monster_only)lidia_von_helmanns_sword">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8210' name="(monster_only)monk_warrior_shield">
+  <for>
+    <sub val='8' order='0x10' stat='rEvas'/>
+    <set val='230' order='0x08' stat='sDef'/>
+    <set val='20' order='0x08' stat='rShld'/>
+  </for>
+</item>
+<item id='8211' name="(monster_only)monk_warrior_sword">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8212' name="(monster_only)solina_brother_mace">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8213' name="(monster_only)solina_father_mace">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8214' name="(monster_only)solina_priest_pole">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8215' name="(monster_only)zombie_enlisted_man_sword">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='00' order='0x08' stat='mAtk'/>
+    <set val='0' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8216' name="(monster_only)zombie_enlisted_man_claw">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8217' name="(monster_only)zombie_gateguard_spear">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8218' name="(monster_only)zombie_laborer_axe">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='4' order='0x08' stat='rCrit'/>
+    <add val='4' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8219' name="(monster_only)zombie_laborer_sword">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8220' name="(monster_only)apostle_grail_bow">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='12' order='0x08' stat='rCrit'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='293' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8221' name="(monster_only)apostle_grail_spear">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <set val='66' order='0x08' stat='pAtkRange'/>
+    <add val='-3' order='0x10' stat='accCombat'/>
+    <set val='325' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+<item id='8222' name="(monster_only)frintessa_follower_tran_calibur">
+  <for>
+    <set val='0' order='0x08' stat='pAtk'/>
+    <set val='0' order='0x08' stat='mAtk'/>
+    <set val='8' order='0x08' stat='rCrit'/>
+    <add val='0' order='0x10' stat='accCombat'/>
+    <set val='379' order='0x08' stat='pAtkSpd'/>
+  </for>
+</item>
+</list>

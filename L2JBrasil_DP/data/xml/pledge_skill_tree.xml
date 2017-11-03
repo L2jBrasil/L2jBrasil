@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<list>
+	<PledgeSkill skill_id="370" level="1" name="Clan Vitality" clan_lvl="5" repCost="500" itemId="8166"/>
+	<PledgeSkill skill_id="370" level="2" name="Clan Vitality" clan_lvl="5" repCost="500" itemId="8166"/>
+	<PledgeSkill skill_id="370" level="3" name="Clan Vitality" clan_lvl="5" repCost="500" itemId="8166"/>
+	<PledgeSkill skill_id="371" level="1" name="Clan Spirituality" clan_lvl="6" repCost="800" itemId="8169"/>
+	<PledgeSkill skill_id="371" level="2" name="Clan Spirituality" clan_lvl="6" repCost="800" itemId="8169"/>
+	<PledgeSkill skill_id="371" level="3" name="Clan Spirituality" clan_lvl="6" repCost="800" itemId="8169"/>
+	<PledgeSkill skill_id="372" level="1" name="Clan Essence" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="372" level="2" name="Clan Essence" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="372" level="3" name="Clan Essence" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="373" level="1" name="Clan Lifeblood" clan_lvl="5" repCost="500" itemId="8166"/>
+	<PledgeSkill skill_id="373" level="2" name="Clan Lifeblood" clan_lvl="5" repCost="500" itemId="8166"/>
+	<PledgeSkill skill_id="373" level="3" name="Clan Lifeblood" clan_lvl="5" repCost="500" itemId="8166"/>
+	<PledgeSkill skill_id="374" level="1" name="Clan Morale" clan_lvl="6" repCost="900" itemId="8169"/>
+	<PledgeSkill skill_id="374" level="2" name="Clan Morale" clan_lvl="6" repCost="900" itemId="8169"/>
+	<PledgeSkill skill_id="374" level="3" name="Clan Morale" clan_lvl="6" repCost="900" itemId="8169"/>
+	<PledgeSkill skill_id="375" level="1" name="Clan Clarity" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="375" level="2" name="Clan Clarity" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="375" level="3" name="Clan Clarity" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="376" level="1" name="Clan Might" clan_lvl="6" repCost="1000" itemId="8163"/>
+	<PledgeSkill skill_id="376" level="2" name="Clan Might" clan_lvl="6" repCost="1000" itemId="8163"/>
+	<PledgeSkill skill_id="376" level="3" name="Clan Might" clan_lvl="6" repCost="1000" itemId="8163"/>
+	<PledgeSkill skill_id="377" level="1" name="Clan Aegis" clan_lvl="6" repCost="1000" itemId="8166"/>
+	<PledgeSkill skill_id="377" level="2" name="Clan Aegis" clan_lvl="6" repCost="1000" itemId="8166"/>
+	<PledgeSkill skill_id="377" level="3" name="Clan Aegis" clan_lvl="6" repCost="1000" itemId="8166"/>
+	<PledgeSkill skill_id="378" level="1" name="Clan Empowermen" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="378" level="2" name="Clan Empowermen" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="378" level="3" name="Clan Empowermen" clan_lvl="8" repCost="3900" itemId="8172"/>
+	<PledgeSkill skill_id="379" level="1" name="Clan Magic Protection" clan_lvl="5" repCost="500" itemId="8163"/>
+	<PledgeSkill skill_id="379" level="2" name="Clan Magic Protection" clan_lvl="5" repCost="500" itemId="8163"/>
+	<PledgeSkill skill_id="379" level="3" name="Clan Magic Protection" clan_lvl="5" repCost="500" itemId="8163"/>
+	<PledgeSkill skill_id="380" level="1" name="Clan Guidance" clan_lvl="7" repCost="1900" itemId="8160"/>
+	<PledgeSkill skill_id="380" level="2" name="Clan Guidance" clan_lvl="7" repCost="1900" itemId="8160"/>
+	<PledgeSkill skill_id="380" level="3" name="Clan Guidance" clan_lvl="7" repCost="1900" itemId="8160"/>
+	<PledgeSkill skill_id="381" level="1" name="Clan Agility" clan_lvl="8" repCost="4000" itemId="8160"/>
+	<PledgeSkill skill_id="381" level="2" name="Clan Agility" clan_lvl="8" repCost="4000" itemId="8160"/>
+	<PledgeSkill skill_id="381" level="3" name="Clan Agility" clan_lvl="8" repCost="4000" itemId="8160"/>
+	<PledgeSkill skill_id="382" level="1" name="Clan Withstand-Attack" clan_lvl="7" repCost="800" itemId="8160"/>
+	<PledgeSkill skill_id="382" level="2" name="Clan Withstand-Attack" clan_lvl="7" repCost="800" itemId="8160"/>
+	<PledgeSkill skill_id="382" level="3" name="Clan Withstand-Attack" clan_lvl="7" repCost="800" itemId="8160"/>
+	<PledgeSkill skill_id="383" level="1" name="Clan Shield Boost" clan_lvl="6" repCost="800" itemId="8163"/>
+	<PledgeSkill skill_id="383" level="2" name="Clan Shield Boost" clan_lvl="6" repCost="800" itemId="8163"/>
+	<PledgeSkill skill_id="383" level="3" name="Clan Shield Boost" clan_lvl="6" repCost="800" itemId="8163"/>
+	<PledgeSkill skill_id="384" level="1" name="Clan Cyclonic Resistance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="384" level="2" name="Clan Cyclonic Resistance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="384" level="3" name="Clan Cyclonic Resistance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="385" level="1" name="Clan Magmatic Resistance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="385" level="2" name="Clan Magmatic Resistance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="385" level="3" name="Clan Magmatic Resistance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="386" level="1" name="Clan Fortitude" clan_lvl="7" repCost="1000" itemId="8176"/>
+	<PledgeSkill skill_id="386" level="2" name="Clan Fortitude" clan_lvl="7" repCost="1000" itemId="8176"/>
+	<PledgeSkill skill_id="386" level="3" name="Clan Fortitude" clan_lvl="7" repCost="1000" itemId="8176"/>
+	<PledgeSkill skill_id="387" level="1" name="Clan Freedom" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="387" level="2" name="Clan Freedom" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="387" level="3" name="Clan Freedom" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="388" level="1" name="Clan Vigilance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="388" level="2" name="Clan Vigilance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="388" level="3" name="Clan Vigilance" clan_lvl="7" repCost="1800" itemId="8176"/>
+	<PledgeSkill skill_id="389" level="1" name="Clan March" clan_lvl="8" repCost="3800" itemId="8175"/>
+	<PledgeSkill skill_id="389" level="2" name="Clan March" clan_lvl="8" repCost="3800" itemId="8175"/>
+	<PledgeSkill skill_id="389" level="3" name="Clan March" clan_lvl="8" repCost="3800" itemId="8175"/>
+	<PledgeSkill skill_id="390" level="1" name="Clan Luck" clan_lvl="7" repCost="2200" itemId="8175"/>
+	<PledgeSkill skill_id="390" level="2" name="Clan Luck" clan_lvl="7" repCost="2200" itemId="8175"/>
+	<PledgeSkill skill_id="390" level="3" name="Clan Luck" clan_lvl="7" repCost="2200" itemId="8175"/>
+	<PledgeSkill skill_id="391" level="1" name="Clan Imperium" clan_lvl="5" repCost="0" itemId="8176"/>
+</list>

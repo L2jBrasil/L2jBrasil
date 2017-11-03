@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Non-grade items exchange, just for education -->
+
+<list>
+
+  <!-- (leather shirt) for (shirt)+(2100 adena) -->
+  <item id="1">
+    <ingredient id="57" count="2100"/>
+    <ingredient id="21" count="1"/>
+    <production id="22" count="1"/>
+  </item>
+
+  <!-- (wooden breastplate) for (leather shirt)+(5400 adena) -->
+  <item id="2">
+    <ingredient id="57" count="5400"/>
+    <ingredient id="22" count="1"/>
+    <production id="23" count="1"/>
+  </item>
+
+
+  <!-- (bone breastplate) for (wooden breastplate)+(12200 adena)  -->
+  <item id="3">
+    <ingredient id="57" count="12200"/>
+    <ingredient id="23" count="1"/>
+    <production id="24" count="1"/>
+  </item>
+
+  <!-- (piece bone breastplate) for (bone breastplate)+(16500 adena) -->
+  <item id="4">
+    <ingredient id="57" count="16500"/>
+    <ingredient id="24" count="1"/>
+    <production id="25" count="1"/>
+  </item>
+
+  <!-- (hard leather shirt) for (bone breastplate)+(16500 adena) -->
+  <item id="5">
+    <ingredient id="57" count="16500"/>
+    <ingredient id="24" count="1"/>
+    <production id="27" count="1"/>
+  </item>
+
+  <!-- (bronze breastplate) for (piece bone breastplate)+(16500 adena) -->
+  <item id="6">
+    <ingredient id="57" count="16500"/>
+    <ingredient id="25" count="1"/>
+    <production id="26" count="1"/>
+  </item>
+
+</list>
+

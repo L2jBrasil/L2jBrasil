@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Wilbert: Dual Swords -->
+<list maintainEnchantment="true" applyTaxes="true">
+	<item id="1">
+	    <production id="2576" count="1"/>
+	    <ingredient id="73" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="2">
+	    <production id="2579" count="1"/>
+	    <ingredient id="73" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="3">
+	    <production id="2580" count="1"/>
+	    <ingredient id="73" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="4">
+	    <production id="2585" count="1"/>
+	    <ingredient id="74" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="5">
+	    <production id="2588" count="1"/>
+	    <ingredient id="74" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="6">
+	    <production id="2589" count="1"/>
+	    <ingredient id="74" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="7">
+	    <production id="2593" count="1"/>
+	    <ingredient id="131" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="8">
+	    <production id="2596" count="1"/>
+	    <ingredient id="131" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="9">
+	    <production id="2597" count="1"/>
+	    <ingredient id="131" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="10">
+	    <production id="2600" count="1"/>
+	    <ingredient id="133" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="11">
+	    <production id="2603" count="1"/>
+	    <ingredient id="133" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="12">
+	    <production id="2604" count="1"/>
+	    <ingredient id="133" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="1875" count="353"/>
+	    <ingredient id="57" count="1059000" isTaxIngredient="true"/>
+	</item>
+	<item id="13">
+	    <production id="2606" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="1875" count="45"/>
+	    <ingredient id="57" count="135000" isTaxIngredient="true"/>
+	</item>
+	<item id="14">
+	    <production id="2609" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="1875" count="45"/>
+	    <ingredient id="57" count="135000" isTaxIngredient="true"/>
+	</item>
+	<item id="15">
+	    <production id="2610" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="1875" count="45"/>
+	    <ingredient id="57" count="135000" isTaxIngredient="true"/>
+	</item>
+	<item id="16">
+	    <production id="2621" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="1875" count="45"/>
+	    <ingredient id="57" count="135000" isTaxIngredient="true"/>
+	</item>
+	<item id="17">
+	    <production id="2622" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="1875" count="45"/>
+	    <ingredient id="57" count="135000" isTaxIngredient="true"/>
+	</item>
+	<item id="18">
+	    <production id="2624" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="1875" count="45"/>
+	    <ingredient id="57" count="135000" isTaxIngredient="true"/>
+	</item>
+	<item id="19">
+	    <production id="2581" count="1"/>
+	    <ingredient id="73" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="292"/>
+	    <ingredient id="57" count="876000" isTaxIngredient="true"/>
+	</item>
+	<item id="20">
+	    <production id="2590" count="1"/>
+	    <ingredient id="74" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="292"/>
+	    <ingredient id="57" count="876000" isTaxIngredient="true"/>
+	</item>
+	<item id="21">
+	    <production id="2598" count="1"/>
+	    <ingredient id="131" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="292"/>
+	    <ingredient id="57" count="876000" isTaxIngredient="true"/>
+	</item>
+	<item id="22">
+	    <production id="2605" count="1"/>
+	    <ingredient id="133" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="292"/>
+	    <ingredient id="57" count="876000" isTaxIngredient="true"/>
+	</item>
+	<item id="23">
+	    <production id="2611" count="1"/>
+	    <ingredient id="75" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="490"/>
+	    <ingredient id="57" count="1470000" isTaxIngredient="true"/>
+	</item>
+	<item id="24">
+	    <production id="2623" count="1"/>
+	    <ingredient id="134" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="490"/>
+	    <ingredient id="57" count="1470000" isTaxIngredient="true"/>
+	</item>
+	<item id="25">
+	    <production id="2625" count="1"/>
+	    <ingredient id="77" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="490"/>
+	    <ingredient id="57" count="1470000" isTaxIngredient="true"/>
+	</item>
+	<item id="26">
+	    <production id="2626" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="135" count="1"/>
+	    <ingredient id="1875" count="500"/>
+	    <ingredient id="57" count="1500000" isTaxIngredient="true"/>
+	</item>
+</list>

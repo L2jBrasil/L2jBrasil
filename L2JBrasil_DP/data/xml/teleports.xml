@@ -1,0 +1,1670 @@
+<?xml version="1.0"?>
+<list>
+	<!-- Dark Elven Town ->Town of Gludio -->
+	<teleport id="1" loc_x="-12672" loc_y="122776" loc_z="-3116" price="10000" fornoble="0"/>
+	<!-- Elven Town  ->Town of Gludio -->
+	<teleport id="2" loc_x="-12672"	loc_y="122776" loc_z="-3116" price="9200" fornoble="0"/>
+	<!-- Elven Village ->Elven Forest -->
+	<teleport id="468" loc_x="21362" loc_y="51122" loc_z="-3688" price="710" fornoble="0"/>
+	<!-- Elven Village ->Neutral Zone -->
+	<teleport id="469" loc_x="-10674" loc_y="75550" loc_z="-3597" price="740" fornoble="0"/>
+	<!-- Elven Village ->Elven Fortress -->
+	<teleport id="470" loc_x="29294" loc_y="74968" loc_z="-3776" price="820" fornoble="0"/>
+	<!-- Town of Gludio ->Elven village -->
+	<teleport id="3" loc_x="46934" loc_y="51467" loc_z="-2977" price="9200" fornoble="0"/>
+	<!-- Town of Gludio ->Dark Elven village -->
+	<teleport id="4" loc_x="9745" loc_y="15606" loc_z="-4574" price="10000" fornoble="0"/>
+	<!-- Town of Gludio ->Village of Gludin -->
+	<teleport id="5" loc_x="-80826" loc_y="149775" loc_z="-3043" price="7300" fornoble="0"/>
+	<!-- Town of Gludio ->Dion -->
+	<teleport id="6" loc_x="15670" loc_y="142983" loc_z="-2705" price="3400" fornoble="0"/>
+	<!-- Village of Gludin ->Orc village -->
+	<teleport id="7" loc_x="-44836" loc_y="-112524" loc_z="-235" price="26000" fornoble="0"/>
+	<!-- Village of Gludin ->Dwarven village -->
+	<teleport id="8" loc_x="115113" loc_y="-178212" loc_z="-901" price="38000" fornoble="0"/>
+	<!-- Village of Gludin ->TI -->
+	<teleport id="9" loc_x="-84318" loc_y="244579" loc_z="-3730" price="9400" fornoble="0"/>
+	<!-- Village of Gludin ->Elven Village -->
+	<teleport id="10" loc_x="46934" loc_y="51467" loc_z="-2977" price="16000" fornoble="0"/>
+	<!-- Village of Gludin ->Dark Elven Village -->
+	<teleport id="11" loc_x="9745" loc_y="15606" loc_z="-4574" price="16000" fornoble="0"/>
+	<!-- Village of Gludin ->Town of Gludio -->
+	<teleport id="12" loc_x="-12672" loc_y="122776" loc_z="-3116" price="7300" fornoble="0"/>
+	<!-- Village of Gludin ->Southern entrance of wastelands -->
+	<teleport id="13" loc_x="-16730" loc_y="209417" loc_z="-3664" price="3400" fornoble="0"/>
+	<!-- Dark Elven Town ->Southern part of dark elven forest -->
+	<teleport id="14" loc_x="-61095" loc_y="75104" loc_z="-3356" price="1100" fornoble="0"/>
+	<!-- DE Village ->Dark Forest -->
+	<teleport id="464" loc_x="-22224" loc_y="14168" loc_z="-3232" price="890" fornoble="0"/>
+	<!-- DE Village ->Spider Nest -->
+	<teleport id="465" loc_x="-56532" loc_y="78321" loc_z="-2960" price="3600" fornoble="0"/>
+	<!-- DE Village ->Swampland -->
+	<teleport id="466" loc_x="-30777" loc_y="49750" loc_z="-3552" price="1100" fornoble="0"/>
+	<!-- DE Village ->Neutral Zone -->
+	<teleport id="467" loc_x="-23520" loc_y="68688" loc_z="-3640" price="1700" fornoble="0"/>
+	<!-- TI ->Village of Gludin -->
+	<teleport id="15" loc_x="-80826" loc_y="149775" loc_z="-3043" price="18000" fornoble="0"/>
+	<!-- TI ->Obelisk of Victory -->
+	<teleport id="1001" loc_x="-99678" loc_y="237562" loc_z="-3567" price="470" fornoble="0"/>
+	<!-- TI ->Western Territory -->
+	<teleport id="1002" loc_x="-101294" loc_y="212553" loc_z="-3093" price="1000" fornoble="0"/>
+	<!-- TI ->Elven Ruins -->
+	<teleport id="1003" loc_x="-113329" loc_y="235327" loc_z="-3653" price="830" fornoble="0"/>
+	<!-- TI ->Singing Waterfall -->
+	<teleport id="1004" loc_x="-107456" loc_y="242669" loc_z="-3493" price="770" fornoble="0"/>
+	<!-- Dwarf Town  ->Town of Gludio -->
+	<teleport id="16" loc_x="-12672" loc_y="122776" loc_z="-3116" price="32000" fornoble="0"/>
+	<!-- Dwarf Town ->The Northeast Coast -->
+	<teleport id="17" loc_x="169008" loc_y="-208272" loc_z="-3504" price="2400" fornoble="0"/>
+	<!-- Dwarven Town ->Abandoned Coal Mines -->
+	<teleport id="418" loc_x="139714" loc_y="-177456" loc_z="-1536" price="690" fornoble="0"/>
+	<!-- Dwarven Town ->Mithril Mines -->
+	<teleport id="419" loc_x="171946" loc_y="-173352" loc_z="3448" price="2200" fornoble="0"/>
+	<!-- Dion Town ->Town of Gludio -->
+	<teleport id="18" loc_x="-12672" loc_y="122776" loc_z="-3116" price="3400" fornoble="0"/>
+	<!-- Dion Town ->Town of Giran -->
+	<teleport id="19" loc_x="83400" loc_y="147943" loc_z="-3404" price="6800" fornoble="0"/>
+	<!-- Dion Town ->Giran Harbor -->
+	<teleport id="20" loc_x="47942" loc_y="186764" loc_z="-3485" price="6500" fornoble="0"/>
+	<!-- Cruma Tower Entrance ->Cruma Tower 1st floor -->
+	<teleport id="21" loc_x="17724" loc_y="114004" loc_z="-11672" price="0" fornoble="0"/>
+	<!-- Cruma Tower 1st floor ->Cruma Tower Entrance -->
+	<teleport id="22" loc_x="17192" loc_y="114178" loc_z="-3439" price="0" fornoble="0"/>
+	<!-- Cruma Tower 1st floor ->Cruma Tower 2nd floor -->
+	<teleport id="23" loc_x="17730" loc_y="108301" loc_z="-9057" price="0" fornoble="0"/>
+	<!-- Cruma Tower 2nd floor ->Cruma Tower 1st floor -->
+	<teleport id="24" loc_x="17714" loc_y="107923" loc_z="-11850" price="0" fornoble="0"/>
+	<!-- Town of Giran ->Dion Town -->
+	<teleport id="25" loc_x="15670" loc_y="142983" loc_z="-2705" price="6800" fornoble="0"/>
+	<!-- Town of Giran ->Oren Town -->
+	<teleport id="26" loc_x="82956" loc_y="53162" loc_z="-1495" price="9400" fornoble="0"/>
+	<!-- Town of Giran ->Hunter Village -->
+	<teleport id="27" loc_x="116819" loc_y="76994" loc_z="-2714" price="4100" fornoble="0"/>
+	<!-- Town of Giran ->Hardin's Private Academy -->
+	<teleport id="28" loc_x="105918" loc_y="109759" loc_z="-3207" price="4400" fornoble="0"/>
+	<!-- Talking Island ->Obelisk of Victory -->
+	<teleport id="460" loc_x="-99843" loc_y="237583" loc_z="-3568" price="200" fornoble="0"/>
+	<!-- Talking Island ->Western Territory of Talking Island (Northern Area) -->
+	<teleport id="461" loc_x="-102850" loc_y="215932" loc_z="-3424" price="3000" fornoble="0"/>
+	<!-- Talking Island ->Elven Ruins -->
+	<teleport id="462" loc_x="49315" loc_y="248452" loc_z="-5960" price="2500" fornoble="0"/>
+	<!-- Talking Island ->Singing Waterfall -->
+	<teleport id="463" loc_x="-113686" loc_y="235723" loc_z="-3640" price="2300" fornoble="0"/>
+	<!-- TI Dungeon inside ->outside -->
+	<teleport id="29" loc_x="-113329" loc_y="235327" loc_z="-3653" price="0" fornoble="0"/>
+	<!-- TI Dungeon outside ->inside -->
+	<teleport id="30" loc_x="48736" loc_y="248463" loc_z="-6162" price="0" fornoble="0"/>
+	<!-- Ivory Tower Basement -->
+	<teleport id="31" loc_x="84915" loc_y="15969" loc_z="-4294" price="0" fornoble="0"/>
+	<!-- Ivory Tower Ground Floor -->
+	<teleport id="32" loc_x="85399" loc_y="16197" loc_z="-3679" price="0" fornoble="0"/>
+	<!-- Ivory Tower 1st Floor -->
+	<teleport id="33" loc_x="85399" loc_y="16197" loc_z="-2809" price="0" fornoble="0"/>
+	<!-- Ivory Tower 2nd Floor -->
+	<teleport id="34" loc_x="85399" loc_y="16197" loc_z="-2293" price="0" fornoble="0"/>
+	<!-- Ivory Tower 3th Floor -->
+	<teleport id="35" loc_x="85399" loc_y="16197" loc_z="-1776" price="0" fornoble="0"/>
+	<!-- Ivory Tower Ground Floor ->Oren Castle Town -->
+	<teleport id="36" loc_x="82956" loc_y="53162" loc_z="-1495" price="3700" fornoble="0"/>
+	<!-- Ivory Tower Ground Floor ->Hunter's Village -->
+	<teleport id="37" loc_x="116819" loc_y="76994" loc_z="-2714" price="6800" fornoble="0"/>
+	<!-- Ivory Tower Ground Floor ->Aden Castle Town -->
+	<teleport id="38" loc_x="146331" loc_y="25762" loc_z="-2018" price="6200" fornoble="0"/>
+	<!-- Aden Town ->Ivory Tower -->
+	<teleport id="39" loc_x="85348" loc_y="16142" loc_z="-3699" price="12000" fornoble="0"/>
+	<!-- Aden Town ->Oren Town -->
+	<teleport id="40" loc_x="82956" loc_y="53162" loc_z="-1495" price="6900" fornoble="0"/>
+	<!-- Aden Town ->Hunter's Village -->
+	<teleport id="41" loc_x="116819" loc_y="76994" loc_z="-2714" price="5900" fornoble="0"/>
+	<!-- Hunter's Village ->Giran Town -->
+	<teleport id="42" loc_x="83400" loc_y="147943" loc_z="-3404" price="9400" fornoble="0"/>
+	<!-- Hunter's Village ->Oren Town -->
+	<teleport id="43" loc_x="82956" loc_y="53162" loc_z="-1495" price="4100" fornoble="0"/>
+	<!-- Hunter's Village ->Ivory Tower -->
+	<teleport id="44" loc_x="85348" loc_y="16142" loc_z="-3699" price="8200" fornoble="0"/>
+	<!-- Hunter's Village ->Hardin's Private Academy -->
+	<teleport id="45" loc_x="105918" loc_y="109759" loc_z="-3207" price="3400" fornoble="0"/>
+	<!-- Hunter's Village ->Aden Town -->
+	<teleport id="46" loc_x="146331" loc_y="25762" loc_z="-2018" price="5900" fornoble="0"/>
+	<!-- Oren Town ->Giran Town -->
+	<teleport id="47" loc_x="83400" loc_y="147943" loc_z="-3404" price="9400" fornoble="0"/>
+	<!-- Oren Town ->Ivory Tower -->
+	<teleport id="48" loc_x="85348" loc_y="16142" loc_z="-3699" price="3700" fornoble="0"/>
+	<!-- Oren Town ->Hunter's Village -->
+	<teleport id="49" loc_x="116819" loc_y="76994" loc_z="-2714" price="4100" fornoble="0"/>
+	<!-- Oren Town ->Hardin's Private Academy -->
+	<teleport id="50" loc_x="105918" loc_y="109759" loc_z="-3207" price="6100" fornoble="0"/>
+	<!-- Oren Town ->Aden Town -->
+	<teleport id="51" loc_x="146331" loc_y="25762" loc_z="-2018" price="6900" fornoble="0"/>
+	<!-- Hardin's Private Academy ->Giran Town -->
+	<teleport id="52" loc_x="83400" loc_y="147943" loc_z="-3404" price="4400" fornoble="0"/>
+	<!-- Hardin's Private Academy ->Oren Town -->
+	<teleport id="53" loc_x="82956" loc_y="53162" loc_z="-1495" price="6100" fornoble="0"/>
+	<!-- Hardin's Private Academy ->Hunter's Village -->
+	<teleport id="54" loc_x="116819" loc_y="76994" loc_z="-2714" price="3400" fornoble="0"/>
+	<!-- Cruma level 2 ->Cruma level 3 -->
+	<teleport id="55" loc_x="17719" loc_y="115590" loc_z="-6584" price="0" fornoble="0"/>
+	<!-- Cruma level 3 ->Cruma Core -->
+	<teleport id="56" loc_x="17691" loc_y="111726" loc_z="-6583" price="0" fornoble="0"/>
+	<!-- Cruma core ->Cruma level 3 -->
+	<teleport id="57" loc_x="17719" loc_y="115590" loc_z="-6584" price="0" fornoble="0"/>
+	<!-- Cruma Tower 3rd floor ->Cruma Tower 2nd Floor -->
+	<teleport id="58" loc_x="17731" loc_y="119465" loc_z="-9067" price="0" fornoble="0"/>
+	<!-- Heine ->The Town of Giran -->
+	<teleport id="59" loc_x="83400" loc_y="147943" loc_z="-3404" price="7600" fornoble="0"/>
+	<!-- Heine ->Giran Harbor -->
+	<teleport id="60" loc_x="47942" loc_y="186764" loc_z="-3485" price="7100" fornoble="0"/>
+	<!-- Antharas Nest - &gt; Giran castle town -->
+	<teleport id="62" loc_x="83400" loc_y="147943" loc_z="-3404" price="0" fornoble="0"/>
+	<!-- Giran Harbor ->Giran Town -->
+	<teleport id="63" loc_x="83400" loc_y="147943" loc_z="-3404" price="6300" fornoble="0"/>
+	<!-- Giran Harbor ->Dion Town -->
+	<teleport id="64" loc_x="15670" loc_y="142983" loc_z="-2705" price="6500" fornoble="0"/>
+	<!-- Giran Harbor ->Heine -->
+	<teleport id="107" loc_x="111409" loc_y="219364" loc_z="-3545" price="8500" fornoble="0"/>
+	<!-- Heine ->The Town of Dion -->
+	<teleport id="65" loc_x="15670" loc_y="142983" loc_z="-2705" price="12000" fornoble="0"/>
+	<!-- Heine ->Field of Silence -->
+	<teleport id="66" loc_x="82684" loc_y="183551" loc_z="-3597" price="2500" fornoble="0"/>
+	<!-- Heine ->Field of Whispers -->
+	<teleport id="67" loc_x="91186" loc_y="217104" loc_z="-3649" price="2300" fornoble="0"/>
+	<!-- Heine ->Entrance to Alligator Islands -->
+	<teleport id="68" loc_x="126450" loc_y="174774" loc_z="-3079" price="2100" fornoble="0"/>
+	<!-- Giran ->Dragon Valley -->
+	<teleport id="69" loc_x="73024" loc_y="118485" loc_z="-3688" price="1800" fornoble="0"/>
+	<!-- Giran ->Heine -->
+	<teleport id="70" loc_x="111409" loc_y="219364" loc_z="-3545" price="7600" fornoble="0"/>
+	<!-- Monster Derby Track -->
+	<teleport id="75" loc_x="12661" loc_y="181687" loc_z="-3560" price="0" fornoble="0"/>
+	<!-- Aden ->Coliseum -->
+	<teleport id="76" loc_x="146440" loc_y="46723" loc_z="-3432" price="2000" fornoble="0"/>
+	<!-- Aden ->Blazing Swamp -->
+	<teleport id="81" loc_x="159455" loc_y="-12931" loc_z="-2872" price="6800" fornoble="0"/>
+	<!-- Aden ->The Forbidden Gateway -->
+	<teleport id="82" loc_x="185319" loc_y="20218" loc_z="-3264" price="1400" fornoble="0"/>
+	<!-- Aden ->The Front of Anghell Waterfall -->
+	<teleport id="83" loc_x="163341" loc_y="91374" loc_z="-3320" price="2400" fornoble="0"/>
+	<!-- Aden ->Forsaken Plains -->
+	<teleport id="84" loc_x="167285" loc_y="37109" loc_z="-4008" price="1900" fornoble="0"/>
+	<!-- Dion ->Heine -->
+	<teleport id="85" loc_x="111409" loc_y="219364" loc_z="-3545" price="12000" fornoble="0"/>
+	<!-- Dion ->Partisan Hideaway -->
+	<teleport id="86" loc_x="46467" loc_y="126885" loc_z="-3720" price="1700" fornoble="0"/>
+	<!-- Dion ->Bee Hive -->
+	<teleport id="87" loc_x="20505" loc_y="189036" loc_z="-3344" price="2900" fornoble="0"/>
+	<!-- Gludio ->Windawood Manor -->
+	<teleport id="88" loc_x="-23789" loc_y="169683" loc_z="-3424" price="1400" fornoble="0"/>
+	<!-- Gludio ->Southern Pathway to the Wasteland -->
+	<teleport id="89" loc_x="-16730" loc_y="209417" loc_z="-3664" price="2400" fornoble="0"/>
+	<!-- Gludin ->Abandoned Camp -->
+	<teleport id="90" loc_x="-46932" loc_y="140883" loc_z="-2936" price="1200" fornoble="0"/>
+	<!-- Gludin ->Fellmere Harvest Grounds -->
+	<teleport id="91" loc_x="-70387" loc_y="115501" loc_z="-3472" price="1400" fornoble="0"/>
+	<!-- Gludin ->Langk Lizardman Dwelling -->
+	<teleport id="92" loc_x="-45210" loc_y="202654" loc_z="-3592" price="1800" fornoble="0"/>
+	<!-- Orc Village ->Immortal Plateau,Northern Region -->
+	<teleport id="93" loc_x="-8804" loc_y="-114748" loc_z="-3088" price="960" fornoble="0"/>
+	<!-- Orc Village ->Immortal Plateau,Southern Region -->
+	<teleport id="94" loc_x="-17870" loc_y="-90980" loc_z="-2528" price="2000" fornoble="0"/>
+	<!-- Orc Village ->Immortal Plateau,Southeast Region -->
+	<teleport id="95" loc_x="8209" loc_y="-93524" loc_z="-2312" price="750" fornoble="0"/>
+	<!-- Orc Village ->Frozen Waterfall -->
+	<teleport id="96" loc_x="7603" loc_y="-138871" loc_z="-920" price="1600" fornoble="0"/>
+	<!-- Orc Village ->Entrance to the Cave of Trials -->
+	<teleport id="471" loc_x="9340" loc_y="-112509" loc_z="-2536" price="1500" fornoble="0"/>
+	<!-- Oren ->Plains of Lizardmen -->
+	<teleport id="97" loc_x="87252" loc_y="85514" loc_z="-3056" price="1900" fornoble="0"/>
+	<!-- Oren ->Sea of Spores -->
+	<teleport id="98" loc_x="64328" loc_y="26803" loc_z="-3768" price="2500" fornoble="0"/>
+	<!-- Hunters ->Northern Pathway of Enchanted Valley -->
+	<teleport id="99" loc_x="104426" loc_y="33746" loc_z="-3800" price="3600" fornoble="0"/>
+	<!-- Hunters ->Southern Pathway of Enchanted Valley -->
+	<teleport id="100" loc_x="124904" loc_y="61992" loc_z="-3920" price="1300" fornoble="0"/>
+	<!-- Hunters ->Entrance to the Forest of Mirrors -->
+	<teleport id="101" loc_x="142065" loc_y="81300" loc_z="-3000" price="2000" fornoble="0"/>
+	<!-- Hunters ->The Front of Anghel Waterfall -->
+	<teleport id="102" loc_x="163341" loc_y="91374" loc_z="-3320" price="4000" fornoble="0"/>
+	<!-- Goddard ->Aden Castle Town -->
+	<teleport id="132" loc_x="146331" loc_y="25762" loc_z="-2018" price="8100" fornoble="0"/>
+	<!-- Goddard ->Rune Castle Village -->
+	<teleport id="108" loc_x="43799" loc_y="-47727" loc_z="-798" price="10000" fornoble="0"/>
+	<!-- Goddard ->Varka Silenos Stronghold -->
+	<teleport id="109" loc_x="125543" loc_y="-40953" loc_z="-3724" price="4200" fornoble="0"/>
+	<!-- Goddard ->Ketra Orc Outpost -->
+	<teleport id="110" loc_x="146954" loc_y="-67390" loc_z="-3660" price="1800" fornoble="0"/>
+	<!-- Goddard ->Entrance to the Forge of the Gods -->
+	<teleport id="111" loc_x="169178" loc_y="-116244" loc_z="-2421" price="2300" fornoble="0"/>
+	<!-- Rune ->Goddard Castle Village -->
+	<teleport id="119" loc_x="147928" loc_y="-55273" loc_z="-2734" price="10000" fornoble="0"/>
+	<!-- Rune ->The Town of Giran -->
+	<teleport id="120" loc_x="83400" loc_y="147943" loc_z="-3404" price="59000" fornoble="0"/>
+	<!-- Rune ->Aden Castle Town -->
+	<teleport id="121" loc_x="146331" loc_y="25762" loc_z="-2018" price="37000" fornoble="0"/>
+	<!-- Rune ->Rune Castle Town Guild -->
+	<teleport id="122" loc_x="38320" loc_y="-48092" loc_z="-1153" price="150" fornoble="0"/>
+	<!-- Rune ->Rune Castle Town Temple -->
+	<teleport id="123" loc_x="38275" loc_y="-48065" loc_z="896" price="150" fornoble="0"/>
+	<!-- Rune ->Entrance to the Forest of the Dead -->
+	<teleport id="124" loc_x="52112" loc_y="-53939" loc_z="-3159" price="1200" fornoble="0"/>
+	<!-- Rune ->Western Entrance to the Swamp of Screams -->
+	<teleport id="125" loc_x="70006" loc_y="-49902" loc_z="-3251" price="3000" fornoble="0"/>
+	<!-- Rune ->Rune Castle Town Store -->
+	<teleport id="131" loc_x="43799" loc_y="-47727" loc_z="-798" price="150" fornoble="0"/>
+	<!-- Aden ->Rune -->
+	<teleport id="134" loc_x="43799" loc_y="-47727" loc_z="-798" price="37000" fornoble="0"/>
+	<!-- Aden ->Goddard -->
+	<teleport id="135" loc_x="147928" loc_y="-55273" loc_z="-2734" price="8100" fornoble="0"/>
+	<!-- Giran Town ->Giran Harbor -->
+	<teleport id="136" loc_x="47942" loc_y="186764" loc_z="-3485" price="5200" fornoble="0"/>
+	<!-- TOI - 1st Floor -->
+	<teleport id="201" loc_x="115168" loc_y="16022" loc_z="-5100" price="100000" fornoble="0"/>
+	<!-- TOI - 2nd Floor -->
+	<teleport id="202" loc_x="114649" loc_y="18587" loc_z="-3609" price="150000" fornoble="0"/>
+	<!-- TOI - 3rd Floor -->
+	<teleport id="203" loc_x="117918" loc_y="16039" loc_z="-2127" price="200000" fornoble="0"/>
+	<!-- TOI - 4th Floor -->
+	<teleport id="204" loc_x="114622" loc_y="12946" loc_z="-645" price="250000" fornoble="0"/>
+	<!-- TOI - 5th Floor -->
+	<teleport id="205" loc_x="112209" loc_y="16078" loc_z="928" price="300000" fornoble="0"/>
+	<!-- TOI - 6th Floor -->
+	<teleport id="206" loc_x="112376" loc_y="16099" loc_z="1947" price="350000" fornoble="0"/>
+	<!-- TOI - 7th Floor -->
+	<teleport id="207" loc_x="114448" loc_y="16175" loc_z="2994" price="400000" fornoble="0"/>
+	<!-- TOI - 8th Floor -->
+	<teleport id="208" loc_x="111063" loc_y="16118" loc_z="3967" price="450000" fornoble="0"/>
+	<!-- TOI - 9th Floor -->
+	<teleport id="209" loc_x="117147" loc_y="18415" loc_z="4977" price="500000" fornoble="0"/>
+	<!-- TOI - 10th Floor -->
+	<teleport id="210" loc_x="118374" loc_y="15973" loc_z="5987" price="550000" fornoble="0"/>
+	<!-- TOI - 11th Floor -->
+	<teleport id="211" loc_x="112209" loc_y="16078" loc_z="7028" price="600000" fornoble="0"/>
+	<!-- TOI - 12th Floor -->
+	<teleport id="212" loc_x="114809" loc_y="18711" loc_z="7996" price="650000" fornoble="0"/>
+	<!-- TOI - 13th Floor -->
+	<teleport id="213" loc_x="115178" loc_y="16989" loc_z="9007" price="700000" fornoble="0"/>
+	<!-- TOI - 14th Floor Outside Door -->
+	<teleport id="214" loc_x="112714" loc_y="14111" loc_z="10077" price="800000" fornoble="0"/>
+	<!-- TOI - 14th Floor Inside On Roof -->
+	<teleport id="215" loc_x="113098" loc_y="14532" loc_z="10077" price="900000" fornoble="0"/>
+	<!-- Cat Heretics Entrance -->
+	<teleport id="250" loc_x="-53174" loc_y="-250275" loc_z="-7911" price="0" fornoble="0"/>
+	<!-- Cat Heretics Exit -->
+	<teleport id="251" loc_x="42514" loc_y="143917" loc_z="-5385" price="0" fornoble="0"/>
+	<!-- Cat Branded Entrance -->
+	<teleport id="252" loc_x="46217" loc_y="170290" loc_z="-4983" price="0" fornoble="0"/>
+	<!-- Cat Branded Exit -->
+	<teleport id="253" loc_x="45770" loc_y="170299" loc_z="-4985" price="0" fornoble="0"/>
+	<!-- Cat Apostate Entrance -->
+	<teleport id="254" loc_x="-20230" loc_y="-250780" loc_z="-8168" price="0" fornoble="0"/>
+	<!-- Cat Apostate Exit -->
+	<teleport id="255" loc_x="77225" loc_y="78362" loc_z="-5119" price="0" fornoble="0"/>
+	<!-- Cat Witch Entrance -->
+	<teleport id="256" loc_x="140404" loc_y="79678" loc_z="-5431" price="0" fornoble="0"/>
+	<!-- Cat Witch Exit -->
+	<teleport id="257" loc_x="139965" loc_y="79678" loc_z="-5433" price="0" fornoble="0"/>
+	<!-- Cat DarkOmen Entrance -->
+	<teleport id="258" loc_x="-19500" loc_y="13508" loc_z="-4905" price="0" fornoble="0"/>
+	<!-- Cat DarkOmen Exit -->
+	<teleport id="259" loc_x="-19931" loc_y="13502" loc_z="-4905" price="0" fornoble="0"/>
+	<!-- Cat ForbiddenPath Entrance -->
+	<teleport id="260" loc_x="12521" loc_y="-248481" loc_z="-9585" price="0" fornoble="0"/>
+	<!-- Cat ForbiddenPath Exit -->
+	<teleport id="261" loc_x="113429" loc_y="84540" loc_z="-6545" price="0" fornoble="0"/>
+	<!-- Necro Sacrifice Entrance -->
+	<teleport id="262" loc_x="-41570" loc_y="209785" loc_z="-5089" price="0" fornoble="0"/>
+	<!-- Necro Sacrifice Exit -->
+	<teleport id="263" loc_x="-41567" loc_y="209292" loc_z="-5091" price="0" fornoble="0"/>
+	<!-- Necro Pilgrims Entrance -->
+	<teleport id="264" loc_x="45251" loc_y="123890" loc_z="-5415" price="0" fornoble="0"/>
+	<!-- Necro Pilgrims Exit -->
+	<teleport id="265" loc_x="45250" loc_y="124366" loc_z="-5417" price="0" fornoble="0"/>
+	<!-- Necro Worshippers Entrance -->
+	<teleport id="266" loc_x="111273" loc_y="174015" loc_z="-5417" price="0" fornoble="0"/>
+	<!-- Necro Worshippers Exit -->
+	<teleport id="267" loc_x="110818" loc_y="174010" loc_z="-5443" price="0" fornoble="0"/>
+	<!-- Necro Patriots Entrance -->
+	<teleport id="268" loc_x="-21726" loc_y="77385" loc_z="-5177" price="0" fornoble="0"/>
+	<!-- Necro Patriots Exit -->
+	<teleport id="269" loc_x="-22197" loc_y="77369" loc_z="-5177" price="0" fornoble="0"/>
+	<!-- Necro Ascetics Entrance -->
+	<teleport id="270" loc_x="-52254" loc_y="79103" loc_z="-4743" price="0" fornoble="0"/>
+	<!-- Necro Ascetics Exit -->
+	<teleport id="271" loc_x="-52716" loc_y="79106" loc_z="-4745" price="0" fornoble="0"/>
+	<!-- Necro Martyrs Entrance -->
+	<teleport id="272" loc_x="118308" loc_y="132800" loc_z="-4833" price="0" fornoble="0"/>
+	<!-- Necro Martyrs Exit -->
+	<teleport id="273" loc_x="117793" loc_y="132810" loc_z="-4835" price="0" fornoble="0"/>
+	<!-- Necro Saints Entrance -->
+	<teleport id="274" loc_x="83000" loc_y="209213" loc_z="-5443" price="0" fornoble="0"/>
+	<!-- Necro Saints Exit -->
+	<teleport id="275" loc_x="82608" loc_y="209225" loc_z="-5443" price="0" fornoble="0"/>
+	<!-- Necro Disciples Entrance -->
+	<teleport id="276" loc_x="172251" loc_y="-17605" loc_z="-4903" price="0" fornoble="0"/>
+	<!-- Necro Disciples Exit -->
+	<teleport id="277" loc_x="171902" loc_y="-17595" loc_z="-4905" price="0" fornoble="0"/>
+	<!-- Dion(artifact ->out) -->
+	<teleport id="350" loc_x="22967" loc_y="157715" loc_z="-2954" price="0" fornoble="0"/>
+	<!-- Dion(artifact ->hall) -->
+	<teleport id="351" loc_x="22090" loc_y="159871" loc_z="-2711" price="0" fornoble="0"/>
+	<!-- Dion(artifact ->outofcastle) -->
+	<teleport id="352" loc_x="22448" loc_y="155798" loc_z="-2958" price="0" fornoble="0"/>
+	<!-- Dion(in ->artifact) -->
+	<teleport id="353" loc_x="22592" loc_y="161530" loc_z="-2775" price="0" fornoble="0"/>
+	<!-- Dion(in ->out) -->
+	<teleport id="354" loc_x="22967" loc_y="157715" loc_z="-2954" price="0" fornoble="0"/>
+	<!-- Dion(in ->outofcastle) -->
+	<teleport id="355" loc_x="22448" loc_y="155798" loc_z="-2958" price="0" fornoble="0"/>
+	<!-- Dion(out ->artifact) -->
+	<teleport id="356" loc_x="22592" loc_y="161530" loc_z="-2775" price="0" fornoble="0"/>
+	<!-- Dion(out ->hall) -->
+	<teleport id="357" loc_x="22090" loc_y="159871" loc_z="-2711" price="0" fornoble="0"/>
+	<!-- Dion(out ->outofcastle) -->
+	<teleport id="358" loc_x="22448" loc_y="155798" loc_z="-2958" price="0" fornoble="0"/>
+	<!-- Dion(outofcastle ->artifact) -->
+	<teleport id="359" loc_x="22592" loc_y="161530" loc_z="-2775" price="0" fornoble="0"/>
+	<!-- Dion(outofcastle ->out) -->
+	<teleport id="360" loc_x="22967" loc_y="157715" loc_z="-2954" price="0" fornoble="0"/>
+	<!-- Dion(outofcastle ->hall) -->
+	<teleport id="361" loc_x="22090" loc_y="159871" loc_z="-2711" price="0" fornoble="0"/>
+	<!-- Giran(artifact ->out) -->
+	<teleport id="362" loc_x="113892" loc_y="144175" loc_z="-2714" price="0" fornoble="0"/>
+	<!-- Giran(artifact ->hall) -->
+	<teleport id="363" loc_x="115984" loc_y="145073" loc_z="-2584" price="0" fornoble="0"/>
+	<!-- Giran(artifact ->outofcastle) -->
+	<teleport id="364" loc_x="112016" loc_y="144682" loc_z="-2833" price="0" fornoble="0"/>
+	<!-- Giran(in ->artifact) -->
+	<teleport id="365" loc_x="117619" loc_y="144564" loc_z="-2648" price="0" fornoble="0"/>
+	<!-- Giran(in ->out) -->
+	<teleport id="366" loc_x="113892" loc_y="144175" loc_z="-2714" price="0" fornoble="0"/>
+	<!-- Giran(in ->outofcastle) -->
+	<teleport id="367" loc_x="112016" loc_y="144682" loc_z="-2833" price="0" fornoble="0"/>
+	<!-- Giran(out ->artifact) -->
+	<teleport id="368" loc_x="117619" loc_y="144564" loc_z="-2648" price="0" fornoble="0"/>
+	<!-- Giran(out ->hall) -->
+	<teleport id="369" loc_x="115984" loc_y="145073" loc_z="-2584" price="0" fornoble="0"/>
+	<!-- Giran(out ->outofcastle) -->
+	<teleport id="370" loc_x="112016" loc_y="144682" loc_z="-2833" price="0" fornoble="0"/>
+	<!-- Giran(outofcastle ->artifact) -->
+	<teleport id="371" loc_x="117619" loc_y="144564" loc_z="-2648" price="0" fornoble="0"/>
+	<!-- Giran(outofcastle ->out) -->
+	<teleport id="372" loc_x="113892" loc_y="144175" loc_z="-2714" price="0" fornoble="0"/>
+	<!-- Giran(outofcastle ->hall) -->
+	<teleport id="373" loc_x="115984" loc_y="145073" loc_z="-2584" price="0" fornoble="0"/>
+	<!-- Oren(artifact ->out) -->
+	<teleport id="374" loc_x="79956" loc_y="36351" loc_z="-2532" price="0" fornoble="0"/>
+	<!-- Oren(artifact ->hall) -->
+	<teleport id="375" loc_x="82113" loc_y="37217" loc_z="-2311" price="0" fornoble="0"/>
+	<!-- Oren(artifact ->outofcastle) -->
+	<teleport id="376" loc_x="78079" loc_y="36809" loc_z="-2566" price="0" fornoble="0"/>
+	<!-- Oren(in ->artifact) -->
+	<teleport id="377" loc_x="83710" loc_y="36713" loc_z="-2375" price="0" fornoble="0"/>
+	<!-- Oren(in ->out) -->
+	<teleport id="378" loc_x="79956" loc_y="36351" loc_z="-2532" price="0" fornoble="0"/>
+	<!-- Oren(in ->outofcastle) -->
+	<teleport id="379" loc_x="78079" loc_y="36809" loc_z="-2566" price="0" fornoble="0"/>
+	<!-- Oren(out ->artifact) -->
+	<teleport id="380" loc_x="83710" loc_y="36713" loc_z="-2375" price="0" fornoble="0"/>
+	<!-- Oren(out ->hall) -->
+	<teleport id="381" loc_x="82113" loc_y="37217" loc_z="-2311" price="0" fornoble="0"/>
+	<!-- Oren(out ->outofcastle) -->
+	<teleport id="382" loc_x="78079" loc_y="36809" loc_z="-2566" price="0" fornoble="0"/>
+	<!-- Oren(outofcastle ->artifact) -->
+	<teleport id="383" loc_x="83710" loc_y="36713" loc_z="-2375" price="0" fornoble="0"/>
+	<!-- Oren(outofcastle ->out) -->
+	<teleport id="384" loc_x="79956" loc_y="36351" loc_z="-2532" price="0" fornoble="0"/>
+	<!-- Oren(outofcastle ->hall) -->
+	<teleport id="385" loc_x="82113" loc_y="37217" loc_z="-2311" price="0" fornoble="0"/>
+	<!-- Gludio(artifact ->out) -->
+	<teleport id="386" loc_x="-18941" loc_y="112085" loc_z="-2762" price="0" fornoble="0"/>
+	<!-- Gludio(artifact ->hall) -->
+	<teleport id="387" loc_x="-18129" loc_y="109898" loc_z="-2517" price="0" fornoble="0"/>
+	<!-- Gludio(artifact ->outofcastle) -->
+	<teleport id="388" loc_x="-18484" loc_y="113897" loc_z="-2772" price="0" fornoble="0"/>
+	<!-- Gludio(in ->artifact) -->
+	<teleport id="389" loc_x="-18592" loc_y="108271" loc_z="-2581" price="0" fornoble="0"/>
+	<!-- Gludio(in ->out) -->
+	<teleport id="390" loc_x="-18941" loc_y="112085" loc_z="-2762" price="0" fornoble="0"/>
+	<!-- Gludio(in ->outofcastle) -->
+	<teleport id="391" loc_x="-18484" loc_y="113897" loc_z="-2772" price="0" fornoble="0"/>
+	<!-- Gludio(out ->artifact) -->
+	<teleport id="392" loc_x="-18592" loc_y="108271" loc_z="-2581" price="0" fornoble="0"/>
+	<!-- Gludio(out ->hall) -->
+	<teleport id="393" loc_x="-18129" loc_y="109898" loc_z="-2517" price="0" fornoble="0"/>
+	<!-- Gludio(out ->outofcastle) -->
+	<teleport id="394" loc_x="-18484" loc_y="113897" loc_z="-2772" price="0" fornoble="0"/>
+	<!-- Gludio(outofcastle ->artifact) -->
+	<teleport id="395" loc_x="-18592" loc_y="108271" loc_z="-2581" price="0" fornoble="0"/>
+	<!-- Gludio(outofcastle ->out) -->
+	<teleport id="396" loc_x="-18941" loc_y="112085" loc_z="-2762" price="0" fornoble="0"/>
+	<!-- Gludio(outofcastle ->hall) -->
+	<teleport id="397" loc_x="-18129" loc_y="109898" loc_z="-2517" price="0" fornoble="0"/>
+	<!-- Aden(artifact ->out) -->
+	<teleport id="398" loc_x="147723" loc_y="7916" loc_z="-475" price="0" fornoble="0"/>
+	<!-- Aden(artifact ->in) -->
+	<teleport id="399" loc_x="148580" loc_y="4578" loc_z="-408" price="0" fornoble="0"/>
+	<!-- Aden(artifact ->outofcastle) -->
+	<teleport id="400" loc_x="147582" loc_y="8753" loc_z="-496" price="0" fornoble="0"/>
+	<!-- Aden(artifact ->hall) -->
+	<teleport id="401" loc_x="147520" loc_y="6107" loc_z="-409" price="0" fornoble="0"/>
+	<!-- Aden(in ->artifact) -->
+	<teleport id="402" loc_x="1147499" loc_y="2544" loc_z="-473" price="0" fornoble="0"/>
+	<!-- Aden(in ->out) -->
+	<teleport id="403" loc_x="147723" loc_y="7916" loc_z="-475" price="0" fornoble="0"/>
+	<!-- Aden(in ->outofcastle) -->
+	<teleport id="404" loc_x="147582" loc_y="8753" loc_z="-496" price="0" fornoble="0"/>
+	<!-- Aden(in ->hall) -->
+	<teleport id="405" loc_x="147520" loc_y="6107" loc_z="-409" price="0" fornoble="0"/>
+	<!-- Aden(out ->artifact) -->
+	<teleport id="406" loc_x="147499" loc_y="2544" loc_z="-473" price="0" fornoble="0"/>
+	<!-- Aden(out ->in) -->
+	<teleport id="407" loc_x="148580" loc_y="4578" loc_z="-408" price="0" fornoble="0"/>
+	<!-- Aden(out ->outofcastle) -->
+	<teleport id="408" loc_x="147582" loc_y="8753" loc_z="-496" price="0" fornoble="0"/>
+	<!-- Aden(out ->hall) -->
+	<teleport id="409" loc_x="147520" loc_y="6107" loc_z="-409" price="0" fornoble="0"/>
+	<!-- Aden(outofcastle ->artifact) -->
+	<teleport id="410" loc_x="147499" loc_y="2544" loc_z="-473" price="0" fornoble="0"/>
+	<!-- Aden(outofcastle ->out) -->
+	<teleport id="411" loc_x="147723" loc_y="7916" loc_z="-475" price="0" fornoble="0"/>
+	<!-- Aden(outofcastle ->in) -->
+	<teleport id="412" loc_x="148580" loc_y="4578" loc_z="-408" price="0" fornoble="0"/>
+	<!-- Aden(outofcastle ->hall) -->
+	<teleport id="413" loc_x="147520" loc_y="6107" loc_z="-409" price="0" fornoble="0"/>
+	<!-- Aden(hall) ->artifact) -->
+	<teleport id="414" loc_x="147499" loc_y="2544" loc_z="-473" price="0" fornoble="0"/>
+	<!-- Aden(hall) ->out) -->
+	<teleport id="415" loc_x="147723" loc_y="7916" loc_z="-475" price="0" fornoble="0"/>
+	<!-- Aden(hall) ->in) -->
+	<teleport id="416" loc_x="148580" loc_y="4578" loc_z="-408" price="0" fornoble="0"/>
+	<!-- Aden(hall) ->outofcastle) -->
+	<teleport id="417" loc_x="147582" loc_y="8753" loc_z="-496" price="0" fornoble="0"/>
+	<!-- Lair Of Valakas -->
+	<teleport id="420" loc_x="208884" loc_y="-113705" loc_z="-256" price="0" fornoble="0"/>
+	<!-- Disciples Necropolis ->Anakim -->
+	<teleport id="450" loc_x="185662" loc_y="-13093" loc_z="-5492" price="0" fornoble="0"/>
+	<!-- Disciples Necropolis ->Lilith -->
+	<teleport id="1999" loc_x="184450" loc_y="-9000" loc_z="-5493" price="0" fornoble="0"/>
+	<!-- Anakim/Lilith ->Disciples Necropolis -->
+	<teleport id="451" loc_x="183225" loc_y="-11911" loc_z="-4897" price="0" fornoble="0"/>
+	<!-- TI ->Dark Elven Village -->
+	<teleport id="1005" loc_x="9745" loc_y="15606" loc_z="-4574" price="24000" fornoble="0"/>
+	<!-- TI ->Dwarven Village -->
+	<teleport id="1006" loc_x="115113" loc_y="-178212" loc_z="-901" price="46000" fornoble="0"/>
+	<!-- TI ->Elven Village -->
+	<teleport id="1007" loc_x="46934" loc_y="51467" loc_z="-2977" price="23000" fornoble="0"/>
+	<!-- TI ->Orc Village -->
+	<teleport id="1008" loc_x="-44836" loc_y="-112524" loc_z="-235" price="35000" fornoble="0"/>
+	<!-- DE Village ->Dwarven Village -->
+	<teleport id="1009" loc_x="115113" loc_y="-178212" loc_z="-901" price="22000" fornoble="0"/>
+	<!-- DE Village ->TI Village -->
+	<teleport id="1010" loc_x="-84318" loc_y="244579" loc_z="-3730" price="24000" fornoble="0"/>
+	<!-- Gludin ->Windy Hill -->
+	<teleport id="1121" loc_x="-88525" loc_y="83379" loc_z="-2864" price="2600" fornoble="0"/>
+	<!-- DE Village ->Orc Village -->
+	<teleport id="1012" loc_x="-44836" loc_y="-112524" loc_z="-235" price="13000" fornoble="0"/>
+	<!-- Elven Village ->Neutral Zone -->
+	<teleport id="1013" loc_x="-10674" loc_y="75550" loc_z="-3597" price="1700" fornoble="0"/>
+	<!-- Elven Village ->Dwarven Village -->
+	<teleport id="1014" loc_x="115113" loc_y="-178212" loc_z="-901" price="23000" fornoble="0"/>
+	<!-- Elven Village ->TI Village -->
+	<teleport id="1015" loc_x="-84318" loc_y="244579" loc_z="-3730" price="23000" fornoble="0"/>
+	<!-- Elven Village ->Orc Village -->
+	<teleport id="1016" loc_x="-44836" loc_y="-112524" loc_z="-235" price="18000" fornoble="0"/>
+	<!-- Dwarven Village ->DE Village -->
+	<teleport id="1017" loc_x="9745" loc_y="15606" loc_z="-4574" price="22000" fornoble="0"/>
+	<!-- Dwarven Village ->Elven Village -->
+	<teleport id="1018" loc_x="46934" loc_y="51467" loc_z="-2977" price="23000" fornoble="0"/>
+	<!-- Dwarven Village ->TI Village -->
+	<teleport id="1019" loc_x="-84318" loc_y="244579" loc_z="-3730" price="46000" fornoble="0"/>
+	<!-- Dwarven Village ->Schuttgart -->
+	<teleport id="1020" loc_x="87386" loc_y="-143246" loc_z="-1293" price="4400" fornoble="0"/>
+	<!-- Dwarven Village ->Orc Village -->
+	<teleport id="1021" loc_x="-44836" loc_y="-112524" loc_z="-235" price="17000" fornoble="0"/>
+	<!-- Dwarven Village ->Central Shore -->
+	<teleport id="1022" loc_x="136910" loc_y="-205082" loc_z="-3664" price="970" fornoble="0"/>
+	<!-- Orc Village ->Town of Gludio -->
+	<teleport id="1023" loc_x="-12672" loc_y="122776" loc_z="-3116" price="23000" fornoble="0"/>
+	<!-- Orc Village ->Schuttgart -->
+	<teleport id="1024" loc_x="87386" loc_y="-143246" loc_z="-1293" price="13000" fornoble="0"/>
+	<!-- Orc Village ->DE Village -->
+	<teleport id="1025" loc_x="9745" loc_y="15606" loc_z="-4574" price="13000" fornoble="0"/>
+	<!-- Orc Village ->Dwarven Village -->
+	<teleport id="1026" loc_x="115113" loc_y="-178212" loc_z="-901" price="17000" fornoble="0"/>
+	<!-- Orc Village ->TI Village -->
+	<teleport id="1027" loc_x="-84318" loc_y="244579" loc_z="-3730" price="35000" fornoble="0"/>
+	<!-- Orc Village ->Elven Village -->
+	<teleport id="1028" loc_x="46934" loc_y="51467" loc_z="-2977" price="18000" fornoble="0"/>
+	<!-- Gludio ->Orc Village -->
+	<teleport id="1033" loc_x="-44836" loc_y="-112524" loc_z="-235" price="23000" fornoble="0"/>
+	<!-- Gludin Village ->Windmill Hill -->
+	<teleport id="1029" loc_x="-68628" loc_y="162336" loc_z="-3592" price="550" fornoble="0"/>
+	<!-- Gludin Village ->Forgotten Temple -->
+	<teleport id="1030" loc_x="-52841" loc_y="190730" loc_z="-3518" price="2000" fornoble="0"/>
+	<!-- Gludio ->Ant Cave -->
+	<teleport id="1031" loc_x="-9993" loc_y="176457" loc_z="-4182" price="2100" fornoble="0"/>
+	<!-- Gludin Village ->Crimson Boulder Ridge -->
+	<teleport id="1032" loc_x="-42256" loc_y="198333" loc_z="-2800" price="3700" fornoble="0"/>
+	<!-- Gludio ->Dwarven Village -->
+	<teleport id="1034" loc_x="115113" loc_y="-178212" loc_z="-901" price="32000" fornoble="0"/>
+	<!-- Gludio ->Schuttgart -->
+	<teleport id="1035" loc_x="87386" loc_y="-143246" loc_z="-1293" price="85000" fornoble="0"/>
+	<!-- Gludio ->Heine -->
+	<teleport id="1036" loc_x="111409" loc_y="219364" loc_z="-3545" price="47000" fornoble="0"/>
+	<!-- Gludio ->Aden Castle Town -->
+	<teleport id="1037" loc_x="146331" loc_y="25762" loc_z="-2018" price="56000" fornoble="0"/>
+	<!-- Gludio ->Oren Castle Town -->
+	<teleport id="1038" loc_x="82956" loc_y="53162" loc_z="-1495" price="35000" fornoble="0"/>
+	<!-- Gludio ->Goddard Castle Town -->
+	<teleport id="1039" loc_x="147928" loc_y="-55273" loc_z="-2734" price="71000" fornoble="0"/>
+	<!-- Gludio ->Giran Castle Town -->
+	<teleport id="1040" loc_x="83400" loc_y="147943" loc_z="-3404" price="29000" fornoble="0"/>
+	<!-- Gludio ->Rune Castle Town -->
+	<teleport id="1041" loc_x="43799" loc_y="-47727" loc_z="-798" price="53000" fornoble="0"/>
+	<!-- Gludio ->Ruins of Agony -->
+	<teleport id="1042" loc_x="-42504" loc_y="120046" loc_z="-3519" price="790" fornoble="0"/>
+	<!-- Gludio ->Ruins of Despair -->
+	<teleport id="1043" loc_x="-20057" loc_y="137618" loc_z="-3897" price="610" fornoble="0"/>
+	<!-- Gludin ->Turek Orc -->
+	<teleport id="1044" loc_x="-89839" loc_y="105362" loc_z="-3580" price="1800" fornoble="0"/>
+	<!-- Gludio ->Windmill Hill -->
+	<teleport id="1045" loc_x="-68628" loc_y="162336" loc_z="-3592" price="2600" fornoble="0"/>
+	<!-- Dion ->Goddard -->
+	<teleport id="1046" loc_x="147928" loc_y="-55273" loc_z="-2734" price="71000" fornoble="0"/>
+	<!-- Dion ->Rune Castle Town -->
+	<teleport id="1047" loc_x="43799" loc_y="-47727" loc_z="-798" price="57000" fornoble="0"/>
+	<!-- Dion ->Schuttgart -->
+	<teleport id="1048" loc_x="87386" loc_y="-143246" loc_z="-1293" price="88000" fornoble="0"/>
+	<!-- Dion ->Aden -->
+	<teleport id="1049" loc_x="146331" loc_y="25762" loc_z="-2018" price="52000" fornoble="0"/>
+	<!-- Dion ->Oren -->
+	<teleport id="1050" loc_x="82956" loc_y="53162" loc_z="-1495" price="33000" fornoble="0"/>
+	<!-- Dion ->Cruma Marshlands -->
+	<teleport id="1051" loc_x="5106" loc_y="126916" loc_z="-3664" price="760" fornoble="0"/>
+	<!-- Dion ->Cruma Tower -->
+	<teleport id="1052" loc_x="17192" loc_y="114178" loc_z="-3439" price="2300" fornoble="0"/>
+	<!-- Dion ->Dion Pasture -->
+	<teleport id="1053" loc_x="630" loc_y="179184" loc_z="-3720" price="1500" fornoble="0"/>
+	<!-- Dion ->Tanor Canyon -->
+	<teleport id="1054" loc_x="58316" loc_y="163851" loc_z="-2816" price="3800" fornoble="0"/>
+	<!-- Giran ->Gludio -->
+	<teleport id="1055" loc_x="-12672" loc_y="122776" loc_z="-3116" price="29000" fornoble="0"/>
+	<!-- Giran ->Goddard -->
+	<teleport id="1056" loc_x="147928" loc_y="-55273" loc_z="-2734" price="63000" fornoble="0"/>
+	<!-- Giran ->Rune -->
+	<teleport id="1057" loc_x="43799" loc_y="-47727" loc_z="-798" price="59000" fornoble="0"/>
+	<!-- Giran ->Schuttgart -->
+	<teleport id="1058" loc_x="87386" loc_y="-143246" loc_z="-1293" price="87000" fornoble="0"/>
+	<!-- Giran ->Aden -->
+	<teleport id="1059" loc_x="146331" loc_y="25762" loc_z="-2018" price="13000" fornoble="0"/>
+	<!-- Giran ->Antharas Lair -->
+	<teleport id="1060" loc_x="132828" loc_y="114421" loc_z="-3725" price="7000" fornoble="0"/>
+	<!-- Giran ->Devil Isle -->
+	<teleport id="1061" loc_x="43408" loc_y="206881" loc_z="-3752" price="5700" fornoble="0"/>
+	<!-- Giran ->Brekas Stronghold -->
+	<teleport id="1062" loc_x="79798" loc_y="130624" loc_z="-3677" price="1000" fornoble="0"/>
+	<!-- Heine ->Oren -->
+	<teleport id="1063" loc_x="82956" loc_y="53162" loc_z="-1495" price="50000" fornoble="0"/>
+	<!-- Heine ->Aden -->
+	<teleport id="1064" loc_x="146331" loc_y="25762" loc_z="-2018" price="59000" fornoble="0"/>
+	<!-- Heine ->Goddard -->
+	<teleport id="1065" loc_x="147928" loc_y="-55273" loc_z="-2734" price="83000" fornoble="0"/>
+	<!-- Heine ->Rune -->
+	<teleport id="1066" loc_x="43799" loc_y="-47727" loc_z="-798" price="82000" fornoble="0"/>
+	<!-- Heine ->Schuttgart -->
+	<teleport id="1067" loc_x="87386" loc_y="-143246" loc_z="-1293" price="100000" fornoble="0"/>
+	<!-- Heine ->Gludio -->
+	<teleport id="1068" loc_x="-12672" loc_y="122776" loc_z="-3116" price="47000" fornoble="0"/>
+	<!-- Heine ->Garden of Eva -->
+	<teleport id="1069" loc_x="86006" loc_y="231069" loc_z="-3600" price="2400" fornoble="0"/>
+	<!-- Oren ->Rune -->
+	<teleport id="1070" loc_x="43799" loc_y="-47727" loc_z="-798" price="10000" fornoble="0"/>
+	<!-- Oren ->Goddard -->
+	<teleport id="1071" loc_x="147928" loc_y="-55273" loc_z="-2734" price="37000" fornoble="0"/>
+	<!-- Oren ->Heine -->
+	<teleport id="1072" loc_x="111409" loc_y="219364" loc_z="-3545" price="50000" fornoble="0"/>
+	<!-- Oren ->Dion -->
+	<teleport id="1073" loc_x="15670" loc_y="142983" loc_z="-2705" price="33000" fornoble="0"/>
+	<!-- Oren ->Schuttgart -->
+	<teleport id="1074" loc_x="87386" loc_y="-143246" loc_z="-1293" price="59000" fornoble="0"/>
+	<!-- Oren ->Gludio -->
+	<teleport id="1075" loc_x="-12672" loc_y="122776" loc_z="-3116" price="35000" fornoble="0"/>
+	<!-- Oren ->Skyshadow Meadow -->
+	<teleport id="1076" loc_x="82764" loc_y="61145" loc_z="-3502" price="780" fornoble="0"/>
+	<!-- Oren ->Forest Outlaw -->
+	<teleport id="1077" loc_x="85995" loc_y="-2433" loc_z="-3528" price="5200" fornoble="0"/>
+	<!-- Aden ->Giran -->
+	<teleport id="1078" loc_x="83400" loc_y="147943" loc_z="-3404" price="13000" fornoble="0"/>
+	<!-- Aden ->Heine -->
+	<teleport id="1079" loc_x="111409" loc_y="219364" loc_z="-3545" price="59000" fornoble="0"/>
+	<!-- Aden ->Schuttgart -->
+	<teleport id="1080" loc_x="87386" loc_y="-143246" loc_z="-1293" price="53000" fornoble="0"/>
+	<!-- Aden ->Dion -->
+	<teleport id="1081" loc_x="15670" loc_y="142983" loc_z="-2705" price="52000" fornoble="0"/>
+	<!-- Aden ->Gludio -->
+	<teleport id="1082" loc_x="-12672" loc_y="122776" loc_z="-3116" price="56000" fornoble="0"/>
+	<!-- Aden ->Seal of Shilen -->
+	<teleport id="1083" loc_x="188611" loc_y="20588" loc_z="-3696" price="3300" fornoble="0"/>
+	<!-- Aden ->Forest of Mirrors -->
+	<teleport id="1084" loc_x="142065" loc_y="81300" loc_z="-3000" price="4400" fornoble="0"/>
+	<!-- Aden ->Fields of Massacre -->
+	<teleport id="1085" loc_x="179718" loc_y="-7843" loc_z="-3517" price="6500" fornoble="0"/>
+	<!-- Aden ->Ancient Battleground -->
+	<teleport id="1086" loc_x="127739" loc_y="-6998" loc_z="-3869" price="5900" fornoble="0"/>
+	<!-- Aden ->Silent Valley -->
+	<teleport id="1087" loc_x="177318" loc_y="48447" loc_z="-3835" price="6100" fornoble="0"/>
+	<!-- Aden ->ToI -->
+	<teleport id="1088" loc_x="121291" loc_y="15960" loc_z="-4964" price="4200" fornoble="0"/>
+	<!-- Goddard ->Gludio -->
+	<teleport id="1089" loc_x="-12672" loc_y="122776" loc_z="-3116" price="71000" fornoble="0"/>
+	<!-- Goddard ->Giran -->
+	<teleport id="1090" loc_x="83400" loc_y="147943" loc_z="-3404" price="63000" fornoble="0"/>
+	<!-- Goddard ->Dion -->
+	<teleport id="1091" loc_x="15670" loc_y="142983" loc_z="-2705" price="71000" fornoble="0"/>
+	<!-- Goddard ->Heine -->
+	<teleport id="1092" loc_x="111409" loc_y="219364" loc_z="-3545" price="83000" fornoble="0"/>
+	<!-- Goddard ->Schuttgart -->
+	<teleport id="1093" loc_x="87386" loc_y="-143246" loc_z="-1293" price="10000" fornoble="0"/>
+	<!-- Goddard ->Oren -->
+	<teleport id="1094" loc_x="82956" loc_y="53162" loc_z="-1495" price="37000" fornoble="0"/>
+	<!-- Goddard ->Hot Springs -->
+	<teleport id="1095" loc_x="149594" loc_y="-112698" loc_z="-2065" price="9300" fornoble="0"/>
+	<!-- Goddard ->Wall of Argos -->
+	<teleport id="1096" loc_x="165054" loc_y="-47861" loc_z="-3560" price="2200" fornoble="0"/>
+	<!-- Goddard ->Monastery of silence -->
+	<teleport id="1097" loc_x="106414" loc_y="-87799" loc_z="-2920" price="10000" fornoble="0"/>
+	<!-- Rune ->Dion -->
+	<teleport id="1098" loc_x="15670" loc_y="142983" loc_z="-2705" price="57000" fornoble="0"/>
+	<!-- Rune ->Gludio -->
+	<teleport id="1099" loc_x="-12672" loc_y="122776" loc_z="-3116" price="53000" fornoble="0"/>
+	<!-- Rune ->Heine -->
+	<teleport id="1100" loc_x="111409" loc_y="219364" loc_z="-3545" price="82000" fornoble="0"/>
+	<!-- Rune ->Schuttgart -->
+	<teleport id="1101" loc_x="87386" loc_y="-143246" loc_z="-1293" price="10000" fornoble="0"/>
+	<!-- Rune ->Oren -->
+	<teleport id="1102" loc_x="82956" loc_y="53162" loc_z="-1495" price="10000" fornoble="0"/>
+	<!-- Rune ->Beast Farm -->
+	<teleport id="1103" loc_x="57059" loc_y="-82976" loc_z="-2847" price="4800" fornoble="0"/>
+	<!-- Rune ->Valley of Saints -->
+	<teleport id="1104" loc_x="67992" loc_y="-72012" loc_z="-3748" price="3800" fornoble="0"/>
+	<!-- Rune ->Monastery of Silence -->
+	<teleport id="1105" loc_x="123743" loc_y="-75032" loc_z="-2902" price="14000" fornoble="0"/>
+	<!-- Schuttgart ->Rune -->
+	<teleport id="1106" loc_x="43799" loc_y="-47727" loc_z="-798" price="10000" fornoble="0"/>
+	<!-- Schuttgart ->Goddard -->
+	<teleport id="1107" loc_x="147928" loc_y="-55273" loc_z="-2734" price="10000" fornoble="0"/>
+	<!-- Schuttgart ->Aden -->
+	<teleport id="1108" loc_x="146331" loc_y="25762" loc_z="-2018" price="53000" fornoble="0"/>
+	<!-- Schuttgart ->Oren -->
+	<teleport id="1109" loc_x="82956" loc_y="53162" loc_z="-1495" price="59000" fornoble="0"/>
+	<!-- Schuttgart ->Heine -->
+	<teleport id="1110" loc_x="111409" loc_y="219364" loc_z="-3545" price="100000" fornoble="0"/>
+	<!-- Schuttgart ->Giran -->
+	<teleport id="1111" loc_x="83400" loc_y="147943" loc_z="-3404" price="87000" fornoble="0"/>
+	<!-- Schuttgart ->Dion -->
+	<teleport id="1112" loc_x="15670" loc_y="142983" loc_z="-2705" price="88000" fornoble="0"/>
+	<!-- Schuttgart ->Gludio -->
+	<teleport id="1113" loc_x="-12672" loc_y="122776" loc_z="-3116" price="85000" fornoble="0"/>
+	<!-- Schuttgart ->Orc Village -->
+	<teleport id="1114" loc_x="-44836" loc_y="-112524" loc_z="-235" price="13000" fornoble="0"/>
+	<!-- Schuttgart ->Dwarven Village -->
+	<teleport id="1115" loc_x="115113" loc_y="-178212" loc_z="-901" price="4400" fornoble="0"/>
+	<!-- Schuttgart ->Nest of Evil Spirit -->
+	<teleport id="1116" loc_x="76860" loc_y="-125169" loc_z="-3414" price="3000" fornoble="0"/>
+	<!-- Schuttgart ->Wasteland of plunder -->
+	<teleport id="1117" loc_x="109024" loc_y="-159223" loc_z="-1778" price="1600" fornoble="0"/>
+	<!-- Schuttgart ->Labyrinth of winter -->
+	<teleport id="1118" loc_x="113903" loc_y="-108752" loc_z="-848" price="3500" fornoble="0"/>
+	<!-- Schuttgart ->Graveyard of disgrace -->
+	<teleport id="1119" loc_x="56095" loc_y="-118952" loc_z="-3290" price="1900" fornoble="0"/>
+	<!-- Schuttgart ->Farbel Ruins -->
+	<teleport id="1120" loc_x="88288" loc_y="-125692" loc_z="-3816" price="2100" fornoble="0"/>
+	<!-- Pagan Temple - &gt; exit -->
+	<teleport id="11999" loc_x="-16307" loc_y="-36591" loc_z="-10725" price="0" fornoble="0"/>
+	<!-- Pagan Chapel - &gt; exit -->
+	<teleport id="11998" loc_x="-16359" loc_y="-43803" loc_z="-10725" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Execution Grounds -->
+	<teleport id="502" loc_x="51055" loc_y="141959" loc_z="-2869" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Cruma Marshlands -->
+	<teleport id="504" loc_x="5106" loc_y="126916" loc_z="-3664" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Cruma Tower Entrance -->
+	<teleport id="505" loc_x="17192" loc_y="114178" loc_z="-3439" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Town of Dion -->
+	<teleport id="507" loc_x="15670" loc_y="142983" loc_z="-2705" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Floran Village -->
+	<teleport id="508" loc_x="17838" loc_y="170274" loc_z="-3508" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Tanor Canyon -->
+	<teleport id="510" loc_x="58316" loc_y="163851" loc_z="-2816" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Bee Hive -->
+	<teleport id="511" loc_x="20505" loc_y="189036" loc_z="-3344" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Floran Agricultural Area -->
+	<teleport id="513" loc_x="26810" loc_y="172787" loc_z="-3376" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Plains of Dion -->
+	<teleport id="514" loc_x="9980" loc_y="173167" loc_z="-3734" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Hardin's Academy -->
+	<teleport id="517" loc_x="105918" loc_y="109759" loc_z="-3207" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Dragon Valley -->
+	<teleport id="518" loc_x="122824" loc_y="110836" loc_z="-3720" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Death Pass -->
+	<teleport id="521" loc_x="70000" loc_y="126636" loc_z="-3804" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Pirate Tunnel -->
+	<teleport id="522" loc_x="41298" loc_y="200350" loc_z="-4583" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Giran Harbor -->
+	<teleport id="524" loc_x="47942" loc_y="186764" loc_z="-3485" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Giran Castle Town -->
+	<teleport id="525" loc_x="83400" loc_y="147943" loc_z="-3404" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Giran Arena -->
+	<teleport id="526" loc_x="73890" loc_y="142656" loc_z="-3778" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Breka's Stronghold -->
+	<teleport id="528" loc_x="79798" loc_y="130624" loc_z="-3677" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Gorgon Flower Garden -->
+	<teleport id="529" loc_x="113553" loc_y="134813" loc_z="-3640" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ivory Tower -->
+	<teleport id="581" loc_x="85348" loc_y="16142" loc_z="-3699" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Town of Oren -->
+	<teleport id="582" loc_x="82956" loc_y="53162" loc_z="-1495" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Plains of Lizardmen -->
+	<teleport id="584" loc_x="87252" loc_y="85514" loc_z="-3056" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Skyshadow Meadow -->
+	<teleport id="585" loc_x="82764" loc_y="61145" loc_z="-3502" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Spider Nest -->
+	<teleport id="588" loc_x="-56532" loc_y="78321" loc_z="-2960" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Timak Outpost -->
+	<teleport id="589" loc_x="67097" loc_y="68815" loc_z="-3648" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Forest of Evil -->
+	<teleport id="591" loc_x="93218" loc_y="16969" loc_z="-3904" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Outlaw Forest -->
+	<teleport id="592" loc_x="85995" loc_y="-2433" loc_z="-3528" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Tower of Insolence -->
+	<teleport id="598" loc_x="121685" loc_y="15749" loc_z="-3852" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Blazing Swamp -->
+	<teleport id="599" loc_x="146828" loc_y="-12859" loc_z="-4455" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Forbidden Gateway -->
+	<teleport id="601" loc_x="185395" loc_y="20359" loc_z="-3270" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Giants Cave -->
+	<teleport id="602" loc_x="174528" loc_y="52683" loc_z="-4369" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Northern Pathway of Enchanted Valley -->
+	<teleport id="603" loc_x="104426" loc_y="33746" loc_z="-3800" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Cemetery -->
+	<teleport id="604" loc_x="172136" loc_y="20325" loc_z="-3326" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Forest of Mirrors -->
+	<teleport id="605" loc_x="150477" loc_y="85907" loc_z="-2753" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Anghel Waterfall -->
+	<teleport id="606" loc_x="165584" loc_y="85997" loc_z="-2338" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Aden Castle Town -->
+	<teleport id="607" loc_x="146331" loc_y="25762" loc_z="-2018" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Hunters Village -->
+	<teleport id="608" loc_x="117110" loc_y="76883" loc_z="-2695" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Border Outpost(Aden Side) -->
+	<teleport id="609" loc_x="109699" loc_y="-7908" loc_z="-2902" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Coliseum -->
+	<teleport id="610" loc_x="150086" loc_y="46733" loc_z="-3412" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ancient Battleground -->
+	<teleport id="613" loc_x="127739" loc_y="-6998" loc_z="-3869" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Forsaken Plains -->
+	<teleport id="614" loc_x="167285" loc_y="37109" loc_z="-4008" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Silent Valley -->
+	<teleport id="615" loc_x="177318" loc_y="48447" loc_z="-3835" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Hunters Valley -->
+	<teleport id="616" loc_x="114306" loc_y="86573" loc_z="-3112" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Plains of Glory -->
+	<teleport id="617" loc_x="135756" loc_y="19557" loc_z="-3424" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Fields of Massacre -->
+	<teleport id="618" loc_x="179718" loc_y="-7843" loc_z="-3517" price="500" fornoble="0"/>
+	<!-- Clan Hall ->War-Torn Plains -->
+	<teleport id="619" loc_x="156898" loc_y="11217" loc_z="-4032" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Border Outpost(Unknown Side) -->
+	<teleport id="620" loc_x="114172" loc_y="-18034" loc_z="-1875" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Rune Castle Town - Shopping Area -->
+	<teleport id="621" loc_x="43835" loc_y="-47749" loc_z="-796" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Rune Castle Town - Temple -->
+	<teleport id="622" loc_x="38303" loc_y="-48044" loc_z="897" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Rune Castle Town - North Gate -->
+	<teleport id="623" loc_x="38956" loc_y="-53648" loc_z="-1343" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Rune Castle Town - Harbor -->
+	<teleport id="624" loc_x="38025" loc_y="-38359" loc_z="-3608" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Beast Farm -->
+	<teleport id="625" loc_x="42598" loc_y="-88832" loc_z="-3124" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Forest of the Dead - East Entrance -->
+	<teleport id="626" loc_x="61868" loc_y="-48890" loc_z="-3128" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Forest of the Dead - West Entrance -->
+	<teleport id="627" loc_x="45555" loc_y="-56081" loc_z="-3667" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Swamp of Screams - East Entrance -->
+	<teleport id="628" loc_x="94152" loc_y="-58694" loc_z="-2832" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Swamp of Screams - West Entrance -->
+	<teleport id="629" loc_x="69999" loc_y="-49929" loc_z="-3253" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Valley of the Saints -->
+	<teleport id="630" loc_x="65800" loc_y="-71526" loc_z="-3747" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Village Square -->
+	<teleport id="631" loc_x="147728" loc_y="-56331" loc_z="-2776" price="0" fornoble="0"/>
+	<!-- Clan Hall ->North Gate Entrance -->
+	<teleport id="632" loc_x="147731" loc_y="-58930" loc_z="-2976" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East Gate Entrance -->
+	<teleport id="633" loc_x="150561" loc_y="-57489" loc_z="-2976" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West Gate Entrance -->
+	<teleport id="634" loc_x="144866" loc_y="-57464" loc_z="-2976" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Forge of the Gods -->
+	<teleport id="635" loc_x="168902" loc_y="-116703" loc_z="-2417" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Garden of Beasts -->
+	<teleport id="636" loc_x="129138" loc_y="-60864" loc_z="-3576" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Swamp of Screams -->
+	<teleport id="637" loc_x="70006" loc_y="-49902" loc_z="-3251" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Valley of Saints -->
+	<teleport id="638" loc_x="67992" loc_y="-72012" loc_z="-3748" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Monastery of Silence -->
+	<teleport id="639" loc_x="123743" loc_y="-75032" loc_z="-2902" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Wall of Argos -->
+	<teleport id="640" loc_x="164564" loc_y="-48145" loc_z="-3536" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Hot Springs -->
+	<teleport id="641" loc_x="144880" loc_y="-113468" loc_z="-2560" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ketra Orc Outpost -->
+	<teleport id="642" loc_x="146990" loc_y="-67128" loc_z="-3640" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Goddard Border Checkpoint -->
+	<teleport id="643" loc_x="157560" loc_y="-33269" loc_z="-3320" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Aden Border Checkpoint -->
+	<teleport id="644" loc_x="125381" loc_y="-33536" loc_z="-3848" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Garden of Beasts -->
+	<teleport id="645" loc_x="129138" loc_y="-60864" loc_z="-3576" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Devil's Pass -->
+	<teleport id="646" loc_x="106849" loc_y="-62061" loc_z="-2968" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Varka Silenos Outpost -->
+	<teleport id="647" loc_x="125740" loc_y="-40864" loc_z="-3736" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Village Square -->
+	<teleport id="648" loc_x="-82445" loc_y="150788" loc_z="-3129" price="0" fornoble="0"/>
+	<!-- Clan Hall ->North Gate Entrance -->
+	<teleport id="649" loc_x="-83331" loc_y="148563" loc_z="-3148" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East Gate Entrance -->
+	<teleport id="650" loc_x="-78405" loc_y="152723" loc_z="-3181" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Nanmen Entrance -->
+	<teleport id="651" loc_x="-77460" loc_y="155995" loc_z="-3194" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West Gate Entrance -->
+	<teleport id="652" loc_x="-85138" loc_y="152749" loc_z="-3160" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Neutral Zone -->
+	<teleport id="653" loc_x="-10612" loc_y="75881" loc_z="-3592" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Langk Lizardmen Dwellings -->
+	<teleport id="654" loc_x="-36961" loc_y="201895" loc_z="-2760" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Windy Hill -->
+	<teleport id="655" loc_x="-93453" loc_y="89814" loc_z="-3240" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Orc Barracks -->
+	<teleport id="656" loc_x="-85329" loc_y="106369" loc_z="-3603" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Fellmere Harvesting Ground -->
+	<teleport id="657" loc_x="-68668" loc_y="115407" loc_z="-3600" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ruins of Agony -->
+	<teleport id="658" loc_x="-41055" loc_y="122647" loc_z="-2889" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Abandoned Camp -->
+	<teleport id="659" loc_x="-49756" loc_y="146951" loc_z="-2828" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Forgotten Temple -->
+	<teleport id="660" loc_x="-52369" loc_y="191259" loc_z="-3610" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Ant Nest -->
+	<teleport id="661" loc_x="-14913" loc_y="170017" loc_z="-2893" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Wasteland -->
+	<teleport id="662" loc_x="-47506" loc_y="179572" loc_z="-3669" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ol Mahum Checkpoint -->
+	<teleport id="663" loc_x="-17279" loc_y="208954" loc_z="-3664" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ant Cave South Entrance -->
+	<teleport id="664" loc_x="-16019" loc_y="193365" loc_z="-4488" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ant Cave East Entrance -->
+	<teleport id="665" loc_x="-10875" loc_y="175962" loc_z="-4152" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ant Cave West Entrance -->
+	<teleport id="666" loc_x="-25899" loc_y="172857" loc_z="-4186" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Altar of Rites -->
+	<teleport id="667" loc_x="-44311" loc_y="78617" loc_z="-3744" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Dion Castle Town -->
+	<teleport id="75003" loc_x="19025" loc_y="145245" loc_z="-3107" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Goddard -->
+	<teleport id="75001" loc_x="147928" loc_y="-55273" loc_z="-2734" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Hot Springs -->
+	<teleport id="75002" loc_x="144880" loc_y="-113468" loc_z="-2560" price="0" fornoble="0"/>
+	<!-- Gludin Arena - 1000 adena -->
+	<teleport id="9000" loc_x="-87328" loc_y="142266" loc_z="-3640" price="1000" fornoble="0"/>
+	<!-- Coliseum - 1000 adena -->
+	<teleport id="9001" loc_x="146440" loc_y="46723" loc_z="-3432" price="1000" fornoble="0"/>
+	<!-- Giran Arena - 1000 adena -->
+	<teleport id="9002" loc_x="73579" loc_y="142709" loc_z="-3768" price="1000" fornoble="0"/>
+	<!-- Forgotten Temple - 1000 adena -->
+	<teleport id="9010" loc_x="-54026" loc_y="179504" loc_z="-4640" price="1000" fornoble="0"/>
+	<!-- Wasteland  - 1000 adena -->
+	<teleport id="9011" loc_x="-47506" loc_y="179572" loc_z="-3632" price="1000" fornoble="0"/>
+	<!-- Silent Valley - 1000 adena -->
+	<teleport id="9020" loc_x="181737" loc_y="46469" loc_z="-4352" price="1000" fornoble="0"/>
+	<!-- Plains of Glory - 1000 adena -->
+	<teleport id="9021" loc_x="135756" loc_y="19557" loc_z="-3424" price="1000" fornoble="0"/>
+	<!-- War-Torn Plains - 1000 adena -->
+	<teleport id="9022" loc_x="156898" loc_y="11217" loc_z="-4032" price="1000" fornoble="0"/>
+	<!-- Tower of Insolence, 3rd Floor - 1000 adena -->
+	<teleport id="9023" loc_x="110848" loc_y="16154" loc_z="-2120" price="1000" fornoble="0"/>
+	<!-- Tower of Insolence, 5th Floor - 1000 adena -->
+	<teleport id="9024" loc_x="118404" loc_y="15988" loc_z="832" price="1000" fornoble="0"/>
+	<!-- Tower of Insolence, 7th Floor - 1000 adena -->
+	<teleport id="9025" loc_x="115064" loc_y="12181" loc_z="2960" price="1000" fornoble="0"/>
+	<!-- Tower of Insolence, 10th Floor - 1000 adena -->
+	<teleport id="9026" loc_x="118525" loc_y="16455" loc_z="5984" price="1000" fornoble="0"/>
+	<!-- Tower of Insolence, 13th Floor - 1000 adena -->
+	<teleport id="9027" loc_x="115384" loc_y="16820" loc_z="9000" price="1000" fornoble="0"/>
+	<!-- Hunters Valley - 1000 adena -->
+	<teleport id="9028" loc_x="114306" loc_y="86573" loc_z="-3112" price="1000" fornoble="0"/>
+	<!-- Angel Waterfall - 1000 adena -->
+	<teleport id="9029" loc_x="166182" loc_y="91560" loc_z="-3168" price="1000" fornoble="0"/>
+	<!-- Forest of Mirrors - 1000 adena -->
+	<teleport id="9030" loc_x="166080" loc_y="75574" loc_z="-2992" price="1000" fornoble="0"/>
+	<!-- Enchanted Valley - 1000 adena -->
+	<teleport id="9031" loc_x="114674" loc_y="44150" loc_z="-3376" price="1000" fornoble="0"/>
+	<!-- Hunters Valley - 1000 adena -->
+	<teleport id="9032" loc_x="114306" loc_y="86573" loc_z="-3112" price="1000" fornoble="0"/>
+	<!-- Gorgon Flower Garden - 1000 adena -->
+	<teleport id="9040" loc_x="113553" loc_y="134813" loc_z="-3640" price="1000" fornoble="0"/>
+	<!-- Antharas Lair 1 - 1000 adena -->
+	<teleport id="9041" loc_x="147071" loc_y="120156" loc_z="-4520" price="1000" fornoble="0"/>
+	<!-- Antharas Lair 2 - 1000 adena -->
+	<teleport id="9042" loc_x="151689" loc_y="112615" loc_z="-5520" price="1000" fornoble="0"/>
+	<!-- Dragon Valley - 1000 adena -->
+	<teleport id="9043" loc_x="116425" loc_y="109898" loc_z="-3424" price="1000" fornoble="0"/>
+	<!-- Antharas Lair, Heart of Warding - 1000 adena -->
+	<teleport id="9044" loc_x="154396" loc_y="121235" loc_z="-3808" price="1000" fornoble="0"/>
+	<!-- Dragon Valley, Traders Post - 1000 adena -->
+	<teleport id="9045" loc_x="122824" loc_y="110836" loc_z="-3720" price="1000" fornoble="0"/>
+	<!-- Private Hardin's Academy - 1000 adena -->
+	<teleport id="9046" loc_x="105918" loc_y="109759" loc_z="-3192" price="1000" fornoble="0"/>
+	<!-- Forest of the Dead - 1000 adena -->
+	<teleport id="9050" loc_x="54425" loc_y="-41692" loc_z="-3072" price="1000" fornoble="0"/>
+	<!-- Valley of Saints - 1000 adena -->
+	<teleport id="9051" loc_x="84092" loc_y="-80084" loc_z="-3504" price="1000" fornoble="0"/>
+	<!-- Cursed Village - 1000 adena -->
+	<teleport id="9052" loc_x="57670" loc_y="-41672" loc_z="-3144" price="1000" fornoble="0"/>
+	<!-- Stakato Nest - 1000 adena -->
+	<teleport id="9053" loc_x="88969" loc_y="-45307" loc_z="-2104" price="1000" fornoble="0"/>
+	<!-- Monastery of Silence - 1000 adena -->
+	<teleport id="9054" loc_x="106414" loc_y="-87799" loc_z="-2920" price="1000" fornoble="0"/>
+	<!-- Varka Silenos Village - 1000 adena -->
+	<teleport id="9060" loc_x="107929" loc_y="-52248" loc_z="-2408" price="1000" fornoble="0"/>
+	<!-- Ketra Orc Village - 1000 adena -->
+	<teleport id="9061" loc_x="149817" loc_y="-80053" loc_z="-5576" price="1000" fornoble="0"/>
+	<!-- Devil's Pass - 1000 adena -->
+	<teleport id="9062" loc_x="106349" loc_y="-61870" loc_z="-2904" price="1000" fornoble="0"/>
+	<!-- Garden of Beasts - 1000 adena -->
+	<teleport id="9063" loc_x="132997" loc_y="-60608" loc_z="-2960" price="1000" fornoble="0"/>
+	<!-- Hot Springs - 1000 adena -->
+	<teleport id="9064" loc_x="144625" loc_y="-101291" loc_z="-3384" price="1000" fornoble="0"/>
+	<!-- Wall of Argos - 1000 adena -->
+	<teleport id="9065" loc_x="183140" loc_y="-53307" loc_z="-1896" price="1000" fornoble="0"/>
+	<!-- Wall of Argos - 1000 adena -->
+	<teleport id="9066" loc_x="183140" loc_y="-53307" loc_z="-1896" price="1000" fornoble="0"/>
+	<!-- Four Sepulchers - 1000 adena -->
+	<teleport id="9067" loc_x="178127" loc_y="-84435" loc_z="-7216" price="1000" fornoble="0"/>
+	<!-- Imperial Tomb - 1000 adena -->
+	<teleport id="9068" loc_x="186699" loc_y="-75915" loc_z="-2824" price="1000" fornoble="0"/>
+	<!-- Forge of the Gods, entrance - 1000 adena -->
+	<teleport id="9069" loc_x="169018" loc_y="-116303" loc_z="-2432" price="1000" fornoble="0"/>
+	<!-- Forge of the Gods, entrance - 1000 adena -->
+	<teleport id="9070" loc_x="169018" loc_y="-116303" loc_z="-2432" price="1000" fornoble="0"/>
+	<!-- Forge of the Gods, lower level - 1000 adena -->
+	<teleport id="9071" loc_x="179887" loc_y="-111241" loc_z="-5824" price="1000" fornoble="0"/>
+	<!-- Execution Grounds - 1000 adena -->
+	<teleport id="9080" loc_x="50568" loc_y="152408" loc_z="-2656" price="1000" fornoble="0"/>
+	<!-- Floran Agricultural Area - 1000 adena -->
+	<teleport id="9081" loc_x="26810" loc_y="172787" loc_z="-3376" price="1000" fornoble="0"/>
+	<!-- Cruma Marshlands - 1000 adena -->
+	<teleport id="9082" loc_x="5941" loc_y="125455" loc_z="-3640" price="1000" fornoble="0"/>
+	<!-- Cruma Tower, 1st Floor - 1000 adena -->
+	<teleport id="9083" loc_x="17718" loc_y="117315" loc_z="-12064" price="1000" fornoble="0"/>
+	<!-- Cruma Tower, 2nd Floor - 1000 adena -->
+	<teleport id="9084" loc_x="17728" loc_y="110325" loc_z="-9312" price="1000" fornoble="0"/>
+	<!-- Frost Lake - 1000 adena -->
+	<teleport id="9090" loc_x="107577" loc_y="-122392" loc_z="-3632" price="1000" fornoble="0"/>
+	<!-- Crypts of Disgrace - 1000 adena -->
+	<teleport id="9091" loc_x="44221" loc_y="-114232" loc_z="-2784" price="1000" fornoble="0"/>
+	<!-- Sky Wagon Relic - 1000 adena -->
+	<teleport id="9092" loc_x="121618" loc_y="-141554" loc_z="-1496" price="1000" fornoble="0"/>
+	<!-- Evil Hunting Grounds - 1000 adena -->
+	<teleport id="9100" loc_x="-6989" loc_y="109503" loc_z="-3040" price="1000" fornoble="0"/>
+	<!-- Neutral Zone - 1000 adena -->
+	<teleport id="9101" loc_x="-18415" loc_y="85624" loc_z="-3680" price="1000" fornoble="0"/>
+	<!-- Dark Forest - 1000 adena -->
+	<teleport id="9102" loc_x="-14129" loc_y="27094" loc_z="-3680" price="1000" fornoble="0"/>
+	<!-- School of Dark Arts - 1000 adena -->
+	<teleport id="9103" loc_x="-49185" loc_y="49441" loc_z="-5912" price="1000" fornoble="0"/>
+	<!-- Elven Ruins - 1000 adena -->
+	<teleport id="9104" loc_x="49315" loc_y="248452" loc_z="-5960" price="1000" fornoble="0"/>
+	<!-- Immortal Plateau - 1000 adena -->
+	<teleport id="9105" loc_x="-25309" loc_y="-131569" loc_z="-680" price="1000" fornoble="0"/>
+	<!-- Mithril Mines - 1000 adena -->
+	<teleport id="9106" loc_x="175499" loc_y="-181586" loc_z="-904" price="1000" fornoble="0"/>
+	<!-- Abandoned Coal Mines - 1000 adena -->
+	<teleport id="9107" loc_x="144706" loc_y="-173223" loc_z="-1520" price="1000" fornoble="0"/>
+	<!-- Forest of Evil - 1000 adena -->
+	<teleport id="9110" loc_x="93218" loc_y="16969" loc_z="-3904" price="1000" fornoble="0"/>
+	<!-- Timak Outpost - 1000 adena -->
+	<teleport id="9111" loc_x="67097" loc_y="68815" loc_z="-3648" price="1000" fornoble="0"/>
+	<!-- Altar of Rites - 1000 adena -->
+	<teleport id="9112" loc_x="-44566" loc_y="77508" loc_z="-3736" price="1000" fornoble="0"/>
+	<!-- Fields of Silence - 1000 adena -->
+	<teleport id="9120" loc_x="69748" loc_y="186111" loc_z="-2872" price="1000" fornoble="0"/>
+	<!-- Field of Whispers - 1000 adena -->
+	<teleport id="9121" loc_x="97786" loc_y="209303" loc_z="-3040" price="1000" fornoble="0"/>
+	<!-- Alligator Island - 1000 adena -->
+	<teleport id="9122" loc_x="113708" loc_y="178387" loc_z="-3232" price="1000" fornoble="0"/>
+	<!-- Garden of Eva, entrance - 1000 adena -->
+	<teleport id="9123" loc_x="82693" loc_y="242220" loc_z="-6712" price="1000" fornoble="0"/>
+	<!-- Garden of Eva, 2nd level - 1000 adena -->
+	<teleport id="9124" loc_x="79248" loc_y="247390" loc_z="-8816" price="1000" fornoble="0"/>
+	<!-- Garden of Eva, 3rd level - 1000 adena -->
+	<teleport id="9125" loc_x="77868" loc_y="250400" loc_z="-9328" price="1000" fornoble="0"/>
+	<!-- Garden of Eva, 4th level - 1000 adena -->
+	<teleport id="9126" loc_x="78721" loc_y="253309" loc_z="-9840" price="1000" fornoble="0"/>
+	<!-- Garden of Eva, 5th level - 1000 adena -->
+	<teleport id="9127" loc_x="82951" loc_y="252354" loc_z="-10592" price="1000" fornoble="0"/>
+	<!-- Gludin Arena - 1 Noble Gate Pass -->
+	<teleport id="9900" loc_x="-87328" loc_y="142266" loc_z="-3640" price="1" fornoble="1"/>
+	<!-- Coliseum - 1 Noble Gate Pass -->
+	<teleport id="9901" loc_x="146440" loc_y="46723" loc_z="-3432" price="1" fornoble="1"/>
+	<!-- Giran Arena - 1 Noble Gate Pass -->
+	<teleport id="9902" loc_x="73579" loc_y="142709" loc_z="-3768" price="1" fornoble="1"/>
+	<!-- Forgotten Temple - 1 Noble Gate Pass -->
+	<teleport id="9910" loc_x="-54026" loc_y="179504" loc_z="-4640" price="1" fornoble="1"/>
+	<!-- Wasteland  - 1 Noble Gate Pass -->
+	<teleport id="9911" loc_x="-47506" loc_y="179572" loc_z="-3632" price="1" fornoble="1"/>
+	<!-- Silent Valley - 1 Noble Gate Pass -->
+	<teleport id="9920" loc_x="181737" loc_y="46469" loc_z="-4352" price="1" fornoble="1"/>
+	<!-- Plains of Glory - 1 Noble Gate Pass -->
+	<teleport id="9921" loc_x="135756" loc_y="19557" loc_z="-3424" price="1" fornoble="1"/>
+	<!-- War-Torn Plains - 1 Noble Gate Pass -->
+	<teleport id="9922" loc_x="156898" loc_y="11217" loc_z="-4032" price="1" fornoble="1"/>
+	<!-- Tower of Insolence, 3rd Floor - 1 Noble Gate Pass -->
+	<teleport id="9923" loc_x="110848" loc_y="16154" loc_z="-2120" price="1" fornoble="1"/>
+	<!-- Tower of Insolence, 5th Floor - 1 Noble Gate Pass -->
+	<teleport id="9924" loc_x="118404" loc_y="15988" loc_z="832" price="1" fornoble="1"/>
+	<!-- Tower of Insolence, 7th Floor - 1 Noble Gate Pass -->
+	<teleport id="9925" loc_x="115064" loc_y="12181" loc_z="2960" price="1" fornoble="1"/>
+	<!-- Tower of Insolence, 10th Floor - 1 Noble Gate Pass -->
+	<teleport id="9926" loc_x="118525" loc_y="16455" loc_z="5984" price="1" fornoble="1"/>
+	<!-- Tower of Insolence, 13th Floor - 1 Noble Gate Pass -->
+	<teleport id="9927" loc_x="115384" loc_y="16820" loc_z="9000" price="1" fornoble="1"/>
+	<!-- Hunters Valley - 1 Noble Gate Pass -->
+	<teleport id="9928" loc_x="114306" loc_y="86573" loc_z="-3112" price="1" fornoble="1"/>
+	<!-- Angel Waterfall - 1 Noble Gate Pass -->
+	<teleport id="9929" loc_x="166182" loc_y="91560" loc_z="-3168" price="1" fornoble="1"/>
+	<!-- Forest of Mirrors - 1 Noble Gate Pass -->
+	<teleport id="9930" loc_x="166080" loc_y="75574" loc_z="-2992" price="1" fornoble="1"/>
+	<!-- Enchanted Valley - 1 Noble Gate Pass -->
+	<teleport id="9931" loc_x="114674" loc_y="44150" loc_z="-3376" price="1" fornoble="1"/>
+	<!-- Hunters Valley - 1 Noble Gate Pass -->
+	<teleport id="9932" loc_x="114306" loc_y="86573" loc_z="-3112" price="1" fornoble="1"/>
+	<!-- Gorgon Flower Garden - 1 Noble Gate Pass -->
+	<teleport id="9940" loc_x="113553" loc_y="134813" loc_z="-3640" price="1" fornoble="1"/>
+	<!-- Antharas Lair 1 - 1 Noble Gate Pass -->
+	<teleport id="9941" loc_x="147071" loc_y="120156" loc_z="-4520" price="1" fornoble="1"/>
+	<!-- Antharas Lair 2 - 1 Noble Gate Pass -->
+	<teleport id="9942" loc_x="151689" loc_y="112615" loc_z="-5520" price="1" fornoble="1"/>
+	<!-- Dragon Valley - 1 Noble Gate Pass -->
+	<teleport id="9943" loc_x="116425" loc_y="109898" loc_z="-3424" price="1" fornoble="1"/>
+	<!-- Antharas Lair, Heart of Warding - 1 Noble Gate Pass -->
+	<teleport id="9944" loc_x="154396" loc_y="121235" loc_z="-3808" price="1" fornoble="1"/>
+	<!-- Dragon Valley, Traders Post - 1 Noble Gate Pass -->
+	<teleport id="9945" loc_x="122824" loc_y="110836" loc_z="-3720" price="1" fornoble="1"/>
+	<!-- Private Hardin's Academy - 1 Noble Gate Pass -->
+	<teleport id="9946" loc_x="105918" loc_y="109759" loc_z="-3192" price="1" fornoble="1"/>
+	<!-- Forest of the Dead - 1 Noble Gate Pass -->
+	<teleport id="9950" loc_x="54425" loc_y="-41692" loc_z="-3072" price="1" fornoble="1"/>
+	<!-- Valley of Saints - 1 Noble Gate Pass -->
+	<teleport id="9951" loc_x="84092" loc_y="-80084" loc_z="-3504" price="1" fornoble="1"/>
+	<!-- Cursed Village - 1 Noble Gate Pass -->
+	<teleport id="9952" loc_x="57670" loc_y="-41672" loc_z="-3144" price="1" fornoble="1"/>
+	<!-- Stakato Nest - 1 Noble Gate Pass -->
+	<teleport id="9953" loc_x="88969" loc_y="-45307" loc_z="-2104" price="1" fornoble="1"/>
+	<!-- Monastery of Silence - 1 Noble Gate Pass -->
+	<teleport id="9954" loc_x="106414" loc_y="-87799" loc_z="-2920" price="1" fornoble="1"/>
+	<!-- Varka Silenos Village - 1 Noble Gate Pass -->
+	<teleport id="9960" loc_x="107929" loc_y="-52248" loc_z="-2408" price="1" fornoble="1"/>
+	<!-- Ketra Orc Village - 1 Noble Gate Pass -->
+	<teleport id="9961" loc_x="149817" loc_y="-80053" loc_z="-5576" price="1" fornoble="1"/>
+	<!-- Devil's Pass - 1 Noble Gate Pass -->
+	<teleport id="9962" loc_x="106349" loc_y="-61870" loc_z="-2904" price="1" fornoble="1"/>
+	<!-- Garden of Beasts - 1 Noble Gate Pass -->
+	<teleport id="9963" loc_x="132997" loc_y="-60608" loc_z="-2960" price="1" fornoble="1"/>
+	<!-- Hot Springs - 1 Noble Gate Pass -->
+	<teleport id="9964" loc_x="144625" loc_y="-101291" loc_z="-3384" price="1" fornoble="1"/>
+	<!-- Wall of Argos - 1 Noble Gate Pass -->
+	<teleport id="9965" loc_x="183140" loc_y="-53307" loc_z="-1896" price="1" fornoble="1"/>
+	<!-- Four Sepulchers - 1 Noble Gate Pass -->
+	<teleport id="9967" loc_x="178127" loc_y="-84435" loc_z="-7216" price="1" fornoble="1"/>
+	<!-- Imperial Tomb - 1 Noble Gate Pass -->
+	<teleport id="9968" loc_x="186699" loc_y="-75915" loc_z="-2824" price="1" fornoble="1"/>
+	<!-- Forge of the Gods, entrance - 1 Noble Gate Pass -->
+	<teleport id="9970" loc_x="169018" loc_y="-116303" loc_z="-2432" price="1" fornoble="1"/>
+	<!-- Forge of the Gods, lower level - 1 Noble Gate Pass -->
+	<teleport id="9971" loc_x="179887" loc_y="-111241" loc_z="-5824" price="1" fornoble="1"/>
+	<!-- Execution Grounds - 1 Noble Gate Pass -->
+	<teleport id="9980" loc_x="50568" loc_y="152408" loc_z="-2656" price="1" fornoble="1"/>
+	<!-- Floran Agricultural Area - 1 Noble Gate Pass -->
+	<teleport id="9981" loc_x="26810" loc_y="172787" loc_z="-3376" price="1" fornoble="1"/>
+	<!-- Cruma Marshlands - 1 Noble Gate Pass -->
+	<teleport id="9982" loc_x="5941" loc_y="125455" loc_z="-3640" price="1" fornoble="1"/>
+	<!-- Cruma Tower, 1st Floor - 1 Noble Gate Pass -->
+	<teleport id="9983" loc_x="17718" loc_y="117315" loc_z="-12064" price="1" fornoble="1"/>
+	<!-- Cruma Tower, 2nd Floor - 1 Noble Gate Pass -->
+	<teleport id="9984" loc_x="17728" loc_y="110325" loc_z="-9312" price="1" fornoble="1"/>
+	<!-- Frost Lake - 1 Noble Gate Pass -->
+	<teleport id="9990" loc_x="107577" loc_y="-122392" loc_z="-3632" price="1" fornoble="1"/>
+	<!-- Crypts of Disgrace - 1 Noble Gate Pass -->
+	<teleport id="9991" loc_x="44221" loc_y="-114232" loc_z="-2784" price="1" fornoble="1"/>
+	<!-- Sky Wagon Relic - 1 Noble Gate Pass -->
+	<teleport id="9992" loc_x="121618" loc_y="-141554" loc_z="-1496" price="1" fornoble="1"/>
+	<!-- Evil Hunting Grounds - 1 Noble Gate Pass -->
+	<teleport id="10000" loc_x="-6989" loc_y="109503" loc_z="-3040" price="1" fornoble="1"/>
+	<!-- Neutral Zone - 1 Noble Gate Pass -->
+	<teleport id="10001" loc_x="-18415" loc_y="85624" loc_z="-3680" price="1" fornoble="1"/>
+	<!-- Dark Forest - 1 Noble Gate Pass -->
+	<teleport id="10002" loc_x="-14129" loc_y="27094" loc_z="-3680" price="1" fornoble="1"/>
+	<!-- School of Dark Arts - 1 Noble Gate Pass -->
+	<teleport id="10003" loc_x="-49185" loc_y="49441" loc_z="-5912" price="1" fornoble="1"/>
+	<!-- Elven Ruins - 1 Noble Gate Pass -->
+	<teleport id="10004" loc_x="49315" loc_y="248452" loc_z="-5960" price="1" fornoble="1"/>
+	<!-- Immortal Plateau - 1 Noble Gate Pass -->
+	<teleport id="10005" loc_x="-25309" loc_y="-131569" loc_z="-680" price="1" fornoble="1"/>
+	<!-- Mithril Mines - 1 Noble Gate Pass -->
+	<teleport id="10006" loc_x="175499" loc_y="-181586" loc_z="-904" price="1" fornoble="1"/>
+	<!-- Abandoned Coal Mines - 1 Noble Gate Pass -->
+	<teleport id="10007" loc_x="144706" loc_y="-173223" loc_z="-1520" price="1" fornoble="1"/>
+	<!-- Forest of Evil - 1 Noble Gate Pass -->
+	<teleport id="10010" loc_x="93218" loc_y="16969" loc_z="-3904" price="1" fornoble="1"/>
+	<!-- Timak Outpost - 1 Noble Gate Pass -->
+	<teleport id="10011" loc_x="67097" loc_y="68815" loc_z="-3648" price="1" fornoble="1"/>
+	<!-- Altar of Rites - 1 Noble Gate Pass -->
+	<teleport id="10012" loc_x="-44566" loc_y="77508" loc_z="-3736" price="1" fornoble="1"/>
+	<!-- Field of Silence - 1 Noble Gate Pass -->
+	<teleport id="10020" loc_x="69748" loc_y="186111" loc_z="-2872" price="1" fornoble="1"/>
+	<!-- Field of Whispers - 1 Noble Gate Pass -->
+	<teleport id="10021" loc_x="97786" loc_y="209303" loc_z="-3040" price="1" fornoble="1"/>
+	<!-- Alligator Island - 1 Noble Gate Pass -->
+	<teleport id="10022" loc_x="113708" loc_y="178387" loc_z="-3232" price="1" fornoble="1"/>
+	<!-- Garden of Eva, entrance - 1 Noble Gate Pass -->
+	<teleport id="10023" loc_x="82693" loc_y="242220" loc_z="-6712" price="1" fornoble="1"/>
+	<!-- Garden of Eva, 2nd ring - 1 Noble Gate Pass -->
+	<teleport id="10024" loc_x="79248" loc_y="247390" loc_z="-8816" price="1" fornoble="1"/>
+	<!-- Garden of Eva, 3rd ring - 1 Noble Gate Pass -->
+	<teleport id="10025" loc_x="77868" loc_y="250400" loc_z="-9328" price="1" fornoble="1"/>
+	<!-- Garden of Eva, 4th ring - 1 Noble Gate Pass -->
+	<teleport id="10026" loc_x="78721" loc_y="253309" loc_z="-9840" price="1" fornoble="1"/>
+	<!-- Garden of Eva, 5th level - 1 Noble Gate Pass -->
+	<teleport id="10027" loc_x="82951" loc_y="252354" loc_z="-10592" price="1" fornoble="1"/>
+	<!-- Ketra teleport - Goddard Castle Town -->
+	<teleport id="10028" loc_x="147978" loc_y="-55408" loc_z="-2728" price="4900" fornoble="0"/>
+	<!-- Ketra teleport - Rune Castle Town -->
+	<teleport id="10029" loc_x="43849" loc_y="-47877" loc_z="-792" price="22000" fornoble="0"/>
+	<!-- Ketra teleport - Aden Castle Town -->
+	<teleport id="10030" loc_x="146705" loc_y="25840" loc_z="-2000" price="21000" fornoble="0"/>
+	<!-- Ketra teleport - Wall of Argos -->
+	<teleport id="10031" loc_x="164564" loc_y="-48145" loc_z="-3536" price="7000" fornoble="0"/>
+	<!-- Ketra teleport - Hot Springs -->
+	<teleport id="10032" loc_x="144880" loc_y="-113468" loc_z="-2560" price="6700" fornoble="0"/>
+	<!-- Varka teleport - Goddard Castle Town -->
+	<teleport id="10033" loc_x="147978" loc_y="-55408" loc_z="-2728" price="8000" fornoble="0"/>
+	<!-- Varka teleport - Rune Castle Town -->
+	<teleport id="10034" loc_x="43849" loc_y="-47877" loc_z="-792" price="12000" fornoble="0"/>
+	<!-- Varka teleport - Aden Castle Town -->
+	<teleport id="10035" loc_x="146705" loc_y="25840" loc_z="-2000" price="17000" fornoble="0"/>
+	<!-- Varka teleport - Wall of Argos -->
+	<teleport id="10036" loc_x="164564" loc_y="-48145" loc_z="-3536" price="11000" fornoble="0"/>
+	<!-- Varka teleport - Hot Springs -->
+	<teleport id="10037" loc_x="144880" loc_y="-113468" loc_z="-2560" price="14000" fornoble="0"/>
+	<!-- Clan Hall ->Center Town of Aden -->
+	<teleport id="12000" loc_x="147450" loc_y="28081" loc_z="-2294" price="0" fornoble="0"/>
+	<!-- Clan Hall ->North Town of Aden -->
+	<teleport id="12001" loc_x="151950" loc_y="25094" loc_z="-2172" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East Town of Aden -->
+	<teleport id="12002" loc_x="142593" loc_y="26344" loc_z="-2425" price="0" fornoble="0"/>
+	<!-- Clan Hall ->South Town of Aden -->
+	<teleport id="12003" loc_x="147503" loc_y="32299" loc_z="-2501" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West Town of Aden -->
+	<teleport id="12004" loc_x="147465" loc_y="20737" loc_z="-2130" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Southern Pathway of Enchanted Valley -->
+	<teleport id="12005" loc_x="124904" loc_y="61992" loc_z="-3973" price="500" fornoble="0"/>
+	<!-- Clan Hall ->East of Blazing Swamp -->
+	<teleport id="12006" loc_x="159676" loc_y="-13544" loc_z="-2832" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Plains of Glory -->
+	<teleport id="12007" loc_x="133164" loc_y="14036" loc_z="-3888" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Plains of Fierce Battle -->
+	<teleport id="12008" loc_x="153757" loc_y="8905" loc_z="-4024" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Path to Forest of Wirrors -->
+	<teleport id="12009" loc_x="134310" loc_y="71976" loc_z="-3298" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Front of Anghel Waterfall -->
+	<teleport id="12010" loc_x="163341" loc_y="91374" loc_z="-3320" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Disciples Necropolis -->
+	<teleport id="12011" loc_x="168779" loc_y="-18790" loc_z="-3184" price="500" fornoble="0"/>
+	<!-- Clan Hall ->North Path to The Cementery -->
+	<teleport id="12012" loc_x="175191" loc_y="4082" loc_z="-2863" price="500" fornoble="0"/>
+	<!-- Clan Hall ->South Path to The Cementery -->
+	<teleport id="12013" loc_x="175432" loc_y="30299" loc_z="-3773" price="500" fornoble="0"/>
+	<!-- Clan Hall ->West Path to The Cementery -->
+	<teleport id="12014" loc_x="166502" loc_y="20284" loc_z="-3328" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Center of Giran Castle Town -->
+	<teleport id="12015" loc_x="81749" loc_y="149171" loc_z="-3464" price="0" fornoble="0"/>
+	<!-- Clan Hall ->North of Giran Castle Town -->
+	<teleport id="12016" loc_x="81525" loc_y="143821" loc_z="-3528" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East of Giran Castle Town -->
+	<teleport id="12017" loc_x="88342" loc_y="147329" loc_z="-3400" price="0" fornoble="0"/>
+	<!-- Clan Hall ->South of Giran Castle Town -->
+	<teleport id="12018" loc_x="81548" loc_y="152633" loc_z="-3528" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West of Giran Castle Town -->
+	<teleport id="12019" loc_x="77305" loc_y="148636" loc_z="-3592" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Devils Isle -->
+	<teleport id="12020" loc_x="43408" loc_y="206881" loc_z="-3752" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Center of Gludin Village -->
+	<teleport id="12021" loc_x="-82445" loc_y="150788" loc_z="-3129" price="0" fornoble="0"/>
+	<!-- Clan Hall ->North of Gludin Village -->
+	<teleport id="12022" loc_x="-83331" loc_y="148563" loc_z="-3148" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East of Gludin Village -->
+	<teleport id="12023" loc_x="-78405" loc_y="152723" loc_z="-3181" price="0" fornoble="0"/>
+	<!-- Clan Hall ->South of Gludin Village -->
+	<teleport id="12024" loc_x="-77460" loc_y="155995" loc_z="-3194" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West of Gludin Village -->
+	<teleport id="12025" loc_x="-85138" loc_y="152749" loc_z="-3160" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Necropolis of Sacrifice -->
+	<teleport id="12026" loc_x="-36961" loc_y="201895" loc_z="-2760" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Oracle Dusk -->
+	<teleport id="12027" loc_x="-93453" loc_y="89814" loc_z="-3240" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Oracle of Dawn -->
+	<teleport id="12028" loc_x="-85329" loc_y="106369" loc_z="-3603" price="500" fornoble="0"/>
+	<!-- Clan Hall ->South Pathway to the Wasterland -->
+	<teleport id="12029" loc_x="-17279" loc_y="208954" loc_z="-3664" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Wasterland -->
+	<teleport id="12030" loc_x="-16019" loc_y="193365" loc_z="-4488" price="500" fornoble="0"/>
+	<!-- Clan Hall ->North of Dion Castle Town -->
+	<teleport id="12041" loc_x="21511" loc_y="145866" loc_z="-3153" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Center of Dion Castle Town -->
+	<teleport id="12040" loc_x="19025" loc_y="145245" loc_z="-3107" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Center of Gludio Castle Town -->
+	<teleport id="12033" loc_x="-14393" loc_y="123671" loc_z="-3144" price="0" fornoble="0"/>
+	<!-- Clan Hall ->North of Gludio Castle Town -->
+	<teleport id="12035" loc_x="-11817" loc_y="123652" loc_z="-3079" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East of Gludio Castle Town -->
+	<teleport id="12034" loc_x="-16796" loc_y="124108" loc_z="-3127" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West of Gludio Castle Town -->
+	<teleport id="13037" loc_x="-14591" loc_y="121024" loc_z="-2990" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Ruins of Despair -->
+	<teleport id="12038" loc_x="-20767" loc_y="136437" loc_z="-3923" price="500" fornoble="0"/>
+	<!-- Clan Hall ->The Ruins Bend -->
+	<teleport id="12039" loc_x="-32664" loc_y="148626" loc_z="-3956" price="500" fornoble="0"/>
+	<!-- Clan Hall ->East of Dion Castle Town -->
+	<teleport id="12042" loc_x="18891" loc_y="142365" loc_z="-3051" price="0" fornoble="0"/>
+	<!-- Clan Hall ->South of Dion Castle Town -->
+	<teleport id="12043" loc_x="17394" loc_y="147593" loc_z="-3129" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West of Dion Castle Town -->
+	<teleport id="12044" loc_x="16582" loc_y="144130" loc_z="-2960" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Plains of Dion -->
+	<teleport id="12031" loc_x="9980" loc_y="173167" loc_z="-3734" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Piligrims Necropolis -->
+	<teleport id="12032" loc_x="46428" loc_y="127157" loc_z="-3745" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Giran Territory -->
+	<teleport id="12045" loc_x="69373" loc_y="155208" loc_z="-3746" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Center of Goddard Castle Town -->
+	<teleport id="12046" loc_x="147728" loc_y="-56331" loc_z="-2776" price="0" fornoble="0"/>
+	<!-- Clan Hall ->North of Goddard Castle Town -->
+	<teleport id="12047" loc_x="147731" loc_y="-58930" loc_z="-2976" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East of Goddard Castle Town -->
+	<teleport id="12048" loc_x="150561" loc_y="-57489" loc_z="-2976" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West of Goddard Castle Town -->
+	<teleport id="12049" loc_x="144866" loc_y="-57464" loc_z="-2976" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Town of Aden -->
+	<teleport id="75015" loc_x="147450" loc_y="28081" loc_z="-2294" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Fields of Massacre -->
+	<teleport id="75016" loc_x="179718" loc_y="-7843" loc_z="-3517" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Town of Oren -->
+	<teleport id="75008" loc_x="80847" loc_y="54661" loc_z="-1519" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Ivory Tower -->
+	<teleport id="75009" loc_x="85341" loc_y="16151" loc_z="-3673" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Sea of Spores -->
+	<teleport id="75010" loc_x="65085" loc_y="22925" loc_z="-3761" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Forest of Evil -->
+	<teleport id="75011" loc_x="104404" loc_y="-151" loc_z="-3421" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Outlaw Forest -->
+	<teleport id="75012" loc_x="86034" loc_y="-2434" loc_z="-3529" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Border Outpost -->
+	<teleport id="75013" loc_x="110647" loc_y="-10087" loc_z="-2017" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Bandit Stronghold -->
+	<teleport id="75014" loc_x="86825" loc_y="-20028" loc_z="-2009" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Village Square -->
+	<teleport id="12061" loc_x="87379" loc_y="-142322" loc_z="-1336" price="0" fornoble="0"/>
+	<!-- Clan Hall ->West Gate Entrance -->
+	<teleport id="12062" loc_x="84753" loc_y="-141051" loc_z="-1536" price="0" fornoble="0"/>
+	<!-- Clan Hall ->South Gate Entrance -->
+	<teleport id="12063" loc_x="87343" loc_y="-139802" loc_z="-1536" price="0" fornoble="0"/>
+	<!-- Clan Hall ->East Gate Entrance -->
+	<teleport id="12064" loc_x="89959" loc_y="-141034" loc_z="-1536" price="0" fornoble="0"/>
+	<!-- Clan Hall ->Crypt of Disgrace -->
+	<teleport id="12065" loc_x="47692" loc_y="-115745" loc_z="-3744" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Plunderous Plains -->
+	<teleport id="12066" loc_x="111965" loc_y="-154172" loc_z="-1528" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Den of Evil -->
+	<teleport id="12067" loc_x="68693" loc_y="-110438" loc_z="-1904" price="500" fornoble="0"/>
+	<!-- Clan Hall ->Frozen Labyrinth -->
+	<teleport id="12068" loc_x="113903" loc_y="-108752" loc_z="-848" price="500" fornoble="0"/>
+	<!-- Innadril(artifact ->out) -->
+	<teleport id="15000" loc_x="116046" loc_y="247094" loc_z="-930" price="0" fornoble="0"/>
+	<!-- Innadril(artifact ->hall) -->
+	<teleport id="15001" loc_x="116028" loc_y="249163" loc_z="-787" price="0" fornoble="0"/>
+	<!-- Innadril(artifact ->outofcastle) -->
+	<teleport id="15002" loc_x="116373" loc_y="244729" loc_z="-1059" price="0" fornoble="0"/>
+	<!-- Innadril(hall ->out) -->
+	<teleport id="15004" loc_x="116046" loc_y="247094" loc_z="-930" price="0" fornoble="0"/>
+	<!-- Innadril(hall ->outofcastle) -->
+	<teleport id="15005" loc_x="116373" loc_y="244729" loc_z="-1059" price="0" fornoble="0"/>
+	<!-- Innadril(out ->artifact) -->
+	<teleport id="15006" loc_x="116028" loc_y="250136" loc_z="-867" price="0" fornoble="0"/>
+	<!-- Innadril(out ->hall) -->
+	<teleport id="15007" loc_x="116028" loc_y="249163" loc_z="-787" price="0" fornoble="0"/>
+	<!-- Innadril(out ->outofcastle) -->
+	<teleport id="15008" loc_x="116373" loc_y="244729" loc_z="-1059" price="0" fornoble="0"/>
+	<!-- Innadril(outofcastle ->artifact) -->
+	<teleport id="15009" loc_x="116028" loc_y="250136" loc_z="-867" price="0" fornoble="0"/>
+	<!-- Innadril(outofcastle ->out) -->
+	<teleport id="15010" loc_x="116046" loc_y="247094" loc_z="-930" price="0" fornoble="0"/>
+	<!-- Innadril(outofcastle ->hall) -->
+	<teleport id="15011" loc_x="116028" loc_y="249163" loc_z="-787" price="0" fornoble="0"/>
+	<!-- Goddard(artifact ->out) -->
+	<teleport id="15012" loc_x="147466" loc_y="-48514" loc_z="-2085" price="0" fornoble="0"/>
+	<!-- Goddard(artifact ->hall) -->
+	<teleport id="15013" loc_x="147463" loc_y="-48504" loc_z="-2277" price="0" fornoble="0"/>
+	<!-- Goddard(artifact ->outofcastle) -->
+	<teleport id="15014" loc_x="147265" loc_y="-44908" loc_z="-2085" price="0" fornoble="0"/>
+	<!-- Goddard(hall ->artifact) -->
+	<teleport id="15015" loc_x="146165" loc_y="-50478" loc_z="-1604" price="0" fornoble="0"/>
+	<!-- Goddard(hall ->out) -->
+	<teleport id="15016" loc_x="147466" loc_y="-48514" loc_z="-2085" price="0" fornoble="0"/>
+	<!-- Goddard(hall ->outofcastle) -->
+	<teleport id="15017" loc_x="147265" loc_y="-44908" loc_z="-2085" price="0" fornoble="0"/>
+	<!-- Goddard(out ->artifact) -->
+	<teleport id="15018" loc_x="146165" loc_y="-50478" loc_z="-1604" price="0" fornoble="0"/>
+	<!-- Goddard(out ->hall) -->
+	<teleport id="15019" loc_x="147463" loc_y="-48504" loc_z="-2277" price="0" fornoble="0"/>
+	<!-- Goddard(out ->outofcastle) -->
+	<teleport id="15020" loc_x="147265" loc_y="-44908" loc_z="-2085" price="0" fornoble="0"/>
+	<!-- Goddard(outofcastle ->artifact) -->
+	<teleport id="15021" loc_x="146165" loc_y="-50478" loc_z="-1604" price="0" fornoble="0"/>
+	<!-- Goddard(outofcastle ->out) -->
+	<teleport id="15022" loc_x="147466" loc_y="-48514" loc_z="-2085" price="0" fornoble="0"/>
+	<!-- Goddard(outofcastle ->hall) -->
+	<teleport id="15023" loc_x="147463" loc_y="-48504" loc_z="-2277" price="0" fornoble="0"/>
+	<!-- Rune(artifact ->outofcastle) -->
+	<teleport id="15025" loc_x="19049" loc_y="-49141" loc_z="-1258" price="0" fornoble="0"/>
+	<!-- Rune(artifact ->out) -->
+	<teleport id="15026" loc_x="16981" loc_y="-49170" loc_z="-1098" price="0" fornoble="0"/>
+	<!-- Rune(artifact ->hall) -->
+	<teleport id="15027" loc_x="11729" loc_y="-49154" loc_z="-537" price="0" fornoble="0"/>
+	<!-- Rune(hall ->out) -->
+	<teleport id="15029" loc_x="16981" loc_y="-49170" loc_z="-1098" price="0" fornoble="0"/>
+	<!-- Rune(hall ->outofcastle) -->
+	<teleport id="15030" loc_x="19049" loc_y="-49141" loc_z="-1258" price="0" fornoble="0"/>
+	<!-- Rune(out ->hall) -->
+	<teleport id="15032" loc_x="11732" loc_y="-49154" loc_z="-537" price="0" fornoble="0"/>
+	<!-- Rune(out ->outofcastle) -->
+	<teleport id="15033" loc_x="19049" loc_y="-49141" loc_z="-1258" price="0" fornoble="0"/>
+	<!-- Rune(outofcastle ->hall) -->
+	<teleport id="15035" loc_x="11729" loc_y="-49154" loc_z="-537" price="0" fornoble="0"/>
+	<!-- Rune(outofcastle ->out) -->
+	<teleport id="15036" loc_x="16981" loc_y="-49170" loc_z="-1098" price="0" fornoble="0"/>
+	<!-- Schuttgart(hall ->outofcastle) -->
+	<teleport id="15037" loc_x="77562" loc_y="-149119" loc_z="-353" price="0" fornoble="0"/>
+	<!-- Schuttgart(hall ->out) -->
+	<teleport id="15038" loc_x="77501" loc_y="-149943" loc_z="-353" price="0" fornoble="0"/>
+	<!-- Schuttgart(hall ->artifact) -->
+	<teleport id="15039" loc_x="77557" loc_y="-154975" loc_z="387" price="0" fornoble="0"/>
+	<!-- Schuttgart(out ->artifact) -->
+	<teleport id="15040" loc_x="77557" loc_y="-154975" loc_z="387" price="0" fornoble="0"/>
+	<!-- Schuttgart(out ->outofcastle) -->
+	<teleport id="15041" loc_x="77562" loc_y="-149119" loc_z="-353" price="0" fornoble="0"/>
+	<!-- Schuttgart(out ->hall) -->
+	<teleport id="15042" loc_x="77547" loc_y="-152461" loc_z="-545" price="0" fornoble="0"/>
+	<!-- Schuttgart(outofcastle ->artifact) -->
+	<teleport id="15043" loc_x="77557" loc_y="-154975" loc_z="387" price="0" fornoble="0"/>
+	<!-- Schuttgart(outofcastle ->out) -->
+	<teleport id="15044" loc_x="77501" loc_y="-149943" loc_z="-353" price="0" fornoble="0"/>
+	<!-- Schuttgart(outofcastle ->hall) -->
+	<teleport id="15045" loc_x="77547" loc_y="-152461" loc_z="-545" price="0" fornoble="0"/>
+	<!-- Schuttgart(artifact ->out) -->
+	<teleport id="15046" loc_x="77501" loc_y="-149943" loc_z="-353" price="0" fornoble="0"/>
+	<!-- Schuttgart(artifact ->hall) -->
+	<teleport id="15047" loc_x="77547" loc_y="-152461" loc_z="-545" price="0" fornoble="0"/>
+	<!-- Schuttgart(artifact ->outofcastle) -->
+	<teleport id="15048" loc_x="77562" loc_y="-149119" loc_z="-353" price="0" fornoble="0"/>
+	<!-- Gludio Throne -->
+	<teleport id="60000" loc_x="-18112" loc_y="109413" loc_z="-2496" price="0" fornoble="0"/>
+	<!-- Gludio Inside -->
+	<teleport id="60001" loc_x="-18171" loc_y="111572" loc_z="-2649" price="0" fornoble="0"/>
+	<!-- Gludio Artefacts Room -->
+	<teleport id="60002" loc_x="-18115" loc_y="108365" loc_z="-2590" price="0" fornoble="0"/>
+	<!-- Gludio Out of the Castle -->
+	<teleport id="60003" loc_x="-18361" loc_y="113887" loc_z="-2767" price="0" fornoble="0"/>
+	<!-- Giran Throne -->
+	<teleport id="60004" loc_x="116507" loc_y="145095" loc_z="-2563" price="0" fornoble="0"/>
+	<!-- Giran Inside -->
+	<teleport id="60005" loc_x="114174" loc_y="145058" loc_z="-2751" price="0" fornoble="0"/>
+	<!-- Giran Artefacts Room -->
+	<teleport id="60006" loc_x="117557" loc_y="145092" loc_z="-2644" price="0" fornoble="0"/>
+	<!-- Giran Out of the Castle -->
+	<teleport id="60007" loc_x="112122" loc_y="144855" loc_z="-2751" price="0" fornoble="0"/>
+	<!-- Oren Throne -->
+	<teleport id="60008" loc_x="82576" loc_y="37189" loc_z="-2290" price="0" fornoble="0"/>
+	<!-- Oren Inside -->
+	<teleport id="60009" loc_x="80318" loc_y="37174" loc_z="-2561" price="0" fornoble="0"/>
+	<!-- Oren Artefacts Room -->
+	<teleport id="60010" loc_x="83638" loc_y="37180" loc_z="-2371" price="0" fornoble="0"/>
+	<!-- Oren Out of the Castle -->
+	<teleport id="60011" loc_x="78116" loc_y="36961" loc_z="-2458" price="0" fornoble="0"/>
+	<!-- Aden Throne -->
+	<teleport id="60012" loc_x="147446" loc_y="4652" loc_z="-340" price="0" fornoble="0"/>
+	<!-- Aden Balcony -->
+	<teleport id="60013" loc_x="147439" loc_y="1120" loc_z="218" price="0" fornoble="0"/>
+	<!-- Aden Inside -->
+	<teleport id="60014" loc_x="147470" loc_y="7902" loc_z="-470" price="0" fornoble="0"/>
+	<!-- Aden Hall -->
+	<teleport id="60015" loc_x="146372" loc_y="4649" loc_z="-403" price="0" fornoble="0"/>
+	<!-- Aden Artefacts Room -->
+	<teleport id="60016" loc_x="147499" loc_y="2544" loc_z="-473" price="0" fornoble="0"/>
+	<!-- Aden Out of the Castle -->
+	<teleport id="60017" loc_x="116025" loc_y="10843" loc_z="-736" price="0" fornoble="0"/>
+	<!-- Innadril Throne -->
+	<teleport id="60018" loc_x="116025" loc_y="249097" loc_z="-787" price="0" fornoble="0"/>
+	<!-- Innadril Inside -->
+	<teleport id="60019" loc_x="116026" loc_y="246975" loc_z="-967" price="0" fornoble="0"/>
+	<!-- Innadril Artefacts Room -->
+	<teleport id="60020" loc_x="116033" loc_y="250158" loc_z="-867" price="0" fornoble="0"/>
+	<!-- Innadril Out of the Castle -->
+	<teleport id="60021" loc_x="116265" loc_y="244631" loc_z="-1057" price="0" fornoble="0"/>
+	<!-- Goddard Throne -->
+	<teleport id="60022" loc_x="147460" loc_y="-48274" loc_z="-2276" price="0" fornoble="0"/>
+	<!-- Goddard Inside -->
+	<teleport id="60023" loc_x="145671" loc_y="-46510" loc_z="-1743" price="0" fornoble="0"/>
+	<!-- Goddard Artefacts Room -->
+	<teleport id="60024" loc_x="148899" loc_y="-50461" loc_z="-1603" price="0" fornoble="0"/>
+	<!-- Goddard Out of the Castle -->
+	<teleport id="60025" loc_x="147482" loc_y="-45026" loc_z="-2084" price="0" fornoble="0"/>
+	<!-- Dion Throne -->
+	<teleport id="60026" loc_x="22074" loc_y="160352" loc_z="-2690" price="0" fornoble="0"/>
+	<!-- Dion Inside -->
+	<teleport id="60027" loc_x="22150" loc_y="158042" loc_z="-2873" price="0" fornoble="0"/>
+	<!-- Dion Artefacts Room -->
+	<teleport id="60028" loc_x="22078" loc_y="161387" loc_z="-2771" price="0" fornoble="0"/>
+	<!-- Dion Out of the Castle -->
+	<teleport id="60029" loc_x="22306" loc_y="156027" loc_z="-2953" price="0" fornoble="0"/>
+	<!-- Rune Throne -->
+	<teleport id="60030" loc_x="11780" loc_y="-49153" loc_z="-530" price="0" fornoble="0"/>
+	<!-- Rune Inside -->
+	<teleport id="60031" loc_x="17252" loc_y="-49160" loc_z="-1125" price="0" fornoble="0"/>
+	<!-- Rune Artefacts Room -->
+	<teleport id="60032" loc_x="10133" loc_y="-49152" loc_z="997" price="0" fornoble="0"/>
+	<!-- Rune Out of the Castle -->
+	<teleport id="60033" loc_x="19118" loc_y="-49136" loc_z="-1266" price="0" fornoble="0"/>
+	<!-- ForbiddenPath -->
+	<teleport id="2022" loc_x="112893" loc_y="84529" loc_z="-6541" price="0" fornoble="0"/>
+	<!-- DarkOmen -->
+	<teleport id="2021" loc_x="-20706" loc_y="13484" loc_z="-4901" price="0" fornoble="0"/>
+	<!-- Witch -->
+	<teleport id="2020" loc_x="139339" loc_y="79682" loc_z="-5429" price="0" fornoble="0"/>
+	<!-- Apostate -->
+	<teleport id="2019" loc_x="76549" loc_y="78429" loc_z="-5124" price="0" fornoble="0"/>
+	<!-- Branded -->
+	<teleport id="2018" loc_x="44953" loc_y="170285" loc_z="-4981" price="0" fornoble="0"/>
+	<!-- Heretics -->
+	<teleport id="2017" loc_x="41763" loc_y="143930" loc_z="-5407" price="0" fornoble="0"/>
+	<!-- Dark Elven -->
+	<teleport id="6012" loc_x="12090" loc_y="16698" loc_z="-4585" price="0" fornoble="0"/>
+	<!-- Dwarven -->
+	<teleport id="2501" loc_x="115332" loc_y="-178232" loc_z="-929" price="0" fornoble="0"/>
+	<!-- Orc -->
+	<teleport id="2503" loc_x="-44856" loc_y="-112381" loc_z="-240" price="0" fornoble="0"/>
+	<!-- Elven -->
+	<teleport id="2502" loc_x="47012" loc_y="50700" loc_z="-2996" price="0" fornoble="0"/>
+	<!-- Talkong Island -->
+	<teleport id="2504" loc_x="-83862" loc_y="243471" loc_z="-3730" price="0" fornoble="0"/>
+	<!-- Rune -->
+	<teleport id="2521" loc_x="43833" loc_y="-48346" loc_z="-797" price="0" fornoble="0"/>
+	<!-- Oren -->
+	<teleport id="2815" loc_x="82755" loc_y="53583" loc_z="-1522" price="0" fornoble="0"/>
+	<!-- Goddard -->
+	<teleport id="2520" loc_x="147728" loc_y="-55395" loc_z="-2759" price="0" fornoble="0"/>
+	<!-- Aden -->
+	<teleport id="2814" loc_x="147447" loc_y="25748" loc_z="-2013" price="0" fornoble="0"/>
+	<!-- Innadril -->
+	<teleport id="2816" loc_x="111396" loc_y="218917" loc_z="-3569" price="0" fornoble="0"/>
+	<!-- Gludio -->
+	<teleport id="7556" loc_x="-12683" loc_y="122716" loc_z="-3143" price="0" fornoble="0"/>
+	<!-- Giran -->
+	<teleport id="2808" loc_x="83026" loc_y="148631" loc_z="-3469" price="0" fornoble="0"/>
+	<!-- Dion -->
+	<teleport id="2505" loc_x="15641" loc_y="142961" loc_z="-2732" price="0" fornoble="0"/>
+	<!-- Pavel Ruins -->
+	<teleport id="5002" loc_x="88275" loc_y="-125690" loc_z="-3815" price="0" fornoble="0"/>
+	<!-- Monastery of Silence -->
+	<teleport id="5008" loc_x="106467" loc_y="-87805" loc_z="-2950" price="0" fornoble="0"/>
+	<!-- Ice Queens Castle -->
+	<teleport id="5000" loc_x="102492" loc_y="-124255" loc_z="-2771" price="0" fornoble="0"/>
+	<!-- Town of Schuttgar -->
+	<teleport id="5001" loc_x="87363" loc_y="-143348" loc_z="-1293" price="0" fornoble="0"/>
+	<!-- Carons Dungeon -->
+	<teleport id="5003" loc_x="69762" loc_y="-111260" loc_z="-1807" price="0" fornoble="0"/>
+	<!-- Crypts of Disgrace -->
+	<teleport id="5004" loc_x="56095" loc_y="-118952" loc_z="-3290" price="0" fornoble="0"/>
+	<!-- Ice Merchant Cabin -->
+	<teleport id="5005" loc_x="113453" loc_y="-109965" loc_z="-866" price="0" fornoble="0"/>
+	<!-- Stakatonest -->
+	<teleport id="5007" loc_x="89689" loc_y="-44691" loc_z="-2142" price="0" fornoble="0"/>
+	<!-- Core -->
+	<teleport id="5015" loc_x="17622" loc_y="111042" loc_z="-6655" price="0" fornoble="0"/>
+	<!-- Quent Ant -->
+	<teleport id="5017" loc_x="-21547" loc_y="180058" loc_z="-5834" price="0" fornoble="0"/>
+	<!-- Orfen -->
+	<teleport id="5016" loc_x="55467" loc_y="17289" loc_z="-5541" price="0" fornoble="0"/>
+	<!-- Zaken -->
+	<teleport id="1000006" loc_x="55553" loc_y="219381" loc_z="-3225" price="0" fornoble="0"/>
+	<!-- Baium -->
+	<teleport id="5013" loc_x="114034" loc_y="15437" loc_z="10077" price="0" fornoble="0"/>
+	<!-- Antharas -->
+	<teleport id="5012" loc_x="180981" loc_y="114858" loc_z="-7703" price="0" fornoble="0"/>
+	<!-- Valakas -->
+	<teleport id="5011" loc_x="210476" loc_y="-113600" loc_z="-138" price="0" fornoble="0"/>
+	<!-- swamp -->
+	<teleport id="2933" loc_x="-30742" loc_y="49730" loc_z="-3568" price="0" fornoble="0"/>
+	<!-- Temple -->
+	<teleport id="2934" loc_x="10845" loc_y="14502" loc_z="-4242" price="0" fornoble="0"/>
+	<!-- school -->
+	<teleport id="2931" loc_x="-49180" loc_y="49426" loc_z="-5916" price="0" fornoble="0"/>
+	<!-- elvenFortess -->
+	<teleport id="2946" loc_x="45873" loc_y="49288" loc_z="-3064" price="0" fornoble="0"/>
+	<!-- irisLake -->
+	<teleport id="2947" loc_x="48118" loc_y="72491" loc_z="-3481" price="0" fornoble="0"/>
+	<!-- obtliVictory -->
+	<teleport id="2877" loc_x="-99666" loc_y="237569" loc_z="-3562" price="0" fornoble="0"/>
+	<!-- elvenruins -->
+	<teleport id="2875" loc_x="-113342" loc_y="235325" loc_z="-3648" price="0" fornoble="0"/>
+	<!-- talkinharbor -->
+	<teleport id="2878" loc_x="-96804" loc_y="258705" loc_z="-3613" price="0" fornoble="0"/>
+	<!-- savetrials -->
+	<teleport id="2940" loc_x="9349" loc_y="-112499" loc_z="-2531" price="0" fornoble="0"/>
+	<!-- frozen -->
+	<teleport id="2941" loc_x="7615" loc_y="-138852" loc_z="-915" price="0" fornoble="0"/>
+	<!-- mithril -->
+	<teleport id="2942" loc_x="171963" loc_y="-173368" loc_z="3453" price="0" fornoble="0"/>
+	<!-- abondoned -->
+	<teleport id="2937" loc_x="139734" loc_y="-177458" loc_z="-1531" price="0" fornoble="0"/>
+	<!-- floran -->
+	<teleport id="2506" loc_x="16763" loc_y="170007" loc_z="-3493" price="0" fornoble="0"/>
+	<!-- cruma -->
+	<teleport id="2825" loc_x="17176" loc_y="114201" loc_z="-3440" price="0" fornoble="0"/>
+	<!-- cruma1 -->
+	<teleport id="2826" loc_x="17737" loc_y="114119" loc_z="-11673" price="0" fornoble="0"/>
+	<!-- cruma2 -->
+	<teleport id="2827" loc_x="17725" loc_y="108327" loc_z="-9058" price="0" fornoble="0"/>
+	<!-- AtharasLair -->
+	<teleport id="2822" loc_x="131426" loc_y="114452" loc_z="-3721" price="0" fornoble="0"/>
+	<!-- DEvilIsle -->
+	<teleport id="2954" loc_x="43403" loc_y="206864" loc_z="-3747" price="0" fornoble="0"/>
+	<!-- giranharbor -->
+	<teleport id="2953" loc_x="47921" loc_y="186665" loc_z="-3486" price="0" fornoble="0"/>
+	<!-- hardins -->
+	<teleport id="2952" loc_x="105891" loc_y="109761" loc_z="-3207" price="0" fornoble="0"/>
+	<!-- breaka -->
+	<teleport id="2949" loc_x="79794" loc_y="130617" loc_z="-3672" price="0" fornoble="0"/>
+	<!-- ruinsArgony -->
+	<teleport id="2965" loc_x="-42485" loc_y="120050" loc_z="-3514" price="0" fornoble="0"/>
+	<!-- ruinsDespair -->
+	<teleport id="2966" loc_x="-20047" loc_y="137622" loc_z="-33892" price="0" fornoble="0"/>
+	<!-- AntNest -->
+	<teleport id="2879" loc_x="-9983" loc_y="176472" loc_z="-4177" price="0" fornoble="0"/>
+	<!-- Aligators -->
+	<teleport id="2993" loc_x="126460" loc_y="174784" loc_z="-3074" price="0" fornoble="0"/>
+	<!-- Filesolence -->
+	<teleport id="2996" loc_x="82664" loc_y="183571" loc_z="-3592" price="0" fornoble="0"/>
+	<!-- FileWhispers -->
+	<teleport id="2997" loc_x="91203" loc_y="217092" loc_z="-3644" price="0" fornoble="0"/>
+	<!-- GardenEva -->
+	<teleport id="2817" loc_x="86008" loc_y="231050" loc_z="-3595" price="0" fornoble="0"/>
+	<!-- Blazing -->
+	<teleport id="2983" loc_x="159458" loc_y="-12933" loc_z="-2867" price="0" fornoble="0"/>
+	<!-- Hunters -->
+	<teleport id="2982" loc_x="116451" loc_y="76069" loc_z="-2730" price="0" fornoble="0"/>
+	<!-- Coliseum -->
+	<teleport id="2991" loc_x="146499" loc_y="46735" loc_z="-3435" price="0" fornoble="0"/>
+	<!-- TOI -->
+	<teleport id="2819" loc_x="120189" loc_y="16114" loc_z="-5135" price="0" fornoble="0"/>
+	<!-- wallAgros -->
+	<teleport id="2524" loc_x="165056" loc_y="-47846" loc_z="-3555" price="0" fornoble="0"/>
+	<!-- varka -->
+	<teleport id="2522" loc_x="125517" loc_y="-41246" loc_z="-3688" price="0" fornoble="0"/>
+	<!-- HotSpring -->
+	<teleport id="2532" loc_x="149063" loc_y="-112408" loc_z="-2076" price="0" fornoble="0"/>
+	<!-- ketra -->
+	<teleport id="2528" loc_x="147005" loc_y="-67119" loc_z="-3650" price="0" fornoble="0"/>
+	<!-- forgenGods -->
+	<teleport id="2530" loc_x="168995" loc_y="-116279" loc_z="-2449" price="0" fornoble="0"/>
+	<!-- ivory -->
+	<teleport id="2867" loc_x="85332" loc_y="16153" loc_z="-3694" price="0" fornoble="0"/>
+	<!-- seaSpores -->
+	<teleport id="2870" loc_x="64320" loc_y="26795" loc_z="-3763" price="0" fornoble="0"/>
+	<!-- ValeySaints -->
+	<teleport id="2527" loc_x="67985" loc_y="-72039" loc_z="-3748" price="0" fornoble="0"/>
+	<!-- Forest -->
+	<teleport id="2000" loc_x="52107" loc_y="-53940" loc_z="-3154" price="0" fornoble="0"/>
+	<!-- SwampScreams -->
+	<teleport id="2525" loc_x="69988" loc_y="-49910" loc_z="-3246" price="0" fornoble="0"/>
+	<!-- RuneHarbor -->
+	<teleport id="2001" loc_x="38014" loc_y="-38309" loc_z="-3609" price="0" fornoble="0"/>
+	<!-- Sailren ->Primeval Isle Wharf -->
+	<teleport id="20004" loc_x="10468" loc_y="-24569" loc_z="-3650" price="0" fornoble="0"/>
+	<!-- Community -->
+	<teleport id="901" loc_x="83389" loc_y="147997" loc_z="-3431" price="0" fornoble="0"/>
+	<teleport id="902" loc_x="146864" loc_y="25807" loc_z="-2039" price="0" fornoble="0"/>
+	<teleport id="903" loc_x="15627" loc_y="142946" loc_z="-2701" price="0" fornoble="0"/>
+	<teleport id="904" loc_x="-12737" loc_y="122743" loc_z="-3112" price="0" fornoble="0"/>
+	<teleport id="905" loc_x="-80833" loc_y="149822" loc_z="-3039" price="0" fornoble="0"/>
+	<teleport id="906" loc_x="147965" loc_y="-55288" loc_z="-2728" price="0" fornoble="0"/>
+	<teleport id="907" loc_x="111382" loc_y="219332" loc_z="-3541" price="0" fornoble="0"/>
+	<teleport id="908" loc_x="43834" loc_y="-47734" loc_z="-792" price="0" fornoble="0"/>
+	<teleport id="909" loc_x="-21537" loc_y="184324" loc_z="-5712" price="0" fornoble="0"/>
+	<teleport id="910" loc_x="181100" loc_y="114954" loc_z="-7672" price="0" fornoble="0"/>
+	<teleport id="911" loc_x="210784" loc_y="-113589" loc_z="-76" price="0" fornoble="0"/>
+	<teleport id="912" loc_x="115198" loc_y="16636" loc_z="10082" price="0" fornoble="0"/>
+	<teleport id="913" loc_x="55402" loc_y="219151" loc_z="-3220" price="0" fornoble="0"/>
+	<teleport id="914" loc_x="55466" loc_y="17722" loc_z="-5538" price="0" fornoble="0"/>
+	<teleport id="915" loc_x="17721" loc_y="110370" loc_z="-6681" price="0" fornoble="0"/>
+	<teleport id="916" loc_x="174238" loc_y="-88018" loc_z="-5140" price="0" fornoble="0"/>
+</list>

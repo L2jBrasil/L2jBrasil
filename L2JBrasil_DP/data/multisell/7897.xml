@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 351_BlackSwan: exchange Bills -->
+<list maintainEnchantment="true">
+	<!-- 1 Bill: 700 adena-->
+	<item id="1">
+		<ingredient id="4310" count="1"/>
+		<production id="57" count="700"/>
+	</item>
+	<!-- 3 Bill: 20 animal skin-->
+	<item id="2">
+		<ingredient id="4310" count="3"/>
+		<production id="1867" count="20"/>
+	</item>
+	<!-- 3 Bill: 20 animal bone-->
+	<item id="3">
+		<ingredient id="4310" count="3"/>
+		<production id="1872" count="20"/>
+	</item>
+	<!-- 2 Bill: 10 coal-->
+	<item id="4">
+		<ingredient id="4310" count="2"/>
+		<production id="1870" count="10"/>
+	</item>
+	<!-- 2 Bill: 10 charcoal-->
+	<item id="5">
+		<ingredient id="4310" count="2"/>
+		<production id="1871" count="10"/>
+	</item>
+	<!-- 9 Bill: 10 leather-->
+	<item id="6">
+		<ingredient id="4310" count="9"/>
+		<production id="1882" count="10"/>
+	</item>
+	<!-- 5 Bill: 6 cokes-->
+	<item id="7">
+		<ingredient id="4310" count="5"/>
+		<production id="1879" count="6"/>
+	</item>
+	<!-- 5 Bill: 1 metal hardener-->
+	<item id="8">
+		<ingredient id="4310" count="5"/>
+		<production id="5220" count="1"/>
+	</item>
+	<!-- 3 Bill: 1 coarse bone powder-->
+	<item id="9">
+		<ingredient id="4310" count="3"/>
+		<production id="1881" count="2"/>
+	</item>
+	<!-- 3 Bill: 1 oriharukon ore-->
+	<item id="10">
+		<ingredient id="4310" count="3"/>
+		<production id="1874" count="1"/>
+	</item>
+	<!-- 3 Bill: 1 stone of purity-->
+	<item id="11">
+		<ingredient id="4310" count="3"/>
+		<production id="1875" count="1"/>
+	</item>
+	<!-- 6 Bill: 1 crafted leather + 210 adena-->
+	<item id="12">
+		<ingredient id="4310" count="6"/>
+		<production id="1894" count="1"/>
+		<production id="57" count="210"/>
+	</item>
+	<!-- 7 Bill: 1 synthetic cokes + 280 adena-->
+	<item id="13">
+		<ingredient id="4310" count="7"/>
+		<production id="1888" count="1"/>
+		<production id="57" count="280"/>
+	</item>
+	<!-- 9 Bill: 1 varnish of purity + 630 adena-->
+	<item id="14">
+		<ingredient id="4310" count="9"/>
+		<production id="1887" count="1"/>
+		<production id="57" count="630"/>
+	</item>
+</list>

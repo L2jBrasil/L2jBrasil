@@ -1,0 +1,715 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<augmentation id="14561">
+		<skillId val="3203" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14562">
+		<skillId val="3143" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14563">
+		<skillId val="3144" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14564">
+		<skillId val="3145" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14565">
+		<skillId val="3156" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14566">
+		<skillId val="3206" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14567">
+		<skillId val="3157" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14568">
+		<skillId val="3081" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14569">
+		<skillId val="3080" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14570">
+		<skillId val="3083" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14571">
+		<skillId val="3109" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14572">
+		<skillId val="3235" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14573">
+		<skillId val="3111" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14574">
+		<skillId val="3096" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14575">
+		<skillId val="3252" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14576">
+		<skillId val="3253" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14577">
+		<skillId val="3254" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14578">
+		<skillId val="3188" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14579">
+		<skillId val="3139" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14580">
+		<skillId val="3196" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14581">
+		<skillId val="3130" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14582">
+		<skillId val="3169" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14583">
+		<skillId val="3194" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14584">
+		<skillId val="3165" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14585">
+		<skillId val="3151" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14586">
+		<skillId val="3108" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14587">
+		<skillId val="3149" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14588">
+		<skillId val="3140" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14589">
+		<skillId val="3190" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14590">
+		<skillId val="3170" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14591">
+		<skillId val="3138" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14592">
+		<skillId val="3126" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14593">
+		<skillId val="3123" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14594">
+		<skillId val="3133" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14595">
+		<skillId val="3131" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14596">
+		<skillId val="3125" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14597">
+		<skillId val="3124" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14598">
+		<skillId val="3128" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14599">
+		<skillId val="3136" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14600">
+		<skillId val="3154" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14601">
+		<skillId val="3129" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14602">
+		<skillId val="3127" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14603">
+		<skillId val="0" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14604">
+		<skillId val="3132" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14605">
+		<skillId val="3192" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14606">
+		<skillId val="3135" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14607">
+		<skillId val="3195" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14608">
+		<skillId val="3137" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14609">
+		<skillId val="3134" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14610">
+		<skillId val="3146" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14611">
+		<skillId val="3160" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14612">
+		<skillId val="3183" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14613">
+		<skillId val="3180" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14614">
+		<skillId val="3184" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14615">
+		<skillId val="3186" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14616">
+		<skillId val="3185" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14617">
+		<skillId val="3181" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14618">
+		<skillId val="3182" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14619">
+		<skillId val="3191" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14620">
+		<skillId val="3187" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14621">
+		<skillId val="3189" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14622">
+		<skillId val="3183" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14623">
+		<skillId val="3173" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14624">
+		<skillId val="3177" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14625">
+		<skillId val="3172" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14626">
+		<skillId val="3171" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14627">
+		<skillId val="3174" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14628">
+		<skillId val="3175" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14629">
+		<skillId val="3152" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14630">
+		<skillId val="3193" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14631">
+		<skillId val="3171" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14632">
+		<skillId val="3155" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14633">
+		<skillId val="3153" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14634">
+		<skillId val="3174" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14635">
+		<skillId val="3173" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14636">
+		<skillId val="3084" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14637">
+		<skillId val="3092" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14638">
+		<skillId val="3090" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14639">
+		<skillId val="3086" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14640">
+		<skillId val="3091" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14641">
+		<skillId val="3089" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14642">
+		<skillId val="3112" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14643">
+		<skillId val="3120" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14644">
+		<skillId val="3118" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14645">
+		<skillId val="3114" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14646">
+		<skillId val="3119" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14647">
+		<skillId val="3117" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14648">
+		<skillId val="3227" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14649">
+		<skillId val="3221" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14650">
+		<skillId val="3235" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14651">
+		<skillId val="3213" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14652">
+		<skillId val="3223" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14653">
+		<skillId val="3225" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14654">
+		<skillId val="3222" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14655">
+		<skillId val="3229" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14656">
+		<skillId val="0" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14657">
+		<skillId val="0" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14658">
+		<skillId val="3216" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14659">
+		<skillId val="3224" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14660">
+		<skillId val="3214" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14661">
+		<skillId val="0" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14662">
+		<skillId val="3211" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14663">
+		<skillId val="3219" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14664">
+		<skillId val="3215" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14665">
+		<skillId val="3218" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14666">
+		<skillId val="3234" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14667">
+		<skillId val="3220" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14668">
+		<skillId val="3215" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14669">
+		<skillId val="3230" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14670">
+		<skillId val="0" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14671">
+		<skillId val="3097" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14672">
+		<skillId val="3105" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14673">
+		<skillId val="3103" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14674">
+		<skillId val="3099" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14675">
+		<skillId val="3104" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14676">
+		<skillId val="3102" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14677">
+		<skillId val="3246" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14678">
+		<skillId val="3238" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14679">
+		<skillId val="3241" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14680">
+		<skillId val="3245" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14681">
+		<skillId val="3240" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14682">
+		<skillId val="3244" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14683">
+		<skillId val="3243" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14684">
+		<skillId val="3251" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14685">
+		<skillId val="3141" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14686">
+		<skillId val="3141" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14687">
+		<skillId val="3141" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14688">
+		<skillId val="3141" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14689">
+		<skillId val="3198" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14690">
+		<skillId val="3146" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14691">
+		<skillId val="3158" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14692">
+		<skillId val="3142" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14693">
+		<skillId val="3142" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14694">
+		<skillId val="3197" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14695">
+		<skillId val="3142" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14696">
+		<skillId val="3142" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14697">
+		<skillId val="3197" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14698">
+		<skillId val="3197" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14699">
+		<skillId val="3197" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14700">
+		<skillId val="3197" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14701">
+		<skillId val="3197" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14702">
+		<skillId val="0" />
+		<type val="active" />
+	</augmentation>
+	<augmentation id="14703">
+		<skillId val="3094" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14704">
+		<skillId val="3082" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14705">
+		<skillId val="3088" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14706">
+		<skillId val="3093" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14707">
+		<skillId val="3087" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14708">
+		<skillId val="3085" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14709">
+		<skillId val="3122" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14710">
+		<skillId val="3110" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14711">
+		<skillId val="3116" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14712">
+		<skillId val="3121" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14713">
+		<skillId val="3115" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14714">
+		<skillId val="3113" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14715">
+		<skillId val="3237" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14716">
+		<skillId val="3233" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14717">
+		<skillId val="3212" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14718">
+		<skillId val="0" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14719">
+		<skillId val="3231" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14720">
+		<skillId val="3237" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14721">
+		<skillId val="3228" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14722">
+		<skillId val="3232" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14723">
+		<skillId val="3107" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14724">
+		<skillId val="3095" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14725">
+		<skillId val="3101" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14726">
+		<skillId val="3106" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14727">
+		<skillId val="3100" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14728">
+		<skillId val="3098" />
+		<type val="chance" />
+	</augmentation>
+	<augmentation id="14729">
+		<skillId val="3247" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14730">
+		<skillId val="3247" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14731">
+		<skillId val="3249" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14732">
+		<skillId val="3249" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14733">
+		<skillId val="3248" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14734">
+		<skillId val="3250" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14735">
+		<skillId val="3239" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14736">
+		<skillId val="3239" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14737">
+		<skillId val="3239" />
+		<type val="passive" />
+	</augmentation>
+	<augmentation id="14738">
+		<skillId val="3239" />
+		<type val="passive" />
+	</augmentation>
+</list>

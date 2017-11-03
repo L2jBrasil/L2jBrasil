@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- adventure guildsman - use life crystals (giran) -->
+<list maintainEnchantment="true">
+<!-- Chakram c -->
+	<item id="1">
+		<ingredient id="8158" count="102"/>
+		<ingredient id="8161" count="28"/>
+		<ingredient id="8164" count="112"/>
+		<ingredient id="8167" count="56"/>
+		<production id="263" count="1"/>
+	</item>
+	<!--Knuckle Duster -->
+	<item id="2">
+		<ingredient id="8158" count="128"/>
+		<ingredient id="8161" count="35"/>
+		<ingredient id="8164" count="140"/>
+		<ingredient id="8167" count="70"/>
+		<production id="4233" count="1"/>
+	</item>
+	<!-- fisted blade c -->
+	<item id="3">
+		<ingredient id="8158" count="207"/>
+		<ingredient id="8161" count="56"/>
+		<ingredient id="8164" count="226"/>
+		<ingredient id="8167" count="113"/>
+		<production id="265" count="1"/>
+	</item>
+	<!-- great pata c -->
+	<item id="4">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="266" count="1"/>
+	</item>
+	<!-- arthro nail b -->
+	<item id="5">
+		 <ingredient id="8159" count="193"/>
+		 <ingredient id="8162" count="58"/>
+		 <ingredient id="8165" count="193"/>
+		 <ingredient id="8168" count="135"/>
+		 <ingredient id="8171" count="116"/>
+		 <production id="267" count="1"/>
+	</item>
+	<!-- bellion cestus b -->
+	<item id="6">
+		 <ingredient id="8159" count="309"/>
+		 <ingredient id="8162" count="93"/>
+		 <ingredient id="8165" count="309"/>
+		 <ingredient id="8168" count="216"/>
+		 <ingredient id="8171" count="186"/>
+		 <production id="268" count="1"/>
+	</item>
+	<!-- eldarake c	-->
+	<item id="7">
+		 <ingredient id="8158" count="7"/>
+		 <ingredient id="8164" count="8"/>
+		 <ingredient id="8170" count="1"/>
+		 <production id="631" count="1"/>
+	</item>
+	<!-- chain sheld c -->
+	<item id="8">
+		 <ingredient id="8158" count="7"/>
+			<ingredient id="8164" count="8"/>
+			<ingredient id="8170" count="1"/>
+			<production id="2495" count="1"/>
+	</item>
+	<!-- dwarven chain sheld c -->
+	<item id="9">
+		 <ingredient id="8158" count="8"/>
+			<ingredient id="8164" count="9"/>
+			<ingredient id="8170" count="1"/>
+			<production id="2496" count="1"/>
+	</item>
+	<!-- tower sheld c	-->
+	<item id="10">
+		 <ingredient id="8158" count="15"/>
+		 <ingredient id="8164" count="16"/>
+		 <ingredient id="8170" count="3"/>
+		 <production id="103" count="1"/>
+	</item>
+	<!-- composite sheld c	-->
+	<item id="11">
+		 <ingredient id="8158" count="15"/>
+		 <ingredient id="8164" count="16"/>
+		 <ingredient id="8170" count="3"/>
+		 <production id="107" count="1"/>
+	</item>
+	<!-- Full Plate Shield c	-->
+	<item id="12">
+		 <ingredient id="8158" count="21"/>
+		 <ingredient id="8164" count="23"/>
+		 <ingredient id="8170" count="4"/>
+		 <production id="2497" count="1"/>
+	</item>
+</list>

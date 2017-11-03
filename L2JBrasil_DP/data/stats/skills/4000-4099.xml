@@ -1,0 +1,1475 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4001" levels="12" name="NPC Wind Strike">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
+  <table name="#hitTime"> 4000 4000 4000 4000 4000 4000 4000 1000 1000 1000 1000 1000 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="element" val="1"/>
+  <set name="elementpower" val="20"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="#hitTime"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4002" levels="12" name="NPC HP Drain">
+  <table name="#mpConsume"> 18 29 40 53 68 83 98 104 109 112 115 117 </table>
+  <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="element" val="6"/>
+  <set name="elementPower" val="20"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="DRAIN"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="absorbPart" val="0.2"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4003" levels="1" name="Golem Body">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="bowWpnVuln" val="0.3"/>
+    <mul order="0x30" stat="daggerWpnVuln" val="0.7"/>
+    <mul order="0x30" stat="bluntWpnVuln" val="1.1"/>
+    <mul order="0x30" stat="dualWpnVuln" val="0.7"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4004" levels="1" name="Fragile Skull">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="bluntWpnVuln" val="1.1"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4005" levels="1" name="Floating Target">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="bowWpnVuln" val="1.1"/>
+    <mul order="0x30" stat="waterVuln" val="0.85"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4006" levels="1" name="Blazing Log">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="poisonVuln" val="0.5"/>
+    <mul order="0x30" stat="fireVuln" val="0.85"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4007" levels="1" name="Immortal Life">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="DETECT_WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <sub order="0x30" stat="darkPower" val="20"/>
+    <add order="0x30" stat="holyVuln" val="20"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4008" levels="1" name="Insect Skin">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <sub order="0x30" stat="fireVuln" val="0.85"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4009" levels="6" name="Resist Fire">
+  <table name="#vuln"> 0.85 0.7 0.5 0.3 0.1 0 </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul stat="fireVuln" val="#vuln" order="0x30"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4010" levels="6" name="Resist Water">
+  <table name="#vuln"> 0.85 0.7 0.5 0.3 0.1 0 </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul stat="waterVuln" val="#vuln" order="0x30"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4011" levels="6" name="Resist Wind">
+  <table name="#vuln"> 0.85 0.7 0.5 0.3 0.1 0 </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul stat="windVuln" val="#vuln" order="0x30"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4012" levels="1" name="Resist Earth">
+  <table name="#vuln"> 0.85 0.7 0.5 0.3 0.1 0 </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul stat="earthVuln" val="#vuln" order="0x30"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4013" levels="1" name="Resistance To Fire, Vulnerable To Water">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4014" levels="1" name="Resistance To Water, Vulnerable To Fire">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4015" levels="1" name="Resistance To Wind, Vulnerable To Earth">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4016" levels="1" name="Resistance To Earth, Vulnerable To Wind">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4017" levels="1" name="Queen Ant Brandish">
+  <!-- Queen Ant Skills -->
+  <set name="magicLvl" val="40"/>
+  <set name="power" val="271"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="250"/>
+  <set name="hitTime" val="1300"/>
+  <set name="coolTime" val="500"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4018" levels="1" name="Decrease Speed">
+  <!-- Queen Ant Skills -->
+  <set name="magicLvl" val="40"/>
+  <set name="saveVS" val="MEN"/>
+  <set name="power" val="542"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="coolTime" val="500"/>
+  <set name="hitTime" val="2200"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="500"/>
+  <set name="effectRange" val="1000"/>
+  <set name="isDebuff" val="true"/>
+  <set name="lvlDepend" val="3"/>
+  <for>
+    <effect name="Buff" time="60" count="1" val="0" effectPower="70" effectType="DEBUFF" stackOrder="0.7" stackType="RunSpeedDown">
+      <mul order="0x30" stat="runSpd" val="0.7"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4019" levels="1" name="Decrease Speed">
+  <!-- Queen Ant Skills -->
+  <set name="magicLvl" val="40"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="40"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="coolTime" val="500"/>
+  <set name="hitTime" val="1700"/>
+  <set name="skillType" val="DOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="1000"/>
+  <set name="effectRange" val="1500"/>
+  <set name="isDebuff" val="true"/>
+  <for>
+    <effect name="Buff" time="5" count="1" val="150" stackOrder="0.7" stackType="RunSpeedDown">
+      <mul order="0x30" stat="runSpd" val="0.7"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4020" levels="1" name="Heal Queen Ant1">
+  <set name="magicLvl" val="35"/>
+  <set name="power" val="10846"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="3000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4021" levels="1" name="Queen Ant">
+  <!-- Queen Ant Skills -->
+  <set name="magicLvl" val="40"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul stat="fireVuln" val="1.5" order="0x30"/>
+    <mul stat="bowWpnVuln" val="0.2" order="0x30"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4022" levels="1" name="Body Of Nurse Ant">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4023" levels="1" name="Body Of Royal Guard Ant">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4024" levels="1" name="Heal Queen Ant2">
+  <set name="power" val="10846"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="3000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4025" levels="12" name="Master Recharge">
+  <table name="#mpConsume"> 24 39 53 70 90 110 130 128 145 150 153 155 </table>
+  <table name="#power"> 23 38 52 70 90 110 129 138 144 149 153 155 </table>
+  <table name="#aggro"> 138 204 285 379 477 566 635 659 676 689 700 709 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="MANARECHARGE"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="#aggro"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4026" levels="1" name="Gludio Flame">
+  <set name="target" val="TARGET_AREA"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="900"/>
+  <set name="effectRange" val="1400"/>
+  <set name="element" val="2"/>
+  <set name="elementPower" val="20"/>
+  <set name="power" val="43"/>
+  <set name="reuseDelay" val="15000"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4027" levels="1" name="Gludio Heal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="5000"/>
+  <set name="skillType" val="WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4028" levels="3" name="NPC Might">
+  <table name="#pAtk"> 18 1.12 1.15 </table>
+  <table name="#mpConsume"> 10 18 33 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1800"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect name="Buff" time="1200" count="1" val="0" stackOrder="#pAtk" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4029" levels="3" name="NPC Shield">
+  <table name="#pDef"> 18 1.12 1.15 </table>
+  <table name="#mpConsume"> 10 18 33 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1800"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect name="Buff" time="300" count="1" val="0" stackOrder="#pDef" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="#pDef"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4030" levels="3" name="NPC Clan Might">
+  <table name="#pAtk"> 18 1.12 1.15 </table>
+  <table name="#mpConsume"> 10 18 33 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pAtk" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4031" levels="3" name="NPC Clan Aegis">
+  <table name="#pDef"> 18 1.12 1.15 </table>
+  <table name="#mpConsume"> 10 18 33 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="0"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#pDef" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="#pDef"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4032" levels="12" name="NPC Strike">
+  <table name="#mpConsume"> 14 22 31 43 55 68 79 84 89 92 94 95 </table>
+  <table name="#power"> 46 105 219 417 722 1136 1626 1876 2112 2320 2487 2617 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="200"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4033" levels="12" name="NPC Burn">
+  <table name="#mpConsume"> 18 29 40 53 68 83 98 104 109 113 115 117 </table>
+  <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4034" levels="12" name="Decrease Speed">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#power"> 11 16 23 31 41 51 61 66 70 73 76 78 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="3100"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="isDebuff" val="true"/>
+  <set name="effectPower" val="70"/>
+  <for>
+    <effect count="1" name="Debuff" time="60" val="0" stackOrder="0.8" stackType="RunSpeedDown">
+      <mul order="0x30" stat="runSpd" val="0.8"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4035" levels="12" name="Poison">
+  <table name="#dmg"> 48 72 96 123 150 174 189 189 198 198 204 204 </table>
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 83 77 78 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="CON"/>
+  <set name="power" val="70 "/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="POISON"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="10" name="DamOverTime" time="3" val="#dmg" abnormal="poison"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4036" levels="12" name="Poison">
+  <table name="#dmg"> 48 72 96 123 150 174 189 189 198 198 204 204 </table>
+  <table name="#mpConsume"> 18 29 40 53 68 83 98 104 109 113 115 117 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="CON"/>
+  <set name="power" val="35"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="POISON"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="500"/>
+  <set name="effectRange" val="1000"/>
+  <for>
+    <effect count="10" name="DamOverTime" time="3" val="#dmg" abnormal="poison"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4037" levels="2" name="Decrease P.Atk">
+  <table name="#pAtk"> 0.8 0.77 </table>
+  <table name="#mpConsume"> 27 65 </table>
+  <table name="#magicLvl"> 30 70 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="70"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="1" name="Buff" time="30" val="0" stackOrder="#pAtk" stackType="pAtkDown">
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4038" levels="5" name="Decrease Atk.Spd.">
+  <table name="#pAtkSpd"> 0.83 0.8 0.8 0.77 0.77 </table>
+  <table name="#mpConsume"> 13 20 27 45 65 </table>
+  <table name="#magicLvl"> 10 20 30 50 70 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="1" name="Buff" time="15" val="0" stackOrder="#pAtkSpd" stackType="pAtkSpdDown">
+      <mul order="0x30" stat="pAtkSpd" val="#pAtkSpd"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4039" levels="12" name="NPC MP Drain">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#power"> 34 57 78 105 134 165 194 206 216 224 229 232 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MANADAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4040" levels="12" name="NPC Bow Attack">
+  <table name="#mpConsume"> 27 44 62 85 109 135 157 168 177 183 187 189 </table>
+  <table name="#power"> 122 279 584 1110 1920 3030 4336 5002 5632 6187 6632 6978 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="17000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="700"/>
+  <set name="effectRange" val="1200"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4041" levels="2" name="Cruma Blaze">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="element" val="2"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4042" levels="1" name="Nurka Blaze">
+  <set name="magicLvl" val="45"/>
+  <set name="element" val="2"/>
+  <set name="mpConsume" val="40"/>
+  <set name="power" val="60"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4043" levels="1" name="Partisan Flame">
+  <set name="power" val="30"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="element" val="2"/>
+  <set name="magicLvl" val="45"/>
+  <set name="reuseDelay" val="15000"/>
+  <set name="skillRadius" val="200"/>
+  <set name="mpConsume" val="60"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4044" levels="1" name="Partisan Heal">
+  <set name="mpConsume" val="70"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="5000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="aggroPoints" val="1100"/>
+  <set name="magicLvl" val="45"/>
+  <set name="reuseDelay" val="10000"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4045" levels="1" name="Resist Full Magic Attack">
+  <set name="magicLvl" val="50"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+      <mul order="0x30" stat="rootVuln" val="1.0"/>
+      <mul order="0x30" stat="sleepVuln" val="1.0"/>
+      <mul order="0x30" stat="stunVuln" val="1.0"/>
+      <mul order="0x30" stat="confusionVuln" val="1.0"/>
+      <mul order="0x30" stat="paralyzeVuln" val="1.0"/>
+      <mul order="0x30" stat="derangementVuln" val="1.0"/>
+  </for>  
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4046" levels="12" name="Sleep">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="SLEEP"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="1" name="Sleep" time="30" val="0" stackOrder="1" stackType="Sleep"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4047" levels="12" name="Hold">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2500"/>
+  <set name="skillType" val="ROOT"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="1" name="Root" time="30" val="0" stackOrder="1" stackType="Root"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4048" levels="3" name="NPC Dash">
+  <table name="#runSpd"> 1.5 1.8 2 </table>
+  <set name="mpConsume" val="12"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="20" count="1" val="0">
+      <mul order="0x30" stat="runSpd" val="#runSpd"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4049" levels="8" name="Cubic Drain">
+  <table name="#power"> 26 31 36 41 45 48 51 54 </table>
+  <table name="#magicLvl"> 40 46 52 58 62 66 70 74 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="DRAIN"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4050" levels="7" name="Cubic DD">
+  <table name="#power"> 29 33 39 43 46 50 53 </table>
+  <table name="#magicLvl"> 43 49 55 60 64 68 72 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="DRAIN"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="absorbPart" val="0.4" />
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4051" levels="7" name="Cubic Heal">
+  <table name="#magicLvl"> 43 49 55 60 64 68 72 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="power" val="100"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4052" levels="6" name="Poison">
+  <table name="#dmg"> 93 114 132 132 132 144 </table>
+  <table name="#magicLvl"> 49 55 60 64 68 72 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="saveVs" val="CON"/>
+  <set name="power" val="70"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="POISON"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <!-- retail value: 31 38 44 44 44 48/sec; stat update every 5 units (3 1/3 sec) -->
+    <effect count="10" name="DamOverTime" time="3" val="#dmg" abnormal="poison"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4053" levels="8" name="Decrease P.Atk">
+  <table name="#magicLvl"> 40 46 52 58 62 66 70 74 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="120" val="0" stackOrder="0.77" stackType="pAtkDown">
+     <mul order="0x30" stat="pAtk" val="0.77"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4054" levels="8" name="Decrease P. Def">
+  <table name="#magicLvl"> 40 46 52 58 62 66 70 74 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="120" val="0" stackOrder="0.77" stackType="pDefDown">
+      <mul order="0x30" stat="pDef" val="0.77"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4055" levels="8" name="Decrease Atk.Speed">
+  <table name="#magicLvl"> 40 46 52 58 62 66 70 74 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect count="1" name="Buff" time="120" val="0" stackOrder="0.77" stackType="pAtkSpdDown">
+       <mul order="0x30" stat="pAtkSpd" val="0.77"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4056" levels="1" name="Immortal Attack">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4057" levels="1" name="Insect Weak Point">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4058" levels="1" name="Plant Weak Point">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4059" levels="1" name="Animal Weak Point">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4060" levels="1" name="Beast Weak Point">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4061" levels="1" name="Dragon Weak Point">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4062" levels="1" name="Orfen">
+  <!-- Orfen Skills -->
+  <set name="magicLvl" val="50"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="WEAKNESS"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul stat="fireVuln" val="2" order="0x30"/>
+    <mul stat="bowWpnVuln" val="0.2" order="0x30"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4063" levels="1" name="Paralysis">
+  <!-- Orfen Skills -->
+  <set name="magicLvl" val="50"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="916"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="3600"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="50"/>
+  <set name="isDebuff" val="true" />
+  <set name="effectRange" val="200"/>
+  <set name="effectType" val="PARALYZE"/>
+  <set name="effectPower" val="70"/>
+  <for>
+    <effect count="1" name="Paralyze" time="120" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4064" levels="1" name="Paralysis">
+  <!-- Orfen Skills -->
+  <set name="magicLvl" val="50"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="30"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="PARALYZE"/>
+  <set name="isDebuff" val="true" />
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="800"/>
+  <set name="effectRange" val="1300"/>  
+  <for>
+    <effect count="1" name="Paralyze" time="120" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4065" levels="12" name="NPC Heal">
+  <table name="#mpConsume"> 17 30 44 62 80 98 114 122 127 130 132 132 </table>
+  <table name="#power"> 83 151 245 362 494 628 743 789 826 867 895 913 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4066" levels="12" name="NPC Twister">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="element" val="1"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4067" levels="12" name="NPC Mortal Blow">
+  <table name="#mpConsume"> 14 22 31 43 55 68 79 84 89 92 94 95 </table>
+  <table name="#power"> 137 314 656 1249 2164 3408 4878 5627 6335 6960 7461 7850 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="blowChance" val="20"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="condition" val="16"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1000"/>
+  <set name="collTime" val="800"/>
+  <set name="skillType" val="BLOW"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="200"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4068" levels="12" name="Mechanical Cannon">
+  <table name="#mpConsume"> 14 22 31 43 55 68 79 84 89 92 94 95 </table>
+  <table name="#power"> 46 105 219 417 722 1136 1626 1876 2112 2320 2487 2617 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1000"/>
+  <set name="collTime" val="800"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4069" levels="12" name="NPC Curve Beam Cannon">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4070" levels="1" name="Decrease Atk. Spd.">
+  <set name="lvlDepend" val="1"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="10"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isDebuff" val="true"/>
+  <for>
+    <effect name="Buff" time="5" count="1" val="0" stackOrder="0.77" stackType="pAtkSpdDown">
+      <mul order="0x30" stat="pAtkSpd" val="0.77"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4071" levels="6" name="Resist Archery">
+  <table name="#vuln"> 0.9 0.8 0.7 0.6 0.5 0.4 </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+      <mul order="0x30" stat="bowWpnVuln" val="#vuln"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4072" levels="12" name="Shock">
+  <table name="#mpConsume"> 14 22 31 43 55 68 79 84 89 92 94 95 </table>
+  <table name="#power"> 16 35 73 139 241 379 542 626 704 774 829 873 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="CON"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillRadius" val="150"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="effectType" val="STUN"/>
+  <set name="effectPower" val="70"/>
+  <for>
+    <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4073" levels="12" name="Shock">
+  <table name="#mpConsume"> 14 22 31 43 55 68 79 84 89 92 94 95 </table>
+  <table name="#power"> 16 35 73 139 241 379 542 626 704 774 829 873 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="CON"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="isDebuff" val="true"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="200"/>
+  <set name="effectType" val="STUN"/>
+  <set name="effectPower" val="70"/>
+  <for>
+    <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4074" levels="2" name="NPC Haste">
+  <table name="#pAtkSpd"> 1.15 1.33 </table>
+  <table name="#mpConsume"> 14 33 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect count="1" name="Buff" time="300" val="0" stackOrder="#pAtkSpd" stackType="pAtkSpeedUp">
+      <mul order="0x30" stat="pAtkSpd" val="#pAtkSpd"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4075" levels="12" name="Shock">
+  <table name="#mpConsume"> 13 20 28 38 50 61 71 76 80 83 84 85 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="CON"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="STUN"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="200"/>
+  <for>
+    <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4076" levels="3" name="Reduction in movement speed">
+  <table name="#runSpd"> 0.9 0.8 0.7 </table>
+  <table name="#mpConsume"> 20 35 65 </table>
+  <table name="#magicLvl"> 20 40 70 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="1" name="Buff" time="60" val="0" stackOrder="#runSpd" stackType="RunSpeedDown">
+      <mul order="0x30" stat="runSpd" val="#runSpd"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4077" levels="12" name="NPC Aura Burn">
+  <table name="#mpConsume"> 10 16 21 28 36 44 52 55 58 60 61 62 </table>
+  <table name="#power"> 14 21 30 42 55 68 82 88 93 98 101 104 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="1"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="150"/>
+  <set name="effectRange" val="650"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4078" levels="12" name="NPC Flamestrike">
+  <table name="#mpConsume"> 18 29 40 53 68 83 98 104 109 113 115 117 </table>
+  <table name="#power"> 9 13 19 26 34 43 51 55 58 61 63 65 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="element" val="2"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="500"/>
+  <set name="effectRange" val="900"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4079" levels="1" name="Siege Hammer">
+  <set name="magicLvl" val="49"/>
+  <set name="power" val="665060"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="5000"/>
+  <set name="hitTime" val="4800"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4080" levels="1" name="Dark Heal">
+  <set name="mpConsume" val="98"/>
+  <set name="magicLvl" val="60"/>
+  <set name="power" val="628"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="5000"/>
+  <set name="skillType" val="HEAL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4081" levels="1" name="Pretending to steal">
+  <set name="target" val="TARGET_ONE" />
+  <set name="hitTime" val="4000" />
+  <set name="skillType" val="BUFF" />
+  <set name="isMagic" val="true" />
+  <set name="magicLevel" val="70"/>
+  <set name="operateType" val="OP_ACTIVE" />
+  <set name="castRange" val="600" />
+  <set name="effectPoint" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4082" levels="1" name="Poison of Death">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="50"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isDebuff" val="true"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="isPotion" val="true"/>
+  <for>
+    <effect count="1" name="ImobileBuff" time="4200" val="0"/>
+    <effect count="1" name="Root" time="4200" val="0"/>
+    <effect count="1" name="DamOverTime" time="3" val="60" abnormal="poison"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4083" levels="1" name="Die! You fool!">
+  <set name="power" val="90000"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4084" levels="10" name="Resist Physical Attack">
+  <table name="#pDef"> 1.05 1.11 1.17 1.25 1.33 1.43 1.67 2.0 3.33 10 </table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="pDef" val="#pDef"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4085" levels="1" name="Critical Power">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <mul order="0x30" stat="cAtk" val="1.25"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4086" levels="1" name="Critical Chance">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <basemul order="0x30" stat="rCrit" val="0"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4087" levels="12" name="NPC Blaze">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="element" val="2"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4088" levels="12" name="Bleed">
+  <table name="#damage">54 75 102 132 162 186 201 201 210 210 213 213 </table>
+  <table name="#mpConsume"> 13 20 28 38 50 61 71 76 80 83 84 85 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="CON"/>
+  <set name="power" val="100"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="BLEED"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="200"/>
+  <for>
+    <effect count="7" name="DamOverTime" time="3" val="#damage"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4089" levels="1" name="NPC Bear Spirit Totem">
+  <set name="mpConsume" val="18"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="300" count="1" val="0">
+      <mul order="0x30" stat="runSpd" val="0.85"/>
+      <mul order="0x30" stat="pAtk" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4090" levels="1" name="NPC Wolf Spirit Totem">
+  <set name="mpConsume" val="18"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="300" count="1" val="0">
+      <mul order="0x30" stat="runSpd" val="1.4"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4091" levels="1" name="NPC Ogre Spirit Totem">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="300" count="1" val="0">
+      <mul order="0x30" stat="runSpd" val="0.85"/>
+      <mul order="0x30" stat="pAtk" val="1.05"/>
+	  <mul order="0x30" stat="maxHp" val="1.14"/>
+	  <add order="0x30" stat="accCombat" val="3"/>
+      <mul order="0x30" stat="pDef" val="1.1"/>
+      <sub order="0x40" stat="rEvas" val="10"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4092" levels="1" name="NPC Puma Spirit Totem">
+  <set name="mpConsume" val="18"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="300" count="1" val="0">
+      <mul order="0x30" stat="pDef" val="0.8"/>
+      <mul order="0x30" stat="pAtkSpd" val="1.3"/>
+      <add order="0x40" stat="rEvas" val="4"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4093" levels="1" name="Evasion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x40" stat="rEvas" val="4"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4094" levels="12" name="NPC Cancel Magic">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="300000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="NEGATE"/> <!-- Needs core support for "CANCEL_ALL" without exceptions -->
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="negateStats" val="BUFF DEBUFF"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4095" levels="1" name="Damage Shield">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+  <for>
+    <add order="0x40" stat="reflectDam" val="20"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4096" levels="3" name="NPC Hawkeye">
+  <table name="#accCombat"> 6 8 10 </table>
+  <table name="#mpConsume"> 10 18 33 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="1500"/>
+  <set name="skillType" val="DEBUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect name="Buff" time="300" count="1" val="0" stackOrder="#accCombat" stackType="HawkEye">
+      <add order="0x40" stat="accCombat" val="#accCombat"/>
+      <mul order="0x30" stat="pDef" val="0.9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4097" levels="12" name="NPC Chant of Life">
+  <table name="#hot"> 7 12 18 27 37 46 55 23 32 42 51 58 </table>
+  <table name="#mpConsume"> 33 59 88 122 159 195 228 242 252 259 262 262 </table>
+  <table name="#power"> 1 2 3 4 5 6 7 8 9 10 11 12 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect count="5" name="HealOverTime" time="3" val="#hot" stackOrder="#hot" stackType="LifeForce"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4098" levels="12" name="Magic Skill Block">
+  <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
+  <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
+  <set name="magicLvl" val="#magicLvl"/>
+  <set name="lvlDepend" val="2"/>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="saveVs" val="MEN"/>
+  <set name="power" val="80"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="MUTE"/>
+  <set name="isMagic" val="true"/>
+  <set name="isDebuff" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="600"/>
+  <set name="effectRange" val="1100"/>
+  <for>
+    <effect count="1" name="Mute" time="60" val="0" stackOrder="1" stackType="silence"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="4099" levels="2" name="NPC Berserk">
+  <table name="#pAtk"> 1.05 1.08 </table>
+  <table name="#mAtk"> 1.1 1.16 </table>
+  <table name="#pDef"> 0.95 0.92 </table>
+  <table name="#mDef"> 0.9 0.84 </table>
+  <table name="#Spd"> 1.05 1.08 </table>
+  <table name="#Spd2"> 5 8 </table>
+  <table name="#rEvas"> 5 8 </table>
+  <table name="#mpConsume"> 18 33 </table>
+  <set name="mpConsume" val="#mpConsume"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="100"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="1" stackType="berserk">
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+	  <mul order="0x30" stat="pAtkSpd" val="#Spd"/>
+	  <mul order="0x30" stat="mAtk" val="#mAtk"/>
+	  <mul order="0x30" stat="mAtkSpd" val="#Spd"/>
+	  <add order="0x30" stat="runSpd" val="#Spd2"/>
+      <mul order="0x30" stat="mDef" val="#mDef"/>
+      <div order="0x30" stat="pDef" val="#pDef"/>
+	  <sub order="0x30" stat="rEvas" val="#rEvas"/>
+    </effect>
+  </for>
+</skill>
+</list>

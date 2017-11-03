@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='1308' name="Compound Scale Mail">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1309' name="Mithril Breastplate">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1310' name="Tunic of Magic">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+    <add val='96' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='1311' name="Puma Skin Shirt">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1312' name="White Tunic">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+    <add val='142' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='1313' name="Compound Scale Gaiters">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1314' name="Mithril Gaiters">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1315' name="Stockings of Magic">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <add val='60' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='1316' name="Puma Skin Gaiters">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1317' name="Dark Stockings">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <add val='79' order='0x60' stat='maxMp'/>
+  </for>
+</item>
+<item id='1318' name="Gloves">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1319' name="Leather Gloves">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1320' name="Excellent Leather Gloves">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1321' name="Rip Gauntlets">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1322' name="Bracer">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1323' name="Leather Shoes">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1324' name="Low Boots">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1325' name="Leather Boots">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1326' name="Iron Boots">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='1327' name="Boots">
+  <for>
+    <add val='14' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

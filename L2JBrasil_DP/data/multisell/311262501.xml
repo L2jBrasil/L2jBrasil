@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Seven Signs - Blacksmith of Mammon - SA: S-Grade -->
+<list maintainEnchantment="true">
+	<!-- Forgotten Blade - Haste  -->
+	<item id="1">
+		<production id="6581" count="1"/>
+		<ingredient id="6364" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Forgotten Blade - Health -->
+	<item id="2">
+		<production id="6582" count="1"/>
+		<ingredient id="6364" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Forgotten Blade - Focus -->
+	<item id="3">
+		<production id="6583" count="1"/>
+		<ingredient id="6364" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Basalt BattleHammer - HP DRAIN  -->
+	<item id="4">
+		<production id="6584" count="1"/>
+		<ingredient id="6365" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Basalt BattleHammer - Health  -->
+	<item id="5">
+		<production id="6585" count="1"/>
+		<ingredient id="6365" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Basalt BattleHammer - HP REGEN  -->
+	<item id="6">
+		<production id="6586" count="1"/>
+		<ingredient id="6365" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Imperial Staff - Empower  -->
+	<item id="7">
+		<production id="6587" count="1"/>
+		<ingredient id="6366" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Imperial Staff - MP REGEN  -->
+	<item id="8">
+		<production id="6588" count="1"/>
+		<ingredient id="6366" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Imperial Staff - Magic Hold  -->
+	<item id="9">
+		<production id="6589" count="1"/>
+		<ingredient id="6366" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Angel Slayer - Critical Damage  -->
+	<item id="10">
+		<production id="6590" count="1"/>
+		<ingredient id="6367" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Angel Slayer - Hp Drain  -->
+	<item id="11">
+		<production id="6591" count="1"/>
+		<ingredient id="6367" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Angel Slayer - Haste  -->
+	<item id="12">
+		<production id="6592" count="1"/>
+		<ingredient id="6367" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Draconic Bow - Cheap Shot  -->
+	<item id="13">
+		<production id="7576" count="1"/>
+		<ingredient id="7575" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Draconic Bow - Focus -->
+	<item id="14">
+		<production id="7577" count="1"/>
+		<ingredient id="7575" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Draconic Bow - Critical Slow -->
+	<item id="15">
+		<production id="7578" count="1"/>
+		<ingredient id="7575" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- DragonHunter Axe - HP REGEN  -->
+	<item id="16">
+		<production id="6596" count="1"/>
+		<ingredient id="6369" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- DragonHunter Axe - HEALTH  -->
+	<item id="17">
+		<production id="6597" count="1"/>
+		<ingredient id="6369" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- DragonHunter Axe - HP DRAIN  -->
+	<item id="18">
+		<production id="6598" count="1"/>
+		<ingredient id="6369" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Saint Spear - Health  -->
+	<item id="19">
+		<production id="6599" count="1"/>
+		<ingredient id="6370" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Saint Spear - Guidance  -->
+	<item id="20">
+		<production id="6600" count="1"/>
+		<ingredient id="6370" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Saint Spear - Haste  -->
+	<item id="21">
+		<production id="6601" count="1"/>
+		<ingredient id="6370" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Demon Splinter - Focus  -->
+	<item id="22">
+		<production id="6602" count="1"/>
+		<ingredient id="6371" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Demon Splinter - Health  -->
+	<item id="23">
+		<production id="6603" count="1"/>
+		<ingredient id="6371" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Demon Splinter - Critical Stun  -->
+	<item id="24">
+		<production id="6604" count="1"/>
+		<ingredient id="6371" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Heavens Divider - Haste  -->
+	<item id="25">
+		<production id="6605" count="1"/>
+		<ingredient id="6372" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Heavens Divider - Health  -->
+	<item id="26">
+		<production id="6606" count="1"/>
+		<ingredient id="6372" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Heavens Divider - Focus  -->
+	<item id="27">
+		<production id="6607" count="1"/>
+		<ingredient id="6372" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Arcana Mace - Acumen  -->
+	<item id="28">
+		<production id="6608" count="1"/>
+		<ingredient id="6579" count="1"/>
+		<ingredient id="5908" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Arcana Mace - MP Regeneration  -->
+	<item id="29">
+		<production id="6609" count="1"/>
+		<ingredient id="6579" count="1"/>
+		<ingredient id="5911" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+	<!-- Arcana Mace - Mana Up  -->
+	<item id="30">
+		<production id="6610" count="1"/>
+		<ingredient id="6579" count="1"/>
+		<ingredient id="5914" count="1"/>
+		<ingredient id="2134" count="82"/>
+	</item>
+  <!-- Shining Bow - Cheap Shot  -->
+  <item id="31">
+    <production id="6593" count="1"/>
+    <ingredient id="6368" count="1"/>
+    <ingredient id="5908" count="1"/>
+    <ingredient id="2134" count="82"/>
+  </item>
+  <!-- Shining Bow - Focus -->
+  <item id="32">
+    <production id="6594" count="1"/>
+    <ingredient id="6368" count="1"/>
+    <ingredient id="5911" count="1"/>
+    <ingredient id="2134" count="82"/>
+  </item>
+  <!-- Shining Bow - Critical Slow -->
+  <item id="33">
+    <production id="6595" count="1"/>
+    <ingredient id="6368" count="1"/>
+    <ingredient id="5914" count="1"/>
+    <ingredient id="2134" count="82"/>
+  </item>
+</list>

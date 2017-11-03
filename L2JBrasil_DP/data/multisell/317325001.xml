@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- adventure guildsman - use life crystals (Town Of Schuttgart) -->
+<list maintainEnchantment="true">
+	<!-- Chain Mail Shirt -->
+	<item id="1">
+		<ingredient id="8158" count="27"/>
+		<ingredient id="8164" count="29"/>
+		<ingredient id="8170" count="5"/>
+		<production id="354" count="1"/>
+	</item>
+	<!-- Chain Gaiters -->
+	<item id="2">
+		<ingredient id="8158" count="17"/>
+		<ingredient id="8164" count="18"/>
+		<ingredient id="8170" count="3"/>
+		<production id="381" count="1"/>
+	</item>
+	<!-- Dwarven Chain Mail Shirt -->
+	<item id="3">
+		<ingredient id="8158" count="34"/>
+		<ingredient id="8164" count="37"/>
+		<ingredient id="8170" count="6"/>
+		<production id="355" count="1"/>
+	</item>
+	<!-- Dwarven Chain Gaiters -->
+	<item id="4">
+		<ingredient id="8158" count="21"/>
+		<ingredient id="8164" count="23"/>
+		<ingredient id="8170" count="4"/>
+		<production id="382" count="1"/>
+	</item>
+	<!-- Composite Armor -->
+	<item id="5">
+		<ingredient id="8158" count="82"/>
+		<ingredient id="8164" count="90"/>
+		<ingredient id="8170" count="15"/>
+		<production id="60" count="1"/>
+	</item>
+	<!-- Full Plate Armor -->
+	<item id="6">
+		<ingredient id="8158" count="120"/>
+		<ingredient id="8164" count="130"/>
+		<ingredient id="8170" count="22"/>
+		<production id="356" count="1"/>
+	</item>
+	<!-- Zubei's Breastplate -->
+	<item id="7">
+		<ingredient id="8159" count="54"/>
+		<ingredient id="8162" count="16"/>
+		<ingredient id="8165" count="54"/>
+		<ingredient id="8171" count="32"/>
+		<production id="357" count="1"/>
+	</item>
+	<!-- Zubei's Gaiters -->
+	<item id="8">
+		<ingredient id="8159" count="34"/>
+		<ingredient id="8162" count="10"/>
+		<ingredient id="8165" count="34"/>
+		<ingredient id="8171" count="20"/>
+		<production id="383" count="1"/>
+	</item>
+	<!-- Avadon Breastplate -->
+	<item id="9">
+		<ingredient id="8159" count="54"/>
+		<ingredient id="8162" count="16"/>
+		<ingredient id="8165" count="54"/>
+		<ingredient id="8171" count="32"/>
+		<production id="2376" count="1"/>
+	</item>
+	<!-- Avadon Gaiters -->
+	<item id="10">
+		<ingredient id="8159" count="34"/>
+		<ingredient id="8162" count="10"/>
+		<ingredient id="8165" count="34"/>
+		<ingredient id="8171" count="20"/>
+		<production id="2379" count="1"/>
+	</item>
+	<!-- Blue Wolf Breastplate -->
+	<item id="11">
+		<ingredient id="8159" count="89"/>
+		<ingredient id="8162" count="27"/>
+		<ingredient id="8165" count="89"/>
+		<ingredient id="8171" count="53"/>
+		<production id="358" count="1"/>
+	</item>
+	<!-- Blue Wolf Gaiters -->
+	<item id="12">
+		<ingredient id="8159" count="55"/>
+		<ingredient id="8162" count="17"/>
+		<ingredient id="8165" count="55"/>
+		<ingredient id="8171" count="33"/>
+		<production id="2380" count="1"/>
+	</item>
+	<!-- Doom Plate Armor -->
+	<item id="13">
+		<ingredient id="8159" count="130"/>
+		<ingredient id="8162" count="39"/>
+		<ingredient id="8165" count="130"/>
+		<ingredient id="8171" count="78"/>
+		<production id="2381" count="1"/>
+	</item>
+</list>

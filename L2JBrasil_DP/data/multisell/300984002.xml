@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Trader Alexandria (Luxury Shop) Miscellaneous -->
+<list maintainEnchantment="true">
+	<!-- Red Soul Crystal - Stage 7 -->
+	<item id="1">
+		<ingredient id="1459" count="100"/>
+		<ingredient id="1458" count="500"/>
+		<production id="4636" count="1"/>
+	</item>
+	<!-- Green Soul Crystal - Stage 7 -->
+	<item id="2">
+		<ingredient id="1459" count="100"/>
+		<ingredient id="1458" count="500"/>
+		<production id="4647" count="1"/>
+	</item>
+	<!-- Blue Soul Crystal - Stage 7 -->
+	<item id="3">
+		<ingredient id="1459" count="100"/>
+		<ingredient id="1458" count="500"/>
+		<production id="4658" count="1"/>
+	</item>
+	<!-- Red Soul Crystal - Stage 8 -->
+	<item id="4">
+		<ingredient id="1459" count="120"/>
+		<ingredient id="1458" count="567"/>
+		<production id="4637" count="1"/>
+	</item>
+	<!-- Green Soul Crystal - Stage 8 -->
+	<item id="5">
+		<ingredient id="1459" count="120"/>
+		<ingredient id="1458" count="567"/>
+		<production id="4648" count="1"/>
+	</item>
+	<!-- Blue Soul Crystal - Stage 8 -->
+	<item id="6">
+		<ingredient id="1459" count="120"/>
+		<ingredient id="1458" count="567"/>
+		<production id="4659" count="1"/>
+	</item>
+	<!-- Red Soul Crystal - Stage 9 -->
+	<item id="7">
+		<ingredient id="1460" count="44"/>
+		<ingredient id="1459" count="135"/>
+		<production id="4638" count="1"/>
+	</item>
+	<!-- Green Soul Crystal - Stage 9 -->
+	<item id="8">
+		<ingredient id="1460" count="44"/>
+		<ingredient id="1459" count="135"/>
+		<production id="4649" count="1"/>
+	</item>
+	<!-- Blue Soul Crystal - Stage 9 -->
+	<item id="9">
+		<ingredient id="1460" count="44"/>
+		<ingredient id="1459" count="135"/>
+		<production id="4660" count="1"/>
+	</item>
+	<!-- Red Soul Crystal - Stage 10 -->
+	<item id="10">
+		<ingredient id="1460" count="50"/>
+		<ingredient id="1459" count="150"/>
+		<production id="4639" count="1"/>
+	</item>
+	<!-- Green Soul Crystal - Stage 10 -->
+	<item id="11">
+		<ingredient id="1460" count="50"/>
+		<ingredient id="1459" count="150"/>
+		<production id="4650" count="1"/>
+	</item>
+	<!-- Blue Soul Crystal - Stage 10 -->
+	<item id="12">
+		<ingredient id="1460" count="50"/>
+		<ingredient id="1459" count="150"/>
+		<production id="4661" count="1"/>
+	</item>
+</list>

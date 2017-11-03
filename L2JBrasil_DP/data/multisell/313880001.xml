@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 633: In The Forgotten Village	-->
+<list maintainEnchantment="true">
+	<!-- Mold Glue (14 Livers) -->
+	<item id="1">
+		<ingredient id="7545" count="14"/>
+		<production id="4039" count="1"/>
+	</item>
+	<!-- Asofe (14 Livers) -->
+	<item id="2">
+		<ingredient id="7545" count="14"/>
+		<production id="4043" count="1"/>
+	</item>
+	<!-- Thons (14 Livers) -->
+	<item id="3">
+		<ingredient id="7545" count="14"/>
+		<production id="4044" count="1"/>
+	</item>
+	<!-- Stone of Purity (6 Livers) -->
+	<item id="4">
+		<ingredient id="7545" count="6"/>
+		<production id="1875" count="1"/>
+	</item>
+	<!-- Mithril Ore (2 Livers) -->
+	<item id="5">
+		<ingredient id="7545" count="2"/>
+		<production id="1876" count="1"/>
+	</item>
+</list>

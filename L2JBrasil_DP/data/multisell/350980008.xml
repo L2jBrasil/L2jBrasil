@@ -1,0 +1,1823 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list maintainEnchantment="true">
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="1">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="200"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="2">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="200"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="3">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="120"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="4">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="120"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="5">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="120"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="6">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="120"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="7">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="85"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="8">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="85"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="9">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="85"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="10">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="85"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="11">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="66"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="12">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="66"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="13">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="54"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Escape: Castle-->
+    <item id="14">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="54"/>
+        <ingredient id="57" count="150000"/>
+        <production id="5859" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="15">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="533"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="16">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="533"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="17">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="320"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="18">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="320"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="19">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="320"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="20">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="320"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="21">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="228"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="22">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="228"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="23">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="228"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="24">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="228"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="25">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="177"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="26">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="177"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="27">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="145"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Blessed Scroll of Resurrection-->
+    <item id="28">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="145"/>
+        <ingredient id="57" count="400000"/>
+        <production id="3936" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="29">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="20"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="30">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="20"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="31">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="12"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="32">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="12"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="33">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="12"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="34">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="12"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="35">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="8"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="36">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="8"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="37">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="8"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="38">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="8"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="39">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="6"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="40">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="6"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="41">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="5"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: A-Grade-->
+    <item id="42">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="5"/>
+        <ingredient id="57" count="15000"/>
+        <production id="1461" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="43">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="12"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="44">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="12"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="45">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="7"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="46">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="7"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="47">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="7"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="48">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="7"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="49">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="5"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="50">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="5"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="51">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="5"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="52">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="5"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="53">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="4"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="54">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="4"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="55">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="3"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: B-Grade-->
+    <item id="56">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="3"/>
+        <ingredient id="57" count="9000"/>
+        <production id="1460" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="57">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="33"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="58">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="33"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="59">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="20"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="60">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="20"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="61">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="20"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="62">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="20"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="63">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="14"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="64">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="14"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="65">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="14"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="66">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="14"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="67">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="11"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="68">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="11"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="69">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="9"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Crystal: S Grade-->
+    <item id="70">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="9"/>
+        <ingredient id="57" count="25000"/>
+        <production id="1462" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="71">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="13"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="72">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="13"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="73">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="74">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="75">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="76">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="77">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="78">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="79">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="80">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="81">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="4"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="82">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="4"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="83">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="3"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Dualsword Craft Stamp-->
+    <item id="84">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="3"/>
+        <ingredient id="57" count="10000"/>
+        <production id="5126" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="85">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="4"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="86">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="4"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="87">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="88">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="89">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="90">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="91">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="92">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="93">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="94">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="2"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="95">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="1"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="96">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="1"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="97">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="1"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Haste Potion-->
+    <item id="98">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="1"/>
+        <ingredient id="57" count="3600"/>
+        <production id="1374" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="99">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="9"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="100">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="9"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="101">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="5"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="102">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="5"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="103">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="5"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="104">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="5"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="105">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="4"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="106">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="4"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="107">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="4"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="108">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="4"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="109">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="3"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="110">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="3"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="111">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="2"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Greater Swift Attack Potion-->
+    <item id="112">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="2"/>
+        <ingredient id="57" count="7200"/>
+        <production id="1375" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="113">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="13"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="114">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="13"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="115">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="116">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="117">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="118">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="8"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="119">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="120">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="121">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="122">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="5"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="123">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="4"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="124">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="4"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="125">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="3"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Quick Healing Potion-->
+    <item id="126">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="3"/>
+        <ingredient id="57" count="10000"/>
+        <production id="1540" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="127">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="128">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="480"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="129">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="240"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="130">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="240"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="131">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="160"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="132">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="160"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="133">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="160"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="134">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="160"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="135">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="160"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="136">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="120"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="137">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="120"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="138">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="120"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="139">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="120"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="140">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="96"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade A)-->
+    <item id="141">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="96"/>
+        <ingredient id="57" count="240000"/>
+        <production id="730" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="142">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="143">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="160"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="144">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="80"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="145">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="80"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="146">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="53"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="147">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="53"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="148">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="53"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="149">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="53"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="150">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="53"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="151">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="40"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="152">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="40"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="153">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="40"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="154">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="40"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="155">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="32"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade B)-->
+    <item id="156">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="32"/>
+        <ingredient id="57" count="80000"/>
+        <production id="948" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="157">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="158">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="30"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="159">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="15"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="160">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="15"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="161">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="10"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="162">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="10"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="163">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="10"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="164">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="10"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="165">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="10"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="166">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="7"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="167">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="7"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="168">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="7"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="169">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="7"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="170">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="6"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade C)-->
+    <item id="171">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="6"/>
+        <ingredient id="57" count="15000"/>
+        <production id="952" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="172">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="173">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="12"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="174">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="6"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="175">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="6"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="176">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="4"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="177">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="4"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="178">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="4"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="179">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="4"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="180">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="4"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="181">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="3"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="182">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="3"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="183">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="3"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="184">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="3"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="185">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="2"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Armor (Grade D)-->
+    <item id="186">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="2"/>
+        <ingredient id="57" count="6000"/>
+        <production id="956" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="187">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="188">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="3600"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="189">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="1800"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="190">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="1800"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="191">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="1200"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="192">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="1200"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="193">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="1200"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="194">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="1200"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="195">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="1200"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="196">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="900"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="197">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="900"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="198">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="900"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="199">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="900"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="200">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="720"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade A)-->
+    <item id="201">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="720"/>
+        <ingredient id="57" count="1800000"/>
+        <production id="729" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="202">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="203">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="1000"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="204">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="205">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="500"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="206">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="333"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="207">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="333"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="208">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="333"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="209">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="333"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="210">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="333"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="211">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="212">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="213">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="214">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="250"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="215">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="200"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade B)-->
+    <item id="216">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="200"/>
+        <ingredient id="57" count="500000"/>
+        <production id="947" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="217">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="218">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="220"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="219">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="110"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="220">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="110"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="221">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="73"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="222">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="73"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="223">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="73"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="224">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="73"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="225">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="73"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="226">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="55"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="227">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="55"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="228">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="55"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="229">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="55"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="230">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="44"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade C)-->
+    <item id="231">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="44"/>
+        <ingredient id="57" count="110000"/>
+        <production id="951" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="232">
+        <!--Mature Twin Codran-->
+        <ingredient id="5122" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="233">
+        <!--Mature Alternative Twin Codran-->
+        <ingredient id="5855" count="100"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="234">
+        <!--Mature Desert Codran-->
+        <ingredient id="5120" count="50"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="235">
+        <!--Mature Alternative Desert Codran-->
+        <ingredient id="5857" count="50"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="236">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="33"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="237">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="33"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="238">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="33"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="239">
+        <!--Ripe Red Coba-->
+        <ingredient id="6556" count="33"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="240">
+        <!--Ripe Alternative Red Coba-->
+        <ingredient id="6563" count="33"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="241">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="25"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="242">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="25"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="243">
+        <!--Ripe Desert Coba-->
+        <ingredient id="6558" count="25"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="244">
+        <!--Ripe Alternative Desert Coba-->
+        <ingredient id="6565" count="25"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="245">
+        <!--Ripe Twin Coba-->
+        <ingredient id="6560" count="20"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Scroll: Enchant Weapon (Grade D)-->
+    <item id="246">
+        <!--Ripe Alternative Twin Coba-->
+        <ingredient id="6567" count="20"/>
+        <ingredient id="57" count="50000"/>
+        <production id="955" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="247">
+        <!--Mature Great Codran-->
+        <ingredient id="5124" count="666"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="248">
+        <!--Mature Alternative Great Codran-->
+        <ingredient id="5856" count="666"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="249">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="400"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="250">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="400"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="251">
+        <!--Ripe Blue Coba-->
+        <ingredient id="6555" count="400"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="252">
+        <!--Ripe Alternative Blue Coba-->
+        <ingredient id="6562" count="400"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="253">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="285"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="254">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="285"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="255">
+        <!--Ripe Gold Coba-->
+        <ingredient id="6557" count="285"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="256">
+        <!--Ripe Alternative Gold Coba-->
+        <ingredient id="6564" count="285"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="257">
+        <!--Ripe Sea Coba-->
+        <ingredient id="6559" count="222"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="258">
+        <!--Ripe Alternative Sea Coba-->
+        <ingredient id="6566" count="222"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="259">
+        <!--Ripe King Coba-->
+        <ingredient id="6561" count="181"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+    <!--Secret Book of Giants-->
+    <item id="260">
+        <!--Ripe Alternative King Coba-->
+        <ingredient id="6568" count="181"/>
+        <ingredient id="57" count="500000"/>
+        <production id="6622" count="1"/>
+    </item>
+</list>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Seven Signs - Blacksmith of Mammon - Unseal A-grade Accesories-->
+<list maintainEnchantment="true">
+	<!-- [phoenix's_necklace] -->
+	<item id="1">
+		<ingredient id="6323" count="1"/>
+		<ingredient id="5575" count="855525"/>
+		<production id="933" count="1"/>
+	</item>
+	<!-- [phoenix's_earing] -->
+	<item id="2">
+		<ingredient id="6324" count="1"/>
+		<ingredient id="5575" count="641644"/>
+		<production id="871" count="1"/>
+	</item>
+	<!-- [phoenix's_ring] -->
+	<item id="3">
+		<ingredient id="6325" count="1"/>
+		<ingredient id="5575" count="427763"/>
+		<production id="902" count="1"/>
+	</item>
+	<!-- Unseal Majestic Necklace -->
+	<item id="4">
+		<ingredient id="6326" count="1"/>
+		<ingredient id="5575" count="853669"/>
+		<production id="924" count="1"/>
+	</item>
+	<!-- Unseal Majestic Earring -->
+	<item id="5">
+		<ingredient id="6327" count="1"/>
+		<ingredient id="5575" count="640251"/>
+		<production id="862" count="1"/>
+	</item>
+	<!-- Unseal Majestic Ring -->
+	<item id="6">
+		<ingredient id="6328" count="1"/>
+		<ingredient id="5575" count="426834"/>
+		<production id="893" count="1"/>
+	</item>
+</list>

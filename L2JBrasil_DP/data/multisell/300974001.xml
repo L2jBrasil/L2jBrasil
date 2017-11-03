@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Trader Galladucci (Luxury Shop) Weapons -->
+<list maintainEnchantment="true">
+	<!-- Flamberge	-->
+	<item id="1">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="71" count="1"/>
+	</item>
+	<!-- Stormbringer -->
+	<item id="2">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="72" count="1"/>
+	</item>
+	<!-- Sword of Delusion -->
+	<item id="3">
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="76" count="1"/>
+	</item>
+	<!-- Silver Axe -->
+	<item id="4">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="161" count="1"/>
+	</item>
+	<!-- War Axe -->
+	<item id="5">
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="162" count="1"/>
+	</item>
+	<!-- Crystal Staff -->
+	<item id="6">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="192" count="1"/>
+	</item>
+	<!-- Sages Staff -->
+	<item id="7">
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="200" count="1"/>
+	</item>
+	<!-- Cursed Dagger -->
+	<item id="8">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="226" count="1"/>
+	</item>
+	<!-- Dark Screamer -->
+	<item id="9">
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="233" count="1"/>
+	</item>
+	<!-- Chakram -->
+	<item id="10">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="263" count="1"/>
+	</item>
+	<!-- Fist Blade -->
+	<item id="11">
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="265" count="1"/>
+	</item>
+	<!-- Crystallized Ice Bow -->
+	<item id="12">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="281" count="1"/>
+	</item>
+	<!-- Akat Long Bow -->
+	<item id="13">
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="283" count="1"/>
+	</item>
+	<!-- Orcish Glaive -->
+	<item id="14">
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="298" count="1"/>
+	</item>
+	<!-- Poleaxe -->
+	<item id="15">
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="95" count="1"/>
+	</item>
+</list>

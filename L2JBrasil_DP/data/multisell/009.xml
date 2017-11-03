@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Proof of Catching a Fish multisell -->
+
+<list>
+
+  <!-- PoCaF (1) -->
+  <item id="1">
+    <ingredient id="6908" count="1"/>
+    <production id="7609" count="1"/>
+  </item>
+  
+  <!-- PoCaF (5) -->
+  <item id="2">
+    <ingredient id="6909" count="1"/>
+    <production id="7609" count="5"/>
+  </item>
+  
+  <!-- PoCaF (25) -->
+  <item id="3">
+    <ingredient id="6910" count="1"/>
+    <production id="7609" count="25"/>
+  </item>
+  
+  <!-- PoCaF (4) -->
+  <item id="4">
+    <ingredient id="6911" count="1"/>
+    <production id="7609" count="4"/>
+  </item>
+  
+  <!-- PoCaF (6) -->
+  <item id="5">
+    <ingredient id="6912" count="1"/>
+    <production id="7609" count="6"/>
+  </item>
+
+  <!-- PoCaF (10) -->
+  <item id="6">
+    <ingredient id="6913" count="1"/>
+    <production id="7609" count="10"/>
+  </item>  
+
+  <!-- PoCaF (20) -->
+  <item id="7">
+    <ingredient id="6914" count="1"/>
+    <production id="7609" count="20"/>
+  </item>  
+
+  <!-- PoCaF (6) -->
+  <item id="8">
+    <ingredient id="6915" count="1"/>
+    <production id="7609" count="6"/>
+  </item>  
+
+  <!-- PoCaF (9) -->
+  <item id="9">
+    <ingredient id="6916" count="1"/>
+    <production id="7609" count="9"/>
+  </item> 
+  
+  <!-- Recipe: Pirate's Eye Patch -->
+  <item id="10">
+    <ingredient id="8356" count="150"/>
+    <ingredient id="8357" count="120"/>
+    <ingredient id="8359" count="100"/>
+    <ingredient id="57" count="10000"/>
+    <production id="6924" count="1"/>
+  </item> 
+  
+  <!-- Recipe: Lady's Hairpin -->
+  <item id="11">
+    <ingredient id="8352" count="130"/>
+    <ingredient id="8354" count="120"/>
+    <ingredient id="8353" count="110"/>
+    <ingredient id="57" count="10000"/>
+    <production id="6923" count="1"/>
+  </item> 
+  
+  <!-- Recipe: Monocle -->
+  <item id="12">
+    <ingredient id="8352" count="130"/>
+    <ingredient id="8354" count="120"/>
+    <ingredient id="8353" count="110"/>
+    <ingredient id="57" count="10000"/>
+    <production id="6925" count="1"/>
+  </item> 
+  
+  <!-- Recipe: Outlaw Eye Patch -->
+  <item id="13">
+    <ingredient id="8352" count="130"/>
+    <ingredient id="8354" count="120"/>
+    <ingredient id="8353" count="110"/>
+    <ingredient id="57" count="10000"/>
+    <production id="7690" count="1"/>
+  </item> 
+  
+  <!-- Recipe: Maiden's Hairpin -->
+  <item id="14">
+    <ingredient id="8352" count="130"/>
+    <ingredient id="8354" count="120"/>
+    <ingredient id="8353" count="110"/>
+    <ingredient id="57" count="10000"/>
+    <production id="7691" count="1"/>
+  </item> 
+  
+  <!-- Recipe: Forget-me-not Hairpin -->
+  <item id="15">
+    <ingredient id="8352" count="130"/>
+    <ingredient id="8354" count="120"/>
+    <ingredient id="8353" count="110"/>
+    <ingredient id="57" count="10000"/>
+    <production id="7699" count="1"/>
+  </item> 
+  
+  <!-- Recipe: Daisy Hairpin -->
+  <item id="16">
+    <ingredient id="8352" count="130"/>
+    <ingredient id="8354" count="120"/>
+    <ingredient id="8353" count="110"/>
+    <ingredient id="57" count="10000"/>
+    <production id="7700" count="1"/>
+  </item> 
+  
+</list>

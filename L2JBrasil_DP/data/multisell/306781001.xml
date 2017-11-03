@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Helton: Dual Swords -->
+<list maintainEnchantment="true" applyTaxes="true">
+    <!-- Stormbringer*Caliburs -->
+	<item id="1">
+		<production id="2566" count="1"/>
+		<ingredient id="72" count="1"/>
+		<ingredient id="75" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="203"/>
+		<ingredient id="57" count="609000" isTaxIngredient="true"/>
+	</item>
+    <!-- Stormbringer*Sword of Limit -->
+	<item id="2">
+		<production id="2567" count="1"/>
+		<ingredient id="72" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="203"/>
+		<ingredient id="57" count="609000" isTaxIngredient="true"/>
+	</item>
+    <!-- Stormbringer*Sword of Delusion -->
+	<item id="3">
+		<production id="2568" count="1"/>
+		<ingredient id="72" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="203"/>
+		<ingredient id="57" count="609000" isTaxIngredient="true"/>
+	</item>
+    <!-- Stormbringer*Sword of Nightmare -->
+	<item id="4">
+		<production id="2569" count="1"/>
+		<ingredient id="72" count="1"/>
+		<ingredient id="134" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="203"/>
+		<ingredient id="57" count="609000" isTaxIngredient="true"/>
+	</item>
+    <!-- Stormbringer*Tsurugi -->
+	<item id="5">
+		<production id="2570" count="1"/>
+		<ingredient id="72" count="1"/>
+		<ingredient id="77" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="203"/>
+		<ingredient id="57" count="609000" isTaxIngredient="true"/>
+	</item>
+    <!-- Shamshir*Sword of Limit -->
+	<item id="6">
+		<production id="2577" count="1"/>
+		<ingredient id="73" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Shamshir*Sword of Delusion -->
+	<item id="7">
+		<production id="2578" count="1"/>
+		<ingredient id="73" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Katana*Sword of Limit -->
+	<item id="8">
+		<production id="2586" count="1"/>
+		<ingredient id="74" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Katana*Sword of Delusion -->
+	<item id="9">
+		<production id="2587" count="1"/>
+		<ingredient id="74" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Spirit Sword*Sword of Limit -->
+	<item id="10">
+		<production id="2594" count="1"/>
+		<ingredient id="131" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Spirit Sword*Sword of Delusion -->
+	<item id="11">
+		<production id="2595" count="1"/>
+		<ingredient id="131" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Raid Sword*Sword of Limit -->
+	<item id="12">
+		<production id="2601" count="1"/>
+		<ingredient id="133" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Raid Sword*Sword of Delusion -->
+	<item id="13">
+		<production id="2602" count="1"/>
+		<ingredient id="133" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="350"/>
+		<ingredient id="57" count="1050000" isTaxIngredient="true"/>
+	</item>
+    <!-- Stormbringer*Samurai Long sword -->
+	<item id="14">
+		<production id="2571" count="1"/>
+		<ingredient id="72" count="1"/>
+		<ingredient id="135" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="138"/>
+		<ingredient id="57" count="414000" isTaxIngredient="true"/>
+	</item>
+    <!-- Caliburs*Sword of Limit -->
+	<item id="15">
+		<production id="2607" count="1"/>
+		<ingredient id="75" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Caliburs*Sword of Delusion -->
+	<item id="16">
+		<production id="2608" count="1"/>
+		<ingredient id="75" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Limit*Sword of Limit -->
+	<item id="17">
+		<production id="2612" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Limit*Sword of Delusion -->
+	<item id="18">
+		<production id="2613" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Limit*Sword of Nightmare -->
+	<item id="19">
+		<production id="2614" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="134" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Limit*Tsurugi -->
+	<item id="20">
+		<production id="2615" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="77" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Delusion*Sword of Delusion -->
+	<item id="21">
+		<production id="2617" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Delusion*Sword of Nightmare -->
+	<item id="22">
+		<production id="2618" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="134" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Delusion*Tsurugi -->
+	<item id="23">
+		<production id="2619" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="77" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="42"/>
+		<ingredient id="57" count="126000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Limit*Samurai Long sword -->
+	<item id="24">
+		<production id="2616" count="1"/>
+		<ingredient id="132" count="1"/>
+		<ingredient id="135" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="487"/>
+		<ingredient id="57" count="1461000" isTaxIngredient="true"/>
+	</item>
+    <!-- Sword of Delusion*Samurai Long sword -->
+	<item id="25">
+		<production id="2620" count="1"/>
+		<ingredient id="76" count="1"/>
+		<ingredient id="135" count="1"/>
+		<ingredient id="5126" count="1"/>
+		<ingredient id="1459" count="487"/>
+		<ingredient id="57" count="1461000" isTaxIngredient="true"/>
+	</item>
+</list>

@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='2400' name="Tallum Tunic">
+  <for>
+  <add val='86' order='0x10' stat='pDef'/>
+  <add val='409' order='0x60' stat='maxMp'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2401' name="Elven Mithril Stockings">
+  <for>
+    <add val='34' order='0x10' stat='pDef'/>
+    <add val='105' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2402' name="Stockings of Zubei">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+    <add val='216' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2403' name="Blue Wolf Stockings">
+  <for>
+    <add val='52' order='0x10' stat='pDef'/>
+    <add val='236' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2404' name="Stockings of Doom">
+  <for>
+    <add val='52' order='0x10' stat='pDef'/>
+    <add val='236' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2405' name="Tallum Stockings">
+  <for>
+    <add val='53' order='0x10' stat='pDef'/>
+    <add val='256' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2406' name="Avadon Robe">
+  <for>
+    <add val='127' order='0x10' stat='pDef'/>
+    <add val='561' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2407' name="Dark Crystal Robe">
+  <for>
+    <add val='139' order='0x10' stat='pDef'/>
+    <add val='665' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2408' name="Robe of Nightmare">
+  <for>
+    <add val='147' order='0x10' stat='pDef'/>
+    <add val='718' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2409' name="Majestic Robe">
+  <for>
+    <add val='147' order='0x10' stat='pDef'/>
+    <add val='718' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2410' name="Nightmarish Tattoo">
+  <for>
+    <add val='139' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2411' name="Brigandine Helmet">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2412' name="Plate Helmet">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2413' name="Chain Hood">
+  <for>
+    <add val='47' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2414' name="Full Plate Helmet">
+  <for>
+    <add val='58' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2415' name="Avadon Circlet">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2416' name="Blue Wolf Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2417' name="Doom Helmet">
+  <for>
+    <add val='66' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2418' name="Helm of Nightmare">
+  <for>
+    <add val='73' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2419' name="Majestic Circlet">
+  <for>
+    <add val='73' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2420' name="Dragon Headgear">
+  <for>
+    <add val='77' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2421' name="The Hood">
+  <for>
+    <add val='77' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2422' name="Reinforced Leather Boots">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2423' name="Boots of Knowledge">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2424' name="Manticore Skin Boots">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2425' name="Brigandine Boots">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2426' name="Elven Mithril Boots">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2427' name="Salamander Skin Boots">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2428' name="Plate Boots">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2429' name="Chain Boots">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2430' name="Karmian Boots">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2431' name="Plated Leather Boots">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2432' name="Dwarven Chain Boots">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2433' name="Boots of Seal">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2434' name="Rind Leather Boots">
+  <for>
+    <add val='34' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2435' name="Demon's Boots">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2436' name="Theca Leather Boots">
+  <for>
+    <add val='37' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2437' name="Drake Leather Boots">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2438' name="Full Plate Boots">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2439' name="Blue Wolf Boots">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2440' name="Boots of Nightmare">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2441' name="Dark Legion Boots">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2442' name="Dasparion's Boots">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2443' name="Dragon Leather Boots">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2444' name="The Boots">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2445' name="Dragon Scale Boots">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2446' name="Reinforced Leather Gloves">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2447' name="Gloves of Knowledge">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2448' name="Manticore Skin Gloves">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2449' name="Brigandine Gauntlets">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2450' name="Elven Mithril Gloves">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2451' name="Sage's Worn Gloves">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2452' name="Reinforced Mithril Gloves">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2453' name="Chain Gloves">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2454' name="Karmian Gloves">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2455' name="Plated Leather Gloves">
+  <for>
+    <add val='33' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2456' name="Dwarven Chain Gloves">
+  <for>
+    <add val='34' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2457' name="Gloves of Seal">
+  <for>
+    <add val='34' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2458' name="Rind Leather Gloves">
+  <for>
+    <add val='34' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2459' name="Demon's Gloves">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2460' name="Theca Leather Gloves">
+  <for>
+    <add val='37' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2461' name="Drake Leather Gloves">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2462' name="Full Plate Gauntlets">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2463' name="Divine Gloves">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2464' name="Avadon Gloves">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2465' name="Chain Gloves of Silence">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2466' name="Guardian's Gloves">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2467' name="Gloves of Blessing">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2468' name="Blessed Gloves">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2469' name="Gloves of The Underworld">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2470' name="Gloves of Phantom">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2471' name="Dark Legion Gloves">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2472' name="Dark Crystal Gloves">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2473' name="The Gloves">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2474' name="Dasparion's Gloves">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2475' name="Doom Gloves">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2476' name="Dragon Gauntlets">
+  <for>
+    <add val='52' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2477' name="Dragon Leather Gloves">
+  <for>
+    <add val='51' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2478' name="Tallum Gloves">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2479' name="Gloves of Nightmare">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2480' name="Elemental Gloves">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2481' name="Gloves of Grace">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2482' name="Majestic Gloves">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2483' name="Gust Bracer">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2484' name="Cerberus Gloves">
+  <for>
+    <add val='48' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2485' name="Implosion Gauntlets">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2486' name="Paradia Gloves">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2487' name="Blue Wolf Gloves">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2488' name="Phoenix Gloves">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2489' name="Gloves of Black Ore">
+  <for>
+    <add val='45' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2490' name="Cloak of Silence">
+  <for>
+    <add val='5' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='2491' name="Golden Yarn Cloak">
+  <for>
+    <add val='5' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='2492' name="Shadow Cloak">
+  <for>
+    <add val='12' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+</list>

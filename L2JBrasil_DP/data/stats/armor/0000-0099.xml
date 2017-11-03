@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='21' name="Shirt">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='22' name="Leather Shirt">
+  <for>
+    <add val='43' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='23' name="Wooden Breastplate">
+  <for>
+    <add stat='pDef' order='0x10' val='47'/>
+  </for>
+</item>
+<item id='24' name="Bone Breastplate">
+  <for>
+    <add val='50' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='25' name="Piece Bone Breastplate">
+  <for>
+    <add val='62' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='26' name="Bronze Breastplate">
+  <for>
+    <add val='68' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='27' name="Hard Leather Shirt">
+  <for>
+    <add val='53' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='28' name="Pants">
+  <for>
+    <add val='22' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='29' name="Leather Pants">
+  <for>
+    <add val='27' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='30' name="Hard Leather Pants">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='31' name="Bone Gaiters">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='32' name="Piece Bone Gaiters">
+  <for>
+    <add val='39' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='33' name="Hard Leather Gaiters">
+  <for>
+    <add val='33' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='34' name="Bronze Gaiters">
+  <for>
+    <add val='43' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='35' name="Cloth Shoes">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='36' name="Leather Sandals">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='37' name="Leather Shoes">
+  <for>
+    <add val='13' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='38' name="Low Boots">
+  <for>
+    <add val='15' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='39' name="Boots">
+  <for>
+    <add val='17' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='40' name="Leather Boots">
+  <for>
+    <add val='19' order='0x10' stat='pDef'/>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+<item id='41' name="Cloth Cap">
+  <for>
+    <add val='13' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='42' name="Leather Cap">
+  <for>
+    <add val='16' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='43' name="Wooden Helmet">
+  <for>
+    <add val='19' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='44' name="Leather Helmet">
+  <for>
+    <add val='23' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='45' name="Bone Helmet">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='46' name="Bronze Helmet">
+  <for>
+    <add val='33' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='47' name="Helmet">
+  <for>
+    <add val='37' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='48' name="Short Gloves">
+  <for>
+    <add val='9' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='49' name="Gloves">
+  <for>
+    <add val='13' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='50' name="Leather Gloves">
+  <for>
+    <add val='15' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='51' name="Bracer">
+  <for>
+    <add val='17' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='52' name="Hemp Cloak">
+  <for>
+    <add val='2' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='53' name="Cotton Cloak">
+  <for>
+    <add val='3' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='54' name="Silk Cloak">
+  <for>
+    <add val='4' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='55' name="Cotton Undergarment">
+  <for>
+    <add val='4' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='56' name="Wool Undergarment">
+  <for>
+    <add val='5' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='58' name="Mithril Breastplate">
+  <for>
+    <add val='95' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='59' name="Mithril Gaiters">
+  <for>
+    <add val='61' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='60' name="Composite Armor">
+  <for>
+    <add val='224' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='61' name="Mithril Gloves">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='62' name="Mithril Boots">
+  <for>
+    <add val='32' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='63' name="Gauntlets">
+  <for>
+    <add val='24' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='64' name="Composite Boots">
+  <for>
+    <add val='36' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+</list>

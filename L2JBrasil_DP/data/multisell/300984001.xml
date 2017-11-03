@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Trader Alexandria (Luxury Shop) Armor -->
+<list maintainEnchantment="true">
+	<!-- Chain Mail Shirt -->
+	<item id="1">
+		<ingredient id="1459" count="127"/>
+		<ingredient id="1458" count="635"/>
+		<production id="354" count="1"/>
+	</item>
+	<!-- Chain Gaiters -->
+	<item id="2">
+		<ingredient id="1459" count="79"/>
+		<ingredient id="1458" count="395"/>
+		<production id="381" count="1"/>
+	</item>
+	<!-- Composite Armor -->
+	<item id="3">
+		<ingredient id="1459" count="360"/>
+		<ingredient id="1458" count="1800"/>
+		<production id="60" count="1"/>
+	</item>
+	<!-- Mithril Shirt -->
+	<item id="4">
+		<ingredient id="1459" count="95"/>
+		<ingredient id="1458" count="475"/>
+		<production id="397" count="1"/>
+	</item>
+	<!-- Tempered Mithril Gaiters -->
+	<item id="5">
+		<ingredient id="1459" count="59"/>
+		<ingredient id="1458" count="295"/>
+		<production id="2387" count="1"/>
+	</item>
+	<!-- Theca Leather Armor -->
+	<item id="6">
+		<ingredient id="1459" count="207"/>
+		<ingredient id="1458" count="1035"/>
+		<production id="400" count="1"/>
+	</item>
+	<!-- Theca Leather Gaiters -->
+	<item id="7">
+		<ingredient id="1459" count="129"/>
+		<ingredient id="1458" count="645"/>
+		<production id="420" count="1"/>
+	</item>
+	<!-- Karmian Tunic -->
+	<item id="8">
+		<ingredient id="1459" count="95"/>
+		<ingredient id="1458" count="475"/>
+		<production id="439" count="1"/>
+	</item>
+	<!-- Demons Tunic -->
+	<item id="9">
+		<ingredient id="1459" count="184"/>
+		<ingredient id="1458" count="920"/>
+		<production id="441" count="1"/>
+	</item>
+	<!-- Karmian Stockings -->
+	<item id="10">
+		<ingredient id="1459" count="59"/>
+		<ingredient id="1458" count="295"/>
+		<production id="471" count="1"/>
+	</item>
+	<!-- Demons Stockings -->
+	<item id="11">
+		<ingredient id="1459" count="115"/>
+		<ingredient id="1458" count="575"/>
+		<production id="472" count="1"/>
+	</item>
+	<!-- Chain Boots -->
+	<item id="12">
+		<ingredient id="1459" count="32"/>
+		<ingredient id="1458" count="160"/>
+		<production id="2429" count="1"/>
+	</item>
+	<!-- Composite Boots -->
+	<item id="13">
+		<ingredient id="1459" count="62"/>
+		<ingredient id="1458" count="310"/>
+		<production id="64" count="1"/>
+	</item>
+	<!-- Reinforced Mithril Gloves -->
+	<item id="14">
+		<ingredient id="1459" count="32"/>
+		<ingredient id="1458" count="160"/>
+		<production id="2452" count="1"/>
+	</item>
+	<!-- Mithril Gauntlets -->
+	<item id="15">
+		<ingredient id="1459" count="62"/>
+		<ingredient id="1458" count="310"/>
+		<production id="608" count="1"/>
+	</item>
+	<!-- Eldarake -->
+	<item id="16">
+		<ingredient id="1459" count="34"/>
+		<ingredient id="1458" count="170"/>
+		<production id="631" count="1"/>
+	</item>
+	<!-- Tower Shield -->
+	<item id="17">
+		<ingredient id="1459" count="65"/>
+		<ingredient id="1458" count="325"/>
+		<production id="103" count="1"/>
+	</item>
+	<!-- Moonstone Earring -->
+	<item id="18">
+		<ingredient id="1459" count="39"/>
+		<ingredient id="1458" count="195"/>
+		<production id="852" count="1"/>
+	</item>
+	<!-- Earring of Binding -->
+	<item id="19">
+		<ingredient id="1459" count="74"/>
+		<ingredient id="1458" count="370"/>
+		<production id="854" count="1"/>
+	</item>
+	<!-- Aquastone Ring -->
+	<item id="20">
+		<ingredient id="1459" count="26"/>
+		<ingredient id="1458" count="130"/>
+		<production id="883" count="1"/>
+	</item>
+	<!-- Ring of Ages -->
+	<item id="21">
+		<ingredient id="1459" count="49"/>
+		<ingredient id="1458" count="245"/>
+		<production id="885" count="1"/>
+	</item>
+	<!-- Aquastone Necklace -->
+	<item id="22">
+		<ingredient id="1459" count="52"/>
+		<ingredient id="1458" count="260"/>
+		<production id="915" count="1"/>
+	</item>
+	<!-- Necklace of Mermaid -->
+	<item id="23">
+		<ingredient id="1459" count="99"/>
+		<ingredient id="1458" count="495"/>
+		<production id="917" count="1"/>
+	</item>
+</list>

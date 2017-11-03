@@ -1,0 +1,979 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2100" levels="1" name="Escape: 1 second">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="RECALL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2101" levels="1" name="Feed: General Strider">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="BEAST_FEED"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5168"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2102" levels="1" name="Feed: Clan Hall Strider">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="BEAST_FEED"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5169"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2103" levels="1" name="Mystery Potion">
+  <set name="magicLvl" val="1"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="target" val="TARGET_SELF"/>
+  <for>
+    <effect count="1" name="BigHead" time="300" val="0" abnormal="bighead" stackOrder="300" stackType="big_head"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2104" levels="1" name="Greater Compressed Package of Soulshots: No-grade">
+   <set name="itemConsumeId" val="5250"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="1835"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2105" levels="1" name="Greater Compressed Package of Soulshots:  D-grade">
+  <set name="itemConsumeId" val="5251"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="1463"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2106" levels="1" name="Greater Compressed Package of Soulshots:  C-grade">
+  <set name="itemConsumeId" val="5252"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="1464"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2107" levels="1" name="Greater Compressed Package of Soulshots:  B-grade">
+  <set name="itemConsumeId" val="5253"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="1465"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2108" levels="1" name="Greater Compressed Package of Soulshots:  A-grade">
+  <set name="itemConsumeId" val="5254"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="1466"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2109" levels="1" name="Greater Compressed Package of Soulshots: S-grade">
+  <set name="itemConsumeId" val="5255"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="1467"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2110" levels="1" name="Greater Compressed Package of Spiritshots: No-grade">
+  <set name="itemConsumeId" val="5256"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="2509"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2111" levels="1" name="Greater Compressed Package of Spiritshots: D-grade">
+  <set name="itemConsumeId" val="5257"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="2510"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2112" levels="1" name="Greater Compressed Package of Spiritshots: C-grade">
+  <set name="itemConsumeId" val="5258"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="2511"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2113" levels="1" name="Greater Compressed Package of Spiritshots: B-grade">
+  <set name="itemConsumeId" val="5259"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="2512"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2114" levels="1" name="Greater Compressed Package of Spiritshots: A-grade">
+  <set name="itemConsumeId" val="5260"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="2513"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2115" levels="1" name="Greater Compressed Package of Spiritshots: S-grade">
+  <set name="itemConsumeId" val="5261"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="2514"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2116" levels="1" name="Greater Compressed Package of Blessed Spiritshots: No-grade">
+  <set name="itemConsumeId" val="5262"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="3947"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2117" levels="1" name="Greater Compressed Package of Blessed Spiritshots: D-grade">
+  <set name="itemConsumeId" val="5263"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="3948"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2118" levels="1" name="Greater Compressed Package of Blessed Spiritshots: C-grade">
+  <set name="itemConsumeId" val="5264"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="3949"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2119" levels="1" name="Greater Compressed Package of Blessed Spiritshots: B-grade">
+  <set name="itemConsumeId" val="5265"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="3950"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2120" levels="1" name="Greater Compressed Package of Blessed Spiritshots: A-grade">
+  <set name="itemConsumeId" val="5266"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="3951"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2121" levels="1" name="Greater Compressed Package of Blessed Spiritshots: S-grade">
+  <set name="itemConsumeId" val="5267"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="create_item_id" val="3952"/>
+  <set name="create_item_count" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CREATE_ITEM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2122" levels="1" name="Facelifting Potion">
+  <set name="itemConsumeId" val="5235"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2123" levels="1" name="Facelifting Potion">
+  <set name="itemConsumeId" val="5236"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2124" levels="1" name="Facelifting Potion">
+  <set name="itemConsumeId" val="5237"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2125" levels="1" name="Dye Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5238"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2126" levels="1" name="Dye Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5239"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2127" levels="1" name="Dye Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5240"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2128" levels="1" name="Dye Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5241"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2129" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5242"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2130" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5243"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2131" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5244"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2132" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5245"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2133" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5246"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2134" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5247"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2135" levels="1" name="Hair Style Change Potion">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5248"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2136" levels="1" name="Rice Cake">
+  <set name="magicLvl" val="1"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="skillType" val="HEAL_PERCENT"/>
+  <set name="target" val="TARGET_SELF"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2137" levels="1" name="Summon Regular Tree">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SUMMON"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5560"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="npcId" val="13006"/>
+  <set name="magicLvl" val="1"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="6000"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2138" levels="1" name="Summon Special Tree">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SUMMON"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5561"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="npcId" val="13007"/>
+  <set name="magicLvl" val="1"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="hitTime" val="6000"/>
+</skill>
+<skill id="2139" levels="1" name="Special Tree Recovery Bonus">
+  <set name="target" val="TARGET_AURA"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="skillRadius" val="200"/>
+  <set name="isMagic" val="true"/>
+  <for>
+    <effect count="1" name="Buff" time="10" val="0" stackOrder="1" stackType="hp_regen_up">
+      <mul order="0x30" stat="regHp" val="1.4"/>
+      <mul order="0x30" stat="regMp" val="1.2"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2140" levels="1" name="Carol Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5562"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2141" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5563"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2142" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5564"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2143" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5565"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2144" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5566"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2145" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5583"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2146" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5584"/>
+  <set name="isPotion" val="true"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2147" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5585"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2148" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5586"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2149" levels="1" name="Item - Carol Sound Crystal">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5587"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2150" levels="1" name="Soulshot: D Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="element" val="1"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="1463"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2151" levels="1" name="Soulshot: C Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="1464"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2152" levels="1" name="Soulshot: B Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="1465"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2153" levels="1" name="Soulshot: A Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="1466"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2154" levels="1" name="Soulshot: S Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="1467"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2155" levels="1" name="Spiritshot: D Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="2510"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2156" levels="1" name="Spiritshot: C Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="2511"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2157" levels="1" name="Spiritshot: B Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="2512"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2158" levels="1" name="Spiritshot: A Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="2513"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2159" levels="1" name="Spiritshot: S Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="2514"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2160" levels="1" name="Blessed Spiritshot: D Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="3948"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2161" levels="1" name="Blessed Spiritshot: C Grade">
+  <table name="#multiplier">2.0</table> <!-- wtf what is it?-->
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="3949"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2162" levels="1" name="Blessed Spiritshot: B Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="3940"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2163" levels="1" name="Blessed Spiritshot: A Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="3941"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2164" levels="1" name="Blessed Spiritshot: S Grade">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="SOULSHOT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="3942"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2165" levels="1" name="Energy Stone">
+  <set name="itemConsumeId" val="5589"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CHARGE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="charges" val="2"/>
+  <set name="altUse" val="true"/>
+  <set name="isHandler" val="true"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2166" levels="2" name="CP Gauge Potion">
+  <table name="#power">50 200</table>
+  <set name="power" val="#power"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COMBATPOINTHEAL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="isPotion" val="true"/>
+  <set name="reuseDelay" val="600"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2167" levels="3" name="Scroll of SP">
+  <table name="#power">500 5000 100000</table>
+  <table name="#itemConsumeId">5593 5594 5595</table>
+  <set name="hitTime" val="200"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="power" val="#power"/>
+  <set name="reuseDelay" val="3000"/>
+  <set name="skillType" val="GIVE_SP"/>
+  <set name="target" val="TARGET_SELF"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2168" levels="6" name="Raid Blessing">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="2000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="reuseDelay" val="10000"/>
+  <for>
+    <effect name="CharmOfLuck" time="3600" count="1" val="0" stackOrder="1" stackType="LuckyCharm"/>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2169" levels="2" name="Magic Haste Potion">
+  <table name="#mAtkSpd">1.23 1.3</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="buffDuration" val="1200000"/>
+  <set name="isPotion" val="true"/>
+  <for>
+    <effect count="1" name="Buff" time="1200" val="0" stackOrder="#mAtkSpd" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="#mAtkSpd"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2170" levels="1" name="Scroll: Cancel Sleep">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="NEGATE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="coolTime" val="1000"/>
+  <set name="effectRange" val="600"/>
+  <set name="negateStats" val="SLEEP"/>
+  <set name="negatePower" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2171" levels="1" name="Spellbook Paper">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="5916"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2172" levels="1" name="Scroll of Giants">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="5944"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2173" levels="1" name="Book of Giants">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="5955"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2174" levels="3" name="Ingredient Bag">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <table name="#itemConsumeId">6007 6008 6009</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2175" levels="1" name="Ingredient Box">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <set name="itemConsumeId" val="6010"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2176" levels="4" name="Ancient Papyrus">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+  <table name="#itemConsumeId">5966 5967 5968 5969</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2177" levels="1" name="Blessed Scroll of Escape: Clan Hall">
+  <set name="itemConsumeId" val="5858"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="clanhall" val="true"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="200"/>
+  <set name="skillType" val="RECALL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2178" levels="1" name="Blessed Scroll of Escape: Castle">
+  <set name="itemConsumeId" val="5859"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="castle" val="true"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="hitTime" val="200"/>
+  <set name="skillType" val="RECALL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2179" levels="1" name="Blessed Scroll of Resurrection: Pet">
+  <set name="power" val="100"/>
+  <set name="target" val="TARGET_CORPSE_PET"/>
+  <set name="hitTime" val="15000"/>
+  <set name="skillType" val="RESURRECT"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="600"/>
+  <set name="itemConsumeId" val="6387"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2180" levels="1" name="Feed: Castle Strider">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="BEAST_FEED"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="5168"/>
+  <set name="itemConsumeCount" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2181" levels="1" name="Item - Fishing Shot">
+  <set name="itemConsumeId" val="6535"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2182" levels="1" name="Item - Fishing Shot">
+  <set name="itemConsumeId" val="6536"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2183" levels="1" name="Item - Fishing Shot">
+  <set name="itemConsumeId" val="3537"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2184" levels="1" name="Item - Fishing Shot">
+  <set name="itemConsumeId" val="6538"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2185" levels="1" name="Item - Fishing Shot">
+  <set name="itemConsumeId" val="6539"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2186" levels="1" name="Item - Fishing Shot">
+  <set name="itemConsumeId" val="6540"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2187" levels="1" name="Item - Special Sound Crystal">
+  <set name="itemConsumeId" val="6903"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2188" levels="1" name="Golden Spice">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="BEAST_FEED"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="itemConsumeId" val="6643"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="400"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2189" levels="1" name="Crystal Spice">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="hitTime" val="1000"/>
+  <set name="skillType" val="BEAST_FEED"/>
+  <set name="itemConsumeId" val="6644"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="40"/>
+  <set name="effectRange" val="400"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2190" levels="9" name="Item - Green Fish">
+  <table name="#itemConsumeId">6411 6412 6413 6414 6415 6416 6417 6418 6419</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2191" levels="9" name="Item - Jade Fish">
+  <table name="#itemConsumeId">6420 6421 6422 6423 6424 6425 6426 6427 6428</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2192" levels="9" name="Item - Blue Fish">
+  <table name="#itemConsumeId">6429 6430 6431 6432 6433 6434 6435 6436 6437</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2193" levels="9" name="Item - Yellow Fish">
+  <table name="#itemConsumeId">6438 6439 6440 6441 6442 6443 6444 6445 6446</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2194" levels="9" name="Item - Orange Fish">
+  <table name="#itemConsumeId">6447 6448 6449 6450 6451 6452 6453 6454 6455</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2195" levels="9" name="Item - Violet Fish">
+  <table name="#itemConsumeId">6456 6457 6458 6459 6460 6461 6462 6463 6464</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2196" levels="9" name="Item - Red Fish">
+  <table name="#itemConsumeId">6465 6466 6467 6468 6469 6470 6471 6472 6473</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2197" levels="9" name="Item - White Fish">
+  <table name="#itemConsumeId">6474 6475 6476 6477 6478 6479 6480 6481 6482</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2198" levels="9" name="Item - Black Fish">
+  <table name="#itemConsumeId">6483 6484 6485 6486 6487 6488 6489 6490 6491</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="2199" levels="3" name="Item - Green Treasue Box">
+  <table name="#itemConsumeId">6492 6493 6494</table>
+  <set name="itemConsumeId" val="#itemConsumeId"/>
+  <set name="itemConsumeCount" val="1"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="magicLvl" val="1"/>
+</skill>
+</list>

@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Adventure guildsman - Use Life Crystals (Aden) -->
+<list maintainEnchantment="true">
+	<!-- Crystal Staff -->
+ 	<item id="1">
+		<ingredient id="8158" count="102"/>
+		<ingredient id="8161" count="28"/>
+		<ingredient id="8164" count="112"/>
+		<ingredient id="8167" count="56"/>
+		<production id="192" count="1"/>
+ 	</item>
+	<!-- Cursed Staff -->
+	<item id="2">
+		<ingredient id="8158" count="128"/>
+		<ingredient id="8161" count="35"/>
+		<ingredient id="8164" count="140"/>
+		<ingredient id="8167" count="70"/>
+		<production id="195" count="1"/>
+ 	</item>
+	<!-- Stick of Eternity -->
+	<item id="3">
+		<ingredient id="8158" count="207"/>
+		<ingredient id="8161" count="56"/>
+		<ingredient id="8164" count="226"/>
+		<ingredient id="8167" count="113"/>
+		<production id="196" count="1"/>
+ 	</item>
+	<!-- Ghoul's Staff -->
+	<item id="4">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="205" count="1"/>
+ 	</item>
+	<!-- Ecliptic Axe -->
+	<item id="5">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+ 		<production id="7891" count="1"/>
+ 	</item>
+	<!-- Sprite's Staff -->
+	<item id="6">
+ 		<ingredient id="8159" count="193"/>
+ 		<ingredient id="8162" count="58"/>
+ 		<ingredient id="8165" count="193"/>
+ 		<ingredient id="8168" count="135"/>
+ 		<production id="92" count="1"/>
+ 	</item>
+	<!-- Staff of Evil Spirits -->
+	<item id="7">
+ 		<ingredient id="8159" count="309"/>
+ 		<ingredient id="8162" count="93"/>
+ 		<ingredient id="8165" count="309"/>
+ 		<ingredient id="8168" count="216"/>
+ 		<production id="210" count="1"/>
+ 	</item>
+	<!-- Spell Breaker -->
+	<item id="8">
+ 		<ingredient id="8159" count="193"/>
+ 		<ingredient id="8162" count="58"/>
+ 		<ingredient id="8165" count="193"/>
+ 		<ingredient id="8168" count="135"/>
+ 		<production id="7892" count="1"/>
+ 	</item>
+	<!-- Kaim Vanul's Bones -->
+	<item id="9">
+ 		<ingredient id="8159" count="309"/>
+ 		<ingredient id="8162" count="93"/>
+ 		<ingredient id="8165" count="309"/>
+ 		<ingredient id="8168" count="216"/>
+ 		<production id="7893" count="1"/>
+ 	</item>
+	<!-- Chain Boots -->
+	<item id="10">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="2429" count="1"/>
+ 	</item>
+	<!-- Mithril Boots -->
+	<item id="11">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="62" count="1"/>
+ 	</item>
+	<!-- Karmian Boots -->
+	<item id="12">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="2430" count="1"/>
+ 	</item>
+	<!-- Dwarven Chain Boots -->
+	<item id="13">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="2432" count="1"/>
+ 	</item>
+	<!-- Rind Leather Boots -->
+	<item id="14">
+ 		<ingredient id="8158" count="9"/>
+ 		<ingredient id="8164" count="9"/>
+ 		<ingredient id="8170" count="2"/>
+ 		<production id="2434" count="1"/>
+ 	</item>
+	<!-- Boots of Seal -->
+	<item id="15">
+ 		<ingredient id="8158" count="7"/>
+ 		<ingredient id="8164" count="7"/>
+ 		<ingredient id="8170" count="1"/>
+ 		<production id="2433" count="1"/>
+ 	</item>
+	<!-- Composite Boots -->
+	<item id="16">
+ 		<ingredient id="8158" count="14"/>
+ 		<ingredient id="8164" count="15"/>
+ 		<ingredient id="8170" count="3"/>
+ 		<production id="64" count="1"/>
+ 	</item>
+	<!-- Theca Leather Boots -->
+	<item id="17">
+ 		<ingredient id="8158" count="16"/>
+ 		<ingredient id="8164" count="17"/>
+ 		<ingredient id="8170" count="3"/>
+ 		<production id="2436" count="1"/>
+ 	</item>
+	<!-- Full Plate Boots -->
+	<item id="18">
+ 		<ingredient id="8158" count="20"/>
+ 		<ingredient id="8164" count="22"/>
+ 		<ingredient id="8170" count="4"/>
+ 		<production id="2438" count="1"/>
+ 	</item>
+	<!-- Drake Leather Boots  -->
+	<item id="19">
+ 		<ingredient id="8158" count="20"/>
+ 		<ingredient id="8164" count="22"/>
+ 		<ingredient id="8170" count="4"/>
+ 		<production id="2437" count="1"/>
+ 	</item>
+</list>

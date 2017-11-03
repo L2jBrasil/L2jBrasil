@@ -1,0 +1,15 @@
+<html><body>
+<table width=260><tr>
+<td width=40><button value="Main" action="bypass -h admin_admin" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td width=180><center>Announcements Menu</center></td>
+<td width=40><button value="Back" action="bypass -h admin_admin" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td></tr>
+</table><br><br>
+<center>New announcement:</center>
+<center><multiedit var="new_announcement" width=240 height=30></center><br>
+<center><table><tr>
+<td><button value="Add" action="bypass -h admin_add_announcement $new_announcement" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Announce" action="bypass -h admin_announce_menu $new_announcement" width=60 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td><button value="Auto Announce" action="bypass -h admin_autoannounce $menu_command" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table></center>
+%announces%
+</body></html>

@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Exchange the equipment from hatchling to strider and vice versa -->
+<list>
+  <!-- Mithril Panzer Coat -->
+  <item id="1">
+    <ingredient id="57" count="80000"/>
+    <ingredient id="3918" count="1"/>
+    <production id="5170" count="1"/>
+  </item>
+  <!-- Hatchling's Mithril Coat -->
+  <item id="2">
+    <ingredient id="57" count="80000"/>
+    <ingredient id="5170" count="1"/>
+    <production id="3918" count="1"/>
+  </item>
+  <!-- Brigadine Panzer Coat -->
+  <item id="3">
+    <ingredient id="57" count="115000"/>
+    <ingredient id="5182" count="1"/>
+    <production id="5171" count="1"/>
+  </item>
+  <!-- Hatchling's Gorgon Coat -->
+  <item id="4">
+    <ingredient id="57" count="115000"/>
+    <ingredient id="5171" count="1"/>
+    <production id="5182" count="1"/>
+  </item>
+  <!-- Draconic Panzer Coat -->
+  <item id="5">
+    <ingredient id="57" count="170000"/>
+    <ingredient id="5183" count="1"/>
+    <production id="5172" count="1"/>
+  </item>
+  <!-- Hatchling's Ophidian Plate -->
+  <item id="6">
+    <ingredient id="57" count="170000"/>
+    <ingredient id="5172" count="1"/>
+    <production id="5183" count="1"/>
+  </item>
+  <!-- Blood Panze Coat -->
+  <item id="7">
+    <ingredient id="57" count="245000"/>
+    <ingredient id="5184" count="1"/>
+    <production id="5173" count="1"/>
+  </item>
+  <!-- Hatchling's Crimson Plate -->
+  <item id="8">
+    <ingredient id="57" count="245000"/>
+    <ingredient id="5173" count="1"/>
+    <production id="5184" count="1"/>
+  </item>
+  <!-- Ophidian Panzer Coat -->
+  <item id="9">
+    <ingredient id="57" count="365000"/>
+    <ingredient id="5185" count="1"/>
+    <production id="5174" count="1"/>
+  </item>
+  <!-- Hatchling`s Draconic Plate -->
+  <item id="10">
+    <ingredient id="57" count="365000"/>
+    <ingredient id="5174" count="1"/>
+    <production id="5185" count="1"/>
+  </item>
+  <!-- Inferno Panzer Coat -->
+  <item id="11">
+    <ingredient id="57" count="500000"/>
+    <ingredient id="5186" count="1"/>
+    <production id="5175" count="1"/>
+  </item>
+  <!-- Hatchling`s Inferno Plate -->
+  <item id="12">
+    <ingredient id="57" count="500000"/>
+    <ingredient id="5175" count="1"/>
+    <production id="5186" count="1"/>
+  </item>
+  <!-- Serpentine Spike -->
+  <item id="13">
+    <ingredient id="57" count="80000"/>
+    <ingredient id="3925" count="1"/>
+    <production id="5176" count="1"/>
+  </item>
+  <!-- Antiplague -->
+  <item id="14">
+    <ingredient id="57" count="80000"/>
+    <ingredient id="5176" count="1"/>
+    <production id="3925" count="1"/>
+  </item>
+  <!-- Drake Horn -->
+  <item id="15">
+    <ingredient id="57" count="115000"/>
+    <ingredient id="5187" count="1"/>
+    <production id="5177" count="1"/>
+  </item>
+  <!-- Serpentine Grinder -->
+  <item id="16">
+    <ingredient id="57" count="115000"/>
+    <ingredient id="5177" count="1"/>
+    <production id="5187" count="1"/>
+  </item>
+  <!-- Assult Alcorn -->
+  <item id="17">
+    <ingredient id="57" count="170000"/>
+    <ingredient id="5188" count="1"/>
+    <production id="5178" count="1"/>
+  </item>
+  <!-- Fang of Dahak -->
+  <item id="18">
+    <ingredient id="57" count="170000"/>
+    <ingredient id="5178" count="1"/>
+    <production id="5188" count="1"/>
+  </item>
+  <!-- Draconic Slicer -->
+  <item id="19">
+    <ingredient id="57" count="245000"/>
+    <ingredient id="5189" count="1"/>
+    <production id="5179" count="1"/>
+  </item>
+  <!-- Crimson Blood Fang -->
+  <item id="20">
+    <ingredient id="57" count="245000"/>
+    <ingredient id="5179" count="1"/>
+    <production id="5189" count="1"/>
+  </item>
+  <!-- Ohpdian Lance -->
+  <item id="21">
+    <ingredient id="57" count="365000"/>
+    <ingredient id="5190" count="1"/>
+    <production id="5180" count="1"/>
+  </item>
+  <!-- Draconic Chopper -->
+  <item id="22">
+    <ingredient id="57" count="365000"/>
+    <ingredient id="5180" count="1"/>
+    <production id="5190" count="1"/>
+  </item>
+  <!-- Diamond Drill -->
+  <item id="23">
+    <ingredient id="57" count="500000"/>
+    <ingredient id="5191" count="1"/>
+    <production id="5181" count="1"/>
+  </item>
+  <!-- Diabolic Grinder -->
+  <item id="24">
+    <ingredient id="57" count="500000"/>
+    <ingredient id="5181" count="1"/>
+    <production id="5191" count="1"/>
+  </item>
+</list>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="com/it/br/gameserver/handler/skillhandlers/|com/it/br/gameserver/model/entity/geodata/" kind="src" path="L2JBrasil_CORE/java"/>
+	<classpathentry kind="src" path="L2JBrasil_CORE/java/com/it/br/gameserver/handler/skillhandlers"/>
+	<classpathentry kind="src" path="L2JBrasil_CORE/java/com/it/br/gameserver/model/entity/geodata"/>
+	<classpathentry kind="src" path="L2JBrasil_DP/data/jscript"/>
+	<classpathentry kind="src" path="L2JBrasil_MMOCore/src"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/bsf.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/bsh-2.0b5.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/c3p0-0.9.2-pre6.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/ecj-4.2.1.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/java-engine-1.7.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/jython-engine-2.2.1.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/jython.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/mchange-commons-java-0.2.3.1.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/mmocore.jar"/>
+	<classpathentry kind="lib" path="L2JBrasil_CORE/lib/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 632: Necromancer's Request	-->
+<list maintainEnchantment="true">
+	<!-- Mold Lubricant (27 Brains) -->
+	<item id="1">
+		<ingredient id="7543" count="27"/>
+		<production id="4040" count="1"/>
+	</item>
+	<!-- Enria (32 Brains) -->
+	<item id="2">
+		<ingredient id="7543" count="32"/>
+		<production id="4042" count="1"/>
+	</item>
+	<!-- Mold Hardener (62 Brains) -->
+	<item id="3">
+		<ingredient id="7543" count="62"/>
+		<production id="4041" count="1"/>
+	</item>
+	<!-- Adamanite Nugget (13 Brains) -->
+	<item id="4">
+		<ingredient id="7543" count="13"/>
+		<production id="1877" count="1"/>
+	</item>
+</list>

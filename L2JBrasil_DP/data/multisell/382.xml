@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 382: Kail's Magic Coin - Head Blacksmith Vergara -->
+<list>
+	<item id="1">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5434" count="1"/>
+	</item>
+	<item id="2">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5464" count="1"/>
+	</item>
+	<item id="3">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3484" count="3"/>
+		<production id="5466" count="1"/>
+	</item>
+	<item id="4">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5468" count="1"/>
+	</item>
+	<item id="5">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5470" count="1"/>
+	</item>
+	<item id="6">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5442" count="1"/>
+	</item>
+	<item id="7">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5444" count="1"/>
+	</item>
+	<item id="8">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5446" count="1"/>
+	</item>
+	<item id="9">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5448" count="1"/>
+	</item>
+	<item id="10">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5456" count="1"/>
+	</item>
+	<item id="11">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5458" count="1"/>
+	</item>
+	<item id="12">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5438" count="1"/>
+	</item>
+	<item id="13">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5440" count="1"/>
+	</item>
+	<item id="14">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5460" count="1"/>
+	</item>
+	<item id="15">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5462" count="1"/>
+	</item>
+	<item id="16">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3474" count="3"/>
+		<production id="5450" count="1"/>
+	</item>
+	<item id="17">
+		<ingredient id="5961" count="10"/>
+		<ingredient id="5962" count="10"/>
+		<ingredient id="5963" count="10"/>
+		<ingredient id="3492" count="2"/>
+		<production id="5452" count="1"/>
+	</item>
+    <item id="18">
+        <ingredient id="5961" count="10"/>
+        <ingredient id="5962" count="10"/>
+        <ingredient id="5963" count="10"/>
+        <ingredient id="3484" count="3"/>
+        <production id="8316" count="1"/>
+    </item>
+    <item id="19">
+        <ingredient id="5961" count="10"/>
+        <ingredient id="5962" count="10"/>
+        <ingredient id="5963" count="10"/>
+        <ingredient id="3474" count="3"/>
+        <production id="8326" count="1"/>
+    </item>
+    <item id="20">
+        <ingredient id="5961" count="10"/>
+        <ingredient id="5962" count="10"/>
+        <ingredient id="5963" count="10"/>
+        <ingredient id="3492" count="2"/>
+        <production id="8300" count="1"/>
+    </item>
+    <item id="21">
+        <ingredient id="5961" count="10"/>
+        <ingredient id="5962" count="10"/>
+        <ingredient id="5963" count="10"/>
+        <ingredient id="3492" count="2"/>
+        <production id="8314" count="1"/>
+    </item>
+    <item id="22">
+        <ingredient id="5961" count="10"/>
+        <ingredient id="5962" count="10"/>
+        <ingredient id="5963" count="10"/>
+        <ingredient id="3492" count="2"/>
+        <production id="8487" count="1"/>
+    </item>
+</list>

@@ -1,0 +1,519 @@
+#This file contains all special info about seeds.
+
+#Format:
+#seed_id;seed_level;crop_id;mature_id;
+#reward1_id;reward2_id;manor_id;is_alternative;
+#limit_for_seeds;limit_for_crops
+
+# Seed: Dark Coda
+5016;10;5073;5103;1864;1878;1;0;8100;9000
+# Seed: Red Coda
+5017;13;5068;5098;1865;1879;1;0;8100;9000
+# Seed: Chilly Coda
+5018;16;5065;5095;1866;1874;1;0;8100;9000
+# Seed: Blue Coda
+5019;19;5067;5097;1867;1894;1;0;4050;4500
+# Seed: Golden Coda
+5020;22;5069;5099;1868;1876;1;0;2025;2250
+# Seed: Lute Coda
+5021;25;5071;5101;1869;1895;1;0;1350;1500
+# Seed: Desert Coda
+5022;28;5070;5100;1870;1877;1;0;2025;2250
+# Seed: Blue Cobol
+5023;37;5077;5107;1873;4044;1;0;810;900
+# Seed: Blue Coda
+5024;19;5067;5097;1867;1894;2;0;4194;4660
+# Seed: Golden Coda
+5025;22;5069;5099;1868;1876;2;0;2097;2330
+# Seed: Lute Coda
+5026;25;5071;5101;1869;1895;2;0;1398;1553
+# Seed: Desert Coda
+5027;28;5070;5100;1870;1877;2;0;2097;2330
+# Seed: Red Cobol
+5028;31;5078;5108;1871;4042;2;0;2097;2330
+# Seed: Chilly Cobol
+5029;34;5075;5105;1872;1880;2;0;1677;1864
+# Seed: Thorn Cobol
+5030;40;5082;5112;1864;5549;2;0;838;932
+# Seed: Golden Cobol
+5031;43;5079;5109;1865;4039;2;0;838;932
+# Seed: Great Cobol
+5032;46;5084;5114;1866;1885;2;0;838;932
+# Seed: Red Cobol
+5033;31;5078;5108;1871;4042;3;0;2250;2500
+# Seed: Chilly Cobol
+5034;34;5075;5105;1872;1880;3;0;1800;2000
+# Seed: Blue Cobol
+5035;37;5077;5107;1873;4044;3;0;900;1000
+# Seed: Thorn Cobol
+5036;40;5082;5112;1864;5549;3;0;900;1000
+# Seed: Golden Cobol
+5037;43;5079;5109;1865;4039;3;0;900;1000
+# Seed: Great Cobol
+5038;46;5084;5114;1866;1885;3;0;900;1000
+# Seed: Red Codran
+5039;49;5088;5118;1867;4043;3;0;1125;1250
+# Seed: Twin Codran
+5040;58;5092;5122;1871;4040;3;0;900;1000
+# Seed: Desert Codran
+5041;64;5090;5120;1873;5550;3;0;450;500
+# Seed: Dark Coda
+5042;10;5073;5103;1864;1878;4;0;7200;8000
+# Seed: Red Coda
+5043;13;5068;5098;1865;1879;4;0;7200;8000
+# Seed: Blue Coda
+5044;19;5067;5097;1867;1894;4;0;3600;4000
+# Seed: Red Cobol
+5045;31;5078;5108;1871;4042;4;0;1800;2000
+# Seed: Chilly Cobol
+5046;34;5075;5105;1872;1880;4;0;1440;1600
+# Seed: Blue Cobol
+5047;37;5077;5107;1873;4044;4;0;720;800
+# Seed: Thorn Cobol
+5048;40;5082;5112;1864;5549;4;0;720;800
+# Seed: Sea Codran
+5049;50;5091;5121;1868;1884;4;0;720;800
+# Seed: Chilly Codran
+5050;52;5085;5115;1869;4041;4;0;900;1000
+# Seed: Blue Codran
+5051;55;5087;5117;1870;1882;4;0;720;800
+# Seed: Twin Codran
+5052;58;5092;5122;1871;4040;4;0;720;800
+# Seed: Thorn Cobol
+5053;40;5082;5112;1864;5549;5;0;1344;1494
+# Seed: Golden Cobol
+5054;43;5079;5109;1865;4039;5;0;1344;1494
+# Seed: Great Cobol
+5055;46;5084;5114;1866;1885;5;0;1344;1494
+# Seed: Red Codran
+5056;49;5088;5118;1867;4043;5;0;1680;1867
+# Seed: Chilly Codran
+5057;52;5085;5115;1869;4041;5;0;1680;1867
+# Seed: Blue Codran
+5058;55;5087;5117;1870;1882;5;0;1344;1494
+# Seed: Twin Codran
+5059;58;5092;5122;1871;4040;5;0;1344;1494
+# Seed: Great Codran
+5060;61;5094;5124;1872;1881;5;0;896;996
+# Seed: Desert Codran
+5061;64;5090;5120;1873;5550;5;0;672;747
+# Seed: Chilly Cobol
+5221;34;5075;5105;1872;1880;6;0;2592;2880
+# Seed: Blue Cobol
+5222;37;5077;5107;1873;4044;6;0;1296;1440
+# Seed: Thorn Cobol
+5223;40;5082;5112;1864;5549;6;0;1296;1440
+# Seed: Golden Cobol
+5224;43;5079;5109;1865;4039;6;0;1296;1440
+# Seed: Great Cobol
+5225;46;5084;5114;1866;1885;6;0;1296;1440
+# Seed: Red Codran
+5226;49;5088;5118;1867;4043;6;0;1620;1800
+# Seed: Sea Codran
+5227;50;5091;5121;1868;1884;6;0;1296;1440
+# Alternative Dark Coda Seed
+5650;10;5818;5838;1864;1878;1;1;22500;2250
+# Alternative Red Coda Seed
+5651;13;5819;5839;1865;1879;1;1;22500;2250
+# Alternative Chilly Coda Seed
+5652;16;5820;5840;1866;1874;1;1;22500;2250
+# Alternative Blue Coda Seed
+5653;19;5821;5841;1867;1894;1;1;11250;1125
+# Alternative Golden Coda Seed
+5654;22;5822;5842;1868;1876;1;1;5625;562
+# Alternative Lute Coda Seed
+5655;25;5823;5843;1869;1895;1;1;3750;375
+# Alternative Desert Coda Seed
+5656;28;5824;5844;1870;1877;1;1;5625;562
+# Alternative Blue Cobol Seed
+5657;37;5827;5847;1873;4044;1;1;2250;225
+# Alternative Blue Coda Seed
+5658;19;5821;5841;1867;1894;2;1;11650;1165
+# Alternative Golden Coda Seed
+5659;22;5822;5842;1868;1876;2;1;5825;582
+# Alternative Lute Coda Seed
+5660;25;5823;5843;1869;1895;2;1;3883;388
+# Alternative Desert Coda Seed
+5661;28;5824;5844;1870;1877;2;1;5825;582
+# Alternative Red Cobol Seed
+5662;31;5825;5845;1871;4042;2;1;5825;582
+# Alternative Chilly Cobol Seed
+5663;34;5826;5846;1872;1880;2;1;4660;466
+# Alternative Thorn Cobol Seed
+5664;40;5828;5848;1864;5549;2;1;2330;233
+# Alternative Golden Cobol Seed
+5665;43;5829;5849;1865;4039;2;1;2330;233
+# Alternative Great Cobol Seed
+5666;46;5830;5850;1866;1885;2;1;2912;291
+# Alternative Red Cobol Seed
+5667;31;5825;5845;1871;4042;3;1;6250;625
+# Alternative Chilly Cobol Seed
+5668;34;5826;5846;1872;1880;3;1;5000;500
+# Alternative Blue Cobol Seed
+5669;37;5827;5847;1873;4044;3;1;2500;250
+# Alternative Thorn Cobol Seed
+5670;40;5828;5848;1864;5549;3;1;2500;250
+# Alternative Golden Cobol Seed
+5671;43;5829;5849;1865;4039;3;1;2500;250
+# Alternative Great Cobol Seed
+5672;46;5830;5850;1866;1885;3;1;3125;312
+# Alternative Red Codran Seed
+5673;49;5831;5851;1867;4043;3;1;3125;312
+# Alternative Twin Codran Seed
+5674;58;5835;5855;1871;4040;3;1;2500;250
+# Alternative Desert Codran Seed
+5675;64;5837;5857;1873;5550;3;1;1250;125
+# Alternative Dark Coda Seed
+5676;10;5818;5838;1864;1878;4;1;20000;2000
+# Alternative Red Coda Seed
+5677;13;5819;5839;1865;1879;4;1;20000;2000
+# Alternative Blue Coda Seed
+5678;19;5821;5841;1867;1894;4;1;10000;1000
+# Alternative Red Cobol Seed
+5679;31;5825;5845;1871;4042;4;1;5000;500
+# Alternative Chilly Cobol Seed
+5680;34;5826;5846;1872;1880;4;1;4000;400
+# Alternative Blue Cobol Seed
+5681;37;5827;5847;1873;4044;4;1;2000;200
+# Alternative Thorn Cobol Seed
+5682;40;5828;5848;1864;5549;4;1;2000;200
+# Alternative Sea Codran Seed
+5683;50;5832;5852;1868;1884;4;1;2000;200
+# Alternative Chilly Codran Seed
+5684;52;5833;5853;1869;4041;4;1;2500;250
+# Alternative Blue Codran Seed
+5685;55;5834;5854;1870;1882;4;1;2000;200
+# Alternative Twin Codran Seed
+5686;58;5835;5855;1871;4040;4;1;2000;200
+# Alternative Thorn Cobol Seed
+5687;40;5828;5848;1864;5549;5;1;3735;373
+# Alternative Golden Cobol Seed
+5688;43;5829;5849;1865;4039;5;1;3735;373
+# Alternative Great Cobol Seed
+5689;46;5830;5850;1866;1885;5;1;4668;466
+# Alternative Red Codran Seed
+5690;49;5831;5851;1867;4043;5;1;4668;466
+# Alternative Chilly Codran Seed
+5691;52;5833;5853;1869;4041;5;1;4668;466
+# Alternative Blue Codran Seed
+5692;55;5834;5854;1870;1882;5;1;3735;373
+# Alternative Twin Codran Seed
+5693;58;5835;5855;1871;4040;5;1;3735;373
+# Alternative Great Codran Seed
+5694;61;5836;5856;1872;1881;5;1;2490;249
+# Alternative Desert Codran Seed
+5695;64;5837;5857;1873;5550;5;1;1867;186
+# Alternative Chilly Cobol Seed
+5696;34;5826;5846;1872;1880;6;1;7200;720
+# Alternative Blue Cobol Seed
+5697;37;5827;5847;1873;4044;6;1;3600;360
+# Alternative Thorn Cobol Seed
+5698;40;5828;5848;1864;5549;6;1;3600;360
+# Alternative Golden Cobol Seed
+5699;43;5829;5849;1865;4039;6;1;3600;360
+# Alternative Great Cobol Seed
+5700;46;5830;5850;1866;1885;6;1;4500;450
+# Alternative Red Codran Seed
+5701;49;5831;5851;1867;4043;6;1;4500;450
+# Alternative Sea Codran Seed
+5702;50;5832;5852;1868;1884;6;1;3600;360
+# Seed: Alternative Great Coba
+6727;85;6554;6568;5549;5550;7;1;208;90
+# Seed: Alternative Sea Coba
+6728;79;6552;6566;4044;4042;4;1;111;44
+# Seed: Alternative Sea Coba
+6729;79;6552;6566;4044;4042;5;1;207;83
+# Seed: Alternative Sea Coba
+6730;79;6552;6566;4044;4042;7;1;277;111
+# Seed: Alternative Red Coba
+6731;70;6549;6563;1888;4040;3;1;250;83
+# Seed: Alternative Red Coba
+6732;70;6549;6563;1888;4040;5;1;373;124
+# Seed: Alternative Red Coba
+6733;70;6549;6563;1888;4040;6;1;360;120
+# Seed: Alternative Red Coba
+6734;70;6549;6563;1888;4040;8;1;500;166
+# Seed: Alternative Red Coba
+6735;70;6549;6563;1888;4040;8;1;500;166
+# Seed: Alternative Desert Coba
+6736;76;6551;6565;4043;1890;4;1;133;50
+# Seed: Alternative Desert Coba
+6737;76;6551;6565;4043;1890;5;1;249;93
+# Seed: Alternative Desert Coba
+6738;76;6551;6565;4043;1890;6;1;240;90
+# Seed: Alternative Desert Coba
+6739;76;6551;6565;4043;1890;7;1;333;125
+# Seed: Alternative Desert Coba
+6740;76;6551;6565;4043;1890;8;1;333;125
+# Seed: Alternative Twin Coba
+6741;82;6553;6567;1885;1893;7;1;250;100
+# Seed: Alternative Blue Coba
+6742;67;6548;6562;1894;4039;1;1;281;90
+# Seed: Alternative Blue Coba
+6743;67;6548;6562;1894;4039;3;1;312;100
+# Seed: Alternative Blue Coba
+6744;67;6548;6562;1894;4039;5;1;466;149
+# Seed: Alternative Blue Coba
+6745;67;6548;6562;1894;4039;7;1;625;200
+# Seed: Alternative Blue Coba
+6746;67;6548;6562;1894;4039;8;1;625;200
+# Seed: Alternative Golden Coba
+6747;73;6550;6564;1887;4041;3;1;192;71
+# Seed: Alternative Golden Coba
+6748;73;6550;6564;1887;4041;4;1;153;57
+# Seed: Alternative Golden Coba
+6749;73;6550;6564;1887;4041;5;1;287;106
+# Seed: Alternative Golden Coba
+6750;73;6550;6564;1887;4041;7;1;384;142
+# Seed: Alternative Golden Coba
+6751;73;6550;6564;1887;4041;7;1;384;142
+# Seed: Alternative Golden Coba
+6752;73;6550;6564;1887;4041;8;1;384;142
+# Seed: Great Coba
+6753;85;6547;6561;5549;5550;7;0;75;363
+# Seed: Sea Coba
+6754;79;6545;6559;4044;4042;4;0;40;177
+# Seed: Sea Coba
+6755;79;6545;6559;4044;4042;5;0;74;332
+# Seed: Sea Coba
+6756;79;6545;6559;4044;4042;7;0;100;444
+# Seed: Red Coba
+6757;70;6542;6556;1888;4040;3;0;90;333
+# Seed: Red Coba
+6758;70;6542;6556;1888;4040;5;0;134;498
+# Seed: Red Coba
+6759;70;6542;6556;1888;4040;6;0;129;480
+# Seed: Red Coba
+6760;70;6542;6556;1888;4040;7;0;180;666
+# Seed: Red Coba
+6761;70;6542;6556;1888;4040;8;0;180;666
+# Seed: Desert Coba
+6762;76;6544;6558;4043;1890;4;0;48;200
+# Seed: Desert Coba
+6763;76;6544;6558;4043;1890;5;0;89;373
+# Seed: Desert Coba
+6764;76;6544;6558;4043;1890;6;0;86;360
+# Seed: Desert Coba
+6765;76;6544;6558;4043;1890;7;0;120;500
+# Seed: Desert Coba
+6766;76;6544;6558;4043;1890;8;0;120;500
+# Seed: Twin Coba
+6767;82;6546;6560;1885;1893;7;0;90;400
+# Seed: Blue Coba
+6768;67;6541;6555;1894;4039;1;0;101;360
+# Seed: Blue Coba
+6769;67;6541;6555;1894;4039;3;0;112;400
+# Seed: Blue Coba
+6770;67;6541;6555;1894;4039;5;0;168;597
+# Seed: Blue Coba
+6771;67;6541;6555;1894;4039;7;0;225;800
+# Seed: Blue Coba
+6772;67;6541;6555;1894;4039;8;0;225;800
+# Seed: Golden Coba
+6773;73;6543;6557;1887;4041;3;0;69;285
+# Seed: Golden Coba
+6774;73;6543;6557;1887;4041;4;0;55;228
+# Seed: Golden Coba
+6775;73;6543;6557;1887;4041;5;0;103;426
+# Seed: Golden Coba
+6776;73;6543;6557;1887;4041;6;0;99;411
+# Seed: Golden Coba
+6777;73;6543;6557;1887;4041;7;0;138;571
+# Seed: Golden Coba
+6778;73;6543;6557;1887;4041;8;0;138;571
+# Seed: Blue Cobol
+7016;37;5077;5107;1873;4044;2;0;838;932
+# Seed: Blue Codran
+7017;55;5087;5117;1870;1882;1;0;810;900
+# Seed: Blue Codran
+7018;55;5087;5117;1870;1882;3;0;900;1000
+# Seed: Chilly Cobol
+7019;34;5075;5105;1872;1880;1;0;1620;1800
+# Seed: Chilly Coda
+7020;16;5065;5095;1866;1874;4;0;7200;8000
+# Seed: Chilly Codran
+7021;52;5085;5115;1869;4041;1;0;1012;1125
+# Seed: Chilly Codran
+7022;52;5085;5115;1869;4041;3;0;1125;1250
+# Seed: Desert Codran
+7023;64;5090;5120;1873;5550;1;0;405;450
+# Seed: Desert Codran
+7024;64;5090;5120;1873;5550;7;0;900;1000
+# Seed: Golden Cobol
+7025;43;5079;5109;1865;4039;4;0;720;800
+# Seed: Golden Coda
+7026;22;5069;5099;1868;1876;4;0;1800;2000
+# Seed: Great Cobol
+7027;46;5084;5114;1866;1885;4;0;720;800
+# Seed: Great Codran
+7028;61;5094;5124;1872;1881;1;0;540;600
+# Seed: Great Codran
+7029;61;5094;5124;1872;1881;3;0;600;666
+# Seed: Alternative Blue Cobol
+7030;37;5827;5847;1873;4044;2;1;2330;233
+# Seed: Alternative Blue Codran
+7031;55;5834;5854;1870;1882;1;1;2250;225
+# Seed: Alternative Blue Codran
+7032;55;5834;5854;1870;1882;3;1;2500;250
+# Seed: Alternative Chilly Cobol
+7033;34;5826;5846;1872;1880;1;1;4500;450
+# Seed: Alternative Chilly Coda
+7034;16;5820;5840;1866;1874;4;1;20000;2000
+# Seed: Alternative Chilly Codran
+7035;52;5833;5853;1869;4041;1;1;2812;281
+# Seed: Alternative Chilly Codran
+7036;52;5833;5853;1869;4041;3;1;3125;312
+# Seed: Alternative Desert Codran
+7037;64;5837;5857;1873;5550;1;1;1125;112
+# Seed: Alternative Desert Codran
+7038;64;5837;5857;1873;5550;7;1;2500;250
+# Seed: Alternative Golden Cobol
+7039;43;5829;5849;1865;4039;4;1;2000;200
+# Seed: Alternative Golden Coda
+7040;22;5822;5842;1868;1876;4;1;5000;500
+# Seed: Alternative Great Cobol
+7041;46;5830;5850;1866;1885;4;1;2500;250
+# Seed: Alternative Great Codran
+7042;61;5836;5856;1872;1881;1;1;1500;150
+# Seed: Alternative Great Codran
+7043;61;5836;5856;1872;1881;3;1;1666;166
+# Seed: Alternative Red Cobol
+7044;31;5825;5845;1871;4042;1;1;5625;562
+# Seed: Alternative Red Codran
+7045;49;5831;5851;1867;4043;2;1;2912;291
+# Seed: Alternative Red Codran
+7046;49;5831;5851;1867;4043;4;1;2500;250
+# Seed: Alternative Sea Codran
+7047;50;5832;5852;1868;1884;2;1;2330;233
+# Seed: Alternative Sea Codran
+7048;50;5832;5852;1868;1884;3;1;2500;250
+# Seed: Alternative Sea Codran
+7049;50;5832;5852;1868;1884;5;1;3735;373
+# Seed: Alternative Twin Codran
+7050;58;5835;5855;1871;4040;1;1;2250;225
+# Seed: Red Cobol
+7051;31;5078;5108;1871;4042;1;0;2025;2250
+# Seed: Red Codran
+7052;49;5088;5118;1867;4043;2;0;1048;1165
+# Seed: Red Codran
+7053;49;5088;5118;1867;4043;4;0;900;1000
+# Seed: Sea Codran
+7054;50;5091;5121;1868;1884;2;0;838;932
+# Seed: Sea Codran
+7055;50;5091;5121;1868;1884;3;0;900;1000
+# Seed: Sea Codran
+7056;50;5091;5121;1868;1884;5;0;1344;1494
+# Seed: Twin Codran
+7057;58;5092;5122;1871;4040;1;0;810;900
+# Seed: Twin Codran
+8223;58;5092;5122;1871;4040;8;0;1800;2000
+# Seed: Great Codran
+8224;61;5094;5124;1872;1881;8;0;1200;1333
+# Seed: Desert Codran
+8225;64;5090;5120;1873;5550;8;0;900;1000
+# Seed: Blue Coba
+8226;67;6541;6555;1894;4039;8;0;225;800
+# Seed: Red Coba
+8227;70;6542;6556;1888;4040;8;0;180;666
+# Seed: Golden Coba
+8228;73;6543;6557;1887;4041;8;0;138;571
+# Seed: Desert Coba
+8229;76;6544;6558;4043;1890;8;0;120;500
+# Seed: Alternative Twin Codran
+8230;58;5835;5855;1871;4040;8;1;5000;500
+# Seed: Alternative Great Codran
+8231;61;5836;5856;1872;1881;8;1;3333;333
+# Seed: Alternative Desert Codran
+8232;64;5837;5857;1873;5550;8;1;2500;250
+# Seed: Alternative Blue Coba
+8233;67;6548;6562;1894;4039;8;1;625;200
+# Seed: Alternative Red Coba
+8234;70;6549;6563;1888;4040;8;1;500;166
+# Seed: Alternative Golden Coba
+8235;73;6550;6564;1887;4041;8;1;384;142
+# Seed: Alternative Desert Coba
+8236;76;6551;6565;4043;1890;8;1;333;125
+# Seed: Dark Coda
+8237;10;5073;5103;1864;1878;9;0;8784;9760
+# Seed: Red Coda
+8238;13;5068;5098;1865;1879;9;0;8784;9760
+# Seed: Chilly Coda
+8239;16;5065;5095;1866;1874;9;0;8784;9760
+# Seed: Blue Coda
+8240;19;5067;5097;1867;1894;9;0;4392;4880
+# Seed: Golden Coda
+8241;22;5069;5099;1868;1876;9;0;2196;2440
+# Seed: Lute Coda
+8242;25;5071;5101;1869;1895;9;0;1464;1626
+# Seed: Desert Coda
+8243;28;5070;5100;1870;1877;9;0;2196;2440
+# Seed: Red Cobol
+8244;31;5078;5108;1871;4042;9;0;2196;2440
+# Seed: Chilly Cobol
+8245;34;5075;5105;1872;1880;9;0;1756;1952
+# Seed: Blue Cobol
+8246;37;5077;5107;1873;4044;9;0;878;976
+# Seed: Thorn Cobol
+8247;40;5082;5112;1864;5549;9;0;878;976
+# Seed: Golden Cobol
+8248;43;5079;5109;1865;4039;9;0;878;976
+# Seed: Great Cobol
+8249;46;5084;5114;1866;1885;9;0;878;976
+# Seed: Red Codran
+8250;49;5088;5118;1867;4043;9;0;1098;1220
+# Seed: Sea Codran
+8251;50;5091;5121;1868;1884;9;0;878;976
+# Seed: Chilly Codran
+8252;52;5085;5115;1869;4041;9;0;1098;1220
+# Seed: Blue Codran
+8253;55;5087;5117;1870;1882;9;0;878;976
+# Seed: Twin Codran
+8254;58;5092;5122;1871;4040;9;0;878;976
+# Alternative Dark Coda Seed
+8255;10;5818;5838;1864;1878;9;1;24400;2440
+# Alternative Red Coda Seed
+8256;13;5819;5839;1865;1879;9;1;24400;2440
+# Seed: Alternative Chilly Coda
+8257;16;5820;5840;1866;1874;9;1;24400;2440
+# Alternative Blue Coda Seed
+8258;19;5821;5841;1867;1894;9;1;12200;1220
+# Seed: Alternative Golden Coda
+8259;22;5822;5842;1868;1876;9;1;6100;610
+# Alternative Lute Coda Seed
+8260;25;5823;5843;1869;1895;9;1;4066;406
+# Alternative Desert Coda Seed
+8261;28;5824;5844;1870;1877;9;1;6100;610
+# Seed: Alternative Red Cobol
+8262;31;5825;5845;1871;4042;9;1;6100;610
+# Seed: Alternative Chilly Cobol
+8263;34;5826;5846;1872;1880;9;1;4880;488
+# Seed: Alternative Blue Cobol
+8264;37;5827;5847;1873;4044;9;1;2440;244
+# Alternative Thorn Cobol Seed
+8265;40;5828;5848;1864;5549;9;1;2440;244
+# Seed: Alternative Golden Cobol
+8266;43;5829;5849;1865;4039;9;1;2440;244
+# Seed: Alternative Great Cobol
+8267;46;5830;5850;1866;1885;9;1;3050;305
+# Seed: Alternative Red Codran
+8268;49;5831;5851;1867;4043;9;1;3050;305
+# Seed: Alternative Sea Codran
+8269;50;5832;5852;1868;1884;9;1;2440;244
+# Seed: Alternative Chilly Codran
+8270;52;5833;5853;1869;4041;9;1;3050;305
+# Seed: Alternative Blue Codran
+8271;55;5834;5854;1870;1882;9;1;2440;244
+# Seed: Alternative Twin Codran
+8272;58;5835;5855;1871;4040;9;1;2440;244
+# Seed: Sea Coba
+8521;79;6545;6559;4044;4042;8;0;100;444
+# Seed: Alternative Sea Coba
+8522;79;6552;6566;4044;4042;8;1;277;111
+# Seed: Twin Coba
+8523;82;6546;6560;1885;1893;8;0;90;400
+# Seed: Alternative Twin Coba
+8524;82;6553;6567;1885;1893;8;1;250;100
+# Seed: Great Coba
+8525;85;6547;6561;5549;5550;8;0;75;363
+# Seed: Alternative Great Coba
+8526;85;6554;6568;5549;5550;8;1;208;90

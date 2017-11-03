@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Seven Signs - Blacksmith of Mammon - Unseal S-Grade Armor. -->
+<list maintainEnchantment="true">
+	<item id="1">
+		<production id="6373" count="1"/>
+		<ingredient id="6674" count="1"/>
+		<ingredient id="5575" count="1072500"/>
+	</item>
+	<item id="2">
+		<production id="6374" count="1"/>
+		<ingredient id="6675" count="1"/>
+		<ingredient id="5575" count="672000"/>
+	</item>
+	<item id="3">
+		<production id="6375" count="1"/>
+		<ingredient id="6676" count="1"/>
+		<ingredient id="5575" count="268500"/>
+	</item>
+	<item id="4">
+		<production id="6376" count="1"/>
+		<ingredient id="6677" count="1"/>
+		<ingredient id="5575" count="268500"/>
+	</item>
+	<item id="5">
+		<production id="6377" count="1"/>
+		<ingredient id="6678" count="1"/>
+		<ingredient id="5575" count="282000"/>
+	</item>
+	<item id="6">
+		<production id="6378" count="1"/>
+		<ingredient id="6679" count="1"/>
+		<ingredient id="5575" count="402750"/>
+	</item>
+	<item id="7">
+		<production id="6379" count="1"/>
+		<ingredient id="6680" count="1"/>
+		<ingredient id="5575" count="1305000"/>
+	</item>
+	<item id="8">
+		<production id="6380" count="1"/>
+		<ingredient id="6681" count="1"/>
+		<ingredient id="5575" count="268500"/>
+	</item>
+	<item id="9">
+		<production id="6381" count="1"/>
+		<ingredient id="6682" count="1"/>
+		<ingredient id="5575" count="268500"/>
+	</item>
+	<item id="10">
+		<production id="6382" count="1"/>
+		<ingredient id="6683" count="1"/>
+		<ingredient id="5575" count="402750"/>
+	</item>
+	<item id="11">
+		<production id="6383" count="1"/>
+		<ingredient id="6684" count="1"/>
+		<ingredient id="5575" count="1305000"/>
+	</item>
+	<item id="12">
+		<production id="6384" count="1"/>
+		<ingredient id="6685" count="1"/>
+		<ingredient id="5575" count="268500"/>
+	</item>
+	<item id="13">
+		<production id="6385" count="1"/>
+		<ingredient id="6686" count="1"/>
+		<ingredient id="5575" count="268500"/>
+	</item>
+	<item id="14">
+		<production id="6386" count="1"/>
+		<ingredient id="6687" count="1"/>
+		<ingredient id="5575" count="402750"/>
+	</item>
+</list>

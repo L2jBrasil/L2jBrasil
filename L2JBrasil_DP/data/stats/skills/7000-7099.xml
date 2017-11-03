@@ -1,0 +1,739 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7000" levels="1" name="NPC Default">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PDAM"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7001" levels="1" name="Dispel Buff">
+  <set name="mpConsume" val="99"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="300000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="CANCEL"/>
+  <set name="isMagic" val="true"/>
+  <set name="power" val="100"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="100"/>
+  <set name="negateStats" val="BUFF"/>
+  <set name="negatePower" val="20"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7002" levels="1" name="Dispel Debuff">
+  <set name="mpConsume" val="99"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="300000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="CANCEL_DEBUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="100"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7003" levels="1" name="Dispel All">
+  <set name="mpConsume" val="74"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="300000"/>
+  <set name="hitTime" val="6000"/>
+  <set name="skillType" val="CANCEL"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="100"/>
+  <set name="negateStats" val="STUN SLEEP MUTE FEAR CONFUSION POISON BLEED BUFF DEBUFF WEAKNESS PARALYZE"/>
+  <set name="negatePower" val="20"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7004" levels="2" name="Dispel Petrification">
+  <set name="mpConsume" val="73"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="CANCEL"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="reuseDelay" val="8000"/>
+  <set name="isMagic" val="true"/>
+  <set name="negateStats" val="PARALYZE"/>
+  <set name="aggroPoints" val="566"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7005" levels="1" name="Greater Chant of Vampire">
+  <set name="magicLvl" val="74"/>
+   <set name="mpInitialConsume" val="55"/>
+  <set name="mpConsume" val="217"/>
+  <set name="target" val="TARGET_CLAN"/>
+  <set name="skillRadius" val="900"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="hitTime" val="2500"/>
+  <set name="reuseDelay" val="20000"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="655"/>
+  <for>
+    <effect name="Buff" time="1200" count="1" val="0" stackOrder="9" stackType="vampRage">
+      <add order="0x40" stat="absorbDam" val="9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7006" levels="13" name="The Love of Pa'agrio">
+  <set name="mpConsume" val="272"/>
+  <set name="target" val="TARGET_CLAN"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="hitTime" val="2500"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="655"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7007" levels="4" name="Greater Seal of Flame">
+  <set name="mpConsume" val="153"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="PASSIVE"/>
+  <set name="hitTime" val="4000"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isMagic" val="true"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7028" levels="1" name="For Stationary NPCs">
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7029" levels="4" name="Super Haste">
+  <table name="#pAtkSpd">2 3 3 2</table>
+  <table name="#runSpd">1.5 2 3 4</table>
+  <table name="#mAtkSpd">2 3 3 4</table>
+  <table name="#pAtk">1 2 3 4</table>
+  <table name="#pAtkSpd">1.2 1.5 2 3</table>
+  <table name="#PhysicalReuse">1 2 4 30</table>
+  <table name="#mReuse">4 3 2 1</table>
+  <table name="#regMp">1 1 1 2</table>
+  <table name="#maxHp">1 1 1 2 </table>
+  <table name="#maxLoad">1 1 1 2</table>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <for>
+    <effect name="Buff" time="144000" count="1" val="0">
+      <mul order="0x30" stat="pAtkSpd" val="#pAtkSpd"/>
+      <mul order="0x30" stat="runSpd" val="#runSpd"/>
+      <mul order="0x30" stat="mAtkSpd" val="#mAtkSpd"/>
+      <mul order="0x30" stat="pAtk" val="#pAtk"/>
+      <mul order="0x30" stat="PhysicalReuse" val="#PhysicalReuse"/>
+	  <mul order="0x30" stat="mReuse" val="#mReuse"/>
+	  <mul order="0x30" stat="regMp" val="#regMp"/>
+	  <mul order="0x30" stat="maxHp" val="#maxHp"/>
+	  <mul order="0x30" stat="maxLoad" val="#maxLoad"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7030" levels="1" name="Summon King Bugbear">
+  <set name="itemConsumeId" val="1458"/>
+  <set name="mpConsume" val="3"/>
+  <set name="itemConsumeSteps" val="0"/>
+  <set name="summonTotalLifeTime" val="1200000"/>
+  <set name="summonTimeLostIdle" val="500"/>
+  <set name="summonTimeLostActive" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="itemConsumeCount" val="8"/>
+  <set name="reuseDelay" val="18600000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="SUMMON"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <!-- Summon-specific -->
+  <set name="npcId" val="20150"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7031" levels="1" name="Summon Skeleton Royal Guard">
+  <set name="itemConsumeId" val="1458"/>
+  <set name="mpConsume" val="3"/>
+  <set name="itemConsumeSteps" val="0"/>
+  <set name="summonTotalLifeTime" val="1200000"/>
+  <set name="summonTimeLostIdle" val="500"/>
+  <set name="summonTimeLostActive" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="itemConsumeCount" val="8"/>
+  <set name="reuseDelay" val="18600000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="SUMMON"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <!-- Summon-specific -->
+  <set name="npcId" val="20169"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7032" levels="1" name="Summon Hunter Gargoyle">
+  <set name="itemConsumeId" val="1458"/>
+  <set name="mpConsume" val="3"/>
+  <set name="itemConsumeSteps" val="0"/>
+  <set name="summonTotalLifeTime" val="1200000"/>
+  <set name="summonTimeLostIdle" val="500"/>
+  <set name="summonTimeLostActive" val="1000"/>
+  <set name="target" val="TARGET_SELF"/>
+  <set name="itemConsumeCount" val="8"/>
+  <set name="reuseDelay" val="18600000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="SUMMON"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <!-- Summon-specific -->
+  <set name="npcId" val="20241"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7033" levels="1" name="Test Flame Strike">
+  <set name="mpInitialConsume" val="7"/>
+  <set name="mpConsume" val="27"/>
+  <set name="magicLvl" val="25"/>
+  <set name="power" val="225"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="element" val="2"/>
+  <set name="reuseDelay" val="15000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="500"/>
+  <set name="effectRange" val="1000"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7034" levels="1" name="Test Aqua Splash">
+  <set name="element" val="3"/> <!-- Water -->
+  <set name="mpConsume" val="27"/>
+  <set name="power" val="225"/>
+  <set name="target" val="TARGET_AREA"/>
+  <set name="skillRadius" val="200"/>
+  <set name="reuseDelay" val="15000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="MDAM"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="500"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7035" levels="1" name="Display - Swoop Cannon">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7036" levels="1" name="Display - Valakas">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7037" levels="1" name="Display - Tyrannosaurus Capture">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7038" levels="1" name="Channeling DD Test: Short">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7039" levels="1" name="Channeling DD Test: Middle">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7040" levels="1" name="Channeling DD Test: Long">
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="COREDONE"/>
+  <set name="operateType" val="OP_PASSIVE"/>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7041" levels="1" name="Master's Blessing - Focus">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="495"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="0.3" stackType="rCrit">
+      <basemul order="0x30" stat="rCrit" val="0.3"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7042" levels="1" name="Master's Blessing - Death Whisper">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="532"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.35" stackType="cAtk">
+      <mul order="0x30" stat="cAtk" val="1.35"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7043" levels="1" name="Master's Blessing - Haste">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="495"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.33" stackType="pAtkSpeedUp">
+      <mul order="0x30" stat="pAtkSpd" val="1.33"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7044" levels="1" name="Master's Blessing - Guidance">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="532"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="4" stackType="accuracyUp">
+      <add order="0x40" stat="accCombat" val="4"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7045" levels="1" name="Master's Blessing - Blessed Body">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="646"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.35" stackType="MaxHPUp">
+      <mul order="0x30" stat="maxHp" val="1.35"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7046" levels="1" name="Master's Blessing - Blessed Soul">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="aggroPoints" val="635"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.35" stackType="MPregen">
+      <mul order="0x30" stat="maxMp" val="1.35"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7047" levels="1" name="Master's Blessing - Agility">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="495"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="4" stackType="rEvas">
+      <add order="0x40" stat="rEvas" val="4"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7048" levels="1" name="Master's Blessing - Acumen">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="457"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.3" stackType="mAtkSpeedUp">
+      <mul order="0x30" stat="mAtkSpd" val="1.3"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7049" levels="1" name="Master's Blessing - Decrease Weight">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="495"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="9000" stackType="Weight">
+      <add order="0x40" stat="maxLoad" val="9000"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7050" levels="1" name="Master's Blessing - Might">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="4000"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="379"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.15" stackType="pAtk">
+      <mul order="0x30" stat="pAtk" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7051" levels="1" name="Master's Blessing - Shield">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="418"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.15" stackType="pDef">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7052" levels="1" name="Master's Blessing - Magic Barrier">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="495"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.13" stackType="MagicDefUp">
+      <mul order="0x30" stat="mDef" val="1.13"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7053" levels="1" name="Master's Blessing - Vampiric Rage">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="646"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0" stackOrder="9" stackType="vampRage">
+      <add order="0x40" stat="absorbDam" val="9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7054" levels="1" name="Master's Blessing - Empower">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="495"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1.75" stackType="mAtk">
+      <mul order="0x30" stat="mAtk" val="1.75"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7055" levels="1" name="Master's Blessing - Wind Walk">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="285"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="33" stackType="SpeedUp">
+      <add order="0x40" stat="runSpd" val="33"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7056" levels="1" name="Master's Blessing - Berserker Spirit">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="495"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1" stackType="berserk">
+      <mul order="0x30" stat="mAtk" val="1.16"/>
+      <mul order="0x30" stat="pAtk" val="1.08"/>
+      <mul order="0x30" stat="mDef" val="0.84"/>
+      <mul order="0x30" stat="pDef" val="0.92"/>
+      <mul order="0x30" stat="mAtkSpd" val="1.08"/>
+      <mul order="0x30" stat="pAtkSpd" val="1.08"/>
+      <add order="0x40" stat="runSpd" val="8"/>
+      <sub order="0x40" stat="rEvas" val="4"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7057" levels="1" name="Master's Blessing - Greater Might">
+  <set name="mpConsume" val="2"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="0" stackType="Great">
+      <mul order="0x30" stat="pAtk" val="1.1"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7058" levels="1" name="Master's Blessing - Greater Shield">
+  <set name="mpConsume" val="2"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="0" stackType="Great">
+      <mul order="0x30" stat="pDef" val="1.15"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7059" levels="1" name="Master's Blessing - Wild Magic">
+
+  <table name="#mCrit">4</table>
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="635"/>
+  <for>
+    <effect name="Buff" time="3600" count="1" val="0">
+      <basemul order="0x30" stat="mCritRate" val="2.0"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7060" levels="1" name="Master's Blessing - Clarity">
+  <set name="mpConsume" val="2"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1" stackType="MPrate">
+    <mul order="0x30" stat="MagicalMpConsumeRate" val="0.9"/>
+    <mul order="0x30" stat="PhysicalMpConsumeRate" val="0.8"/>
+	<mul order="0x30" stat="DanceMpConsumeRate" val="0.8"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7061" levels="1" name="Master's Blessing - Prophecy of Water">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="669"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1" stackType="CoV">
+      <mul order="0x30" stat="mAtk" val="1.2"/>
+      <mul order="0x30" stat="mDef" val="1.2"/>
+      <mul order="0x30" stat="mAtkSpd" val="1.2"/>
+      <basemul order="0x30" stat="mCritRate" val="2.0"/>
+      <mul order="0x30" stat="regMp" val="1.2"/>
+      <mul order="0x30" stat="runSpd" val="0.8"/>
+      <mul order="0x30" stat="debuffVuln" val="0.9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7062" levels="1" name="Master's Blessing - Prophecy of Fire">
+  <set name="mpConsume" val="2"/>
+  <set name="power" val="0.0"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="669"/>
+  <for>
+    <effect count="1" name="Buff" time="300" val="0" stackOrder="1" stackType="CoV">
+      <mul order="0x30" stat="pAtk" val="1.1"/>
+      <mul order="0x30" stat="pDef" val="1.2"/>
+      <add order="0x40" stat="accCombat" val="4"/>
+      <mul order="0x30" stat="pAtkSpd" val="1.2"/>
+      <mul order="0x30" stat="runSpd" val="0.8"/>
+      <mul order="0x30" stat="maxHp" val="1.2"/>
+      <mul order="0x30" stat="regHp" val="1.2"/>
+      <mul order="0x30" stat="debuffVuln" val="0.9"/>
+    </effect>
+  </for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7063" levels="1" name="Master's Blessing - Prophecy of Wind">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="669"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1" stackType="CoV">
+      <add order="0x40" stat="absorbDam" val="5"/>
+      <add order="0x40" stat="accCombat" val="4"/>
+      <add order="0x40" stat="rEvas" val="4"/>
+      <mul order="0x30" stat="pAtkSpd" val="1.2"/>
+      <mul order="0x30" stat="cAtk" val="1.2">
+         <player behind="True"/>
+     </mul>
+     <basemul order="0x30" stat="rCrit" val="0.2">
+         <player behind="True"/>
+     </basemul>
+     <mul order="0x30" stat="debuffVuln" val="0.9"/>
+  </effect>
+</for>
+</skill>
+<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<skill id="7064" levels="1" name="Master's Blessing - Chant of Victory">
+  <set name="mpConsume" val="2"/>
+  <set name="target" val="TARGET_ONE"/>
+  <set name="reuseDelay" val="6000"/>
+  <set name="hitTime" val="500"/>
+  <set name="skillType" val="BUFF"/>
+  <set name="isMagic" val="true"/>
+  <set name="operateType" val="OP_ACTIVE"/>
+  <set name="castRange" val="400"/>
+  <set name="effectRange" val="900"/>
+  <set name="aggroPoints" val="669"/>
+  <for>
+    <effect count="1" name="Buff" time="3600" val="0" stackOrder="1" stackType="CoV">
+      <mul order="0x30" stat="pAtk" val="1.1"/>
+      <mul order="0x30" stat="pDef" val="1.2"/>
+      <mul order="0x30" stat="rCrit" val="1.2"/>
+      <add order="0x40" stat="accCombat" val="4"/>
+      <mul order="0x30" stat="pAtkSpd" val="1.2"/>
+      <mul order="0x30" stat="mAtkSpd" val="1.2"/>
+      <mul order="0x30" stat="cAtk" val="1.2"/>
+      <mul order="0x30" stat="mAtk" val="1.2"/>
+      <mul order="0x30" stat="mDef" val="1.2"/>
+      <mul order="0x30" stat="runSpd" val="0.8"/>
+      <mul order="0x30" stat="maxHp" val="1.2"/>
+      <mul order="0x30" stat="debuffVuln" val="0.9"/>
+    </effect>
+  </for>
+</skill>
+</list>

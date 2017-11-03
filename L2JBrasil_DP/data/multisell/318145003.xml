@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- adventure guildsman - use life crystals (Town Of Oren) -->
+<list maintainEnchantment="true">
+	<!-- Karmian Stockings -->
+	<item id="1">
+		<ingredient id="8158" count="13"/>
+		<ingredient id="8164" count="14"/>
+		<ingredient id="8170" count="2"/>
+		<production id="471" count="1"/>
+ 	</item>
+	<!-- Karmian Tunic -->
+	<item id="2">
+		<ingredient id="8158" count="20"/>
+		<ingredient id="8164" count="22"/>
+		<ingredient id="8170" count="4"/>
+		<production id="439" count="1"/>
+ 	</item>
+	<!-- Robe of Seal -->
+	<item id="3">
+		<ingredient id="8158" count="37"/>
+		<ingredient id="8164" count="41"/>
+		<ingredient id="8170" count="7"/>
+		<production id="440" count="1"/>
+ 	</item>
+	<!-- Divine Tunic -->
+	<item id="4">
+		<ingredient id="8158" count="61"/>
+		<ingredient id="8164" count="67"/>
+		<ingredient id="8170" count="11"/>
+		<production id="442" count="1"/>
+ 	</item>
+	<!-- Divine Stockings -->
+	<item id="5">
+		<ingredient id="8158" count="38"/>
+		<ingredient id="8164" count="42"/>
+		<ingredient id="8170" count="7"/>
+		<production id="473" count="1"/>
+ 	</item>
+	<!-- Tunic of Zubei -->
+	<item id="6">
+		<ingredient id="8159" count="40"/>
+		<ingredient id="8162" count="12"/>
+		<ingredient id="8165" count="40"/>
+		<ingredient id="8171" count="24"/>
+		<production id="2397" count="1"/>
+ 	</item>
+	<!-- Stockings of Zubei -->
+	<item id="7">
+		<ingredient id="8159" count="25"/>
+		<ingredient id="8162" count="8"/>
+		<ingredient id="8165" count="25"/>
+		<ingredient id="8171" count="15"/>
+		<production id="2402" count="1"/>
+ 	</item>
+	<!-- Avadon Robe -->
+	<item id="8">
+		<ingredient id="8159" count="59"/>
+		<ingredient id="8162" count="18"/>
+		<ingredient id="8165" count="59"/>
+		<ingredient id="8171" count="35"/>
+		<production id="2406" count="1"/>
+ 	</item>
+	<!-- Blue Wolf Tunic -->
+	<item id="9">
+		<ingredient id="8159" count="66"/>
+		<ingredient id="8162" count="20"/>
+		<ingredient id="8165" count="66"/>
+		<ingredient id="8171" count="40"/>
+		<production id="2398" count="1"/>
+ 	</item>
+	<!-- Blue Wolf Stockings -->
+	<item id="10">
+		<ingredient id="8159" count="42"/>
+		<ingredient id="8162" count="12"/>
+		<ingredient id="8165" count="42"/>
+		<ingredient id="8171" count="25"/>
+		<production id="2403" count="1"/>
+ 	</item>
+	<!-- Tunic of Doom -->
+	<item id="11">
+		<ingredient id="8159" count="66"/>
+		<ingredient id="8162" count="20"/>
+		<ingredient id="8165" count="66"/>
+		<ingredient id="8171" count="40"/>
+		<production id="2399" count="1"/>
+ 	</item>
+	<!-- Stockings of Doom -->
+	<item id="12">
+		<ingredient id="8159" count="42"/>
+		<ingredient id="8162" count="12"/>
+		<ingredient id="8165" count="42"/>
+		<ingredient id="8171" count="25"/>
+		<production id="2404" count="1"/>
+ 	</item>
+</list>

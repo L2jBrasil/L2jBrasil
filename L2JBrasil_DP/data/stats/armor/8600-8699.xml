@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='8660' name="Demon Horns">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='8661' name="Mask of Spirits">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='8662' name="Fairy Antennae - For Event">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>

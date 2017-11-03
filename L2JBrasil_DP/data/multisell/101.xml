@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?> 
+
+<!-- Tickets for pet collars Exchange --> 
+
+<list> 
+
+  <!-- Baby cougar chime for Pet Exchange Ticket: Cougar --> 
+  <item id="1"> 
+    <ingredient id="7584" count="1"/> 
+    <production id="6649" count="1"/> 
+  </item> 
+  
+  <!-- Baby buffalo Panpipe for Pet Exchange Ticket: Buffalo --> 
+  <item id="2"> 
+    <ingredient id="7583" count="1"/> 
+    <production id="6648" count="1"/> 
+  </item> 
+  
+  <!-- Baby Kookaburra Ocarina for Pet Exchange Ticket: Kookaburra --> 
+  <item id="3"> 
+    <ingredient id="7585" count="1"/> 
+    <production id="6650" count="1"/> 
+  </item> 
+
+</list>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<!-- id chest legs head gloves feet skill_id shield shield_skill_id enchant6skill -->
+	<!-- NO GRADE -->
+	<!-- Wooden Breastplate set (heavy) -->
+	<armorset id="1" chest="23" legs="2386" head="43" gloves="0" feet="0" skill_id="3500" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="0"/>
+	<!-- Devotion robe set (robe) -->
+	<armorset id="2" chest="1101" legs="1104" head="44" gloves="0" feet="0" skill_id="3501" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="0"/>
+	<!-- D GRADE -->
+	<!-- Mithril Breastplate set(heavy) -->
+	<armorset id="3" chest="58" legs="59" head="47" gloves="0" feet="0" skill_id="3502" skill_lvl="1" shield="628" shield_skill_id="3543" enchant6skill="3611"/>
+	<!-- Brigandine Armor set -->
+	<armorset id="4" chest="352" legs="2378" head="2411" gloves="0" feet="0" skill_id="3506" skill_lvl="1" shield="2493" shield_skill_id="3544" enchant6skill="3611"/>
+	<!-- Reinforced leather set -->
+	<armorset id="5" chest="394" legs="416" head="0" gloves="0" feet="2422" skill_id="3503" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3612"/>
+	<!-- Manticore skin set -->
+	<armorset id="6" chest="395" legs="417" head="0" gloves="0" feet="2424" skill_id="3505" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3612"/>
+	<!-- Tunic of knowledge set -->
+	<armorset id="7" chest="436" legs="469" head="0" gloves="2447" feet="0" skill_id="3504" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3613"/>
+	<!-- Mithril Tunic -->
+	<armorset id="8" chest="437" legs="470" head="0" gloves="2450" feet="0" skill_id="3507" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3613"/>
+	<!-- C GRADE -->
+	<!-- Chain Mail Shirt set -->
+	<armorset id="9" chest="354" legs="381" head="2413" gloves="0" feet="0" skill_id="3509" skill_lvl="1" shield="2495" shield_skill_id="3545" enchant6skill="3614"/>
+	<!-- Composite Armor set -->
+	<armorset id="10" chest="60" legs="0" head="517" gloves="0" feet="0" skill_id="3512" skill_lvl="1" shield="107" shield_skill_id="3546" enchant6skill="3614"/>
+	<!-- Full Plate Armor set -->
+	<armorset id="11" chest="356" legs="0" head="2414" gloves="0" feet="0" skill_id="3516" skill_lvl="1" shield="2497" shield_skill_id="3547" enchant6skill="3614"/>
+	<!-- Mithrill shirt set -->
+	<armorset id="12" chest="397" legs="2387" head="0" gloves="0" feet="62" skill_id="3508" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3615"/>
+	<!-- Plated leather set -->
+	<armorset id="13" chest="398" legs="418" head="0" gloves="0" feet="2431" skill_id="3511" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3615"/>
+	<!-- Theca leather set -->
+	<armorset id="14" chest="400" legs="420" head="0" gloves="0" feet="2436" skill_id="3514" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3615"/>
+	<!-- Drake leather set -->
+	<armorset id="15" chest="401" legs="0" head="0" gloves="0" feet="2437" skill_id="3515" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3615"/>
+	<!-- Karmian robe set -->
+	<armorset id="16" chest="439" legs="471" head="0" gloves="2454" feet="0" skill_id="3510" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3616"/>
+	<!-- Demon robe set -->
+	<armorset id="17" chest="441" legs="472" head="0" gloves="2459" feet="0" skill_id="3513" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3616"/>
+	<!-- Divine robe set -->
+	<armorset id="18" chest="442" legs="473" head="0" gloves="2463" feet="0" skill_id="3517" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3616"/>
+	<!-- B GRADE -->
+	<!-- Zubei's Breastplate set -->
+	<armorset id="19" chest="357" legs="383" head="503" gloves="5710" feet="5726" skill_id="3518" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3617"/>
+	<!-- Zubei's leather set -->
+	<armorset id="20" chest="2384" legs="2388" head="503" gloves="5711" feet="5727" skill_id="3520" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3618"/>
+	<!-- Zubei robe set -->
+	<armorset id="21" chest="2397" legs="2402" head="503" gloves="5712" feet="5728" skill_id="3522" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3619"/>
+	<!-- Avadon heavy set -->
+	<armorset id="22" chest="2376" legs="2379" head="2415" gloves="5714" feet="5730" skill_id="3519" skill_lvl="1" shield="673" shield_skill_id="3548" enchant6skill="3617"/>
+	<!-- Avadon leather set -->
+	<armorset id="23" chest="2390" legs="0" head="2415" gloves="5715" feet="5731" skill_id="3521" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3618"/>
+	<!-- Avadon robe set -->
+	<armorset id="24" chest="2406" legs="0" head="2415" gloves="5716" feet="5732" skill_id="3523" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3619"/>
+	<!-- Blue Wolf's Breastplate set -->
+	<armorset id="25" chest="358" legs="2380" head="2416" gloves="5718" feet="5734" skill_id="3524" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3617"/>
+	<!-- Blue wolf leather set -->
+	<armorset id="26" chest="2391" legs="0" head="2416" gloves="5719" feet="5735" skill_id="3526" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3618"/>
+	<!-- Blue Wolf robe set -->
+	<armorset id="27" chest="2398" legs="2403" head="2416" gloves="5720" feet="5736" skill_id="3528" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3619"/>
+	<!-- Doom plate heavy set -->
+	<armorset id="28" chest="2381" legs="0" head="2417" gloves="5722" feet="5738" skill_id="3525" skill_lvl="1" shield="110" shield_skill_id="3549" enchant6skill="3617"/>
+	<!-- Doom leather set -->
+	<armorset id="29" chest="2392" legs="0" head="2417" gloves="5723" feet="5739" skill_id="3527" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3618"/>
+	<!-- Doom robe set  -->
+	<armorset id="30" chest="2399" legs="2404" head="2417" gloves="5724" feet="5740" skill_id="3529" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3619"/>
+	<!-- A GRADE -->
+	<!-- Dark Crystal Breastplate set -->
+	<armorset id="31" chest="365" legs="388" head="512" gloves="5765" feet="5777" skill_id="3530" skill_lvl="1" shield="641" shield_skill_id="3550" enchant6skill="3620"/>
+	<!-- Dark Crystal leather set -->
+	<armorset id="32" chest="2385" legs="2389" head="512" gloves="5766" feet="5778" skill_id="3532" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3621"/>
+	<!-- Dark Crystal robe set -->
+	<armorset id="33" chest="2407" legs="0" head="512" gloves="5767" feet="5779" skill_id="3535" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3622"/>
+	<!-- Tallum plate heavy set -->
+	<armorset id="34" chest="2382" legs="0" head="547" gloves="5768" feet="5780" skill_id="3531" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3620"/>
+	<!-- Tallum leather set -->
+	<armorset id="35" chest="2393" legs="0" head="547" gloves="5769" feet="5781" skill_id="3533" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3621"/>
+	<!-- Tallum robe set -->
+	<armorset id="36" chest="2400" legs="2405" head="547" gloves="5770" feet="5782" skill_id="3534" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3622"/>
+	<!-- Nightmare heavy set -->
+	<armorset id="37" chest="374" legs="0" head="2418" gloves="5771" feet="5783" skill_id="3536" skill_lvl="1" shield="2498" shield_skill_id="3551" enchant6skill="3620"/>
+	<!-- Nightmare leather set -->
+	<armorset id="38" chest="2394" legs="0" head="2418" gloves="5772" feet="5784" skill_id="3538" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3621"/>
+	<!-- Robe of nightmare set -->
+	<armorset id="39" chest="2408" legs="0" head="2418" gloves="5773" feet="5785" skill_id="3540" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3622"/>
+	<!-- Majestic plate heavy set -->
+	<armorset id="40" chest="2383" legs="0" head="2419" gloves="5774" feet="5786" skill_id="3537" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3620"/>
+	<!-- Majestic leather set -->
+	<armorset id="41" chest="2395" legs="0" head="2419" gloves="5775" feet="5787" skill_id="3539" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3621"/>
+	<!-- Majestic robe set -->
+	<armorset id="42" chest="2409" legs="0" head="2419" gloves="5776" feet="5788" skill_id="3541" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3622"/>
+	<!-- S GRADE -->
+	<!-- Imperial crusader set -->
+	<armorset id="43" chest="6373" legs="6374" head="6378" gloves="6375" feet="6376" skill_id="3553" skill_lvl="1" shield="6377" shield_skill_id="3554" enchant6skill="3623"/>
+	<!-- Draconic leather set -->
+	<armorset id="44" chest="6379" legs="0" head="6382" gloves="6380" feet="6381" skill_id="3555" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3624"/>
+	<!-- Major arcana robe set -->
+	<armorset id="45" chest="6383" legs="0" head="6386" gloves="6384" feet="6385" skill_id="3556" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3625"/>
+	<!-- Clan Sets -->
+	<!-- Clan oath Armor set (heavy) -->
+	<armorset id="46" chest="7851" legs="0" head="7850" gloves="7852" feet="7853" skill_id="3605" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3611"/>
+	<!-- Clan Oath Brigandine set (light) -->
+	<armorset id="47" chest="7854" legs="0" head="7850" gloves="7855" feet="7856" skill_id="3606" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3612"/>
+	<!-- Clan Oath Aketon set (robe) -->
+	<armorset id="48" chest="7857" legs="0" head="7850" gloves="7858" feet="7859" skill_id="3607" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3613"/>
+	<!-- Apella plate armor set (heavy) -->
+	<armorset id="49" chest="7861" legs="0" head="7860" gloves="7862" feet="7863" skill_id="3608" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3620"/>
+	<!-- Apella Brigandine set (light) -->
+	<armorset id="50" chest="7864" legs="0" head="7860" gloves="7865" feet="7866" skill_id="3609" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3621"/>
+	<!-- Apella Doublet set (robe) -->
+	<armorset id="51" chest="7867" legs="0" head="7860" gloves="7868" feet="7869" skill_id="3610" skill_lvl="1" shield="0" shield_skill_id="0" enchant6skill="3622"/>
+</list>

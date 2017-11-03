@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='5170' name="Mithril Panzer Coat">
+  <for>
+    <add val='41' order='0x10' stat='pDef'/>
+    <add val='41' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5171' name="Brigadine Panzer Coat">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <add val='44' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5172' name="Draconic Panzer Coat">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+    <add val='46' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5173' name="Blood Panzer Coat">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+    <add val='49' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5174' name="Ophidian Panzer Coat">
+  <for>
+    <add val='52' order='0x10' stat='pDef'/>
+    <add val='52' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5175' name="Inferno Panzer Coat">
+  <for>
+    <add val='54' order='0x10' stat='pDef'/>
+    <add val='54' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5182' name="Hatchling's Gorgon Coat">
+  <for>
+    <add val='44' order='0x10' stat='pDef'/>
+    <add val='44' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5183' name="Hatchling's Ophidian Plate">
+  <for>
+    <add val='46' order='0x10' stat='pDef'/>
+    <add val='46' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5184' name="Hatchling's Crimson Plate">
+  <for>
+    <add val='49' order='0x10' stat='pDef'/>
+    <add val='49' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5185' name="Hatchling's Draconic Plate">
+  <for>
+    <add val='52' order='0x10' stat='pDef'/>
+    <add val='52' order='0x10' stat='mDef'/>
+  </for>
+</item>
+<item id='5186' name="Hatchling's Inferno Plate">
+  <for>
+    <add val='54' order='0x10' stat='pDef'/>
+    <add val='54' order='0x10' stat='mDef'/>
+  </for>
+</item>
+</list>

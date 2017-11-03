@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+    <staticobject id="20180001" x="15258" y="15631" z="-4366" type="0" texture="town_map_darkelf_t00" map_x="1" map_y="1"/> <!-- darkelf_village_001 -->
+    <staticobject id="20180002" x="7557" y="18055" z="-4366" type="0" texture="town_map_darkelf_t00" map_x="1" map_y="1"/> <!-- darkelf_village_002 -->
+    <staticobject id="23120001" x="115462" y="-177295" z="-880" type="0" texture="town_map_dwarf_t00" map_x="1" map_y="1"/> <!-- dwarven_village_001 -->
+    <staticobject id="23120002" x="117450" y="-182299" z="-1488" type="0" texture="town_map_dwarf_t00" map_x="1" map_y="1"/> <!-- dwarven_village_002 -->
+    <staticobject id="23120003" x="116657" y="-183997" z="-1550" type="0" texture="town_map_dwarf_t00" map_x="1" map_y="1"/> <!-- dwarven_village_003 -->
+    <staticobject id="21190001" x="47616" y="51349" z="-2968" type="0" texture="town_map_elf_t00" map_x="1" map_y="1"/> <!-- elf_village_001 -->
+    <staticobject id="21190002" x="45915" y="46695" z="-2969" type="0" texture="town_map_elf_t00" map_x="1" map_y="1"/> <!-- elf_village_002 -->
+    <staticobject id="21190003" x="43175" y="51424" z="-2968" type="0" texture="town_map_elf_t00" map_x="1" map_y="1"/> <!-- elf_village_003 -->
+    <staticobject id="17250001" x="-82873" y="244808" z="-3717" type="0" texture="town_map_talking_t00" map_x="1" map_y="1"/> <!-- human_village_001 -->
+    <staticobject id="17250002" x="-82765" y="241439" z="-3718" type="0" texture="town_map_talking_t00" map_x="1" map_y="1"/> <!-- human_village_002 -->
+    <staticobject id="17250003" x="-86121" y="241452" z="-3719" type="0" texture="town_map_talking_t00" map_x="1" map_y="1"/> <!-- human_village_003 -->
+    <staticobject id="18140001" x="-45824" y="-116764" z="-219" type="0" texture="town_map_orc_t00" map_x="1" map_y="1"/> <!-- orc_village_001 -->
+    <staticobject id="18140002" x="-46504" y="-110394" z="-220" type="0" texture="town_map_orc_t00" map_x="1" map_y="1"/> <!-- orc_village_002 -->
+    <staticobject id="18140003" x="-47332" y="-113246" z="-220" type="0" texture="town_map_orc_t00" map_x="1" map_y="1"/> <!-- orc_village_003 -->
+    <staticobject id="24180017" x="147456" y="3272" z="-42" type="1" texture="none" map_x="0" map_y="0"/> <!-- aden_castle_throne -->
+    <staticobject id="22190010" x="83237" y="37192" z="-2286" type="1" texture="none" map_x="0" map_y="0"/> <!-- oren_castle_throne -->
+    <staticobject id="20220010" x="22073" y="160989" z="-2686" type="1" texture="none" map_x="0" map_y="0"/> <!-- dion_castle_throne -->
+    <staticobject id="23220010" x="117161" y="145097" z="-2559" type="1" texture="none" map_x="0" map_y="0"/> <!-- giran_castle_throne -->
+    <staticobject id="19210010" x="-18112" y="108761" z="-2492" type="1" texture="none" map_x="0" map_y="0"/> <!-- gludio_castle_throne -->
+    <staticobject id="23250010" x="116024" y="249768" z="-782" type="1" texture="none" map_x="0" map_y="0"/> <!-- innadril_castle_throne -->
+    <staticobject id="24160024" x="147459" y="-49363" z="-2132" type="1" texture="none" map_x="0" map_y="0"/> <!-- goddard_castle_throne -->
+    <staticobject id="22130016" x="77555" y="-153420" z="-405" type="1" texture="none" map_x="0" map_y="0"/> <!-- schuttgart_castle_throne -->
+    <staticobject id="20160010" x="10128" y="-49162" z="-280" type="1" texture="none" map_x="0" map_y="0"/> <!-- rune_castle_throne -->
+    <staticobject id="20230001" x="12110" y="182771" z="-3538" type="2" texture="none" map_x="0" map_y="0"/> <!-- floran_arena_001 -->
+    <staticobject id="20230002" x="12979" y="183365" z="-3538" type="2" texture="none" map_x="0" map_y="0"/> <!-- floran_arena_002 -->
+    <staticobject id="22220001" x="73766" y="142489" z="-3748" type="2" texture="none" map_x="0" map_y="0"/> <!-- giran_arena_001 -->
+    <staticobject id="22220002" x="72200" y="143102" z="-3748" type="2" texture="none" map_x="0" map_y="0"/> <!-- giran_arena_002 -->
+    <staticobject id="17220015" x="-88697" y="142316" z="-3621" type="2" texture="none" map_x="0" map_y="0"/> <!-- gludin_arena_001 -->
+    <staticobject id="17220016" x="-87136" y="142491" z="-3623" type="2" texture="none" map_x="0" map_y="0"/> <!-- gludin_arena_002 -->
+	<staticobject id="20200500" x="-11546" y="95030" z="-2498" type="3" texture="none" map_x="0" map_y="0"/> <!-- Dragonspine_flagpole -->
+</list>

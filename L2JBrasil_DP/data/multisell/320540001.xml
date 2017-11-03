@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Quest 650_ABrokenDream: exchange Dream Fragment -->
+<list maintainEnchantment="true">
+ 	<!-- Lesser Healing Potion compressed SSD -->
+ 	<item id="1">
+ 		<ingredient id="8514" count="9"/>
+ 		<production id="5135" count="1"/>
+ 		<production id="734" count="1"/>
+ 	</item>
+ 	<!-- compressed SPD -->
+ 	<item id="2">
+ 		<production id="5141" count="1"/>
+ 		<ingredient id="8514" count="15"/>
+ 	</item>
+ 	<!-- compressed BSSD and healing P -->
+ 	<item id="3">
+ 		<production id="5147" count="1"/>
+ 		<production id="1061" count="1"/>
+ 		<ingredient id="8514" count="38"/>
+ 	</item>
+ 	<!-- Healing -->
+ 	<item id="4">
+ 		<production id="1061" count="1"/>
+ 		<ingredient id="8514" count="1"/>
+ 	</item>
+ 	<!-- Haste Potion and Lesser healing P -->
+ 	<item id="5">
+ 		<production id="734" count="1"/>
+ 		<production id="1060" count="1"/>
+ 		<ingredient id="8514" count="3"/>
+ 	</item>
+ 	<!-- Acrility and lessere healing P -->
+ 	<item id="6">
+ 		<production id="735" count="1"/>
+ 		<production id="1060" count="1"/>
+ 		<ingredient id="8514" count="6"/>
+ 	</item>
+ 	<!-- scroll escape and healing -->
+ 	<item id="7">
+ 		<production id="736" count="1"/>
+ 		<production id="1060" count="3"/>
+ 		<ingredient id="8514" count="2"/>
+ 	</item>
+ 	<!-- ressurrection -->
+ 	<item id="8">
+ 		<production id="737" count="1"/>
+ 		<ingredient id="8514" count="6"/>
+ 	</item>
+</list>

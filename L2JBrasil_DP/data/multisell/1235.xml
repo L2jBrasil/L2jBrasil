@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Apella Trader -->
+<!-- by Demolidor -->
+<list applyTaxes="true">
+
+<!-- Sealed Apella Helm -->
+<item id="1">
+<ingredient id="65336" count="3480"/>
+<ingredient id="57" count="174000"/>
+<production id="7870" count="1"/>
+<ingredient id="57" count="1740000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Plate Armor -->
+<item id="2">
+<ingredient id="65336" count="13540"/>
+<ingredient id="57" count="667000"/>
+<production id="7871" count="1"/>
+<ingredient id="57" count="6670000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Gauntlet -->
+<item id="3">
+<ingredient id="65336" count="2320"/>
+<ingredient id="57" count="116000"/>
+<production id="7872" count="1"/>
+<ingredient id="57" count="1160000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Solleret -->
+<item id="4">
+<ingredient id="65336" count="2320"/>
+<ingredient id="57" count="116000"/>
+<production id="7873" count="1"/>
+<ingredient id="57" count="1160000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Brigandine -->
+<item id="5">
+<ingredient id="65336" count="10160"/>
+<ingredient id="57" count="508000"/>
+<production id="7874" count="1"/>
+<ingredient id="57" count="5080000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Leather Gloves -->
+<item id="6">
+<ingredient id="65336" count="2320"/>
+<ingredient id="57" count="116000"/>
+<production id="7875" count="1"/>
+<ingredient id="57" count="1160000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Boots -->
+<item id="7">
+<ingredient id="65336" count="2320"/>
+<ingredient id="57" count="116000"/>
+<production id="7876" count="1"/>
+<ingredient id="57" count="1160000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Doublet -->
+<item id="8">
+<ingredient id="65336" count="10160"/>
+<ingredient id="57" count="508000"/>
+<production id="7877" count="1"/>
+<ingredient id="57" count="5080000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Silk Gloves -->
+<item id="9">
+<ingredient id="65336" count="2320"/>
+<ingredient id="57" count="116000"/>
+<production id="7878" count="1"/>
+<ingredient id="57" count="1160000" isTaxIngredient="true"/>
+</item>
+
+<!-- Sealed Apella Sandals -->
+<item id="10">
+<ingredient id="65336" count="2320"/>
+<ingredient id="57" count="116000"/>
+<production id="7879" count="1"/>
+<ingredient id="57" count="1160000" isTaxIngredient="true"/>
+</item>
+
+</list>

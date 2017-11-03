@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='6408' name="Formal Wear">
+  <for>
+   <add stat='pDef' order='0x10' val='0'/>
+   <add stat='maxHp' order='0x40' val='0'>
+     <and>
+       <using slotitem="2414;6"/>
+     </and>
+   </add>
+  <enchant val='0' order='0x0C' stat='pDef'/>
+</for>
+</item>
+</list>

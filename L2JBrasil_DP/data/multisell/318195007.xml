@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Adventure guildsman - Use Life Crystals (Heine) -->
+<list maintainEnchantment="true">
+	<!-- Flamberge -->
+ 	<item id="1">
+		<ingredient id="8158" count="102"/>
+		<ingredient id="8161" count="28"/>
+		<ingredient id="8164" count="112"/>
+		<ingredient id="8167" count="56"/>
+		<production id="71" count="1"/>
+ 	</item>
+	<!-- Stormbringer -->
+	<item id="2">
+		<ingredient id="8158" count="102"/>
+		<ingredient id="8161" count="28"/>
+		<ingredient id="8164" count="112"/>
+		<ingredient id="8167" count="56"/>
+		<production id="72" count="1"/>
+ 	</item>
+	<!-- Raid Sword -->
+	<item id="3">
+		<ingredient id="8158" count="128"/>
+		<ingredient id="8161" count="35"/>
+		<ingredient id="8164" count="140"/>
+		<ingredient id="8167" count="70"/>
+		<production id="133" count="1"/>
+ 	</item>
+	<!-- Caliburs -->
+	<item id="4">
+		<ingredient id="8158" count="207"/>
+		<ingredient id="8161" count="56"/>
+		<ingredient id="8164" count="226"/>
+		<ingredient id="8167" count="113"/>
+		<production id="75" count="1"/>
+ 	</item>
+	<!-- Pa'agrian Sword -->
+	<item id="5">
+		<ingredient id="8158" count="207"/>
+		<ingredient id="8161" count="56"/>
+		<ingredient id="8164" count="226"/>
+		<ingredient id="8167" count="113"/>
+		<production id="7882" count="1"/>
+ 	</item>
+	<!-- Samurai Longsword -->
+	<item id="6">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="135" count="1"/>
+ 	</item>
+	<!-- Berserker Blade -->
+	<item id="7">
+		<ingredient id="8158" count="295"/>
+		<ingredient id="8161" count="80"/>
+		<ingredient id="8164" count="322"/>
+		<ingredient id="8167" count="161"/>
+		<production id="5286" count="1"/>
+ 	</item>
+	<!-- Great Sword -->
+	<item id="8">
+ 		<ingredient id="8159" count="193"/>
+ 		<ingredient id="8162" count="58"/>
+ 		<ingredient id="8165" count="193"/>
+ 		<ingredient id="8168" count="135"/>
+ 		<ingredient id="8171" count="116"/>
+ 		<production id="78" count="1"/>
+ 	</item>
+	<!-- Keshanberk -->
+	<item id="9">
+ 		<ingredient id="8159" count="193"/>
+ 		<ingredient id="8162" count="58"/>
+ 		<ingredient id="8165" count="193"/>
+ 		<ingredient id="8168" count="135"/>
+ 		<ingredient id="8171" count="116"/>
+ 		<production id="142" count="1"/>
+ 	</item>
+	<!-- Sword of Damascus -->
+	<item id="10">
+ 		<ingredient id="8159" count="309"/>
+ 		<ingredient id="8162" count="93"/>
+ 		<ingredient id="8165" count="309"/>
+ 		<ingredient id="8168" count="216"/>
+ 		<ingredient id="8171" count="186"/>
+ 		<production id="79" count="1"/>
+ 	</item>
+	<!-- Guardian Sword -->
+	<item id="11">
+ 		<ingredient id="8159" count="309"/>
+ 		<ingredient id="8162" count="93"/>
+ 		<ingredient id="8165" count="309"/>
+ 		<ingredient id="8168" count="216"/>
+ 		<ingredient id="8171" count="186"/>
+ 		<production id="7883" count="1"/>
+ 	</item>
+</list>

@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='2376' name="Avadon Breastplate">
+  <for>
+   <add val='157' order='0x10' stat='pDef'/>
+   <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2377' name="Mithril Scale Gaiters">
+  <for>
+    <add val='64' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2378' name="Brigandine Gaiters">
+  <for>
+    <add val='64' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2379' name="Avadon Gaiters">
+  <for>
+    <add val='98' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2380' name="Blue Wolf Gaiters">
+  <for>
+    <add val='104' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2381' name="Doom Plate Armor">
+  <for>
+    <add val='270' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2382' name="Tallum Plate Armor">
+  <for>
+    <add val='278' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2383' name="Majestic Plate Armor">
+  <for>
+    <add val='293' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2384' name="Zubei's Leather Shirt">
+  <for>
+    <add val='117' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2385' name="Dark Crystal Leather Armor">
+  <for>
+    <add val='128' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2386' name="Wooden Gaiters">
+  <for>
+    <add val='29' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='2387' name="Tempered Mithril Gaiters">
+  <for>
+    <add val='56' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2388' name="Zubei's Leather Gaiters">
+  <for>
+    <add val='73' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2389' name="Dark Crystalline Leggings">
+  <for>
+    <add val='80' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2390' name="Avadon Leather Armor">
+  <for>
+    <add val='191' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2391' name="Blue Wolf Leather Armor">
+  <for>
+    <add val='202' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2392' name="Leather Armor of Doom">
+  <for>
+    <add val='202' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2393' name="Tallum Leather Armor">
+  <for>
+    <add val='209' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2394' name="Nightmarish Leather Armor">
+  <for>
+    <add val='220' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2395' name="Majestic Leather Armor">
+  <for>
+    <add val='220' order='0x10' stat='pDef'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2396' name="Elven Mithril Tunic">
+  <for>
+    <add val='54' order='0x10' stat='pDef'/>
+    <add val='169' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2397' name="Tunic of Zubei">
+  <for>
+    <add val='78' order='0x10' stat='pDef'/>
+    <add val='345' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2398' name="Blue Wolf Tunic">
+  <for>
+    <add val='83' order='0x10' stat='pDef'/>
+    <add val='377' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+<item id='2399' name="Tunic of Doom">
+  <for>
+    <add val='83' order='0x10' stat='pDef'/>
+    <add val='377' order='0x60' stat='maxMp'/>
+    <enchant val='0' order='0x0C' stat='pDef'/>
+  </for>
+</item>
+</list>

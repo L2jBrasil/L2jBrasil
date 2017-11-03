@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+<item id='7059' name="Hair Accessory for Events">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+<item id='7060' name="Tateossian Hairband">
+  <for>
+    <add val='0' order='0x10' stat='pDef'/>
+  </for>
+</item>
+</list>
