@@ -96,24 +96,7 @@ class OlympiadGame extends Olympiad
 				_playerTwo.setOlympiadGameId(id);
 				_playerOneID = _playerOne.getObjectId();
 				_playerTwoID = _playerTwo.getObjectId();
-				if (!Config.ALT_OLY_SAME_IP)
-    			{
-    				String _playerOneIp = _playerOne.getClient().getConnection().getInetAddress().getHostAddress();
-    				String _playerTwoIp = _playerTwo.getClient().getConnection().getInetAddress().getHostAddress();
-    				if (_playerOneIp.equals(_playerTwoIp))
-    				{
-    					switch (_type)
-    					{
-    						case CLASSED:
-							break;
-    					}
-    					_playerOne.sendMessage("Match aborted due to same ip-address of your enemy.");
-    					_playerTwo.sendMessage("Match aborted due to same ip-address of your enemy.");
-    					_aborted = true;
-    					clearPlayers();
-    				}
-    			}
-			}
+            }
 			catch(Exception e)
 			{
 				_aborted = true;

@@ -390,7 +390,6 @@ public final class Config
 	public static boolean ALLOW_CHAR_KILL_PROTECT;
 	public static boolean L2WALKER_PROTECTION;
 	public static boolean ALLOW_SAME_IP_NOT_GIVE_PVP_POINT;
-	public static boolean ALT_OLY_SAME_IP;
 	public static boolean GG_ENABLE;
 	public static boolean ALLOW_PARTY_TRADE;
 	public static String[] FORBIDDEN_NAMES;
@@ -601,7 +600,6 @@ public final class Config
 	    	ALLOW_CHAR_KILL_PROTECT = Boolean.parseBoolean(L2JBrasil.getProperty("AllowLowLvlProtect", "False"));
 	    	L2WALKER_PROTECTION = Boolean.parseBoolean(L2JBrasil.getProperty("L2WalkerProtection", "False"));
 	    	ALLOW_SAME_IP_NOT_GIVE_PVP_POINT = Boolean.parseBoolean(L2JBrasil.getProperty("AllowSameIPDontGivePvPPoint", "False"));
-	    	ALT_OLY_SAME_IP = Boolean.parseBoolean(L2JBrasil.getProperty("AltOlySameIp", "True"));
             GG_ENABLE = Boolean.parseBoolean(L2JBrasil.getProperty("GuardSystem", "False"));
 	    	ALLOW_PARTY_TRADE = Boolean.parseBoolean(L2JBrasil.getProperty("AllowPartyTrade", "False"));
 	    	FORBIDDEN_NAMES = L2JBrasil.getProperty("ForbiddenNames", "").split(",");

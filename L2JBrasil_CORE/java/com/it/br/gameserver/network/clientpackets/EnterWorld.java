@@ -552,6 +552,9 @@ public class EnterWorld extends L2GameClientPacket
 			activeChar.logout();
 		}
 
+        activeChar.decayMe();
+        activeChar.spawnMe();
+
         sendPacket(new UserInfo(activeChar));
         sendPacket(new HennaInfo(activeChar));
         sendPacket(new FriendList(activeChar));
