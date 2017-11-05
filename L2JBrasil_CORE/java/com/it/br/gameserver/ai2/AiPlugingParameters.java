@@ -22,7 +22,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.it.br.gameserver.datatables.xml.NpcTable;
-import sun.text.resources.cldr.zh.FormatData_zh_Hans_SG;
 
 /**
  *
