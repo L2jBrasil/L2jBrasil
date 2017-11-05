@@ -1,11 +1,4 @@
 #!/bin/bash
-
-# Configure your database configuration
-gameDBUser=root
-gameDBPassword=root
-gameDBName=l2jdb
-gameDBHost=localhost
-
 mysql_exec=''
 
 function start {
