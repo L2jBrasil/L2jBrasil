@@ -28,7 +28,7 @@ import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
-public class VipTeleport implements IVoicedCommandHandler
+public class VipTeleportVoicedCommand implements IVoicedCommandHandler
 {
     private static final String[] VOICED_COMMANDS = { "teleport" };
     

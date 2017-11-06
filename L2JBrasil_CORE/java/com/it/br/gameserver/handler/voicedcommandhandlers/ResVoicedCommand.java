@@ -5,7 +5,7 @@ import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
 
-public class Res implements IVoicedCommandHandler
+public class ResVoicedCommand implements IVoicedCommandHandler
 {
     private static final String[] VOICED_COMMANDS = { "res" };
 

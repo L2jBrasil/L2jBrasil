@@ -21,7 +21,7 @@ import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
-public class OnlinePlayers implements IVoicedCommandHandler
+public class OnlineVoicedCommand implements IVoicedCommandHandler
 {
 	private static final String[] VOICED_COMMANDS = {"online"};
 

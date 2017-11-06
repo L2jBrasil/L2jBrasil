@@ -24,18 +24,7 @@ import java.util.logging.Logger;
 
 
 import com.it.br.Config;
-import com.it.br.gameserver.handler.voicedcommandhandlers.Away;
-import com.it.br.gameserver.handler.voicedcommandhandlers.Banking;
-import com.it.br.gameserver.handler.voicedcommandhandlers.BuyRec;
-import com.it.br.gameserver.handler.voicedcommandhandlers.OnlinePlayers;
-import com.it.br.gameserver.handler.voicedcommandhandlers.Res;
-import com.it.br.gameserver.handler.voicedcommandhandlers.Stat;
-import com.it.br.gameserver.handler.voicedcommandhandlers.VipTeleport;
-import com.it.br.gameserver.handler.voicedcommandhandlers.Wedding;
-import com.it.br.gameserver.handler.voicedcommandhandlers.info;
-import com.it.br.gameserver.handler.voicedcommandhandlers.loc;
-import com.it.br.gameserver.handler.voicedcommandhandlers.stats;
-import com.it.br.gameserver.handler.voicedcommandhandlers.tradeoff;
+import com.it.br.gameserver.handler.voicedcommandhandlers.*;
 
 public class VoicedCommandHandler
 {
@@ -59,28 +48,41 @@ public class VoicedCommandHandler
 		_datatable = new HashMap<>();
 		
 		if (Config.ALLOW_LOC_VOICECOMMAND)
-		registerVoicedCommandHandler(new loc());
+			registerVoicedCommandHandler(new LocationVoicedCommand());
+
 		if (Config.ALLOW_AWAY_STATUS)
-		registerVoicedCommandHandler(new Away());
+			registerVoicedCommandHandler(new AwayVoicedCommand());
+
 		if (Config.BANKING_SYSTEM_ENABLED) 
-	    registerVoicedCommandHandler(new Banking()); 
+	    	registerVoicedCommandHandler(new BankingVoicedCommand());
+
 		if (Config.REC_BUY)
-		registerVoicedCommandHandler(new BuyRec());
+			registerVoicedCommandHandler(new BuyRecVoicedCommand());
+
 		if (Config.ENABLE_INFO)
-		registerVoicedCommandHandler(new info());
-		registerVoicedCommandHandler(new stats());
+			registerVoicedCommandHandler(new InfoVoicedCommand());
+
 		if (Config.ENABLE_ONLINE_COMMAND)
-		registerVoicedCommandHandler(new OnlinePlayers());
+			registerVoicedCommandHandler(new OnlineVoicedCommand());
+
 		if (Config.ALLOW_RES_COMMAND)
-		registerVoicedCommandHandler(new Res());
+			registerVoicedCommandHandler(new ResVoicedCommand());
+
 		if (Config.ALLOW_STAT_VIEW)
-		registerVoicedCommandHandler(new Stat());
+			registerVoicedCommandHandler(new StatVoicedCommand());
+
 		if (Config.ALLOW_TRADEOFF_VOICE_COMMAND)
-		registerVoicedCommandHandler(new tradeoff());
+			registerVoicedCommandHandler(new TradeOffVoicedCommand());
+
 		if (Config.ENABLE_VIP_TELEPORT)
-		registerVoicedCommandHandler(new VipTeleport());
+			registerVoicedCommandHandler(new VipTeleportVoicedCommand());
+
 		if (Config.L2JMOD_ALLOW_WEDDING)
-		registerVoicedCommandHandler(new Wedding());
+			registerVoicedCommandHandler(new WeddingVoicedCommand());
+
+		registerVoicedCommandHandler(new StatsVoicedCommand());
+		registerVoicedCommandHandler(new CastleVoicedCommand());
+		registerVoicedCommandHandler(new SetVoicedCommand());
 	}
 
 	public void registerVoicedCommandHandler(IVoicedCommandHandler handler)

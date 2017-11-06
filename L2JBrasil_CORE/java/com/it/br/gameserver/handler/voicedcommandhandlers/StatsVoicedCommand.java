@@ -25,7 +25,7 @@ import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 
-public class stats implements IVoicedCommandHandler
+public class StatsVoicedCommand implements IVoicedCommandHandler
 {
     private static final String[] VOICED_COMMANDS = { "stats" };
 
