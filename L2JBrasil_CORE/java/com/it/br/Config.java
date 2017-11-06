@@ -60,11 +60,11 @@ public final class Config
     private static final String MMOCORE_CONFIG_FILE	= "./config/mmocore.properties";
     public static final String TELNET_FILE			= "./config/telnet.properties";
 
-    private static final String COMMAND_FILE			= "./config/custom/command.properties";
+    private static final String COMMAND_FILE		= "./config/custom/command.properties";
     private static final String L2JBRASIL_FILE		= "./config/custom/l2jbrasil.properties";
     private static final String L2JMOD_FILE			= "./config/custom/l2jmods.properties";
 
-	private static final String ELIT_CH_FILE			= "./config/event/clanhall.properties";
+	private static final String ELIT_CH_FILE		= "./config/event/clanhall.properties";
     private static final String FORTSIEGE_FILE		= "./config/event/fort.properties";
     private static final String SEPULCHERS_FILE		= "./config/event/sepulchers.properties";
 	private static final String OLYMPIAD_FILE		= "./config/event/olympiad.properties";
@@ -73,20 +73,20 @@ public final class Config
     private static final String EVENT_CONFIG_FILE	= "./config/event/event.properties";
 
     private static final String ADMIN_FILE			= "./config/main/admin.properties";
-    private static final String ALTSETTINGS_FILE		= "./config/main/altSettings.properties";
+    private static final String ALTSETTINGS_FILE	= "./config/main/altsettings.properties";
     private static final String BOSS_FILE			= "./config/main/boss.properties";
     private static final String CLAN_FILE			= "./config/main/clan.properties";
     private static final String CLASS_FILE			= "./config/main/class.properties";
-    private static final String ENCHANT_FILE			= "./config/main/enchant.properties";
+    private static final String ENCHANT_FILE		= "./config/main/enchant.properties";
     private static final String EXTENSIONS_FILE		= "./config/main/extensions.properties";
-    private static final String OPTIONS_FILE			= "./config/main/options.properties";
+    private static final String OPTIONS_FILE		= "./config/main/options.properties";
     private static final String OTHER_FILE			= "./config/main/other.properties";
-    private static final String PVP_FILE				= "./config/main/pvp.properties";
+    private static final String PVP_FILE			= "./config/main/pvp.properties";
     private static final String RATES_FILE			= "./config/main/rates.properties";
 
-    private static final String CHAT_FILTER_FILE		= "./config/other/chatfilter.txt";
+    private static final String CHAT_FILTER_FILE	= "./config/other/chatfilter.txt";
     public static final String ADMINCOMMAND_FILE	= "./config/other/admin-command.properties";
-    private static final String L2JCORE_FILE			= "./config/other/l2jcore.properties";
+    private static final String L2JCORE_FILE		= "./config/other/l2jcore.properties";
     private static final String L2JDP_FILE			= "./config/other/l2jdp.properties";
     private static final String HEXID_FILE			= "./config/other/hexid.txt";
 
