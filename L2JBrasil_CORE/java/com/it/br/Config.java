@@ -3177,6 +3177,7 @@ public final class Config
     public static String DATABASE_LOGIN;
     public static String DATABASE_PASSWORD;
     public static int DATABASE_MAX_CONNECTIONS;
+	public static int DATABASE_MAX_IDLE_TIME;
     public static boolean AUTO_CREATE_ACCOUNTS;
     public static int IP_UPDATE_TIME;
     public static boolean DEBUG;
@@ -3213,6 +3214,7 @@ public final class Config
     		DATABASE_LOGIN = serverSettings.getProperty("Login", "root");
     		DATABASE_PASSWORD = serverSettings.getProperty("Password", "");
     		DATABASE_MAX_CONNECTIONS = Integer.parseInt(serverSettings.getProperty("MaximumDbConnections", "10"));
+    		DATABASE_MAX_IDLE_TIME = Integer.parseInt(serverSettings.getProperty("MaximumDbIdleTime", "0"));
     		AUTO_CREATE_ACCOUNTS = Boolean.parseBoolean(serverSettings.getProperty("AutoCreateAccounts","True"));
     		IP_UPDATE_TIME = Integer.parseInt(serverSettings.getProperty("IpUpdateTime","15"));
     		DEBUG = Boolean.parseBoolean(serverSettings.getProperty("Debug", "false"));
@@ -3272,6 +3274,7 @@ public final class Config
     		DATABASE_LOGIN = serverSettings.getProperty("Login", "root");
     		DATABASE_PASSWORD = serverSettings.getProperty("Password", "");
     		DATABASE_MAX_CONNECTIONS = Integer.parseInt(serverSettings.getProperty("MaximumDbConnections", "10"));
+			DATABASE_MAX_IDLE_TIME = Integer.parseInt(serverSettings.getProperty("MaximumDbIdleTime", "0"));
     		DATAPACK_ROOT = new File(serverSettings.getProperty("DatapackRoot", ".")).getCanonicalFile();
     		CNAME_TEMPLATE = serverSettings.getProperty("CnameTemplate", ".*");
     		PET_NAME_TEMPLATE = serverSettings.getProperty("PetNameTemplate", ".*");
