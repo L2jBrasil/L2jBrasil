@@ -16,7 +16,7 @@
       <src_folder value="file://$MODULE_DIR$/java" expected_position="0" />
     </src_description>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/bin" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -133,5 +133,7 @@
     </orderEntry>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="library" name="HikariCP-2.7.2" level="project" />
+    <orderEntry type="library" name="slf4j" level="project" />
+    <orderEntry type="library" name="logback" level="project" />
   </component>
 </module>
