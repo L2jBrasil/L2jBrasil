@@ -24,7 +24,7 @@ import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
  *
  * @author Ahmed
  */
-public class Banking implements IVoicedCommandHandler
+public class BankingVoicedCommand implements IVoicedCommandHandler
 {
 	private static String[] _voicedCommands = { "bank", "withdraw", "deposit" };
 

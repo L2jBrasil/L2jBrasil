@@ -20,55 +20,34 @@ package com.it.br.gameserver.handler.voicedcommandhandlers;
 
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.SystemMessageId;
+import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
-/** 
- * @Author Intrepid
- * 
- * @Last_Author Guma 
- *
- **/
-public class tradeoff implements IVoicedCommandHandler
+public class SetVoicedCommand implements IVoicedCommandHandler
 {
-	private static final String[] VOICED_COMMANDS = {"tradeoff" };
+    private static final String[] VOICED_COMMANDS = { "set name", "set home", "set group" };
 
 
 	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)
-	{
-		if(command.startsWith("tradeoff"))
-		{
-			try
-			{
-				String mode = command.substring(15);
-				if (mode.equalsIgnoreCase("on"))
-				{
-					activeChar.setTradeRefusal(true);
-					activeChar.sendMessage("Trade refusal enabled");
-				}
-				else if (mode.equalsIgnoreCase("off"))
-				{
-					activeChar.setTradeRefusal(false);
-					activeChar.sendMessage("Trade refusal disabled");
-				}
-			}
-			catch(Exception ex)
-			{
-				if(activeChar.getTradeRefusal())
-				{
-					activeChar.setTradeRefusal(false);
-					activeChar.sendMessage("Trade refusal disabled");
-				}
-				else
-				{
-					activeChar.setTradeRefusal(true);
-					activeChar.sendMessage("Trade refusal enabled");
-				}
-			}
-		}
-		return true;
-   }
+    {
+    	if(command.startsWith("set privileges")){
+    		int n = Integer.parseInt(command.substring(15));
+    		L2PcInstance pc = (L2PcInstance) activeChar.getTarget();
+    		if(pc!=null){
+    			if(activeChar.getClan().getClanId()==pc.getClan().getClanId()&&(activeChar.getClanPrivileges()>n)||activeChar.isClanLeader()){
+    				pc.setClanPrivileges(n);
+    				SystemMessage sm = new SystemMessage(SystemMessageId.S1_S2);
+    	            sm.addString("Your clan privileges have been set to " + n + " by " + activeChar.getName());
+    	            activeChar.sendPacket(sm);
+    			}
+    		}
+     	}
+    	return true;
+    }
+
 
 	public String[] getVoicedCommandList()
-	{
-		return VOICED_COMMANDS;
-	}
+    {
+        return VOICED_COMMANDS;
+    }
 }

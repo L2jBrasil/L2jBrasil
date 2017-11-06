@@ -27,7 +27,7 @@ import com.it.br.gameserver.model.entity.event.TvTEvent;
  * @author Rayder
  **/
  
-public class loc implements IVoicedCommandHandler
+public class LocationVoicedCommand implements IVoicedCommandHandler
 {
     private static final String[] VOICED_COMMANDS = {"giran", "aden", "oren", "dion", "goddard", "floran", "gludin", "gludio", "rune", "heine", "dwarvenvillage", "darkelvenvillage", "elvenvillage", "orcvillage", "talkingisland", "schuttgart", "huntersvillage", "antharas", "valakas", "baium", "queenant", "zaken", "orfen", "core"};
 

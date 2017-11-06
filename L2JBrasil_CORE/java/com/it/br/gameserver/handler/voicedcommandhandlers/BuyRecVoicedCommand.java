@@ -22,7 +22,7 @@ import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
 /**
  * @author Rayder
  */
-public class BuyRec implements IVoicedCommandHandler
+public class BuyRecVoicedCommand implements IVoicedCommandHandler
 {
 	private static final String[] VOICED_COMMANDS = {"buyrec"};
 

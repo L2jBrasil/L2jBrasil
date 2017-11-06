@@ -22,7 +22,7 @@ import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 
-public class Stat implements IVoicedCommandHandler
+public class StatVoicedCommand implements IVoicedCommandHandler
 {
     private static final String[] VOICED_COMMANDS = { "stat" };
 

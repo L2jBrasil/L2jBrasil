@@ -29,7 +29,7 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
  * @author Rayder
  *
  */
-public class info implements IVoicedCommandHandler
+public class InfoVoicedCommand implements IVoicedCommandHandler
 {
 	private static final String[] VOICED_COMMANDS = {"info"};
 
