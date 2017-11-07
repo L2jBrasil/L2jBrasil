@@ -1,2 +1,5 @@
 language: java
-script: ant -buildfile  L2JBrasil_CORE/build.xml
+script: 
+ - ant -buildfile L2JBrasil_CORE/build.xml
+ - ant -buildfile L2JBrasil_DP/build.xml
+ - ant -buildfile L2JBrasil_MMOCore/build.xml
