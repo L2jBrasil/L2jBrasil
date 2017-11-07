@@ -80,9 +80,14 @@ public class VoicedCommandHandler
 		if (Config.L2JMOD_ALLOW_WEDDING)
 			registerVoicedCommandHandler(new WeddingVoicedCommand());
 
-		registerVoicedCommandHandler(new StatsVoicedCommand());
-		registerVoicedCommandHandler(new CastleVoicedCommand());
-		registerVoicedCommandHandler(new SetVoicedCommand());
+		if (Config.ALLOW_STATS_COMMAND)
+			registerVoicedCommandHandler(new StatsVoicedCommand());
+
+		if (Config.ALLOW_CASTLE_COMMAND)
+			registerVoicedCommandHandler(new CastleVoicedCommand());
+
+		if (Config.ALLOW_SET_COMMAND)
+			registerVoicedCommandHandler(new SetVoicedCommand());
 	}
 
 	public void registerVoicedCommandHandler(IVoicedCommandHandler handler)
