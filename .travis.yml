@@ -1,0 +1,2 @@
+language: java
+script: ant main -buildfile  L2JBrasil_CORE/build.xml
