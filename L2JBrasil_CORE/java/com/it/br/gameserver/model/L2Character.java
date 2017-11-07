@@ -2530,7 +2530,7 @@ public abstract class L2Character extends L2Object
             	}
             	_effects.add(pos, newEffect);
 			}
-			else _effects.add(_effects.size() + 1, newEffect);
+			else _effects.add(_effects.size(), newEffect);
 
 			// Check if a stack group is defined for this effect
 			if (newEffect.getStackType().equals("none"))
