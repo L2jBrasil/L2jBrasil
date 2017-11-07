@@ -64,7 +64,7 @@ public final class L2World
     //private FastMap<String, L2PcInstance> _allGms;
 
     /** HashMap(String Player name, L2PcInstance) containing all the players in game */
-    private Map<String, L2PcInstance> _allPlayers;
+    private Map<Integer, L2PcInstance> _allPlayers;
 
     /** L2ObjectHashMap(L2Object) containing all visible objects */
     private L2ObjectMap<L2Object> _allObjects;
@@ -240,18 +240,17 @@ public final class L2World
     /**
      * Return the player instance corresponding to the given name.<BR><BR>
      *
-     * @param name Name of the player to get Instance
+     * @param playerObjId Name of the player to get Instance
      */
-    public L2PcInstance getPlayer(String name)
-    {
-    	if (name == null)
-			return null;
-    	return _allPlayers.get(name.toLowerCase());
-    }
     public L2PcInstance getPlayer(int playerObjId)
+    {
+    	return _allPlayers.get(playerObjId);
+    }
+
+    public L2PcInstance getPlayer(String name)
 	{
 		for(L2PcInstance actual:_allPlayers.values())
-			if(actual.getObjectId()==playerObjId)
+			if(actual.getName() == name)
 				return actual;
 		
 		return null;
@@ -344,7 +343,7 @@ public final class L2World
 		if(object instanceof L2PcInstance)
 		{
 			L2PcInstance player = (L2PcInstance) object;
-			L2PcInstance tmp =_allPlayers.get(player.getName().toLowerCase());
+			L2PcInstance tmp =_allPlayers.get(player.getObjectId());
 			if(tmp != null && tmp != player) //just kick the player previous instance
 			{
 				tmp.store(); // Store character and items
@@ -439,7 +438,7 @@ public final class L2World
 			}
 
 			synchronized(_allPlayers){
-				_allPlayers.put(player.getName().toLowerCase(), player);
+				_allPlayers.put(player.getObjectId(), player);
 
 			}
 			
@@ -482,7 +481,7 @@ public final class L2World
     public void removeFromAllPlayers(L2PcInstance cha)
     {
     	if (cha != null && !cha.isTeleporting())
-    	   _allPlayers.remove(cha.getName().toLowerCase());
+    	   _allPlayers.remove(cha.getObjectId());
     }
 
 

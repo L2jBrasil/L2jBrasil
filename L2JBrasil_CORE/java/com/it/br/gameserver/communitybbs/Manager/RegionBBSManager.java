@@ -279,8 +279,6 @@ public class RegionBBSManager extends BaseBBSManager
 		Collection<L2PcInstance> players = L2World.getInstance().getAllPlayers();
 		List<L2PcInstance> sortedPlayers = new ArrayList<>();
 		sortedPlayers.addAll(players);
-		players.clear();
-
 
         sortedPlayers.sort((L2PcInstance p1, L2PcInstance p2) -> p1.getName().compareToIgnoreCase(p2.getName()));
 
