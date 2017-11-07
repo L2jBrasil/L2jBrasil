@@ -65,10 +65,8 @@ public class ClanTable
 	{
 		_clans = new HashMap<>();
 		L2Clan clan;
-		Connection con = null;
-	     try
-	        {
-	            con = L2DatabaseFactory.getInstance().getConnection();
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		{
 	            PreparedStatement statement = con.prepareStatement("SELECT clan_id FROM clan_data");
 	            ResultSet result = statement.executeQuery();
 
@@ -100,8 +98,6 @@ public class ClanTable
 	        catch (Exception e) {
 	            _log.warning("data error on ClanTable: " + e);
 	            e.printStackTrace();
-	        } finally {
-	            try { con.close(); } catch (Exception e) {}
 	        }
 
 		restorewars();
@@ -245,11 +241,8 @@ public class ClanTable
 		_clans.remove(clanId);
 		IdFactory.getInstance().releaseId(clanId);
 
-	    Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			if(con == null)
-				con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("DELETE FROM clan_data WHERE clan_id=?");
 			statement.setInt(1, clanId);
 			statement.execute();
@@ -288,10 +281,6 @@ public class ClanTable
 	    catch (Exception e)
 	    {
 	        _log.warning("error while removing clan in db "+e);
-	    }
-	    finally
-	    {
-	        try { con.close(); } catch (Exception e) {}
 	    }
 	}
 
@@ -334,10 +323,8 @@ public class ClanTable
         clan2.setAttackerClan(clan1);
         clan1.broadcastClanStatus();
         clan2.broadcastClanStatus();
-     	Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		{
             PreparedStatement statement;
             statement = con.prepareStatement("REPLACE INTO clan_wars (clan1, clan2, wantspeace1, wantspeace2) VALUES(?,?,?,?)");
 			statement.setInt(1, clanId1);
@@ -351,10 +338,7 @@ public class ClanTable
         {
             _log.warning("could not store clans wars data:"+e);
         }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
+
         //SystemMessage msg = new SystemMessage(SystemMessageId.WAR_WITH_THE_S1_CLAN_HAS_BEGUN);
 	//
         SystemMessage msg = new SystemMessage(SystemMessageId.CLAN_WAR_DECLARED_AGAINST_S1_IF_KILLED_LOSE_LOW_EXP);
@@ -387,10 +371,8 @@ public class ClanTable
         //    if(player.getPlayerInstance()!=null)
 	//			player.getPlayerInstance().setWantsPeace(0);
         //}
-     	Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		{
             PreparedStatement statement;
             statement = con.prepareStatement("DELETE FROM clan_wars WHERE clan1=? AND clan2=?");
             statement.setInt(1,clanId1);
@@ -407,10 +389,7 @@ public class ClanTable
         {
             _log.warning("could not restore clans wars data:"+e);
         }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
+
         //SystemMessage msg = new SystemMessage(SystemMessageId.WAR_WITH_THE_S1_CLAN_HAS_ENDED);
         SystemMessage msg = new SystemMessage(SystemMessageId.WAR_AGAINST_S1_HAS_STOPPED);
         msg.addString(clan2.getName());
@@ -441,10 +420,8 @@ public class ClanTable
 
     private void restorewars()
     {
-     	Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		{
             PreparedStatement statement;
             statement = con.prepareStatement("SELECT clan1, clan2, wantspeace1, wantspeace2 FROM clan_wars");
             ResultSet rset = statement.executeQuery();
@@ -458,10 +435,6 @@ public class ClanTable
         catch (Exception e)
         {
             _log.warning("could not restore clan wars data:"+e);
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
         }
     }
 }

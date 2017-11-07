@@ -56,11 +56,8 @@ public class ClanWarsList implements IUserCommandHandler
 		}
 
 		SystemMessage sm;
-		Connection con = null;
-
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement;
 
 			if (id == 88)
@@ -118,10 +115,6 @@ public class ClanWarsList implements IUserCommandHandler
 			statement.close();
 		}
 		catch (Exception e)	{ }
-		finally
-		{
-			try {con.close();} catch (Exception e) {}
-		}
 		return true;
 	}
 

@@ -213,10 +213,8 @@ public class ItemTable
         _armors     = new HashMap<>();
         _weapons    = new HashMap<>();
 
-		Connection con = null;
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
+        try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+        {
             for (String selectQuery : SQL_ITEM_SELECTS)
             {
                 PreparedStatement statement = con.prepareStatement(selectQuery);
@@ -250,8 +248,7 @@ public class ItemTable
         {
             _log.log(Level.WARNING, "data error on item: ", e);
         }
-        finally { try { con.close(); } catch (Exception e) {} 
-        }
+
         for (L2Armor armor : SkillsEngine.getInstance().loadArmors(armorData))
 		{
             _armors.put(armor.getItemId(), armor);
@@ -792,11 +789,8 @@ public class ItemTable
 			// if it's a pet control item, delete the pet as well
 			if (L2PetDataTable.isPetItem(item.getItemId()))
 			{
-				Connection con = null;
-				try
-				{
-					// Delete the pet in db
-					con = L2DatabaseFactory.getInstance().getConnection();
+                try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+                {
 					PreparedStatement statement = con.prepareStatement("DELETE FROM pets WHERE item_obj_id=?");
 					statement.setInt(1, item.getObjectId());
 					statement.execute();
@@ -805,10 +799,6 @@ public class ItemTable
 				catch (Exception e)
 				{
 					_log.log(Level.WARNING, "could not delete pet objectid:", e);
-				}
-				finally
-				{
-					try { con.close(); } catch (Exception e) {}
 				}
 			}
 		}

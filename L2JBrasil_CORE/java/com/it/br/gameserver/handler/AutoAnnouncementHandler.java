@@ -55,12 +55,10 @@ public class AutoAnnouncementHandler
 	private void restoreAnnouncementData()
 	{
 		int numLoaded = 0;
-		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet rs = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			statement = con.prepareStatement("SELECT * FROM auto_announcements ORDER BY id");
 			rs = statement.executeQuery();
 			while (rs.next())
@@ -73,16 +71,6 @@ public class AutoAnnouncementHandler
 		}
 		catch (Exception e)
 		{
-		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
 		}
 	}
 
@@ -133,10 +121,6 @@ public class AutoAnnouncementHandler
 	/**
 	 * Registers a globally active autoannouncement. <BR>
 	 * Returns the associated auto announcement instance.
-	 *
-	 * @param String
-	 *            announcementTexts
-	 * @param int announcementDelay (-1 = default delay)
 	 * @return AutoAnnouncementInstance announcementInst
 	 */
 	public AutoAnnouncementInstance registerGlobalAnnouncement(int id, String announcementTexts, long announcementDelay)
@@ -147,11 +131,6 @@ public class AutoAnnouncementHandler
 	/**
 	 * Registers a NON globally-active auto announcement <BR>
 	 * Returns the associated auto chat instance.
-	 *
-	 * @param String
-	 *            announcementTexts
-	 * @param int announcementDelay (-1 = default delay)
-	 * @return AutoAnnouncementInstance announcementInst
 	 */
 	public AutoAnnouncementInstance registerAnnouncment(int id, String announcementTexts, long announcementDelay)
 	{
@@ -161,10 +140,8 @@ public class AutoAnnouncementHandler
 	public AutoAnnouncementInstance registerAnnouncment(String announcementTexts, long announcementDelay)
 	{
 		int nextId = nextAutoAnnouncmentId();
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("INSERT INTO auto_announcements (id,announcement,delay) " + "VALUES (?,?,?)");
 			statement.setInt(1, nextId);
 			statement.setString(2, announcementTexts);
@@ -176,28 +153,17 @@ public class AutoAnnouncementHandler
 		{
 			_log.fatal("System: Could Not Insert Auto Announcment into DataBase: Reason: " + "Duplicate Id");
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
+
 		return registerAnnouncement(nextId, announcementTexts, announcementDelay);
 	}
 
 	public int nextAutoAnnouncmentId()
 	{
 		int nextId = 0;
-		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet rs = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			statement = con.prepareStatement("SELECT id FROM auto_announcements ORDER BY id");
 			rs = statement.executeQuery();
 			while (rs.next())
@@ -212,16 +178,6 @@ public class AutoAnnouncementHandler
 		}
 		catch (Exception e)
 		{
-		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
 		}
 		return nextId;
 	}
@@ -249,17 +205,12 @@ public class AutoAnnouncementHandler
 
 	/**
 	 * Removes and cancels ALL auto announcement for the given announcement id.
-	 *
-	 * @param int Id
-	 * @return boolean removedSuccessfully
 	 */
 	public boolean removeAnnouncement(int id)
 	{
 		AutoAnnouncementInstance announcementInst = _registeredAnnouncements.get(id);
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("DELETE FROM auto_announcements WHERE id=?");
 			statement.setInt(1, announcementInst.getDefaultId());
 			statement.executeUpdate();
@@ -269,24 +220,12 @@ public class AutoAnnouncementHandler
 		{
 			_log.fatal("Could not Delete Auto Announcement in Database, Reason:", e);
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
+
 		return removeAnnouncement(announcementInst);
 	}
 
 	/**
 	 * Removes and cancels ALL auto announcement for the given announcement instance.
-	 *
-	 * @param AutoAnnouncementInstance
-	 *            announcementInst
 	 * @return boolean removedSuccessfully
 	 */
 	public boolean removeAnnouncement(AutoAnnouncementInstance announcementInst)
@@ -302,8 +241,6 @@ public class AutoAnnouncementHandler
 
 	/**
 	 * Returns the associated auto announcement instance either by the given announcement ID or object ID.
-	 *
-	 * @param int id
 	 * @return AutoAnnouncementInstance announcementInst
 	 */
 	public AutoAnnouncementInstance getAutoAnnouncementInstance(int id)
@@ -313,8 +250,6 @@ public class AutoAnnouncementHandler
 
 	/**
 	 * Sets the active state of all auto announcement instances to that specified, and cancels the scheduled chat task if necessary.
-	 *
-	 * @param boolean isActive
 	 */
 	public void setAutoAnnouncementActive(boolean isActive)
 	{

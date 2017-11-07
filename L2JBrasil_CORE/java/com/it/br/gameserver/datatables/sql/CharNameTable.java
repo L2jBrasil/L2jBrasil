@@ -50,11 +50,8 @@ public class CharNameTable
 	public synchronized boolean doesCharNameExist(String name)
 	{
 		boolean result = true;
-		Connection con = null;
-
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT account_name FROM characters WHERE char_name=?");
 			statement.setString(1, name);
 			ResultSet rset = statement.executeQuery();
@@ -66,21 +63,15 @@ public class CharNameTable
 		{
 			_log.warning("could not check existing charname:"+e.getMessage());
 		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
-		}
+
 		return result;
 	}
 
     public int accountCharNumber (String account)
     {
-        Connection con = null;
         int number = 0;
-
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		{
             PreparedStatement statement = con.prepareStatement("SELECT COUNT(char_name) FROM characters WHERE account_name=?");
             statement.setString(1, account);
             ResultSet rset = statement.executeQuery();
@@ -94,10 +85,6 @@ public class CharNameTable
         catch (SQLException e)
         {
             _log.warning("could not check existing char number:"+e.getMessage());
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
         }
 
         return number;

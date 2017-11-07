@@ -47,10 +47,7 @@ public class Post
 		public String postTxt;
 	}
 	private List<CPost> _post;
-	/**
-	 * @param restore
-	 * @param t
-	 */
+
 	//public enum ConstructorType {REPLY, CREATE };
 	public Post(String _PostOwner,int _PostOwnerID,long date,int tid,int _PostForumID,String txt)
 	{
@@ -69,10 +66,8 @@ public class Post
 	}
 	public void insertindb(CPost cp)
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("INSERT INTO posts (post_id,post_owner_name,post_ownerid,post_date,post_topic_id,post_forum_id,post_txt) values (?,?,?,?,?,?,?)");
 			statement.setInt(1, cp.postId);
 			statement.setString(2, cp.postOwner);
@@ -88,17 +83,6 @@ public class Post
 		{
 			_log.warning("error while saving new Post to db " + e);
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
-
 	}
 	public Post(Topic t)
 	{
@@ -122,10 +106,8 @@ public class Post
 	public void deleteme(Topic t)
 	{
 		PostBBSManager.getInstance().delPostByTopic(t);
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("DELETE FROM posts WHERE post_forum_id=? AND post_topic_id=?");
 			statement.setInt(1, t.getForumID());
 			statement.setInt(2, t.getID());
@@ -136,26 +118,14 @@ public class Post
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
 	}
 	/**
 	 * @param t
 	 */
 	private void load(Topic t)
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT * FROM posts WHERE post_forum_id=? AND post_topic_id=? ORDER BY post_id ASC");
 			statement.setInt(1, t.getForumID());
 			statement.setInt(2, t.getID());
@@ -180,27 +150,16 @@ public class Post
 			_log.warning("data error on Post " + t.getForumID() + "/"+t.getID()+" : " + e);
 			e.printStackTrace();
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
 	}
 	/**
 	 * @param i
 	 */
 	public void updatetxt(int i)
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
 			CPost cp = getCPost(i);
-			con = L2DatabaseFactory.getInstance().getConnection();
+
 			PreparedStatement statement = con.prepareStatement("UPDATE posts SET post_txt=? WHERE post_id=? AND post_topic_id=? AND post_forum_id=?");
 			statement.setString(1, cp.postTxt);
 			statement.setInt(2, cp.postId);
@@ -213,17 +172,6 @@ public class Post
 		{
 			_log.warning("error while saving new Post to db " + e);
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
-
 	}
 	/**
 	 *

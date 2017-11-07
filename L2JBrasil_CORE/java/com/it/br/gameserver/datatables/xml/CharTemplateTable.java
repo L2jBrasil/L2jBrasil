@@ -294,10 +294,8 @@ public class CharTemplateTable
 													//ct = new L2PcTemplate(set);
 
 													L2PcTemplate ct = new L2PcTemplate(set);
-													Connection con = null;
-													try
+													try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 													{
-														con = L2DatabaseFactory.getInstance().getConnection();
 														PreparedStatement statement2 = con.prepareStatement("SELECT classId, itemId, amount, equipped FROM char_creation_items");
 														ResultSet rset2 = statement2.executeQuery();
 
@@ -335,12 +333,6 @@ public class CharTemplateTable
 													{
 														_log.warn("error while loading char templates " + e.getMessage());
 													}
-													finally
-													{
-														try { con.close(); } catch(Exception e) { }
-														con = null;
-													}
-
 
 													_templates.put(ct.classId.getId(), ct);
 												}

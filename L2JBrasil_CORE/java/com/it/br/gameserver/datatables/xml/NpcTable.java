@@ -74,13 +74,12 @@ public class NpcTable
 
 	private void restoreNpcData()
 	{
-		Connection con = null;
+
 
 		try
 		{
-			try
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
-				con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement statement;
 				statement = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] {"id", "idTemplate", "name", "serverSideName", "title", "serverSideTitle", "class", "collision_radius", "collision_height", "level", "sex", "type", "attackrange", "hp", "mp", "hpreg", "mpreg", "str", "con", "dex", "int", "wit", "men", "exp", "sp", "patk", "pdef", "matk", "mdef", "atkspd", "aggro", "matkspd", "rhand", "lhand", "armor", "walkspd", "runspd", "faction_id", "faction_range", "isUndead", "absorb_level", "absorb_type"}) + " FROM npc");
 				ResultSet npcdata = statement.executeQuery();
@@ -94,9 +93,8 @@ public class NpcTable
 				_log.warn("NPCTable: Error creating NPC table: " + e);
 			}
 
-			try
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
-				con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement statement = con.prepareStatement("SELECT npcid, skillid, level FROM npcskills");
 				ResultSet npcskills = statement.executeQuery();
 				L2NpcTemplate npcDat = null;
@@ -118,7 +116,7 @@ public class NpcTable
 						npcDat.setRace(level);
 						continue;
 					}
-					
+
 					npcSkill = SkillTable.getInstance().getInfo(skillId, level);
 
 					if (npcSkill == null)
@@ -129,19 +127,18 @@ public class NpcTable
 
 				npcskills.close();
 				statement.close();
-			} 
+			}
 			catch (Exception e)
 			{
 				_log.warn("NPCTable: Error reading NPC skills table: " + e);
 			}
 
-			try
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
-				con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement statement;
 				statement = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] { "id", "idTemplate", "name", "serverSideName", "title", "serverSideTitle", "class", "collision_radius", "collision_height", "level", "sex", "type", "attackrange", "hp", "mp", "hpreg", "mpreg", "str", "con", "dex", "int", "wit", "men", "exp", "sp", "patk", "pdef", "matk", "mdef", "atkspd", "aggro", "matkspd", "rhand", "lhand", "armor", "walkspd", "runspd", "faction_id", "faction_range", "isUndead", "absorb_level", "absorb_type"}) + " FROM custom_npc");
 				ResultSet npcdata = statement.executeQuery();
-								
+
 				fillNpcTable(npcdata);
 				npcdata.close();
 				statement.close();
@@ -151,7 +148,7 @@ public class NpcTable
 				_log.warn("NPCTable: Error creating custom NPC table: " + e);
 			}
 
-			try
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
 				PreparedStatement statement2 = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] { "mobId", "itemId", "min", "max", "category", "chance" }) + " FROM custom_droplist ORDER BY mobId, chance DESC");
 				ResultSet dropData = statement2.executeQuery();
@@ -185,13 +182,13 @@ public class NpcTable
 				_log.warn("NPCTable: Error reading NPC CUSTOM drop data: " + e);
 			}
 
-			try 
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
 				PreparedStatement statement2 = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] {"mobId", "itemId", "min", "max", "category", "chance"}) + " FROM droplist ORDER BY mobId, chance DESC");
 				ResultSet dropData = statement2.executeQuery();
 				L2DropData dropDat = null;
 				L2NpcTemplate npcDat = null;
-				
+
 				while (dropData.next())
 				{
 					int mobId = dropData.getInt("mobId");
@@ -215,12 +212,12 @@ public class NpcTable
 
 				dropData.close();
 				statement2.close();
-			} 
+			}
 			catch (Exception e)
 			{
 				_log.warn("NPCTable: Error reading NPC drop data: " + e);
 			}
-			
+
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			factory.setValidating(false);
 			factory.setIgnoringComments(true);
@@ -333,11 +330,10 @@ public class NpcTable
 				_log.warn("Error loading minion data" + e);
 			}
 			_log.info("NpcTable: Loaded " + cnt + " minions.");
-		} 
-		finally
+		}
+		catch (Exception e)
 		{
-			try { con.close(); }
-			catch (Exception e) {}
+			_log.warn("NPCTable: Error reading NPC data: " + e);
 		}
 
 		_initialized = true;
@@ -436,7 +432,6 @@ public class NpcTable
 
 	public void reloadNpc(int id)
 	{
-		Connection con = null;
 
 		try
 		{
@@ -463,13 +458,19 @@ public class NpcTable
 				minions.addAll(old.getMinionData());
 
 			// reload the NPC base data
-			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement st = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] {"id", "idTemplate", "name", "serverSideName", "title", "serverSideTitle", "class", "collision_radius", "collision_height", "level", "sex", "type", "attackrange", "hp", "mp", "hpreg", "mpreg", "str", "con", "dex", "int", "wit", "men", "exp", "sp", "patk", "pdef", "matk", "mdef", "atkspd", "aggro", "matkspd", "rhand", "lhand", "armor", "walkspd", "runspd", "faction_id", "faction_range", "isUndead", "absorb_level", "absorb_type"}) + " FROM npc WHERE id=?");
-			st.setInt(1, id);
-			ResultSet rs = st.executeQuery();
-			fillNpcTable(rs);
-			rs.close();
-			st.close();
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+			{
+				PreparedStatement st = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] {"id", "idTemplate", "name", "serverSideName", "title", "serverSideTitle", "class", "collision_radius", "collision_height", "level", "sex", "type", "attackrange", "hp", "mp", "hpreg", "mpreg", "str", "con", "dex", "int", "wit", "men", "exp", "sp", "patk", "pdef", "matk", "mdef", "atkspd", "aggro", "matkspd", "rhand", "lhand", "armor", "walkspd", "runspd", "faction_id", "faction_range", "isUndead", "absorb_level", "absorb_type"}) + " FROM npc WHERE id=?");
+				st.setInt(1, id);
+				ResultSet rs = st.executeQuery();
+				fillNpcTable(rs);
+				rs.close();
+				st.close();
+			}
+			catch (Exception e)
+			{
+				_log.warn("NPCTable: Could not reload data for NPC " + id + ": " + e);
+			}
 
 			// restore additional data from saved copy
 			L2NpcTemplate created = getTemplate(id);
@@ -488,10 +489,7 @@ public class NpcTable
 		{
 			_log.warn("NPCTable: Could not reload data for NPC " + id + ": " + e);
 		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
-		}
+
 	}
 
 	// just wrapper
@@ -502,12 +500,10 @@ public class NpcTable
 
 	public void saveNpc(StatsSet npc)
 	{
-		Connection con = null;
 		String query = "";
 
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			Map<String, Object> set = npc.getSet();
 
 			String name = "";
@@ -535,10 +531,6 @@ public class NpcTable
 		catch (Exception e)
 		{
 			_log.warn("NPCTable: Could not store new NPC data in database: " + e);
-		} 
-		finally 
-		{
-			try { con.close(); } catch (Exception e) {}
 		}
 	}
 

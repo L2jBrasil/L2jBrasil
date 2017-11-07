@@ -56,10 +56,8 @@ public class HennaTreeTable
 		_hennaTrees = new HashMap<>();
 		int classId = 0;
         int count   = 0;
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT class_name, id, parent_id FROM class_list ORDER BY id");
 			ResultSet classlist = statement.executeQuery();
 			List<L2HennaInstance> list;
@@ -117,10 +115,6 @@ public class HennaTreeTable
 		{
 			_log.warning("error while creating henna tree for classId "+classId + "  "+e);
 			e.printStackTrace();
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
 		}
 
         _log.config("HennaTreeTable: Loaded " + count + " Henna Tree Templates.");

@@ -68,11 +68,8 @@ public class SpawnTable
 	
 	private void fillSpawnTable()
 	{
-		Connection con = null;
-		
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement;
 			if (Config.DELETE_GMSPAWN_ON_CUSTOM)
 			{
@@ -150,24 +147,13 @@ public class SpawnTable
 			// problem with initializing spawn, go to next one
 			_log.warning("SpawnTable: Spawn could not be initialized: " + e);
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
-		
+
 		_log.config("SpawnTable: Loaded " + _spawntable.size() + " Npc Spawn Locations.");
 		
 		if (Config.CUSTOM_SPAWNLIST_TABLE)
 		{
-			try
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
-				con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement statement;
 				if (Config.DELETE_GMSPAWN_ON_CUSTOM)
 				{
@@ -246,16 +232,7 @@ public class SpawnTable
 				// problem with initializing spawn, go to next one
 				_log.warning("CustomSpawnTable: Spawn could not be initialized: " + e);
 			}
-			finally
-			{
-				try
-				{
-					con.close();
-				}
-				catch (Exception e)
-				{
-				}
-			}
+
 			_log.config("CustomSpawnTable: Loaded " + _customSpawnCount + " Npc Spawn Locations.");
 			
 		}
@@ -278,16 +255,14 @@ public class SpawnTable
 		
 		if (storeInDb)
 		{
-			Connection con = null;
 			String spawnTable;
 			if (spawn.isCustom() && Config.CUSTOM_SPAWNLIST_TABLE)
 				spawnTable = "custom_spawnlist";
 			else
 				spawnTable = "spawnlist";
-			
-			try
+
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
-				con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement statement = con.prepareStatement("INSERT INTO " + spawnTable
 						+ "(id,count,npc_templateid,locx,locy,locz,heading,respawn_delay,loc_id) values(?,?,?,?,?,?,?,?,?)");
 				statement.setInt(1, spawn.getId());
@@ -307,16 +282,6 @@ public class SpawnTable
 				// problem with storing spawn
 				_log.warning("SpawnTable: Could not store spawn in the DB:" + e);
 			}
-			finally
-			{
-				try
-				{
-					con.close();
-				}
-				catch (Exception e)
-				{
-				}
-			}
 		}
 	}
 	
@@ -328,12 +293,10 @@ public class SpawnTable
 		
 		if (updateDb)
 		{
-			Connection con = null;
 			if (Config.DELETE_GMSPAWN_ON_CUSTOM)
 			{
-				try
+				try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 				{
-					con = L2DatabaseFactory.getInstance().getConnection();
 					PreparedStatement statement = con.prepareStatement("Replace into custom_notspawned VALUES (?,?)");
 					statement.setInt(1, spawn.getId());
 					statement.setBoolean(2, spawn.isCustom());
@@ -345,22 +308,11 @@ public class SpawnTable
 					// problem with inserting nospawn
 					_log.warning("SpawnTable: Spawn " + spawn.getId() + " could not be insert into DB: " + e);
 				}
-				finally
-				{
-					try
-					{
-						con.close();
-					}
-					catch (Exception e)
-					{
-					}
-				}
 			}
 			else
 			{
-				try
+				try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 				{
-					con = L2DatabaseFactory.getInstance().getConnection();
 					PreparedStatement statement = con.prepareStatement("DELETE FROM "
 							+ (spawn.isCustom() ? "custom_spawnlist" : "spawnlist") + " WHERE id=?");
 					statement.setInt(1, spawn.getId());
@@ -371,16 +323,6 @@ public class SpawnTable
 				{
 					// problem with deleting spawn
 					_log.warning("SpawnTable: Spawn " + spawn.getId() + " could not be removed from DB: " + e);
-				}
-				finally
-				{
-					try
-					{
-						con.close();
-					}
-					catch (Exception e)
-					{
-					}
 				}
 			}
 		}

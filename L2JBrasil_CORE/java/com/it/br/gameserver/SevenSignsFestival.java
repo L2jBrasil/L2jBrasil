@@ -947,16 +947,14 @@ public class SevenSignsFestival implements SpawnListener
      */
     protected void restoreFestivalData()
     {
-        Connection con = null;
         PreparedStatement statement = null;
         ResultSet rset = null;
 
         if (Config.DEBUG)
             _log.info("SevenSignsFestival: Restoring festival data. Current SS Cycle: " + _signsCycle);
 
-        try
+        try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
         {
-	        con = L2DatabaseFactory.getInstance().getConnection();
 	        statement = con.prepareStatement("SELECT festivalId, cabal, cycle, date, score, members " + "FROM seven_signs_festival");
 	        rset = statement.executeQuery();
 
@@ -1022,16 +1020,6 @@ public class SevenSignsFestival implements SpawnListener
         {
             _log.severe("SevenSignsFestival: Failed to load configuration: " + e);
         }
-        finally
-        {
-        	try
-        	{
-        	    rset.close();
-        	    statement.close();
-        	    con.close();
-        	}
-        	catch (SQLException e) {}
-        }
      }
 
     /**
@@ -1045,15 +1033,13 @@ public class SevenSignsFestival implements SpawnListener
      */
     public void saveFestivalData(boolean updateSettings)
     {
-    	Connection con = null;
     	PreparedStatement statement = null;
 
     	if (Config.DEBUG)
             System.out.println("SevenSignsFestival: Saving festival data to disk.");
 
-        try
+        try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
         {
-        	con = L2DatabaseFactory.getInstance().getConnection();
 
         	for (Map<Integer, StatsSet> currCycleData : _festivalData.values())
 	        {
@@ -1105,18 +1091,8 @@ public class SevenSignsFestival implements SpawnListener
 	        if (updateSettings)
 	            SevenSigns.getInstance().saveSevenSignsData(null, true);
         }
-        catch (SQLException e)
-        {
-        	_log.severe("SevenSignsFestival: Failed to save configuration: " + e);
-        }
-        finally
-        {
-        	try
-        	{
-        	    statement.close();
-        	    con.close();
-        	}
-        	catch (Exception e) {}
+        catch (SQLException e) {
+            _log.severe("SevenSignsFestival: Failed to save configuration: " + e);
         }
     }
 
@@ -1184,10 +1160,8 @@ public class SevenSignsFestival implements SpawnListener
 		}
 		else
 		{
-			Connection con = null;
-        	try
+            try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
         	{
-        		con = L2DatabaseFactory.getInstance().getConnection();
         		PreparedStatement statement = con.prepareStatement(GET_CLAN_NAME);
         		statement.setString(1, partyMemberName);
         		ResultSet rset = statement.executeQuery();
@@ -1215,10 +1189,6 @@ public class SevenSignsFestival implements SpawnListener
         	catch (Exception e)
         	{
         		_log.warning("could not get clan name of " + partyMemberName + ": "+e);
-        	}
-        	finally
-        	{
-        		try { con.close(); } catch (Exception e) {}
         	}
 		}
     }

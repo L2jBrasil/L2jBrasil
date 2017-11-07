@@ -41,17 +41,6 @@ public class Topic
 	private int _type;
 	private int _cReply;
 
-	/**
-	 * @param restaure
-	 * @param i
-	 * @param j
-	 * @param string
-	 * @param k
-	 * @param string2
-	 * @param l
-	 * @param m
-	 * @param n
-	 */
 	public Topic(ConstructorType ct, int id, int fid, String name, long date, String oname, int oid, int type, int Creply)
 	{
 			_id = id;
@@ -77,10 +66,8 @@ public class Topic
 	 */
 	public void insertindb()
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("INSERT INTO topic (topic_id,topic_forum_id,topic_name,topic_date,topic_ownername,topic_ownerid,topic_type,topic_reply) values (?,?,?,?,?,?,?,?)");
 			statement.setInt(1, _id);
 			statement.setInt(2, _forumId);
@@ -98,17 +85,6 @@ public class Topic
 		{
 			_log.warning("error while saving new Topic to db " + e);
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
-
 	}
 
 	public enum ConstructorType { RESTORE , CREATE }
@@ -145,10 +121,8 @@ public class Topic
 	{
 		TopicBBSManager.getInstance().delTopic(this);
 		f.rmTopicByID(getID());
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("DELETE FROM topic WHERE topic_id=? AND topic_forum_id=?");
 			statement.setInt(1, getID());
 			statement.setInt(2, f.getID());
@@ -158,16 +132,6 @@ public class Topic
 		catch (Exception e)
 		{
 			e.printStackTrace();
-		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
 		}
 	}
 

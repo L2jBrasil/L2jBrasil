@@ -56,10 +56,8 @@ public class OfflineTradeTable
 	//of store of normal sellers/buyers also if not in offline mode
 	public static void storeOffliners()
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement stm = con.prepareStatement(CLEAR_OFFLINE_TABLE);
 			stm.execute();
 			stm.close();
@@ -168,11 +166,10 @@ public class OfflineTradeTable
 	public static void restoreOfflineTraders()
 	{
 		_log.info("Loading offline traders...");
-		Connection con = null;
+
 		int nTraders = 0;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement stm = con.prepareStatement(LOAD_OFFLINE_STATUS);
 			ResultSet rs = stm.executeQuery();
 			while (rs.next())
@@ -286,10 +283,8 @@ public class OfflineTradeTable
 		if ((pc.getPrivateStoreType() == L2PcInstance.STORE_PRIVATE_NONE) || (!pc.isOffline()))
 			return;
 
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement stm = con.prepareStatement(DELETE_OFFLINE_TABLE_ALL_ITEMS);
 			stm.setInt(1, pc.getObjectId());
 			stm.execute();

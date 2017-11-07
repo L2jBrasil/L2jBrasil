@@ -73,10 +73,8 @@ public class ForumsBBSManager extends BaseBBSManager
 	 */
 	private void load()
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT forum_id FROM forums WHERE forum_type=0");
 			ResultSet result = statement.executeQuery();
 			while (result.next())
@@ -92,16 +90,6 @@ public class ForumsBBSManager extends BaseBBSManager
 		{
 			_log.warning("data error on Forum (root): " + e);
 			e.printStackTrace();
-		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
 		}
 	}
 

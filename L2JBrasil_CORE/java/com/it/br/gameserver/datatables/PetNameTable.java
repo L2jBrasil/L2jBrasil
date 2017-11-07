@@ -50,11 +50,8 @@ public class PetNameTable
 	public boolean doesPetNameExist(String name, int petNpcId)
 	{
 		boolean result = true;
-		Connection con = null;
-
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT name FROM pets p, items i WHERE p.item_obj_id = i.object_id AND name=? AND i.item_id IN (?)");
 			statement.setString(1, name);
 
@@ -73,10 +70,6 @@ public class PetNameTable
 		catch (SQLException e)
 		{
 			_log.warning("could not check existing petname:"+e.getMessage());
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
 		}
 		return result;
 	}

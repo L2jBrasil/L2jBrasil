@@ -110,12 +110,10 @@ public class TradeController
 		{
 			_log.finer("No buylists were found in data folder, using SQL buylist instead");
 
-			Connection con = null;
 			int dummyItemCount = 0;
 			boolean LimitedItem = false;
-			try
+			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
-				con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement statement1 = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[]{ "shop_id", "npc_id" }) + " FROM merchant_shopids");
 				ResultSet rset1 = statement1.executeQuery();
 				while (rset1.next())
@@ -235,15 +233,6 @@ public class TradeController
 				_log.warning("TradeController: Buylists could not be initialized.");
 				e.printStackTrace();
 			}
-			finally
-			{
-				try
-				{
-					con.close();
-				}
-				catch (Exception e)
-				{}
-			 }
 	     }
 	}
 
@@ -305,11 +294,9 @@ public class TradeController
 
 	protected void dataTimerSave(int time)
 	{
-		Connection con = null;
 		long timerSave = System.currentTimeMillis()+(long)time*60*60*1000;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("UPDATE merchant_buylists SET savetimer =? WHERE time =?");
 			statement.setLong(1, timerSave);
 			statement.setInt(2, time);
@@ -320,23 +307,17 @@ public class TradeController
         {
 			_log.log(Level.SEVERE, "TradeController: Could not update Timer save in Buylist" );
 		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
-		}
 	}
 
 	public void dataCountStore()
 	{
-		Connection con = null;
 		PreparedStatement statement;
 
 		int listId;
 		if (_listsTaskItem==null) return;
 
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			for (L2TradeList list : _listsTaskItem.values())
 			{
 				if (list==null) continue;
@@ -359,10 +340,6 @@ public class TradeController
 		catch (Exception e)
 		{
 			_log.log(Level.SEVERE, "TradeController: Could not store Count Item" );
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) { e.printStackTrace(); }
 		}
 	}
 

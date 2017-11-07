@@ -58,9 +58,7 @@ public class Forum
 	private Forum _fParent;
 	private int _ownerID;
 	private boolean _loaded = false;
-	/**
-	 * @param i
-	 */
+
 	public Forum(int Forumid, Forum FParent)
 	{
 		_forumId = Forumid;
@@ -102,10 +100,8 @@ public class Forum
 	 */
 	private void load()
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT * FROM forums WHERE forum_id=?");
 			statement.setInt(1, _forumId);
 			ResultSet result = statement.executeQuery();
@@ -127,19 +123,8 @@ public class Forum
 			_log.warning("data error on Forum " + _forumId + " : " + e);
 			e.printStackTrace();
 		}
-		finally
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT * FROM topic WHERE topic_forum_id=? ORDER BY topic_id DESC");
 			statement.setInt(1, _forumId);
 			ResultSet result = statement.executeQuery();
@@ -161,16 +146,6 @@ public class Forum
 			_log.warning("data error on Forum " + _forumId + " : " + e);
 			e.printStackTrace();
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
 	}
 
 	/**
@@ -178,10 +153,8 @@ public class Forum
 	 */
 	private void getChildren()
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT forum_id FROM forums WHERE forum_parent=?");
 			statement.setInt(1, _forumId);
 			ResultSet result = statement.executeQuery();
@@ -199,17 +172,6 @@ public class Forum
 			_log.warning("data error on Forum (children): " + e);
 			e.printStackTrace();
 		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
-		}
-
 	}
 
 	public int getTopicSize()
@@ -304,10 +266,8 @@ public class Forum
 	 */
 	public void insertindb()
 	{
-		Connection con = null;
-		try
+		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement statement = con.prepareStatement("INSERT INTO forums (forum_id,forum_name,forum_parent,forum_post,forum_type,forum_perm,forum_owner_id) values (?,?,?,?,?,?,?)");
 			statement.setInt(1, _forumId);
 			statement.setString(2, _forumName);
@@ -323,16 +283,6 @@ public class Forum
 		catch (Exception e)
 		{
 			_log.warning("error while saving new Forum to db " + e);
-		}
-		finally
-		{
-			try
-			{
-				con.close();
-			}
-			catch (Exception e)
-			{
-			}
 		}
 	}
 
