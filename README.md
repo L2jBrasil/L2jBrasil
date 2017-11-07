@@ -2,7 +2,7 @@
 
 [![License badge](https://img.shields.io/badge/license-GPL-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
 [![Support badge](https://img.shields.io/badge/support-sof-yellowgreen.svg)](https://www.l2jbrasil.com/index.php?/forum/18-d%C3%BAvidas)
-[![Build Status](https://travis-ci.org/L2jBrasil/L2jBrasil.svg?branch=master)](https://travis-ci.org/L2jBrasil/L2jBrasil)
+[![Build Status](https://travis-ci.org/L2jBrasil/L2jBrasil.svg?branch=develop)](https://travis-ci.org/L2jBrasil/L2jBrasil)
 
 ## Introduction
 
