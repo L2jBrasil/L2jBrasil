@@ -7,7 +7,7 @@ CREATE TABLE `class_list` (
   `id` int(10) unsigned NOT NULL default '0',
   `parent_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 #----------------------------
 # Records for table class_list
 #----------------------------

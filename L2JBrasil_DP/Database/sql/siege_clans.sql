@@ -4,4 +4,4 @@ CREATE TABLE IF NOT EXISTS siege_clans (
    type int(1) default NULL,
    castle_owner int(1) default NULL,
    PRIMARY KEY  (clan_id,castle_id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

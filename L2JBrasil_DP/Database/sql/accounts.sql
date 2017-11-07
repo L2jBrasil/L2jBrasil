@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `lastIP` VARCHAR(20),
   `lastServer` int(4) default 1,
   PRIMARY KEY (`login`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

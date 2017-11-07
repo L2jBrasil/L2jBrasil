@@ -16,7 +16,7 @@ CREATE TABLE raidboss_spawnlist (
   currentHp decimal(8,0) default NULL,
   currentMp decimal(8,0) default NULL,
   PRIMARY KEY  (boss_id,loc_x,loc_y,loc_z)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO `raidboss_spawnlist` VALUES 

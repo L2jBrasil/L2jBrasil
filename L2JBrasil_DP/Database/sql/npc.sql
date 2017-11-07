@@ -43,7 +43,7 @@ CREATE TABLE `npc` (
   `absorb_level` decimal(2,0) default '0',
   `absorb_type` enum('FULL_PARTY','LAST_HIT','PARTY_ONE_RANDOM') NOT NULL default 'LAST_HIT',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `npc` VALUES
  ('12077', '12077', 'Wolf', '0', '', '0', 'Monster.pet_wolf', '13.00', '11.50', '15', 'male', 'L2Pet', '40', '195', '164', '3.95', '1.21', '40', '43', '30', '21', '20', '25', '0', '0', '9', '19', '3', '17', '282', '0', '333', '0', '0', '0', '26', '137', null, '0', '0', '0', 'LAST_HIT'),

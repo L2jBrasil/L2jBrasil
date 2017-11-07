@@ -12,7 +12,7 @@ CREATE TABLE random_spawn (
   broadcastSpawn VARCHAR(5) NOT NULL default 'false',
   randomSpawn VARCHAR(5) NOT NULL default 'true',
   PRIMARY KEY  (groupId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `random_spawn` VALUES 
 (1,30556,1,-1,1800000,1800000,'false','true'),

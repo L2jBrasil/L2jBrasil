@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS `quest_global_data` (
   `var`  VARCHAR(20) NOT NULL DEFAULT '',
   `value` VARCHAR(255) ,
   PRIMARY KEY  (`quest_name`,`var`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

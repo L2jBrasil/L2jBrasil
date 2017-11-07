@@ -19,7 +19,7 @@ CREATE TABLE `spawnlist` (
   `periodOfDay` decimal(2,0) default '0',
   PRIMARY KEY  (id),
   KEY `key_npc_templateid` (`npc_templateid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `spawnlist`

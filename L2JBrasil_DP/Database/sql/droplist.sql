@@ -32,7 +32,7 @@ CREATE TABLE `droplist` (
   `chance` INT NOT NULL DEFAULT '0',
   PRIMARY KEY  (`mobId`,`itemId`,`category`),
   KEY `key_mobId` (`mobId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
 -- Dumping data for table `droplist`

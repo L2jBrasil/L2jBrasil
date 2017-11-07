@@ -6,7 +6,7 @@ CREATE TABLE `henna_trees` (
   `class_id` decimal(10,0) NOT NULL default 0,
   `symbol_id` decimal(10,0) NOT NULL default 0,
   PRIMARY KEY  (`class_id`,`symbol_id`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
 -- Records for table henna_trees

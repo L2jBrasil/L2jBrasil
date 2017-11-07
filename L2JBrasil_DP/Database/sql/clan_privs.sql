@@ -4,4 +4,4 @@ CREATE TABLE IF NOT EXISTS clan_privs (
   party INT NOT NULL default 0,
   privs INT NOT NULL default 0,
   PRIMARY KEY  (`clan_id`,`rank`,`party`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

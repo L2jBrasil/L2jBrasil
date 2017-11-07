@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS pets (
   pkkills decimal(11) ,
   fed decimal(11) ,
   PRIMARY KEY  (item_obj_id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

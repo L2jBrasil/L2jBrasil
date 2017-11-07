@@ -3,7 +3,7 @@ CREATE TABLE `auto_chat_text` (
   `groupId` INT NOT NULL default '0',
   `chatText` VARCHAR(255) NOT NULL default '',
   PRIMARY KEY  (`groupId`,`chatText`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `auto_chat_text` VALUES 
 (1,'%player_cabal_loser%! All is lost! Prepare to meet the goddess of death!'),

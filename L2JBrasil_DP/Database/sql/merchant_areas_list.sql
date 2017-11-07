@@ -8,7 +8,7 @@ CREATE TABLE `merchant_areas_list` (
   `tax` double(3,2) unsigned NOT NULL default '0.00',
   `Chaotic` int(11) NOT NULL default '0',
   PRIMARY KEY  (`merchant_area_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `merchant_areas_list`

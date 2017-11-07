@@ -13,7 +13,7 @@ CREATE TABLE zone (
   z INT NOT NULL default 0,
   z2 INT NOT NULL default 0,
   taxById INT NOT NULL default 0
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 INSERT INTO zone (id, type, name, x1, y1, x2, y2, z, z2, taxById) VALUES
  (1, 'Arena', 'Giran Arena', 72498, 142271, 73495, 143255, -3774, 0, 0),

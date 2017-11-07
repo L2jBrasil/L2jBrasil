@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS castle
   showNpcCrest varchar(5) default NULL,
   PRIMARY KEY  (name),
   KEY id (id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT IGNORE INTO `castle` VALUES 
 (1,'Gludio',0,0,0,7,20,'false'),

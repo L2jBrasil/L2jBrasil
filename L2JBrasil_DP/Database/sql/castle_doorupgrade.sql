@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS castle_doorupgrade (
   pDef INT NOT NULL default 0,
   mDef INT NOT NULL default 0,
   PRIMARY KEY  (doorId )
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -6,7 +6,7 @@ CREATE TABLE `merchants` (
   `npc_id` int(11) NOT NULL default '0',
   `merchant_area_id` tinyint(4) default NULL,
   PRIMARY KEY  (`npc_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `merchants`

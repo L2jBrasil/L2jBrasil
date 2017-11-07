@@ -5,7 +5,7 @@ CREATE TABLE `character_offline_trade` (
   `type` tinyint(4) NOT NULL DEFAULT '0',
   `title` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`charId`)
-) ;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 drop table IF EXISTS `character_offline_trade_items`;
 CREATE TABLE `character_offline_trade_items` (
@@ -14,4 +14,4 @@ CREATE TABLE `character_offline_trade_items` (
   `count` int(20) NOT NULL DEFAULT '0',
   `price` int(20) NOT NULL DEFAULT '0',
   `enchant` int(20) NOT NULL DEFAULT '0'
-) ;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;

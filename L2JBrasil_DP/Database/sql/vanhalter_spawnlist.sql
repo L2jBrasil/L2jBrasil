@@ -15,7 +15,7 @@ CREATE TABLE `vanhalter_spawnlist` (
   `periodOfDay` DECIMAL(2,0) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `key_npc_templateid` (`npc_templateid`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `vanhalter_spawnlist` VALUES 
 ('1','Pagan Temple','1','32051','-14670','-54846','-10629','0','0','16384','60','0','0'),

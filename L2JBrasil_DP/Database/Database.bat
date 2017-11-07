@@ -3,8 +3,8 @@
 REM ###############################################
 REM ## Configurate Database Connections please!  ##
 REM ###############################################
-REM Please, type here you dir to mysql directory \bin. Example : C:\Program Files\MySQL\MySQL Server 6.0\bin
-set mysqlBinPath=C:\Program Files\MySQL\MySQL Server 6.0\bin
+REM Please, type here you dir to mysql directory \bin. Example : C:\Program Files\MySQL\MySQL Server 5.7\bin
+set mysqlBinPath=C:\Program Files\MySQL\MySQL Server 5.7\bin
 
 set DateT=%date%
 

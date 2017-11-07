@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS games (
   enddate decimal(20,0) NOT NULL default 0,
   finished INT NOT NULL default 0,
   PRIMARY KEY (`id`,`idnr`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

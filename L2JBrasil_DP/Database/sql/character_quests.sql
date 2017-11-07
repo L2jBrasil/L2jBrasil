@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS `character_quests` (
   `value` VARCHAR(255) ,
   `class_index` int(1) NOT NULL default '0',
   PRIMARY KEY  (`char_id`,`name`,`var`,`class_index`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

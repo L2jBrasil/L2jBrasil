@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS `account_data` (
   var  VARCHAR(20) NOT NULL DEFAULT '',
   value VARCHAR(255) ,
   PRIMARY KEY  (account_name,var)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

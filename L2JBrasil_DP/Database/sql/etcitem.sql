@@ -18,7 +18,7 @@ CREATE TABLE `etcitem` (
   `oldname` varchar(100) NOT NULL default '',
   `oldtype` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `etcitem` VALUES
  ('17', 'Wooden Arrow', 'false', 'arrow', '6', 'stackable', 'wood', 'none', '-1', '2', '0', 'true', 'true', 'true', 'true', 'wooden_arrow', 'arrow'),

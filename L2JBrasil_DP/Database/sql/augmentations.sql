@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS augmentations (
   skill int(11) default 0,
   level int(11) default 0,
   PRIMARY KEY  (item_id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

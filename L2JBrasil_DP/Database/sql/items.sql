@@ -20,4 +20,4 @@ CREATE TABLE IF NOT EXISTS items (
   KEY `key_loc` (`loc`),
   KEY `key_item_id` (`item_id`),
   KEY `key_time_of_use` (`time_of_use`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

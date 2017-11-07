@@ -16,7 +16,7 @@ CREATE TABLE `dimensional_rift` (
   `zT` int(11) NOT NULL,
   `boss` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`type`,`room_id`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records for table dimensional_rift

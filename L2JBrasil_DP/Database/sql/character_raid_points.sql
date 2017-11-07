@@ -3,4 +3,4 @@ CREATE TABLE IF NOT EXISTS `character_raid_points` (
   `boss_id` INT UNSIGNED NOT NULL DEFAULT 0,
   `points` INT UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`charId`,`boss_id`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

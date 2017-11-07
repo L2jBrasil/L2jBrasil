@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS grandboss_data (
   `currentMP` DECIMAL(8,0) DEFAULT NULL,
   `status` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY(`boss_id`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `grandboss_data` VALUES 
 

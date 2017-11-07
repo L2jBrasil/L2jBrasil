@@ -7,7 +7,7 @@ CREATE TABLE npcskills (
   skillid int(11) NOT NULL default '0',
   level int(11) NOT NULL default '0',
   PRIMARY KEY  (npcid,skillid,level)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
 -- Dumping data for table `npcskills`

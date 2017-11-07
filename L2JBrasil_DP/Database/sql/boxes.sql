@@ -12,4 +12,4 @@ CREATE TABLE IF NOT EXISTS boxes (
   count decimal(11,0) default NULL,
   enchant decimal(2,0) default NULL,
   PRIMARY KEY  (id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS character_skills (
   skill_name varchar(40),
   `class_index` INT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY  (char_obj_id,skill_id,`class_index`)
-) ;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;

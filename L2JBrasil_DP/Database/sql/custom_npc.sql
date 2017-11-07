@@ -46,7 +46,7 @@ CREATE TABLE `custom_npc`(
   `absorb_level` decimal(2,0) default 0,
   `absorb_type` enum('FULL_PARTY','LAST_HIT','PARTY_ONE_RANDOM') DEFAULT 'LAST_HIT' NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 -- 
 -- Dumping data for table `custom_npc`
 -- 

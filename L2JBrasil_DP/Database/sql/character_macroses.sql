@@ -10,4 +10,4 @@ CREATE TABLE IF NOT EXISTS `character_macroses` (
   `acronym` VARCHAR(4) ,
   `commands` VARCHAR(255) ,
   PRIMARY KEY  (`char_obj_id`,`id`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

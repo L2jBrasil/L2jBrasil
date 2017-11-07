@@ -20,7 +20,7 @@ CREATE TABLE castle_door (
   mDef INT NOT NULL default 0,
   PRIMARY KEY  (id),
   KEY id (castleId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `castle_door` (`castleId`, `id`, `name`, `x`, `y`, `z`, `range_xmin`, `range_ymin`, `range_zmin`, `range_xmax`, `range_ymax`, `range_zmax`, `hp`, `pDef`, `mDef`) VALUES 
   (1,19210001,'Gludio_outer_001',-18481,113065,-2774,-18481,113058,-2799,-18350,113072,-2479,316500,644,518),

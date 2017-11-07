@@ -4,7 +4,7 @@ CREATE TABLE `auto_chat` (
   `npcId` INT NOT NULL default '0',
   `chatDelay` BIGINT NOT NULL default '-1',
   PRIMARY KEY  (`groupId`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `auto_chat` VALUES 
 

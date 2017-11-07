@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `clanhall` (
   `Grade` decimal(1,0) NOT NULL default '0',
   `paid` int( 1 ) NOT NULL default '0',
   PRIMARY KEY `id` (`id`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records 

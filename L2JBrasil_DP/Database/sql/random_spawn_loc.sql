@@ -6,7 +6,7 @@ CREATE TABLE `random_spawn_loc` (
   `z` int(11) NOT NULL default '0',
   `heading` int(11) NOT NULL default '-1',
   PRIMARY KEY  (`groupId`,`x`,`y`,`z`,`heading`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `l2jdb`.`random_spawn_loc`

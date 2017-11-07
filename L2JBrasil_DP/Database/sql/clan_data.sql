@@ -21,4 +21,4 @@ CREATE TABLE IF NOT EXISTS clan_data (
   PRIMARY KEY  (clan_id),
   KEY `leader_id` (`leader_id`),
   KEY `ally_id` (`ally_id`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
