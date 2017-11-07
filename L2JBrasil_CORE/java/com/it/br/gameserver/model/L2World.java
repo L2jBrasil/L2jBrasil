@@ -250,7 +250,7 @@ public final class L2World
     public L2PcInstance getPlayer(String name)
 	{
 		for(L2PcInstance actual:_allPlayers.values())
-			if(actual.getName() == name)
+			if(actual.getName().equals(name))
 				return actual;
 		
 		return null;
