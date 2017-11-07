@@ -272,6 +272,9 @@ public final class Config
     public static boolean ALLOW_STAT_VIEW;
     public static boolean ENABLE_INFO;
     public static boolean BANKING_SYSTEM_ENABLED;
+	public static boolean ALLOW_STATS_COMMAND;
+	public static boolean ALLOW_CASTLE_COMMAND;
+	public static boolean ALLOW_SET_COMMAND;
     public static int BANKING_SYSTEM_GOLDBARS;
     public static int BANKING_SYSTEM_ADENA;
     public static int BANKING_SYSTEM_GB_ID;
@@ -310,7 +313,10 @@ public final class Config
 	    	BANKING_SYSTEM_GOLDBARS = Integer.parseInt(Command.getProperty("BankingGoldbarCount", "1")); 
 	    	BANKING_SYSTEM_ADENA = Integer.parseInt(Command.getProperty("BankingAdenaCount", "500000000"));
 	    	BANKING_SYSTEM_GB_ID = Integer.parseInt(Command.getProperty("BankingGoldbarId", "3470"));
-	    	ALLOW_AWAY_STATUS = Boolean.parseBoolean(Command.getProperty("AllowAwayStatus", "False"));
+			ALLOW_STATS_COMMAND = Boolean.parseBoolean(Command.getProperty("StatsCommandEnabled", "False"));
+			ALLOW_CASTLE_COMMAND = Boolean.parseBoolean(Command.getProperty("CastleCommandEnabled", "False"));
+			ALLOW_SET_COMMAND = Boolean.parseBoolean(Command.getProperty("SetCommandEnabled", "False"));
+			ALLOW_AWAY_STATUS = Boolean.parseBoolean(Command.getProperty("AllowAwayStatus", "False"));
 	    	AWAY_PEACE_ZONE = Boolean.parseBoolean(Command.getProperty("AwayOnlyInPeaceZone", "False"));
 	    	ALT_AWAY_ALLOW_INTERFERENCE = Boolean.parseBoolean(Command.getProperty("AwayAllowInterference", "False"));
 	    	AWAY_PLAYER_TAKE_AGGRO = Boolean.parseBoolean(Command.getProperty("AwayPlayerTakeAggro", "False"));
