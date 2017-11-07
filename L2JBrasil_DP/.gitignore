@@ -1,2 +1,3 @@
-# build fora dos commits
 /build/
+/bin/
+.idea

@@ -34,9 +34,9 @@ import com.it.br.gameserver.util.Broadcast;
  * @author evill33t
  *
  */
-public class Wedding implements IVoicedCommandHandler
+public class WeddingVoicedCommand implements IVoicedCommandHandler
 {
-    static final Log _log = LogFactory.getLog(Wedding.class);
+    static final Log _log = LogFactory.getLog(WeddingVoicedCommand.class);
     private static String[] _voicedCommands = { "divorce", "engage", "gotolove" };
 
     /* (non-Javadoc)
@@ -46,15 +46,15 @@ public class Wedding implements IVoicedCommandHandler
 	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)
     {
         if(command.startsWith("engage"))
-            return Engage(activeChar);
+            return engage(activeChar);
         else if(command.startsWith("divorce"))
-            return Divorce(activeChar);
+            return divorce(activeChar);
         else if(command.startsWith("gotolove"))
-            return GoToLove(activeChar);
+            return goToLove(activeChar);
         return false;
     }
 
-    public boolean Divorce(L2PcInstance activeChar)
+    private boolean divorce(L2PcInstance activeChar)
     {
         if(activeChar.getPartnerId()==0)
             return false;
@@ -98,7 +98,7 @@ public class Wedding implements IVoicedCommandHandler
         return true;
     }
 
-    public boolean Engage(L2PcInstance activeChar)
+    private boolean engage(L2PcInstance activeChar)
     {
         // check target
         if (activeChar.getTarget()==null)
@@ -220,7 +220,7 @@ public class Wedding implements IVoicedCommandHandler
         return true;
     }
 
-    public boolean GoToLove(L2PcInstance activeChar)
+    private boolean goToLove(L2PcInstance activeChar)
     {
         if (!activeChar.isMarried())
         {

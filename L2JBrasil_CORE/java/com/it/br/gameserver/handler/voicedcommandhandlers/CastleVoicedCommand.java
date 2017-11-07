@@ -25,7 +25,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.network.serverpackets.Ride;
 
-public class castle implements IVoicedCommandHandler
+public class CastleVoicedCommand implements IVoicedCommandHandler
 {
     private static final String[] VOICED_COMMANDS = { "open doors", "close doors", "ride wyvern" };
 
