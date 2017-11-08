@@ -92,8 +92,8 @@ public class AdminEditChar implements IAdminCommandHandler
 		"admin_setcolor", // change charnames' color display
 		"admin_setclass", // changes chars' classId
 		"admin_fullfood",  // fulfills a pet's food bar
-		"admin_sethero",  // sets the target hero 
-		"admin_setnoble" // sets the target noble 
+		"admin_sethero",  // sets the target hero
+		"admin_setnoble" // sets the target noble
 		};
 
 	private static final int REQUIRED_LEVEL = Config.GM_CHAR_EDIT;
@@ -342,81 +342,81 @@ public class AdminEditChar implements IAdminCommandHandler
 			player.decayMe();
 			player.spawnMe(player.getX(),player.getY(),player.getZ());
 		}
-		else if (command.startsWith("admin_sethero") || command.startsWith("admin_manualhero")) 
-		{ 
-			L2Object target = activeChar.getTarget(); 
+		else if (command.startsWith("admin_sethero") || command.startsWith("admin_manualhero"))
+		{
+			L2Object target = activeChar.getTarget();
 
-			if (target instanceof L2PcInstance) 
-			{ 
-				L2PcInstance targetPlayer = (L2PcInstance) target;              
-				boolean isHero = targetPlayer.isHero(); 
-				String targetNotifyMsg = ""; 
-				String gmBroadcastMsg = ""; 
-              
-				if (isHero) 
-				{ 
-					targetNotifyMsg = "You are no longer a Hero."; 
-					gmBroadcastMsg = "A GM has removed hero status from " + targetPlayer.getName() + "."; 
-					targetPlayer.setHero(false); 
-					targetPlayer.sendMessage(targetNotifyMsg); 
-					updateDatabase(targetPlayer, false, false); 
-				} 
-				else 
-				{ 
-					targetNotifyMsg = "You are now a hero, congratulations!"; 
-					gmBroadcastMsg = "A GM has given hero status to " + targetPlayer.getName() + "."; 
-					targetPlayer.setHero(true); 
-					targetPlayer.broadcastPacket(new SocialAction(targetPlayer.getObjectId(), 16)); 
-					targetPlayer.sendMessage(targetNotifyMsg); 
-					updateDatabase(targetPlayer, true, false); 
-				} 
-				targetPlayer.broadcastUserInfo(); 
-			} 
-			else 
-			{ 
-				_log.info("GM: " + activeChar.getName() + " is trying to set a non Player Target as Hero."); 
-				return false; 
-			} 
-		}                               
-		else if (command.startsWith("admin_setnoble")) 
-		{ 
-			L2Object target = activeChar.getTarget(); 
-			if (target instanceof L2PcInstance) 
-			{ 
-				L2PcInstance targetPlayer = (L2PcInstance) target; 
-				boolean isNoble = targetPlayer.isNoble(); 
-				String targetNotifyMsg = ""; 
-				String gmBroadcastMsg = ""; 
-				if (isNoble) 
-				{ 
-					targetNotifyMsg = "You are no longer a Noble."; 
-					gmBroadcastMsg = "A GM has removed noblesse status from " + targetPlayer.getName() + "."; 
-					targetPlayer.setNoble(false); 
-					targetPlayer.sendMessage(targetNotifyMsg);         
-					//general info 
-					updateDatabase(targetPlayer, false, false); 
-				} 
-				else 
-				{ 
-					targetNotifyMsg = "You are now a noble, congratulations!"; 
-					gmBroadcastMsg = "A GM has given noble status to " + targetPlayer.getName() + "."; 
-					// now we do the work 
-					// ------------------ 
-					targetPlayer.setNoble(true); 
-					targetPlayer.broadcastPacket(new SocialAction(targetPlayer.getObjectId(), 16)); 
-					targetPlayer.sendMessage(targetNotifyMsg); 
-					// general info storage and notify 
-					// ------------------------------ 
-					updateDatabase(activeChar, false, true); 
-				} 
-				targetPlayer.broadcastUserInfo(); 
-			} 
-			else 
-			{ 
-				_log.info("GM: " + activeChar.getName() + " is trying to set a non Player Target as Noble."); 
-				return false; 
-			} 
-		} 
+			if (target instanceof L2PcInstance)
+			{
+				L2PcInstance targetPlayer = (L2PcInstance) target;
+				boolean isHero = targetPlayer.isHero();
+				String targetNotifyMsg = "";
+				String gmBroadcastMsg = "";
+
+				if (isHero)
+				{
+					targetNotifyMsg = "You are no longer a Hero.";
+					gmBroadcastMsg = "A GM has removed hero status from " + targetPlayer.getName() + ".";
+					targetPlayer.setHero(false);
+					targetPlayer.sendMessage(targetNotifyMsg);
+					updateDatabase(targetPlayer, false, false);
+				}
+				else
+				{
+					targetNotifyMsg = "You are now a hero, congratulations!";
+					gmBroadcastMsg = "A GM has given hero status to " + targetPlayer.getName() + ".";
+					targetPlayer.setHero(true);
+					targetPlayer.broadcastPacket(new SocialAction(targetPlayer.getObjectId(), 16));
+					targetPlayer.sendMessage(targetNotifyMsg);
+					updateDatabase(targetPlayer, true, false);
+				}
+				targetPlayer.broadcastUserInfo();
+			}
+			else
+			{
+				_log.info("GM: " + activeChar.getName() + " is trying to set a non Player Target as Hero.");
+				return false;
+			}
+		}
+		else if (command.startsWith("admin_setnoble"))
+		{
+			L2Object target = activeChar.getTarget();
+			if (target instanceof L2PcInstance)
+			{
+				L2PcInstance targetPlayer = (L2PcInstance) target;
+				boolean isNoble = targetPlayer.isNoble();
+				String targetNotifyMsg = "";
+				String gmBroadcastMsg = "";
+				if (isNoble)
+				{
+					targetNotifyMsg = "You are no longer a Noble.";
+					gmBroadcastMsg = "A GM has removed noblesse status from " + targetPlayer.getName() + ".";
+					targetPlayer.setNoble(false);
+					targetPlayer.sendMessage(targetNotifyMsg);
+					//general info
+					updateDatabase(targetPlayer, false, false);
+				}
+				else
+				{
+					targetNotifyMsg = "You are now a noble, congratulations!";
+					gmBroadcastMsg = "A GM has given noble status to " + targetPlayer.getName() + ".";
+					// now we do the work
+					// ------------------
+					targetPlayer.setNoble(true);
+					targetPlayer.broadcastPacket(new SocialAction(targetPlayer.getObjectId(), 16));
+					targetPlayer.sendMessage(targetNotifyMsg);
+					// general info storage and notify
+					// ------------------------------
+					updateDatabase(activeChar, false, true);
+				}
+				targetPlayer.broadcastUserInfo();
+			}
+			else
+			{
+				_log.info("GM: " + activeChar.getName() + " is trying to set a non Player Target as Noble.");
+				return false;
+			}
+		}
 		else if (command.startsWith("admin_setcolor"))
 		{
 			try
@@ -495,9 +495,10 @@ public class AdminEditChar implements IAdminCommandHandler
 		}
 		adminReply.replace("%pages%", replyMSG.toString());
 		replyMSG.setLength(0);
-		for (int i = CharactersStart; i < CharactersEnd; i++)
+		for (int i = CharactersStart; i <= CharactersEnd; i++)
 		{	//Add player info into new Table row
-			replyMSG.append("<tr><td width=80><a action=\"bypass -h admin_character_info " + players[i].getName() + "\">" + players[i].getName() + "</a></td><td width=110>" + players[i].getTemplate().className + "</td><td width=40>" + players[i].getLevel() + "</td></tr>");
+			replyMSG.append("<tr><td width=80><a action=\"bypass -h admin_character_info " + players[i].getName() + "\">" + players[i].getName() + "</a></td>");
+			replyMSG.append("<td width=110>" + players[i].getTemplate().className + "</td><td width=40>" + players[i].getLevel() + "</td></tr>");
 		}
 		adminReply.replace("%players%", replyMSG.toString());
 		activeChar.sendPacket(adminReply);
@@ -737,7 +738,7 @@ public class AdminEditChar implements IAdminCommandHandler
 	{
 		if(!IpAdress.matches("^(?:(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2(?:[0-4][0-9]|5[0-5]))\\.){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2(?:[0-4][0-9]|5[0-5]))$"))
 			throw new IllegalArgumentException("Malformed IPv4 number");
-		
+
 		Collection<L2PcInstance> allPlayers = L2World.getInstance().getAllPlayers();
 		L2PcInstance[] players = allPlayers.toArray(new L2PcInstance[allPlayers.size()]);
 		allPlayers = null;
@@ -755,13 +756,13 @@ public class AdminEditChar implements IAdminCommandHandler
 					|| player.getClient().getConnection()==null
 					|| player.getClient().getConnection().getInetAddress()==null
 					|| player.getClient().getConnection().getInetAddress().getHostAddress()==null){
-				
+
 				continue;
-				
-			}	
-			
+
+			}
+
 			ip = player.getClient().getConnection().getInetAddress().getHostAddress();
-			
+
 			if(ip.equals(IpAdress))
 			{
 				name = player.getName();
@@ -774,7 +775,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				break;
 			}
 		}
-		
+
 		name = null;
 		players = null;
 
@@ -837,85 +838,85 @@ public class AdminEditChar implements IAdminCommandHandler
 		else
 			throw new IllegalArgumentException("Malformed character name");
 	}
-	private void updateDatabase(L2PcInstance player, boolean newHero, boolean newNoble) 
-	{ 
-		Connection con = null; 
-		try 
-		{ 
-			//prevents any NPE. 
-			// ---------------- 
-			if (player == null) 
-			return; 
+	private void updateDatabase(L2PcInstance player, boolean newHero, boolean newNoble)
+	{
+		Connection con = null;
+		try
+		{
+			//prevents any NPE.
+			// ----------------
+			if (player == null)
+			return;
 
-			//Define more variables 
-			// --------------------------------------------- 
-			String charName = player.getName(); 
-			int charId = player.getObjectId(); 
-			boolean insert = newHero || newNoble; 
+			//Define more variables
+			// ---------------------------------------------
+			String charName = player.getName();
+			int charId = player.getObjectId();
+			boolean insert = newHero || newNoble;
 
-			// Database Connection 
-			// --------------------------------------------- 
-			con = L2DatabaseFactory.getInstance().getConnection(); 
-			PreparedStatement stmt = con.prepareStatement(insert ? DATA_INSERT : DATA_DELETE); 
+			// Database Connection
+			// ---------------------------------------------
+			con = L2DatabaseFactory.getInstance().getConnection();
+			PreparedStatement stmt = con.prepareStatement(insert ? DATA_INSERT : DATA_DELETE);
 
-			// custom variables 
-			// --------------------------------------------- 
-			boolean isNoble = player.isNoble(); 
-			boolean isHero = player.isHero(); 
-    
-			//if it is a new hero insert proper data 
-			// --------------------------------------------- 
-			if (newHero) 
-			{ 
-				stmt.setInt(1, charId); 
-				stmt.setString(2, charName); 
-				stmt.setInt(3, 1); //sets new char as hero 
-				stmt.setInt(4, isNoble ? 1 : 0); //keeps noble data if already set 
-				stmt.execute(); 
-				stmt.close(); 
-			} 
-			// if it is a new noble inserts and keeps proper data 
-			// --------------------------------------------- 
-			else if (newNoble) 
-			{ 
-				stmt.setInt(1, charId); 
-				stmt.setString(2, charName); 
-				stmt.setInt(3, isHero ? 1 : 0); //keeps hero data if any 
-				stmt.setInt(4, 1); //sets char as noble 
-				stmt.execute(); 
-				stmt.close(); 
-			} 
-			else 
-			// not a new hero or noble so we delete data 
-			// --------------------------------------------- 
-			{ 
-				stmt.setInt(1, newHero ? 0 : 1); 
-				stmt.setInt(2, newNoble ? 0 : 1); 
-				stmt.setInt(3, charId); 
-				stmt.execute(); 
-				stmt.close(); 
-			} 
-		} 
-		catch (Exception e) 
-		{ 
-			System.out.println("Error: could not update database: "); 
-		} 
-		finally 
-		{ 
-			try 
-			{ 
-				if (con != null) 
-				con.close(); 
-			} 
-			catch (Exception e) 
-			{ 
-				System.out.println("Error: could not update database: "); 
-			} 
-		} 
-	} 
+			// custom variables
+			// ---------------------------------------------
+			boolean isNoble = player.isNoble();
+			boolean isHero = player.isHero();
 
-	// Updates That Will be Executed by MySQL 
-	// --------------------------------------------- 
-	String  DATA_INSERT     = "REPLACE INTO characters (charId, char_name, nobless ) VALUES (?,?,?)"; 
-	String  DATA_DELETE     = "UPDATE characters SET noble = ? WHERE charId=?"; 
+			//if it is a new hero insert proper data
+			// ---------------------------------------------
+			if (newHero)
+			{
+				stmt.setInt(1, charId);
+				stmt.setString(2, charName);
+				stmt.setInt(3, 1); //sets new char as hero
+				stmt.setInt(4, isNoble ? 1 : 0); //keeps noble data if already set
+				stmt.execute();
+				stmt.close();
+			}
+			// if it is a new noble inserts and keeps proper data
+			// ---------------------------------------------
+			else if (newNoble)
+			{
+				stmt.setInt(1, charId);
+				stmt.setString(2, charName);
+				stmt.setInt(3, isHero ? 1 : 0); //keeps hero data if any
+				stmt.setInt(4, 1); //sets char as noble
+				stmt.execute();
+				stmt.close();
+			}
+			else
+			// not a new hero or noble so we delete data
+			// ---------------------------------------------
+			{
+				stmt.setInt(1, newHero ? 0 : 1);
+				stmt.setInt(2, newNoble ? 0 : 1);
+				stmt.setInt(3, charId);
+				stmt.execute();
+				stmt.close();
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error: could not update database: ");
+		}
+		finally
+		{
+			try
+			{
+				if (con != null)
+				con.close();
+			}
+			catch (Exception e)
+			{
+				System.out.println("Error: could not update database: ");
+			}
+		}
+	}
+
+	// Updates That Will be Executed by MySQL
+	// ---------------------------------------------
+	String  DATA_INSERT     = "REPLACE INTO characters (charId, char_name, nobless ) VALUES (?,?,?)";
+	String  DATA_DELETE     = "UPDATE characters SET noble = ? WHERE charId=?";
 }
