@@ -352,7 +352,7 @@ public class AdminAdmin implements IAdminCommandHandler {
 		{
 			mode = Integer.parseInt(command.substring(11));
 		}
-		catch (Exception e) {e.printStackTrace();}
+		catch (Exception e) {  }// Nao precisa printar.
 
 		switch (mode)
 		{

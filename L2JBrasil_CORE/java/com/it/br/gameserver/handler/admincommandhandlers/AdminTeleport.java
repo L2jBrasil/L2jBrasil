@@ -75,6 +75,8 @@ public class AdminTeleport implements IAdminCommandHandler
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
+        StringTokenizer st1 = new StringTokenizer(command);
+
         if (!Config.ALT_PRIVILEGES_ADMIN)
             if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
 
@@ -219,15 +221,26 @@ public class AdminTeleport implements IAdminCommandHandler
         }
         else if (command.startsWith("admin_recall"))
         {
-            try
+            String val;
+
+            if (st1.hasMoreTokens())
             {
-                String targetName = command.substring(13);
-                L2PcInstance player = L2World.getInstance().getPlayer(targetName);
-                if (activeChar.getAccessLevel()>=REQUIRED_LEVEL2)
-            	    teleportCharacter(player, activeChar.getX(), activeChar.getY(), activeChar.getZ());
+                val = st1.nextToken();
             }
-            catch (StringIndexOutOfBoundsException e)
-            { }
+            else
+            {
+                activeChar.sendMessage("Usage: //recall <char_name>");
+                return false;
+            }
+
+            if (val.equals("")) {
+                activeChar.sendMessage("Usage: //recall <char_name>");
+                return false;
+            }
+
+            L2PcInstance player = L2World.getInstance().getPlayer(val);
+            if (activeChar.getAccessLevel() >= REQUIRED_LEVEL2)
+                teleportCharacter(player, activeChar.getX(), activeChar.getY(), activeChar.getZ());
         }
         else if (command.equals("admin_tele"))
         {

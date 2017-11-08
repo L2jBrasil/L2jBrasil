@@ -398,8 +398,6 @@ public final class Config
     public static int MAX_PCRIT_RATE;
     public static int MAX_MCRIT_RATE;
     public static double MULTIPLE_MCRIT;
-    public static boolean DISPLAY_SERVER_VERSION;
-    public static boolean SHOW_DEVELOPERS_CREDITS;
     public static boolean CUSTOM_SPAWNLIST_TABLE;
     public static boolean DELETE_GMSPAWN_ON_CUSTOM;
     public static int DUEL_SPAWN_X;
@@ -602,8 +600,6 @@ public final class Config
 	    	MAX_PCRIT_RATE = Integer.parseInt(L2JBrasil.getProperty("MaxPCritRate", "500"));
 	    	MAX_MCRIT_RATE = Integer.parseInt(L2JBrasil.getProperty("MaxMCritRate", "300"));
 	    	MULTIPLE_MCRIT = Double.parseDouble(L2JBrasil.getProperty("MultipleMCrit", "4.0"));
-	    	DISPLAY_SERVER_VERSION = Boolean.parseBoolean(L2JBrasil.getProperty("DisplayServerRevision","True"));
-	    	SHOW_DEVELOPERS_CREDITS = Boolean.parseBoolean(L2JBrasil.getProperty("ShowDevelopersCredits", "True"));
 	    	CUSTOM_SPAWNLIST_TABLE = Boolean.valueOf(L2JBrasil.getProperty("GmSpawnOnCustom", "True"));
 	    	DELETE_GMSPAWN_ON_CUSTOM = Boolean.valueOf(L2JBrasil.getProperty("DeleteGmSpawnOnCustom", "False"));
 	    	DUEL_SPAWN_X = Integer.parseInt(L2JBrasil.getProperty("PartyDuelSpawnX", "149319"));
