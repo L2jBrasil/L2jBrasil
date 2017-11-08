@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class L2DatabaseFactory
@@ -34,18 +35,52 @@ public class L2DatabaseFactory
 
 	public L2DatabaseFactory() throws SQLException
 	{
-		try
+		if (Config.DATABASE_MAX_CONNECTIONS < 2)
+        {
+            Config.DATABASE_MAX_CONNECTIONS = 2;
+            _log.warning("A minimum of 2 connections are required.");
+        }
+
+        // Hello Hikari!
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(Config.DATABASE_URL);
+        config.setUsername(Config.DATABASE_LOGIN);
+        config.setPassword(Config.DATABASE_PASSWORD);
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.addDataSourceProperty("useServerPrepStmts", "true");
+        config.addDataSourceProperty("useLocalSessionState", "true");
+        config.addDataSourceProperty("useLocalTransactionState", "true");
+        config.addDataSourceProperty("rewriteBatchedStatements", "true");
+        config.addDataSourceProperty("cacheServerConfiguration", "true");
+        config.addDataSourceProperty("cacheResultSetMetadata", "true");
+        config.addDataSourceProperty("maintainTimeStats", "false");
+
+        _dataSource = new HikariDataSource(config);
+        _dataSource.setAutoCommit(true);
+        _dataSource.setMinimumIdle(10);
+
+        _dataSource.setValidationTimeout(500); // 500 milliseconds wait before try to acquire connection again
+        _dataSource.setConnectionTimeout(0); // 0 = wait indefinitely for new connection if pool is exhausted
+        _dataSource.setMaximumPoolSize(Config.DATABASE_MAX_CONNECTIONS);
+        _dataSource.setIdleTimeout(Config.DATABASE_MAX_IDLE_TIME); // 0 = idle connections never expire
+        _dataSource.setDriverClassName(Config.DATABASE_DRIVER);
+
+        // Test DB connection
+        try
+        {
+            _dataSource.getConnection().close();
+		} catch (SQLException e)
 		{
-			_dataSource = new HikariDataSource();
-			_dataSource.setJdbcUrl(Config.DATABASE_URL);
-			_dataSource.setUsername(Config.DATABASE_LOGIN);
-			_dataSource.setPassword(Config.DATABASE_PASSWORD);
-			_dataSource.setMaximumPoolSize(Config.DATABASE_MAX_CONNECTIONS);
-			_dataSource.setIdleTimeout(Config.DATABASE_MAX_IDLE_TIME);
-		} catch (Exception e)
-		{
-			if (Config.DEBUG) _log.fine("Database Connection FAILED");
-			throw new SQLException("could not init DB connection:"+e);
+			if (Config.DEBUG) {
+			    _log.fine("Database Connection FAILED");
+			}
+
+            e.printStackTrace();
+
+            // FIXME: New exception inside an exception catching block?
+			//throw new SQLException("could not init DB connection:"+e);
 		}
 	}
 
