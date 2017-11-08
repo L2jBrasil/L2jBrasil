@@ -495,7 +495,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		}
 		adminReply.replace("%pages%", replyMSG.toString());
 		replyMSG.setLength(0);
-		for (int i = CharactersStart; i <= CharactersEnd; i++)
+		for (int i = CharactersStart; i < CharactersEnd + 1; i++)
 		{	//Add player info into new Table row
 			replyMSG.append("<tr><td width=80><a action=\"bypass -h admin_character_info " + players[i].getName() + "\">" + players[i].getName() + "</a></td>");
 			replyMSG.append("<td width=110>" + players[i].getTemplate().className + "</td><td width=40>" + players[i].getLevel() + "</td></tr>");
