@@ -52,7 +52,11 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public class AdminAio implements IAdminCommandHandler
 {
 	private final static Logger _log = Logger.getLogger(AdminAio.class.getName());
-	private static String[] ADMIN_COMMANDS = { "admin_setaio", "admin_removeaio" };
+
+	private static String[] ADMIN_COMMANDS = {
+	        "admin_setaio",
+            "admin_removeaio"
+	};
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
@@ -61,7 +65,7 @@ public class AdminAio implements IAdminCommandHandler
 			StringTokenizer str = new StringTokenizer(command);
 			L2Object target = activeChar.getTarget();
 
-			L2PcInstance player = null;
+			L2PcInstance player;
 			SystemMessage sm = new SystemMessage(SystemMessageId.S1_S2);
 
 			if (target != null && target instanceof L2PcInstance)
@@ -69,38 +73,42 @@ public class AdminAio implements IAdminCommandHandler
 			else
 				player = activeChar;
 
-			try
-			{
-				str.nextToken();
-				String time = str.nextToken();
-				if (str.hasMoreTokens())
-				{
-					String playername = time;
-					time = str.nextToken();
-					player = L2World.getInstance().getPlayer(playername);
-					doAio(activeChar, player, playername, time);
-				}
-				else
-				{
-					String playername = player.getName();
-					doAio(activeChar, player, playername, time);
-				}
-				if(!time.equals("0"))
-				{
-					if(Config.ALLOW_AIO_ITEM)
-						player.getInventory().addItem("", Config.AIO_ITEMID, 1, player, null);
-					sm.addString("You are now a Aio, Congratulations!");
-					player.sendPacket(sm);
-				}
-			}
-			catch(Exception e)
-			{
-				activeChar.sendMessage("Usage: //setaio <char_name> [time](in days)");
-			}
-	
-			player.broadcastUserInfo();
-			if(player.isAio())
-				return true;
+            if(player != null)
+            {
+                try
+                {
+                    str.nextToken();
+                    String time = str.nextToken();
+                    if (str.hasMoreTokens())
+                    {
+                        String playername = time;
+                        time = str.nextToken();
+                        player = L2World.getInstance().getPlayer(playername);
+                        doAio(activeChar, player, playername, time);
+                    }
+                    else
+                    {
+                        String playername = player.getName();
+                        doAio(activeChar, player, playername, time);
+                    }
+                    if(!time.equals("0"))
+                    {
+                        if(Config.ALLOW_AIO_ITEM)
+                            player.getInventory().addItem("", Config.AIO_ITEMID, 1, player, null);
+                        sm.addString("You are now a Aio, Congratulations!");
+                        player.sendPacket(sm);
+                    }
+                }
+                catch(Exception e)
+                {
+                    activeChar.sendMessage("Usage: //setaio <char_name> [time](in days)");
+                }
+
+                player.broadcastUserInfo();
+
+                if(player.isAio())
+                    return true;
+            }
 		}
 		else if(command.startsWith("admin_removeaio") && activeChar.isGM())
 		{

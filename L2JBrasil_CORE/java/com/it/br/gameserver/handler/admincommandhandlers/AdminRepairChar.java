@@ -18,6 +18,7 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
@@ -51,11 +52,15 @@ public class AdminRepairChar implements IAdminCommandHandler
                 return false;
         }
 
-		String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
-        GMAudit.auditGMAction(activeChar.getName(), command, target, "");
+        if (command.startsWith(ADMIN_COMMANDS[0]) || command.startsWith(ADMIN_COMMANDS[1]))
+        {
+            String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
+            GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 
-        handleRepair(command);
-        return true;
+            handleRepair(command);
+            return true;
+        }
+        return false;
     }
 
 
@@ -78,10 +83,9 @@ public class AdminRepairChar implements IAdminCommandHandler
         }
 
         String cmd = "UPDATE characters SET x=-84318, y=244579, z=-3730 WHERE char_name=?";
-        java.sql.Connection connection = null;
-        try
+
+        try(Connection connection = L2DatabaseFactory.getInstance().getConnection())
         {
-            connection = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = connection.prepareStatement(cmd);
             statement.setString(1,parts[1]);
             statement.execute();
@@ -118,10 +122,6 @@ public class AdminRepairChar implements IAdminCommandHandler
         catch (Exception e)
         {
 			_log.log(Level.WARNING, "could not repair char:", e);
-        }
-        finally
-        {
-            try { connection.close(); } catch (Exception e) {}
         }
     }
 }

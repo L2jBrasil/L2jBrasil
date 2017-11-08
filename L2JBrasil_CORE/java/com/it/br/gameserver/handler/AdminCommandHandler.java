@@ -177,12 +177,10 @@ public class AdminCommandHandler
             //Try to loaded the command config
             boolean isLoaded = false;
 
-            try
+            try(InputStream is = new FileInputStream(Config.ADMINCOMMAND_FILE))
             {
                 Properties Settings = new Properties();
-                InputStream is = new FileInputStream(Config.ADMINCOMMAND_FILE);
                 Settings.load(is);
-                is.close();
 
                 String stringLevel = Settings.getProperty(command);
 

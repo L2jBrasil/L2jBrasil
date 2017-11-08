@@ -28,9 +28,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.Universe;
@@ -39,6 +36,8 @@ import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
+
+import java.util.StringTokenizer;
 
 
 /**
@@ -85,10 +84,6 @@ public class AdminTest implements IAdminCommandHandler
             {
                 activeChar.sendMessage("Command format is //skill_test <ID>");
             }
-            catch(NoSuchElementException nsee)
-            {
-                activeChar.sendMessage("Command format is //skill_test <ID>");
-            }
         }
         else if (command.startsWith("admin_test uni flush"))
         {
@@ -126,8 +121,8 @@ public class AdminTest implements IAdminCommandHandler
     }
 
     /**
-     * @param activeChar
-     * @param id
+     * @param activeChar L2PcInstance
+     * @param id Skill Id
      */
     private void adminTestSkill(L2PcInstance activeChar, int id)
     {

@@ -166,13 +166,10 @@ public class SiegeManager
     // =========================================================
     private final void loadSiegeConfig()
     {
-    	//_log.info("Loading: " + SIEGE_FILE + ".");
-        try
+        try(InputStream is = new FileInputStream(new File(Config.SIEGE_FILE)))
         {
-            InputStream is = new FileInputStream(new File(Config.SIEGE_FILE));
             Properties siegeSettings = new Properties();
             siegeSettings.load(is);
-            is.close();
 
             _siegeLength = Integer.decode(siegeSettings.getProperty("SiegeLength", "120"));
             _flagMaxCount = Integer.decode(siegeSettings.getProperty("MaxFlags", "1"));

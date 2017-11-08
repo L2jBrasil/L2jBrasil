@@ -23,15 +23,6 @@
       <sourceFolder url="file://$MODULE_DIR$/java" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="junit4">
-        <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module-library" exported="">
       <library name="bsf.jar">
         <CLASSES>
@@ -87,36 +78,9 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="mysql-connector-java-5.1.22-bin.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-5.1.22-bin.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="c3p0-0.9.2-pre6.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/c3p0-0.9.2-pre6.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="mchange-commons-java-0.2.3.1.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/mchange-commons-java-0.2.3.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="java-engine-1.8.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/java-engine-1.8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -135,5 +99,17 @@
     <orderEntry type="library" name="HikariCP-2.7.2" level="project" />
     <orderEntry type="library" name="slf4j" level="project" />
     <orderEntry type="library" name="logback" level="project" />
+    <orderEntry type="module-library">
+      <library name="java-engine-1.8.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/java-engine-1.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
+    <orderEntry type="library" name="logback" level="project" />
+    <orderEntry type="library" name="slf4j" level="project" />
   </component>
 </module>

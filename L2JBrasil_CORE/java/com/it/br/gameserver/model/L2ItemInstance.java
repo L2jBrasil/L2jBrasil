@@ -394,8 +394,13 @@ public final class L2ItemInstance extends L2Object
 	
 	public boolean isEnchantList()
 	{
-		return Config.ALT_ENCHANTS_LIST.contains(_itemId);
+		return Config.ALT_ENCHANTS_LIST.containsKey(_itemId);
 	}
+
+	public int getMaxEnchantCustom()
+    {
+        return Config.ALT_ENCHANTS_LIST.get(_itemId);
+    }
 
     /**
      * Returns the quantity of crystals for crystallization
