@@ -12,3 +12,4 @@ This is the code repository for the L2jBrasil V# , a implementation of a emulato
 ## License
 
 L2jBrasil is licensed under General Public License (GPL) version 3.
+
