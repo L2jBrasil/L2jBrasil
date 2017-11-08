@@ -993,9 +993,9 @@
   <set name="reuseDelay" val="12000"/>
   <set name="hitTime" val="500"/>
 </skill>
-<!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
+<!-- Skill fixed : 3.0.2-->
 <skill id="445" levels="1" name="Mirage">
-  <set name="aggroPoints" val="673"/>
+  <set name="aggroPoints" val="669"/>
   <set name="hitTime" val="2000"/>
   <set name="magicLvl" val="79"/>
   <set name="mpConsume" val="43"/>
@@ -1006,7 +1006,7 @@
   <set name="triggeredId" val="5144"/>
   <set name="triggeredLevel" val="1"/>
   <for>
-	<effect name="ChanceSkillTrigger" time="60" val="0"/>
+	<effect count="1" name="BestowSkill" time="60" val="0"/>
   </for>
 </skill>
 <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
