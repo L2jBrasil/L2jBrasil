@@ -154,11 +154,11 @@ public class AdminTeleport implements IAdminCommandHandler
                 //Case of empty or missing coordinates
                 AdminHelpPage.showHelpPage(activeChar, "teleports.htm");
             }
-            catch (NumberFormatException nfe) 
-	        { 
-	            activeChar.sendMessage("Usage: //move_to <x> <y> <z>"); 
-                AdminHelpPage.showHelpPage(activeChar, "teleports.htm"); 
-           } 
+            catch (NumberFormatException nfe)
+	        {
+	            activeChar.sendMessage("Usage: //move_to <x> <y> <z>");
+                AdminHelpPage.showHelpPage(activeChar, "teleports.htm");
+           }
         }
         else if (command.startsWith("admin_sendhome"))
         {
@@ -177,7 +177,7 @@ public class AdminTeleport implements IAdminCommandHandler
 	        }
         	else
         	{
-            	L2Object target1 = activeChar.getTarget();			
+            	L2Object target1 = activeChar.getTarget();
             	L2PcInstance player = null;
 
             	// if target isn't a player, select yourself as target
@@ -217,7 +217,7 @@ public class AdminTeleport implements IAdminCommandHandler
             catch (StringIndexOutOfBoundsException e)
             { }
         }
-        else if (command.startsWith("admin_recall "))
+        else if (command.startsWith("admin_recall"))
         {
             try
             {
