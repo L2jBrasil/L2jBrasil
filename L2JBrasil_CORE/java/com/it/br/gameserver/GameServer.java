@@ -117,7 +117,7 @@ public class GameServer
 		long serverLoadStart = System.currentTimeMillis();
         gameServer = this;
 
-        Util.printSection("ID-Factory"); 
+        Util.printSection("ID-Factory");
         IdFactory.getInstance();
 
         _threadpools = ThreadPoolManager.getInstance();
@@ -165,7 +165,7 @@ public class GameServer
 
 		Util.printSection("Zones");
 		ZoneManager.getInstance();
-		
+
 		Util.printSection("Npc");
 		if (Config.ALLOW_NPC_WALKERS)
 			NpcWalkerRoutesTable.getInstance().load();
@@ -308,7 +308,7 @@ public class GameServer
 		_log.info("ChatHandler: Loaded " + ChatHandler.getInstance().size() + " handlers in total.");
 		_log.info("AdminCommandHandler: Loaded " + AdminCommandHandler.getInstance().size() + " handlers in total.");
 
-		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());		
+		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
 		try
 		{
 			DoorTable doorTable = DoorTable.getInstance();
@@ -500,7 +500,7 @@ public class GameServer
 	}
 
 	public static void main(String[] args) throws Exception
-	{ 
+	{
 		Server.serverMode = Server.MODE_GAMESERVER;
 		// Local Constants
 		final String LOG_FOLDER = "log"; // Name of folder for log file
@@ -518,16 +518,16 @@ public class GameServer
 		// Initialize config
 		Config.load();
 
-		Util.printSection("Data Base"); 
+		Util.printSection("Database");
 		L2DatabaseFactory.getInstance();
 		gameServer = new GameServer();
 
-		if (Config.IS_TELNET_ENABLED) 
+		if (Config.IS_TELNET_ENABLED)
 		{
 		    _statusServer = new Status(Server.serverMode);
 		    _statusServer.start();
 		}
-		else 
+		else
 		    System.out.println("Telnet is disabled.");
 	}
 }
