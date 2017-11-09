@@ -27,7 +27,7 @@ import com.it.br.gameserver.datatables.xml.HelperBuffTable;
  *
  * @author  Guma
  */
-public class dbmanager
+public class DbManager
 {
 	public static void reloadAll()
 	{

@@ -41,7 +41,7 @@ import com.it.br.gameserver.util.Util;
 public class AdminExpSp implements IAdminCommandHandler {
 	private static Logger _log = Logger.getLogger(AdminExpSp.class.getName());
 
-	private static final String[] ADMIN_COMMANDS = {"admin_add_exp_sp_to_character","admin_add_exp_sp","admin_remove_exp_sp"};
+	private static final String[] ADMIN_COMMANDS = {"admin_add_exp_sp","admin_remove_exp_sp"};
 	private static final int REQUIRED_LEVEL = Config.GM_CHAR_EDIT;
 
 

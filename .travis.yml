@@ -2,4 +2,8 @@ language: java
 script: 
  - ant -buildfile L2JBrasil_CORE/build.xml
  - ant -buildfile L2JBrasil_DP/build.xml
- - ant -buildfile L2JBrasil_MMOCore/build.xml
+addons:
+  artifacts:
+   paths:
+    - L2JBrasil_CORE/build/L2JBrasil_CORE.zip
+    - L2JBrasil_DP/build/L2JBrasil_DP.zip

@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
 
 import com.it.br.Config;
 import com.it.br.gameserver.cache.HtmCache;
-import com.it.br.gameserver.datatables.dbmanager;
+import com.it.br.gameserver.datatables.DbManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
@@ -104,7 +104,7 @@ public class AdminReload implements IAdminCommandHandler
 				}
 				else if (type.startsWith("npcbuffers"))
 				{
-					dbmanager.reloadAll();
+					DbManager.reloadAll();
 					sendReloadPage(activeChar);
 					activeChar.sendMessage("All Buffer skills tables have been reloaded");
 				}
@@ -128,7 +128,7 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("event")) 
                 { 
-					Config.loadElitCHConfig();
+					Config.loadCHConfig();
 					Config.loadSepulchersConfig();
 					Config.loadOlympConfig();
 					Config.loadSevenSignsConfig();
@@ -168,7 +168,7 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.equals("dbs"))
 				{
-					dbmanager.reloadAll();
+					DbManager.reloadAll();
 					sendReloadPage(activeChar);
 					activeChar.sendMessage("ItemTable reloaded.");
 					activeChar.sendMessage("SkillTable reloaded.");

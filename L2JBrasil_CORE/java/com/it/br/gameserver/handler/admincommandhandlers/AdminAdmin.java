@@ -52,15 +52,30 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public class AdminAdmin implements IAdminCommandHandler {
 
-	private static final String[] ADMIN_COMMANDS = {"admin_admin", "admin_admin1", "admin_admin2", "admin_admin3", "admin_admin4", "admin_admin5",
-		"admin_gmliston", "admin_gmlistoff", "admin_silence", "admin_diet", "admin_tradeoff", "admin_reload", "admin_set", "admin_set_menu", "admin_set_mod",
-		"admin_saveolymp", "admin_manualhero"};
+	private static final String[] ADMIN_COMMANDS = {
+	        "admin_admin",
+            "admin_admin1",
+            "admin_admin2",
+            "admin_admin3",
+            "admin_admin4",
+            "admin_admin5",
+		    "admin_gmliston",
+            "admin_gmlistoff",
+            "admin_silence",
+            "admin_diet",
+            "admin_tradeoff",
+            "admin_reload",
+            "admin_set",
+            "admin_set_menu",
+            "admin_set_mod",
+		    "admin_saveolymp",
+            "admin_manualhero"
+	};
 
 	private static final int REQUIRED_LEVEL = Config.GM_MENU;
 
-
-	@SuppressWarnings("static-access")
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
 
 		if (!Config.ALT_PRIVILEGES_ADMIN)
 			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
@@ -234,7 +249,7 @@ public class AdminAdmin implements IAdminCommandHandler {
                 }
 				else if (type.startsWith("event")) 
                 { 
-					Config.loadElitCHConfig();
+					Config.loadCHConfig();
 					Config.loadSepulchersConfig();
 					Config.loadOlympConfig();
 					Config.loadSevenSignsConfig();
@@ -332,12 +347,13 @@ public class AdminAdmin implements IAdminCommandHandler {
 	private void showMainPage(L2PcInstance activeChar, String command)
 	{
 		int mode = 0;
-		String filename=null;
+		String filename;
 		try
 		{
 			mode = Integer.parseInt(command.substring(11));
 		}
-		catch (Exception e) {}
+		catch (Exception e) {  }// Nao precisa printar.
+
 		switch (mode)
 		{
 		case 1:

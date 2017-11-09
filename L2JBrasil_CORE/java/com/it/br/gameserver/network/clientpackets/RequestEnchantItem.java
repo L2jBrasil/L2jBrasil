@@ -43,7 +43,6 @@ public final class RequestEnchantItem extends L2GameClientPacket {
 	private static final int[] CRYSTAL_SCROLLS = { 731, 732, 949, 950, 953, 954, 957, 958, 961, 962 };
 	private static final int[] BLESSED_SCROLLS = { 6569, 6570, 6571, 6572, 6573, 6574, 6575, 6576, 6577, 6578 };
 	private int _objectId;
-	private int maxEnchantList = Config.ENCHANT_MAX_LIST;
 
 	@Override
 	protected void readImpl()
@@ -85,7 +84,7 @@ public final class RequestEnchantItem extends L2GameClientPacket {
 			}
 		}
 
-		if (item.getEnchantLevel() >= maxEnchantList && item.isEnchantList())
+		if (item.getEnchantLevel() >= item.getMaxEnchantCustom() && item.isEnchantList())
 		{
 			activeChar.sendPacket(new SystemMessage(SystemMessageId.INAPPROPRIATE_ENCHANT_CONDITION));
 			activeChar.setActiveEnchantItem(null);

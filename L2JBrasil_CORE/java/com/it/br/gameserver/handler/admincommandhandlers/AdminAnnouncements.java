@@ -49,7 +49,8 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 	private static final int REQUIRED_LEVEL = Config.GM_ANNOUNCE;
 
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
             if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
 

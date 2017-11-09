@@ -11,33 +11,29 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 package com.it.br.gameserver.datatables.xml;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
+import com.it.br.Config;
+import com.it.br.gameserver.templates.L2HelperBuff;
+import com.it.br.gameserver.templates.StatsSet;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
-import com.it.br.Config;
-import com.it.br.gameserver.templates.L2HelperBuff;
-import com.it.br.gameserver.templates.StatsSet;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HelperBuffTable
 {
 	private static final Log _log = LogFactory.getLog(HelperBuffTable.class.getName());
 
 	private List<L2HelperBuff> _helperBuff;
-	private boolean _initialized = true;
+	private boolean _initialized = false;
 	private int _magicClassLowestLevel = 100;
 	private int _physicClassLowestLevel = 100;
 
@@ -91,7 +87,7 @@ public class HelperBuffTable
 							helperBuffDat.set("upperLevel", upper_level);
 							helperBuffDat.set("isMagicClass", is_magic_class);
 							
-							if(is_magic_class == false)
+							if(!is_magic_class)
 							{
 								if(lower_level < _physicClassLowestLevel)
 								{
@@ -124,20 +120,12 @@ public class HelperBuffTable
 				}
 			}
 		}
-		catch (SAXException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch (IOException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch (ParserConfigurationException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-
+		catch (Exception e)
+        {
+            _log.error("Error while creating table", e);
+        }
 		_log.info("HelperBuffTable: Loaded " + _helperBuff.size() + " buffs.");
+        _initialized = true;
 	}
 
 	public List<L2HelperBuff> getHelperBuffTable()
@@ -165,7 +153,6 @@ public class HelperBuffTable
 		return _physicClassLowestLevel;
 	}
 
-	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
 		protected static final HelperBuffTable _instance = new HelperBuffTable();
