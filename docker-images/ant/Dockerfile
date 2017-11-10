@@ -22,4 +22,4 @@ RUN mkdir /opt/src
 VOLUME /opt/src
 WORKDIR /opt/src
 
-CMD ant
+#CMD ant

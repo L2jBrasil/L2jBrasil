@@ -6,7 +6,7 @@ services:
     build: "./docker-images/ant/"
     volumes:
       - ".:/opt/src"
-    command: ant  -verbose -buildfile  L2JBrasil_CORE/build.xml
+    command:  bash -c "ant  -verbose -buildfile  L2JBrasil_CORE/build.xml && ant  -verbose -buildfile  L2JBrasil_DP/build.xml"
 # mysql
 # gameserver
 # loginserver
