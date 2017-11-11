@@ -5,7 +5,7 @@ function start {
 
 	echo   '____________________________________________________________________'
 	echo   
-	echo   'L2J-Brasil - Database Login Server'
+	echo   'L2J-Brasil 3.0 - Database Installer'
 	echo   '____________________________________________________________________'
 
 	if [ -z $mysql_exec ]; then

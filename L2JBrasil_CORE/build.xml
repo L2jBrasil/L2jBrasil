@@ -52,13 +52,16 @@
         <copy todir="${build.dist.login}">
             <fileset dir="dist">
                 <include name="Login.bat"/>
+            	<include name="login.sh"/>
             	<include name="Register.bat"/>
+            	<include name="register.sh"/>
             </fileset>
         </copy>
 
     	<copy todir="${build.dist.game}">
             <fileset dir="dist">
                 <include name="Game.bat"/>
+            	<include name="game.sh"/>
             </fileset>
         </copy>
 
