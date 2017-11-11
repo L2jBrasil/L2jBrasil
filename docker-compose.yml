@@ -1,12 +1,21 @@
 version: "3.0"
 
 services:
-  antbuild:
-    image: "l2jbrasil/antbuild"
-    build: "./docker-images/ant/"
+#  antbuild:
+#    image: "l2jbrasil/antbuild"
+#    build: "./docker-images/ant/"
+#    volumes:
+#      - ".:/opt/src"
+#    command:  bash -c "ant  -verbose -buildfile  L2JBrasil_CORE/build.xml && ant  -verbose -buildfile  L2JBrasil_DP/build.xml"
+  mysql:
+    image: "l2jbrasil/mysql"
+    build: "./docker-images/mysql/"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./L2JBrasil_DP/Database/sql:/docker-entrypoint-initdb.d"
+  l2jserver:
+    image: "l2jbrasil/l2jserver"
+    build: "./docker-images/l2jserver/"
     volumes:
       - ".:/opt/src"
-    command:  bash -c "ant  -verbose -buildfile  L2JBrasil_CORE/build.xml && ant  -verbose -buildfile  L2JBrasil_DP/build.xml"
-# mysql
-# gameserver
-# loginserver
