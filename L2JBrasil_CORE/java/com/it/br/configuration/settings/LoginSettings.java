@@ -34,12 +34,9 @@ public class LoginSettings implements Settings{
 	private File datapackDirectory;
 	private int triesBeforeBan;
 	private int timeBlockAfterBan;
-	private boolean enableAnyServer;
-	private boolean ShowLicence;
-	private boolean enableAutoCreateAccount;
-	private boolean debug;
-	private boolean asert;
-	private boolean developer;
+	private boolean enabledAnyServer;
+	private boolean enabledShowLicence;
+	private boolean enabledAutoCreateAccount;
 	private int fastConnectionLimit;
 	private int fastConnectionTime;
 	private int normalConnectionTime;
@@ -54,14 +51,9 @@ public class LoginSettings implements Settings{
 		triesBeforeBan = properties.getInteger("login.tries.before.ban", 10);
 		timeBlockAfterBan = properties.getInteger("time.block.after.ban", 600);
 		
-		enableAnyServer  = properties.getBoolean("allow.any.server", false);
-		ShowLicence = properties.getBoolean("show.license", true);
-		enableAutoCreateAccount = properties.getBoolean("allow.auto.create.account", true);
-		
-		debug = properties.getBoolean("allow.debug", false);
-		asert = properties.getBoolean("allow.assert", false);
-		developer = properties.getBoolean("allow.developer", false);
-		
+		enabledAnyServer  = properties.getBoolean("allow.any.server", false);
+		enabledShowLicence = properties.getBoolean("show.license", true);
+		enabledAutoCreateAccount = properties.getBoolean("allow.auto.create.account", true);		
 		
 		fastConnectionLimit = properties.getInteger("connection.fast.limit", 15);
 		fastConnectionTime = properties.getInteger("connection.fast.time", 350);
@@ -95,28 +87,16 @@ public class LoginSettings implements Settings{
 		return timeBlockAfterBan;
 	}
 
-	public boolean isEnableAnyServer() {
-		return enableAnyServer;
+	public boolean isEnabledAnyServer() {
+		return enabledAnyServer;
 	}
 	
-	public boolean isShowLicence() {
-		return ShowLicence;
+	public boolean isEnabledShowLicence() {
+		return enabledShowLicence;
 	}
 	
-	public boolean isEnableAutoCreateAccount() {
-		return enableAutoCreateAccount;
-	}
-	
-	public boolean isDebug() {
-		return debug;
-	}
-	
-	public boolean isAssert(){
-		return asert;
-	}
-	
-	public boolean isDeveloper() {
-		return developer;
+	public boolean isEnabledAutoCreateAccount() {
+		return enabledAutoCreateAccount;
 	}
 
 	public int getFastConnectionLimit() {

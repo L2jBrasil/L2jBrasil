@@ -32,7 +32,7 @@ public class ServerSettings implements Settings{
 	private static final Logger logger = Logger.getLogger(ServerSettings.class.getName());
 	
 	private int serverId;
-	private boolean acceptAlternativeId;
+	private boolean enabledAlternativeId;
 	
 	private File datapackDirectory;
 
@@ -42,7 +42,7 @@ public class ServerSettings implements Settings{
 	private int playerOnlineMaxCount;
 
 	private int maxUnknownPacket;
-	private boolean debugPacket;
+	private boolean enabledDebugPacket;
 	private int minProtocol;
 	private int maxProtocol;
 	
@@ -53,7 +53,7 @@ public class ServerSettings implements Settings{
 		}
 		
 		serverId = properties.getInteger("server.id", 1);
-		acceptAlternativeId = properties.getBoolean("accept.alternative.id", true);
+		enabledAlternativeId = properties.getBoolean("accept.alternative.id", true);
 		
 		characterNameTemplate = properties.getString("character.name.template", ".*");
 		petNameTemplate = properties.getString("pet.name.template", ".*");
@@ -61,7 +61,7 @@ public class ServerSettings implements Settings{
 		playerOnlineMaxCount = properties.getInteger("player.online.count.max", 100);
 		
 		maxUnknownPacket = properties.getInteger("packet.unknown.max", 5);
-		debugPacket = properties.getBoolean("packet.debug", false);
+		enabledDebugPacket = properties.getBoolean("packet.debug", false);
 		minProtocol = properties.getInteger("protocol.min", 740);
 		maxProtocol = properties.getInteger("protocol.max", 746);
 		
@@ -85,7 +85,7 @@ public class ServerSettings implements Settings{
 	}
 	
 	public boolean isAcceptAlternativeId() {
-		return acceptAlternativeId;
+		return enabledAlternativeId;
 	}
 	
 	public File getDatapackDirectory() {
@@ -114,7 +114,7 @@ public class ServerSettings implements Settings{
 	}
 	
 	public boolean isDebugPacket() {
-		return debugPacket;
+		return enabledDebugPacket;
 	}
 
 	public int getMaxUnknownPacket() {

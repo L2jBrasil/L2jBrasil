@@ -46,19 +46,19 @@ public class L2DatabaseFactory
         config.setJdbcUrl(databaseSettings.getUrl());
         config.setUsername(databaseSettings.getUsername());
         config.setPassword(databaseSettings.getPassword());
-        config.addDataSourceProperty("cachePrepStmts", databaseSettings.isEnablePreparedStatementCache());
+        config.addDataSourceProperty("cachePrepStmts", databaseSettings.isEnabledPreparedStatementCache());
         config.addDataSourceProperty("prepStmtCacheSize", databaseSettings.getPreparedStatementCacheSize());
         config.addDataSourceProperty("prepStmtCacheSqlLimit", databaseSettings.getLimitSqlCache());
-        config.addDataSourceProperty("useServerPrepStmts", databaseSettings.isEnableServerPreparedStatement());
-        config.addDataSourceProperty("useLocalSessionState", databaseSettings.isEnableLocalSessionState());
-        config.addDataSourceProperty("useLocalTransactionState", databaseSettings.isEnableLocalTransactionState());
-        config.addDataSourceProperty("rewriteBatchedStatements", databaseSettings.isEnableRewriteBatchedStatement());
-        config.addDataSourceProperty("cacheServerConfiguration", databaseSettings.isEnableServerCache());
-        config.addDataSourceProperty("cacheResultSetMetadata", databaseSettings.isEnableResultsetCache());
-        config.addDataSourceProperty("maintainTimeStats", databaseSettings.isEnableMaintainTimestats());
+        config.addDataSourceProperty("useServerPrepStmts", databaseSettings.isEnabledServerPreparedStatement());
+        config.addDataSourceProperty("useLocalSessionState", databaseSettings.isEnabledLocalSessionState());
+        config.addDataSourceProperty("useLocalTransactionState", databaseSettings.isEnabledLocalTransactionState());
+        config.addDataSourceProperty("rewriteBatchedStatements", databaseSettings.isEnabledRewriteBatchedStatement());
+        config.addDataSourceProperty("cacheServerConfiguration", databaseSettings.isEnabledServerCache());
+        config.addDataSourceProperty("cacheResultSetMetadata", databaseSettings.isEnabledResultsetCache());
+        config.addDataSourceProperty("maintainTimeStats", databaseSettings.isEnabledMaintainTimestats());
 
         _dataSource = new HikariDataSource(config);
-        _dataSource.setAutoCommit(databaseSettings.isEnableAutoCommit());
+        _dataSource.setAutoCommit(databaseSettings.isEnabledAutoCommit());
         _dataSource.setMinimumIdle(databaseSettings.getMinIdle());
 
         _dataSource.setValidationTimeout(databaseSettings.getValidationTimeout()); // 500 milliseconds wait before try to acquire connection again

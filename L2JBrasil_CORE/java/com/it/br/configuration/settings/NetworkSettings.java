@@ -65,9 +65,12 @@ public class NetworkSettings implements Settings{
 		loginListenServerPort = properties.getInteger("login.listen.server.port", 9014);
 		
 		enabledTelnet = properties.getBoolean("telnet.enable", false);
-		telnetPort = properties.getInteger("telnet.port", 12345);
-		telnetAcceeptHosts = properties.getStringList("telnet.accept.hosts", "127.0.0.1,localhost", ",");
-		telnetPassword = properties.getString("telnet.password", null);
+		
+		if(enabledTelnet) {
+			telnetPort = properties.getInteger("telnet.port", 12345);
+			telnetAcceeptHosts = properties.getStringList("telnet.accept.hosts", "127.0.0.1,localhost", ",");
+			telnetPassword = properties.getString("telnet.password", null);
+		}
 				
 	}
 	
