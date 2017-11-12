@@ -14,6 +14,8 @@
  */
 package com.it.br.gameserver.scripting;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,6 +43,7 @@ import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 
 //import com.l2jserver.script.jython.JythonScriptEngine;
 /**
@@ -51,7 +54,8 @@ import com.it.br.Config;
 public final class L2ScriptEngineManager
 {
 	private static final Logger _log = Logger.getLogger(L2ScriptEngineManager.class.getName());
-	public final static File SCRIPT_FOLDER = new File(Config.DATAPACK_ROOT.getAbsolutePath(), "data/jscript");
+	public final static File SCRIPT_FOLDER = new File(getSettings(
+				ServerSettings.class).getDatapackDirectory().getAbsolutePath(), "data/jscript");
 
 	public static L2ScriptEngineManager getInstance()
 	{

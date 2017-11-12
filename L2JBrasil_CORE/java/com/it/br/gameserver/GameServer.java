@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -32,6 +34,8 @@ import java.util.logging.Logger;
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.ai.special.AiLoader;
 import com.it.br.gameserver.cache.CrestCache;
 import com.it.br.gameserver.cache.HtmCache;
@@ -67,9 +71,36 @@ import com.it.br.gameserver.datatables.xml.SummonItemsData;
 import com.it.br.gameserver.datatables.xml.TeleportLocationTable;
 import com.it.br.gameserver.datatables.xml.TerritoryTable;
 import com.it.br.gameserver.geoeditorcon.GeoEditorListener;
-import com.it.br.gameserver.handler.*;
+import com.it.br.gameserver.handler.AdminCommandHandler;
+import com.it.br.gameserver.handler.AutoAnnouncementHandler;
+import com.it.br.gameserver.handler.ChatHandler;
+import com.it.br.gameserver.handler.ItemHandler;
+import com.it.br.gameserver.handler.SkillHandler;
+import com.it.br.gameserver.handler.UserCommandHandler;
+import com.it.br.gameserver.handler.VoicedCommandHandler;
 import com.it.br.gameserver.idfactory.IdFactory;
-import com.it.br.gameserver.instancemanager.*;
+import com.it.br.gameserver.instancemanager.AuctionManager;
+import com.it.br.gameserver.instancemanager.AwayManager;
+import com.it.br.gameserver.instancemanager.BoatManager;
+import com.it.br.gameserver.instancemanager.CastleManager;
+import com.it.br.gameserver.instancemanager.CastleManorManager;
+import com.it.br.gameserver.instancemanager.ClanHallManager;
+import com.it.br.gameserver.instancemanager.CoupleManager;
+import com.it.br.gameserver.instancemanager.CrownManager;
+import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
+import com.it.br.gameserver.instancemanager.DayNightSpawnManager;
+import com.it.br.gameserver.instancemanager.DimensionalRiftManager;
+import com.it.br.gameserver.instancemanager.DuelManager;
+import com.it.br.gameserver.instancemanager.FourSepulchersManager;
+import com.it.br.gameserver.instancemanager.GrandBossManager;
+import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
+import com.it.br.gameserver.instancemanager.MercTicketManager;
+import com.it.br.gameserver.instancemanager.PetitionManager;
+import com.it.br.gameserver.instancemanager.QuestManager;
+import com.it.br.gameserver.instancemanager.RaidBossPointsManager;
+import com.it.br.gameserver.instancemanager.RaidBossSpawnManager;
+import com.it.br.gameserver.instancemanager.SiegeManager;
+import com.it.br.gameserver.instancemanager.ZoneManager;
 import com.it.br.gameserver.model.AutoChatHandler;
 import com.it.br.gameserver.model.AutoSpawnHandler;
 import com.it.br.gameserver.model.L2Manor;
@@ -120,12 +151,14 @@ public class GameServer
         Util.printSection("ID-Factory"); 
         IdFactory.getInstance();
 
+        ServerSettings serverSettings = getSettings(ServerSettings.class);
+        File datapack = serverSettings.getDatapackDirectory();
         _threadpools = ThreadPoolManager.getInstance();
-		new File(Config.DATAPACK_ROOT, "client-ac").mkdirs();
-		new File(Config.DATAPACK_ROOT, "data/clans").mkdirs();
-		new File(Config.DATAPACK_ROOT, "data/crests").mkdirs();
-		new File(Config.DATAPACK_ROOT, "data/pathnode").mkdirs();
-		new File(Config.DATAPACK_ROOT, "data/geodata").mkdirs();
+		new File(datapack, "client-ac").mkdirs();
+		new File(datapack, "data/clans").mkdirs();
+		new File(datapack, "data/crests").mkdirs();
+		new File(datapack, "data/pathnode").mkdirs();
+		new File(datapack, "data/geodata").mkdirs();
 
         Util.printSection("L2JBrasil - Info");
         L2JBrasil.L2JBrasilInfo();
@@ -408,7 +441,7 @@ public class GameServer
 		Util.printSection("Scripts");
 		try
 		{
-			File scripts = new File(Config.DATAPACK_ROOT + "/data/jscript/scripts.cfg");
+			File scripts = new File(datapack + "/data/jscript/scripts.cfg");
 			L2ScriptEngineManager.getInstance().executeScriptList(scripts);
 		}
 		catch(IOException ioe)
@@ -465,26 +498,27 @@ public class GameServer
         sc.HELPER_BUFFER_COUNT = Config.MMO_HELPER_BUFFER_COUNT;
         final L2GamePacketHandler gph = new L2GamePacketHandler();
 
-        _selectorThread = new SelectorThread<L2GameClient>(sc, gph, gph, gph, new IPv4Filter());
+        _selectorThread = new SelectorThread<>(sc, gph, gph, gph, new IPv4Filter());
+
+        
+        NetworkSettings networkSettings = getSettings(NetworkSettings.class);
         InetAddress bindAddress = null;
-        if (!Config.GAMESERVER_HOSTNAME.equals("*"))
-        {
-        	try
-        	{
-        		bindAddress = InetAddress.getByName(Config.GAMESERVER_HOSTNAME);
+        String hostname = networkSettings.getServerHostname();
+        
+        if ( ! "*".equals(hostname) ) {
+        	try {
+        		bindAddress = InetAddress.getByName(hostname);
         	}
-        	catch (UnknownHostException e1)
-        	{
+        	catch (UnknownHostException e1) {
         		_log.severe("WARNING: The GameServer bind address is invalid, using all avaliable IPs. Reason: " + e1.getMessage());
-        		if (Config.DEVELOPER)
-        		{
+        		if (Config.DEVELOPER) {
         			e1.printStackTrace();
         		}
         	}
         }
 	    try
 	    {
-	    	_selectorThread.openServerSocket(bindAddress, Config.PORT_GAME);
+	    	_selectorThread.openServerSocket(bindAddress, networkSettings.getServerPort());
 	    }
 	    catch (IOException e)
 	    {
@@ -494,20 +528,25 @@ public class GameServer
 	    		System.exit(1);
 	    }
 		_selectorThread.start();
-		_log.config("Maximum Numbers of Connected Players: " + Config.MAXIMUM_ONLINE_USERS);
+		_log.config("Maximum Numbers of Connected Players: " + serverSettings.getPlayerOnlineMaxCount());
 		long serverLoadEnd = System.currentTimeMillis();
 		_log.info("Server Loaded in " + ((serverLoadEnd - serverLoadStart) / 1000) + " seconds");
 	}
 
-	public static void main(String[] args) throws Exception
-	{ 
+	public static void main(String[] args) throws Exception { 
 		Server.serverMode = Server.MODE_GAMESERVER;
+		
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		if (serverSettings.getMinProtocol() > serverSettings.getMaxProtocol()) {
+			throw new Error("protocol.min is bigger than protocol.min in server configuration file.");
+		}
+		
 		// Local Constants
 		final String LOG_FOLDER = "log"; // Name of folder for log file
 		final String LOG_NAME   = "./config/other/log.cfg"; // Name of log file
 
 		// Create log folder
-		File logFolder = new File(Config.DATAPACK_ROOT, LOG_FOLDER);
+		File logFolder = new File(serverSettings.getDatapackDirectory(), LOG_FOLDER);
 		logFolder.mkdir();
 
 		// Create input stream for log file -- or store file data into memory

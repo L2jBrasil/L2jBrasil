@@ -31,7 +31,8 @@ import org.apache.bsf.BSFException;
 import org.apache.bsf.BSFManager;
 import org.w3c.dom.Node;
 
-import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.GameServer;
 import com.it.br.gameserver.script.Parser;
 import com.it.br.gameserver.script.ParserNotCreatedException;
@@ -79,7 +80,8 @@ public class FaenorScriptEngine extends ScriptEngine
 
     private void loadPackages()
     {
-        File packDirectory = new File(Config.DATAPACK_ROOT, PACKAGE_DIRECTORY);//_log.sss(packDirectory.getAbsolutePath());
+    	ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+        File packDirectory = new File(serverSettings.getDatapackDirectory(), PACKAGE_DIRECTORY);//_log.sss(packDirectory.getAbsolutePath());
 
         FileFilter fileFilter = new FileFilter() {
     

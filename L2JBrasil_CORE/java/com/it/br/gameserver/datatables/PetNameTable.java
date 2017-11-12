@@ -19,6 +19,8 @@
 package com.it.br.gameserver.datatables;
 
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +32,7 @@ import java.util.regex.PatternSyntaxException;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 
 public class PetNameTable
@@ -81,9 +84,9 @@ public class PetNameTable
         if (!isAlphaNumeric(name)) return result;
 
         Pattern pattern;
-        try
-        {
-            pattern = Pattern.compile(Config.PET_NAME_TEMPLATE);
+        try {
+        	ServerSettings serverSettings = getSettings(ServerSettings.class);
+            pattern = Pattern.compile(serverSettings.getPetNameTemplate());
         }
         catch (PatternSyntaxException e) // case of illegal pattern
         {

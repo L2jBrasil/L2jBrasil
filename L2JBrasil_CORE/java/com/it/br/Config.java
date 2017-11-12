@@ -18,6 +18,8 @@
  */
 package com.it.br;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,6 +38,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.Olympiad.OlympiadPeriod;
 import com.it.br.gameserver.util.FloodProtectorConfig;
 import com.it.br.gameserver.util.StringUtil;
@@ -54,8 +57,6 @@ public final class Config
     protected static final Logger _log = Logger.getLogger(Config.class.getName());
 
     /* Properties Files Definitions */
-    public static final String LOGIN_FILE			= "./config/login.properties";
-    public static final String SERVER_FILE			= "./config/server.properties";
     public static final String MMOCORE_CONFIG_FILE	= "./config/mmocore.properties";
     public static final String TELNET_FILE			= "./config/telnet.properties";
 
@@ -3085,136 +3086,19 @@ public final class Config
     // -         LOGINSERVER PROPERTIES            - //
     // --------------------------------------------- //
     // ============================================================
-    public static String EXTERNAL_HOSTNAME;
-    public static String INTERNAL_HOSTNAME;
-    public static String LOGIN_BIND_ADDRESS;
-    public static int PORT_LOGIN;
-    public static int LOGIN_TRY_BEFORE_BAN;
-    public static int LOGIN_BLOCK_AFTER_BAN;
-    public static String GAME_SERVER_LOGIN_HOST;
-    public static int GAME_SERVER_LOGIN_PORT;
-    public static boolean ACCEPT_NEW_GAMESERVER;
-    public static boolean SHOW_LICENCE;
-    public static String DATABASE_DRIVER;
-    public static String DATABASE_URL;
-    public static String DATABASE_LOGIN;
-    public static String DATABASE_PASSWORD;
-    public static int DATABASE_MAX_CONNECTIONS;
-	public static int DATABASE_MAX_IDLE_TIME;
-    public static boolean AUTO_CREATE_ACCOUNTS;
-    public static int IP_UPDATE_TIME;
-    public static boolean DEBUG;
-    public static boolean ASSERT;
-    public static boolean DEVELOPER;
-    public static boolean FORCE_GGAUTH;
-    public static int FAST_CONNECTION_LIMIT;
-    public static int NORMAL_CONNECTION_TIME;
-    public static int FAST_CONNECTION_TIME;
-    public static int MAX_CONNECTION_PER_IP;
-	// ============================================================
 
-    public static void loadLoginServerConfig()
-    {
-    	try(InputStream is = new FileInputStream(new File(LOGIN_FILE)))
-    	{
-    		Properties serverSettings = new Properties();
-    		serverSettings.load(is);
-
-    		EXTERNAL_HOSTNAME = serverSettings.getProperty("ExternalHostname", "localhost");
-    		INTERNAL_HOSTNAME = serverSettings.getProperty("InternalHostname", "localhost");
-    		LOGIN_BIND_ADDRESS = serverSettings.getProperty("LoginserverHostname", "*");
-    		PORT_LOGIN = Integer.parseInt(serverSettings.getProperty("LoginserverPort", "2106"));
-    		LOGIN_TRY_BEFORE_BAN = Integer.parseInt(serverSettings.getProperty("LoginTryBeforeBan", "10"));
-    		LOGIN_BLOCK_AFTER_BAN = Integer.parseInt(serverSettings.getProperty("LoginBlockAfterBan", "600"));
-    		GAME_SERVER_LOGIN_HOST = serverSettings.getProperty("LoginHostname","*");
-    		GAME_SERVER_LOGIN_PORT = Integer.parseInt(serverSettings.getProperty("LoginPort","9013"));
-    		ACCEPT_NEW_GAMESERVER = Boolean.parseBoolean(serverSettings.getProperty("AcceptNewGameServer","True"));
-    		SHOW_LICENCE = Boolean.parseBoolean(serverSettings.getProperty("ShowLicence", "true"));
-    		DATABASE_DRIVER = serverSettings.getProperty("Driver", "com.mysql.jdbc.Driver");
-    		DATABASE_URL = serverSettings.getProperty("URL", "jdbc:mysql://localhost/l2jdb");
-    		DATABASE_LOGIN = serverSettings.getProperty("Login", "root");
-    		DATABASE_PASSWORD = serverSettings.getProperty("Password", "");
-    		DATABASE_MAX_CONNECTIONS = Integer.parseInt(serverSettings.getProperty("MaximumDbConnections", "10"));
-    		DATABASE_MAX_IDLE_TIME = Integer.parseInt(serverSettings.getProperty("MaximumDbIdleTime", "0"));
-    		AUTO_CREATE_ACCOUNTS = Boolean.parseBoolean(serverSettings.getProperty("AutoCreateAccounts","True"));
-    		IP_UPDATE_TIME = Integer.parseInt(serverSettings.getProperty("IpUpdateTime","15"));
-    		DEBUG = Boolean.parseBoolean(serverSettings.getProperty("Debug", "false"));
-    		ASSERT = Boolean.parseBoolean(serverSettings.getProperty("Assert", "false"));
-    		DEVELOPER = Boolean.parseBoolean(serverSettings.getProperty("Developer", "false"));
-    		FORCE_GGAUTH = Boolean.parseBoolean(serverSettings.getProperty("ForceGGAuth", "false"));
-    		FAST_CONNECTION_LIMIT = Integer.parseInt(serverSettings.getProperty("FastConnectionLimit","15"));
-    		NORMAL_CONNECTION_TIME = Integer.parseInt(serverSettings.getProperty("NormalConnectionTime","700"));
-    		FAST_CONNECTION_TIME = Integer.parseInt(serverSettings.getProperty("FastConnectionTime","350"));
-    		MAX_CONNECTION_PER_IP = Integer.parseInt(serverSettings.getProperty("MaxConnectionPerIP","50"));
-    	}
-    	catch (Exception e)
-    	{
-    		e.printStackTrace();
-    		throw new Error("Failed to Load " + LOGIN_FILE + " File.");
-    	}
-    }
-
-	// --------------------------------------------- //
-    // -          GAME SERVER PROPERTIES        - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static String GAMESERVER_HOSTNAME;
-    public static int PORT_GAME;
-    public static int REQUEST_ID;
-    public static boolean ACCEPT_ALTERNATE_ID;
-    public static File DATAPACK_ROOT;
-    public static String CNAME_TEMPLATE;
-    public static String PET_NAME_TEMPLATE;
-    public static int MAX_CHARACTERS_NUMBER_PER_ACCOUNT;
-    public static int MAXIMUM_ONLINE_USERS;
-	public static int MAX_UNKNOWN_PACKETS;
-	public static boolean PACKET_HANDLER_DEBUG;
-	public static int MIN_PROTOCOL_REVISION;
-    public static int MAX_PROTOCOL_REVISION;
-	// ============================================================
-
-    public static void loadGameServerConfig()
-    {
-    	try(InputStream is = new FileInputStream(new File(SERVER_FILE)))
-    	{
-    		Properties serverSettings = new Properties();
-    		serverSettings.load(is);
-
-    		GAMESERVER_HOSTNAME = serverSettings.getProperty("GameserverHostname");
-    		PORT_GAME = Integer.parseInt(serverSettings.getProperty("GameserverPort", "7777"));
-    		EXTERNAL_HOSTNAME = serverSettings.getProperty("ExternalHostname", "*");
-    		INTERNAL_HOSTNAME = serverSettings.getProperty("InternalHostname", "*");
-    		GAME_SERVER_LOGIN_PORT = Integer.parseInt(serverSettings.getProperty("LoginPort","9014"));
-    		GAME_SERVER_LOGIN_HOST = serverSettings.getProperty("LoginHost","127.0.0.1");
-    		REQUEST_ID = Integer.parseInt(serverSettings.getProperty("RequestServerID","0"));
-    		ACCEPT_ALTERNATE_ID = Boolean.parseBoolean(serverSettings.getProperty("AcceptAlternateID","True"));
-    		DATABASE_DRIVER = serverSettings.getProperty("Driver", "com.mysql.jdbc.Driver");
-    		DATABASE_URL = serverSettings.getProperty("URL", "jdbc:mysql://localhost/l2jdb");
-    		DATABASE_LOGIN = serverSettings.getProperty("Login", "root");
-    		DATABASE_PASSWORD = serverSettings.getProperty("Password", "");
-    		DATABASE_MAX_CONNECTIONS = Integer.parseInt(serverSettings.getProperty("MaximumDbConnections", "10"));
-			DATABASE_MAX_IDLE_TIME = Integer.parseInt(serverSettings.getProperty("MaximumDbIdleTime", "0"));
-    		DATAPACK_ROOT = new File(serverSettings.getProperty("DatapackRoot", ".")).getCanonicalFile();
-    		CNAME_TEMPLATE = serverSettings.getProperty("CnameTemplate", ".*");
-    		PET_NAME_TEMPLATE = serverSettings.getProperty("PetNameTemplate", ".*");
-    		MAX_CHARACTERS_NUMBER_PER_ACCOUNT = Integer.parseInt(serverSettings.getProperty("CharMaxNumber", "0"));
-    		MAXIMUM_ONLINE_USERS = Integer.parseInt(serverSettings.getProperty("MaximumOnlineUsers", "100"));
-    		MAX_UNKNOWN_PACKETS = Integer.parseInt(serverSettings.getProperty("UnkPacketsBeforeBan", "5"));
-    		PACKET_HANDLER_DEBUG = Boolean.parseBoolean(serverSettings.getProperty("PacketHandlerDebug", "False"));
-    		MIN_PROTOCOL_REVISION = Integer.parseInt(serverSettings.getProperty("MinProtocolRevision", "660"));
-    		MAX_PROTOCOL_REVISION = Integer.parseInt(serverSettings.getProperty("MaxProtocolRevision", "665"));
-    		if (MIN_PROTOCOL_REVISION > MAX_PROTOCOL_REVISION)
-    		{
-    			throw new Error("MinProtocolRevision is bigger than MaxProtocolRevision in server configuration file.");
-    		}
-    	}
-    	catch (Exception e)
-    	{
-    		e.printStackTrace();
-    		throw new Error("Failed to Load " + SERVER_FILE + " File.");
-    	}
-    }
-
+    /*
+     * XXX Debug, and developer shouldn't be configurations
+     * 	they only log informations, must be changed to log instead.
+     * 
+     * These configurations are never read from GameServer, but still in use all over the code.
+     */
+    public static boolean DEBUG = false;
+    public static boolean ASSERT = false;
+    public static boolean DEVELOPER = false;
+   
+	
+   
 	// --------------------------------------------- //
     // -         FLOOD PROTECTOR PROPERTIES        - //
     // --------------------------------------------- //
@@ -3433,14 +3317,19 @@ public final class Config
 	private static LineNumberReader lnr;
 
     /**
+     * 
+     * XXX If the settings can be updated directly from the game. These modification
+     * 	should be saved back to configuration files. Update only variables is ineffective way 
+     * 	to do this.
+     * 
      * Set a new value to a game parameter from the admin console.
      * @param pName (String) : name of the parameter to change
      * @param pValue (String) : new value of the parameter
      * @return boolean : true if modification has been made
      * @link useAdminCommand
      */
-    public static boolean setParameterValue(String pName, String pValue)
-    {
+    public static boolean setParameterValue(String pName, String pValue) {
+    	ServerSettings serverSettings = getSettings(ServerSettings.class);
         if (pName.equalsIgnoreCase("RateXp")) RATE_XP = Float.parseFloat(pValue);
         else if (pName.equalsIgnoreCase("RateSp")) RATE_SP = Float.parseFloat(pValue);
         else if (pName.equalsIgnoreCase("RatePartyXp")) RATE_PARTY_XP = Float.parseFloat(pValue);
@@ -3500,8 +3389,12 @@ public final class Config
         else if (pName.equalsIgnoreCase("ShowNpcLevel")) SHOW_NPC_LVL = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("ForceInventoryUpdate")) FORCE_INVENTORY_UPDATE = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("AutoDeleteInvalidQuestData")) AUTODELETE_INVALID_QUEST_DATA = Boolean.valueOf(pValue);
-        else if (pName.equalsIgnoreCase("MaximumOnlineUsers")) MAXIMUM_ONLINE_USERS = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("UnknownPacketsBeforeBan")) MAX_UNKNOWN_PACKETS = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("MaximumOnlineUsers")) {
+        	serverSettings.setPlayerOnlineMaxCount(Integer.parseInt(pValue));
+        }
+        else if (pName.equalsIgnoreCase("UnknownPacketsBeforeBan")) {
+        	serverSettings.setMaxUnknownPacket(Integer.parseInt(pValue));
+        }
         else if (pName.equalsIgnoreCase("ZoneTown")) ZONE_TOWN = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("MaximumUpdateDistance")) MINIMUM_UPDATE_DISTANCE = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("MinimumUpdateTime")) MINIMUN_UPDATE_TIME = Integer.parseInt(pValue);
@@ -3693,7 +3586,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadGameServerConfig();
     		loadMMOCoreConfig();
     		loadTelnetConfig();
 
@@ -3726,7 +3618,6 @@ public final class Config
 		}
 		else if(Server.serverMode == Server.MODE_LOGINSERVER)
 		{
-			loadLoginServerConfig();
 			loadTelnetConfig();
 			loadMMOCoreConfig();
 		}

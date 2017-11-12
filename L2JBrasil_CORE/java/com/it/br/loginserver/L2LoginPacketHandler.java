@@ -17,9 +17,11 @@
  */
 package com.it.br.loginserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.nio.ByteBuffer;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.loginserver.L2LoginClient.LoginClientState;
 import com.it.br.loginserver.clientpackets.AuthGameGuard;
 import com.it.br.loginserver.clientpackets.RequestAuthLogin;
@@ -87,7 +89,8 @@ public final class L2LoginPacketHandler implements IPacketHandler<L2LoginClient>
 
 	private void debugOpcode(int opcode, LoginClientState state)
 	{
-		if (!Config.PACKET_HANDLER_DEBUG)
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		if (!serverSettings.isDebugPacket())
 			return;
 		
 		System.out.println("Unknown Opcode: "+opcode+" for state: "+state.name());

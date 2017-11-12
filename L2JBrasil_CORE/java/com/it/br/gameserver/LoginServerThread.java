@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,6 +39,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.L2GameClient;
@@ -101,29 +105,30 @@ public class LoginServerThread extends Thread
 	private String				_gameExternalHost;
 	private String				_gameInternalHost;
 
-	public LoginServerThread()
-	{
+	public LoginServerThread()	{
 		super("LoginServerThread");
-		_port = Config.GAME_SERVER_LOGIN_PORT;
-		_gamePort = Config.PORT_GAME;
-		_hostname = Config.GAME_SERVER_LOGIN_HOST;
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		NetworkSettings networkSettings = getSettings(NetworkSettings.class);
+		_port = networkSettings.getLoginListenServerPort();
+		_gamePort = networkSettings.getServerPort();
+		_hostname = networkSettings.getLoginListenServerHostname();
 		_hexID = Config.HEX_ID;
 		if(_hexID == null)
 		{
-			_requestID = Config.REQUEST_ID;
+			_requestID = serverSettings.getServerId();
 			_hexID = generateHex(16);
 		}
 		else
 		{
 			_requestID = Config.SERVER_ID;
 		}
-		_acceptAlternate = Config.ACCEPT_ALTERNATE_ID;
+		_acceptAlternate = serverSettings.isAcceptAlternativeId();
 		_reserveHost = Config.RESERVE_HOST_ON_LOGIN;
-		_gameExternalHost = Config.EXTERNAL_HOSTNAME;
-		_gameInternalHost = Config.INTERNAL_HOSTNAME;
+		_gameExternalHost = networkSettings.getServerExternalHostname();
+		_gameInternalHost = networkSettings.getServerInternalHostname();
 		_waitingClients = new ArrayList<>();
 		_accountsInGameServer = new ConcurrentHashMap<>();
-		_maxPlayer = Config.MAXIMUM_ONLINE_USERS;
+		_maxPlayer = serverSettings.getPlayerOnlineMaxCount();
 	}
 
 	public static LoginServerThread getInstance()

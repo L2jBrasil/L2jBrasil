@@ -17,6 +17,8 @@
  */
 package com.it.br.gameserver.instancemanager;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,6 +38,7 @@ import org.w3c.dom.Node;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.L2WorldRegion;
 import com.it.br.gameserver.model.zone.L2ZoneType;
@@ -103,8 +106,8 @@ public class ZoneManager
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			factory.setValidating(false);
 			factory.setIgnoringComments(true);
-
-			File file = new File(Config.DATAPACK_ROOT+"/data/xml/zone.xml");
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			File file = new File(serverSettings.getDatapackDirectory() + "/data/xml/zone.xml");
 			if (!file.exists())
 			{
 				if (Config.DEBUG)

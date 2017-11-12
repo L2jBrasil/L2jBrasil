@@ -17,9 +17,11 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.network.L2GameClient;
 import com.l2jserver.mmocore.network.SendablePacket;
 
@@ -44,7 +46,8 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient>
 		}
 		catch (Throwable t)
 		{
-			if (!Config.PACKET_HANDLER_DEBUG)
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			if (!serverSettings.isDebugPacket())
 				return;
 			
 			_log.severe("Client: "+getClient().toString()+" - Failed writing: "+getType());

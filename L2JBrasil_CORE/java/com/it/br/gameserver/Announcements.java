@@ -12,7 +12,8 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -47,8 +48,9 @@ public class Announcements
 
 	public void loadAnnouncements()
 	{
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
 		_announcements.clear();
-		File file = new File(Config.DATAPACK_ROOT, "data/announcements.txt");
+		File file = new File(serverSettings.getDatapackDirectory(), "data/announcements.txt");
 		if (file.exists())
 		{
 			readFromDisk(file);

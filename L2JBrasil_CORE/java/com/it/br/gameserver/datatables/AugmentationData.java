@@ -31,6 +31,8 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2Augmentation;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -184,12 +186,14 @@ public class AugmentationData
 	// =========================================================
 	// Method - Private
 
-	@SuppressWarnings("unchecked") private final void load()
+	@SuppressWarnings("unchecked") 
+	private final void load()
 	{
 		// Load the skillmap
 		// Note: the skillmap data is only used when generating new augmentations
 		// the client expects a different id in order to display the skill in the
 		// items description...
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
 		try
 		{
 			SkillTable st = SkillTable.getInstance();
@@ -197,7 +201,8 @@ public class AugmentationData
 			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 
-			File file = new File(Config.DATAPACK_ROOT+"/data/stats/augmentation/augmentation_skillmap.xml");
+			
+			File file = new File(serverSettings.getDatapackDirectory() +"/data/stats/augmentation/augmentation_skillmap.xml");
 			if (!file.exists())
 			{
 				if (Config.DEBUG)
@@ -258,7 +263,7 @@ public class AugmentationData
 				factory.setValidating(false);
 				factory.setIgnoringComments(true);
 
-				File file = new File(Config.DATAPACK_ROOT+"/data/stats/augmentation/augmentation_stats"+i+".xml");
+				File file = new File(serverSettings.getDatapackDirectory()+"/data/stats/augmentation/augmentation_stats"+i+".xml");
 				if (!file.exists())
 				{
 					if (Config.DEBUG)

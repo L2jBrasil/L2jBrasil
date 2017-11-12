@@ -30,6 +30,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.templates.L2Item;
 
@@ -325,7 +327,8 @@ public class L2Manor
     private void parseData() {
 		LineNumberReader lnr = null;
 		try {
-			File seedData = new File(Config.DATAPACK_ROOT, "data/csv/seeds.csv");
+			ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+			File seedData = new File(serverSettings.getDatapackDirectory(), "data/csv/seeds.csv");
 			lnr = new LineNumberReader(new BufferedReader(new FileReader(
 					seedData)));
 

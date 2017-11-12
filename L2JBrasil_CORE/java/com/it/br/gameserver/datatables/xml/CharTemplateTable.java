@@ -33,8 +33,9 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.templates.L2PcTemplate;
@@ -187,7 +188,9 @@ public class CharTemplateTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/char_template.xml");
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/char_template.xml");
 		if(!f.exists())
 		{
 			_log.warn("char_template.xml could not be loaded: file not found");

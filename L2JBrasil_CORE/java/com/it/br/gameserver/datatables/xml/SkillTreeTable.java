@@ -12,6 +12,8 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -34,6 +36,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2EnchantSkillLearn;
 import com.it.br.gameserver.model.L2PledgeSkillLearn;
@@ -124,7 +127,9 @@ public class SkillTreeTable
 		DocumentBuilderFactory factory0 = DocumentBuilderFactory.newInstance();
 		factory0.setValidating(false);
 		factory0.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT + "/data/xml/skill_tree.xml");
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		File datapack = serverSettings.getDatapackDirectory();
+		File file = new File(datapack + "/data/xml/skill_tree.xml");
 		if(!file.exists())
 		{
 			_log.warn("skill_tree.xml could not be loaded: file not found");
@@ -206,7 +211,7 @@ public class SkillTreeTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/fishing_skill_tree.xml");
+		File f = new File(datapack + "/data/xml/fishing_skill_tree.xml");
 		if(!f.exists())
 		{
 			_log.warn("fishing_skill_tree.xml could not be loaded: file not found");
@@ -277,7 +282,7 @@ public class SkillTreeTable
 		DocumentBuilderFactory factory2 = DocumentBuilderFactory.newInstance();
 		factory2.setValidating(false);
 		factory2.setIgnoringComments(true);
-		File f2 = new File(Config.DATAPACK_ROOT + "/data/xml/enchant_skill_tree.xml");
+		File f2 = new File(datapack + "/data/xml/enchant_skill_tree.xml");
 		if(!f2.exists())
 		{
 			_log.warn("enchant_skill_tree.xml could not be loaded: file not found");
@@ -354,7 +359,7 @@ public class SkillTreeTable
 		DocumentBuilderFactory factory1 = DocumentBuilderFactory.newInstance();
 		factory1.setValidating(false);
 		factory1.setIgnoringComments(true);
-		File f1 = new File(Config.DATAPACK_ROOT + "/data/xml/pledge_skill_tree.xml");
+		File f1 = new File(datapack + "/data/xml/pledge_skill_tree.xml");
 		if(!f1.exists())
 		{
 			_log.warn("pledge_skill_tree.xml could not be loaded: file not found");

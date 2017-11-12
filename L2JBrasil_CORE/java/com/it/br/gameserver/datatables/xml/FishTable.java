@@ -29,7 +29,8 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.FishData;
 
 public class FishTable
@@ -54,7 +55,8 @@ public class FishTable
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
 		int count = 0;
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/fish.xml");
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/fish.xml");
 		if(!f.exists())
 		{
 			_log.warn("fish.xml could not be loaded: file not found");

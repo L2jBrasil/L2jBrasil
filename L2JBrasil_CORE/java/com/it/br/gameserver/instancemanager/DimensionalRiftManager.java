@@ -40,6 +40,8 @@ import org.w3c.dom.Node;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -151,7 +153,9 @@ public class DimensionalRiftManager
             factory.setValidating(false);
             factory.setIgnoringComments(true);
 
-            File file = new File(Config.DATAPACK_ROOT+"/data/xml/dimensionalRift.xml");
+            ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+            
+            File file = new File(serverSettings.getDatapackDirectory() +"/data/xml/dimensionalRift.xml");
             if (!file.exists())
                 throw new IOException();
 

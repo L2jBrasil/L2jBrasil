@@ -12,6 +12,8 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,6 +32,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2TeleportLocation;
 
 public class TeleportLocationTable
@@ -61,7 +64,8 @@ public class TeleportLocationTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/teleports.xml");
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/teleports.xml");
 		if(!f.exists())
 		{
 			_log.warn("teleports.xml could not be loaded: file not found");

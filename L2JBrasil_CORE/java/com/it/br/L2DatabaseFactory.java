@@ -18,11 +18,14 @@
  */
 package com.it.br;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.it.br.configuration.settings.DatabaseSettings;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -35,38 +38,36 @@ public class L2DatabaseFactory
 
 	public L2DatabaseFactory() throws SQLException
 	{
-		if (Config.DATABASE_MAX_CONNECTIONS < 2)
-        {
-            Config.DATABASE_MAX_CONNECTIONS = 2;
-            _log.warning("A minimum of 2 connections are required.");
-        }
-
+		
+		DatabaseSettings databaseSettings = getSettings(DatabaseSettings.class);
+	
         // Hello Hikari!
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(Config.DATABASE_URL);
-        config.setUsername(Config.DATABASE_LOGIN);
-        config.setPassword(Config.DATABASE_PASSWORD);
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "250");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-        config.addDataSourceProperty("useServerPrepStmts", "true");
-        config.addDataSourceProperty("useLocalSessionState", "true");
-        config.addDataSourceProperty("useLocalTransactionState", "true");
-        config.addDataSourceProperty("rewriteBatchedStatements", "true");
-        config.addDataSourceProperty("cacheServerConfiguration", "true");
-        config.addDataSourceProperty("cacheResultSetMetadata", "true");
-        config.addDataSourceProperty("maintainTimeStats", "false");
+        config.setJdbcUrl(databaseSettings.getUrl());
+        config.setUsername(databaseSettings.getUsername());
+        config.setPassword(databaseSettings.getPassword());
+        config.addDataSourceProperty("cachePrepStmts", databaseSettings.isEnablePreparedStatementCache());
+        config.addDataSourceProperty("prepStmtCacheSize", databaseSettings.getPreparedStatementCacheSize());
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", databaseSettings.getLimitSqlCache());
+        config.addDataSourceProperty("useServerPrepStmts", databaseSettings.isEnableServerPreparedStatement());
+        config.addDataSourceProperty("useLocalSessionState", databaseSettings.isEnableLocalSessionState());
+        config.addDataSourceProperty("useLocalTransactionState", databaseSettings.isEnableLocalTransactionState());
+        config.addDataSourceProperty("rewriteBatchedStatements", databaseSettings.isEnableRewriteBatchedStatement());
+        config.addDataSourceProperty("cacheServerConfiguration", databaseSettings.isEnableServerCache());
+        config.addDataSourceProperty("cacheResultSetMetadata", databaseSettings.isEnableResultsetCache());
+        config.addDataSourceProperty("maintainTimeStats", databaseSettings.isEnableMaintainTimestats());
 
         _dataSource = new HikariDataSource(config);
-        _dataSource.setAutoCommit(true);
-        _dataSource.setMinimumIdle(10);
+        _dataSource.setAutoCommit(databaseSettings.isEnableAutoCommit());
+        _dataSource.setMinimumIdle(databaseSettings.getMinIdle());
 
-        _dataSource.setValidationTimeout(500); // 500 milliseconds wait before try to acquire connection again
-        _dataSource.setConnectionTimeout(0); // 0 = wait indefinitely for new connection if pool is exhausted
-        _dataSource.setMaximumPoolSize(Config.DATABASE_MAX_CONNECTIONS);
-        _dataSource.setIdleTimeout(Config.DATABASE_MAX_IDLE_TIME); // 0 = idle connections never expire
-        _dataSource.setDriverClassName(Config.DATABASE_DRIVER);
-
+        _dataSource.setValidationTimeout(databaseSettings.getValidationTimeout()); // 500 milliseconds wait before try to acquire connection again
+        _dataSource.setConnectionTimeout(databaseSettings.getConnectionTimeout()); // 0 = wait indefinitely for new connection if pool is exhausted
+        _dataSource.setMaximumPoolSize(databaseSettings.getMaxConnections());
+        _dataSource.setIdleTimeout(databaseSettings.getConnectionIdleTimeout()); // 0 = idle connections never expire
+        _dataSource.setDriverClassName(databaseSettings.getDriver());
+        
+        
         // Test DB connection
         try
         {
@@ -76,11 +77,7 @@ public class L2DatabaseFactory
 			if (Config.DEBUG) {
 			    _log.fine("Database Connection FAILED");
 			}
-
-            e.printStackTrace();
-
-            // FIXME: New exception inside an exception catching block?
-			//throw new SQLException("could not init DB connection:"+e);
+			_log.severe(e.getMessage());
 		}
 	}
 

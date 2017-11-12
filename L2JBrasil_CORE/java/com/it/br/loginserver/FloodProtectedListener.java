@@ -27,6 +27,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.configuration.settings.LoginSettings;
 
 /**
  * @author -Wooden-
@@ -58,6 +60,12 @@ public abstract class FloodProtectedListener extends Thread
 	{
 		Socket connection = null;
 
+		LoginSettings loginSettings = getSettings(LoginSettings.class);
+		int fastConnectionLimit = loginSettings.getFastConnectionLimit();
+		int normalConnectionTime = loginSettings.getNormalConnectionTime();
+		int fastConnectionTime = loginSettings.getFastConnectionTime();
+		int maxConnectionPerIp = loginSettings.getMaxConnectionPerIP();
+		loginSettings = null; // release resource since this method run until the shutdown.
 		while (true)
 		{
 			try
@@ -69,10 +77,10 @@ public abstract class FloodProtectedListener extends Thread
 					if(fConnection != null)
 					{
 						fConnection.connectionNumber += 1;
-						if( (fConnection.connectionNumber > Config.FAST_CONNECTION_LIMIT
-								&& (System.currentTimeMillis() - fConnection.lastConnection) < Config.NORMAL_CONNECTION_TIME)
-								|| (System.currentTimeMillis() - fConnection.lastConnection) < Config.FAST_CONNECTION_TIME
-								|| fConnection.connectionNumber > Config.MAX_CONNECTION_PER_IP)
+						if( (fConnection.connectionNumber > fastConnectionLimit
+								&& (System.currentTimeMillis() - fConnection.lastConnection) < normalConnectionTime)
+								|| (System.currentTimeMillis() - fConnection.lastConnection) < fastConnectionLimit
+								|| fConnection.connectionNumber > maxConnectionPerIp)
 						{
 							fConnection.lastConnection = System.currentTimeMillis();
 							connection.close();

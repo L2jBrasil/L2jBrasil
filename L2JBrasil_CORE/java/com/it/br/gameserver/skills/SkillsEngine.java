@@ -18,13 +18,15 @@
  */
 package com.it.br.gameserver.skills;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.Item;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2Skill;
@@ -66,7 +68,9 @@ public class SkillsEngine
 
 	private void hashFiles(String dirname, List<File> hash)
 	{
-		File dir = new File(Config.DATAPACK_ROOT, dirname);
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		File datapack = serverSettings.getDatapackDirectory();
+		File dir = new File(datapack, dirname);
 		if (!dir.exists())
 		{
 			_log.config("Dir "+dir.getAbsolutePath()+" not exists");
@@ -79,7 +83,7 @@ public class SkillsEngine
 			    if (!f.getName().startsWith("custom"))
 				hash.add(f);
 		}
-		File customfile = new File(Config.DATAPACK_ROOT, dirname+"/custom.xml");
+		File customfile = new File(datapack, dirname+"/custom.xml");
 		if (customfile.exists())
 		    hash.add(customfile);
 	}

@@ -18,13 +18,15 @@
  */
 package com.it.br.loginserver.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.net.InetAddress;
 import java.security.GeneralSecurityException;
 import java.util.logging.Logger;
 
 import javax.crypto.Cipher;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.LoginSettings;
 import com.it.br.loginserver.GameServerTable.GameServerInfo;
 import com.it.br.loginserver.HackingException;
 import com.it.br.loginserver.L2LoginClient;
@@ -36,6 +38,7 @@ import com.it.br.loginserver.serverpackets.AccountKicked.AccountKickedReason;
 import com.it.br.loginserver.serverpackets.LoginFail.LoginFailReason;
 import com.it.br.loginserver.serverpackets.LoginOk;
 import com.it.br.loginserver.serverpackets.ServerList;
+import com.it.br.util.Util;
 
 /**
  * Format: x
@@ -112,6 +115,7 @@ public class RequestAuthLogin extends L2LoginClientPacket
 
 		LoginController lc = LoginController.getInstance();
 		L2LoginClient client = getClient();
+		LoginSettings loginSettings = getSettings(LoginSettings.class);
 		try
 		{
 			AuthLoginResult result = lc.tryAuthLogin(_user, _password, getClient());
@@ -122,7 +126,7 @@ public class RequestAuthLogin extends L2LoginClientPacket
 					client.setAccount(_user);
 					client.setState(LoginClientState.AUTHED_LOGIN);
 					client.setSessionKey(lc.assignSessionKeyToClient(_user, client));
-					if (Config.SHOW_LICENCE)
+					if (loginSettings.isShowLicence())
 					{
 						client.sendPacket(new LoginOk(getClient().getSessionKey()));
 					}
@@ -164,8 +168,8 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		catch (HackingException e)
 		{
 			InetAddress address = getClient().getConnection().getInetAddress();
-			lc.addBanForAddress(address, Config.LOGIN_BLOCK_AFTER_BAN*1000);
-			_log.info("Banned ("+address+") for "+Config.LOGIN_BLOCK_AFTER_BAN+" seconds, due to "+e.getConnects()+" incorrect login attempts.");
+			lc.addBanForAddress(address, Util.getInSeconds(loginSettings.getTimeBlockAfterBan()));
+			_log.info("Banned ("+address+") for "+ loginSettings.getTimeBlockAfterBan()+" seconds, due to "+e.getConnects()+" incorrect login attempts.");
 		}
 	}
 }

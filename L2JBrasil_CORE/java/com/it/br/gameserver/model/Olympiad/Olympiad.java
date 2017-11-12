@@ -22,6 +22,8 @@
  */
 package com.it.br.gameserver.model.Olympiad;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,12 +35,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.instancemanager.OlympiadStadiaManager;
@@ -1453,7 +1462,8 @@ public class Olympiad
 		FileOutputStream fos = null;
 		try
 		{
-			file = new File(Config.DATAPACK_ROOT, OLYMPIAD_DATA_FILE);
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			file = new File(serverSettings.getDatapackDirectory(), OLYMPIAD_DATA_FILE);
 			fos = new FileOutputStream(file);
 			
 			OlympiadProperties.setProperty("CurrentCycle", String.valueOf(_currentCycle));

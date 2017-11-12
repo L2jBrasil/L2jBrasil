@@ -17,13 +17,15 @@
  */
 package com.it.br.gameserver.instancemanager;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.scripting.L2ScriptEngineManager;
 import com.it.br.gameserver.scripting.ScriptManager;
@@ -72,22 +74,21 @@ public class QuestManager extends ScriptManager<Quest>
 		return q.reload();
     }
     
-    public final void reloadAllQuests()
-	{
+    public final void reloadAllQuests() {
 		_log.info("Reloading Server Scripts");
-		try
-		{
-			// unload all scripts
-			for (Quest quest : _quests.values())
-				if (quest != null)
+		try {
+			for (Quest quest : _quests.values()) {
+				if (quest != null) {
 					quest.unload();
-			// now load all scripts
-			File scripts = new File(Config.DATAPACK_ROOT + "/data/scripts.cfg");
+				}
+			}
+			
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			File scripts = new File(serverSettings.getDatapackDirectory() + "/data/scripts.cfg");
 			L2ScriptEngineManager.getInstance().executeScriptList(scripts);
 			QuestManager.getInstance().report();
 		}
-		catch (IOException ioe)
-		{
+		catch (IOException ioe) {
 			_log.severe("Failed loading scripts.cfg, no script going to be loaded");
 		}
 	}

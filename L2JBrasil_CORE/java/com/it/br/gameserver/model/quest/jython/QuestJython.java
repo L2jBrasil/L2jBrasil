@@ -17,10 +17,12 @@
  */
 package com.it.br.gameserver.model.quest.jython;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import org.apache.bsf.BSFException;
 import org.apache.bsf.BSFManager;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.quest.Quest;
 
 public abstract class QuestJython extends Quest
@@ -38,8 +40,8 @@ public abstract class QuestJython extends Quest
 			_bsf = new BSFManager();
 			// Execution of all the scripts placed in data/jscript
 			// inside the DataPack directory
-
-			String dataPackDirForwardSlashes = Config.DATAPACK_ROOT.getPath().replaceAll("\\\\","/");
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			String dataPackDirForwardSlashes = serverSettings.getDatapackDirectory().getPath().replaceAll("\\\\","/");
 			String loadingScript =
 			    "import sys;"
 			  + "sys.path.insert(0,'" + dataPackDirForwardSlashes + "');"

@@ -29,6 +29,8 @@ import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.actor.instance.L2BoatInstance;
 import com.it.br.gameserver.templates.L2CharTemplate;
@@ -80,7 +82,8 @@ public class BoatManager
 		LineNumberReader lnr = null;
 		try
 		{
-			File doorData = new File(Config.DATAPACK_ROOT, "data/csv/boat.csv");
+			ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+			File doorData = new File(serverSettings.getDatapackDirectory(), "data/csv/boat.csv");
 			lnr = new LineNumberReader(new BufferedReader(new FileReader(doorData)));
 
 			String line = null;

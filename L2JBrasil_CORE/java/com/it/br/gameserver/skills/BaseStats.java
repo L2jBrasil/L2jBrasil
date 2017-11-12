@@ -25,7 +25,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2Character;
 
 public enum BaseStats
@@ -143,10 +144,11 @@ public enum BaseStats
 
 	static
 	{
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		final File file = new File(Config.DATAPACK_ROOT, "data/stats/stat.xml");
+		final File file = new File(serverSettings.getDatapackDirectory(), "data/stats/stat.xml");
 		Document doc = null;
 
 		if (file.exists())

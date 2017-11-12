@@ -12,6 +12,8 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,6 +32,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2Skill;
 
 public class SkillSpellbookTable
@@ -59,7 +62,8 @@ public class SkillSpellbookTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/spellbooks.xml");
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/spellbooks.xml");
 		if(!f.exists())
 		{
 			_log.warn("skill_spellbooks.xml could not be loaded: file not found");

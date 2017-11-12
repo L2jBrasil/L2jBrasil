@@ -17,6 +17,8 @@
  */
 package com.it.br.loginserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,6 +36,9 @@ import java.util.logging.Logger;
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.status.Status;
 import com.l2jserver.mmocore.network.SelectorConfig;
 import com.l2jserver.mmocore.network.SelectorThread;
@@ -44,7 +49,12 @@ import com.l2jserver.mmocore.network.SelectorThread;
  */
 public class L2LoginServer
 {
-    public static final int PROTOCOL_REV = 0x0102;
+    /**
+	 * Comment for <code>BIND_ALL_INTERFACES</code>
+	 */
+	private static final String BIND_ALL_INTERFACES = "*";
+
+	public static final int PROTOCOL_REV = 0x0102;
 
     private static L2LoginServer _instance;
     private Logger _log = Logger.getLogger(L2LoginServer.class.getName());
@@ -71,7 +81,8 @@ public class L2LoginServer
 
         /*** Main ***/
         // Create log folder
-        File logFolder = new File(Config.DATAPACK_ROOT, LOG_FOLDER);
+        LoginSettings loginSettings = Configurator.getSettings(LoginSettings.class);
+        File logFolder = new File(loginSettings.getDatapackDirectory(), LOG_FOLDER);
         logFolder.mkdir();
 
         // Create input stream for log file -- or store file data into memory
@@ -160,11 +171,13 @@ public class L2LoginServer
         loadBanFile();
 
         InetAddress bindAddress = null;
-        if (!Config.LOGIN_BIND_ADDRESS.equals("*"))
+        NetworkSettings networkSettings = getSettings(NetworkSettings.class);
+        String hostname = networkSettings.getLoginHostname();
+        if (! BIND_ALL_INTERFACES.equals(hostname) )
         {
             try
             {
-                bindAddress = InetAddress.getByName(Config.LOGIN_BIND_ADDRESS);
+                bindAddress = InetAddress.getByName(hostname);
             }
             catch (UnknownHostException e1)
             {
@@ -201,7 +214,7 @@ public class L2LoginServer
         {
             _gameServerListener = new GameServerListener();
             _gameServerListener.start();
-            _log.info("Listening for GameServers on "+Config.GAME_SERVER_LOGIN_HOST+":"+Config.GAME_SERVER_LOGIN_PORT);
+            _log.info("Listening for GameServers on "+networkSettings.getLoginListenServerHostname()+":"+networkSettings.getLoginListenServerPort());
         }
         catch (IOException e)
         {
@@ -236,7 +249,7 @@ public class L2LoginServer
 
         try
         {
-            _selectorThread.openServerSocket(bindAddress, Config.PORT_LOGIN);
+            _selectorThread.openServerSocket(bindAddress, networkSettings.getLoginPort());
         }
         catch (IOException e)
         {
@@ -248,7 +261,7 @@ public class L2LoginServer
             System.exit(1);
         }
         _selectorThread.start();
-        _log.info("Login Server ready on "+(bindAddress == null ? "*" : bindAddress.getHostAddress())+":"+Config.PORT_LOGIN);
+        _log.info("Login Server ready on "+(bindAddress == null ? BIND_ALL_INTERFACES : bindAddress.getHostAddress())+":"+networkSettings.getLoginPort());
     }
 
     public Status getStatusServer()

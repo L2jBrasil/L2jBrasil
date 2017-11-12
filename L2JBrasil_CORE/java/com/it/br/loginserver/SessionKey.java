@@ -18,7 +18,9 @@
  */
 package com.it.br.loginserver;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.LoginSettings;
 
 /**
  * <p>This class is used to represent session keys used by the client to authenticate in the gameserver</p>
@@ -61,8 +63,9 @@ public class SessionKey
 	 */
 	public boolean equals(SessionKey key)
 	{
+		LoginSettings loginSettings = getSettings(LoginSettings.class);
 		// when server doesnt show licence it deosnt send the LoginOk packet, client doesnt have this part of the key then.
-		if (Config.SHOW_LICENCE)
+		if (loginSettings.isShowLicence())
 		{
 			return (playOkID1 == key.playOkID1 && loginOkID1 == key.loginOkID1
 					&& playOkID2 == key.playOkID2 && loginOkID2 == key.loginOkID2);

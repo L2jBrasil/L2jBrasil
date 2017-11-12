@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -153,8 +156,12 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("network")) 
                 { 
-					Config.loadLoginServerConfig();
-					Config.loadGameServerConfig();
+					/*
+					 *  XXX functionality implemented twice
+					 *  
+					 *  @See AdminAdmin#useAdminCommand
+					 */
+					Configurator.reloadSettings(NetworkSettings.class);
 					sendReloadPage(activeChar);
                     activeChar.sendMessage("Network config settings reloaded"); 
                 }
@@ -181,11 +188,12 @@ public class AdminReload implements IAdminCommandHandler
 				}
 				else if (type.startsWith("scripts"))
                 {
-					try
-					{
-						File scripts = new File(Config.DATAPACK_ROOT + "/data/jscript/scripts.cfg");
-						if (!Config.ALT_DEV_NO_QUESTS)
+					try {
+						ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+						File scripts = new File(serverSettings.getDatapackDirectory() + "/data/jscript/scripts.cfg");
+						if (!Config.ALT_DEV_NO_QUESTS) {
 							L2ScriptEngineManager.getInstance().executeScriptList(scripts);
+						}
 					}
 					catch (IOException ioe)
 					{
@@ -237,7 +245,7 @@ public class AdminReload implements IAdminCommandHandler
 	 *
 	 * @param admin
 	 */
-	private void sendReloadPage(L2PcInstance activeChar)
+	private static void sendReloadPage(L2PcInstance activeChar)
 	{
 		AdminHelpPage.showHelpPage(activeChar, "reload_menu.htm");
 	}

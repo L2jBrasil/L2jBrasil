@@ -37,6 +37,8 @@ import org.w3c.dom.Node;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.CursedWeapon;
 import com.it.br.gameserver.model.L2Attackable;
 import com.it.br.gameserver.model.L2Character;
@@ -95,8 +97,10 @@ public class CursedWeaponsManager
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setValidating(false);
             factory.setIgnoringComments(true);
-
-            File file = new File(Config.DATAPACK_ROOT+"/data/xml/cursedWeapons.xml");
+            
+            ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+            
+            File file = new File(serverSettings.getDatapackDirectory() +"/data/xml/cursedWeapons.xml");
             if (!file.exists())
             {
         		if (Config.DEBUG)

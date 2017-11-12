@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.network.serverpackets.KeyPacket;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 
@@ -45,6 +48,7 @@ public final class ProtocolVersion extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
 		// this packet is never encrypted
 		if (_version == -2)
 		{
@@ -52,12 +56,11 @@ public final class ProtocolVersion extends L2GameClientPacket
 			// this is just a ping attempt from the new C2 client
             getClient().getConnection().close((L2GameServerPacket)null);
 		}
-        else if (_version < Config.MIN_PROTOCOL_REVISION || _version > Config.MAX_PROTOCOL_REVISION)
+        else if (_version <  serverSettings.getMinProtocol() || _version > serverSettings.getMaxProtocol())
         {
-        	if (Config.PACKET_HANDLER_DEBUG)
-        		return;
-        	
-            _log.info("Client: "+getClient().toString()+" -> Protocol Revision: " + _version + " is invalid. Minimum is "+Config.MIN_PROTOCOL_REVISION+" and Maximum is "+Config.MAX_PROTOCOL_REVISION+" are supported. Closing connection.");
+            _log.info("Client: "+getClient().toString()+" -> Protocol Revision: " + _version + 
+            		" is invalid. Minimum is "+serverSettings.getMinProtocol()+" and Maximum is "
+            		+ serverSettings.getMaxProtocol()+" are supported. Closing connection.");
             _log.warning("Wrong Protocol Version "+_version);
             getClient().getConnection().close((L2GameServerPacket)null);
         }

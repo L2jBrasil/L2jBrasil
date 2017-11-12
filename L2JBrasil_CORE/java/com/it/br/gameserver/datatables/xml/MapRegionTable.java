@@ -12,6 +12,8 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,7 +30,7 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.instancemanager.ArenaManager;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
@@ -76,7 +78,8 @@ public class MapRegionTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/map_region.xml");
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/map_region.xml");
 		if(!f.exists())
 		{
 			_log.warn("map_region.xml could not be loaded: file not found");
