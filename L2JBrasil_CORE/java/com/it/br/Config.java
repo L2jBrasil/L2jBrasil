@@ -3259,37 +3259,6 @@ public final class Config
 	    }
     }
 
-	// --------------------------------------------- //
-    // -             MMOCORE PROPERTIES            - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static int MMO_SELECTOR_SLEEP_TIME;
-    public static int MMO_IO_SELECTOR_THREAD_COUNT;
-    public static int MMO_MAX_SEND_PER_PASS;
-    public static int MMO_MAX_READ_PER_PASS;
-    public static int MMO_HELPER_BUFFER_COUNT;
-	// ============================================================
-
-    public static void loadMMOCoreConfig()
-    {
-		try(InputStream is = new FileInputStream(new File(MMOCORE_CONFIG_FILE)))
-		{
-			Properties mmoSettings = new Properties();
-			mmoSettings.load(is);
-
-			MMO_SELECTOR_SLEEP_TIME = Integer.parseInt(mmoSettings.getProperty("SleepTime", "20"));
-			MMO_IO_SELECTOR_THREAD_COUNT = Integer.parseInt(mmoSettings.getProperty("IOSelectorThreadCount", "2"));
-			MMO_MAX_SEND_PER_PASS = Integer.parseInt(mmoSettings.getProperty("MaxSendPerPass", "12"));
-			MMO_MAX_READ_PER_PASS = Integer.parseInt(mmoSettings.getProperty("MaxReadPerPass", "12"));
-			MMO_HELPER_BUFFER_COUNT = Integer.parseInt(mmoSettings.getProperty("HelperBufferCount", "20"));
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + MMOCORE_CONFIG_FILE + " File.");
-		}
-    }
-
     // --------------------------------------------- //
     // -              HEXID PROPERTIES             - //
     // --------------------------------------------- //
@@ -3586,7 +3555,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadMMOCoreConfig();
     		loadTelnetConfig();
 
     		loadBrasilConfig();
@@ -3619,7 +3587,6 @@ public final class Config
 		else if(Server.serverMode == Server.MODE_LOGINSERVER)
 		{
 			loadTelnetConfig();
-			loadMMOCoreConfig();
 		}
 		else
 		{

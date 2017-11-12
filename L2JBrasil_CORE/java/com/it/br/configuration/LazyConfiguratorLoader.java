@@ -36,6 +36,7 @@ class LazyConfiguratorLoader {
 	private static final Map<Class<? extends Settings>, String> settingsClasses = new HashMap<>();
 	
 	protected static void load(L2Properties properties)	{
+		settingsClasses.clear();
 		for(Entry<Object, Object> entry : properties.entrySet()) {
 			String className = (String) entry.getKey();
 			String fileConfigurationPath = (String) entry.getValue();

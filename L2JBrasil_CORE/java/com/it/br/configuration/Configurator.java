@@ -66,7 +66,7 @@ public class Configurator {
 		return getSettings(settingsClass, false);
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public static <T extends Settings> T getSettings(Class<T> settingsClass, boolean forceReload) {
 		if(settingsClass == null) {
 			logger.warning("Can't load settings from Null class");
@@ -80,6 +80,13 @@ public class Configurator {
 		T settings = LazyConfiguratorLoader.getSettings(settingsClass);
 		if(settings == null) {
 			logger.warning("Error loading Settings " + settingsClass.getName() + ". Configuration not found");
+			try {
+				logger.info("Trying to create " + settingsClass.getName() + " instance");
+				settings = settingsClass.newInstance();
+			} catch (InstantiationException | IllegalAccessException e) {
+				logger.warning("Error creating instance of " + settingsClass.getName());
+				logger.warning(e.getMessage());
+			}
 		} else {
 			getInstance().settingsMap.put(settingsClass, settings);
 		}
@@ -94,6 +101,7 @@ public class Configurator {
 	public static void reloadAll() {
 		logger.info("Reloading all settings");
 		getInstance().settingsMap = new ConcurrentHashMap<>();
+		load();
 	}
 	
 	public static void reloadSettings(Class<? extends Settings>  settingsClass) {

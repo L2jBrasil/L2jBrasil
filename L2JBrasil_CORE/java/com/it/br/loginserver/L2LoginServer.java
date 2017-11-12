@@ -38,6 +38,7 @@ import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.configuration.settings.MmoCoreSettings;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.status.Status;
 import com.l2jserver.mmocore.network.SelectorConfig;
@@ -188,17 +189,17 @@ public class L2LoginServer
                 }
             }
         }
-
+        MmoCoreSettings mmoSettings = getSettings(MmoCoreSettings.class);
         final SelectorConfig sc = new SelectorConfig();
-        sc.MAX_READ_PER_PASS = Config.MMO_MAX_READ_PER_PASS;
-        sc.MAX_SEND_PER_PASS = Config.MMO_MAX_SEND_PER_PASS;
-        sc.SLEEP_TIME = Config.MMO_SELECTOR_SLEEP_TIME;
-        sc.HELPER_BUFFER_COUNT = Config.MMO_HELPER_BUFFER_COUNT;
+        sc.MAX_READ_PER_PASS = mmoSettings.getMaxReadPerPass();
+        sc.MAX_SEND_PER_PASS = mmoSettings.getMaxSendPerPass();
+        sc.SLEEP_TIME = mmoSettings.getSleepTime();
+        sc.HELPER_BUFFER_COUNT = mmoSettings.getHelperBufferCount();
         final L2LoginPacketHandler lph = new L2LoginPacketHandler();
         final SelectorHelper sh = new SelectorHelper();
         try
         {
-              _selectorThread = new SelectorThread<L2LoginClient>(sc, sh, lph, sh, sh);
+              _selectorThread = new SelectorThread<>(sc, sh, lph, sh, sh);
         }
         catch (IOException e)
         {

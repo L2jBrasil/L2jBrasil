@@ -34,6 +34,7 @@ import java.util.logging.Logger;
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
+import com.it.br.configuration.settings.MmoCoreSettings;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.ai.special.AiLoader;
@@ -490,12 +491,13 @@ public class GameServer
 
 		Util.printSection("Login");
 		LoginServerThread.getInstance().start();
-
+		MmoCoreSettings mmoSettings = getSettings(MmoCoreSettings.class);
+	
 		final SelectorConfig sc = new SelectorConfig();
-	    sc.MAX_READ_PER_PASS = Config.MMO_MAX_READ_PER_PASS;
-        sc.MAX_SEND_PER_PASS = Config.MMO_MAX_SEND_PER_PASS;
-	    sc.SLEEP_TIME = Config.MMO_SELECTOR_SLEEP_TIME;
-        sc.HELPER_BUFFER_COUNT = Config.MMO_HELPER_BUFFER_COUNT;
+	    sc.MAX_READ_PER_PASS = mmoSettings.getMaxReadPerPass();
+        sc.MAX_SEND_PER_PASS = mmoSettings.getMaxSendPerPass();
+	    sc.SLEEP_TIME = mmoSettings.getSleepTime();
+        sc.HELPER_BUFFER_COUNT = mmoSettings.getHelperBufferCount();
         final L2GamePacketHandler gph = new L2GamePacketHandler();
 
         _selectorThread = new SelectorThread<>(sc, gph, gph, gph, new IPv4Filter());
