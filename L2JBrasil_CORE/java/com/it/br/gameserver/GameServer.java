@@ -533,6 +533,14 @@ public class GameServer
 		_log.config("Maximum Numbers of Connected Players: " + serverSettings.getPlayerOnlineMaxCount());
 		long serverLoadEnd = System.currentTimeMillis();
 		_log.info("Server Loaded in " + ((serverLoadEnd - serverLoadStart) / 1000) + " seconds");
+		
+		if (networkSettings.isEnabledTelnet()) 
+		{
+		    _statusServer = new Status(Server.serverMode);
+		    _statusServer.start();
+		}
+		else 
+		    System.out.println("Telnet is disabled.");
 	}
 
 	public static void main(String[] args) throws Exception { 
@@ -562,13 +570,5 @@ public class GameServer
 		Util.printSection("Data Base"); 
 		L2DatabaseFactory.getInstance();
 		gameServer = new GameServer();
-
-		if (Config.IS_TELNET_ENABLED) 
-		{
-		    _statusServer = new Status(Server.serverMode);
-		    _statusServer.start();
-		}
-		else 
-		    System.out.println("Telnet is disabled.");
 	}
 }

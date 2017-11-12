@@ -57,9 +57,6 @@ public final class Config
     protected static final Logger _log = Logger.getLogger(Config.class.getName());
 
     /* Properties Files Definitions */
-    public static final String MMOCORE_CONFIG_FILE	= "./config/mmocore.properties";
-    public static final String TELNET_FILE			= "./config/telnet.properties";
-
     public static final String COMMAND_FILE		    = "./config/custom/command.properties";
     public static final String L2JBRASIL_FILE		= "./config/custom/l2jbrasil.properties";
     public static final String L2JMOD_FILE			= "./config/custom/l2jmods.properties";
@@ -3236,28 +3233,6 @@ public final class Config
 	    }
     }
 
-    // --------------------------------------------- //
-    // -             TELNET PROPERTIES             - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static boolean IS_TELNET_ENABLED;
-	// ============================================================
-
-    public static void loadTelnetConfig()
-    {
-	    try(InputStream is = new FileInputStream(new File(TELNET_FILE)))
-	    {
-	        Properties telnetSettings = new Properties();
-	        telnetSettings.load(is);
-
-	        IS_TELNET_ENABLED = Boolean.valueOf(telnetSettings.getProperty("EnableTelnet", "false"));
-	    }
-	    catch (Exception e)
-	    {
-	        e.printStackTrace();
-	        throw new Error("Failed to Load " + TELNET_FILE + " File.");
-	    }
-    }
 
     // --------------------------------------------- //
     // -              HEXID PROPERTIES             - //
@@ -3555,8 +3530,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadTelnetConfig();
-
     		loadBrasilConfig();
     		loadCommandConfig();
     		loadL2JModConfig();
@@ -3586,7 +3559,6 @@ public final class Config
 		}
 		else if(Server.serverMode == Server.MODE_LOGINSERVER)
 		{
-			loadTelnetConfig();
 		}
 		else
 		{

@@ -17,6 +17,8 @@
  */
 package com.it.br.configuration.settings;
 
+import java.util.List;
+
 import com.it.br.configuration.L2Properties;
 
 /**
@@ -38,6 +40,10 @@ public class NetworkSettings implements Settings{
 	private int loginPort;
 	private String loginExternalHostname;
 	private String loginInternalHostname;
+	private boolean enabledTelnet;
+	private int telnetPort;
+	private List<String> telnetAcceeptHosts;
+	private String telnetPassword;
 	
 	@Override
 	public void load(L2Properties properties) {
@@ -57,6 +63,12 @@ public class NetworkSettings implements Settings{
 		
 		loginListenServerHostname = properties.getString("login.listen.server.hostname", "127.0.0.1");
 		loginListenServerPort = properties.getInteger("login.listen.server.port", 9014);
+		
+		enabledTelnet = properties.getBoolean("telnet.enable", false);
+		telnetPort = properties.getInteger("telnet.port", 12345);
+		telnetAcceeptHosts = properties.getStringList("telnet.accept.hosts", "127.0.0.1,localhost", ",");
+		telnetPassword = properties.getString("telnet.password", null);
+				
 	}
 	
 	public String getServerHostname() {
@@ -97,6 +109,23 @@ public class NetworkSettings implements Settings{
 	
 	public String getLoginInternalHostname() {
 		return loginInternalHostname;
+	}
+	
+
+	public boolean isEnabledTelnet() {
+		return enabledTelnet;
+	}
+	
+	public int getTelnetPort() {
+		return telnetPort;
+	}
+	
+	public List<String> getTelnetAcceeptHosts() {
+		return telnetAcceeptHosts;
+	}
+	
+	public String getTelnetPassword() {
+		return telnetPassword;
 	}
 }
 

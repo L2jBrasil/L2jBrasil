@@ -70,7 +70,6 @@
 
     	<copy todir="${build.dist.login}/config">
 			<fileset dir="config">
-				<include name="telnet.properties"/>
 				<include name="network.properties"/>
 				<include name="mmocore.properties"/>
 				<include name="other/log.*"/>

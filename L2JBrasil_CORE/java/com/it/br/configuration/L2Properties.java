@@ -8,6 +8,8 @@ package com.it.br.configuration;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.logging.Log;
@@ -51,5 +53,10 @@ public final class L2Properties extends Properties
 			return defaultValue;
 		}
 		return Boolean.parseBoolean(value);
+	}
+
+	public List<String> getStringList(String key, String defaultValue, String delim) {
+		String[] value = getProperty(key, defaultValue).split(delim);
+		return Arrays.asList(value);
 	}
 }
