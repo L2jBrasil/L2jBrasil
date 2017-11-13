@@ -1,0 +1,9 @@
+version: "3.0"
+
+services:
+  antbuild:
+    image: "l2jbrasil/antbuild"
+    build: "./docker-images/ant/"
+    volumes:
+      - ".:/opt/src"
+    command:  bash -c "ant  -verbose -buildfile  L2JBrasil_CORE/build.xml && ant  -verbose -buildfile  L2JBrasil_DP/build.xml"
