@@ -3,6 +3,9 @@ FROM anapsix/alpine-java:8_jdk
 
 USER root
 
+ENV DB_USER l2jbr_user
+ENV DB_PWD l2jbr_pwd
+
 ENV TIMEZONE            America/Sao_Paulo
 ENV SRC_BRANCH develop
 
@@ -33,10 +36,20 @@ RUN cd /opt/src && ls -lah && \
     unzip L2JBrasil_CORE/build/L2JBrasil_CORE.zip -d /l2jbr  && \
     unzip L2JBrasil_DP/build/L2JBrasil_DP.zip -d /l2jbr && ls /l2jbr/Game/lib/*.jar
 
+# Update login/game server properties
+RUN cd /l2jbr && \
+	sed -i "s/Login = root/Login = ${DB_USER}/g" Login/config/login.properties && \
+    sed -i "s/Password =/Password = ${DB_PWD}/g" Login/config/login.properties && \
+	sed -i "s/MaximumDbConnections = 10/MaximumDbConnections = 100/g" Login/config/login.properties && \
+	sed -i "s/Login = root/Login = ${DB_USER}/g" Game/config/server.properties && \
+	sed -i "s/Password =/Password = ${DB_PWD}/g" Game/config/server.properties
+	 
+	
 VOLUME /opt/src
 VOLUME /l2jbr
 WORKDIR /l2jbr
 
-CMD java -Djava.util.logging.config.file=console.cfg -cp Game/lib/* com.it.br.gsregistering.GameServerRegister
-CMD java -Xmx32m -XX:+UseParallelGC -XX:+AggressiveOpts -XX:ParallelGCThreads=2 -cp Game/lib/* com.it.br.loginserver.L2LoginServer &  \
-java  -Xmx512m -XX:+AggressiveOpts -XX:+UseConcMarkSweepGC -XX:+HeapDumpOnOutOfMemoryError -cp Game/lib/* com.it.br.gameserver.GameServer
+# CMD java -Djava.util.logging.config.file=console.cfg -cp "Game/lib/*" com.it.br.gsregistering.GameServerRegister
+
+CMD java -Xmx32m -XX:+UseParallelGC -XX:+AggressiveOpts -XX:ParallelGCThreads=2 -cp "Game/lib/*" com.it.br.loginserver.L2LoginServer &  \
+sleep 10 && java  -Xmx512m -XX:+AggressiveOpts -XX:+UseConcMarkSweepGC -XX:+HeapDumpOnOutOfMemoryError -cp "Game/lib/*" com.it.br.gameserver.GameServer
