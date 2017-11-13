@@ -3,8 +3,8 @@ FROM anapsix/alpine-java:8_jdk
 
 USER root
 
-ENV DB_USER l2jbr_user
-ENV DB_PWD l2jbr_pwd
+ENV DB_USER root
+ENV DB_PWD foopwd123
 
 ENV TIMEZONE            America/Sao_Paulo
 ENV SRC_BRANCH develop
