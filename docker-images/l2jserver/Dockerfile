@@ -46,7 +46,7 @@ RUN cd /l2jbr && \
 	
 RUN cd /l2jbr && \
 	sed -i "s/user = root/user = ${DB_USER}/g" Database/login_database.conf && \
-	sed -i "s/password = root/password = ${DB_PWD}/g" Database/login_database.conf && \	
+	sed -i "s/password = root/password = ${DB_PWD}/g" Database/login_database.conf && \
 	sed -i "s/user = root/user = ${DB_USER}/g" Database/game_database.conf && \
 	sed -i "s/password = root/password = ${DB_PWD}/g" Database/game_database.conf
 	 
