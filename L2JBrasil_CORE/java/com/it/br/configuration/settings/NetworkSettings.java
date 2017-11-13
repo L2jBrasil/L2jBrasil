@@ -51,25 +51,25 @@ public class NetworkSettings implements Settings{
 			return;
 		}
 		
-		serverHostname = properties.getString("server.hostname", "*");
-		serverPort = properties.getInteger("server.port", 7777);
-		serverExternalHostname = properties.getString("server.hostname.extern", "127.0.0.1");
-		serverInternalHostname = properties.getString("server.hostname.intern", "127.0.0.1");
+		serverHostname = properties.getString("serverHostname", "*");
+		serverPort = properties.getInteger("serverPort", 7777);
+		serverExternalHostname = properties.getString("serverExternalHostname", "127.0.0.1");
+		serverInternalHostname = properties.getString("serverInternalHostname", "127.0.0.1");
 		
-		loginHostname = properties.getString("login.hostname", "*");
-		loginPort = properties.getInteger("login.port", 2106);
-		loginExternalHostname = properties.getString("login.hostname.extern", "127.0.0.1");
-		loginInternalHostname = properties.getString("login.hostname.intern", "127.0.0.1");
+		loginHostname = properties.getString("loginHostname", "*");
+		loginPort = properties.getInteger("loginPort", 2106);
+		loginExternalHostname = properties.getString("loginExternalHostname", "127.0.0.1");
+		loginInternalHostname = properties.getString("loginInternalHostname", "127.0.0.1");
 		
-		loginListenServerHostname = properties.getString("login.listen.server.hostname", "127.0.0.1");
-		loginListenServerPort = properties.getInteger("login.listen.server.port", 9014);
+		loginListenServerHostname = properties.getString("loginListenServerHostname", "127.0.0.1");
+		loginListenServerPort = properties.getInteger("loginListenServerPort", 9014);
 		
-		enabledTelnet = properties.getBoolean("telnet.enable", false);
+		enabledTelnet = properties.getBoolean("enableTelnet", false);
 		
 		if(enabledTelnet) {
-			telnetPort = properties.getInteger("telnet.port", 12345);
-			telnetAcceeptHosts = properties.getStringList("telnet.accept.hosts", "127.0.0.1,localhost", ",");
-			telnetPassword = properties.getString("telnet.password", null);
+			telnetPort = properties.getInteger("telnetPort", 12345);
+			telnetAcceeptHosts = properties.getStringList("telnetAcceptedHosts", "127.0.0.1,localhost", ",");
+			telnetPassword = properties.getString("telnetPassword", null);
 		}
 				
 	}

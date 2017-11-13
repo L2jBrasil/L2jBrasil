@@ -52,20 +52,20 @@ public class ServerSettings implements Settings{
 			return;
 		}
 		
-		serverId = properties.getInteger("server.id", 1);
-		enabledAlternativeId = properties.getBoolean("accept.alternative.id", true);
+		serverId = properties.getInteger("requestServerID", 1);
+		enabledAlternativeId = properties.getBoolean("acceptAlternativeId", true);
 		
-		characterNameTemplate = properties.getString("character.name.template", ".*");
-		petNameTemplate = properties.getString("pet.name.template", ".*");
-		characterMaxCount = properties.getInteger("character.count.max", 7);
-		playerOnlineMaxCount = properties.getInteger("player.online.count.max", 100);
+		characterNameTemplate = properties.getString("charNameTemplate", ".*");
+		petNameTemplate = properties.getString("pNameTemplate", ".*");
+		characterMaxCount = properties.getInteger("charMaxCount", 7);
+		playerOnlineMaxCount = properties.getInteger("maxPlayerOnline", 100);
 		
-		maxUnknownPacket = properties.getInteger("packet.unknown.max", 5);
-		enabledDebugPacket = properties.getBoolean("packet.debug", false);
-		minProtocol = properties.getInteger("protocol.min", 740);
-		maxProtocol = properties.getInteger("protocol.max", 746);
+		maxUnknownPacket = properties.getInteger("maxUnknownPacket", 5);
+		enabledDebugPacket = properties.getBoolean("packetDebug", false);
+		minProtocol = properties.getInteger("minProtocolRevision", 740);
+		maxProtocol = properties.getInteger("maxProtocolRevision", 746);
 		
-		String datapackPath = properties.getString("datapack.directory", ".");
+		String datapackPath = properties.getString("datapackRootDirectory", ".");
 		try {
 			datapackDirectory = new File(datapackPath).getCanonicalFile();
 		} catch (IOException e) {

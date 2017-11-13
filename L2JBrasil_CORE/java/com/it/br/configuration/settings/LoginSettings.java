@@ -48,19 +48,19 @@ public class LoginSettings implements Settings{
 			return;
 		}
 		
-		triesBeforeBan = properties.getInteger("login.tries.before.ban", 10);
-		timeBlockAfterBan = properties.getInteger("time.block.after.ban", 600);
+		triesBeforeBan = properties.getInteger("loginTriesBeforeBan", 10);
+		timeBlockAfterBan = properties.getInteger("blockTimeAfterBan", 600);
 		
-		enabledAnyServer  = properties.getBoolean("allow.any.server", false);
-		enabledShowLicence = properties.getBoolean("show.license", true);
-		enabledAutoCreateAccount = properties.getBoolean("allow.auto.create.account", true);		
+		enabledAnyServer  = properties.getBoolean("allowNewServers", false);
+		enabledShowLicence = properties.getBoolean("showLicense", true);
+		enabledAutoCreateAccount = properties.getBoolean("AllowAutoCreateAccount", true);		
 		
-		fastConnectionLimit = properties.getInteger("connection.fast.limit", 15);
-		fastConnectionTime = properties.getInteger("connection.fast.time", 350);
-		normalConnectionTime = properties.getInteger("connection.normal.time", 700);
-		maxConnectionPerIP = properties.getInteger("connection.ip.limit", 50);
+		fastConnectionLimit = properties.getInteger("connectionFastLimit", 15);
+		fastConnectionTime = properties.getInteger("connectionFastTime", 350);
+		normalConnectionTime = properties.getInteger("ConnectionNormalTime", 700);
+		maxConnectionPerIP = properties.getInteger("maxConnectionPerIP", 50);
 		
-		String datapackPath = properties.getString("datapack.directory", ".");
+		String datapackPath = properties.getString("datapackRootDirectory", ".");
 		try {
 			datapackDirectory = new File(datapackPath).getCanonicalFile();
 		} catch (IOException e) {

@@ -52,32 +52,32 @@ public class DatabaseSettings implements Settings {
 		url = properties.getString("url", "jdbc:mysql://localhost/l2jdb");
 		username = properties.getString("username", "root");
 		password = properties.getString("password", "root");
-		maxConnections = properties.getInteger("connection.max", 10);
+		maxConnections = properties.getInteger("MaxConnection", 10);
 		
 		if(maxConnections < 2) {
 			maxConnections = 2;
 		}
 		
-		connectionIdleTimeout = properties.getInteger("connection.idle.timeout", 0);
+		connectionIdleTimeout = properties.getInteger("connectionIdleTimeout", 0);
 		
-		enabledServerCache = properties.getBoolean("allow.cache.server", true);
-		enabledPreparedStatementCache = properties.getBoolean("prepared.statement.cache.allow", true);
+		enabledServerCache = properties.getBoolean("allowServerCache", true);
+		enabledPreparedStatementCache = properties.getBoolean("allowPreparedStatementCache", true);
 		
-		PreparedStatementCacheSize = properties.getInteger("prepared.statement.cache.size", 250);
-		limitSqlCache = properties.getInteger("prepared.statement.cache.sql.limit", 2048);
-		enabledResultsetCache = properties.getBoolean("allow.cache.resultset", true);
-		enabledServerPreparedStatement = properties.getBoolean("allow.server.prepared.statement", true);
+		PreparedStatementCacheSize = properties.getInteger("preparedStatementCacheSize", 250);
+		limitSqlCache = properties.getInteger("preparedStatementCacheSqlLimit", 2048);
+		enabledResultsetCache = properties.getBoolean("allowResultsetCache", true);
+		enabledServerPreparedStatement = properties.getBoolean("allowPreparedStatement", true);
 		
-		enabledLocalSessionState = properties.getBoolean("allow.local.session.state", true);
-		enableLocalTransactionState = properties.getBoolean("allow.local.transaction", true);
+		enabledLocalSessionState = properties.getBoolean("allowLocalSessionState", true);
+		enableLocalTransactionState = properties.getBoolean("allowLocalTransaction", true);
 
-		enabledRewriteBatchedStatement = properties.getBoolean("allow.rewrite.batched.statement", true);
-		enabledMaintainTimestats = properties.getBoolean("allow.maintain.timestats", true);
-		enabledAutoCommit = properties.getBoolean("allow.auto.commit", true);
+		enabledRewriteBatchedStatement = properties.getBoolean("allowRewriteBatchedStatement", true);
+		enabledMaintainTimestats = properties.getBoolean("allowMaintainTimestats", true);
+		enabledAutoCommit = properties.getBoolean("allowAutoCommit", true);
 		
-		minIdle = properties.getInteger("connection.idle.min", 10);
-		validationTimeout = properties.getInteger("connection.validation.timeout", 500);
-		connectionTimeout = properties.getInteger("connection.timeout", 0);
+		minIdle = properties.getInteger("connectionMinIdle", 10);
+		validationTimeout = properties.getInteger("connectionValidationTimeout", 500);
+		connectionTimeout = properties.getInteger("connectionTimeout", 0);
 	}
 	
 	public String getDriver() {

@@ -37,10 +37,10 @@ public class MmoCoreSettings implements Settings{
 			return;
 		}
 		
-		maxReadPerPass = properties.getInteger("max.read.per.pass", 12);
-		maxSendPerPass = properties.getInteger("max.send.per.pass", 12);
-		sleepTime = properties.getInteger("sleep.time", 20);
-		helperBufferCount = properties.getInteger("helper.buffer.count", 20);
+		maxReadPerPass = properties.getInteger("maxReadPerPass", 12);
+		maxSendPerPass = properties.getInteger("maxSendPerPass", 12);
+		sleepTime = properties.getInteger("sleepTime", 20);
+		helperBufferCount = properties.getInteger("maxHelperBuffer", 20);
 	}
 	
 	public int getMaxReadPerPass() {
