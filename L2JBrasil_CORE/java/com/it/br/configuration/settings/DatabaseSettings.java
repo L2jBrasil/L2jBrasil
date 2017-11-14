@@ -1,28 +1,7 @@
-/* This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2, or (at your option)
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
- * 02111-1307, USA.
- *
- * http://www.gnu.org/copyleft/gpl.html
- */
 package com.it.br.configuration.settings;
 
 import com.it.br.configuration.L2Properties;
 
-/**
- *
- * @author  Alisson Oliveira
- */
 public class DatabaseSettings implements Settings {
 	
 	private String driver;
@@ -48,36 +27,36 @@ public class DatabaseSettings implements Settings {
 	
 	@Override
 	public void load(L2Properties properties) {
-		driver = properties.getString("driver", "com.mysql.jdbc.Driver");
-		url = properties.getString("url", "jdbc:mysql://localhost/l2jdb");
-		username = properties.getString("username", "root");
-		password = properties.getString("password", "root");
+		driver = properties.getString("Driver", "com.mysql.jdbc.Driver");
+		url = properties.getString("Url", "jdbc:mysql://localhost/l2jdb");
+		username = properties.getString("Username", "root");
+		password = properties.getString("Password", "root");
 		maxConnections = properties.getInteger("MaxConnection", 10);
 		
 		if(maxConnections < 2) {
 			maxConnections = 2;
 		}
 		
-		connectionIdleTimeout = properties.getInteger("connectionIdleTimeout", 0);
+		connectionIdleTimeout = properties.getInteger("ConnectionIdleTimeout", 0);
 		
-		enabledServerCache = properties.getBoolean("allowServerCache", true);
-		enabledPreparedStatementCache = properties.getBoolean("allowPreparedStatementCache", true);
+		enabledServerCache = properties.getBoolean("AllowServerCache", true);
+		enabledPreparedStatementCache = properties.getBoolean("AllowPreparedStatementCache", true);
 		
-		PreparedStatementCacheSize = properties.getInteger("preparedStatementCacheSize", 250);
-		limitSqlCache = properties.getInteger("preparedStatementCacheSqlLimit", 2048);
-		enabledResultsetCache = properties.getBoolean("allowResultsetCache", true);
-		enabledServerPreparedStatement = properties.getBoolean("allowPreparedStatement", true);
+		PreparedStatementCacheSize = properties.getInteger("PreparedStatementCacheSize", 250);
+		limitSqlCache = properties.getInteger("PreparedStatementCacheSqlLimit", 2048);
+		enabledResultsetCache = properties.getBoolean("AllowResultsetCache", true);
+		enabledServerPreparedStatement = properties.getBoolean("AllowPreparedStatement", true);
 		
-		enabledLocalSessionState = properties.getBoolean("allowLocalSessionState", true);
-		enableLocalTransactionState = properties.getBoolean("allowLocalTransaction", true);
+		enabledLocalSessionState = properties.getBoolean("AllowLocalSessionState", true);
+		enableLocalTransactionState = properties.getBoolean("AllowLocalTransaction", true);
 
-		enabledRewriteBatchedStatement = properties.getBoolean("allowRewriteBatchedStatement", true);
-		enabledMaintainTimestats = properties.getBoolean("allowMaintainTimestats", true);
-		enabledAutoCommit = properties.getBoolean("allowAutoCommit", true);
+		enabledRewriteBatchedStatement = properties.getBoolean("AllowRewriteBatchedStatement", true);
+		enabledMaintainTimestats = properties.getBoolean("AllowMaintainTimestats", true);
+		enabledAutoCommit = properties.getBoolean("AllowAutoCommit", true);
 		
-		minIdle = properties.getInteger("connectionMinIdle", 10);
-		validationTimeout = properties.getInteger("connectionValidationTimeout", 500);
-		connectionTimeout = properties.getInteger("connectionTimeout", 0);
+		minIdle = properties.getInteger("ConnectionMinIdle", 10);
+		validationTimeout = properties.getInteger("ConnectionValidationTimeout", 500);
+		connectionTimeout = properties.getInteger("ConnectionTimeout", 0);
 	}
 	
 	public String getDriver() {

@@ -21,22 +21,21 @@ public final class L2Properties extends Properties
 {
 	private static final long serialVersionUID = -4599023842346938325L;
 	private static final Log _log = LogFactory.getLog(L2Properties.class);
+
 	
-	public static L2Properties load(String filePath) {
-		L2Properties properties = new L2Properties();
+	public L2Properties(String filePath) {
 		try(FileReader reader = new FileReader(filePath)) {
-			properties.load(reader);
+			load(reader);
 		} catch (IOException e) {
 			_log.error(e);
 		}
-		
-		return properties;
 	}
+	
+	public L2Properties() { }
 
 	public String getString(String key, String defaultValue) {
 		return getProperty(key, defaultValue);
 	}
-
 	
 	public int getInteger(String key, int defaultValue){
 		try {
@@ -49,7 +48,7 @@ public final class L2Properties extends Properties
 
 	public boolean getBoolean(String key, boolean defaultValue)	{
 		String value = getProperty(key);
-		if(Util.isEmpty(value)) {
+		if(Util.isNullOrEmpty(value)) {
 			return defaultValue;
 		}
 		return Boolean.parseBoolean(value);

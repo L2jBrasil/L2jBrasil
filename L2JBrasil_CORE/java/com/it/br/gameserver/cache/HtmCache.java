@@ -197,7 +197,7 @@ public class HtmCache
 
         if (Config.LAZY_CACHE && content == null) {
         	ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
-            content = loadFile(new File(serverSettings.getDatapackDirectory(), path));
+        	content = loadFile(new File(serverSettings.getDatapackDirectory(), path));
         }
 
         return content;

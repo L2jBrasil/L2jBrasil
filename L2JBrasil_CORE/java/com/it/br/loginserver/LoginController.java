@@ -39,9 +39,6 @@ import com.it.br.util.Rnd;
  */
 public class LoginController
 {
-	/**
-	 * Comment for <code>MILLISECONDS</code>
-	 */
 	private static final int SECOND = 1000;
 
 	protected static final Logger _log = Logger.getLogger(LoginController.class.getName());

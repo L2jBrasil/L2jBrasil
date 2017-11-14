@@ -6,28 +6,6 @@ import java.util.logging.Logger;
 
 import com.it.br.configuration.settings.Settings;
 
-/* This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2, or (at your option)
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
- * 02111-1307, USA.
- *
- * http://www.gnu.org/copyleft/gpl.html
- */
-
-/**
- *
- * @author Alisson Oliveira
- */
 public class Configurator {
 	
 	/*
@@ -36,80 +14,83 @@ public class Configurator {
 	 * 		reload after some time interval
 	 * 		left java decide through WeakReferences 
 	 */
-	
 	private static final Logger logger = Logger.getLogger(Configurator.class.getName());
 	private static final String propertiesFile = "./config/configurator.properties";
 	private static Configurator configurator;
+	private LazyConfiguratorLoader loader;
 	
 	private Map<Class<? extends Settings>, Settings> settingsMap;
 	
 	private Configurator() { 
 		settingsMap = new ConcurrentHashMap<>();
+		loader = new LazyConfiguratorLoader();
 		load();
 	}
 
-	public static void load() {
+	private void load() {
 		logger.info("Loading Configurations from " + propertiesFile);
-		L2Properties properties = L2Properties.load(propertiesFile);
+		L2Properties properties = new L2Properties(propertiesFile);
 		if(properties.isEmpty()) {
-			logger.warning("Configurations not found. No Settings has been loaded");
+			logger.severe("Configurations not found. No Settings has been loaded");
 		} else {
-			LazyConfiguratorLoader.load(properties);
+			loader.load(properties);
 		} 
 	}
 	
-	public static void addSettingsClass(String className, String fileConfigurationPath) {
-		LazyConfiguratorLoader.addSettingsClass(className, fileConfigurationPath);
+	public void addSettingsClass(String className, String fileConfigurationPath) {
+		loader.addSettingsClass(className, fileConfigurationPath);
 	}
 	
 	public static <T extends Settings> T getSettings(Class<T> settingsClass) {
 		return getSettings(settingsClass, false);
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
 	public static <T extends Settings> T getSettings(Class<T> settingsClass, boolean forceReload) {
 		if(settingsClass == null) {
 			logger.warning("Can't load settings from Null class");
 			return null;
 		}
 		
-		if(!forceReload && existsSettings(settingsClass)) {
-			return (T) getInstance().settingsMap.get(settingsClass);
-		} 
+		Configurator instance = getInstance();
 		
-		T settings = LazyConfiguratorLoader.getSettings(settingsClass);
-		if(settings == null) {
-			logger.warning("Error loading Settings " + settingsClass.getName() + ". Configuration not found");
-			try {
-				logger.info("Trying to create " + settingsClass.getName() + " instance");
-				settings = settingsClass.newInstance();
-			} catch (InstantiationException | IllegalAccessException e) {
-				logger.warning("Error creating instance of " + settingsClass.getName());
-				logger.warning(e.getMessage());
-			}
-		} else {
-			getInstance().settingsMap.put(settingsClass, settings);
+		if(!forceReload && instance.hasSettings(settingsClass)) {
+			return instance.get(settingsClass);
+		}
+		
+		return instance.getFromLoader(settingsClass);
+		
+	}
+	
+	private <T extends Settings> T getFromLoader(Class<T> settingsClass) {
+		T settings = loader.getSettings(settingsClass);
+		if(settings != null) {
+			settingsMap.put(settingsClass, settings);
 		}
 		return settings;
 	}
-	
 
-	private static boolean existsSettings(Class<? extends Settings> settingsClass) {
-		return getInstance().settingsMap.containsKey(settingsClass) &&  getInstance().settingsMap.get(settingsClass) != null;
+	@SuppressWarnings("unchecked")
+	private <T extends Settings> T get(Class<T> settingsClass){
+		return (T) settingsMap.get(settingsClass);
 	}
 
-	public static void reloadAll() {
+	private  boolean hasSettings(Class<? extends Settings> settingsClass) {
+		return settingsMap.containsKey(settingsClass) &&  settingsMap.get(settingsClass) != null;
+	}
+
+	public void reloadAll() {
 		logger.info("Reloading all settings");
-		getInstance().settingsMap = new ConcurrentHashMap<>();
+		settingsMap = new ConcurrentHashMap<>();
 		load();
 	}
 	
-	public static void reloadSettings(Class<? extends Settings>  settingsClass) {
+	public void reloadSettings(Class<? extends Settings>  settingsClass) {
 		logger.info("Reloading settings " + settingsClass.getName());
-		getInstance().settingsMap.remove(settingsClass);
+		settingsMap.remove(settingsClass);
 	}
 	
-	private static Configurator getInstance() {
+	
+	public static Configurator getInstance() {
 		if(configurator == null) {
 			configurator = new Configurator();
 		}

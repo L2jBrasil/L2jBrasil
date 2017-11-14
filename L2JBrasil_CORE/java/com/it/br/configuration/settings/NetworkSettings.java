@@ -1,30 +1,9 @@
-/* This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2, or (at your option)
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
- * 02111-1307, USA.
- *
- * http://www.gnu.org/copyleft/gpl.html
- */
 package com.it.br.configuration.settings;
 
 import java.util.List;
 
 import com.it.br.configuration.L2Properties;
 
-/**
- *
- * @author  Alisson Oliveira
- */
 public class NetworkSettings implements Settings{
 
 	
@@ -51,25 +30,25 @@ public class NetworkSettings implements Settings{
 			return;
 		}
 		
-		serverHostname = properties.getString("serverHostname", "*");
-		serverPort = properties.getInteger("serverPort", 7777);
-		serverExternalHostname = properties.getString("serverExternalHostname", "127.0.0.1");
-		serverInternalHostname = properties.getString("serverInternalHostname", "127.0.0.1");
+		serverHostname = properties.getString("ServerHostname", "*");
+		serverPort = properties.getInteger("ServerPort", 7777);
+		serverExternalHostname = properties.getString("ServerExternalHostname", "127.0.0.1");
+		serverInternalHostname = properties.getString("ServerInternalHostname", "127.0.0.1");
 		
-		loginHostname = properties.getString("loginHostname", "*");
-		loginPort = properties.getInteger("loginPort", 2106);
-		loginExternalHostname = properties.getString("loginExternalHostname", "127.0.0.1");
-		loginInternalHostname = properties.getString("loginInternalHostname", "127.0.0.1");
+		loginHostname = properties.getString("LoginHostname", "*");
+		loginPort = properties.getInteger("LoginPort", 2106);
+		loginExternalHostname = properties.getString("LoginExternalHostname", "127.0.0.1");
+		loginInternalHostname = properties.getString("LoginInternalHostname", "127.0.0.1");
 		
-		loginListenServerHostname = properties.getString("loginListenServerHostname", "127.0.0.1");
-		loginListenServerPort = properties.getInteger("loginListenServerPort", 9014);
+		loginListenServerHostname = properties.getString("LoginListenServerHostname", "127.0.0.1");
+		loginListenServerPort = properties.getInteger("LoginListenServerPort", 9014);
 		
-		enabledTelnet = properties.getBoolean("enableTelnet", false);
+		enabledTelnet = properties.getBoolean("EnableTelnet", false);
 		
 		if(enabledTelnet) {
-			telnetPort = properties.getInteger("telnetPort", 12345);
-			telnetAcceeptHosts = properties.getStringList("telnetAcceptedHosts", "127.0.0.1,localhost", ",");
-			telnetPassword = properties.getString("telnetPassword", null);
+			telnetPort = properties.getInteger("TelnetPort", 12345);
+			telnetAcceeptHosts = properties.getStringList("TelnetAcceptedHosts", "127.0.0.1,localhost", ",");
+			telnetPassword = properties.getString("TelnetPassword", null);
 		}
 				
 	}

@@ -50,9 +50,7 @@ import com.l2jserver.mmocore.network.SelectorThread;
  */
 public class L2LoginServer
 {
-    /**
-	 * Comment for <code>BIND_ALL_INTERFACES</code>
-	 */
+    
 	private static final String BIND_ALL_INTERFACES = "*";
 
 	public static final int PROTOCOL_REV = 0x0102;

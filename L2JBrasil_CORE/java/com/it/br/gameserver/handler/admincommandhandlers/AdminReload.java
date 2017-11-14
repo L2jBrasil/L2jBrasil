@@ -156,12 +156,7 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("network")) 
                 { 
-					/*
-					 *  XXX functionality implemented twice
-					 *  
-					 *  @See AdminAdmin#useAdminCommand
-					 */
-					Configurator.reloadSettings(NetworkSettings.class);
+					Configurator.getInstance().reloadSettings(NetworkSettings.class);
 					sendReloadPage(activeChar);
                     activeChar.sendMessage("Network config settings reloaded"); 
                 }

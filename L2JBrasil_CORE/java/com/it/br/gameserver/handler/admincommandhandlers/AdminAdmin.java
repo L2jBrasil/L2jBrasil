@@ -23,7 +23,6 @@ import java.util.StringTokenizer;
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -275,7 +274,7 @@ public class AdminAdmin implements IAdminCommandHandler {
                 }
 				else if (type.startsWith("network")) 
                 { 
-					Configurator.reloadSettings(NetworkSettings.class);
+					Configurator.getInstance().reloadSettings(NetworkSettings.class);
                     activeChar.sendMessage("Network config settings reloaded"); 
                 }
 				else if (type.startsWith("security")) 

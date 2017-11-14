@@ -38,7 +38,6 @@ import com.it.br.loginserver.serverpackets.AccountKicked.AccountKickedReason;
 import com.it.br.loginserver.serverpackets.LoginFail.LoginFailReason;
 import com.it.br.loginserver.serverpackets.LoginOk;
 import com.it.br.loginserver.serverpackets.ServerList;
-import com.it.br.util.Util;
 
 /**
  * Format: x
@@ -168,7 +167,7 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		catch (HackingException e)
 		{
 			InetAddress address = getClient().getConnection().getInetAddress();
-			lc.addBanForAddress(address, Util.getInSeconds(loginSettings.getTimeBlockAfterBan()));
+			lc.addBanForAddress(address, loginSettings.getTimeBlockAfterBan() * 1000);
 			_log.info("Banned ("+address+") for "+ loginSettings.getTimeBlockAfterBan()+" seconds, due to "+e.getConnects()+" incorrect login attempts.");
 		}
 	}

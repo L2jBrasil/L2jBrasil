@@ -1,20 +1,3 @@
-/* This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2, or (at your option)
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
- * 02111-1307, USA.
- *
- * http://www.gnu.org/copyleft/gpl.html
- */
 package com.it.br.configuration.settings;
 
 import java.io.File;
@@ -23,10 +6,6 @@ import java.util.logging.Logger;
 
 import com.it.br.configuration.L2Properties;
 
-/**
- *
- * @author  Alisson Oliveira
- */
 public class ServerSettings implements Settings{
 
 	private static final Logger logger = Logger.getLogger(ServerSettings.class.getName());
@@ -52,31 +31,39 @@ public class ServerSettings implements Settings{
 			return;
 		}
 		
-		serverId = properties.getInteger("requestServerID", 1);
-		enabledAlternativeId = properties.getBoolean("acceptAlternativeId", true);
+		serverId = properties.getInteger("RequestServerID", 1);
+		enabledAlternativeId = properties.getBoolean("AcceptAlternativeId", true);
 		
-		characterNameTemplate = properties.getString("charNameTemplate", ".*");
-		petNameTemplate = properties.getString("pNameTemplate", ".*");
-		characterMaxCount = properties.getInteger("charMaxCount", 7);
-		playerOnlineMaxCount = properties.getInteger("maxPlayerOnline", 100);
+		characterNameTemplate = properties.getString("CharNameTemplate", ".*");
+		petNameTemplate = properties.getString("PNameTemplate", ".*");
+		characterMaxCount = properties.getInteger("CharMaxCount", 7);
+		playerOnlineMaxCount = properties.getInteger("MaxPlayerOnline", 100);
 		
-		maxUnknownPacket = properties.getInteger("maxUnknownPacket", 5);
-		enabledDebugPacket = properties.getBoolean("packetDebug", false);
-		minProtocol = properties.getInteger("minProtocolRevision", 740);
-		maxProtocol = properties.getInteger("maxProtocolRevision", 746);
+		maxUnknownPacket = properties.getInteger("MaxUnknownPacket", 5);
+		enabledDebugPacket = properties.getBoolean("PacketDebug", false);
+		minProtocol = properties.getInteger("MinProtocolRevision", 740);
+		maxProtocol = properties.getInteger("MaxProtocolRevision", 746);
 		
-		String datapackPath = properties.getString("datapackRootDirectory", ".");
+		loadDatapackDirectory(properties);
+	}
+
+	private void loadDatapackDirectory(L2Properties properties) {
+		String datapackPath = properties.getString("DatapackRootDirectory", ".");
 		try {
 			datapackDirectory = new File(datapackPath).getCanonicalFile();
 		} catch (IOException e) {
-			logger.severe("Error defining Datapack directory " + datapackPath);
-			logger.severe(e.getMessage());
-			try {
-				datapackDirectory = new File(".").getCanonicalFile();
-			} catch (IOException e1) {
-				logger.severe("Error defining Datapack directory " + datapackPath);
-				logger.severe(e1.getMessage());
-			}
+			logger.warning("Error defining Datapack directory " + datapackPath);
+			logger.warning(e.getMessage());
+			setDefaultDatapackDirectory();
+		}
+	}
+
+	private void setDefaultDatapackDirectory() {
+		try {
+			datapackDirectory = new File(".").getCanonicalFile();
+			logger.info("Setting default datapack directory: " + datapackDirectory.getAbsolutePath());
+		} catch (IOException e1) {
+			logger.severe(e1.getMessage());
 		}
 	}
 	

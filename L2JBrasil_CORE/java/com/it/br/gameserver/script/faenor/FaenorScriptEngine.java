@@ -81,7 +81,7 @@ public class FaenorScriptEngine extends ScriptEngine
     private void loadPackages()
     {
     	ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
-        File packDirectory = new File(serverSettings.getDatapackDirectory(), PACKAGE_DIRECTORY);//_log.sss(packDirectory.getAbsolutePath());
+        File packDirectory = new File(serverSettings.getDatapackDirectory(), PACKAGE_DIRECTORY);
 
         FileFilter fileFilter = new FileFilter() {
     

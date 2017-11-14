@@ -43,10 +43,6 @@ import org.apache.commons.logging.LogFactory;
 
 public class Util
 {
-	/**
-	 * Comment for <code>_1000</code>
-	 */
-	private static final int SECOND = 1000;
 	private final static Log _log = LogFactory.getLog(Util.class.getName());
 
 	public static boolean isInternalIP(String ipAddress)
@@ -248,16 +244,11 @@ public class Util
 	}
 	
 	
-	public static boolean isEmpty(String string) {
+	public static boolean isNullOrEmpty(String string) {
 		return string == null || string.isEmpty();
 	}
 	
-	public static boolean isEmpty(Collection<?> collection) {
+	public static boolean isNullOrEmpty(Collection<?> collection) {
 		return collection == null || collection.isEmpty();
 	}
-	
-	public static int getInSeconds(int val) {
-		return val * SECOND;
-	}
-	
 }
