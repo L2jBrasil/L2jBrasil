@@ -31,6 +31,7 @@ import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
 import com.it.br.loginserver.GameServerTable.GameServerInfo;
 import com.it.br.loginserver.crypt.ScrambledKeyPair;
 import com.it.br.util.Rnd;
+import com.it.br.util.Util;
 
 /**
  * This class ...
@@ -39,14 +40,9 @@ import com.it.br.util.Rnd;
  */
 public class LoginController
 {
-	private static final int SECOND = 1000;
-
 	protected static final Logger _log = Logger.getLogger(LoginController.class.getName());
 
 	private static LoginController _instance;
-
-	/** Time before kicking the client if he didnt logged yet */
-	private final static int LOGIN_TIMEOUT = 60*SECOND;
 
 	/** Clients that are on the LS but arent assocated with a account yet*/
 	protected Set<L2LoginClient> _clients = new HashSet<>();
@@ -623,7 +619,7 @@ public class LoginController
 			if (failedCount >= loginSettings.getTriesBeforeBan())
 			{
 				_log.info("Banning '"+address.getHostAddress()+"' for "+ loginSettings.getTimeBlockAfterBan()+" seconds due to "+failedCount+" invalid user/pass attempts");
-				this.addBanForAddress(address, loginSettings.getTimeBlockAfterBan()*SECOND);
+				this.addBanForAddress(address, Util.getMilliSecondsFromSeconds(loginSettings.getTimeBlockAfterBan()));
 			}
 		}
 		else

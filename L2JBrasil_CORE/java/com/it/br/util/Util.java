@@ -251,4 +251,9 @@ public class Util
 	public static boolean isNullOrEmpty(Collection<?> collection) {
 		return collection == null || collection.isEmpty();
 	}
+
+
+	public static long getMilliSecondsFromSeconds(int seconds){
+		return seconds * 1000;
+	}
 }

@@ -94,7 +94,7 @@ public class NetworkSettings implements Settings{
 	}
 	
 
-	public boolean isEnabledTelnet() {
+	public boolean isTelnetEnabled() {
 		return telnetEnabled;
 	}
 	

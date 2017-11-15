@@ -225,7 +225,7 @@ public class L2LoginServer
             System.exit(1);
         }
 
-        if ( networkSettings.isEnabledTelnet())
+        if ( networkSettings.isTelnetEnabled())
         {
             try
             {

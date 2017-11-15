@@ -534,7 +534,7 @@ public class GameServer
 		long serverLoadEnd = System.currentTimeMillis();
 		_log.info("Server Loaded in " + ((serverLoadEnd - serverLoadStart) / 1000) + " seconds");
 		
-		if (networkSettings.isEnabledTelnet()) 
+		if (networkSettings.isTelnetEnabled()) 
 		{
 		    _statusServer = new Status(Server.serverMode);
 		    _statusServer.start();
