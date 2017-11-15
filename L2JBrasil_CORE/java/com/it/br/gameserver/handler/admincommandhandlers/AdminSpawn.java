@@ -18,8 +18,7 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
@@ -44,34 +43,65 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
  * spawn_index lvl = shows menu for monsters with respective level -
  * spawn_monster id = spawns monster id on target
  *
- * @version $Revision: 1.2.2.5.2.5 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminSpawn implements IAdminCommandHandler
 {
+    public static Logger _log = Logger.getLogger(AdminSpawn.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = { "admin_show_spawns", "admin_spawn", "admin_spawn_monster", "admin_spawn_index",
-		"admin_unspawnall","admin_respawnall","admin_spawn_reload","admin_npc_index","admin_spawn_once",
-		"admin_show_npcs","admin_teleport_reload", "admin_spawnnight", "admin_spawnday" };
-	public static Logger _log = Logger.getLogger(AdminSpawn.class.getName());
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	private static final int REQUIRED_LEVEL = Config.GM_NPC_EDIT;
-	private static final int REQUIRED_LEVEL2 = Config.GM_TELEPORT_OTHER;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
+    public AdminSpawn()
+    {
+        admin.put("admin_show_spawns", Config.admin_show_spawns);
+        admin.put("admin_spawn", Config.admin_spawn);
+        admin.put("admin_spawn_monster", Config.admin_spawn_monster);
+        admin.put("admin_spawn_index", Config.admin_spawn_index);
+        admin.put("admin_unspawnall", Config.admin_unspawnall);
+        admin.put("admin_respawnall", Config.admin_respawnall);
+        admin.put("admin_spawn_reload", Config.admin_spawn_reload);
+        admin.put("admin_npc_index", Config.admin_npc_index);
+        admin.put("admin_spawn_once", Config.admin_spawn_once);
+        admin.put("admin_show_npcs", Config.admin_show_npcs);
+        admin.put("admin_teleport_reload", Config.admin_teleport_reload);
+        admin.put("admin_spawnnight", Config.admin_spawnnight);
+        admin.put("admin_spawnday", Config.admin_spawnday);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.equals("admin_show_spawns"))
 			AdminHelpPage.showHelpPage(activeChar, "spawns.htm");
 		else if (command.startsWith("admin_spawn_index"))
 		{
-			StringTokenizer st = new StringTokenizer(command, " ");
 			try
 			{
-				st.nextToken();
 				int level = Integer.parseInt(st.nextToken());
 				int from = 0;
 				try
@@ -90,10 +120,8 @@ public class AdminSpawn implements IAdminCommandHandler
 			AdminHelpPage.showHelpPage(activeChar, "npcs.htm");
 		else if (command.startsWith("admin_npc_index"))
 		{
-			StringTokenizer st = new StringTokenizer(command, " ");
 			try
 			{
-				st.nextToken();
 				String letter = st.nextToken();
 				int from = 0;
 				try
@@ -110,10 +138,8 @@ public class AdminSpawn implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_spawn")|| command.startsWith("admin_spawn_monster"))
 		{
-			StringTokenizer st = new StringTokenizer(command, " ");
 			try
 			{
-				String cmd = st.nextToken();
 				String id = st.nextToken();
 				int respawnTime = 0;
 				int mobCount = 1;
@@ -121,7 +147,7 @@ public class AdminSpawn implements IAdminCommandHandler
 					mobCount = Integer.parseInt(st.nextToken());
 				if (st.hasMoreTokens())
 					respawnTime = Integer.parseInt(st.nextToken());
-				if (cmd.equalsIgnoreCase("admin_spawn_once"))
+				if (commandName.equalsIgnoreCase("admin_spawn_once"))
 					spawnMonster(activeChar, id, respawnTime, mobCount,false);
 				else
 					spawnMonster(activeChar, id, respawnTime, mobCount,true);
@@ -158,21 +184,10 @@ public class AdminSpawn implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_teleport_reload"))
 		{
-			TeleportLocationTable.getInstance().reloadAll();
+			TeleportLocationTable.reloadAll();
 			GmListTable.broadcastMessageToGMs("Teleport List Table reloaded.");
 		}
 		return true;
-	}
-
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void spawnMonster(L2PcInstance activeChar, String monsterId, int respawnTime, int mobCount,boolean permanent)
@@ -180,8 +195,6 @@ public class AdminSpawn implements IAdminCommandHandler
 		L2Object target = activeChar.getTarget();
 		if (target == null)
 			target = activeChar;
-		if (target != activeChar && activeChar.getAccessLevel() < REQUIRED_LEVEL2)
-			return;
 
 		L2NpcTemplate template1;
 		if (monsterId.matches("[0-9]*"))

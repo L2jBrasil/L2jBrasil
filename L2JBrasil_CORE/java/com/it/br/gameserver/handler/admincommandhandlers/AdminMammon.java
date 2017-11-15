@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.it.br.Config;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
@@ -32,35 +29,65 @@ import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Admin Command Handler for Mammon NPCs
  *
  * @author Tempy
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminMammon implements IAdminCommandHandler
 {
+    private boolean _isSealValidation = SevenSigns.getInstance().isSealValidationPeriod();
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {"admin_mammon_find", "admin_mammon_respawn", "admin_list_spawns", "admin_msg"};
-	private static final int REQUIRED_LEVEL = Config.GM_MENU;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	private boolean _isSealValidation = SevenSigns.getInstance().isSealValidationPeriod();
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
+    public AdminMammon()
+    {
+        admin.put("admin_mammon_find", Config.admin_mammon_find);
+        admin.put("admin_mammon_respawn", Config.admin_mammon_respawn);
+        admin.put("admin_list_spawns", Config.admin_list_spawns);
+        admin.put("admin_msg", Config.admin_msg);
+    }
 
-	@SuppressWarnings("deprecation")
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		int npcId = 0;
 		int teleportIndex = -1;
-		AutoSpawnInstance blackSpawnInst = AutoSpawnHandler.getInstance().getAutoSpawnInstance(
-				SevenSigns.MAMMON_BLACKSMITH_ID,
-				false);
-		AutoSpawnInstance merchSpawnInst = AutoSpawnHandler.getInstance().getAutoSpawnInstance(
-				SevenSigns.MAMMON_MERCHANT_ID,
-				false);
+		AutoSpawnInstance blackSpawnInst = AutoSpawnHandler.getInstance().getAutoSpawnInstance(SevenSigns.MAMMON_BLACKSMITH_ID, false);
+		AutoSpawnInstance merchSpawnInst = AutoSpawnHandler.getInstance().getAutoSpawnInstance(SevenSigns.MAMMON_MERCHANT_ID, false);
 
 		if (command.startsWith("admin_mammon_find"))
 		{
@@ -171,16 +198,5 @@ public class AdminMammon implements IAdminCommandHandler
 		}
 
 		return true;
-	}
-
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 }

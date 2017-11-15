@@ -1,8 +1,3 @@
-// Decompiled by DJ v3.11.11.95 Copyright 2009 Atanas Neshkov  Date: 26/7/2011 21:21:40
-// Home Page: http://members.fortunecity.com/neshkov/dj.html  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3) 
-// Source File Name:   AdminClanFull.java
-
 package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
@@ -13,10 +8,52 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.EtcStatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminClanFull implements IAdminCommandHandler
 {
+    private static Map<String, Integer> admin = new HashMap<>();
+
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminClanFull()
+    {
+        admin.put("admin_clanfull", Config.admin_clanfull);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
     public boolean useAdminCommand(String command, L2PcInstance activeChar)
     {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
         if(command.startsWith("admin_clanfull"))
         {
             try
@@ -54,17 +91,7 @@ public class AdminClanFull implements IAdminCommandHandler
         	return;
         }
         player.getClan().changeLevel(Config.CLAN_LEVEL);
-        player.ClanSkills();
+        player.getClan().giveAllClanSkillsAndReputation(player, Config.REPUTATION_QUANTITY);
         player.sendPacket(new EtcStatusUpdate(activeChar));
     }
-
-    public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private static final String ADMIN_COMMANDS[] = 
-    {
-        "admin_clanfull"
-    };
 }

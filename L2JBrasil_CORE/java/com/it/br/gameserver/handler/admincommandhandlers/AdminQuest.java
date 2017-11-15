@@ -33,25 +33,53 @@ import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.instancemanager.QuestManager;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminQuest implements IAdminCommandHandler
 {
-    private static final int REQUIRED_LEVEL = Config.GM_TEST;
-    private static final String[] ADMIN_COMMANDS =
+    private static Map<String, Integer> admin = new HashMap<>();
+
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
-        "admin_quest_reload"
-    };
-
-    /* (non-Javadoc)
-     * @see com.it.br.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, com.it.br.gameserver.model.L2PcInstance)
-     */
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-    {
-        if (activeChar == null) return false;
-
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (activeChar.getAccessLevel() < REQUIRED_LEVEL) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminQuest()
+    {
+        admin.put("admin_quest_reload", Config.admin_quest_reload);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
+        if (activeChar == null) return false;
         // syntax will either be:
         //                           //quest_reload <id>
         //                           //quest_reload <questName>
@@ -98,14 +126,4 @@ public class AdminQuest implements IAdminCommandHandler
         }
         return true;
     }
-
-    /* (non-Javadoc)
-     * @see com.it.br.gameserver.handler.IAdminCommandHandler#getAdminCommandList()
-     */
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
 }

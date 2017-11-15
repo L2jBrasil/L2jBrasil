@@ -16,6 +16,9 @@ package com.it.br.gameserver.handler.admincommandhandlers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import com.it.br.Config;
@@ -40,17 +43,45 @@ import com.it.br.gameserver.scripting.L2ScriptEngineManager;
  */
 public class AdminReload implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = { "admin_reload" };
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	@SuppressWarnings("static-access")
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminReload()
+    {
+        admin.put("admin_reload", Config.admin_reload);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
 		if (command.startsWith("admin_reload"))
 		{
 			sendReloadPage(activeChar);
-			StringTokenizer st = new StringTokenizer(command);
-			st.nextToken();
 			try
 			{
 				String type = st.nextToken();
@@ -166,7 +197,12 @@ public class AdminReload implements IAdminCommandHandler
 					sendReloadPage(activeChar);
                     activeChar.sendMessage("Security config settings reloaded"); 
                 }
-				else if (type.equals("dbs"))
+                else if (type.startsWith("allconfigs"))
+                {
+                    reloadAllConfigs();
+                    activeChar.sendMessage("Network config settings reloaded");
+                }
+                else if (type.equals("dbs"))
 				{
 					DbManager.reloadAll();
 					sendReloadPage(activeChar);
@@ -232,10 +268,38 @@ public class AdminReload implements IAdminCommandHandler
 		return true;
 	}
 
-	/**
+
+    private void reloadAllConfigs() {
+        Config.loadGMAcessConfig();
+        Config.loadCommandConfig();
+        Config.loadBrasilConfig();
+        Config.loadL2JModConfig();
+        Config.loadCHConfig();
+        Config.loadSepulchersConfig();
+        Config.loadOlympConfig();
+        Config.loadSevenSignsConfig();
+        Config.loadTvTConfig();
+        Config.loadAltSettingsConfig();
+        Config.loadBossConfig();
+        Config.loadClanConfig();
+        Config.loadClassConfig();
+        Config.loadEnchantConfig();
+        Config.loadExtensionsConfig();
+        Config.loadOptionConfig();
+        Config.loadOtherConfig();
+        Config.loadPvPConfig();
+        Config.loadRatesConfig();
+        Config.loadLoginServerConfig();
+        Config.loadGameServerConfig();
+        Config.loadFloodConfig();
+        Config.loadIdFactoryConfig();
+        Config.loadScriptingConfig();
+    }
+
+    /**
 	 * send reload page
 	 *
-	 * @param admin
+	 * @param activeChar admin
 	 */
 	private void sendReloadPage(L2PcInstance activeChar)
 	{
@@ -244,9 +308,5 @@ public class AdminReload implements IAdminCommandHandler
 	private void sendReloadPageConfig(L2PcInstance activeChar)
 	{
 		AdminHelpPage.showHelpPage(activeChar, "reload_menu1.htm");
-	}
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
 	}
 }

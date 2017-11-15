@@ -18,6 +18,10 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
@@ -32,26 +36,46 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  * 	<li>admin_unblockip</li>
  * </ul>
  *
- * @version $Revision: 1.3.2.6.2.4 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminUnblockIp implements IAdminCommandHandler
 {
-
     private static final Logger _log = Logger.getLogger(AdminTeleport.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-    private static final int REQUIRED_LEVEL = Config.GM_UNBLOCK;
-    private static final String[] ADMIN_COMMANDS = {
-        "admin_unblockip"
-    };
-
-    /* (non-Javadoc)
-     * @see com.it.br.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, com.it.br.gameserver.model.L2PcInstance)
-     */
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminUnblockIp()
+    {
+        admin.put("admin_unblockip", Config.admin_unblockip);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
         if (command.startsWith("admin_unblockip "))
         {
@@ -77,20 +101,10 @@ public class AdminUnblockIp implements IAdminCommandHandler
         return true;
     }
 
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level)
-    {
-        return (level >= REQUIRED_LEVEL);
-    }
-
     private boolean unblockIp(String ipAddress, L2PcInstance activeChar)
     {
     	//LoginServerThread.getInstance().unBlockip(ipAddress);
+        // FIXME: Need implement.
         _log.warning("IP removed by STAFF " + activeChar.getName());
         return true;
     }

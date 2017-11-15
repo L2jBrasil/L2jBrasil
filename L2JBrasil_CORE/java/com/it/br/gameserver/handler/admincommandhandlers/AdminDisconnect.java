@@ -28,21 +28,54 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.LeaveWorld;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - character_disconnect = disconnects target player
  *
  * @version $Revision: 1.2.4.4 $ $Date: 2005/04/11 10:06:00 $
  */
-public class AdminDisconnect implements IAdminCommandHandler {
+public class AdminDisconnect implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {"admin_character_disconnect"};
-	private static final int REQUIRED_LEVEL = Config.GM_KICK;
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminDisconnect()
+    {
+        admin.put("admin_character_disconnect", Config.admin_character_disconnect);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.equals("admin_character_disconnect"))
 		{
@@ -52,15 +85,6 @@ public class AdminDisconnect implements IAdminCommandHandler {
 		String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 		return true;
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void disconnectCharacter(L2PcInstance activeChar)

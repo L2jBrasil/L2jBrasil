@@ -18,6 +18,7 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import java.util.*;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
@@ -41,17 +42,39 @@ import com.it.br.gameserver.taskmanager.DecayTaskManager;
 public class AdminRes implements IAdminCommandHandler
 {
 	private static Logger _log = Logger.getLogger(AdminRes.class.getName());
-	private static final String[] ADMIN_COMMANDS = {"admin_res", "admin_res_monster"};
-	private static final int REQUIRED_LEVEL = Config.GM_RES;
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminRes()
+    {
+        admin.put("admin_res", Config.admin_res);
+        admin.put("admin_res_monster", Config.admin_res_monster);
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
 
-		String target = (activeChar.getTarget() != null) ? activeChar.getTarget().getName() : "no-target";
+        if(checkPermission(commandName, activeChar)) return false;
+
+        String target = (activeChar.getTarget() != null) ? activeChar.getTarget().getName() : "no-target";
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 
 		if (command.startsWith("admin_res "))
@@ -64,17 +87,6 @@ public class AdminRes implements IAdminCommandHandler
 			handleNonPlayerRes(activeChar);
 
 		return true;
-	}
-
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void handleRes(L2PcInstance activeChar)
@@ -140,7 +152,7 @@ public class AdminRes implements IAdminCommandHandler
 		L2Object obj = activeChar.getTarget();
 
 		try {
-			int radius = 0;
+			int radius;
 
 			if (!radiusStr.equals(""))
 			{
@@ -182,4 +194,9 @@ public class AdminRes implements IAdminCommandHandler
 
 		targetChar.doRevive();
 	}
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 }

@@ -18,13 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.Collection;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -37,13 +30,13 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.CharInfo;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.UserInfo;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Util;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands:
@@ -66,46 +59,65 @@ import com.it.br.gameserver.util.Util;
  * - setnoble
  * - sethero
  *
- * @version $Revision: 1.3.2.1.2.10 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminEditChar implements IAdminCommandHandler
 {
-	private static Logger _log = Logger.getLogger(AdminEditChar.class.getName());
+    private static Logger _log = Logger.getLogger(AdminEditChar.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS =
-		{
-		"admin_edit_character",
-		"admin_current_player",
-		"admin_nokarma", // this is to remove karma from selected char...
-		"admin_setkarma", // sets karma of target char to any amount. //setkarma <karma>
-		"admin_character_list", //same as character_info, kept for compatibility purposes
-		"admin_character_info", //given a player name, displays an information window
-		"admin_show_characters",//list of characters
-		"admin_find_character", //find a player by his name or a part of it (case-insensitive)
-		"admin_find_ip", // find all the player connections from a given IPv4 number
-		"admin_find_account", //list all the characters from an account (useful for GMs w/o DB access)
-		"admin_save_modifications", //consider it deprecated...
-		"admin_rec",      // gives recommendation points
-		"admin_settitle", // changes char title
-		"admin_setname",  // changes char name
-		"admin_setsex",   // changes characters' sex
-		"admin_setcolor", // change charnames' color display
-		"admin_setclass", // changes chars' classId
-		"admin_fullfood",  // fulfills a pet's food bar
-		"admin_sethero",  // sets the target hero
-		"admin_setnoble" // sets the target noble
-		};
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	private static final int REQUIRED_LEVEL = Config.GM_CHAR_EDIT;
-	private static final int REQUIRED_LEVEL2 = Config.GM_CHAR_EDIT_OTHER;
-	private static final int REQUIRED_LEVEL_VIEW = Config.GM_CHAR_VIEW;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	@SuppressWarnings("unused")
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!((checkLevel(activeChar.getAccessLevel()) || checkLevel2(activeChar.getAccessLevel())) && activeChar.isGM()))
-				return false;
+    public AdminEditChar()
+    {
+        admin.put("admin_edit_character", Config.admin_edit_character);
+        admin.put("admin_current_player", Config.admin_current_player);
+        admin.put("admin_nokarma", Config.admin_nokarma);
+        admin.put("admin_setkarma", Config.admin_setkarma);
+        admin.put("admin_character_list", Config.admin_character_list);
+        admin.put("admin_character_info", Config.admin_character_info);
+        admin.put("admin_show_characters", Config.admin_show_characters);
+        admin.put("admin_find_character", Config.admin_find_character);
+        admin.put("admin_find_ip", Config.admin_find_ip);
+        admin.put("admin_find_account", Config.admin_find_account);
+        admin.put("admin_save_modifications", Config.admin_save_modifications);
+        admin.put("admin_rec", Config.admin_rec);
+        admin.put("admin_settitle", Config.admin_settitle);
+        admin.put("admin_setname", Config.admin_setname);
+        admin.put("admin_setsex", Config.admin_setsex);
+        admin.put("admin_setcolor", Config.admin_setcolor);
+        admin.put("admin_setclass", Config.admin_setclass);
+        admin.put("admin_fullfood", Config.admin_fullfood);
+        admin.put("admin_sethero", Config.admin_sethero);
+        admin.put("admin_setnoble", Config.admin_setnoble);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null) ? activeChar.getTarget().getName() : "no-target", "");
 
@@ -193,7 +205,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			{
 				String val = command.substring(15);
 				int karma = Integer.parseInt(val);
-				if (activeChar == activeChar.getTarget() || activeChar.getAccessLevel()>=REQUIRED_LEVEL2)
+				if (activeChar == activeChar.getTarget())
 					GMAudit.auditGMAction(activeChar.getName(), command, activeChar.getName(), "");
 				setTargetKarma(activeChar, karma);
 			}
@@ -209,7 +221,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			try
 			{
 				String val = command.substring(24);
-				if (activeChar == activeChar.getTarget() || activeChar.getAccessLevel()>=REQUIRED_LEVEL2)
+				if (activeChar == activeChar.getTarget())
 					GMAudit.auditGMAction(activeChar.getName(), command, activeChar.getName(), "");
 				adminModifyCharacter(activeChar, val);
 			}
@@ -227,7 +239,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				int recVal = Integer.parseInt(val);
 				L2Object target = activeChar.getTarget();
 				L2PcInstance player = null;
-				if (activeChar != target && activeChar.getAccessLevel()<REQUIRED_LEVEL2)
+				if (activeChar != target)
 					return false;
 				if (target instanceof L2PcInstance) {
 					player = (L2PcInstance)target;
@@ -250,7 +262,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				int classidval = Integer.parseInt(val);
 				L2Object target = activeChar.getTarget();
 				L2PcInstance player = null;
-				if (activeChar != target && activeChar.getAccessLevel()<REQUIRED_LEVEL2)
+				if (activeChar != target)
 					return false;
 				if (target instanceof L2PcInstance)
 					player = (L2PcInstance)target;
@@ -285,7 +297,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				String val = command.substring(15);
 				L2Object target = activeChar.getTarget();
 				L2PcInstance player = null;
-				if (activeChar != target && activeChar.getAccessLevel()<REQUIRED_LEVEL2)
+				if (activeChar != target)
 					return false;
 				if (target instanceof L2PcInstance) {
 					player = (L2PcInstance)target;
@@ -308,7 +320,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				String val = command.substring(14);
 				L2Object target = activeChar.getTarget();
 				L2PcInstance player = null;
-				if (activeChar != target && activeChar.getAccessLevel()<REQUIRED_LEVEL2)
+				if (activeChar != target)
 					return false;
 				if (target instanceof L2PcInstance) {
 					player = (L2PcInstance)target;
@@ -329,20 +341,20 @@ public class AdminEditChar implements IAdminCommandHandler
 		{
 			L2Object target = activeChar.getTarget();
 			L2PcInstance player = null;
-			if (activeChar != target && activeChar.getAccessLevel()<REQUIRED_LEVEL2)
+			if (activeChar != target)
 				return false;
 			if (target instanceof L2PcInstance) {
 				player = (L2PcInstance)target;
 			} else {
 				return false;
 			}
-			player.getAppearance().setSex(player.getAppearance().getSex()? false : true);
+			player.getAppearance().setSex(player.getAppearance().getSex() ? false : true);
 			player.sendMessage("Your gender has been changed by a GM");
 			player.broadcastUserInfo();
 			player.decayMe();
 			player.spawnMe(player.getX(),player.getY(),player.getZ());
 		}
-		else if (command.startsWith("admin_sethero") || command.startsWith("admin_manualhero"))
+		else if (command.startsWith("admin_manualhero"))
 		{
 			L2Object target = activeChar.getTarget();
 
@@ -424,7 +436,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				String val          = command.substring(15);
 				L2Object target     = activeChar.getTarget();
 				L2PcInstance player = null;
-				if (activeChar != target && activeChar.getAccessLevel()<REQUIRED_LEVEL2)
+				if (activeChar != target)
 					return false;
 				if (target instanceof L2PcInstance) {
 					player = (L2PcInstance)target;
@@ -452,17 +464,6 @@ public class AdminEditChar implements IAdminCommandHandler
 				activeChar.sendPacket(new SystemMessage(SystemMessageId.INCORRECT_TARGET));
 		}
 		return true;
-	}
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
-	}
-	private boolean checkLevel2(int level) {
-		return (level >= REQUIRED_LEVEL_VIEW);
 	}
 
 	private void listCharacters(L2PcInstance activeChar, int page)

@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
@@ -31,27 +28,62 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.util.IllegalPlayerAction;
 import com.it.br.gameserver.util.Util;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
 /**
  * This class handles following admin commands:
  * <li> add_exp_sp_to_character <i>shows menu for add or remove</i>
  * <li> add_exp_sp exp sp <i>Adds exp & sp to target, displays menu if a parameter is missing</i>
  * <li> remove_exp_sp exp sp <i>Removes exp & sp from target, displays menu if a parameter is missing</i>
- * @version $Revision: 1.2.4.6 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminExpSp implements IAdminCommandHandler {
-	private static Logger _log = Logger.getLogger(AdminExpSp.class.getName());
+public class AdminExpSp implements IAdminCommandHandler
+{
+    private static Logger _log = Logger.getLogger(AdminExpSp.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {"admin_add_exp_sp","admin_remove_exp_sp"};
-	private static final int REQUIRED_LEVEL = Config.GM_CHAR_EDIT;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
+    public AdminExpSp()
+    {
+        admin.put("admin_add_exp_sp", Config.admin_add_exp_sp);
+        admin.put("admin_remove_exp_sp", Config.admin_remove_exp_sp);
+    }
 
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
 		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget()!=null ? activeChar.getTarget().getName() : "no-target"), "");
+
 		if (command.startsWith("admin_add_exp_sp"))
 		{
 			try
@@ -80,15 +112,6 @@ public class AdminExpSp implements IAdminCommandHandler {
 		}
 		addExpSp(activeChar);
 		return true;
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void addExpSp(L2PcInstance activeChar)

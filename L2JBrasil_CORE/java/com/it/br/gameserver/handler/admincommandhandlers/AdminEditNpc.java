@@ -14,13 +14,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.*;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.TradeController;
@@ -29,38 +22,78 @@ import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
-import com.it.br.gameserver.model.L2DropCategory;
-import com.it.br.gameserver.model.L2DropData;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2TradeList;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.logging.Logger;
+
 /**
- * @author terry
- *
- *         Window - Preferences - Java - Code Style - Code Templates
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminEditNpc implements IAdminCommandHandler
 {
-	private static Logger _log = Logger.getLogger(AdminEditChar.class.getName());
-	private final static int PAGE_LIMIT = 7;
+    private static Logger _log = Logger.getLogger(AdminEditChar.class.getName());
+    private final static int PAGE_LIMIT = 7;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS =
-	{ "admin_edit_npc", "admin_save_npc", "admin_show_droplist", "admin_edit_drop", "admin_add_drop", "admin_del_drop", "admin_showShop", "admin_showShopList", "admin_addShopItem",
-			"admin_delShopItem", "admin_box_access", "admin_editShopItem", "admin_close_window", "admin_show_skilllist_npc", "admin_add_skill_npc", "admin_edit_skill_npc", "admin_del_skill_npc"};
-	private static final int REQUIRED_LEVEL = Config.GM_NPC_EDIT;
-	private static final int REQUIRED_LEVEL2 = Config.GM_NPC_VIEW;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{// TODO: Tokenize and protect arguments parsing. Externalize HTML.
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!((checkLevel(activeChar.getAccessLevel()) || checkLevel2(activeChar.getAccessLevel())) && activeChar.isGM()))
-				return false;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminEditNpc()
+    {
+        admin.put("admin_edit_npc", Config.admin_edit_npc);
+        admin.put("admin_save_npc", Config.admin_save_npc);
+        admin.put("admin_show_droplist", Config.admin_show_droplist);
+        admin.put("admin_edit_drop", Config.admin_edit_drop);
+        admin.put("admin_add_drop", Config.admin_add_drop);
+        admin.put("admin_del_drop", Config.admin_del_drop);
+        admin.put("admin_showShop", Config.admin_showShop);
+        admin.put("admin_showShopList", Config.admin_showShopList);
+        admin.put("admin_addShopItem", Config.admin_addShopItem);
+        admin.put("admin_delShopItem", Config.admin_delShopItem);
+        admin.put("admin_box_access", Config.admin_box_access);
+        admin.put("admin_editShopItem", Config.admin_editShopItem);
+        admin.put("admin_close_window", Config.admin_close_window);
+        admin.put("admin_show_skilllist_npc", Config.admin_show_skilllist_npc);
+        admin.put("admin_add_skill_npc", Config.admin_add_skill_npc);
+        admin.put("admin_edit_skill_npc", Config.admin_edit_skill_npc);
+        admin.put("admin_del_skill_npc", Config.admin_del_skill_npc);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_showShop "))
 		{
@@ -104,8 +137,6 @@ public class AdminEditNpc implements IAdminCommandHandler
 			else
 				activeChar.sendMessage("Usage: //show_droplist <npc_id>");
 		}
-		else if (!Config.ALT_PRIVILEGES_ADMIN && !(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-			return false;
 		else if (command.startsWith("admin_addShopItem "))
 		{
 			String[] args = command.split(" ");
@@ -136,7 +167,6 @@ public class AdminEditNpc implements IAdminCommandHandler
 		}
 		else if(command.startsWith("admin_show_skilllist_npc "))
 		{
-			StringTokenizer st = new StringTokenizer(command.substring(25), " ");
 			try
 			{
 				int npcId = -1;
@@ -166,7 +196,6 @@ public class AdminEditNpc implements IAdminCommandHandler
 			int npcId = -1, skillId = -1;
 			try
 			{
-				StringTokenizer st = new StringTokenizer(command.substring(21).trim(), " ");
 				if (st.countTokens() == 2)
 				{
 					try
@@ -208,7 +237,6 @@ public class AdminEditNpc implements IAdminCommandHandler
 			int npcId = -1, skillId = -1;
 			try
 			{
-				StringTokenizer st = new StringTokenizer(command.substring(20).trim(), " ");
 				if(st.countTokens() == 1)
 				{
 					try
@@ -279,7 +307,6 @@ public class AdminEditNpc implements IAdminCommandHandler
 			int npcId = -1, itemId = 0, category = -1000;
 			try
 			{
-				StringTokenizer st = new StringTokenizer(command.substring(16).trim());
 				if (st.countTokens() == 3)
 				{
 					try
@@ -324,7 +351,6 @@ public class AdminEditNpc implements IAdminCommandHandler
 			int npcId = -1;
 			try
 			{
-				StringTokenizer st = new StringTokenizer(command.substring(15).trim());
 				if (st.countTokens() == 1)
 				{
 					try
@@ -770,21 +796,6 @@ public class AdminEditNpc implements IAdminCommandHandler
 			}
 		}
 		return tradeLists;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
-
-	private boolean checkLevel2(int level)
-	{
-		return (level >= REQUIRED_LEVEL2);
-	}
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
 	}
 
 	private void Show_Npc_Property(L2PcInstance activeChar, L2NpcTemplate npc)

@@ -14,13 +14,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.GmListTable;
@@ -29,23 +22,59 @@ import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminNoble implements IAdminCommandHandler
 {
-	private static String[] _adminCommands = { "admin_setnoble" };
-	private final static Log _log = LogFactory.getLog(AdminNoble.class.getName());
-	private static final int REQUIRED_LEVEL = Config.GM_MENU;
+    private final static Log _log = LogFactory.getLog(AdminNoble.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-		{
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-			{
-				return false;
-			}
-		}
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminNoble()
+    {
+        admin.put("admin_setnoble", Config.admin_setnoble);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
 		if (command.startsWith("admin_setnoble"))
 		{
 			L2Object target = activeChar.getTarget();
@@ -138,18 +167,7 @@ public class AdminNoble implements IAdminCommandHandler
 			}
 			player.sendPacket(sm);
 			player.broadcastUserInfo();
-			if(player.isNoble() == true)
-			{
-			}
 		}
 		return false;
-	}
-
-public String[] getAdminCommandList() {
-		return _adminCommands;
-	}
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 }

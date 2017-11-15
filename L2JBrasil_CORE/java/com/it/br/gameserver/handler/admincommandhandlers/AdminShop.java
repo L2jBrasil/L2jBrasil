@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -29,26 +27,57 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.BuyList;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
+
 /**
  * This class handles following admin commands:
  * - gmshop = shows menu
  * - buy id = shows shop with respective id
- * @version $Revision: 1.2.4.4 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminShop implements IAdminCommandHandler {
-	private static Logger _log = Logger.getLogger(AdminShop.class.getName());
+public class AdminShop implements IAdminCommandHandler
+{
+    private static Logger _log = Logger.getLogger(AdminShop.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {
-		"admin_buy",
-		"admin_gmshop"
-	};
-	private static final int REQUIRED_LEVEL = Config.GM_CREATE_ITEM;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    public AdminShop()
+    {
+        admin.put("admin_buy", Config.admin_buy);
+        admin.put("admin_gmshop", Config.admin_gmshop);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_buy"))
 		{
@@ -68,15 +97,6 @@ public class AdminShop implements IAdminCommandHandler {
 		String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
 		GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 		return true;
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void handleBuyRequest(L2PcInstance activeChar, String command)

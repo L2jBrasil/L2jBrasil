@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -31,42 +27,58 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - changelvl = change a character's access level
  *  Can be used for character ban (as opposed to regular //ban that affects accounts)
  *  or to grant mod/GM privileges ingame
- * @version $Revision: 1.1.2.2.2.3 $ $Date: 2005/04/11 10:06:00 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminChangeAccessLevel implements IAdminCommandHandler
 {
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = { "admin_changelvl" };
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	private static final int REQUIRED_LEVEL = Config.GM_ACCESSLEVEL;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
+    public AdminChangeAccessLevel()
+    {
+        admin.put("admin_changelvl", Config.admin_changelvl);
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		handleChangeLevel(command, activeChar);
 		String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
 		GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 		return true;
-	}
-
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	/**
@@ -154,4 +166,9 @@ public class AdminChangeAccessLevel implements IAdminCommandHandler
 		}
 		        activeChar.sendMessage("Character's access level is now set to "+lvl+". Effects won't be noticeable until next session.");
 	}
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 }

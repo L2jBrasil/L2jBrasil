@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.communitybbs.Manager.RegionBBSManager;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -28,23 +26,58 @@ import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.LeaveWorld;
 
-public class AdminKick implements IAdminCommandHandler {
-    private static final String[] ADMIN_COMMANDS = {"admin_kick" ,"admin_kick_non_gm"};
-    private static final int REQUIRED_LEVEL = Config.GM_KICK;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
+public class AdminKick implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-    		if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-                return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminKick()
+    {
+        admin.put("admin_kick", Config.admin_kick);
+        admin.put("admin_kick_non_gm", Config.admin_kick_non_gm);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 
         if (command.startsWith("admin_kick"))
         {
-            StringTokenizer st = new StringTokenizer(command);
             if (st.countTokens() > 1)
             {
                 st.nextToken();
@@ -74,14 +107,5 @@ public class AdminKick implements IAdminCommandHandler {
         	activeChar.sendMessage("Kicked "+counter+" players");
         }
         return true;
-    }
-
-
-	public String[] getAdminCommandList() {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level) {
-        return (level >= REQUIRED_LEVEL);
     }
 }

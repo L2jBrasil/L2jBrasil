@@ -18,8 +18,7 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
+import java.util.*;
 
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ClanTable;
@@ -42,17 +41,45 @@ import com.it.br.gameserver.network.serverpackets.UserInfo;
  * //pledge dismiss<BR>
  * //pledge setlevel level<BR>
  * //pledge rep reputation_points<BR>
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminPledge implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = {"admin_pledge"};
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!activeChar.isGM() || activeChar.getAccessLevel() < Config.GM_ACCESSLEVEL || activeChar.getTarget() == null || !(activeChar.getTarget() instanceof L2PcInstance))
-				return false;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminPledge()
+    {
+        admin.put("admin_pledge", Config.admin_pledge);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		L2Object target = activeChar.getTarget();
 		L2PcInstance player = null;
@@ -70,10 +97,8 @@ public class AdminPledge implements IAdminCommandHandler
 			String action = null;
 			String parameter = null;
 			GMAudit.auditGMAction(activeChar.getName(), command, activeChar.getName(), "");
-			StringTokenizer st = new StringTokenizer(command);
 			try
 			{
-				st.nextToken();
 				action = st.nextToken(); // create|info|dismiss|setlevel|rep
 				parameter = st.nextToken(); // clanname|nothing|nothing|level|rep_points
 			}
@@ -149,12 +174,6 @@ public class AdminPledge implements IAdminCommandHandler
 		}
 		showMainPage(activeChar);
 		return true;
-	}
-
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
 	}
 
 	private void showMainPage(L2PcInstance activeChar)

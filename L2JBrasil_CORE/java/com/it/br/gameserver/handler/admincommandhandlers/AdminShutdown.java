@@ -19,7 +19,7 @@
 package com.it.br.gameserver.handler.admincommandhandlers;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.*;
 
 import com.it.br.Config;
 import com.it.br.gameserver.GameTimeController;
@@ -34,19 +34,47 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
  * This class handles following admin commands:
  * - server_shutdown [sec] = shows menu or shuts down server in sec seconds
  *
- * @version $Revision: 1.5.2.1.2.4 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminShutdown implements IAdminCommandHandler 
+public class AdminShutdown implements IAdminCommandHandler
 {
-	//private static Logger _log = Logger.getLogger(AdminShutdown.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {"admin_server_shutdown", "admin_server_restart", "admin_server_abort"};
-	private static final int REQUIRED_LEVEL = Config.GM_RESTART;
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminShutdown()
+    {
+        admin.put("admin_server_shutdown", Config.admin_server_shutdown);
+        admin.put("admin_server_restart", Config.admin_server_restart);
+        admin.put("admin_server_abort", Config.admin_server_abort);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_server_shutdown"))
 		{
@@ -78,18 +106,7 @@ public class AdminShutdown implements IAdminCommandHandler
 		return true;
 	}
 
-
-	public String[] getAdminCommandList() 
-        {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) 
-        {
-		return (level >= REQUIRED_LEVEL);
-	}
-
-	private void sendHtmlForm(L2PcInstance activeChar) 
+	private void sendHtmlForm(L2PcInstance activeChar)
         {
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		int t = GameTimeController.getInstance().getGameTime();

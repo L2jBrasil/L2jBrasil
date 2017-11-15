@@ -182,18 +182,18 @@ public class EnterWorld extends L2GameClientPacket
 
 		if (activeChar.isGM())
         {
-        	if (Config.GM_STARTUP_INVULNERABLE && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.GM_GODMODE
+        	if (Config.GM_STARTUP_INVULNERABLE && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.admin_invul
         			  || Config.ALT_PRIVILEGES_ADMIN && AdminCommandHandler.getInstance().checkPrivileges(activeChar, "admin_invul")))
         		activeChar.setIsInvul(true);
 
         	if(Config.GM_SUPER_HASTE)
                 SkillTable.getInstance().getInfo(7029, 4).getEffects(activeChar, activeChar);
 
-            if (Config.GM_STARTUP_INVISIBLE && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.GM_GODMODE
+            if (Config.GM_STARTUP_INVISIBLE && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.admin_invis
                       || Config.ALT_PRIVILEGES_ADMIN && AdminCommandHandler.getInstance().checkPrivileges(activeChar, "admin_invisible")))
                 activeChar.getAppearance().setInvisible();
 
-            if (Config.GM_STARTUP_SILENCE && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.GM_MENU
+            if (Config.GM_STARTUP_SILENCE && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.admin_admin
                       || Config.ALT_PRIVILEGES_ADMIN && AdminCommandHandler.getInstance().checkPrivileges(activeChar, "admin_silence")))
                 activeChar.setMessageRefusal(true);
 
@@ -206,7 +206,7 @@ public class EnterWorld extends L2GameClientPacket
             if(Config.GM_GIVE_SPECIAL_SKILLS)
                 GMSkillTable.getInstance().addSkills(activeChar);
 
-            if (Config.GM_STARTUP_AUTO_LIST && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.GM_MENU
+            if (Config.GM_STARTUP_AUTO_LIST && (!Config.ALT_PRIVILEGES_ADMIN && activeChar.getAccessLevel() >= Config.admin_admin
                       || Config.ALT_PRIVILEGES_ADMIN && AdminCommandHandler.getInstance().checkPrivileges(activeChar, "admin_gmliston")))
             	GmListTable.getInstance().addGm(activeChar, false);
             else

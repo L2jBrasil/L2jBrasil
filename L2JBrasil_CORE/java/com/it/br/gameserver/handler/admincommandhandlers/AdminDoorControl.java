@@ -28,6 +28,11 @@ import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - open1 = open coloseum door 24190001
@@ -43,84 +48,110 @@ import com.it.br.gameserver.model.entity.Castle;
  *
  * - open = open selected door
  * - close = close selected door
- * @version $Revision: 1.2.4.5 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminDoorControl implements IAdminCommandHandler
 {
-    //private static Logger      _log            = Logger.getLogger(AdminDoorControl.class.getName());
-    private static final int   REQUIRED_LEVEL = Config.GM_DOOR;
     private static DoorTable   _doorTable;
-    private static final String[] ADMIN_COMMANDS  =
+    private static Map<String, Integer> admin = new HashMap<>();
+
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
-        "admin_open",
-        "admin_close",
-        "admin_openall",
-        "admin_closeall"
-    };
-    //private static final Map<String, Integer>   doorMap = new FastMap<String, Integer>(); //FIXME: should we jute remove this?
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-		_doorTable = DoorTable.getInstance();
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-		try {
+    public AdminDoorControl()
+    {
+        admin.put("admin_open", Config.admin_open);
+        admin.put("admin_close", Config.admin_close);
+        admin.put("admin_openall", Config.admin_openall);
+        admin.put("admin_closeall", Config.admin_closeall);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
+        _doorTable = DoorTable.getInstance();
+
+        try
+        {
             if (command.startsWith("admin_open "))
             {
-		int doorId = Integer.parseInt(command.substring(11));
-		if (_doorTable.getDoor(doorId) != null)
-            	    _doorTable.getDoor(doorId).openMe();
-		else {
-		  for (Castle castle: CastleManager.getInstance().getCastles())
-		    if (castle.getDoor(doorId) != null){
-            		castle.getDoor(doorId).openMe();
-		    }
-		}
+                int doorId = Integer.parseInt(command.substring(11));
+                if (_doorTable.getDoor(doorId) != null)
+                    _doorTable.getDoor(doorId).openMe();
+                else
+                {
+                    for (Castle castle : CastleManager.getInstance().getCastles())
+                        if (castle.getDoor(doorId) != null)
+                        {
+                            castle.getDoor(doorId).openMe();
+                        }
+                }
             }
             else if (command.startsWith("admin_close "))
             {
-		int doorId = Integer.parseInt(command.substring(12));
-		if (_doorTable.getDoor(doorId) != null)
-            	    _doorTable.getDoor(doorId).closeMe();
-		else {
-		  for (Castle castle: CastleManager.getInstance().getCastles())
-		    if (castle.getDoor(doorId) != null){
-            		castle.getDoor(doorId).closeMe();
-		    }
-		}
+                int doorId = Integer.parseInt(command.substring(12));
+                if (_doorTable.getDoor(doorId) != null)
+                    _doorTable.getDoor(doorId).closeMe();
+                else
+                {
+                    for (Castle castle : CastleManager.getInstance().getCastles())
+                        if (castle.getDoor(doorId) != null)
+                        {
+                            castle.getDoor(doorId).closeMe();
+                        }
+                }
             }
             if (command.equals("admin_closeall"))
             {
-                for(L2DoorInstance door : _doorTable.getDoors())
+                for (L2DoorInstance door : _doorTable.getDoors())
                     door.closeMe();
-		for (Castle castle: CastleManager.getInstance().getCastles())
-		    for (L2DoorInstance door: castle.getDoors())
-            	        door.closeMe();
+                for (Castle castle : CastleManager.getInstance().getCastles())
+                    for (L2DoorInstance door : castle.getDoors())
+                        door.closeMe();
             }
             if (command.equals("admin_openall"))
             {
-                for(L2DoorInstance door : _doorTable.getDoors())
+                for (L2DoorInstance door : _doorTable.getDoors())
                     door.openMe();
-		for (Castle castle: CastleManager.getInstance().getCastles())
-		    for (L2DoorInstance door: castle.getDoors())
-            		door.openMe();
+                for (Castle castle : CastleManager.getInstance().getCastles())
+                    for (L2DoorInstance door : castle.getDoors())
+                        door.openMe();
             }
             if (command.equals("admin_open"))
             {
-                L2Object target     = activeChar.getTarget();
+                L2Object target = activeChar.getTarget();
                 if (target instanceof L2DoorInstance)
                 {
-                    ((L2DoorInstance)target).openMe();
+                    ((L2DoorInstance) target).openMe();
                 }
                 else
                 {
                     activeChar.sendMessage("Incorrect target.");
                 }
             }
-
             if (command.equals("admin_close"))
             {
                 L2Object target = activeChar.getTarget();
@@ -142,16 +173,5 @@ public class AdminDoorControl implements IAdminCommandHandler
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
         return true;
 	}
-
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level)
-    {
-        return (level >= REQUIRED_LEVEL);
-    }
 }
 

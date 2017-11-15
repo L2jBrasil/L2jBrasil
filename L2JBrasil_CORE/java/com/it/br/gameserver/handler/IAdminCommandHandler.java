@@ -18,7 +18,12 @@
  */
 package com.it.br.gameserver.handler;
 
+import com.it.br.Config;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * This class ...
@@ -33,11 +38,11 @@ public interface IAdminCommandHandler
 	 * @param command
 	 * @return command success
 	 */
-	public boolean useAdminCommand(String command, L2PcInstance activeChar);
+    boolean useAdminCommand(String command, L2PcInstance activeChar);
 
 	/**
 	 * this method is called at initialization to register all the item ids automatically
 	 * @return all known itemIds
 	 */
-	public String[] getAdminCommandList();
+    Set<String> getAdminCommandList();
 }

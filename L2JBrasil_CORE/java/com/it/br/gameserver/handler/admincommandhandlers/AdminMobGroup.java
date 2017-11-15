@@ -20,11 +20,7 @@ package com.it.br.gameserver.handler.admincommandhandlers;
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
-import com.it.br.gameserver.model.GMAudit;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.MobGroup;
-import com.it.br.gameserver.model.MobGroupTable;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
@@ -33,26 +29,67 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Broadcast;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * @author littlecrow
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  * Admin commands handler for controllable mobs
  */
 public class AdminMobGroup implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = { "admin_mobmenu", "admin_mobgroup_list",
-		"admin_mobgroup_create", "admin_mobgroup_remove", "admin_mobgroup_delete",
-		"admin_mobgroup_spawn", "admin_mobgroup_unspawn", "admin_mobgroup_kill",
-		"admin_mobgroup_idle", "admin_mobgroup_attack", "admin_mobgroup_rnd",
-		"admin_mobgroup_return", "admin_mobgroup_follow", "admin_mobgroup_casting",
-		"admin_mobgroup_nomove" , "admin_mobgroup_attackgrp", "admin_mobgroup_invul", "admin_mobinst"};
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminMobGroup()
+    {
+        admin.put("admin_mobmenu", Config.admin_mobmenu);
+        admin.put("admin_mobgroup_list", Config.admin_mobgroup_list);
+        admin.put("admin_mobgroup_create", Config.admin_mobgroup_create);
+        admin.put("admin_mobgroup_remove", Config.admin_mobgroup_remove);
+        admin.put("admin_mobgroup_delete", Config.admin_mobgroup_delete);
+        admin.put("admin_mobgroup_idle", Config.admin_mobgroup_idle);
+        admin.put("admin_mobgroup_attack", Config.admin_mobgroup_attack);
+        admin.put("admin_mobgroup_rnd", Config.admin_mobgroup_rnd);
+        admin.put("admin_mobgroup_return", Config.admin_mobgroup_return);
+        admin.put("admin_mobgroup_follow", Config.admin_mobgroup_follow);
+        admin.put("admin_mobgroup_casting", Config.admin_mobgroup_casting);
+        admin.put("admin_mobgroup_nomove", Config.admin_mobgroup_nomove);
+        admin.put("admin_mobgroup_attackgrp", Config.admin_mobgroup_attackgrp);
+        admin.put("admin_mobgroup_invul", Config.admin_mobgroup_invul);
+        admin.put("admin_mobinst", Config.admin_mobinst);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		GMAudit.auditGMAction(activeChar.getName(), command, "", "");
 		if (command.equals("admin_mobmenu"))
@@ -550,15 +587,4 @@ public class AdminMobGroup implements IAdminCommandHandler
 
 		activeChar.sendPacket(new SystemMessage(SystemMessageId.FRIEND_LIST_FOOT));
 	}
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
-
 }

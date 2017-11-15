@@ -35,7 +35,7 @@ public class Die extends L2GameServerPacket
     private int _access;
     private boolean _canTeleport;
     private com.it.br.gameserver.model.L2Clan _clan;
-    private static final int REQUIRED_LEVEL = com.it.br.Config.GM_FIXED;
+    private static final int REQUIRED_LEVEL = 100;
     L2Character _activeChar;
 
     public Die(L2Character cha)

@@ -18,51 +18,76 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.LoginServerThread;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
-import com.it.br.gameserver.model.GMAudit;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands:
  * - handles every admin menu command
  *
- * @version $Revision: 1.3.2.6.2.4 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminMenu implements IAdminCommandHandler
 {
-	private static final Logger _log = Logger.getLogger(AdminMenu.class.getName());
+    private static Logger _log = Logger.getLogger(AdminMenu.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {
-		"admin_char_manage",
-		"admin_teleport_character_to_menu",
-		"admin_recall_char_menu", "admin_recall_party_menu", "admin_recall_clan_menu" ,
-		"admin_goto_char_menu",
-		"admin_kick_menu",
-		"admin_kill_menu",
-		"admin_ban_menu",
-		"admin_unban_menu"
-	};
-	private static final int REQUIRED_LEVEL = Config.GM_ACCESSLEVEL;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+    public AdminMenu()
+    {
+        admin.put("admin_char_manage", Config.admin_char_manage);
+        admin.put("admin_teleport_character_to_menu", Config.admin_teleport_character_to_menu);
+        admin.put("admin_recall_char_menu", Config.admin_recall_char_menu);
+        admin.put("admin_recall_party_menu", Config.admin_recall_party_menu);
+        admin.put("admin_recall_clan_menu", Config.admin_recall_clan_menu);
+        admin.put("admin_goto_char_menu", Config.admin_goto_char_menu);
+        admin.put("admin_kick_menu", Config.admin_kick_menu);
+        admin.put("admin_ban_menu", Config.admin_ban_menu);
+        admin.put("admin_unban_menu", Config.admin_unban_menu);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
 		GMAudit.auditGMAction(activeChar.getName(), command, target, "");
@@ -155,7 +180,6 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_kick_menu"))
 		{
-			StringTokenizer st = new StringTokenizer(command);
 			if (st.countTokens() > 1)
 			{
 				st.nextToken();
@@ -175,7 +199,6 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_ban_menu"))
 		{
-			StringTokenizer st = new StringTokenizer(command);
 			if (st.countTokens() > 1)
 			{
 				st.nextToken();
@@ -191,7 +214,6 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_unban_menu"))
 		{
-			StringTokenizer st = new StringTokenizer(command);
 			if (st.countTokens() > 1)
 			{
 				st.nextToken();
@@ -203,18 +225,11 @@ public class AdminMenu implements IAdminCommandHandler
 		return true;
 	}
 
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
 	private void handleKill(L2PcInstance activeChar)
 	{
 		handleKill(activeChar, null);
 	}
+
 	private void handleKill(L2PcInstance activeChar, String player) {
 		L2Object obj = activeChar.getTarget();
 		L2Character target = (L2Character)obj;
@@ -254,6 +269,7 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 		showMainPage(activeChar);
 	}
+
 	private void teleportToCharacter(L2PcInstance activeChar, L2Object target)
 	{
 		L2PcInstance player = null;
@@ -273,6 +289,7 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 		showMainPage(activeChar);
 	}
+
 	/**
 	 * @param activeChar
 	 */

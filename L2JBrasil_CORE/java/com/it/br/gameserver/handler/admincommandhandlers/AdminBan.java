@@ -18,12 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.LoginServerThread;
@@ -36,6 +30,11 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.*;
+
 /**
  * This class handles following admin commands:
  * - ban account_name = changes account access level to -100 and logs him off. If no account is specified, target's account is used.
@@ -43,20 +42,49 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  * - jail charname [penalty_time] = jails character. Time specified in minutes. For ever if no time is specified.
  * - unjail charname = Unjails player, teleport him to Floran.
  *
- * @version $Revision: 1.1.6.3 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminBan implements IAdminCommandHandler {
-	private static final String[] ADMIN_COMMANDS = {"admin_ban", "admin_unban","admin_jail","admin_unjail"};
-	private static final int REQUIRED_LEVEL = Config.GM_BAN;
+public class AdminBan implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminBan()
+    {
+        admin.put("admin_ban", Config.admin_ban);
+        admin.put("admin_unban", Config.admin_unban);
+        admin.put("admin_jail", Config.admin_jail);
+        admin.put("admin_unjail", Config.admin_ban);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel())))
-				return false;
-		StringTokenizer st = new StringTokenizer(command);
-		st.nextToken();
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
 		String account_name = "";
 		String player = "";
 		L2PcInstance plyr = null;
@@ -243,14 +271,5 @@ public class AdminBan implements IAdminCommandHandler {
 					e.printStackTrace();
 			}
 		}
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 }

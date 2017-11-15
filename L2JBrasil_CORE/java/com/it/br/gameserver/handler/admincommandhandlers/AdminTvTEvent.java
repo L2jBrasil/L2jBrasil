@@ -27,56 +27,80 @@ import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.model.entity.event.TvTEventTeleporter;
 import com.it.br.gameserver.model.entity.event.TvTManager;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminTvTEvent implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = {"admin_tvt_add", "admin_tvt_remove", "admin_tvt_advance"};
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance adminInstance)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-		{
-			if (!(checkLevel(adminInstance.getAccessLevel()) && adminInstance.isGM()))
-				return false;
-		}
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-		GMAudit.auditGMAction(adminInstance.getName(), command, (adminInstance.getTarget() != null ? adminInstance.getTarget().getName() : "no-target"), "");
+    public AdminTvTEvent()
+    {
+        admin.put("admin_tvt_add", Config.admin_tvt_add);
+        admin.put("admin_tvt_remove", Config.admin_tvt_remove);
+        admin.put("admin_tvt_advance", Config.admin_tvt_advance);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
+		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null ? activeChar.getTarget().getName() : "no-target"), "");
 		if (command.equals("admin_tvt_add"))
 		{
-			L2Object target = adminInstance.getTarget();
+			L2Object target = activeChar.getTarget();
 			if (target == null || !(target instanceof L2PcInstance))
 			{
-				adminInstance.sendMessage("You should select a player!");
+				activeChar.sendMessage("You should select a player!");
 				return true;
 			}
-			add(adminInstance, (L2PcInstance)target);
+			add(activeChar, (L2PcInstance)target);
 		}
 		else if (command.equals("admin_tvt_remove"))
 		{
-			L2Object target = adminInstance.getTarget();
+			L2Object target = activeChar.getTarget();
 			if (target == null || !(target instanceof L2PcInstance))
 			{
-				adminInstance.sendMessage("You should select a player!");
+				activeChar.sendMessage("You should select a player!");
 				return true;
 			}
-			remove(adminInstance, (L2PcInstance)target);
+			remove(activeChar, (L2PcInstance)target);
 		}
 		else if ( command.equals( "admin_tvt_advance" ))
 		{
 			TvTManager.getInstance().skipDelay();
 		}
 		return true;
-	}
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return level >= REQUIRED_LEVEL;
 	}
 
 	private void add(L2PcInstance adminInstance, L2PcInstance playerInstance)

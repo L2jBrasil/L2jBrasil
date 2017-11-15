@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.L2World;
@@ -27,25 +25,56 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.pathfinding.AbstractNodeLoc;
 import com.it.br.gameserver.pathfinding.geonodes.GeoPathFinding;
 
+import java.util.*;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminPathNode implements IAdminCommandHandler
 {
-    private static final String[] ADMIN_COMMANDS = {
-        "admin_pn_info",
-        "admin_show_path",
-        "admin_path_debug",
-        "admin_show_pn",
-        "admin_find_path",
-    };
-    private static final int REQUIRED_LEVEL = Config.GM_CREATE_NODES;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
-        //Config.NEW_NODE_ID
-    	if(command.equals("admin_pn_info"))
-        {
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminPathNode()
+    {
+        admin.put("admin_pn_info", Config.admin_pn_info);
+        admin.put("admin_show_path", Config.admin_show_path);
+        admin.put("admin_path_debug", Config.admin_path_debug);
+        admin.put("admin_show_pn", Config.admin_show_pn);
+        admin.put("admin_find_path", Config.admin_find_path);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
+        if(command.equals("admin_pn_info"))
+        {
+            // FIXME: Need implement or remove
         }
     	else if(command.equals("admin_show_path"))
         {
@@ -87,14 +116,5 @@ public class AdminPathNode implements IAdminCommandHandler
                 activeChar.sendMessage("No Target!");
         }
         return true;
-    }
-
-
-	public String[] getAdminCommandList() {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level) {
-        return (level >= REQUIRED_LEVEL);
     }
 }

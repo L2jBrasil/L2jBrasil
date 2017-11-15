@@ -12,25 +12,20 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
+import com.it.br.Config;
+import com.it.br.gameserver.model.L2TeleportLocation;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
-import com.it.br.Config;
-import com.it.br.gameserver.model.L2TeleportLocation;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TeleportLocationTable
 {
@@ -52,72 +47,65 @@ public class TeleportLocationTable
 
 	private TeleportLocationTable()
 	{
-		reloadAll();
+        _teleports = new HashMap<>();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+        File f = new File(Config.DATAPACK_ROOT + "/data/xml/teleports.xml");
+        if(!f.exists())
+        {
+            _log.warn("teleports.xml could not be loaded: file not found");
+            return;
+        }
+        try
+        {
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            L2TeleportLocation teleport;
+            for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
+            {
+                if(n.getNodeName().equalsIgnoreCase("list"))
+                {
+                    for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+                    {
+                        if(d.getNodeName().equalsIgnoreCase("teleport"))
+                        {
+                            teleport = new L2TeleportLocation();
+                            int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
+                            int loc_x = Integer.valueOf(d.getAttributes().getNamedItem("loc_x").getNodeValue());
+                            int loc_y = Integer.valueOf(d.getAttributes().getNamedItem("loc_y").getNodeValue());
+                            int loc_z = Integer.valueOf(d.getAttributes().getNamedItem("loc_z").getNodeValue());
+                            int price = Integer.valueOf(d.getAttributes().getNamedItem("price").getNodeValue());
+                            int fornoble = Integer.valueOf(d.getAttributes().getNamedItem("fornoble").getNodeValue());
+
+                            teleport.setTeleId(id);
+                            teleport.setLocX(loc_x);
+                            teleport.setLocY(loc_y);
+                            teleport.setLocZ(loc_z);
+                            teleport.setPrice(price);
+                            teleport.setIsForNoble(fornoble == 1);
+
+                            _teleports.put(teleport.getTeleId(), teleport);
+                            teleport = null;
+                        }
+                    }
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            _log.error("Error while creating table", e);
+        }
+
+        _log.info("TeleportLocationTable: Loaded " + _teleports.size() + " teleport location templates.");
 	}
 
-	public void reloadAll()
-	{
-		_teleports = new HashMap<>();
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/teleports.xml");
-		if(!f.exists())
-		{
-			_log.warn("teleports.xml could not be loaded: file not found");
-			return;
-		}
-		try
-		{
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			L2TeleportLocation teleport;
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("teleport"))
-						{
-							teleport = new L2TeleportLocation();
-							int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
-							int loc_x = Integer.valueOf(d.getAttributes().getNamedItem("loc_x").getNodeValue());
-							int loc_y = Integer.valueOf(d.getAttributes().getNamedItem("loc_y").getNodeValue());
-							int loc_z = Integer.valueOf(d.getAttributes().getNamedItem("loc_z").getNodeValue());
-							int price = Integer.valueOf(d.getAttributes().getNamedItem("price").getNodeValue());
-							int fornoble = Integer.valueOf(d.getAttributes().getNamedItem("fornoble").getNodeValue());
+    public static void reloadAll()
+    {
+        _instance = new TeleportLocationTable();
+    }
 
-							teleport.setTeleId(id);
-							teleport.setLocX(loc_x);
-							teleport.setLocY(loc_y);
-							teleport.setLocZ(loc_z);
-							teleport.setPrice(price);
-							teleport.setIsForNoble(fornoble == 1);
-
-							_teleports.put(teleport.getTeleId(), teleport);
-							teleport = null;
-						}
-					}
-				}
-			}
-		}
-		catch(SAXException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(IOException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(ParserConfigurationException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-
-		_log.info("TeleportLocationTable: Loaded " + _teleports.size() + " teleport location templates.");
-	}
 	public L2TeleportLocation getTemplate(int id)
 	{
 		return _teleports.get(id);

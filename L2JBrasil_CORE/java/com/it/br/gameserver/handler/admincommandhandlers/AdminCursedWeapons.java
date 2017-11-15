@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
@@ -30,6 +28,11 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - cw_info = displays cursed weapon status
@@ -37,25 +40,53 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  * - cw_add = adds a cursed weapon into the world, item id or name must be provided. Target will be the weilder
  * - cw_goto = teleports GM to the specified cursed weapon
  * - cw_reload = reloads instance manager
- * @version $Revision: 1.1.6.3 $ $Date: 2007/07/31 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminCursedWeapons implements IAdminCommandHandler {
-	private static final String[] ADMIN_COMMANDS = {"admin_cw_info", "admin_cw_remove", "admin_cw_goto", "admin_cw_reload", "admin_cw_add", "admin_cw_info_menu"};
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
-	private int itemId;
+public class AdminCursedWeapons implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel())))
-				return false;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminCursedWeapons()
+    {
+        admin.put("admin_cw_info", Config.admin_cw_info);
+        admin.put("admin_cw_remove", Config.admin_cw_remove);
+        admin.put("admin_cw_goto", Config.admin_cw_goto);
+        admin.put("admin_cw_reload", Config.admin_cw_reload);
+        admin.put("admin_cw_add", Config.admin_cw_add);
+        admin.put("admin_cw_info_menu", Config.admin_cw_info_menu);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		CursedWeaponsManager cwm = CursedWeaponsManager.getInstance();
 		int id=0;
-
-		StringTokenizer st = new StringTokenizer(command);
-		st.nextToken();
 
 		if (command.startsWith("admin_cw_info"))
 		{
@@ -93,7 +124,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler {
 				adminReply.setFile("data/html/admin/cwinfo.htm");
 				for (CursedWeapon cw : cwm.getCursedWeapons())
 				{
-					itemId=cw.getItemId();
+					int itemId = cw.getItemId();
 					replyMSG.append("<table width=270><tr><td>Name:</td><td>"+cw.getName()+"</td></tr>");
 					if (cw.isActivated())
 					{
@@ -193,14 +224,5 @@ public class AdminCursedWeapons implements IAdminCommandHandler {
 			}
 		}
 		return true;
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 }

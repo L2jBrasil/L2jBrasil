@@ -28,19 +28,48 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminLevel implements IAdminCommandHandler
 {
-    private static final int REQUIRED_LEVEL = Config.GM_CHAR_EDIT;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-    private static final String[][] ADMIN_COMMANDS = {
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminLevel()
+    {
+        admin.put("admin_remlevel", Config.admin_remlevel);
+        admin.put("admin_addlevel", Config.admin_addlevel);
+        admin.put("admin_setlevel", Config.admin_setlevel);
+    }
+
+    private static final String[][] COMMANDS_HELP = {
     	{"admin_remlevel",                                 // remove level amount from your target
     		
     		"Remove amount of levels from your target (player or pet).",
@@ -64,20 +93,21 @@ public class AdminLevel implements IAdminCommandHandler
      	} 	
     };
 
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    public Set<String> getAdminCommandList()
     {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();  // get command
+
+        if(checkPermission(commandName, activeChar)) return false;
+
         if (activeChar == null) return false;
 
-        if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (activeChar.getAccessLevel() < REQUIRED_LEVEL) return false;
-
-        StringTokenizer st = new StringTokenizer(command, " ");
-        
-        String cmd = st.nextToken();  // get command
-
-		if (cmd.equals("admin_addlevel") || cmd.equals("admin_setlevel") || cmd.equals("admin_remlevel"))
+		if (commandName.equals("admin_addlevel") || commandName.equals("admin_setlevel") || commandName.equals("admin_remlevel"))
         {
 			int reslevel = 0;
 			int curlevel = 0;
@@ -101,7 +131,7 @@ public class AdminLevel implements IAdminCommandHandler
 			
 				curlevel = target.getLevel();
 			
-				reslevel = cmd.equals("admin_addlevel")?(curlevel + lvl):cmd.equals("admin_remlevel")?(curlevel - lvl):lvl;
+				reslevel = commandName.equals("admin_addlevel")?(curlevel + lvl):commandName.equals("admin_remlevel")?(curlevel - lvl):lvl;
 
 				try
 				{
@@ -121,7 +151,7 @@ public class AdminLevel implements IAdminCommandHandler
 			}
 			else
 			{
-				showAdminCommandHelp(activeChar,cmd);
+				showAdminCommandHelp(activeChar,commandName);
 			}
         }
         return true;
@@ -133,23 +163,12 @@ public class AdminLevel implements IAdminCommandHandler
 	 */    
 	private void showAdminCommandHelp(L2PcInstance activeChar, String command)
 	{
-		for (String[] element : ADMIN_COMMANDS) {
+		for (String[] element : COMMANDS_HELP) {
 			if (command.equals(element[0]))
 			{
 				for (int k=1; k < element.length; k++)
 					activeChar.sendMessage(element[k]);
 			}
 		}
-	}
-	
-
-	public String[] getAdminCommandList()
-	{
-		String[] _adminCommandsOnly = new String[ADMIN_COMMANDS.length];
-		for (int i=0; i < ADMIN_COMMANDS.length; i++)
-		{
-			_adminCommandsOnly[i] = ADMIN_COMMANDS[i][0];
-		}
-		return _adminCommandsOnly;
 	}
 }

@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -34,30 +32,59 @@ import com.it.br.gameserver.skills.Formulas;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - gm = turns gm mode on/off
  *
- * @version $Revision: 1.1.2.1 $ $Date: 2005/03/15 21:32:48 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminFightCalculator implements IAdminCommandHandler {
-	//private static Logger _log = Logger.getLogger(AdminFightCalculator.class.getName());
-	private static final String[] ADMIN_COMMANDS = {
-		"admin_fight_calculator",
-		"admin_fight_calculator_show",
-		"admin_fcs",
-		};
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
+public class AdminFightCalculator implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	//TODO: remove from gm list etc etc
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminFightCalculator()
+    {
+        admin.put("admin_fight_calculator", Config.admin_fight_calculator);
+        admin.put("admin_fight_calculator_show", Config.admin_fight_calculator_show);
+        admin.put("admin_fcs", Config.admin_fcs);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
         try
         {
-    		//don't check for gm status ;)
-            if (!Config.ALT_PRIVILEGES_ADMIN)
-                if (!checkLevel(activeChar.getAccessLevel())) return false;
-
     		if (command.startsWith("admin_fight_calculator_show"))
     			handleShow(command.substring("admin_fight_calculator_show".length()), activeChar);
     		else if (command.startsWith("admin_fcs"))
@@ -65,17 +92,8 @@ public class AdminFightCalculator implements IAdminCommandHandler {
     		else if (command.startsWith("admin_fight_calculator"))
     			handleStart(command.substring("admin_fight_calculator".length()), activeChar);
         }
-        catch (StringIndexOutOfBoundsException e)
-        { }
+        catch (StringIndexOutOfBoundsException e) { }
 		return true;
-	}
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void handleStart(String params, L2PcInstance activeChar) {

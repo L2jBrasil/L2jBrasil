@@ -23,39 +23,53 @@ import com.it.br.gameserver.communitybbs.Manager.AdminBBSManager;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminBBS implements IAdminCommandHandler
 {
-	 //private static Logger _log = Logger.getLogger(AdminKick.class.getName());
-    private static final String[] ADMIN_COMMANDS = {"admin_bbs"};
-    private static final int REQUIRED_LEVEL = Config.GM_MIN;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	/* (non-Javadoc)
-	 * @see com.it.br.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, com.it.br.gameserver.model.actor.instance.L2PcInstance)
-	 */
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminBBS()
+    {
+        admin.put("admin_bbs", Config.admin_bbs);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		 if (!Config.ALT_PRIVILEGES_ADMIN)
-	        {
-	    		if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-	            {
-	                //System.out.println("Not required level");
-	                return false;
-	            }
-	        }
-		 	AdminBBSManager.getInstance().parsecmd(command,activeChar);
-	        return true;
-	}
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
 
-	/* (non-Javadoc)
-	 * @see com.it.br.gameserver.handler.IAdminCommandHandler#getAdminCommandList()
-	 */
+        if(checkPermission(commandName, activeChar)) return false;
 
-	public String[] getAdminCommandList() {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level) {
-        return (level >= REQUIRED_LEVEL);
+        AdminBBSManager.getInstance().parsecmd(command, activeChar);
+        return true;
     }
 }

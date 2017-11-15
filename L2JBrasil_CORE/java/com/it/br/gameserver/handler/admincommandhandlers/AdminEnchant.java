@@ -33,39 +33,69 @@ import com.it.br.gameserver.network.serverpackets.UserInfo;
 import com.it.br.gameserver.util.IllegalPlayerAction;
 import com.it.br.gameserver.util.Util;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 
 /**
  * This class handles following admin commands:
  * - enchant_armor
  *
- * @version $Revision: 1.3.2.1.2.10 $ $Date: 2005/08/24 21:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminEnchant implements IAdminCommandHandler
 {
-   //private static Logger _log = Logger.getLogger(AdminEnchant.class.getName());
-    private static final String[] ADMIN_COMMANDS = {"admin_seteh",//6
-                                              "admin_setec",//10
-                                              "admin_seteg",//9
-                                              "admin_setel",//11
-                                              "admin_seteb",//12
-                                              "admin_setew",//7
-                                              "admin_setes",//8
-                                              "admin_setle",//1
-                                              "admin_setre",//2
-                                              "admin_setlf",//4
-                                              "admin_setrf",//5
-                                              "admin_seten",//3
-                                              "admin_setun",//0
-                                              "admin_setba",//13
-                                              "admin_enchant"};
-    private static final int REQUIRED_LEVEL = Config.GM_ENCHANT;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-        	if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-        		return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminEnchant()
+    {
+        admin.put("admin_seteh", Config.admin_seteh);
+        admin.put("admin_setec", Config.admin_setec);
+        admin.put("admin_seteg", Config.admin_seteg);
+        admin.put("admin_setel", Config.admin_setel);
+        admin.put("admin_seteb", Config.admin_seteb);
+        admin.put("admin_setew", Config.admin_setew);
+        admin.put("admin_setes", Config.admin_setes);
+        admin.put("admin_setle", Config.admin_setle);
+        admin.put("admin_setre", Config.admin_setre);
+        admin.put("admin_setlf", Config.admin_setlf);
+        admin.put("admin_setrf", Config.admin_setrf);
+        admin.put("admin_seten", Config.admin_seten);
+        admin.put("admin_setun", Config.admin_setun);
+        admin.put("admin_setba", Config.admin_setba);
+        admin.put("admin_enchant", Config.admin_enchant);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
         if (command.equals("admin_enchant"))
         {
@@ -208,16 +238,5 @@ public class AdminEnchant implements IAdminCommandHandler
     private void showMainPage(L2PcInstance activeChar)
     {
     	AdminHelpPage.showHelpPage(activeChar, "enchant.htm");
-    }
-
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level)
-    {
-        return (level >= REQUIRED_LEVEL);
     }
 }

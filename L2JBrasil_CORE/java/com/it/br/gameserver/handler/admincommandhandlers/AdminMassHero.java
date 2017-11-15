@@ -18,26 +18,61 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.logging.Logger;
-
+import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminMassHero implements IAdminCommandHandler
 {
-	protected static final Logger _log = Logger.getLogger(AdminMassHero.class.getName());
-	
-	@Override
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
+    protected static final Logger _log = Logger.getLogger(AdminMassHero.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminMassHero()
+    {
+        admin.put("admin_masshero", Config.admin_masshero);
+        admin.put("admin_allhero", Config.admin_allhero);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
 		if(activeChar == null)
 			return false;
 
@@ -61,6 +96,4 @@ public class AdminMassHero implements IAdminCommandHandler
 		}
 		return true;
 	}
-
-	private static String[] ADMIN_COMMANDS = { "admin_masshero" };
 }

@@ -17,35 +17,61 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.geoeditorcon.GeoEditorListener;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * @author  Luno, Dezmond
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminGeoEditor implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS =
-		{
-			"admin_ge_status",
-			"admin_ge_mode",
-			"admin_ge_join",
-			"admin_ge_leave"
-		};
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-            	return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminGeoEditor()
+    {
+        admin.put("admin_ge_status", Config.admin_ge_status);
+        admin.put("admin_ge_mode", Config.admin_ge_mode);
+        admin.put("admin_ge_join", Config.admin_ge_join);
+        admin.put("admin_ge_leave", Config.admin_ge_leave);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		String target = (activeChar.getTarget() != null) ? activeChar.getTarget().getName() : "no-target";
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
@@ -69,9 +95,9 @@ public class AdminGeoEditor implements IAdminCommandHandler
 			try
 			{
 				String val = command.substring("admin_ge_mode".length());
-				StringTokenizer st = new StringTokenizer(val);
+				StringTokenizer st1 = new StringTokenizer(val);
 
-				if (st.countTokens() < 1)
+				if (st1.countTokens() < 1)
 	        	{
 	        		activeChar.sendMessage("Usage: //ge_mode X");
 	        		activeChar.sendMessage("Mode 0: Don't send coordinates to geoeditor.");
@@ -80,7 +106,7 @@ public class AdminGeoEditor implements IAdminCommandHandler
 	        		return true;
 	        	}
 				int m;
-				m = Integer.parseInt(st.nextToken());
+				m = Integer.parseInt(st1.nextToken());
 				GeoEditorListener.getInstance().getThread().setMode(m);
 				activeChar.sendMessage("Geoeditor connection mode set to "+m+".");
 			} catch (Exception e)
@@ -114,15 +140,5 @@ public class AdminGeoEditor implements IAdminCommandHandler
     		activeChar.sendMessage("You removed from list for geoeditor.");
         }
         return true;
-	}
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 }

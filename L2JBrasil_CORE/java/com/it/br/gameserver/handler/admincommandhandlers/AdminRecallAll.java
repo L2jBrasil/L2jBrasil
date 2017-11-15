@@ -17,20 +17,57 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminRecallAll implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = { "admin_recallall" };
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private void teleportTo(L2PcInstance activeChar, int x, int y, int z)
-	{
-		activeChar.teleToLocation(x, y, z, false);
-	}
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminRecallAll()
+    {
+        admin.put("admin_recallall", Config.admin_recallall);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
 		if (command.startsWith("admin_recallall"))
 		{
 			for(L2PcInstance players :L2World.getInstance().getAllPlayers())
@@ -40,8 +77,9 @@ public class AdminRecallAll implements IAdminCommandHandler
 		}
 		return false;
 	}
-	public String[] getAdminCommandList()
-	{
-	 return ADMIN_COMMANDS;
-	}
+
+    private void teleportTo(L2PcInstance activeChar, int x, int y, int z)
+    {
+        activeChar.teleToLocation(x, y, z, false);
+    }
 }

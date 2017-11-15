@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
@@ -122,12 +123,11 @@ public class AdminCommandHandler
 
 	public void registerAdminCommandHandler(IAdminCommandHandler handler)
 	{
-		String[] ids = handler.getAdminCommandList();
-		for (int i = 0; i < ids.length; i++)
-		{
-			if (Config.DEBUG) _log.fine("adicionando handler para o comando "+ids[i]);
-			_datatable.put(ids[i], handler);
-		}
+        Set<String> ids = handler.getAdminCommandList();
+        ids.forEach(id -> {
+            if (Config.DEBUG) _log.fine("adicionando handler para o comando " +id);
+            _datatable.put(id, handler);
+        });
 	}
 
 	public IAdminCommandHandler getAdminCommandHandler(String adminCommand)

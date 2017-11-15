@@ -18,12 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.GmListTable;
@@ -34,6 +28,15 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.EtcStatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Give / Take Status Vip to Player
@@ -46,23 +49,48 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  * If <player_name> is not specified, the current target player is used.
  *
  * @author KhayrusS
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  *
  */
 public class AdminVip implements IAdminCommandHandler
 {
-	private static final int REQUIRED_LEVEL = Config.GM_VIP;
+    private final static Logger _log = Logger.getLogger(AdminVip.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static String[] _adminCommands = { "admin_setvip", "admin_removevip" };
-	private final static Logger _log = Logger.getLogger(AdminVip.class.getName());
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-			{
-				GmListTable.broadcastMessageToGMs("Player "+activeChar.getName()+ " tryed illegal action set vip stat");
-				return false;
-			}
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminVip()
+    {
+        admin.put("admin_setvip", Config.admin_setvip);
+        admin.put("admin_removevip", Config.admin_removevip);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_setvip"))
 		{
@@ -231,16 +259,5 @@ public class AdminVip implements IAdminCommandHandler
 		{
 			L2DatabaseFactory.close(connection);
 		}
-	}
-
-	private boolean checkLevel(int level)
-    {
-		return (level >= REQUIRED_LEVEL);
-    }
-
-
-	public String[] getAdminCommandList()
-	{
-		return _adminCommands;
 	}
 }
