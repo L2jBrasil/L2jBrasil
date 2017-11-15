@@ -10,17 +10,17 @@ public class DatabaseSettings implements Settings {
 	private String password;
 	private int maxConnections;
 	private int connectionIdleTimeout;
-	private boolean enabledServerCache;
-	private boolean enabledPreparedStatementCache;
+	private boolean serverCacheEnabled;
+	private boolean preparedStatementCacheEnabled;
 	private int PreparedStatementCacheSize;
 	private int limitSqlCache;
-	private boolean enabledResultsetCache;
-	private boolean enabledServerPreparedStatement;
-	private boolean enabledLocalSessionState;
-	private boolean enableLocalTransactionState;
-	private boolean enabledRewriteBatchedStatement;
-	private boolean enabledMaintainTimestats;
-	private boolean enabledAutoCommit;
+	private boolean resultsetCacheEnabled;
+	private boolean serverPreparedStatementEnabled;
+	private boolean localSessionStateEnabled;
+	private boolean ocalTransactionStateEnabled;
+	private boolean rewriteBatchedStatementEnabled;
+	private boolean maintainTimestatsEnabled;
+	private boolean autoCommitEnabled;
 	private int minIdle;
 	private int validationTimeout;
 	private int connectionTimeout;
@@ -39,20 +39,20 @@ public class DatabaseSettings implements Settings {
 		
 		connectionIdleTimeout = properties.getInteger("ConnectionIdleTimeout", 0);
 		
-		enabledServerCache = properties.getBoolean("AllowServerCache", true);
-		enabledPreparedStatementCache = properties.getBoolean("AllowPreparedStatementCache", true);
+		serverCacheEnabled = properties.getBoolean("AllowServerCache", true);
+		preparedStatementCacheEnabled = properties.getBoolean("AllowPreparedStatementCache", true);
 		
 		PreparedStatementCacheSize = properties.getInteger("PreparedStatementCacheSize", 250);
 		limitSqlCache = properties.getInteger("PreparedStatementCacheSqlLimit", 2048);
-		enabledResultsetCache = properties.getBoolean("AllowResultsetCache", true);
-		enabledServerPreparedStatement = properties.getBoolean("AllowPreparedStatement", true);
+		resultsetCacheEnabled = properties.getBoolean("AllowResultsetCache", true);
+		serverPreparedStatementEnabled = properties.getBoolean("AllowPreparedStatement", true);
 		
-		enabledLocalSessionState = properties.getBoolean("AllowLocalSessionState", true);
-		enableLocalTransactionState = properties.getBoolean("AllowLocalTransaction", true);
+		localSessionStateEnabled = properties.getBoolean("AllowLocalSessionState", true);
+		ocalTransactionStateEnabled = properties.getBoolean("AllowLocalTransaction", true);
 
-		enabledRewriteBatchedStatement = properties.getBoolean("AllowRewriteBatchedStatement", true);
-		enabledMaintainTimestats = properties.getBoolean("AllowMaintainTimestats", true);
-		enabledAutoCommit = properties.getBoolean("AllowAutoCommit", true);
+		rewriteBatchedStatementEnabled = properties.getBoolean("AllowRewriteBatchedStatement", true);
+		maintainTimestatsEnabled = properties.getBoolean("AllowMaintainTimestats", true);
+		autoCommitEnabled = properties.getBoolean("AllowAutoCommit", true);
 		
 		minIdle = properties.getInteger("ConnectionMinIdle", 10);
 		validationTimeout = properties.getInteger("ConnectionValidationTimeout", 500);
@@ -87,8 +87,8 @@ public class DatabaseSettings implements Settings {
 		return connectionIdleTimeout;
 	}
 	
-	public boolean isEnabledServerCache() {
-		return enabledServerCache;
+	public boolean isServerCacheEnabled() {
+		return serverCacheEnabled;
 	}
 	
 	public int getPreparedStatementCacheSize() {
@@ -99,36 +99,36 @@ public class DatabaseSettings implements Settings {
 		return limitSqlCache;
 	}
 	
-	public boolean isEnabledResultsetCache() {
-		return enabledResultsetCache;
+	public boolean isResultsetCacheEnabled() {
+		return resultsetCacheEnabled;
 	}
 	
-	public boolean isEnabledPreparedStatementCache() {
-		return enabledPreparedStatementCache;
+	public boolean isPreparedStatementCacheEnabled() {
+		return preparedStatementCacheEnabled;
 	}
 	
-	public boolean isEnabledServerPreparedStatement() {
-		return enabledServerPreparedStatement;
+	public boolean isServerPreparedStatementEnabled() {
+		return serverPreparedStatementEnabled;
 	}
 	
-	public boolean isEnabledLocalSessionState() {
-		return enabledLocalSessionState;
+	public boolean isLocalSessionStateEnabled() {
+		return localSessionStateEnabled;
 	}
 	
-	public boolean isEnabledLocalTransactionState() {
-		return enableLocalTransactionState;
+	public boolean isLocalTransactionStateEnabled() {
+		return ocalTransactionStateEnabled;
 	}
 	
-	public boolean isEnabledRewriteBatchedStatement() {
-		return enabledRewriteBatchedStatement;
+	public boolean isRewriteBatchedStatementEnabled() {
+		return rewriteBatchedStatementEnabled;
 	}
 	
-	public boolean isEnabledMaintainTimestats() {
-		return enabledMaintainTimestats;
+	public boolean isMaintainTimestatsEnabled() {
+		return maintainTimestatsEnabled;
 	}
 	
-	public boolean isEnabledAutoCommit() {
-		return enabledAutoCommit;
+	public boolean isAutoCommitEnabled() {
+		return autoCommitEnabled;
 	}
 	
 	public int getMinIdle() {

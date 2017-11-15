@@ -19,7 +19,7 @@ public class NetworkSettings implements Settings{
 	private int loginPort;
 	private String loginExternalHostname;
 	private String loginInternalHostname;
-	private boolean enabledTelnet;
+	private boolean telnetEnabled;
 	private int telnetPort;
 	private List<String> telnetAcceeptHosts;
 	private String telnetPassword;
@@ -43,9 +43,9 @@ public class NetworkSettings implements Settings{
 		loginListenServerHostname = properties.getString("LoginListenServerHostname", "127.0.0.1");
 		loginListenServerPort = properties.getInteger("LoginListenServerPort", 9014);
 		
-		enabledTelnet = properties.getBoolean("EnableTelnet", false);
+		telnetEnabled = properties.getBoolean("EnableTelnet", false);
 		
-		if(enabledTelnet) {
+		if(telnetEnabled) {
 			telnetPort = properties.getInteger("TelnetPort", 12345);
 			telnetAcceeptHosts = properties.getStringList("TelnetAcceptedHosts", "127.0.0.1,localhost", ",");
 			telnetPassword = properties.getString("TelnetPassword", null);
@@ -95,7 +95,7 @@ public class NetworkSettings implements Settings{
 	
 
 	public boolean isEnabledTelnet() {
-		return enabledTelnet;
+		return telnetEnabled;
 	}
 	
 	public int getTelnetPort() {

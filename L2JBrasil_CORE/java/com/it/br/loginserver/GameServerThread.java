@@ -379,7 +379,7 @@ public class GameServerThread extends Thread
 			{
 				// there is already a server registered with the desired id and different hex id
 				// try to register this one with an alternative id
-				if (loginSettings.isEnabledAnyServer() && gameServerAuth.acceptAlternateID())
+				if (loginSettings.isNewServerEnabled() && gameServerAuth.acceptAlternateID())
 				{
 					gsi = new GameServerInfo(id, hexId, this);
 					if (gameServerTable.registerWithFirstAvaliableId(gsi))
@@ -402,7 +402,7 @@ public class GameServerThread extends Thread
 		else
 		{
 			// can we register on this id?
-			if (loginSettings.isEnabledAnyServer())
+			if (loginSettings.isNewServerEnabled())
 			{
 				gsi = new GameServerInfo(id, hexId, this);
 				if (gameServerTable.register(id, gsi))

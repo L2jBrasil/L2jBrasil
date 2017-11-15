@@ -90,7 +90,7 @@ public class RequestServerLogin extends L2LoginClientPacket
 		LoginSettings loginSettings = getSettings(LoginSettings.class);
 
 		// if we didnt showed the license we cant check these values
-		if (! loginSettings.isEnabledShowLicence() || sk.checkLoginPair(_skey1, _skey2))
+		if (! loginSettings.showLicense() || sk.checkLoginPair(_skey1, _skey2))
 		{
 			if (LoginController.getInstance().isLoginPossible(getClient(), _serverId))
 			{

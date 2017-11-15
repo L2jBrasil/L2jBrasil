@@ -122,7 +122,7 @@ public class LoginServerThread extends Thread
 		{
 			_requestID = Config.SERVER_ID;
 		}
-		_acceptAlternate = serverSettings.isAcceptAlternativeId();
+		_acceptAlternate = serverSettings.isAcceptAlternativeIdEnabled();
 		_reserveHost = Config.RESERVE_HOST_ON_LOGIN;
 		_gameExternalHost = networkSettings.getServerExternalHostname();
 		_gameInternalHost = networkSettings.getServerInternalHostname();

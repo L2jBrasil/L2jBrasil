@@ -47,7 +47,7 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient>
 		catch (Throwable t)
 		{
 			ServerSettings serverSettings = getSettings(ServerSettings.class);
-			if (!serverSettings.isDebugPacket())
+			if (!serverSettings.isDebugPacketEnabled())
 				return;
 			
 			_log.severe("Client: "+getClient().toString()+" - Failed writing: "+getType());

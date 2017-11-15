@@ -48,7 +48,7 @@ public abstract class L2GameClientPacket extends ReceivablePacket<L2GameClient>
 		catch (Throwable t) 
 		{
 			ServerSettings serverSettings = getSettings(ServerSettings.class);
-			if (!serverSettings.isDebugPacket())
+			if (!serverSettings.isDebugPacketEnabled())
 				return false;
 			
 			 _log.severe("Client: "+getClient().toString()+" - Failed reading: "+getType());

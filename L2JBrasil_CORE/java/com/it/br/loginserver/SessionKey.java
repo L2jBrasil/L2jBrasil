@@ -65,7 +65,7 @@ public class SessionKey
 	{
 		LoginSettings loginSettings = getSettings(LoginSettings.class);
 		// when server doesnt show licence it deosnt send the LoginOk packet, client doesnt have this part of the key then.
-		if (loginSettings.isEnabledShowLicence())
+		if (loginSettings.showLicense())
 		{
 			return (playOkID1 == key.playOkID1 && loginOkID1 == key.loginOkID1
 					&& playOkID2 == key.playOkID2 && loginOkID2 == key.loginOkID2);

@@ -90,7 +90,7 @@ public final class L2LoginPacketHandler implements IPacketHandler<L2LoginClient>
 	private void debugOpcode(int opcode, LoginClientState state)
 	{
 		ServerSettings serverSettings = getSettings(ServerSettings.class);
-		if (!serverSettings.isDebugPacket())
+		if (!serverSettings.isDebugPacketEnabled())
 			return;
 		
 		System.out.println("Unknown Opcode: "+opcode+" for state: "+state.name());

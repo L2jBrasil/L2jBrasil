@@ -11,7 +11,7 @@ public class ServerSettings implements Settings{
 	private static final Logger logger = Logger.getLogger(ServerSettings.class.getName());
 	
 	private int serverId;
-	private boolean enabledAlternativeId;
+	private boolean acceptAlternativeIdEnabled;
 	
 	private File datapackDirectory;
 
@@ -21,7 +21,7 @@ public class ServerSettings implements Settings{
 	private int playerOnlineMaxCount;
 
 	private int maxUnknownPacket;
-	private boolean enabledDebugPacket;
+	private boolean debugPacketEnabled;
 	private int minProtocol;
 	private int maxProtocol;
 	
@@ -32,7 +32,7 @@ public class ServerSettings implements Settings{
 		}
 		
 		serverId = properties.getInteger("RequestServerID", 1);
-		enabledAlternativeId = properties.getBoolean("AcceptAlternativeId", true);
+		acceptAlternativeIdEnabled = properties.getBoolean("AcceptAlternativeId", true);
 		
 		characterNameTemplate = properties.getString("CharNameTemplate", ".*");
 		petNameTemplate = properties.getString("PNameTemplate", ".*");
@@ -40,7 +40,7 @@ public class ServerSettings implements Settings{
 		playerOnlineMaxCount = properties.getInteger("MaxPlayerOnline", 100);
 		
 		maxUnknownPacket = properties.getInteger("MaxUnknownPacket", 5);
-		enabledDebugPacket = properties.getBoolean("PacketDebug", false);
+		debugPacketEnabled = properties.getBoolean("PacketDebug", false);
 		minProtocol = properties.getInteger("MinProtocolRevision", 740);
 		maxProtocol = properties.getInteger("MaxProtocolRevision", 746);
 		
@@ -71,8 +71,8 @@ public class ServerSettings implements Settings{
 		return serverId;
 	}
 	
-	public boolean isAcceptAlternativeId() {
-		return enabledAlternativeId;
+	public boolean isAcceptAlternativeIdEnabled() {
+		return acceptAlternativeIdEnabled;
 	}
 	
 	public File getDatapackDirectory() {
@@ -100,8 +100,8 @@ public class ServerSettings implements Settings{
 		this.playerOnlineMaxCount = count;
 	}
 	
-	public boolean isDebugPacket() {
-		return enabledDebugPacket;
+	public boolean isDebugPacketEnabled() {
+		return debugPacketEnabled;
 	}
 
 	public int getMaxUnknownPacket() {

@@ -125,7 +125,7 @@ public class RequestAuthLogin extends L2LoginClientPacket
 					client.setAccount(_user);
 					client.setState(LoginClientState.AUTHED_LOGIN);
 					client.setSessionKey(lc.assignSessionKeyToClient(_user, client));
-					if (loginSettings.isEnabledShowLicence())
+					if (loginSettings.showLicense())
 					{
 						client.sendPacket(new LoginOk(getClient().getSessionKey()));
 					}

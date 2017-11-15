@@ -14,9 +14,9 @@ public class LoginSettings implements Settings{
 	private File datapackDirectory;
 	private int triesBeforeBan;
 	private int timeBlockAfterBan;
-	private boolean enabledAnyServer;
-	private boolean enabledShowLicence;
-	private boolean enabledAutoCreateAccount;
+	private boolean newServerEnabled;
+	private boolean showLicense;
+	private boolean autoCreateAccountEnabled;
 	private int fastConnectionLimit;
 	private int fastConnectionTime;
 	private int normalConnectionTime;
@@ -31,9 +31,9 @@ public class LoginSettings implements Settings{
 		triesBeforeBan = properties.getInteger("LoginTriesBeforeBan", 10);
 		timeBlockAfterBan = properties.getInteger("BlockTimeAfterBan", 600);
 		
-		enabledAnyServer  = properties.getBoolean("AllowNewServers", false);
-		enabledShowLicence = properties.getBoolean("ShowLicense", true);
-		enabledAutoCreateAccount = properties.getBoolean("AllowAutoCreateAccount", true);		
+		newServerEnabled  = properties.getBoolean("AllowNewServers", false);
+		showLicense = properties.getBoolean("ShowLicense", true);
+		autoCreateAccountEnabled = properties.getBoolean("AllowAutoCreateAccount", true);		
 		
 		fastConnectionLimit = properties.getInteger("ConnectionFastLimit", 15);
 		fastConnectionTime = properties.getInteger("ConnectionFastTime", 350);
@@ -76,16 +76,16 @@ public class LoginSettings implements Settings{
 		return timeBlockAfterBan;
 	}
 
-	public boolean isEnabledAnyServer() {
-		return enabledAnyServer;
+	public boolean isNewServerEnabled() {
+		return newServerEnabled;
 	}
 	
-	public boolean isEnabledShowLicence() {
-		return enabledShowLicence;
+	public boolean showLicense() {
+		return showLicense;
 	}
 	
-	public boolean isEnabledAutoCreateAccount() {
-		return enabledAutoCreateAccount;
+	public boolean isAutoCreateAccountEnabled() {
+		return autoCreateAccountEnabled;
 	}
 
 	public int getFastConnectionLimit() {

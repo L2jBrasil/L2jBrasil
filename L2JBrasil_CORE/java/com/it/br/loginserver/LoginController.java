@@ -530,7 +530,7 @@ public class LoginController
 			if (expected == null)
 			{
 				LoginSettings loginSettings = getSettings(LoginSettings.class);
-				if (loginSettings.isEnabledAutoCreateAccount())
+				if (loginSettings.isAutoCreateAccountEnabled())
 				{
 					if ((user.length() >= 2) && (user.length() <= 14))
 					{

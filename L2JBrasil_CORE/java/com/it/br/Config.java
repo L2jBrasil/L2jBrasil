@@ -3333,12 +3333,8 @@ public final class Config
         else if (pName.equalsIgnoreCase("ShowNpcLevel")) SHOW_NPC_LVL = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("ForceInventoryUpdate")) FORCE_INVENTORY_UPDATE = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("AutoDeleteInvalidQuestData")) AUTODELETE_INVALID_QUEST_DATA = Boolean.valueOf(pValue);
-        else if (pName.equalsIgnoreCase("MaximumOnlineUsers")) {
-        	serverSettings.setPlayerOnlineMaxCount(Integer.parseInt(pValue));
-        }
-        else if (pName.equalsIgnoreCase("UnknownPacketsBeforeBan")) {
-        	serverSettings.setMaxUnknownPacket(Integer.parseInt(pValue));
-        }
+        else if (pName.equalsIgnoreCase("MaximumOnlineUsers")) serverSettings.setPlayerOnlineMaxCount(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("UnknownPacketsBeforeBan")) serverSettings.setMaxUnknownPacket(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("ZoneTown")) ZONE_TOWN = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("MaximumUpdateDistance")) MINIMUM_UPDATE_DISTANCE = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("MinimumUpdateTime")) MINIMUN_UPDATE_TIME = Integer.parseInt(pValue);
