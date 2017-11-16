@@ -80,6 +80,7 @@ public class AdminTeleport implements IAdminCommandHandler
         admin.put("admin_teleto", Config.admin_teleto);
         admin.put("admin_instant_move", Config.admin_instant_move);
         admin.put("admin_sendhome", Config.admin_sendhome);
+        admin.put("admin_move_to", Config.admin_move_to);
     }
 
     public Set<String> getAdminCommandList()

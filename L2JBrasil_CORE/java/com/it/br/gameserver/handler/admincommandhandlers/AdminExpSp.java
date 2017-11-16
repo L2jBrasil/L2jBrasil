@@ -68,6 +68,7 @@ public class AdminExpSp implements IAdminCommandHandler
     {
         admin.put("admin_add_exp_sp", Config.admin_add_exp_sp);
         admin.put("admin_remove_exp_sp", Config.admin_remove_exp_sp);
+        admin.put("admin_add_exp_sp_to_character", Config.admin_add_exp_sp_to_character);
     }
 
     public Set<String> getAdminCommandList()

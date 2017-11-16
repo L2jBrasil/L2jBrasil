@@ -347,6 +347,7 @@ public final class Config
     // Class AdminExpSp
     public static int admin_add_exp_sp;
     public static int admin_remove_exp_sp;
+    public static int admin_add_exp_sp_to_character;
 
     // Class AdminFightCalculator
     public static int admin_fight_calculator;
@@ -592,6 +593,7 @@ public final class Config
     public static int admin_teleto;
     public static int admin_instant_move;
     public static int admin_sendhome;
+    public static int admin_move_to;
 
     // Class AdminTest
     public static int admin_test;
@@ -859,6 +861,7 @@ public final class Config
 
             admin_add_exp_sp = Integer.parseInt(gmSettings.getProperty("admin_add_exp_sp", "100"));
             admin_remove_exp_sp = Integer.parseInt(gmSettings.getProperty("admin_remove_exp_sp", "100"));
+            admin_add_exp_sp_to_character = Integer.parseInt(gmSettings.getProperty("admin_add_exp_sp_to_character", "100"));
 
             admin_fight_calculator  = Integer.parseInt(gmSettings.getProperty("admin_fight_calculator", "100"));
             admin_fight_calculator_show = Integer.parseInt(gmSettings.getProperty("admin_fight_calculator_show", "100"));
@@ -1072,6 +1075,7 @@ public final class Config
             admin_teleto = Integer.parseInt(gmSettings.getProperty("admin_teleto", "100"));
             admin_instant_move = Integer.parseInt(gmSettings.getProperty("admin_instant_move", "100"));
             admin_sendhome = Integer.parseInt(gmSettings.getProperty("admin_sendhome", "100"));
+            admin_move_to = Integer.parseInt(gmSettings.getProperty("admin_move_to", "100"));
 
             admin_test = Integer.parseInt(gmSettings.getProperty("admin_test", "100"));
             admin_stats = Integer.parseInt(gmSettings.getProperty("admin_stats", "100"));
