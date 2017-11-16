@@ -30,28 +30,56 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands: - delete = deletes target
  *
- * @version $Revision: 1.2.2.1.2.4 $ $Date: 2005/04/11 10:05:56 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminDelete implements IAdminCommandHandler
 {
-    //private static Logger _log = Logger.getLogger(AdminDelete.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {"admin_delete" };
-
-    private static final int REQUIRED_LEVEL = Config.GM_NPC_EDIT;
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-        {
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
-        }
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-        if (command.equals("admin_delete")) handleDelete(activeChar);
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminDelete()
+    {
+        admin.put("admin_delete", Config.admin_delete);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
+        if (command.equals("admin_delete"))
+            handleDelete(activeChar);
 
         String target = (activeChar.getTarget() != null ? activeChar.getTarget().getName() : "no-target");
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
@@ -59,18 +87,6 @@ public class AdminDelete implements IAdminCommandHandler
         
     }
 
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level)
-    {
-        return (level >= REQUIRED_LEVEL);
-    }
-
-    // TODO: add possibility to delete any L2Object (except L2PcInstance)
     private void handleDelete(L2PcInstance activeChar)
     {
         L2Object obj = activeChar.getTarget();
@@ -84,10 +100,10 @@ public class AdminDelete implements IAdminCommandHandler
             {
                 spawn.stopRespawn();
 
-                if (RaidBossSpawnManager.getInstance().isDefined(spawn.getNpcid())) RaidBossSpawnManager.getInstance().deleteSpawn(
-                                                                                                                                   spawn,
-                                                                                                                                   true);
-                else SpawnTable.getInstance().deleteSpawn(spawn, true);
+                if (RaidBossSpawnManager.getInstance().isDefined(spawn.getNpcid()))
+                    RaidBossSpawnManager.getInstance().deleteSpawn(spawn, true);
+                else
+                    SpawnTable.getInstance().deleteSpawn(spawn, true);
             }
 
             SystemMessage sm = new SystemMessage(SystemMessageId.S1_S2);

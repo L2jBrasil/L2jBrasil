@@ -22,10 +22,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -2643,4 +2640,30 @@ public class L2Clan
 			}
 		}
 	}
+
+    public void giveAllClanSkillsAndReputation(L2PcInstance player, int reputationQuantity)
+    {
+        for(Map.Entry<Integer, Integer> skills : Config.CLAN_SKILLS.entrySet())
+        {
+            Integer skillid = skills.getKey();
+            Integer skilllvl = skills.getValue();
+            L2Skill skill = SkillTable.getInstance().getInfo(skillid, skilllvl);
+            if(skill != null)
+                player.addSkill(skill, true);
+            addNewSkill(skill);
+            player.sendSkillList();
+        }
+
+        if(reputationQuantity > 0)
+        {
+            setReputationScore(getReputationScore() + reputationQuantity, true);
+            player.sendMessage("You received " + reputationQuantity + " from Reputation Points");
+            player.sendMessage("You got all the skills of Clan");
+        }
+
+        player.sendPacket(new PledgeShowInfoUpdate(this));
+
+        player.broadcastUserInfo();
+    }
+
 }

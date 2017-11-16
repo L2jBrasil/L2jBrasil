@@ -18,19 +18,15 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
-import com.it.br.gameserver.instancemanager.CastleManorManager.CropProcure;
-import com.it.br.gameserver.instancemanager.CastleManorManager.SeedProduction;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
+
+import java.util.*;
 
 /**
  * Admin comand handler for Manor System
@@ -44,27 +40,52 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
  * - manor_disable = disables manor system
  *
  * @author l3x
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminManor implements IAdminCommandHandler {
-    private static final String[] _adminCommands = {"admin_manor",
-            "admin_manor_approve",
-            "admin_manor_setnext",
-            "admin_manor_reset",
-            "admin_manor_setmaintenance",
-            "admin_manor_save",
-            "admin_manor_disable"};
+public class AdminManor implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-    private static final int REQUIRED_LEVEL = Config.GM_MENU;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-    public boolean useAdminCommand(String command, L2PcInstance activeChar) {
-        if (!Config.ALT_PRIVILEGES_ADMIN) {
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-                return false;
-        }
+    public AdminManor()
+    {
+        admin.put("admin_manor", Config.admin_manor);
+        admin.put("admin_manor_approve", Config.admin_manor_approve);
+        admin.put("admin_manor_setnext", Config.admin_manor_setnext);
+        admin.put("admin_manor_reset", Config.admin_manor_reset);
+        admin.put("admin_manor_setmaintenance", Config.admin_manor_setmaintenance);
+        admin.put("admin_manor_save", Config.admin_manor_save);
+        admin.put("admin_manor_disable", Config.admin_manor_disable);
+    }
 
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
         StringTokenizer st = new StringTokenizer(command);
         command = st.nextToken();
+
+        if (checkPermission(command, activeChar)) return false;
+
 
         if (command.equals("admin_manor")) {
             showMainPage(activeChar);
@@ -137,11 +158,6 @@ public class AdminManor implements IAdminCommandHandler {
         return true;
     }
 
-
-    public String[] getAdminCommandList() {
-        return _adminCommands;
-    }
-
     private String formatTime(long millis) {
         String s = "";
         int secs = (int) millis / 1000;
@@ -194,9 +210,5 @@ public class AdminManor implements IAdminCommandHandler {
 
         adminReply.setHtml(replyMSG.toString());
         activeChar.sendPacket(adminReply);
-    }
-
-    private boolean checkLevel(int level) {
-        return (level >= REQUIRED_LEVEL);
     }
 }

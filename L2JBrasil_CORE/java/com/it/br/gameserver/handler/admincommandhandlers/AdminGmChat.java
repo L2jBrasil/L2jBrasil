@@ -18,32 +18,59 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
-import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 public class AdminGmChat implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = 
-	{
-		"admin_gmchat",
-		"admin_snoop",
-		"admin_gmchat_menu"
-	};
-	
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+    private static Map<String, Integer> admin = new HashMap<>();
+
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminGmChat()
+    {
+        admin.put("admin_gmchat", Config.admin_gmchat);
+        admin.put("admin_snoop", Config.admin_snoop);
+        admin.put("admin_gmchat_menu", Config.admin_gmchat_menu);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_gmchat"))
 			handleGmChat(command, activeChar);
@@ -96,15 +123,5 @@ public class AdminGmChat implements IAdminCommandHandler
 			GmListTable.broadcastToGMs(cs);
 		}
 		catch (StringIndexOutOfBoundsException e){}
-	}
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 }

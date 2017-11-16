@@ -26,40 +26,64 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - target name = sets player with respective name as target
  *
- * @version $Revision: 1.2.4.3 $ $Date: 2005/04/11 10:05:56 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminTarget implements IAdminCommandHandler {
+public class AdminTarget implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = { "admin_target" };
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminTarget()
+    {
+        admin.put("admin_target", Config.admin_target);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_target")) handleTarget(command, activeChar);
 		return true;
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void handleTarget(String command, L2PcInstance activeChar) {
 		try {
 			String targetName = command.substring(13);
 			L2Object obj = L2World.getInstance().getPlayer(targetName);
-			if ((obj != null) && (obj instanceof L2PcInstance)) {
+			if (obj != null) {
 				obj.onAction(activeChar);
 			} else {
 				SystemMessage sm = new SystemMessage(SystemMessageId.S1_S2);

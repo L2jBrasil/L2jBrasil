@@ -11813,28 +11813,6 @@ public final class L2PcInstance extends L2PlayableInstance
         sendPacket(new SpecialCamera(l2object.getObjectId(), i, j, k, l, i1));
     }
 
-    public void ClanSkills()
-    {
-        for(Iterator<Integer> i$ = Config.CLAN_SKILLS.keySet().iterator(); i$.hasNext(); broadcastUserInfo())
-        {
-            Integer skillid = i$.next();
-            int skilllvl = Config.CLAN_SKILLS.get(skillid).intValue();
-            L2Skill skill = SkillTable.getInstance().getInfo(skillid.intValue(), skilllvl);
-            if(skill != null)
-                addSkill(skill, true);
-            getClan().addNewSkill(skill);
-            sendSkillList();
-        }
-
-        L2Clan clan = getClan();
-        clan.setReputationScore(clan.getReputationScore() + Config.REPUTATION_QUANTITY, true);
-        sendMessage("You received " + Config.REPUTATION_QUANTITY + " from Reputation Points");
-        sendMessage("You got all the skills of Clan");
-        sendPacket(new PledgeShowInfoUpdate(clan));
-        
-        
-    }
-
 	public boolean isAway()
 	{
 		return _isAway;

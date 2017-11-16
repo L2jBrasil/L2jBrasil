@@ -23,33 +23,60 @@ import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  *
  * @author  -Nemesiss-
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminGeodata implements IAdminCommandHandler
 {
-	//private static Logger _log = Logger.getLogger(AdminKill.class.getName());
-	private static final String[] ADMIN_COMMANDS =
-		{
-		"admin_geo_z",
-		"admin_geo_type",
-		"admin_geo_nswe",
-		"admin_geo_los",
-		"admin_geo_position",
-		"admin_geo_bug",
-		"admin_geo_load",
-		"admin_geo_unload"
-		};
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-
-	@SuppressWarnings("deprecation")
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-            	return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminGeodata()
+    {
+        admin.put("admin_geo_z", Config.admin_geo_z);
+        admin.put("admin_geo_type", Config.admin_geo_type);
+        admin.put("admin_geo_nswe", Config.admin_geo_nswe);
+        admin.put("admin_geo_los", Config.admin_geo_los);
+        admin.put("admin_geo_position", Config.admin_geo_position);
+        admin.put("admin_geo_bug", Config.admin_geo_bug);
+        admin.put("admin_geo_load", Config.admin_geo_load);
+        admin.put("admin_geo_unload", Config.admin_geo_unload);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		String target = (activeChar.getTarget() != null) ? activeChar.getTarget().getName() : "no-target";
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
@@ -152,16 +179,4 @@ public class AdminGeodata implements IAdminCommandHandler
         }
 		return true;
 	}
-
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
-
 }

@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
@@ -30,32 +28,66 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
+
 /**
  * This class handles following admin commands:
  * - heal = restores HP/MP/CP on target, name or radius
  *
- * @version $Revision: 1.2.4.5 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminHeal implements IAdminCommandHandler {
+public class AdminHeal implements IAdminCommandHandler
+{
 	private static Logger _log = Logger.getLogger(AdminRes.class.getName());
-	private static final String[] ADMIN_COMMANDS = { "admin_heal" };
-	private static final int REQUIRED_LEVEL = Config.GM_HEAL;
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminHeal()
+    {
+        admin.put("admin_heal", Config.admin_heal);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target"), "");
 
-		if (command.equals("admin_heal")) handleRes(activeChar);
+		if (command.equals("admin_heal")) handleHeal(activeChar);
 		else if (command.startsWith("admin_heal"))
 		{
 			try
 			{
 				String healTarget = command.substring(11);
-				handleRes(activeChar, healTarget);
+				handleHeal(activeChar, healTarget);
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
@@ -69,21 +101,12 @@ public class AdminHeal implements IAdminCommandHandler {
 		return true;
 	}
 
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
-	}
-
-	private void handleRes(L2PcInstance activeChar)
+	private void handleHeal(L2PcInstance activeChar)
 	{
-		handleRes(activeChar, null);
+		handleHeal(activeChar, null);
 	}
 
-	private void handleRes(L2PcInstance activeChar, String player) {
+	private void handleHeal(L2PcInstance activeChar, String player) {
 
 		L2Object obj = activeChar.getTarget();
 		if (player != null)

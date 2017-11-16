@@ -1,5 +1,6 @@
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import com.it.br.Config;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -7,6 +8,11 @@ import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2Party;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 
 /**
@@ -16,13 +22,48 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
  * - recallally
  * 
  * @author  Yamaneko
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminMassRecall implements IAdminCommandHandler
 {
-    private static String[] _adminCommands = {"admin_recallclan", "admin_recallparty", "admin_recallally"};
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminMassRecall()
+    {
+        admin.put("admin_recallclan", Config.admin_recallclan);
+        admin.put("admin_recallparty", Config.admin_recallparty);
+        admin.put("admin_recallally", Config.admin_recallally);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
         if (command.startsWith("admin_recallclan"))
         {
         	try
@@ -119,11 +160,5 @@ public class AdminMassRecall implements IAdminCommandHandler
     	player.sendMessage(Message);
     	player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
     	player.teleToLocation(X, Y, Z, true);
-    }
-
-
-	public String[] getAdminCommandList()
-    {
-        return _adminCommands;
     }
 }

@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.io.File;
-
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.ServerSettings;
@@ -29,39 +27,59 @@ import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * @author Layanere
  *
  */
 public class AdminCache implements IAdminCommandHandler
 {
-	private static final int   REQUIRED_LEVEL  = Config.GM_CACHE;
-	private static final String[] ADMIN_COMMANDS  =
-		{
-		"admin_cache_htm_rebuild",
-		"admin_cache_htm_reload",
-		"admin_cache_reload_path",
-		"admin_cache_reload_file",
-		"admin_cache_crest_fix"
-		};
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
+    public AdminCache()
+    {
+        admin.put("admin_cache_htm_rebuild", Config.admin_cache_htm_rebuild);
+        admin.put("admin_cache_htm_reload", Config.admin_cache_htm_reload);
+        admin.put("admin_cache_reload_path", Config.admin_cache_reload_path);
+        admin.put("admin_cache_reload_file", Config.admin_cache_reload_file);
+        admin.put("admin_cache_crest_fix", Config.admin_cache_crest_fix);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
-		if (!Config.ALT_PRIVILEGES_ADMIN) {
-			
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) {
-				return false;
-			}
-		}
+    StringTokenizer st = new StringTokenizer(command);
+    String commandName = st.nextToken();
 
+    if(checkPermission(commandName, activeChar)) return false;
+
+    ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
 		File datapackDirectory = serverSettings.getDatapackDirectory();
 		if (command.startsWith("admin_cache_htm_rebuild") || command.equals("admin_cache_htm_reload"))
 		{
@@ -109,10 +127,4 @@ public class AdminCache implements IAdminCommandHandler
 		GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 		return true;
 	}
-
-	private static boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
-
 }

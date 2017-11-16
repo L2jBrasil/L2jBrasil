@@ -50,7 +50,7 @@ import com.it.br.gameserver.util.StringUtil;
  * away debug/unused code.
  *
  * @author by Guma
- * @reworked by *Slayer
+ * @reworked by Tayran
  */
 public final class Config
 {
@@ -122,44 +122,505 @@ public final class Config
     public static boolean GM_STARTUP_DIET;
     public static boolean GM_WELCOME_HTM;
     public static int GM_ACCESSLEVEL;
-    public static int GM_MIN;
     public static int GM_ALTG_MIN_LEVEL;
-    public static int GM_ANNOUNCE;
-    public static int GM_BAN;
-    public static int GM_BAN_CHAT;
-    public static int GM_CREATE_ITEM;
-    public static int GM_DELETE;
-    public static int GM_KICK;
-    public static int GM_MENU;
-    public static int GM_GODMODE;
-    public static int GM_CHAR_EDIT;
-    public static int GM_CHAR_EDIT_OTHER;
-    public static int GM_CHAR_VIEW;
-    public static int GM_NPC_EDIT;
-    public static int GM_NPC_VIEW;
-    public static int GM_TELEPORT;
-    public static int GM_TELEPORT_OTHER;
-    public static int GM_RESTART;
-    public static int GM_MONSTERRACE;
-    public static int GM_RIDER;
+
     public static int GM_ESCAPE;
-    public static int GM_FIXED;
-    public static int GM_CREATE_NODES;
-    public static int GM_ENCHANT;
-    public static int GM_DOOR;
-    public static int GM_RES;
     public static int GM_PEACEATTACK;
-    public static int GM_HEAL;
-    public static int GM_UNBLOCK;
-    public static int GM_CACHE;
-    public static int GM_TALK_BLOCK;
-    public static int GM_TEST;
-    public static int GM_REPAIR;
-    public static int GM_VIP;
-   	public static int GM_AIO;
+
+
     // ============================================================
 
-	public static void loadGMAcessConfig()
+    // Class AdminAdmin
+    public static int admin_admin;
+    public static int admin_admin1;
+    public static int admin_admin2;
+    public static int admin_admin3;
+    public static int admin_admin4;
+    public static int admin_admin5;
+    public static int admin_gmliston;
+    public static int admin_gmlistoff;
+    public static int admin_silence;
+    public static int admin_diet;
+    public static int admin_tradeoff;
+    public static int admin_reload;
+    public static int admin_set;
+    public static int admin_set_menu;
+    public static int admin_set_mod;
+    public static int admin_saveolymp;
+    public static int admin_manualhero;
+
+    // Class AdminAio
+    public static int admin_setaio;
+    public static int admin_removeaio;
+
+    // Class AdminAnnouncements
+    public static int admin_list_announcements;
+    public static int admin_reload_announcements;
+    public static int admin_announce_announcements;
+    public static int admin_add_announcement;
+    public static int admin_del_announcement;
+    public static int admin_announce;
+    public static int admin_announce_menu;
+
+    // Class AdminAutoAnnouncements
+    public static int admin_list_autoannouncements;
+    public static int admin_add_autoannouncement;
+    public static int admin_del_autoannouncement;
+    public static int admin_autoannounce;
+
+    // Class AdminBan
+    public static int admin_ban;
+    public static int admin_unban;
+    public static int admin_jail;
+    public static int admin_unjail;
+
+    // Class AdminBanChat
+    public static int admin_banchat;
+    public static int admin_unbanchat;
+
+    // Class AdminBBS
+    public static int admin_bbs;
+
+    // Class AdminCache
+    public static int admin_cache_htm_rebuild;
+    public static int admin_cache_htm_reload;
+    public static int admin_cache_reload_path;
+    public static int admin_cache_reload_file;
+    public static int admin_cache_crest_fix;
+
+    // Class AdminChangeAccessLevel
+    public static int admin_changelvl;
+
+    // Class AdminClanFull
+    public static int admin_clanfull;
+
+    // Class AdminCreateItem
+    public static int admin_itemcreate;
+    public static int admin_create_item;
+    public static int admin_mass_create;
+
+    // Class AdminCursedWeapons
+    public static int admin_cw_info;
+    public static int admin_cw_remove;
+    public static int admin_cw_goto;
+    public static int admin_cw_reload;
+    public static int admin_cw_add;
+    public static int admin_cw_info_menu;
+
+    // Class AdminDebug
+    public static int admin_debug;
+
+    // Class AdminDelete
+    public static int admin_delete;
+
+    //Class AdminDisconnect
+    public static int admin_character_disconnect;
+
+    // Class AdminDoorControl
+    public static int admin_open;
+    public static int admin_close;
+    public static int admin_openall;
+    public static int admin_closeall;
+
+    // Class AdminEditChar
+    public static int admin_edit_character;
+    public static int admin_current_player;
+    public static int admin_nokarma;
+    public static int admin_setkarma;
+    public static int admin_character_list;
+    public static int admin_character_info;
+    public static int admin_show_characters;
+    public static int admin_find_character;
+    public static int admin_find_ip;
+    public static int admin_find_account;
+    public static int admin_save_modifications;
+    public static int admin_rec;
+    public static int admin_settitle;
+    public static int admin_setname;
+    public static int admin_setsex;
+    public static int admin_setcolor;
+    public static int admin_setclass;
+    public static int admin_fullfood;
+    public static int admin_sethero;
+    public static int admin_setnoble;
+
+    // Class AdminEditNpc
+    public static int admin_edit_npc;
+    public static int admin_save_npc;
+    public static int admin_show_droplist;
+    public static int admin_edit_drop;
+    public static int admin_add_drop;
+    public static int admin_del_drop;
+    public static int admin_showShop;
+    public static int admin_showShopList;
+    public static int admin_addShopItem;
+	public static int admin_delShopItem;
+    public static int admin_box_access;
+    public static int admin_editShopItem;
+    public static int admin_close_window;
+    public static int admin_show_skilllist_npc;
+    public static int admin_add_skill_npc;
+    public static int admin_edit_skill_npc;
+    public static int admin_del_skill_npc;
+
+    // Class AdminEffects
+    public static int admin_invis;
+    public static int admin_invisible;
+    public static int admin_vis;
+    public static int admin_invis_menu;
+    public static int admin_earthquake;
+    public static int admin_earthquake_menu;
+    public static int admin_bighead;
+    public static int admin_shrinkhead;
+    public static int admin_gmspeed;
+    public static int admin_gmspeed_menu;
+    public static int admin_unpara_all;
+    public static int admin_para_all;
+    public static int admin_unpara;
+    public static int admin_para;
+    public static int admin_unpara_all_menu;
+    public static int admin_para_all_menu;
+    public static int admin_unpara_menu;
+    public static int admin_para_menu;
+    public static int admin_polyself;
+    public static int admin_unpolyself;
+    public static int admin_polyself_menu;
+    public static int admin_unpolyself_menu;
+    public static int admin_changename;
+    public static int admin_setteam_close;
+    public static int admin_setteam;
+    public static int admin_social;
+    public static int admin_effect;
+    public static int admin_social_menu;
+    public static int admin_effect_menu;
+    public static int admin_abnormal;
+    public static int admin_abnormal_menu;
+    public static int admin_play_sounds;
+    public static int admin_play_sound;
+    public static int admin_atmosphere;
+    public static int admin_atmosphere_menu;
+
+    // Class AdminEnchant
+    public static int admin_seteh;
+    public static int admin_setec;
+    public static int admin_seteg;
+    public static int admin_setel;
+    public static int admin_seteb;
+    public static int admin_setew;
+    public static int admin_setes;
+    public static int admin_setle;
+    public static int admin_setre;
+    public static int admin_setlf;
+    public static int admin_setrf;
+    public static int admin_seten;
+    public static int admin_setun;
+    public static int admin_setba;
+    public static int admin_enchant;
+
+    // Class AdminEventEngine
+    public static int admin_event;
+    public static int admin_event_new;
+    public static int admin_event_choose;
+    public static int admin_event_store;
+    public static int admin_event_set;
+    public static int admin_event_change_teams_number;
+    public static int admin_event_announce;
+    public static int admin_event_panel;
+    public static int admin_event_control_begin;
+    public static int admin_event_control_teleport;
+    public static int admin_add;
+    public static int admin_event_see;
+    public static int admin_event_del;
+    public static int admin_delete_buffer;
+    public static int admin_event_control_sit;
+    public static int admin_event_name;
+    public static int admin_event_control_kill;
+    public static int admin_event_control_res;
+    public static int admin_event_control_poly;
+    public static int admin_event_control_unpoly;
+    public static int admin_event_control_prize;
+    public static int admin_event_control_chatban;
+    public static int admin_event_control_finish;
+
+    // Class AdminExpSp
+    public static int admin_add_exp_sp;
+    public static int admin_remove_exp_sp;
+    public static int admin_add_exp_sp_to_character;
+
+    // Class AdminFightCalculator
+    public static int admin_fight_calculator;
+    public static int admin_fight_calculator_show;
+    public static int admin_fcs;
+
+    // Class AdminGeodata
+    public static int admin_geo_z;
+    public static int admin_geo_type;
+    public static int admin_geo_nswe;
+    public static int admin_geo_los;
+    public static int admin_geo_position;
+    public static int admin_geo_bug;
+    public static int admin_geo_load;
+    public static int admin_geo_unload;
+
+    // Class AdminGeoEditor
+    public static int admin_ge_status;
+    public static int admin_ge_mode;
+    public static int admin_ge_join;
+    public static int admin_ge_leave;
+
+    // Class AdminGm
+    public static int admin_gm;
+
+    // Class AdminGmChat
+    public static int admin_gmchat;
+    public static int admin_snoop;
+    public static int admin_gmchat_menu;
+
+    // Class AdminHeal
+    public static int admin_heal;
+
+    // Class AdminHelpPage
+    public static int admin_help;
+
+    // Class AdminInvul
+    public static int admin_invul;
+    public static int admin_setinvul;
+
+    // Class AdminKick
+    public static int admin_kick;
+    public static int admin_kick_non_gm;
+
+    // Class AdminKill
+    public static int admin_kill;
+    public static int admin_kill_monster;
+
+    // Class AdminLevel
+    public static int admin_remlevel;
+    public static int admin_addlevel;
+    public static int admin_setlevel;
+
+    // Class AdminLogin
+    public static int admin_server_gm_only;
+    public static int admin_server_all;
+    public static int admin_server_max_player;
+    public static int admin_server_list_clock;
+    public static int admin_server_login;
+
+    // Class AdminMammon
+    public static int admin_mammon_find;
+    public static int admin_mammon_respawn;
+    public static int admin_list_spawns;
+    public static int admin_msg;
+
+    // Class AdminManor
+    public static int admin_manor;
+    public static int admin_manor_approve;
+    public static int admin_manor_setnext;
+    public static int admin_manor_reset;
+    public static int admin_manor_setmaintenance;
+    public static int admin_manor_save;
+    public static int admin_manor_disable;
+
+    // Class AdminMassHero
+    public static int admin_masshero;
+    public static int admin_allhero;
+
+    // Class AdminMassRecall
+    public static int admin_recallclan;
+    public static int admin_recallparty;
+    public static int admin_recallally;
+
+    // Class AdminMassRecall
+    public static int admin_char_manage;
+    public static int admin_teleport_character_to_menu;
+    public static int admin_recall_char_menu;
+    public static int admin_recall_party_menu;
+    public static int admin_recall_clan_menu;
+    public static int admin_goto_char_menu;
+    public static int admin_kick_menu;
+    public static int admin_ban_menu;
+    public static int admin_unban_menu;
+
+    // Class AdminMobGroup
+    public static int admin_mobmenu;
+    public static int admin_mobgroup_list;
+    public static int admin_mobgroup_create;
+    public static int admin_mobgroup_remove;
+    public static int admin_mobgroup_delete;
+    public static int admin_mobgroup_idle;
+    public static int admin_mobgroup_attack;
+    public static int admin_mobgroup_rnd;
+    public static int admin_mobgroup_return;
+    public static int admin_mobgroup_follow;
+    public static int admin_mobgroup_casting;
+    public static int admin_mobgroup_nomove;
+    public static int admin_mobgroup_attackgrp;
+    public static int admin_mobgroup_invul;
+    public static int admin_mobinst;
+
+    // Class AdminMonsterRace
+    public static int admin_mons;
+
+    // Class AdminPathNode
+    public static int admin_pn_info;
+    public static int admin_show_path;
+    public static int admin_path_debug;
+    public static int admin_show_pn;
+    public static int admin_find_path;
+
+    // Class AdminPetition
+    public static int admin_view_petitions;
+    public static int admin_view_petition;
+    public static int admin_accept_petition;
+    public static int admin_reject_petition;
+    public static int admin_reset_petitions;
+    public static int admin_force_peti;
+    public static int admin_add_peti_chat;
+
+    // Class AdminPForge
+    public static int admin_forge;
+    public static int admin_forge2;
+    public static int admin_forge3;
+
+    // Class AdminPledge
+    public static int admin_pledge;
+
+    // Class AdminPolymorph
+    public static int admin_polymorph;
+    public static int admin_unpolymorph;
+    public static int admin_polymorph_menu;
+    public static int admin_unpolymorph_menu;
+
+    // Class AdminQuest
+    public static int admin_quest_reload;
+
+    // Class AdminRecallAll
+    public static int admin_recallall;
+
+    // Class AdminRepairChar
+    public static int admin_restore;
+    public static int admin_repair;
+
+    // Class AdminRes
+    public static int admin_res;
+    public static int admin_res_monster;
+
+    // Class AdminRideWynvern
+    public static int admin_ride_wyvern;
+    public static int admin_ride_strider;
+    public static int admin_unride_wyvern;
+    public static int admin_unride_strider;
+    public static int admin_unride;
+
+    // Class AdminShop
+    public static int admin_buy;
+    public static int admin_gmshop;
+
+    // Class AdminShutdown
+    public static int admin_server_shutdown;
+    public static int admin_server_restart;
+    public static int admin_server_abort;
+
+    // Class AdminSiege
+    public static int admin_siege;
+    public static int admin_add_attacker;
+    public static int admin_add_defender;
+    public static int admin_add_guard;
+    public static int admin_list_siege_clans;
+    public static int admin_clear_siege_list;
+    public static int admin_move_defenders;
+    public static int admin_spawn_doors;
+    public static int admin_endsiege;
+    public static int admin_startsiege;
+    public static int admin_setcastle;
+    public static int admin_removecastle;
+    public static int admin_clanhall;
+    public static int admin_clanhallset;
+    public static int admin_clanhalldel;
+    public static int admin_clanhallopendoors;
+    public static int admin_clanhallclosedoors;
+    public static int admin_clanhallteleportself;
+
+    // Class AdminSkill
+    public static int admin_show_skills;
+    public static int admin_remove_skills;
+    public static int admin_skill_list;
+    public static int admin_skill_index;
+    public static int admin_add_skill;
+    public static int admin_remove_skill;
+    public static int admin_get_skills;
+    public static int admin_reset_skills;
+    public static int admin_give_all_skills;
+    public static int admin_remove_all_skills;
+    public static int admin_add_clan_skill;
+
+    // Class AdminSpawn
+    public static int admin_show_spawns;
+    public static int admin_spawn;
+    public static int admin_spawn_monster;
+    public static int admin_spawn_index;
+    public static int admin_unspawnall;
+    public static int admin_respawnall;
+    public static int admin_spawn_reload;
+    public static int admin_npc_index;
+    public static int admin_spawn_once;
+    public static int admin_show_npcs;
+    public static int admin_teleport_reload;
+    public static int admin_spawnnight;
+    public static int admin_spawnday;
+
+    // Class AdminTarget
+    public static int admin_target;
+
+    // Class AdminTeleport
+    public static int admin_show_moves;
+    public static int admin_show_moves_other;
+    public static int admin_show_teleport;
+    public static int admin_teleport_to_character;
+    public static int admin_recall;
+    public static int admin_walk;
+    public static int admin_explore;
+    public static int admin_recall_npc;
+    public static int admin_gonorth;
+    public static int admin_gosouth;
+    public static int admin_goeast;
+    public static int admin_gowest;
+    public static int admin_goup;
+    public static int admin_godown;
+    public static int admin_tele;
+    public static int admin_teleto;
+    public static int admin_instant_move;
+    public static int admin_sendhome;
+    public static int admin_move_to;
+
+    // Class AdminTest
+    public static int admin_test;
+    public static int admin_stats;
+    public static int admin_skill_test;
+    public static int admin_st;
+    public static int admin_mp;
+    public static int admin_known;
+
+    // Class AdminTvTEvent
+    public static int admin_tvt_add;
+    public static int admin_tvt_remove;
+    public static int admin_tvt_advance;
+
+    // Class AdminUnblockIp
+    public static int admin_unblockip;
+
+   // Class AdminVip
+    public static int admin_setvip;
+    public static int admin_removevip;
+
+   // Class AdminZone
+    public static int admin_zone_check;
+    public static int admin_zone_reload;
+
+
+    // ============================================================
+
+    public static void loadGMAcessConfig()
 	{
 	    try(InputStream is = new FileInputStream(new File(ADMIN_FILE)))
 	    {
@@ -198,61 +659,458 @@ public final class Config
 	        GM_STARTUP_INVISIBLE = Boolean.parseBoolean(gmSettings.getProperty("GMStartupInvisible", "True"));
             GM_GIVE_SPECIAL_SKILLS = Boolean.parseBoolean(gmSettings.getProperty("GMGiveSpecialSkills", "False"));
             GM_SPECIAL_EFFECT = Boolean.parseBoolean(gmSettings.getProperty("GMLoginSpecialEffect", "False"));
-	        GM_STARTUP_SILENCE = Boolean.parseBoolean(gmSettings.getProperty("GMStartupSilence", "True"));
-	        GM_STARTUP_AUTO_LIST = Boolean.parseBoolean(gmSettings.getProperty("GMStartupAutoList", "True"));
+            GM_STARTUP_SILENCE = Boolean.parseBoolean(gmSettings.getProperty("GMStartupSilence", "True"));
+            GM_STARTUP_AUTO_LIST = Boolean.parseBoolean(gmSettings.getProperty("GMStartupAutoList", "True"));
             GM_STARTUP_DIET = Boolean.parseBoolean(gmSettings.getProperty("GMStartupDiet", "False"));
-	        GM_WELCOME_HTM = Boolean.parseBoolean(gmSettings.getProperty("GMWelcomeHtm", "False"));
-	        GM_ACCESSLEVEL = Integer.parseInt(gmSettings.getProperty("GMAccessLevel", "100"));
-	        GM_MIN = Integer.parseInt(gmSettings.getProperty("GMMinLevel", "100"));
-	        GM_ALTG_MIN_LEVEL = Integer.parseInt(gmSettings.getProperty("GMCanAltG", "100"));
-	        GM_ANNOUNCE = Integer.parseInt(gmSettings.getProperty("GMCanAnnounce", "100"));
-	        GM_BAN = Integer.parseInt(gmSettings.getProperty("GMCanBan", "100"));
-	        GM_BAN_CHAT = Integer.parseInt(gmSettings.getProperty("GMCanBanChat", "100"));
-	        GM_CREATE_ITEM = Integer.parseInt(gmSettings.getProperty("GMCanShop", "100"));
-	        GM_DELETE = Integer.parseInt(gmSettings.getProperty("GMCanDelete", "100"));
-	        GM_KICK = Integer.parseInt(gmSettings.getProperty("GMCanKick", "100"));
-	        GM_MENU = Integer.parseInt(gmSettings.getProperty("GMMenu", "100"));
-	        GM_GODMODE = Integer.parseInt(gmSettings.getProperty("GMGodMode", "100"));
-	        GM_CHAR_EDIT = Integer.parseInt(gmSettings.getProperty("GMCanEditChar", "100"));
-	        GM_CHAR_EDIT_OTHER = Integer.parseInt(gmSettings.getProperty("GMCanEditCharOther", "100"));
-	        GM_CHAR_VIEW = Integer.parseInt(gmSettings.getProperty("GMCanViewChar", "100"));
-	        GM_NPC_EDIT = Integer.parseInt(gmSettings.getProperty("GMCanEditNPC", "100"));
-	        GM_NPC_VIEW = Integer.parseInt(gmSettings.getProperty("GMCanViewNPC", "100"));
-	        GM_TELEPORT = Integer.parseInt(gmSettings.getProperty("GMCanTeleport", "100"));
-	        GM_TELEPORT_OTHER = Integer.parseInt(gmSettings.getProperty("GMCanTeleportOther", "100"));
-	        GM_RESTART  = Integer.parseInt(gmSettings.getProperty("GMCanRestart", "100"));
-	        GM_MONSTERRACE = Integer.parseInt(gmSettings.getProperty("GMMonsterRace", "100"));
-	        GM_RIDER = Integer.parseInt(gmSettings.getProperty("GMRider", "100"));
-	        GM_ESCAPE = Integer.parseInt(gmSettings.getProperty("GMFastUnstuck", "100"));
-	        GM_FIXED = Integer.parseInt(gmSettings.getProperty("GMResurectFixed", "100"));
-	        GM_CREATE_NODES = Integer.parseInt(gmSettings.getProperty("GMCreateNodes", "100"));
-	        GM_ENCHANT = Integer.parseInt(gmSettings.getProperty("GMEnchant", "100"));
-	        GM_DOOR = Integer.parseInt(gmSettings.getProperty("GMDoor", "100"));
-	        GM_RES = Integer.parseInt(gmSettings.getProperty("GMRes", "100"));
-	        GM_PEACEATTACK = Integer.parseInt(gmSettings.getProperty("GMPeaceAttack", "100"));
-	        GM_HEAL = Integer.parseInt(gmSettings.getProperty("GMHeal", "100"));
-	        GM_UNBLOCK = Integer.parseInt(gmSettings.getProperty("GMUnblock", "100"));
-	        GM_CACHE = Integer.parseInt(gmSettings.getProperty("GMCache", "100"));
-	        GM_TALK_BLOCK = Integer.parseInt(gmSettings.getProperty("GMTalkBlock", "100"));
-	        GM_TEST = Integer.parseInt(gmSettings.getProperty("GMTest", "100"));
-	        GM_REPAIR = Integer.parseInt(gmSettings.getProperty("GMRepair", "100"));
-	        GM_VIP = Integer.parseInt(gmSettings.getProperty("GMVip", "100"));
-	        GM_AIO = Integer.parseInt(gmSettings.getProperty("GMAio", "100"));
-	    }
+            GM_WELCOME_HTM = Boolean.parseBoolean(gmSettings.getProperty("GMWelcomeHtm", "False"));
+            GM_ALTG_MIN_LEVEL = Integer.parseInt(gmSettings.getProperty("GMCanAltG", "100"));
+            GM_ESCAPE = Integer.parseInt(gmSettings.getProperty("GMFastUnstuck", "100"));
+            GM_PEACEATTACK = Integer.parseInt(gmSettings.getProperty("GMPeaceAttack", "100"));
+            admin_admin = Integer.parseInt(gmSettings.getProperty("admin_admin", "100"));
+            admin_admin1 = Integer.parseInt(gmSettings.getProperty("admin_admin1", "100"));
+            admin_admin2 = Integer.parseInt(gmSettings.getProperty("admin_admin2", "100"));
+            admin_admin3 = Integer.parseInt(gmSettings.getProperty("admin_admin3", "100"));
+            admin_admin4 = Integer.parseInt(gmSettings.getProperty("admin_admin4", "100"));
+            admin_admin5 = Integer.parseInt(gmSettings.getProperty("admin_admin5", "100"));
+
+            admin_gmliston = Integer.parseInt(gmSettings.getProperty("admin_gmliston", "100"));
+            admin_gmlistoff = Integer.parseInt(gmSettings.getProperty("admin_gmlistoff", "100"));
+            admin_silence = Integer.parseInt(gmSettings.getProperty("admin_silence", "100"));
+            admin_diet = Integer.parseInt(gmSettings.getProperty("admin_diet", "100"));
+            admin_tradeoff = Integer.parseInt(gmSettings.getProperty("admin_tradeoff", "100"));
+            admin_reload = Integer.parseInt(gmSettings.getProperty("admin_reload", "100"));
+            admin_set = Integer.parseInt(gmSettings.getProperty("admin_set", "100"));
+            admin_set_menu = Integer.parseInt(gmSettings.getProperty("admin_set_menu", "100"));
+            admin_set_mod = Integer.parseInt(gmSettings.getProperty("admin_set_mod", "100"));
+            admin_saveolymp = Integer.parseInt(gmSettings.getProperty("admin_saveolymp", "100"));
+            admin_manualhero = Integer.parseInt(gmSettings.getProperty("admin_manualhero", "100"));
+
+            admin_setaio = Integer.parseInt(gmSettings.getProperty("admin_setaio", "100"));
+            admin_removeaio = Integer.parseInt(gmSettings.getProperty("admin_removeaio", "100"));
+
+            admin_reload_announcements = Integer.parseInt(gmSettings.getProperty("admin_reload_announcements", "100"));
+            admin_announce_announcements = Integer.parseInt(gmSettings.getProperty("admin_announce_announcements", "100"));
+            admin_add_announcement = Integer.parseInt(gmSettings.getProperty("admin_add_announcement", "100"));
+            admin_del_announcement = Integer.parseInt(gmSettings.getProperty("admin_del_announcement", "100"));
+            admin_announce = Integer.parseInt(gmSettings.getProperty("admin_announce", "100"));
+            admin_announce_menu = Integer.parseInt(gmSettings.getProperty("admin_announce_menu", "100"));
+
+            admin_list_autoannouncements = Integer.parseInt(gmSettings.getProperty("admin_list_autoannouncements", "100"));
+            admin_add_autoannouncement = Integer.parseInt(gmSettings.getProperty("admin_add_autoannouncement", "100"));
+            admin_del_autoannouncement = Integer.parseInt(gmSettings.getProperty("admin_del_autoannouncement", "100"));
+            admin_autoannounce = Integer.parseInt(gmSettings.getProperty("admin_autoannounce", "100"));
+
+            admin_ban = Integer.parseInt(gmSettings.getProperty("admin_ban", "100"));
+            admin_unban = Integer.parseInt(gmSettings.getProperty("admin_unban", "100"));
+            admin_jail = Integer.parseInt(gmSettings.getProperty("admin_jail", "100"));
+            admin_unjail = Integer.parseInt(gmSettings.getProperty("admin_unjail", "100"));
+
+            admin_banchat = Integer.parseInt(gmSettings.getProperty("admin_banchat", "100"));
+            admin_unbanchat = Integer.parseInt(gmSettings.getProperty("admin_unbanchat", "100"));
+
+            admin_bbs = Integer.parseInt(gmSettings.getProperty("admin_bbs", "100"));
+
+            admin_cache_htm_rebuild = Integer.parseInt(gmSettings.getProperty("admin_cache_htm_rebuild", "100"));
+            admin_cache_htm_reload = Integer.parseInt(gmSettings.getProperty("admin_cache_htm_reload", "100"));
+            admin_cache_reload_path = Integer.parseInt(gmSettings.getProperty("admin_cache_reload_path", "100"));
+            admin_cache_reload_file = Integer.parseInt(gmSettings.getProperty("admin_cache_reload_file", "100"));
+            admin_cache_crest_fix = Integer.parseInt(gmSettings.getProperty("admin_cache_crest_fix", "100"));
+
+            admin_changelvl = Integer.parseInt(gmSettings.getProperty("admin_changelvl", "100"));
+
+            admin_clanfull = Integer.parseInt(gmSettings.getProperty("admin_clanfull", "100"));
+
+            admin_itemcreate = Integer.parseInt(gmSettings.getProperty("admin_itemcreate", "100"));
+            admin_create_item = Integer.parseInt(gmSettings.getProperty("admin_create_item", "100"));
+            admin_mass_create = Integer.parseInt(gmSettings.getProperty("admin_mass_create", "100"));
+
+            admin_cw_info = Integer.parseInt(gmSettings.getProperty("admin_cw_info", "100"));
+            admin_cw_remove = Integer.parseInt(gmSettings.getProperty("admin_cw_remove", "100"));
+            admin_cw_goto = Integer.parseInt(gmSettings.getProperty("admin_cw_goto", "100"));
+            admin_cw_reload = Integer.parseInt(gmSettings.getProperty("admin_cw_reload", "100"));
+            admin_cw_add = Integer.parseInt(gmSettings.getProperty("admin_cw_add", "100"));
+            admin_cw_info_menu = Integer.parseInt(gmSettings.getProperty("admin_cw_info_menu", "100"));
+
+            admin_debug = Integer.parseInt(gmSettings.getProperty("admin_debug", "100"));
+
+            admin_delete = Integer.parseInt(gmSettings.getProperty("admin_delete", "100"));
+
+            admin_character_disconnect = Integer.parseInt(gmSettings.getProperty("admin_character_disconnect", "100"));
+
+            admin_open = Integer.parseInt(gmSettings.getProperty("admin_open", "100"));
+            admin_close = Integer.parseInt(gmSettings.getProperty("admin_close", "100"));
+            admin_openall = Integer.parseInt(gmSettings.getProperty("admin_openall", "100"));
+            admin_closeall = Integer.parseInt(gmSettings.getProperty("admin_closeall", "100"));
+
+            admin_edit_character = Integer.parseInt(gmSettings.getProperty("admin_edit_character", "100"));
+            admin_current_player = Integer.parseInt(gmSettings.getProperty("admin_current_player", "100"));
+            admin_nokarma = Integer.parseInt(gmSettings.getProperty("admin_nokarma", "100"));
+            admin_setkarma = Integer.parseInt(gmSettings.getProperty("admin_setkarma", "100"));
+            admin_character_list = Integer.parseInt(gmSettings.getProperty("admin_character_list", "100"));
+            admin_character_info = Integer.parseInt(gmSettings.getProperty("admin_character_info", "100"));
+            admin_show_characters = Integer.parseInt(gmSettings.getProperty("admin_show_characters", "100"));
+            admin_find_character = Integer.parseInt(gmSettings.getProperty("admin_find_character", "100"));
+            admin_find_ip = Integer.parseInt(gmSettings.getProperty("admin_find_ip", "100"));
+            admin_find_account = Integer.parseInt(gmSettings.getProperty("admin_find_account", "100"));
+            admin_save_modifications = Integer.parseInt(gmSettings.getProperty("admin_save_modifications", "100"));
+            admin_rec = Integer.parseInt(gmSettings.getProperty("admin_rec", "100"));
+            admin_settitle = Integer.parseInt(gmSettings.getProperty("admin_settitle", "100"));
+            admin_setname = Integer.parseInt(gmSettings.getProperty("admin_setname", "100"));
+            admin_setsex = Integer.parseInt(gmSettings.getProperty("admin_setsex", "100"));
+            admin_setcolor = Integer.parseInt(gmSettings.getProperty("admin_setcolor", "100"));
+            admin_setclass = Integer.parseInt(gmSettings.getProperty("admin_setclass", "100"));
+            admin_fullfood = Integer.parseInt(gmSettings.getProperty("admin_fullfood", "100"));
+            admin_sethero = Integer.parseInt(gmSettings.getProperty("admin_sethero", "100"));
+            admin_setnoble = Integer.parseInt(gmSettings.getProperty("admin_setnoble", "100"));
+
+            admin_edit_npc = Integer.parseInt(gmSettings.getProperty("admin_edit_npc", "100"));
+            admin_save_npc = Integer.parseInt(gmSettings.getProperty("admin_save_npc", "100"));
+            admin_show_droplist = Integer.parseInt(gmSettings.getProperty("admin_show_droplist", "100"));
+            admin_edit_drop = Integer.parseInt(gmSettings.getProperty("admin_edit_drop", "100"));
+            admin_add_drop = Integer.parseInt(gmSettings.getProperty("admin_add_drop", "100"));
+            admin_del_drop = Integer.parseInt(gmSettings.getProperty("admin_del_drop", "100"));
+            admin_showShop = Integer.parseInt(gmSettings.getProperty("admin_showShop", "100"));
+            admin_showShopList = Integer.parseInt(gmSettings.getProperty("admin_showShopList", "100"));
+            admin_addShopItem = Integer.parseInt(gmSettings.getProperty("admin_addShopItem", "100"));
+            admin_delShopItem = Integer.parseInt(gmSettings.getProperty("admin_delShopItem", "100"));
+            admin_box_access = Integer.parseInt(gmSettings.getProperty("admin_box_access", "100"));
+            admin_editShopItem = Integer.parseInt(gmSettings.getProperty("admin_editShopItem", "100"));
+            admin_close_window = Integer.parseInt(gmSettings.getProperty("admin_close_window", "100"));
+            admin_show_skilllist_npc = Integer.parseInt(gmSettings.getProperty("admin_show_skilllist_npc", "100"));
+            admin_add_skill_npc = Integer.parseInt(gmSettings.getProperty("admin_add_skill_npc", "100"));
+            admin_edit_skill_npc = Integer.parseInt(gmSettings.getProperty("admin_edit_skill_npc", "100"));
+            admin_del_skill_npc = Integer.parseInt(gmSettings.getProperty("admin_del_skill_npc", "100"));
+
+            admin_invis = Integer.parseInt(gmSettings.getProperty("admin_invis", "100"));
+            admin_invisible = Integer.parseInt(gmSettings.getProperty("admin_invisible", "100"));
+            admin_vis = Integer.parseInt(gmSettings.getProperty("admin_vis", "100"));
+            admin_invis_menu = Integer.parseInt(gmSettings.getProperty("admin_invis_menu", "100"));
+            admin_earthquake = Integer.parseInt(gmSettings.getProperty("admin_earthquake", "100"));
+            admin_earthquake_menu = Integer.parseInt(gmSettings.getProperty("admin_earthquake_menu", "100"));
+            admin_bighead = Integer.parseInt(gmSettings.getProperty("admin_bighead", "100"));
+            admin_shrinkhead = Integer.parseInt(gmSettings.getProperty("admin_shrinkhead", "100"));
+            admin_gmspeed = Integer.parseInt(gmSettings.getProperty("admin_gmspeed", "100"));
+            admin_gmspeed_menu = Integer.parseInt(gmSettings.getProperty("admin_gmspeed_menu", "100"));
+            admin_unpara_all = Integer.parseInt(gmSettings.getProperty("admin_unpara_all", "100"));
+            admin_para_all = Integer.parseInt(gmSettings.getProperty("admin_para_all", "100"));
+            admin_unpara = Integer.parseInt(gmSettings.getProperty("admin_unpara", "100"));
+            admin_para = Integer.parseInt(gmSettings.getProperty("admin_para", "100"));
+            admin_unpara_all_menu = Integer.parseInt(gmSettings.getProperty("admin_unpara_all_menu", "100"));
+            admin_para_all_menu = Integer.parseInt(gmSettings.getProperty("admin_para_all_menu", "100"));
+            admin_unpara_menu = Integer.parseInt(gmSettings.getProperty("admin_unpara_menu", "100"));
+            admin_para_menu = Integer.parseInt(gmSettings.getProperty("admin_unpara_menu", "100"));
+            admin_polyself = Integer.parseInt(gmSettings.getProperty("admin_para_menu", "100"));
+            admin_unpolyself = Integer.parseInt(gmSettings.getProperty("admin_polyself", "100"));
+            admin_polyself_menu = Integer.parseInt(gmSettings.getProperty("admin_polyself_menu", "100"));
+            admin_unpolyself_menu = Integer.parseInt(gmSettings.getProperty("admin_unpolyself_menu", "100"));
+            admin_changename = Integer.parseInt(gmSettings.getProperty("admin_changename", "100"));
+            admin_setteam_close = Integer.parseInt(gmSettings.getProperty("admin_setteam_close", "100"));
+            admin_setteam = Integer.parseInt(gmSettings.getProperty("admin_setteam", "100"));
+            admin_social = Integer.parseInt(gmSettings.getProperty("admin_social", "100"));
+            admin_effect = Integer.parseInt(gmSettings.getProperty("admin_effect", "100"));
+            admin_social_menu = Integer.parseInt(gmSettings.getProperty("admin_social_menu", "100"));
+            admin_effect_menu = Integer.parseInt(gmSettings.getProperty("admin_effect_menu", "100"));
+            admin_abnormal = Integer.parseInt(gmSettings.getProperty("admin_abnormal", "100"));
+            admin_abnormal_menu = Integer.parseInt(gmSettings.getProperty("admin_abnormal_menu", "100"));
+            admin_play_sounds = Integer.parseInt(gmSettings.getProperty("admin_play_sounds", "100"));
+            admin_play_sound = Integer.parseInt(gmSettings.getProperty("admin_play_sound", "100"));
+            admin_atmosphere = Integer.parseInt(gmSettings.getProperty("admin_atmosphere", "100"));
+            admin_atmosphere_menu = Integer.parseInt(gmSettings.getProperty("admin_atmosphere_menu", "100"));
+
+            admin_seteh = Integer.parseInt(gmSettings.getProperty("admin_seteh", "100"));
+            admin_setec = Integer.parseInt(gmSettings.getProperty("admin_setec", "100"));
+            admin_seteg = Integer.parseInt(gmSettings.getProperty("admin_seteg", "100"));
+            admin_setel = Integer.parseInt(gmSettings.getProperty("admin_setel", "100"));
+            admin_seteb = Integer.parseInt(gmSettings.getProperty("admin_seteb", "100"));
+            admin_setew = Integer.parseInt(gmSettings.getProperty("admin_setew", "100"));
+            admin_setes = Integer.parseInt(gmSettings.getProperty("admin_setes", "100"));
+            admin_setle = Integer.parseInt(gmSettings.getProperty("admin_setle", "100"));
+            admin_setre = Integer.parseInt(gmSettings.getProperty("admin_setre", "100"));
+            admin_setlf = Integer.parseInt(gmSettings.getProperty("admin_setlf", "100"));
+            admin_setrf = Integer.parseInt(gmSettings.getProperty("admin_setrf", "100"));
+            admin_seten = Integer.parseInt(gmSettings.getProperty("admin_seten", "100"));
+            admin_setun = Integer.parseInt(gmSettings.getProperty("admin_setun", "100"));
+            admin_setba = Integer.parseInt(gmSettings.getProperty("admin_setba", "100"));
+            admin_enchant = Integer.parseInt(gmSettings.getProperty("admin_enchant", "100"));
+
+            admin_event = Integer.parseInt(gmSettings.getProperty("admin_event", "100"));
+            admin_event_new = Integer.parseInt(gmSettings.getProperty("admin_event_new", "100"));
+            admin_event_choose = Integer.parseInt(gmSettings.getProperty("admin_event_choose", "100"));
+            admin_event_store = Integer.parseInt(gmSettings.getProperty("admin_event_store", "100"));
+            admin_event_set = Integer.parseInt(gmSettings.getProperty("admin_event_set", "100"));
+            admin_event_change_teams_number = Integer.parseInt(gmSettings.getProperty("admin_event_change_teams_number", "100"));
+            admin_event_announce = Integer.parseInt(gmSettings.getProperty("admin_event_announce", "100"));
+            admin_event_panel = Integer.parseInt(gmSettings.getProperty("admin_event_panel", "100"));
+            admin_event_control_begin = Integer.parseInt(gmSettings.getProperty("admin_event_control_begin", "100"));
+            admin_event_control_teleport = Integer.parseInt(gmSettings.getProperty("admin_event_control_teleport", "100"));
+            admin_add = Integer.parseInt(gmSettings.getProperty("admin_add", "100"));
+            admin_event_see = Integer.parseInt(gmSettings.getProperty("admin_event_see", "100"));
+            admin_event_del = Integer.parseInt(gmSettings.getProperty("admin_event_del", "100"));
+            admin_delete_buffer = Integer.parseInt(gmSettings.getProperty("admin_delete_buffer", "100"));
+            admin_event_control_sit = Integer.parseInt(gmSettings.getProperty("admin_event_control_sit", "100"));
+            admin_event_name = Integer.parseInt(gmSettings.getProperty("admin_event_name", "100"));
+            admin_event_control_kill = Integer.parseInt(gmSettings.getProperty("admin_event_control_kill", "100"));
+            admin_event_control_res = Integer.parseInt(gmSettings.getProperty("admin_event_control_res", "100"));
+            admin_event_control_poly = Integer.parseInt(gmSettings.getProperty("admin_event_control_poly", "100"));
+            admin_event_control_unpoly = Integer.parseInt(gmSettings.getProperty("admin_event_control_unpoly", "100"));
+            admin_event_control_prize = Integer.parseInt(gmSettings.getProperty("admin_event_control_prize", "100"));
+            admin_event_control_chatban = Integer.parseInt(gmSettings.getProperty("admin_event_control_chatban", "100"));
+            admin_event_control_finish = Integer.parseInt(gmSettings.getProperty("admin_event_control_finish", "100"));
+
+            admin_add_exp_sp = Integer.parseInt(gmSettings.getProperty("admin_add_exp_sp", "100"));
+            admin_remove_exp_sp = Integer.parseInt(gmSettings.getProperty("admin_remove_exp_sp", "100"));
+            admin_add_exp_sp_to_character = Integer.parseInt(gmSettings.getProperty("admin_add_exp_sp_to_character", "100"));
+
+            admin_fight_calculator  = Integer.parseInt(gmSettings.getProperty("admin_fight_calculator", "100"));
+            admin_fight_calculator_show = Integer.parseInt(gmSettings.getProperty("admin_fight_calculator_show", "100"));
+            admin_fcs = Integer.parseInt(gmSettings.getProperty("admin_fcs", "100"));
+
+            admin_geo_z = Integer.parseInt(gmSettings.getProperty("admin_geo_z", "100"));
+            admin_geo_type = Integer.parseInt(gmSettings.getProperty("admin_geo_type", "100"));
+            admin_geo_nswe = Integer.parseInt(gmSettings.getProperty("admin_geo_nswe", "100"));
+            admin_geo_los = Integer.parseInt(gmSettings.getProperty("admin_geo_los", "100"));
+            admin_geo_position = Integer.parseInt(gmSettings.getProperty("admin_geo_position", "100"));
+            admin_geo_bug = Integer.parseInt(gmSettings.getProperty("admin_geo_bug", "100"));
+            admin_geo_load = Integer.parseInt(gmSettings.getProperty("admin_geo_load", "100"));
+            admin_geo_unload = Integer.parseInt(gmSettings.getProperty("admin_geo_unload", "100"));
+
+            admin_ge_status = Integer.parseInt(gmSettings.getProperty("admin_ge_status", "100"));
+            admin_ge_mode = Integer.parseInt(gmSettings.getProperty("admin_ge_mode", "100"));
+            admin_ge_join = Integer.parseInt(gmSettings.getProperty("admin_ge_join", "100"));
+            admin_ge_leave = Integer.parseInt(gmSettings.getProperty("admin_ge_leave", "100"));
+
+            admin_gm = Integer.parseInt(gmSettings.getProperty("admin_gm", "100"));
+
+            admin_gmchat = Integer.parseInt(gmSettings.getProperty("admin_gmchat", "100"));
+            admin_snoop = Integer.parseInt(gmSettings.getProperty("admin_snoop", "100"));
+            admin_gmchat_menu = Integer.parseInt(gmSettings.getProperty("admin_gmchat_menu", "100"));
+
+            admin_heal = Integer.parseInt(gmSettings.getProperty("admin_heal", "100"));
+
+            admin_help = Integer.parseInt(gmSettings.getProperty("admin_help", "100"));
+
+            admin_invul = Integer.parseInt(gmSettings.getProperty("admin_invul", "100"));
+            admin_setinvul = Integer.parseInt(gmSettings.getProperty("admin_setinvul", "100"));
+
+            admin_kick = Integer.parseInt(gmSettings.getProperty("admin_kick", "100"));
+            admin_kick_non_gm = Integer.parseInt(gmSettings.getProperty("admin_kick_non_gm", "100"));
+
+            admin_kill = Integer.parseInt(gmSettings.getProperty("admin_kill", "100"));
+            admin_kill_monster = Integer.parseInt(gmSettings.getProperty("admin_kill_monster", "100"));
+
+            admin_remlevel = Integer.parseInt(gmSettings.getProperty("admin_remlevel", "100"));
+            admin_addlevel = Integer.parseInt(gmSettings.getProperty("admin_addlevel", "100"));
+            admin_setlevel = Integer.parseInt(gmSettings.getProperty("admin_setlevel", "100"));
+
+            admin_server_gm_only = Integer.parseInt(gmSettings.getProperty("admin_server_gm_only", "100"));
+            admin_server_all = Integer.parseInt(gmSettings.getProperty("admin_server_all", "100"));
+            admin_server_max_player = Integer.parseInt(gmSettings.getProperty("admin_server_max_player", "100"));
+            admin_server_list_clock = Integer.parseInt(gmSettings.getProperty("admin_server_list_clock", "100"));
+            admin_server_login = Integer.parseInt(gmSettings.getProperty("admin_server_login", "100"));
+
+            admin_mammon_find = Integer.parseInt(gmSettings.getProperty("admin_mammon_find", "100"));
+            admin_mammon_respawn = Integer.parseInt(gmSettings.getProperty("admin_mammon_respawn", "100"));
+            admin_list_spawns = Integer.parseInt(gmSettings.getProperty("admin_list_spawns", "100"));
+            admin_msg = Integer.parseInt(gmSettings.getProperty("admin_msg", "100"));
+
+            admin_manor = Integer.parseInt(gmSettings.getProperty("admin_manor", "100"));
+            admin_manor_approve = Integer.parseInt(gmSettings.getProperty("admin_manor_approve", "100"));
+            admin_manor_setnext = Integer.parseInt(gmSettings.getProperty("admin_manor_setnext", "100"));
+            admin_manor_reset = Integer.parseInt(gmSettings.getProperty("admin_manor_reset", "100"));
+            admin_manor_setmaintenance = Integer.parseInt(gmSettings.getProperty("admin_manor_setmaintenance", "100"));
+            admin_manor_save = Integer.parseInt(gmSettings.getProperty("admin_manor_save", "100"));
+            admin_manor_disable = Integer.parseInt(gmSettings.getProperty("admin_manor_disable", "100"));
+
+            admin_masshero = Integer.parseInt(gmSettings.getProperty("admin_masshero", "100"));
+            admin_allhero = Integer.parseInt(gmSettings.getProperty("admin_allhero", "100"));
+
+            admin_recallclan = Integer.parseInt(gmSettings.getProperty("admin_recallclan", "100"));
+            admin_recallparty = Integer.parseInt(gmSettings.getProperty("admin_recallparty", "100"));
+            admin_recallally = Integer.parseInt(gmSettings.getProperty("admin_recallally", "100"));
+
+            admin_char_manage = Integer.parseInt(gmSettings.getProperty("admin_char_manage", "100"));
+            admin_teleport_character_to_menu = Integer.parseInt(gmSettings.getProperty("admin_teleport_character_to_menu", "100"));
+            admin_recall_char_menu = Integer.parseInt(gmSettings.getProperty("admin_recall_char_menu", "100"));
+            admin_recall_party_menu = Integer.parseInt(gmSettings.getProperty("admin_recall_party_menu", "100"));
+            admin_recall_clan_menu = Integer.parseInt(gmSettings.getProperty("admin_recall_clan_menu", "100"));
+            admin_goto_char_menu = Integer.parseInt(gmSettings.getProperty("admin_goto_char_menu", "100"));
+            admin_kick_menu = Integer.parseInt(gmSettings.getProperty("admin_kick_menu", "100"));
+            admin_ban_menu = Integer.parseInt(gmSettings.getProperty("admin_ban_menu", "100"));
+            admin_unban_menu = Integer.parseInt(gmSettings.getProperty("admin_unban_menu", "100"));
+
+            admin_unban_menu = Integer.parseInt(gmSettings.getProperty("admin_unban_menu", "100"));
+
+            admin_mobmenu = Integer.parseInt(gmSettings.getProperty("admin_mobmenu", "100"));
+            admin_mobgroup_list = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_list", "100"));
+            admin_mobgroup_create = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_create", "100"));
+            admin_mobgroup_remove = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_remove", "100"));
+            admin_mobgroup_delete = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_delete", "100"));
+            admin_mobgroup_idle = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_idle", "100"));
+            admin_mobgroup_attack = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_attack", "100"));
+            admin_mobgroup_rnd = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_rnd", "100"));
+            admin_mobgroup_return = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_return", "100"));
+            admin_mobgroup_follow = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_follow", "100"));
+            admin_mobgroup_casting = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_casting", "100"));
+            admin_mobgroup_nomove = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_nomove", "100"));
+            admin_mobgroup_attackgrp = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_attackgrp", "100"));
+            admin_mobgroup_invul = Integer.parseInt(gmSettings.getProperty("admin_mobgroup_invul", "100"));
+            admin_mobinst = Integer.parseInt(gmSettings.getProperty("admin_mobinst", "100"));
+
+            admin_mons = Integer.parseInt(gmSettings.getProperty("admin_mons", "100"));
+
+            admin_pn_info = Integer.parseInt(gmSettings.getProperty("admin_pn_info", "100"));
+            admin_show_path = Integer.parseInt(gmSettings.getProperty("admin_show_path", "100"));
+            admin_path_debug = Integer.parseInt(gmSettings.getProperty("admin_path_debug", "100"));
+            admin_show_pn = Integer.parseInt(gmSettings.getProperty("admin_show_pn", "100"));
+            admin_find_path = Integer.parseInt(gmSettings.getProperty("admin_find_path", "100"));
+
+            admin_find_path = Integer.parseInt(gmSettings.getProperty("admin_find_path", "100"));
+
+            admin_view_petitions = Integer.parseInt(gmSettings.getProperty("admin_view_petitions", "100"));
+            admin_view_petition = Integer.parseInt(gmSettings.getProperty("admin_view_petition", "100"));
+            admin_accept_petition = Integer.parseInt(gmSettings.getProperty("admin_accept_petition", "100"));
+            admin_reject_petition = Integer.parseInt(gmSettings.getProperty("admin_reject_petition", "100"));
+            admin_reset_petitions = Integer.parseInt(gmSettings.getProperty("admin_reset_petitions", "100"));
+            admin_force_peti = Integer.parseInt(gmSettings.getProperty("admin_force_peti", "100"));
+            admin_add_peti_chat = Integer.parseInt(gmSettings.getProperty("admin_add_peti_chat", "100"));
+
+            admin_forge = Integer.parseInt(gmSettings.getProperty("admin_forge", "100"));
+            admin_forge2 = Integer.parseInt(gmSettings.getProperty("admin_forge2", "100"));
+            admin_forge3 = Integer.parseInt(gmSettings.getProperty("admin_forge3", "100"));
+
+            admin_pledge = Integer.parseInt(gmSettings.getProperty("admin_pledge", "100"));
+
+            admin_polymorph = Integer.parseInt(gmSettings.getProperty("admin_polymorph", "100"));
+            admin_unpolymorph = Integer.parseInt(gmSettings.getProperty("admin_unpolymorph", "100"));
+            admin_polymorph_menu = Integer.parseInt(gmSettings.getProperty("admin_polymorph_menu", "100"));
+            admin_unpolymorph_menu = Integer.parseInt(gmSettings.getProperty("admin_unpolymorph_menu", "100"));
+
+            admin_quest_reload = Integer.parseInt(gmSettings.getProperty("admin_quest_reload", "100"));
+
+            admin_recallall = Integer.parseInt(gmSettings.getProperty("admin_recallall", "100"));
+
+            admin_restore = Integer.parseInt(gmSettings.getProperty("admin_restore", "100"));
+            admin_repair = Integer.parseInt(gmSettings.getProperty("admin_repair", "100"));
+
+            admin_res = Integer.parseInt(gmSettings.getProperty("admin_res", "100"));
+            admin_res_monster = Integer.parseInt(gmSettings.getProperty("admin_res_monster", "100"));
+
+            admin_ride_wyvern = Integer.parseInt(gmSettings.getProperty("admin_ride_wyvern", "100"));
+            admin_ride_strider = Integer.parseInt(gmSettings.getProperty("admin_ride_strider", "100"));
+            admin_unride_wyvern = Integer.parseInt(gmSettings.getProperty("admin_unride_wyvern", "100"));
+            admin_unride_strider = Integer.parseInt(gmSettings.getProperty("admin_unride_strider", "100"));
+            admin_unride = Integer.parseInt(gmSettings.getProperty("admin_unride", "100"));
+
+            admin_buy = Integer.parseInt(gmSettings.getProperty("admin_buy", "100"));
+            admin_gmshop = Integer.parseInt(gmSettings.getProperty("admin_gmshop", "100"));
+
+            admin_server_shutdown = Integer.parseInt(gmSettings.getProperty("admin_server_shutdown", "100"));
+            admin_server_restart = Integer.parseInt(gmSettings.getProperty("admin_server_restart", "100"));
+            admin_server_abort = Integer.parseInt(gmSettings.getProperty("admin_server_abort", "100"));
+
+            admin_siege = Integer.parseInt(gmSettings.getProperty("admin_siege", "100"));
+            admin_add_attacker = Integer.parseInt(gmSettings.getProperty("admin_add_attacker", "100"));
+            admin_add_defender = Integer.parseInt(gmSettings.getProperty("admin_add_defender", "100"));
+            admin_add_guard = Integer.parseInt(gmSettings.getProperty("admin_add_guard", "100"));
+            admin_list_siege_clans = Integer.parseInt(gmSettings.getProperty("admin_list_siege_clans", "100"));
+            admin_clear_siege_list = Integer.parseInt(gmSettings.getProperty("admin_clear_siege_list", "100"));
+            admin_move_defenders = Integer.parseInt(gmSettings.getProperty("admin_move_defenders", "100"));
+            admin_spawn_doors = Integer.parseInt(gmSettings.getProperty("admin_spawn_doors", "100"));
+            admin_endsiege = Integer.parseInt(gmSettings.getProperty("admin_endsiege", "100"));
+            admin_startsiege = Integer.parseInt(gmSettings.getProperty("admin_startsiege", "100"));
+            admin_setcastle = Integer.parseInt(gmSettings.getProperty("admin_setcastle", "100"));
+            admin_removecastle = Integer.parseInt(gmSettings.getProperty("admin_removecastle", "100"));
+            admin_clanhall = Integer.parseInt(gmSettings.getProperty("admin_clanhall", "100"));
+            admin_clanhallset = Integer.parseInt(gmSettings.getProperty("admin_clanhallset", "100"));
+            admin_clanhalldel = Integer.parseInt(gmSettings.getProperty("admin_clanhalldel", "100"));
+            admin_clanhallopendoors = Integer.parseInt(gmSettings.getProperty("admin_clanhallopendoors", "100"));
+            admin_clanhallclosedoors = Integer.parseInt(gmSettings.getProperty("admin_clanhallclosedoors", "100"));
+            admin_clanhallteleportself = Integer.parseInt(gmSettings.getProperty("admin_clanhallteleportself", "100"));
+
+            admin_show_skills = Integer.parseInt(gmSettings.getProperty("admin_show_skills", "100"));
+            admin_remove_skills = Integer.parseInt(gmSettings.getProperty("admin_remove_skills", "100"));
+            admin_skill_list = Integer.parseInt(gmSettings.getProperty("admin_skill_list", "100"));
+            admin_skill_index = Integer.parseInt(gmSettings.getProperty("admin_skill_index", "100"));
+            admin_add_skill = Integer.parseInt(gmSettings.getProperty("admin_add_skill", "100"));
+            admin_remove_skill = Integer.parseInt(gmSettings.getProperty("admin_remove_skill", "100"));
+            admin_get_skills = Integer.parseInt(gmSettings.getProperty("admin_get_skills", "100"));
+            admin_reset_skills = Integer.parseInt(gmSettings.getProperty("admin_reset_skills", "100"));
+            admin_give_all_skills = Integer.parseInt(gmSettings.getProperty("admin_give_all_skills", "100"));
+            admin_remove_all_skills = Integer.parseInt(gmSettings.getProperty("admin_remove_all_skills", "100"));
+            admin_add_clan_skill = Integer.parseInt(gmSettings.getProperty("admin_add_clan_skill", "100"));
+
+            admin_show_spawns = Integer.parseInt(gmSettings.getProperty("admin_show_spawns", "100"));
+            admin_spawn = Integer.parseInt(gmSettings.getProperty("admin_spawn", "100"));
+            admin_spawn_monster = Integer.parseInt(gmSettings.getProperty("admin_spawn_monster", "100"));
+            admin_spawn_index = Integer.parseInt(gmSettings.getProperty("admin_spawn_index", "100"));
+            admin_unspawnall = Integer.parseInt(gmSettings.getProperty("admin_unspawnall", "100"));
+            admin_respawnall = Integer.parseInt(gmSettings.getProperty("admin_respawnall", "100"));
+            admin_spawn_reload = Integer.parseInt(gmSettings.getProperty("admin_spawn_reload", "100"));
+            admin_npc_index = Integer.parseInt(gmSettings.getProperty("admin_npc_index", "100"));
+            admin_spawn_once = Integer.parseInt(gmSettings.getProperty("admin_spawn_once", "100"));
+            admin_show_npcs = Integer.parseInt(gmSettings.getProperty("admin_show_npcs", "100"));
+            admin_teleport_reload = Integer.parseInt(gmSettings.getProperty("admin_teleport_reload", "100"));
+            admin_spawnnight = Integer.parseInt(gmSettings.getProperty("admin_spawnnight", "100"));
+            admin_spawnday = Integer.parseInt(gmSettings.getProperty("admin_spawnday", "100"));
+
+            admin_target = Integer.parseInt(gmSettings.getProperty("admin_target", "100"));
+
+            admin_show_moves = Integer.parseInt(gmSettings.getProperty("admin_show_moves", "100"));
+            admin_show_moves_other = Integer.parseInt(gmSettings.getProperty("admin_show_moves_other", "100"));
+            admin_show_teleport = Integer.parseInt(gmSettings.getProperty("admin_show_teleport", "100"));
+            admin_teleport_to_character = Integer.parseInt(gmSettings.getProperty("admin_teleport_to_character", "100"));
+            admin_recall = Integer.parseInt(gmSettings.getProperty("admin_recall", "100"));
+            admin_walk = Integer.parseInt(gmSettings.getProperty("admin_walk", "100"));
+            admin_explore = Integer.parseInt(gmSettings.getProperty("admin_explore", "100"));
+            admin_recall_npc = Integer.parseInt(gmSettings.getProperty("admin_recall_npc", "100"));
+            admin_gonorth = Integer.parseInt(gmSettings.getProperty("admin_gonorth", "100"));
+            admin_gosouth = Integer.parseInt(gmSettings.getProperty("admin_gosouth", "100"));
+            admin_goeast = Integer.parseInt(gmSettings.getProperty("admin_goeast", "100"));
+            admin_gowest = Integer.parseInt(gmSettings.getProperty("admin_gowest", "100"));
+            admin_goup = Integer.parseInt(gmSettings.getProperty("admin_goup", "100"));
+            admin_godown = Integer.parseInt(gmSettings.getProperty("admin_godown", "100"));
+            admin_tele = Integer.parseInt(gmSettings.getProperty("admin_tele", "100"));
+            admin_teleto = Integer.parseInt(gmSettings.getProperty("admin_teleto", "100"));
+            admin_instant_move = Integer.parseInt(gmSettings.getProperty("admin_instant_move", "100"));
+            admin_sendhome = Integer.parseInt(gmSettings.getProperty("admin_sendhome", "100"));
+            admin_move_to = Integer.parseInt(gmSettings.getProperty("admin_move_to", "100"));
+
+            admin_test = Integer.parseInt(gmSettings.getProperty("admin_test", "100"));
+            admin_stats = Integer.parseInt(gmSettings.getProperty("admin_stats", "100"));
+            admin_skill_test = Integer.parseInt(gmSettings.getProperty("admin_skill_test", "100"));
+            admin_st = Integer.parseInt(gmSettings.getProperty("admin_st", "100"));
+            admin_mp = Integer.parseInt(gmSettings.getProperty("admin_mp", "100"));
+            admin_known = Integer.parseInt(gmSettings.getProperty("admin_known", "100"));
+
+            admin_tvt_add = Integer.parseInt(gmSettings.getProperty("admin_tvt_add", "100"));
+            admin_tvt_remove = Integer.parseInt(gmSettings.getProperty("admin_tvt_remove", "100"));
+            admin_tvt_advance = Integer.parseInt(gmSettings.getProperty("admin_tvt_advance", "100"));
+
+            admin_unblockip = Integer.parseInt(gmSettings.getProperty("admin_unblockip", "100"));
+
+            admin_removevip = Integer.parseInt(gmSettings.getProperty("admin_removevip", "100"));
+            admin_setvip = Integer.parseInt(gmSettings.getProperty("admin_setvip", "100"));
+
+            admin_zone_check = Integer.parseInt(gmSettings.getProperty("admin_zone_check", "100"));
+            admin_zone_reload = Integer.parseInt(gmSettings.getProperty("admin_zone_reload", "100"));
+
+
+        }
 	    catch (Exception e)
 	    {
-	        e.printStackTrace();
-	        throw new Error("Failed to Load " + ADMIN_FILE + " File.");
-	    }
-	}
+            e.printStackTrace();
+            throw new Error("Failed to Load " + ADMIN_FILE + " File.");
+        }
+    }
+
 
     // --------------------------------------------- //
-    // -        VOICE COMMAND PROPERTIES           - //
-    // --------------------------------------------- //
-    // ============================================================
     public static boolean ALLOW_RES_COMMAND;
+    // ============================================================
     public static int RES_CMD_CONSUME_ID;
+    // --------------------------------------------- //
     public static int RES_ITEM_COUNT;
+    // -        VOICE COMMAND PROPERTIES           - //
     public static boolean REC_BUY;
     public static int REC_ITEM_ID;
     public static int REC_ITEM_COUNT;

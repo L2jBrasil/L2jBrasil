@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -29,31 +27,57 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.ItemList;
 import com.it.br.gameserver.templates.L2Item;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - itemcreate = show menu
  * - create_item <id> [num] = creates num items with respective id, if num is not specified, assumes 1.
  *
- * @version $Revision: 1.2.2.2.2.3 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.2 $ $Date: 2017/11/09 $
  */
 public class AdminCreateItem implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS =
-	{
-		"admin_itemcreate",
-		"admin_create_item",
-		"admin_mass_create"
-	};
-	private static final int REQUIRED_LEVEL = Config.GM_CREATE_ITEM;
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminCreateItem()
+    {
+        admin.put("admin_itemcreate", Config.admin_itemcreate);
+        admin.put("admin_create_item", Config.admin_create_item);
+        admin.put("admin_mass_create", Config.admin_mass_create);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-		{
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
-		}
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target"), "");
 
@@ -65,8 +89,6 @@ public class AdminCreateItem implements IAdminCommandHandler
 		{
 			try
 			{
-				String val = command.substring(17);
-				StringTokenizer st = new StringTokenizer(val);
 				if (st.countTokens()== 2)
 				{
 					String id = st.nextToken();
@@ -94,60 +116,48 @@ public class AdminCreateItem implements IAdminCommandHandler
 		}
         else if (command.startsWith("admin_mass_create")) 
 	    { 
-	    try 
-	    { 
-	         String val = command.substring(17); 
-	         StringTokenizer st = new StringTokenizer(val); 
-	         if (st.countTokens()== 2) 
-             { 
-	             String id = st.nextToken(); 
-                 int idval = Integer.parseInt(id); 
-                 String num = st.nextToken(); 
-	             int numval = Integer.parseInt(num); 
-	             massCreate(activeChar,idval,numval); 
-             } 
-             else if (st.countTokens()== 1) 
-             { 
-  	              String id = st.nextToken(); 
-	              int idval = Integer.parseInt(id); 
-	              massCreate(activeChar,idval,1); 
-                  } 
-	         } 
-	         catch (StringIndexOutOfBoundsException e) 
-	         { 
-                  activeChar.sendMessage("Usage: //itemcreate <itemId> [amount]"); 
-	         } 
-	         catch (NumberFormatException nfe) 
-             { 
-	              activeChar.sendMessage("Specify a valid number."); 
-	         } 
+            try
+            {
+                 if (st.countTokens()== 2)
+                 {
+                     String id = st.nextToken();
+                     int idval = Integer.parseInt(id);
+                     String num = st.nextToken();
+                     int numval = Integer.parseInt(num);
+                     massCreate(activeChar,idval,numval);
+                 }
+                 else if (st.countTokens()== 1)
+                 {
+                      String id = st.nextToken();
+                      int idval = Integer.parseInt(id);
+                      massCreate(activeChar,idval,1);
+                      }
+                 }
+             catch (StringIndexOutOfBoundsException e)
+             {
+                  activeChar.sendMessage("Usage: //itemcreate <itemId> [amount]");
+             }
+             catch (NumberFormatException nfe)
+             {
+                  activeChar.sendMessage("Specify a valid number.");
+             }
 	    } 
 		return true;
-        } 
-	    private void massCreate(L2PcInstance activeChar, int id, int num) 
-        { 
-	        for (L2PcInstance _players : L2World.getInstance().getAllPlayers()) 
-	        { 
-            if (_players == activeChar) continue; 
-            _players.getInventory().addItem("Admin", id, num, _players, null); 
+    }
 
-	        ItemList il = new ItemList(_players, true); 
-            _players.sendPacket(il); 
-            } 
- 
-            activeChar.sendMessage("You have spawned " + num + " item(s) number " + id + " in all chars inventory."); 
-	}
+    private void massCreate(L2PcInstance activeChar, int id, int num)
+    {
+        for (L2PcInstance _players : L2World.getInstance().getAllPlayers())
+        {
+            if (_players == activeChar) continue;
+            _players.getInventory().addItem("Admin", id, num, _players, null);
 
+            ItemList il = new ItemList(_players, true);
+            _players.sendPacket(il);
+        }
 
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
+        activeChar.sendMessage("You have spawned " + num + " item(s) number " + id + " in all chars inventory.");
+    }
 
 	private void createItem(L2PcInstance activeChar, int id, int num)
 	{

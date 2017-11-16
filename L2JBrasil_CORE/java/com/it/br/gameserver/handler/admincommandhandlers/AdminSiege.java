@@ -18,6 +18,9 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import com.it.br.Config;
@@ -38,34 +41,63 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
 /**
  * This class handles all siege commands:
- * Todo: change the class name, and neaten it up
- *
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  *
  */
 public class AdminSiege implements IAdminCommandHandler
 {
-	//private static Logger _log = Logger.getLogger(AdminSiege.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {"admin_siege",
-		"admin_add_attacker", "admin_add_defender", "admin_add_guard",
-		"admin_list_siege_clans", "admin_clear_siege_list",
-		"admin_move_defenders", "admin_spawn_doors",
-		"admin_endsiege", "admin_startsiege",
-		"admin_setcastle", "admin_removecastle",
-		"admin_clanhall","admin_clanhallset","admin_clanhalldel",
-		"admin_clanhallopendoors","admin_clanhallclosedoors",
-		"admin_clanhallteleportself"
-	};
-	private static final int REQUIRED_LEVEL = Config.GM_NPC_EDIT;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (activeChar.getAccessLevel() < REQUIRED_LEVEL || !activeChar.isGM()) {return false;}
+    public AdminSiege()
+    {
+        admin.put("admin_siege", Config.admin_siege);
+        admin.put("admin_add_attacker", Config.admin_add_attacker);
+        admin.put("admin_add_defender", Config.admin_add_defender);
+        admin.put("admin_add_guard", Config.admin_add_guard);
+        admin.put("admin_list_siege_clans", Config.admin_list_siege_clans);
+        admin.put("admin_clear_siege_list", Config.admin_clear_siege_list);
+        admin.put("admin_move_defenders", Config.admin_move_defenders);
+        admin.put("admin_spawn_doors", Config.admin_spawn_doors);
+        admin.put("admin_endsiege", Config.admin_endsiege);
+        admin.put("admin_startsiege", Config.admin_startsiege);
+        admin.put("admin_setcastle", Config.admin_setcastle);
+        admin.put("admin_removecastle", Config.admin_removecastle);
+        admin.put("admin_clanhall", Config.admin_clanhall);
+        admin.put("admin_clanhallset", Config.admin_clanhallset);
+        admin.put("admin_clanhalldel", Config.admin_clanhalldel);
+        admin.put("admin_clanhallopendoors", Config.admin_clanhallopendoors);
+        admin.put("admin_clanhallclosedoors", Config.admin_clanhallclosedoors);
+        admin.put("admin_clanhallteleportself", Config.admin_clanhallteleportself);
+    }
 
-		StringTokenizer st = new StringTokenizer(command, " ");
-		command = st.nextToken(); // Get actual command
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		// Get castle
 		Castle castle = null;
@@ -280,10 +312,4 @@ public class AdminSiege implements IAdminCommandHandler
 			adminReply.replace("%clanhallOwner%",owner.getName());
 		activeChar.sendPacket(adminReply);
 	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
 }

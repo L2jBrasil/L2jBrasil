@@ -37,32 +37,58 @@ import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 
 /**
- * This class ...
- *
- * @version $Revision: 1.2 $ $Date: 2004/06/27 08:12:59 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 
 public class AdminTest implements IAdminCommandHandler
 {
-    private static final int REQUIRED_LEVEL = Config.GM_TEST;
-    private static final String[] ADMIN_COMMANDS =
-    {
-        "admin_test", "admin_stats", "admin_skill_test",
-        "admin_st", "admin_mp", "admin_known"
-    };
+    private static Map<String, Integer> admin = new HashMap<>();
 
-    /* (non-Javadoc)
-     * @see com.it.br.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, com.it.br.gameserver.model.L2PcInstance)
-     */
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (activeChar.getAccessLevel() < REQUIRED_LEVEL) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminTest()
+    {
+        admin.put("admin_test", Config.admin_test);
+        admin.put("admin_stats", Config.admin_stats);
+        admin.put("admin_skill_test", Config.admin_skill_test);
+        admin.put("admin_st", Config.admin_st);
+        admin.put("admin_mp", Config.admin_mp);
+        admin.put("admin_known", Config.admin_known);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
         if (command.equals("admin_stats"))
         {
@@ -75,8 +101,6 @@ public class AdminTest implements IAdminCommandHandler
         {
             try
             {
-                StringTokenizer st = new StringTokenizer(command);
-                st.nextToken();
                 int id = Integer.parseInt(st.nextToken());
                 adminTestSkill(activeChar,id);
             }
@@ -139,13 +163,4 @@ public class AdminTest implements IAdminCommandHandler
         player.broadcastPacket(new MagicSkillUser(activeChar, player, id, 1, 1, 1));
 
     }
-    /* (non-Javadoc)
-     * @see com.it.br.gameserver.handler.IAdminCommandHandler#getAdminCommandList()
-     */
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
 }

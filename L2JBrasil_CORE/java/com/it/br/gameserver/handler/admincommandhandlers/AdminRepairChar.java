@@ -21,6 +21,10 @@ package com.it.br.gameserver.handler.admincommandhandlers;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,26 +37,49 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 /**
  * This class handles following admin commands: - delete = deletes target
  *
- * @version $Revision: 1.1.2.6.2.3 $ $Date: 2005/04/11 10:05:59 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminRepairChar implements IAdminCommandHandler
 {
     private static Logger _log = Logger.getLogger(AdminRepairChar.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-    private static final String[] ADMIN_COMMANDS = { "admin_restore", "admin_repair" };
-
-    private static final int REQUIRED_LEVEL = Config.GM_CHAR_EDIT;
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-        {
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-                return false;
-        }
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-        if (command.startsWith(ADMIN_COMMANDS[0]) || command.startsWith(ADMIN_COMMANDS[1]))
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminRepairChar()
+    {
+        admin.put("admin_restore", Config.admin_restore);
+        admin.put("admin_repair", Config.admin_repair);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
+        if (command.startsWith("admin_restore") || command.startsWith("admin_repair"))
         {
             String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
             GMAudit.auditGMAction(activeChar.getName(), command, target, "");
@@ -61,17 +88,6 @@ public class AdminRepairChar implements IAdminCommandHandler
             return true;
         }
         return false;
-    }
-
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level)
-    {
-        return (level >= REQUIRED_LEVEL);
     }
 
     private void handleRepair(String command)

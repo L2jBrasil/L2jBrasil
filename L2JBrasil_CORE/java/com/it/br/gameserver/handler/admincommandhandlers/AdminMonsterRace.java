@@ -29,48 +29,61 @@ import com.it.br.gameserver.network.serverpackets.MonRaceInfo;
 import com.it.br.gameserver.network.serverpackets.PlaySound;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands: - invul = turns invulnerability
  * on/off
  *
- * @version $Revision: 1.1.6.4 $ $Date: 2007/07/31 10:06:00 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminMonsterRace implements IAdminCommandHandler
 {
-    //private static Logger _log = Logger.getLogger(AdminMonsterRace.class.getName());
-
-    private static final String[] ADMIN_COMMANDS = {"admin_mons"};
-
-    private static final int REQUIRED_LEVEL = Config.GM_MONSTERRACE;
     protected static int state = -1;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-        {
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
             {
-                return false;
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
             }
-        }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminMonsterRace()
+    {
+        admin.put("admin_mons", Config.admin_mons);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
         if (command.equalsIgnoreCase("admin_mons"))
         {
             handleSendPacket(activeChar);
         }
         return true;
-    }
-
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level)
-    {
-        return (level >= REQUIRED_LEVEL);
     }
 
     private void handleSendPacket(L2PcInstance activeChar)

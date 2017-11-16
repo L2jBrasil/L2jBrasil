@@ -18,29 +18,63 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
+
 /**
  * This class handles following admin commands:
  * - invul = turns invulnerability on/off
  *
- * @version $Revision: 1.2.4.4 $ $Date: 2007/07/31 10:06:02 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminInvul implements IAdminCommandHandler {
-	private static Logger _log = Logger.getLogger(AdminInvul.class.getName());
-	private static final String[] ADMIN_COMMANDS = {"admin_invul", "admin_setinvul"};
-	private static final int REQUIRED_LEVEL = Config.GM_GODMODE;
+public class AdminInvul implements IAdminCommandHandler
+{
+    private static Logger _log = Logger.getLogger(AdminInvul.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminInvul()
+    {
+        admin.put("admin_invul", Config.admin_invul);
+        admin.put("admin_setinvul", Config.admin_setinvul);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
         GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null ? activeChar.getTarget().getName() : "no-target"), "");
 
@@ -52,15 +86,6 @@ public class AdminInvul implements IAdminCommandHandler {
             }
         }
 		return true;
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void handleInvul(L2PcInstance activeChar) {

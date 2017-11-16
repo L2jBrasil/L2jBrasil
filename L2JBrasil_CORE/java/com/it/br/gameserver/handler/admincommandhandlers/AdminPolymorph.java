@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.L2Character;
@@ -30,31 +28,62 @@ import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
 import com.it.br.gameserver.network.serverpackets.SetupGauge;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands: polymorph
  *
- * @version $Revision: 1.2.2.1.2.4 $ $Date: 2007/07/31 10:05:56 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminPolymorph implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = { "admin_polymorph", "admin_unpolymorph", "admin_polymorph_menu", "admin_unpolymorph_menu" };
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final int REQUIRED_LEVEL = Config.GM_NPC_EDIT;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    public AdminPolymorph()
+    {
+        admin.put("admin_polymorph", Config.admin_polymorph);
+        admin.put("admin_unpolymorph", Config.admin_unpolymorph);
+        admin.put("admin_polymorph_menu", Config.admin_polymorph_menu);
+        admin.put("admin_unpolymorph_menu", Config.admin_unpolymorph_menu);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_polymorph"))
 		{
-			StringTokenizer st = new StringTokenizer(command);
 			L2Object target = activeChar.getTarget();
 			try
 			{
-				st.nextToken();
 				String p1 = st.nextToken();
 				if (st.hasMoreTokens())
 				{
@@ -78,20 +107,9 @@ public class AdminPolymorph implements IAdminCommandHandler
 		return true;
 	}
 
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
-
 	/**
 	 * @param activeChar
-	 * @param target
+	 * @param obj
 	 * @param id
 	 * @param type
 	 */
@@ -119,8 +137,8 @@ public class AdminPolymorph implements IAdminCommandHandler
 	}
 
 	/**
-	 * @param activeChar
-	 * @param target
+	 * @param activeChar player
+	 * @param target player
 	 */
 	private void doUnpoly(L2PcInstance activeChar, L2Object target)
 	{

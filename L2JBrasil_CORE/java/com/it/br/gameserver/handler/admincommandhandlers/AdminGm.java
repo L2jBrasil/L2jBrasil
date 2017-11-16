@@ -18,46 +18,67 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
+
 /**
  * This class handles following admin commands:
  * - gm = turns gm mode on/off
  *
- * @version $Revision: 1.2.4.4 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminGm implements IAdminCommandHandler {
-	private static Logger _log = Logger.getLogger(AdminGm.class.getName());
-	private static final String[] ADMIN_COMMANDS = { "admin_gm" };
-	private static final int REQUIRED_LEVEL = Config.GM_ACCESSLEVEL;
+public class AdminGm implements IAdminCommandHandler
+{
+    private static Logger _log = Logger.getLogger(AdminGm.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
-		//don't check for gm status ;)
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-        {
-    		if (!checkLevel(activeChar.getAccessLevel()))
-                return false;
-        }
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+
+    public AdminGm()
+    {
+        admin.put("admin_gm", Config.admin_gm);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.equals("admin_gm"))
             handleGm(activeChar);
 
 		return true;
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void handleGm(L2PcInstance activeChar)

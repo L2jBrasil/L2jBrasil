@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.LoginServerThread;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -27,31 +25,57 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles the admin commands that acts on the login
  *
- * @version $Revision: 1.2.2.1.2.4 $ $Date: 2007/07/31 10:05:56 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminLogin implements IAdminCommandHandler
 {
-	//private static Logger _log = Logger.getLogger(AdminDelete.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = { "admin_server_gm_only", "admin_server_all",
-		"admin_server_max_player", "admin_server_list_clock", "admin_server_login"};
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	private static final int REQUIRED_LEVEL = Config.GM_ACCESSLEVEL;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	/* (non-Javadoc)
-	 * @see com.it.br.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, com.it.br.gameserver.model.L2PcInstance)
-	 */
+    public AdminLogin()
+    {
+        admin.put("admin_server_gm_only", Config.admin_server_gm_only);
+        admin.put("admin_server_all", Config.admin_server_all);
+        admin.put("admin_server_max_player", Config.admin_server_max_player);
+        admin.put("admin_server_list_clock", Config.admin_server_list_clock);
+        admin.put("admin_server_login", Config.admin_server_login);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-		{
-			if(activeChar.getAccessLevel() < REQUIRED_LEVEL)
-				return false;
-		}
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if(command.equals("admin_server_gm_only"))
 		{
@@ -67,15 +91,14 @@ public class AdminLogin implements IAdminCommandHandler
 		}
 		else if(command.startsWith("admin_server_max_player"))
 		{
-			StringTokenizer st = new StringTokenizer(command);
 			if (st.countTokens() > 1)
 			{
 				st.nextToken();
 				String number = st.nextToken();
 				try
 				{
-					LoginServerThread.getInstance().setMaxPlayer(new Integer(number).intValue());
-					activeChar.sendMessage("maxPlayer set to "+new Integer(number).intValue());
+					LoginServerThread.getInstance().setMaxPlayer(Integer.parseInt(number));
+					activeChar.sendMessage("maxPlayer set to "+ Integer.parseInt(number));
 					showMainPage(activeChar);
 				}
 				catch(NumberFormatException e)
@@ -90,7 +113,6 @@ public class AdminLogin implements IAdminCommandHandler
 		}
 		else if(command.startsWith("admin_server_list_clock"))
 		{
-			StringTokenizer st = new StringTokenizer(command);
 			if (st.countTokens() > 1)
 			{
 				st.nextToken();
@@ -126,9 +148,6 @@ public class AdminLogin implements IAdminCommandHandler
 		return true;
 	}
 
-	/**
-	 *
-	 */
 	private void showMainPage(L2PcInstance activeChar)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -141,31 +160,16 @@ public class AdminLogin implements IAdminCommandHandler
 		activeChar.sendPacket(html);
 	}
 
-	/**
-	 *
-	 */
 	private void allowToAll()
 	{
 		LoginServerThread.getInstance().setServerStatus(ServerStatus.STATUS_AUTO);
 		Config.SERVER_GMONLY = false;
 	}
 
-	/**
-	 *
-	 */
 	private void gmOnly()
 	{
 		LoginServerThread.getInstance().setServerStatus(ServerStatus.STATUS_GM_ONLY);
 		Config.SERVER_GMONLY = true;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.it.br.gameserver.handler.IAdminCommandHandler#getAdminCommandList()
-	 */
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
 	}
 
 }

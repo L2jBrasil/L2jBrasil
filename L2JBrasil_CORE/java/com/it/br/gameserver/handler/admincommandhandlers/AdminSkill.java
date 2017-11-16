@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.SkillTreeTable;
@@ -34,6 +31,12 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.PledgeSkillList;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands:
@@ -49,33 +52,57 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  * - remove_all_skills
  * - add_clan_skills
  *
- * @version $Revision: 1.2.4.7 $ $Date: 2005/04/11 10:06:02 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminSkill implements IAdminCommandHandler {
-	private static Logger _log = Logger.getLogger(AdminSkill.class.getName());
+public class AdminSkill implements IAdminCommandHandler
+{
+    private static L2Skill[] adminSkills;
+    private static Logger _log = Logger.getLogger(AdminSkill.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {
-		"admin_show_skills",
-		"admin_remove_skills",
-		"admin_skill_list",
-		"admin_skill_index",
-		"admin_add_skill",
-		"admin_remove_skill",
-		"admin_get_skills",
-		"admin_reset_skills",
-		"admin_give_all_skills",
-		"admin_remove_all_skills",
-		"admin_add_clan_skill"
-	};
-	private static final int REQUIRED_LEVEL = Config.GM_CHAR_EDIT;
-	private static final int REQUIRED_LEVEL2 = Config.GM_CHAR_EDIT_OTHER;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	private static L2Skill[] adminSkills;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    public AdminSkill()
+    {
+        admin.put("admin_show_skills", Config.admin_show_skills);
+        admin.put("admin_remove_skills", Config.admin_remove_skills);
+        admin.put("admin_skill_list", Config.admin_skill_list);
+        admin.put("admin_skill_index", Config.admin_skill_index);
+        admin.put("admin_add_skill", Config.admin_add_skill);
+        admin.put("admin_remove_skill", Config.admin_remove_skill);
+        admin.put("admin_get_skills", Config.admin_get_skills);
+        admin.put("admin_reset_skills", Config.admin_reset_skills);
+        admin.put("admin_give_all_skills", Config.admin_give_all_skills);
+        admin.put("admin_remove_all_skills", Config.admin_remove_all_skills);
+        admin.put("admin_add_clan_skill", Config.admin_add_clan_skill);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target"), "");
 
@@ -108,7 +135,6 @@ public class AdminSkill implements IAdminCommandHandler {
 			try
 			{
 				String val = command.substring(15);
-				if (activeChar == activeChar.getTarget() || activeChar.getAccessLevel() >= REQUIRED_LEVEL2)
 					adminAddSkill(activeChar, val);
 			}
 			catch (Exception e)
@@ -122,7 +148,6 @@ public class AdminSkill implements IAdminCommandHandler {
 			{
 				String id = command.substring(19);
 				int idval = Integer.parseInt(id);
-				if (activeChar == activeChar.getTarget() || activeChar.getAccessLevel() >= REQUIRED_LEVEL2)
 					adminRemoveSkill(activeChar, idval);
 			}
 			catch (Exception e)
@@ -136,12 +161,10 @@ public class AdminSkill implements IAdminCommandHandler {
 		}
 		else if (command.equals("admin_reset_skills"))
 		{
-			if (activeChar == activeChar.getTarget() || activeChar.getAccessLevel() >= REQUIRED_LEVEL2)
 				adminResetSkills(activeChar);
 		}
 		else if (command.equals("admin_give_all_skills"))
 		{
-			if (activeChar == activeChar.getTarget() || activeChar.getAccessLevel() >= REQUIRED_LEVEL2)
 				adminGiveAllSkills(activeChar);
 		}
 
@@ -162,7 +185,6 @@ public class AdminSkill implements IAdminCommandHandler {
 			try
 			{
 				String[] val = command.split(" ");
-				if (activeChar == activeChar.getTarget() || activeChar.getAccessLevel() >= REQUIRED_LEVEL2)
 					adminAddClanSkill(activeChar, Integer.parseInt(val[1]),Integer.parseInt(val[2]));
 			}
 			catch (Exception e)
@@ -216,16 +238,8 @@ public class AdminSkill implements IAdminCommandHandler {
 		player.sendSkillList();
 	}
 
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
-	}
-
 	private void removeSkillsPage(L2PcInstance activeChar, int page)
-	{	//TODO: Externalize HTML
+	{
 		L2Object target = activeChar.getTarget();
 		L2PcInstance player = null;
 		if (target instanceof L2PcInstance)

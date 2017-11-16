@@ -18,6 +18,9 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import com.it.br.Config;
@@ -30,22 +33,48 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
  * This class handles commands for gm to forge packets
  *
  * @author Maktakien
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  *
  */
 public class AdminPForge implements IAdminCommandHandler
 {
-	//private static Logger _log = Logger.getLogger(AdminKick.class.getName());
-	private static final String[] ADMIN_COMMANDS = {"admin_forge","admin_forge2","admin_forge3" };
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
+    private static Map<String, Integer> admin = new HashMap<>();
 
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
+    public AdminPForge()
+    {
+        admin.put("admin_forge", Config.admin_forge);
+        admin.put("admin_forge2", Config.admin_forge2);
+        admin.put("admin_forge3", Config.admin_forge3);
+    }
 
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.equals("admin_forge"))
 		{
@@ -55,8 +84,6 @@ public class AdminPForge implements IAdminCommandHandler
 		{
 			try
 			{
-				StringTokenizer st = new StringTokenizer(command);
-				st.nextToken();
 				String format = st.nextToken();
 				showPage2(activeChar,format);
 			}
@@ -70,8 +97,6 @@ public class AdminPForge implements IAdminCommandHandler
 		{
 			try
 			{
-				StringTokenizer st = new StringTokenizer(command);
-				st.nextToken();
 				String format = st.nextToken();
 				boolean broadcast = false;
 				if(format.toLowerCase().equals("broadcast"))
@@ -149,7 +174,7 @@ public class AdminPForge implements IAdminCommandHandler
 
 					sp.addPart(format.getBytes()[i],val);
 				}
-				if(broadcast == true)
+				if(broadcast)
 				{
 					activeChar.broadcastPacket(sp);
 				}
@@ -195,14 +220,5 @@ public class AdminPForge implements IAdminCommandHandler
 		adminReply.replace("%format%", format);
 		adminReply.replace("%command%", command);
 		activeChar.sendPacket(adminReply);
-	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
 	}
 }

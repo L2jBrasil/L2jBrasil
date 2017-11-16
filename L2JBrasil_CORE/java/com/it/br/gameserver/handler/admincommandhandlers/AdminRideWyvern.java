@@ -25,28 +25,56 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.Ride;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
- * @author
- *
- * TODO nothing.
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminRideWyvern implements IAdminCommandHandler
 {
-    private static final String[] ADMIN_COMMANDS = {
-        "admin_ride_wyvern",
-        "admin_ride_strider",
-        "admin_unride_wyvern",
-        "admin_unride_strider",
-        "admin_unride",
-    };
-    private static final int REQUIRED_LEVEL = Config.GM_RIDER;
     private int _petRideId;
+    private static Map<String, Integer> admin = new HashMap<>();
 
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
-
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminRideWyvern()
+    {
+        admin.put("admin_ride_wyvern", Config.admin_ride_wyvern);
+        admin.put("admin_ride_strider", Config.admin_ride_strider);
+        admin.put("admin_unride_wyvern", Config.admin_unride_wyvern);
+        admin.put("admin_unride_strider", Config.admin_unride_strider);
+        admin.put("admin_unride", Config.admin_unride);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
         if(command.startsWith("admin_ride"))
         {
@@ -84,14 +112,5 @@ public class AdminRideWyvern implements IAdminCommandHandler
         	}
         }
         return true;
-    }
-
-
-	public String[] getAdminCommandList() {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level) {
-        return (level >= REQUIRED_LEVEL);
     }
 }

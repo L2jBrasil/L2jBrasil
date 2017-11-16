@@ -17,36 +17,21 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.communitybbs.Manager.RegionBBSManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
-import com.it.br.gameserver.model.GMAudit;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2Summon;
-import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2ChestInstance;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.CharInfo;
-import com.it.br.gameserver.network.serverpackets.Earthquake;
-import com.it.br.gameserver.network.serverpackets.ExRedSky;
-import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
-import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
-import com.it.br.gameserver.network.serverpackets.NpcInfo;
-import com.it.br.gameserver.network.serverpackets.PlaySound;
-import com.it.br.gameserver.network.serverpackets.SignsSky;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.StopMove;
-import com.it.br.gameserver.network.serverpackets.SunRise;
-import com.it.br.gameserver.network.serverpackets.SunSet;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.UserInfo;
+import com.it.br.gameserver.network.serverpackets.*;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * This class handles following admin commands:
@@ -64,34 +49,78 @@ import com.it.br.gameserver.network.serverpackets.UserInfo;
  *   <li> abnormal = force changes over an L2Character instance's abnormal state.
  *   <li> play_sound/play_sounds = Music broadcasting related commands
  *   <li> atmosphere = sky change related commands.
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminEffects implements IAdminCommandHandler
 {
-	private static final String[] ADMIN_COMMANDS = { "admin_invis", "admin_invisible", "admin_vis", "admin_invis_menu",
-		"admin_earthquake", "admin_earthquake_menu",
-		"admin_bighead", "admin_shrinkhead",
-		"admin_gmspeed", "admin_gmspeed_menu",
-		"admin_unpara_all", "admin_para_all", "admin_unpara", "admin_para", "admin_unpara_all_menu", "admin_para_all_menu", "admin_unpara_menu", "admin_para_menu",
-		"admin_polyself", "admin_unpolyself", "admin_polyself_menu", "admin_unpolyself_menu",
-		"admin_changename",
-		"admin_setteam_close","admin_setteam",
-		"admin_social", "admin_effect", "admin_social_menu", "admin_effect_menu",
-		"admin_abnormal", "admin_abnormal_menu",
-		"admin_play_sounds","admin_play_sound",
-		"admin_atmosphere","admin_atmosphere_menu"};
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final int REQUIRED_LEVEL = Config.GM_GODMODE;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminEffects()
+    {
+        admin.put("admin_invis", Config.admin_invis);
+        admin.put("admin_invisible", Config.admin_invisible);
+        admin.put("admin_vis", Config.admin_vis);
+        admin.put("admin_invis_menu", Config.admin_invis_menu);
+        admin.put("admin_earthquake", Config.admin_earthquake);
+        admin.put("admin_earthquake_menu", Config.admin_earthquake_menu);
+        admin.put("admin_bighead", Config.admin_bighead);
+        admin.put("admin_shrinkhead", Config.admin_shrinkhead);
+        admin.put("admin_gmspeed", Config.admin_gmspeed);
+        admin.put("admin_gmspeed_menu", Config.admin_gmspeed_menu);
+        admin.put("admin_unpara_all", Config.admin_unpara_all);
+        admin.put("admin_para_all", Config.admin_para_all);
+        admin.put("admin_unpara_all", Config.admin_unpara_all);
+        admin.put("admin_unpara", Config.admin_unpara);
+        admin.put("admin_para", Config.admin_para);
+        admin.put("admin_unpara_all_menu", Config.admin_unpara_all_menu);
+        admin.put("admin_para_menu", Config.admin_para_menu);
+        admin.put("admin_polyself", Config.admin_polyself);
+        admin.put("admin_unpolyself_menu", Config.admin_unpolyself_menu);
+        admin.put("admin_changename", Config.admin_changename);
+        admin.put("admin_setteam_close", Config.admin_setteam_close);
+        admin.put("admin_setteam", Config.admin_setteam);
+        admin.put("admin_social", Config.admin_social);
+        admin.put("admin_effect", Config.admin_effect);
+        admin.put("admin_social_menu", Config.admin_social_menu);
+        admin.put("admin_effect_menu", Config.admin_effect_menu);
+        admin.put("admin_abnormal", Config.admin_abnormal);
+        admin.put("admin_abnormal_menu", Config.admin_abnormal_menu);
+        admin.put("admin_play_sounds", Config.admin_play_sounds);
+        admin.put("admin_play_sound", Config.admin_play_sound);
+        admin.put("admin_atmosphere", Config.admin_atmosphere);
+        admin.put("admin_atmosphere_menu", Config.admin_atmosphere_menu);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target"), "");
-
-		StringTokenizer st = new StringTokenizer(command);
-		st.nextToken();
 
 		if (command.equals("admin_invis_menu"))
 		{
@@ -673,17 +702,6 @@ public class AdminEffects implements IAdminCommandHandler
 		activeChar.sendPacket(_snd);
 		activeChar.broadcastPacket(_snd);
 		activeChar.sendMessage("Playing "+sound+".");
-	}
-
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
 	}
 
 	private void showMainPage(L2PcInstance activeChar, String command)

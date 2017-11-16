@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.Announcements;
@@ -31,25 +26,56 @@ import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
-public class AdminBanChat implements IAdminCommandHandler 
-{
-	private static final String[] ADMIN_COMMANDS ={ "admin_banchat", "admin_unbanchat"};
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
-	private static final int REQUIRED_LEVEL = Config.GM_BAN_CHAT;
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
+public class AdminBanChat implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
+
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminBanChat()
+    {
+        admin.put("admin_banchat", Config.admin_banchat);
+        admin.put("admin_unbanchat", Config.admin_unbanchat);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-		{
-			if (!(checkLevel(activeChar.getAccessLevel())))
-			{
-				System.out.println("Not required level.");
-				return false;
-			}
-		}
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
 
-		StringTokenizer st = new StringTokenizer(command);
-		st.nextToken();
+        if(checkPermission(commandName, activeChar)) return false;
+
 		String player = "";
 		int duration = -1;
 		L2PcInstance targetPlayer = null;
@@ -159,11 +185,6 @@ public class AdminBanChat implements IAdminCommandHandler
 		GMAudit.auditGMAction(activeChar.getName()+" ["+activeChar.getObjectId()+"]", command[0], (target.equals("") ? "no-target" : target), (command.length > 2 ? command[2] : ""));
 	}
 	
-	private boolean checkLevel(int level) 
-    {
-	return (level >= REQUIRED_LEVEL);
-    }
-	
 	private void banChatOfflinePlayer(L2PcInstance activeChar, String name, int delay, boolean ban)
 	{
 		Connection con = null;
@@ -211,10 +232,5 @@ public class AdminBanChat implements IAdminCommandHandler
 		{
 			L2DatabaseFactory.close(con);
 		}
-	}
-
-	public String[] getAdminCommandList() 
-	{
-		return ADMIN_COMMANDS;
 	}
 }

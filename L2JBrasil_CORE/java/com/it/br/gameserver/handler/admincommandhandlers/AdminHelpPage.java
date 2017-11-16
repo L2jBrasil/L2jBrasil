@@ -24,21 +24,54 @@ import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - help path = shows /data/html/admin/path file to char, should not be used by GM's directly
  *
- * @version $Revision: 1.2.4.3 $ $Date: 2005/04/11 10:06:02 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminHelpPage implements IAdminCommandHandler {
+public class AdminHelpPage implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {"admin_help"};
-	private static final int REQUIRED_LEVEL = Config.GM_MIN;
-
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar) {
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!checkLevel(activeChar.getAccessLevel())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminHelpPage()
+    {
+        admin.put("admin_help", Config.admin_help);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
 
 		if (command.startsWith("admin_help"))
 		{
@@ -47,31 +80,17 @@ public class AdminHelpPage implements IAdminCommandHandler {
 				String val = command.substring(11);
 				showHelpPage(activeChar, val);
 			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				//case of empty filename
-			}
+			catch (StringIndexOutOfBoundsException e) {}
 		}
 
 		return true;
 	}
 
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
-	}
-
-	//FIXME: implement method to send html to player in L2PcInstance directly
-	//PUBLIC & STATIC so other classes from package can include it directly
-	public static void showHelpPage(L2PcInstance targetChar, String filename)
-	{
+    public static void showHelpPage(L2PcInstance targetChar, String filename)
+    {
         String content = HtmCache.getInstance().getHtmForce("data/html/admin/" + filename);
         NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
         adminReply.setHtml(content);
         targetChar.sendPacket(adminReply);
-	}
+    }
 }

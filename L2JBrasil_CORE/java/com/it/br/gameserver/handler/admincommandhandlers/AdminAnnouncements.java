@@ -24,6 +24,11 @@ import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - announce text = announces text to all players
@@ -33,28 +38,53 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
  * - add_announcement text = adds text to startup announcements
  * - del_announcement id = deletes announcement with respective id
  *
- * @version $Revision: 1.4.4.5 $ $Date: 2005/04/11 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminAnnouncements implements IAdminCommandHandler {
+public class AdminAnnouncements implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {
-			"admin_list_announcements",
-			"admin_reload_announcements",
-			"admin_announce_announcements",
-			"admin_add_announcement",
-			"admin_del_announcement",
-			"admin_announce",
-			"admin_announce_menu"
-			};
-	private static final int REQUIRED_LEVEL = Config.GM_ANNOUNCE;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminAnnouncements()
+    {
+        admin.put("admin_list_announcements", Config.admin_list_announcements);
+        admin.put("admin_reload_announcements", Config.admin_reload_announcements);
+        admin.put("admin_announce_announcements", Config.admin_announce_announcements);
+        admin.put("admin_add_announcement", Config.admin_add_announcement);
+        admin.put("admin_del_announcement", Config.admin_del_announcement);
+        admin.put("admin_announce", Config.admin_announce);
+        admin.put("admin_announce_menu", Config.admin_announce_menu);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
     {
-        if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
 
-		if (command.equals("admin_list_announcements"))
+        if(checkPermission(commandName, activeChar)) return false;
+
+        if (command.equals("admin_list_announcements"))
 		{
 			Announcements.getInstance().listAnnouncements(activeChar);
 		}
@@ -65,9 +95,8 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 		}
 		else if (command.startsWith("admin_announce_menu"))
 		{
-			 Announcements sys = new Announcements(); 
-             sys.handleAnnounce(command, 20); 
-			 Announcements.getInstance().listAnnouncements(activeChar);
+            Announcements.getInstance().handleAnnounce(command, 20);
+            Announcements.getInstance().listAnnouncements(activeChar);
 		}
 		else if (command.equals("admin_announce_announcements"))
 		{
@@ -79,46 +108,34 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 		}
 		else if (command.startsWith("admin_add_announcement"))
 		{
-			//FIXME the player can send only 16 chars (if you try to send more it sends null), remove this function or not?
 			if (!command.equals("admin_add_announcement"))
 			{
-			 try{
-				String val = command.substring(23);
-				Announcements.getInstance().addAnnouncement(val);
-				Announcements.getInstance().listAnnouncements(activeChar);
-			 } catch(StringIndexOutOfBoundsException e){}//ignore errors
+                 try
+                 {
+                     String val = command.substring(23);
+                     if (!val.equals(""))
+                     {
+                         Announcements.getInstance().addAnnouncement(val);
+                         Announcements.getInstance().listAnnouncements(activeChar);
+                     }
+                 } catch(StringIndexOutOfBoundsException e){}//ignore errors
 			}
 		}
 		else if (command.startsWith("admin_del_announcement"))
 		{
             try
             {
-    			int val = new Integer(command.substring(23)).intValue();
+                int val = Integer.parseInt(command.substring(23));
     			Announcements.getInstance().delAnnouncement(val);
     			Announcements.getInstance().listAnnouncements(activeChar);
             }
-            catch (StringIndexOutOfBoundsException e)
-            { }
+            catch (StringIndexOutOfBoundsException e){}//ignore errors
 		}
-
-		// Command is admin announce
 		else if (command.startsWith("admin_announce"))
 		{
-			// Call method from another class 
-            Announcements sys = new Announcements(); 
-            sys.handleAnnounce(command, 15); 
+            Announcements.getInstance().handleAnnounce(command, 15);
 		}
 
 		return true;
 	}
-
-
-	public String[] getAdminCommandList() {
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level) {
-		return (level >= REQUIRED_LEVEL);
-	}
-
 }

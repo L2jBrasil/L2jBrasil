@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.NetworkSettings;
@@ -39,6 +37,11 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 /**
  * This class handles following admin commands:
  * - admin|admin1/admin2/admin3/admin4/admin5 = slots for the 5 starting admin menus
@@ -50,40 +53,62 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  * - set/set_menu/set_mod = alters specified server setting
  * - saveolymp = saves olympiad state manually
  * - manualhero = cycles olympiad and calculate new heroes.
- * @version $Revision: 1.3.2.1.2.4 $ $Date: 2007/07/28 10:06:06 $
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminAdmin implements IAdminCommandHandler {
+public class AdminAdmin implements IAdminCommandHandler
+{
+    private static Map<String, Integer> admin = new HashMap<>();
 
-	private static final String[] ADMIN_COMMANDS = {
-	        "admin_admin",
-            "admin_admin1",
-            "admin_admin2",
-            "admin_admin3",
-            "admin_admin4",
-            "admin_admin5",
-		    "admin_gmliston",
-            "admin_gmlistoff",
-            "admin_silence",
-            "admin_diet",
-            "admin_tradeoff",
-            "admin_reload",
-            "admin_set",
-            "admin_set_menu",
-            "admin_set_mod",
-		    "admin_saveolymp",
-            "admin_manualhero"
-	};
+    public AdminAdmin()
+    {
+        admin.put("admin_admin", Config.admin_admin);
+        admin.put("admin_admin1", Config.admin_admin1);
+        admin.put("admin_admin2", Config.admin_admin2);
+        admin.put("admin_admin3", Config.admin_admin3);
+        admin.put("admin_admin4", Config.admin_admin4);
+        admin.put("admin_admin5", Config.admin_admin5);
+        admin.put("admin_gmliston", Config.admin_gmliston);
+        admin.put("admin_gmlistoff", Config.admin_gmlistoff);
+        admin.put("admin_silence", Config.admin_silence);
+        admin.put("admin_diet", Config.admin_diet);
+        admin.put("admin_tradeoff", Config.admin_tradeoff);
+        admin.put("admin_set", Config.admin_set);
+        admin.put("admin_set_menu", Config.admin_set_menu);
+        admin.put("admin_set_mod", Config.admin_set_mod);
+        admin.put("admin_saveolymp", Config.admin_saveolymp);
+        admin.put("admin_manualhero", Config.admin_manualhero);
+    }
 
-	private static final int REQUIRED_LEVEL = Config.GM_MENU;
+    private boolean checkPermission(String command, L2PcInstance activeChar)
+    {
+        if (!Config.ALT_PRIVILEGES_ADMIN)
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
     {
+        StringTokenizer st = new StringTokenizer(command);
+        String commandName = st.nextToken();
 
-		if (!Config.ALT_PRIVILEGES_ADMIN)
-			if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM()))
-				return false;
+        if(checkPermission(commandName, activeChar)) return false;
 
-		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target"), "");
+		GMAudit.auditGMAction(activeChar.getName(), command, (activeChar.getTarget() != null ? activeChar.getTarget().getName() : "no-target"), "");
 
 		if (command.startsWith("admin_admin"))
 		{
@@ -134,8 +159,6 @@ public class AdminAdmin implements IAdminCommandHandler {
 		{
 			try
 			{
-				StringTokenizer st = new StringTokenizer(command);
-				st.nextToken();
 				if(st.nextToken().equalsIgnoreCase("on"))
 				{
 					activeChar.setDietMode(true);
@@ -195,116 +218,9 @@ public class AdminAdmin implements IAdminCommandHandler {
 				}
 			}
 		}
-		else if(command.startsWith("admin_reload"))
-		{
-			StringTokenizer st = new StringTokenizer(command);
-			st.nextToken();
-			try
-			{
-				String type = st.nextToken();
-				if(type.equals("multisell"))
-				{
-					L2Multisell.getInstance().reload();
-					activeChar.sendMessage("multisell reloaded");
-				}
-				else if(type.startsWith("teleport"))
-				{
-					TeleportLocationTable.getInstance().reloadAll();
-					activeChar.sendMessage("teleport locations reloaded");
-				}
-				else if(type.startsWith("skill"))
-				{
-					SkillTable.getInstance();
-					SkillTable.reload();
-					activeChar.sendMessage("skills reloaded");
-				}
-				else if(type.equals("npc"))
-				{
-					NpcTable.getInstance().reloadAllNpc();
-					activeChar.sendMessage("npcs reloaded");
-				}
-				else if(type.startsWith("htm"))
-				{
-					HtmCache.getInstance().reload();
-					activeChar.sendMessage("Cache[HTML]: " + HtmCache.getInstance().getMemoryUsage()  + " megabytes on " + HtmCache.getInstance().getLoadedFiles() + " html reloaded");
-				}
-				else if(type.startsWith("item"))
-				{
-					ItemTable.getInstance().reload();
-					activeChar.sendMessage("Item templates reloaded");
-				}
-				else if (type.startsWith("config")) 
-                { 
-					AdminHelpPage.showHelpPage(activeChar, "reload_menu1.htm");
-                }
-				else if (type.startsWith("admin")) 
-                { 
-					Config.loadGMAcessConfig();
-                    activeChar.sendMessage("Admin config settings reloaded"); 
-                }
-				else if (type.startsWith("custom")) 
-                { 
-					Config.loadCommandConfig();
-					Config.loadBrasilConfig();
-					Config.loadL2JModConfig();
-                    activeChar.sendMessage("Custom config settings reloaded"); 
-                }
-				else if (type.startsWith("event")) 
-                { 
-					Config.loadCHConfig();
-					Config.loadSepulchersConfig();
-					Config.loadOlympConfig();
-					Config.loadSevenSignsConfig();
-					Config.loadTvTConfig();
-                    activeChar.sendMessage("Event config settings reloaded"); 
-                }
-				else if (type.startsWith("main")) 
-                { 
-					Config.loadAltSettingsConfig();
-					Config.loadBossConfig();
-					Config.loadClanConfig();
-					Config.loadClassConfig();
-					Config.loadEnchantConfig();
-					Config.loadExtensionsConfig();
-					Config.loadOptionConfig();
-					Config.loadOtherConfig();
-					Config.loadPvPConfig();
-					Config.loadRatesConfig();
-                    activeChar.sendMessage("Main config settings reloaded"); 
-                }
-				else if (type.startsWith("network")) 
-                { 
-					Configurator.getInstance().reloadSettings(NetworkSettings.class);
-                    activeChar.sendMessage("Network config settings reloaded"); 
-                }
-				else if (type.startsWith("security")) 
-                { 
-					Config.loadFloodConfig();
-					Config.loadIdFactoryConfig();
-					Config.loadScriptingConfig(); 
-                    activeChar.sendMessage("Security config settings reloaded"); 
-                }
-				else if(type.startsWith("instancemanager"))
-				{
-					Manager.reloadAll();
-					activeChar.sendMessage("All instance manager reloaded");
-				}
-				else if(type.startsWith("npcwalkers"))
-				{
-					NpcWalkerRoutesTable.getInstance().load();
-					activeChar.sendMessage("All NPC walker routes reloaded");
-				}
-			}
-			catch(Exception e)
-			{
-				activeChar.sendMessage("Usage:  //reload <multisell|skill|npc|htm|config|item|instancemanager>");
-			}
-		}
-
 		else if(command.startsWith("admin_set"))
 		{
-			StringTokenizer st = new StringTokenizer(command);
-			String[] cmd=st.nextToken().split("_");
+			String[] cmd=commandName.split("_");
 			try
 			{
 				String[] parameter = st.nextToken().split("=");
@@ -334,18 +250,7 @@ public class AdminAdmin implements IAdminCommandHandler {
 		return true;
 	}
 
-
-	public String[] getAdminCommandList()
-	{
-		return ADMIN_COMMANDS;
-	}
-
-	private boolean checkLevel(int level)
-	{
-		return (level >= REQUIRED_LEVEL);
-	}
-
-	private void showMainPage(L2PcInstance activeChar, String command)
+    private void showMainPage(L2PcInstance activeChar, String command)
 	{
 		int mode = 0;
 		String filename;
@@ -353,7 +258,7 @@ public class AdminAdmin implements IAdminCommandHandler {
 		{
 			mode = Integer.parseInt(command.substring(11));
 		}
-		catch (Exception e) {  }// Nao precisa printar.
+		catch (Exception e) {  }
 
 		switch (mode)
 		{

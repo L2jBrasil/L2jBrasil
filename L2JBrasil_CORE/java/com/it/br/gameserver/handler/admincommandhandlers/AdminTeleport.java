@@ -18,21 +18,13 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
-import com.it.br.gameserver.model.GMAudit;
-import com.it.br.gameserver.model.L2CharPosition;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
@@ -40,47 +32,70 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
+import java.util.*;
+import java.util.logging.Logger;
+
+/**
+ * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
+ */
 public class AdminTeleport implements IAdminCommandHandler
 {
     private static final Logger _log = Logger.getLogger(AdminTeleport.class.getName());
+    private static Map<String, Integer> admin = new HashMap<>();
 
-    private static final String[] ADMIN_COMMANDS =
+    private boolean checkPermission(String command, L2PcInstance activeChar)
     {
-        "admin_show_moves",
-        "admin_show_moves_other",
-        "admin_show_teleport",
-        "admin_teleport_to_character",
-        "admin_teleportto",
-        "admin_move_to",
-        "admin_teleport_character",
-        "admin_recall",
-        "admin_walk",
-        "admin_explore",
-        "teleportto",
-        "recall",
-        "admin_recall_npc",
-        "admin_gonorth",
-        "admin_gosouth",
-        "admin_goeast",
-        "admin_gowest",
-        "admin_goup",
-        "admin_godown",
-        "admin_tele",
-        "admin_teleto",
-        "admin_instant_move",
-		"admin_sendhome"
-    };
-    private static final int REQUIRED_LEVEL = Config.GM_TELEPORT;
-    private static final int REQUIRED_LEVEL2 = Config.GM_TELEPORT_OTHER;
-
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
-	{
-        StringTokenizer st1 = new StringTokenizer(command);
-
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(activeChar.getAccessLevel()) && activeChar.isGM())) return false;
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
+            {
+                activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
+                return true;
+            }
+        return false;
+    }
 
-		String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
+    private boolean checkLevel(String command, int level)
+    {
+        Integer requiredAcess = admin.get(command);
+        return (level >= requiredAcess);
+    }
+
+    public AdminTeleport()
+    {
+        admin.put("admin_show_moves", Config.admin_show_moves);
+        admin.put("admin_show_moves_other", Config.admin_show_moves_other);
+        admin.put("admin_show_teleport", Config.admin_show_teleport);
+        admin.put("admin_teleport_to_character", Config.admin_teleport_to_character);
+        admin.put("admin_recall", Config.admin_recall);
+        admin.put("admin_walk", Config.admin_walk);
+        admin.put("admin_explore", Config.admin_explore);
+        admin.put("admin_recall_npc", Config.admin_recall_npc);
+        admin.put("admin_gonorth", Config.admin_gonorth);
+        admin.put("admin_gosouth", Config.admin_gosouth);
+        admin.put("admin_goeast", Config.admin_goeast);
+        admin.put("admin_gowest", Config.admin_gowest);
+        admin.put("admin_goup", Config.admin_goup);
+        admin.put("admin_godown", Config.admin_godown);
+        admin.put("admin_tele", Config.admin_tele);
+        admin.put("admin_teleto", Config.admin_teleto);
+        admin.put("admin_instant_move", Config.admin_instant_move);
+        admin.put("admin_sendhome", Config.admin_sendhome);
+        admin.put("admin_move_to", Config.admin_move_to);
+    }
+
+    public Set<String> getAdminCommandList()
+    {
+        return admin.keySet();
+    }
+
+    public boolean useAdminCommand(String command, L2PcInstance activeChar)
+    {
+        StringTokenizer st1 = new StringTokenizer(command);
+        String commandName = st1.nextToken();
+
+        if(checkPermission(commandName, activeChar)) return false;
+
+        String target = (activeChar.getTarget() != null?activeChar.getTarget().getName():"no-target");
         GMAudit.auditGMAction(activeChar.getName(), command, target, "");
 
         if (command.equals("admin_teleto"))
@@ -198,8 +213,7 @@ public class AdminTeleport implements IAdminCommandHandler
             {
                 String val = command.substring(25);
 
-                if (activeChar.getAccessLevel()>=REQUIRED_LEVEL2)
-            	    teleportCharacter(activeChar, val);
+                teleportCharacter(activeChar, val);
             }
             catch (StringIndexOutOfBoundsException e)
             {
@@ -239,8 +253,7 @@ public class AdminTeleport implements IAdminCommandHandler
             }
 
             L2PcInstance player = L2World.getInstance().getPlayer(val);
-            if (activeChar.getAccessLevel() >= REQUIRED_LEVEL2)
-                teleportCharacter(player, activeChar.getX(), activeChar.getY(), activeChar.getZ());
+            teleportCharacter(activeChar, player, activeChar.getX(), activeChar.getY(), activeChar.getZ());
         }
         else if (command.equals("admin_tele"))
         {
@@ -278,16 +291,6 @@ public class AdminTeleport implements IAdminCommandHandler
             }
         }
         return true;
-    }
-
-	public String[] getAdminCommandList()
-    {
-        return ADMIN_COMMANDS;
-    }
-
-    private boolean checkLevel(int level)
-    {
-        return (level >= REQUIRED_LEVEL);
     }
 
     private void teleportTo(L2PcInstance activeChar, String Cords)
@@ -389,12 +392,12 @@ public class AdminTeleport implements IAdminCommandHandler
                 int y = Integer.parseInt(y1);
                 String z1 = st.nextToken();
                 int z = Integer.parseInt(z1);
-                teleportCharacter(player, x,y,z);
+                teleportCharacter(activeChar, player, x,y,z);
             } catch (NoSuchElementException nsee) {}
         }
     }
 
-    private void teleportCharacter(L2PcInstance player, int x, int y, int z)
+    private void teleportCharacter(L2PcInstance activeChar, L2PcInstance player, int x, int y, int z)
     {
         if (player != null)
         {
@@ -402,6 +405,10 @@ public class AdminTeleport implements IAdminCommandHandler
             player.sendMessage("Admin is teleporting you.");
             player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
             player.teleToLocation(x, y, z, true);
+        }
+        else
+        {
+            activeChar.sendMessage("Player not is online.");
         }
     }
 
