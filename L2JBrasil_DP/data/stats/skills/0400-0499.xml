@@ -1139,7 +1139,8 @@
   <set name="charge_skill_id" val="8"/>
   <set name="num_charges" val="#charges"/>
   <set name="operateType" val="OP_ACTIVE"/>
-  <set name="skillType" val="BUFF"/>
+  <set name="skillType" val="CHARGE_EFFECT"/>
+  <set name="isMagic" val="false"/>
   <cond msg="An equipped dual-sword weapon is required to use this skill.">
     <using kind="Dual Sword"/>
   </cond>
