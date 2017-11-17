@@ -25,6 +25,7 @@ import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.configuration.settings.LoginSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -292,8 +293,8 @@ public class AdminReload implements IAdminCommandHandler
         Config.loadOtherConfig();
         Config.loadPvPConfig();
         Config.loadRatesConfig();
-        Config.loadLoginServerConfig();
-        Config.loadGameServerConfig();
+	Configurator.getInstance().reloadSettings(ServerSettings.class);
+	Configurator.getInstance().reloadSettings(LoginSettings.class);
         Config.loadFloodConfig();
         Config.loadIdFactoryConfig();
         Config.loadScriptingConfig();
