@@ -12,21 +12,24 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import com.it.br.Config;
-import com.it.br.gameserver.templates.L2HelperBuff;
-import com.it.br.gameserver.templates.StatsSet;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.templates.L2HelperBuff;
+import com.it.br.gameserver.templates.StatsSet;
 
 public class HelperBuffTable
 {
@@ -52,7 +55,8 @@ public class HelperBuffTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/helper_buff_list.xml");
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/helper_buff_list.xml");
 		if(!f.exists())
 		{
 			_log.warn("HelperBuffTable: helper_buff_list.xml could not be loaded: file not found");

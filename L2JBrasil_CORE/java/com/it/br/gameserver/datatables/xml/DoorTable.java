@@ -36,7 +36,8 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
 import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
@@ -85,7 +86,8 @@ public class DoorTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT + "/data/xml/doors.xml");
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		File file = new File(serverSettings.getDatapackDirectory() + "/data/xml/doors.xml");
 		if (!file.exists())
 		{
 			_log.warn("doors.xml is missing in data folder.");

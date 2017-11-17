@@ -27,6 +27,8 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.util.Util;
 
 /**
@@ -59,7 +61,8 @@ public class HtmCache
 
     public void reload()
     {
-        reload(Config.DATAPACK_ROOT);
+    	
+        reload(Configurator.getSettings(ServerSettings.class).getDatapackDirectory());
     }
 
     public void reload(File f)
@@ -142,7 +145,8 @@ public class HtmCache
                 content = new String(raw, "UTF-8");
                 content = content.replaceAll("\r\n","\n");
 
-                String relpath = Util.getRelativePath(Config.DATAPACK_ROOT,file);
+                ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+                String relpath = Util.getRelativePath(serverSettings.getDatapackDirectory(),file);
                 int hashcode = relpath.hashCode();
 
                 String oldContent = _cache.get(hashcode);
@@ -191,8 +195,10 @@ public class HtmCache
     {
         String content = _cache.get(path.hashCode());
 
-        if (Config.LAZY_CACHE && content == null)
-            content = loadFile(new File(Config.DATAPACK_ROOT,path));
+        if (Config.LAZY_CACHE && content == null) {
+        	ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+        	content = loadFile(new File(serverSettings.getDatapackDirectory(), path));
+        }
 
         return content;
     }

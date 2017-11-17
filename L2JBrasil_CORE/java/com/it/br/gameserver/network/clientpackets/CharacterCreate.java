@@ -18,13 +18,14 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
-import java.util.concurrent.locks.ReentrantLock;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.CharNameTable;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -125,10 +126,11 @@ public final class CharacterCreate extends L2GameClientPacket
 		* Since checks for duplicate names are done using SQL,
 		* lock must be held until data is written to DB as well.
 		*/
-		synchronized (CharNameTable.getInstance())
-		{
-        if (CharNameTable.getInstance().accountCharNumber(getClient().getAccountName()) >= Config.MAX_CHARACTERS_NUMBER_PER_ACCOUNT
-			        && Config.MAX_CHARACTERS_NUMBER_PER_ACCOUNT != 0)
+		synchronized (CharNameTable.getInstance()) {
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			int maxCharacters = serverSettings.getCharacterMaxCount();
+        if (CharNameTable.getInstance().accountCharNumber(getClient().getAccountName()) >= maxCharacters
+			        && maxCharacters != 0)
 			{
 				if (Config.DEBUG)
 					_log.fine("Max number of characters reached. Creation failed.");
@@ -180,7 +182,8 @@ public final class CharacterCreate extends L2GameClientPacket
             Pattern pattern;
             try
             {
-                pattern = Pattern.compile(Config.CNAME_TEMPLATE);
+            	ServerSettings serverSettings = getSettings(ServerSettings.class);
+                pattern = Pattern.compile(serverSettings.getCharacterNameTemplate());
             }
             catch (PatternSyntaxException e) // case of illegal pattern
             {

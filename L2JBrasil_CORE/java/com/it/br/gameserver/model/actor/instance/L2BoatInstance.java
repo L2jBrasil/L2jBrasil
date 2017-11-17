@@ -30,6 +30,8 @@ import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Character;
@@ -128,9 +130,9 @@ public class L2BoatInstance extends L2Character
 		private void loadBoatPath()
 		{
 			LineNumberReader lnr = null;
-			try
-			{
-				File doorData = new File(Config.DATAPACK_ROOT, "data/csv/boatpath.csv");
+			try {
+				ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+				File doorData = new File(serverSettings.getDatapackDirectory(), "data/csv/boatpath.csv");
 				lnr = new LineNumberReader(new BufferedReader(new FileReader(doorData)));
 
 				String line = null;

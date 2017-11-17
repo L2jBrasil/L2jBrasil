@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -39,6 +41,7 @@ import org.xml.sax.SAXException;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2DropCategory;
 import com.it.br.gameserver.model.L2DropData;
@@ -222,7 +225,8 @@ public class NpcTable
 			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 			int th = 0;
-			File f = new File(Config.DATAPACK_ROOT + "/data/xml/skill_learn.xml");
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/skill_learn.xml");
 			if(!f.exists())
 			{
 				_log.error("skill_learn.xml could not be loaded: file not found");
@@ -277,7 +281,7 @@ public class NpcTable
 			factory1.setValidating(false);
 			factory1.setIgnoringComments(true);
 			int cnt = 0;
-			File f1 = new File(Config.DATAPACK_ROOT + "/data/xml/minion.xml");
+			File f1 = new File(serverSettings.getDatapackDirectory() + "/data/xml/minion.xml");
 			if(!f1.exists())
 			{
 				_log.error("minion.xml could not be loaded: file not found");

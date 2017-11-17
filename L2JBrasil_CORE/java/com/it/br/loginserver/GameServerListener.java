@@ -17,6 +17,8 @@
  */
 package com.it.br.loginserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.NetworkSettings;
 
 /**
  *
@@ -36,7 +39,7 @@ public class GameServerListener extends FloodProtectedListener
 
 	public GameServerListener() throws IOException
 	{
-		super(Config.GAME_SERVER_LOGIN_HOST, Config.GAME_SERVER_LOGIN_PORT);
+		super(getSettings(NetworkSettings.class).getLoginListenServerHostname(), getSettings(NetworkSettings.class).getLoginListenServerPort());
 	}
 
 	/**

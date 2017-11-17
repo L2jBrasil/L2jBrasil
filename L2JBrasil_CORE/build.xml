@@ -52,13 +52,16 @@
         <copy todir="${build.dist.login}">
             <fileset dir="dist">
                 <include name="Login.bat"/>
+            	<include name="login.sh"/>
             	<include name="Register.bat"/>
+            	<include name="register.sh"/>
             </fileset>
         </copy>
 
     	<copy todir="${build.dist.game}">
             <fileset dir="dist">
                 <include name="Game.bat"/>
+            	<include name="game.sh"/>
             </fileset>
         </copy>
 
@@ -67,20 +70,21 @@
 
     	<copy todir="${build.dist.login}/config">
 			<fileset dir="config">
-				<include name="login.properties"/>
-				<include name="telnet.properties"/>
+				<include name="network.properties"/>
 				<include name="mmocore.properties"/>
-			</fileset>
-		</copy>
-    	
-    	<copy todir="${build.dist.login}/config">
-			<fileset dir="config">
 				<include name="other/log.*"/>
 				<include name="other/banned_ip.*"/>
 				<include name="other/console.*"/>
 				<include name="other/servername.*"/>
 				<include name="login.*"/>
 			</fileset>
+		</copy>
+    	
+    	<copy todir="${build.dist.login}/config">
+			<fileset dir="config">
+				<include name="login-*"/>
+			</fileset>
+    		<mapper type="glob" from="login-*" to="*"/>
 		</copy>
 
     	<copy todir="${build.dist.game}/config">
@@ -89,8 +93,17 @@
 				<exclude name="login.*"/>
 				<exclude name="other/banned_ip.*"/>
 				<exclude name="other/servername.*"/>
+				<exclude name="login-*"/>
+				<exclude name="server-*"/>
 			</fileset>
         </copy>
+    	
+    	<copy todir="${build.dist.game}/config">
+    		<fileset dir="config">
+    			<include name="server-*"/>
+    		</fileset>
+    		<mapper type="glob" from="server-*" to="*"/>
+    	</copy>
 					
         <copy todir="${build.dist.game}/data">
             <fileset dir="data">

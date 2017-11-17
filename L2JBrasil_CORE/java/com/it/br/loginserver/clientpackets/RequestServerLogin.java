@@ -18,7 +18,9 @@
  */
 package com.it.br.loginserver.clientpackets;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.LoginSettings;
 import com.it.br.loginserver.LoginController;
 import com.it.br.loginserver.SessionKey;
 import com.it.br.loginserver.serverpackets.LoginFail.LoginFailReason;
@@ -84,9 +86,11 @@ public class RequestServerLogin extends L2LoginClientPacket
 	public void run()
 	{
 		SessionKey sk = getClient().getSessionKey();
+		
+		LoginSettings loginSettings = getSettings(LoginSettings.class);
 
 		// if we didnt showed the license we cant check these values
-		if (!Config.SHOW_LICENCE || sk.checkLoginPair(_skey1, _skey2))
+		if (! loginSettings.showLicense() || sk.checkLoginPair(_skey1, _skey2))
 		{
 			if (LoginController.getInstance().isLoginPossible(getClient(), _serverId))
 			{

@@ -17,28 +17,29 @@
  */
 package com.it.br.status;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.NoSuchElementException;
-import java.util.Properties;
 import java.util.StringTokenizer;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.GmListTable;
@@ -113,30 +114,14 @@ public class GameStatusThread extends Thread
         // read and loop thru list of IPs, compare with newIP
         if ( Config.DEVELOPER ) telnetOutput(2, "");
 
-        try {
-            Properties telnetSettings = new Properties();
-            InputStream telnetIS = new FileInputStream(new File(Config.TELNET_FILE));
-            telnetSettings.load(telnetIS);
-            telnetIS.close();
-
-            String HostList = telnetSettings.getProperty("ListOfHosts", "127.0.0.1,localhost");
-
-            if ( Config.DEVELOPER ) telnetOutput(3, "Comparing ip to list...");
-
-            // compare
-            String ipToCompare = null;
-            for (String ip:HostList.split(",")) {
-                if ( !result ) {
-                    ipToCompare = InetAddress.getByName(ip).getHostAddress();
-                    if ( clientStringIP.equals(ipToCompare) ) result = true;
-                    if ( Config.DEVELOPER ) telnetOutput(3, clientStringIP + " = " + ipToCompare + "("+ip+") = " + result);
-                }
-            }
-        }
-        catch ( IOException e) {
-            if ( Config.DEVELOPER ) telnetOutput(4, "");
-            telnetOutput(1, "Error: "+e);
-        }
+        NetworkSettings networkSettings = getSettings(NetworkSettings.class);
+		result = networkSettings.getTelnetAcceeptHosts().stream().anyMatch(ip -> {
+			try {
+				return clientStringIP.equals(InetAddress.getByName(ip).getHostAddress());
+			} catch (UnknownHostException e) {
+				return false;
+			}
+		} );
 
         if ( Config.DEVELOPER ) telnetOutput(4, "Allow IP: "+result);
         return result;

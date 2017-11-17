@@ -18,16 +18,16 @@
 package com.it.br.status;
 
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -35,11 +35,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
-import java.util.Properties;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.loginserver.GameServerTable;
 import com.it.br.loginserver.L2LoginServer;
 import com.it.br.loginserver.LoginController;
@@ -78,31 +78,16 @@ public class LoginStatusThread extends Thread
 
 		// read and loop thru list of IPs, compare with newIP
 		if ( Config.DEVELOPER ) telnetOutput(2, "");
+		
+		NetworkSettings networkSettings = getSettings(NetworkSettings.class);
 
-		try {
-			Properties telnetSettings = new Properties();
-			InputStream telnetIS = new FileInputStream(new File(Config.TELNET_FILE));
-			telnetSettings.load(telnetIS);
-			telnetIS.close();
-
-			String HostList = telnetSettings.getProperty("ListOfHosts", "127.0.0.1,localhost");
-
-			if ( Config.DEVELOPER ) telnetOutput(3, "Comparing ip to list...");
-
-			// compare
-			String ipToCompare = null;
-			for (String ip:HostList.split(",")) {
-				if ( !result ) {
-					ipToCompare = InetAddress.getByName(ip).getHostAddress();
-					if ( clientStringIP.equals(ipToCompare) ) result = true;
-					if ( Config.DEVELOPER ) telnetOutput(3, clientStringIP + " = " + ipToCompare + "("+ip+") = " + result);
-				}
+		result = networkSettings.getTelnetAcceeptHosts().stream().anyMatch(ip -> {
+			try {
+				return clientStringIP.equals(InetAddress.getByName(ip).getHostAddress());
+			} catch (UnknownHostException e) {
+				return false;
 			}
-		}
-		catch ( IOException e) {
-			if ( Config.DEVELOPER ) telnetOutput(4, "");
-			telnetOutput(1, "Error: "+e);
-		}
+		} );
 
 		if ( Config.DEVELOPER ) telnetOutput(4, "Allow IP: "+result);
 		return result;

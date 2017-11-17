@@ -34,6 +34,8 @@ import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.xml.DoorTable;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2World;
@@ -528,10 +530,13 @@ public class GeoEngine extends GeoData
 	private static void nInitGeodata()
 	{
 		BufferedReader lnr = null;
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		File datapack = serverSettings.getDatapackDirectory();
 		try
 		{
+			
 			_log.info("Geo Engine: - Loading Geodata...");
-			File Data = new File(Config.DATAPACK_ROOT, "data/geodata/geo_index.txt");
+			File Data = new File(datapack, "data/geodata/geo_index.txt");
 			if(!Data.exists())
 			{
 				return;
@@ -576,7 +581,7 @@ public class GeoEngine extends GeoData
 		}
 		try
 		{
-			File geo_bugs = new File(Config.DATAPACK_ROOT, "data/geodata/geo_bugs.txt");
+			File geo_bugs = new File(datapack, "data/geodata/geo_bugs.txt");
 			_geoBugsOut = new BufferedOutputStream(new FileOutputStream(geo_bugs, true));
 		}
 		catch(Exception e)

@@ -30,6 +30,8 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.templates.L2Henna;
 import com.it.br.gameserver.templates.StatsSet;
 
@@ -62,7 +64,8 @@ public class HennaTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/henna.xml");
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/henna.xml");
 		if(!f.exists())
 		{
 			_log.warn("henna.xml could not be loaded: file not found");

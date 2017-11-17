@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -27,6 +29,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.Inventory;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2ManufactureItem;
@@ -69,7 +72,8 @@ public class RecipeController
 
 		try
 		{
-			File recipesData = new File(Config.DATAPACK_ROOT, "data/csv/recipes.csv");
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			File recipesData = new File(serverSettings.getDatapackDirectory(), "data/csv/recipes.csv");
 			lnr = new LineNumberReader(new BufferedReader(new FileReader(recipesData)));
 
 			while ((line = lnr.readLine()) != null)

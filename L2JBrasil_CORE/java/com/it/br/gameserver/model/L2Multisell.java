@@ -28,7 +28,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.MultiSellList;
@@ -462,9 +463,9 @@ public class L2Multisell
         }
     }
 
-    private void hashFiles(String dirname, List<File> hash)
-    {
-        File dir = new File(Config.DATAPACK_ROOT, "data/" + dirname);
+    private void hashFiles(String dirname, List<File> hash) {
+    	ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+        File dir = new File(serverSettings.getDatapackDirectory(), "data/" + dirname);
         if (!dir.exists())
         {
             _log.config("Dir " + dir.getAbsolutePath() + " not exists");

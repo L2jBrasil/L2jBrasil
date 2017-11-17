@@ -18,8 +18,11 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -817,7 +820,9 @@ public class AdminEditChar implements IAdminCommandHandler
 	 */
 	private void findCharactersPerAccount(L2PcInstance activeChar, String characterName) throws IllegalArgumentException
 	{
-		if (characterName.matches(Config.CNAME_TEMPLATE))
+		ServerSettings serverSettings = getSettings(ServerSettings.class);
+		
+		if (characterName.matches(serverSettings.getCharacterNameTemplate()))
 		{
 			String account=null;
 			Map<Integer, String> chars;

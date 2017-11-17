@@ -17,19 +17,16 @@
  */
 package com.it.br.status;
 
-import java.io.File;
-import java.io.FileInputStream;
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
-
-import com.it.br.Config;
 import com.it.br.Server;
+import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.util.Rnd;
 
 
@@ -94,30 +91,20 @@ public class Status extends Thread
     {
         super("Status");
         _mode= mode;
-        Properties telnetSettings = new Properties();
-        InputStream is = new FileInputStream( new File(Config.TELNET_FILE));
-        telnetSettings.load(is);
-        is.close();
+        
+        NetworkSettings networkSettings = getSettings(NetworkSettings.class);
+        _statusPort = networkSettings.getTelnetPort();
+        _statusPw   = networkSettings.getTelnetPassword();
+        
+        if (_statusPw == null)  {
+            System.out.println("Server's Telnet Function Has No Password Defined!");
+            System.out.println("A Password Has Been Automaticly Created!");
+            _statusPw = rndPW(10);
+        }
+        
+        System.out.println("StatusServer Started! - Listening on Port: " + _statusPort);
+        System.out.println("Password Has Been Set To: " + _statusPw);
 
-        _statusPort       = Integer.parseInt(telnetSettings.getProperty("StatusPort", "12345"));
-        _statusPw         = telnetSettings.getProperty("StatusPW");
-        if(_mode == Server.MODE_GAMESERVER)
-        {
-	        if (_statusPw == null)
-	        {
-	            System.out.println("Server's Telnet Function Has No Password Defined!");
-	            System.out.println("A Password Has Been Automaticly Created!");
-	            _statusPw = rndPW(10);
-	            System.out.println("Password Has Been Set To: " + _statusPw);
-	        }
-	        System.out.println("StatusServer Started! - Listening on Port: " + _statusPort);
-	        System.out.println("Password Has Been Set To: " + _statusPw);
-        }
-        else
-        {
-        	System.out.println("StatusServer Started! - Listening on Port: " + _statusPort);
-        	System.out.println("Password Has Been Set To: " + _statusPw);
-        }
         statusServerSocket = new ServerSocket(_statusPort);
         _uptime = (int) System.currentTimeMillis();
         _loginStatus = new ArrayList<>();

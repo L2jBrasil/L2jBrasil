@@ -30,6 +30,8 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2PetData;
 import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 
@@ -61,7 +63,8 @@ public class L2PetDataTable
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/pet_stats.xml");
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/pet_stats.xml");
 		if(!f.exists())
 		{
 			_log.warn("pet_stats.xml could not be loaded: file not found");

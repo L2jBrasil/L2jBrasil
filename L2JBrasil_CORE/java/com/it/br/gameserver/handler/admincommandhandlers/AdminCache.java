@@ -19,6 +19,8 @@
 package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.cache.CrestCache;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -72,14 +74,16 @@ public class AdminCache implements IAdminCommandHandler
 
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-        StringTokenizer st = new StringTokenizer(command);
-        String commandName = st.nextToken();
+    StringTokenizer st = new StringTokenizer(command);
+    String commandName = st.nextToken();
 
-        if(checkPermission(commandName, activeChar)) return false;
+    if(checkPermission(commandName, activeChar)) return false;
 
+    ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+		File datapackDirectory = serverSettings.getDatapackDirectory();
 		if (command.startsWith("admin_cache_htm_rebuild") || command.equals("admin_cache_htm_reload"))
 		{
-			HtmCache.getInstance().reload(Config.DATAPACK_ROOT);
+			HtmCache.getInstance().reload(datapackDirectory);
 			activeChar.sendMessage("Cache[HTML]: " + HtmCache.getInstance().getMemoryUsage()  + " MB on " + HtmCache.getInstance().getLoadedFiles() + " file(s) loaded.");
 		}
 		else if (command.startsWith("admin_cache_reload_path "))
@@ -87,7 +91,7 @@ public class AdminCache implements IAdminCommandHandler
 			try
 			{
 				String path = command.split(" ")[1];
-				HtmCache.getInstance().reloadPath(new File(Config.DATAPACK_ROOT, path));
+				HtmCache.getInstance().reloadPath(new File(datapackDirectory, path));
 				activeChar.sendMessage("Cache[HTML]: " + HtmCache.getInstance().getMemoryUsage()  + " MB in " + HtmCache.getInstance().getLoadedFiles() + " file(s) loaded.");
 			}
 			catch (Exception e)
@@ -100,7 +104,7 @@ public class AdminCache implements IAdminCommandHandler
 			try
 			{
 				String path = command.split(" ")[1];
-				if (HtmCache.getInstance().loadFile(new File(Config.DATAPACK_ROOT,path)) != null)
+				if (HtmCache.getInstance().loadFile(new File(datapackDirectory,path)) != null)
 				{
 					activeChar.sendMessage("Cache[HTML]: file was loaded");
 				}

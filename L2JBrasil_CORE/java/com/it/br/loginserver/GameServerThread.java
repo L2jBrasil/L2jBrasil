@@ -18,6 +18,8 @@
  */
 package com.it.br.loginserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,6 +37,8 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.loginserver.GameServerTable.GameServerInfo;
 import com.it.br.loginserver.crypt.NewCrypt;
 import com.it.br.loginserver.gameserverpackets.BlowFishKey;
@@ -351,6 +355,7 @@ public class GameServerThread extends Thread
 		byte[] hexId = gameServerAuth.getHexID();
 
 		GameServerInfo gsi = gameServerTable.getRegisteredGameServerById(id);
+		LoginSettings loginSettings = getSettings(LoginSettings.class);
 		// is there a gameserver registered with this id?
 		if (gsi != null)
 		{
@@ -374,7 +379,7 @@ public class GameServerThread extends Thread
 			{
 				// there is already a server registered with the desired id and different hex id
 				// try to register this one with an alternative id
-				if (Config.ACCEPT_NEW_GAMESERVER && gameServerAuth.acceptAlternateID())
+				if (loginSettings.isNewServerEnabled() && gameServerAuth.acceptAlternateID())
 				{
 					gsi = new GameServerInfo(id, hexId, this);
 					if (gameServerTable.registerWithFirstAvaliableId(gsi))
@@ -397,7 +402,7 @@ public class GameServerThread extends Thread
 		else
 		{
 			// can we register on this id?
-			if (Config.ACCEPT_NEW_GAMESERVER)
+			if (loginSettings.isNewServerEnabled())
 			{
 				gsi = new GameServerInfo(id, hexId, this);
 				if (gameServerTable.register(id, gsi))

@@ -22,7 +22,6 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;

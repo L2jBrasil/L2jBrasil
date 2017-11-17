@@ -29,7 +29,8 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2ArmorSet;
 
 public class ArmorSetsTable
@@ -58,10 +59,11 @@ public class ArmorSetsTable
 
 	private void loadData()
 	{
+		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File f = new File(Config.DATAPACK_ROOT + "/data/xml/armorsets.xml");
+		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/armorsets.xml");
 		if(!f.exists())
 		{
 			_log.warn("armorsets.xml could not be loaded: file not found");

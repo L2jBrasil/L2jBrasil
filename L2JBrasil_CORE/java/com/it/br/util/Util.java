@@ -29,6 +29,7 @@
 package com.it.br.util;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 
 import org.apache.commons.logging.Log;
@@ -241,5 +242,18 @@ public class Util
 		printJreInfo();
 		printJvmInfo();
 	}
+	
+	
+	public static boolean isNullOrEmpty(String string) {
+		return string == null || string.isEmpty();
+	}
+	
+	public static boolean isNullOrEmpty(Collection<?> collection) {
+		return collection == null || collection.isEmpty();
+	}
 
+
+	public static long getMilliSecondsFromSeconds(int seconds){
+		return seconds * 1000;
+	}
 }

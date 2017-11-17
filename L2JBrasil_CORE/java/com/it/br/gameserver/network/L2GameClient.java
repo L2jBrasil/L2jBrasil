@@ -17,6 +17,8 @@
  */
 package com.it.br.gameserver.network;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.net.InetAddress;
 import java.nio.ByteBuffer;
 import java.sql.Connection;
@@ -32,6 +34,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.LoginServerThread;
 import com.it.br.gameserver.LoginServerThread.SessionKey;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -571,10 +574,11 @@ public final class L2GameClient extends MMOClient<MMOConnection<L2GameClient>>
     
     public boolean checkUnknownPackets()
     {
+    	ServerSettings serverSettings = getSettings(ServerSettings.class);
     	if (this.getActiveChar() != null && !activeChar.getFloodProtectors().getPacket().tryPerformAction("packet"))
     	{
     		unknownPacketCount++;
-    		if (unknownPacketCount >= Config.MAX_UNKNOWN_PACKETS)
+    		if (unknownPacketCount >= serverSettings.getMaxUnknownPacket())
     		{
     			return true;
     		}

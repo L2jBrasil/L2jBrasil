@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,6 +34,8 @@ import java.util.regex.PatternSyntaxException;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.SevenSigns;
@@ -378,10 +382,11 @@ public class EnterWorld extends L2GameClientPacket
 	    if (Config.L2JMOD_CHECK_SKILLS_ON_ENTER && !Config.ALT_GAME_SKILL_LEARN && !activeChar.isAio() && (activeChar.isVip() && !Config.ENABLE_VIP_SYSTEM)) 
 	    	activeChar.checkAllowedSkills();
 
+	    ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
 	    if(Config.GM_WELCOME_HTM && activeChar.isGM() && isValidName(activeChar.getName()))
         {
             String Welcome_Path = "data/html/mods/welcome/welcomegm.htm";
-            File mainText = new File(Config.DATAPACK_ROOT, Welcome_Path);
+            File mainText = new File(serverSettings.getDatapackDirectory(), Welcome_Path);
             if(mainText.exists())
             {
                 NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -393,7 +398,7 @@ public class EnterWorld extends L2GameClientPacket
         else if(Config.WELCOME_HTM && isValidName(activeChar.getName()))
         {
             String Welcome_Path = "data/html/mods/welcome/welcome.htm";
-            File mainText = new File(Config.DATAPACK_ROOT, Welcome_Path);
+            File mainText = new File(serverSettings.getDatapackDirectory(), Welcome_Path);
             if(mainText.exists())
             {
                 NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -849,8 +854,8 @@ public class EnterWorld extends L2GameClientPacket
         String test = text;
         Pattern pattern;
         try
-        {
-            pattern = Pattern.compile(Config.CNAME_TEMPLATE);
+        {	ServerSettings serverSettings = getSettings(ServerSettings.class);
+            pattern = Pattern.compile(serverSettings.getCharacterNameTemplate());
         }
         catch(PatternSyntaxException e)
         {

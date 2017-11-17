@@ -60,6 +60,7 @@ sql/npcskills.sql
 sql/olympiad_nobles.sql
 sql/pets.sql
 sql/posts.sql
+sql/raidboss_spawnlist.sql
 sql/random_spawn.sql
 sql/random_spawn_loc.sql
 sql/seven_signs.sql

@@ -1,14 +1,7 @@
 package com.it.br.loginserver;
 
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.lib.Log;
-import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
-import com.it.br.loginserver.GameServerTable.GameServerInfo;
-import com.it.br.loginserver.crypt.ScrambledKeyPair;
-import com.it.br.util.Rnd;
+import static com.it.br.configuration.Configurator.getSettings;
 
-import javax.crypto.Cipher;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
@@ -19,9 +12,26 @@ import java.security.spec.RSAKeyGenParameterSpec;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.*;
+import java.util.Base64;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
+
+import javax.crypto.Cipher;
+
+import com.it.br.Config;
+import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.gameserver.lib.Log;
+import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
+import com.it.br.loginserver.GameServerTable.GameServerInfo;
+import com.it.br.loginserver.crypt.ScrambledKeyPair;
+import com.it.br.util.Rnd;
+import com.it.br.util.Util;
 
 /**
  * This class ...
@@ -33,9 +43,6 @@ public class LoginController
 	protected static final Logger _log = Logger.getLogger(LoginController.class.getName());
 
 	private static LoginController _instance;
-
-	/** Time before kicking the client if he didnt logged yet */
-	private final static int LOGIN_TIMEOUT = 60*1000;
 
 	/** Clients that are on the LS but arent assocated with a account yet*/
 	protected Set<L2LoginClient> _clients = new HashSet<>();
@@ -518,7 +525,8 @@ public class LoginController
 			// if account doesnt exists
 			if (expected == null)
 			{
-				if (Config.AUTO_CREATE_ACCOUNTS)
+				LoginSettings loginSettings = getSettings(LoginSettings.class);
+				if (loginSettings.isAutoCreateAccountEnabled())
 				{
 					if ((user.length() >= 2) && (user.length() <= 14))
 					{
@@ -607,10 +615,11 @@ public class LoginController
 				failedCount = failedAttempt.getCount();
 			}
 
-			if (failedCount >= Config.LOGIN_TRY_BEFORE_BAN)
+			LoginSettings loginSettings = getSettings(LoginSettings.class);
+			if (failedCount >= loginSettings.getTriesBeforeBan())
 			{
-				_log.info("Banning '"+address.getHostAddress()+"' for "+Config.LOGIN_BLOCK_AFTER_BAN+" seconds due to "+failedCount+" invalid user/pass attempts");
-				this.addBanForAddress(address, Config.LOGIN_BLOCK_AFTER_BAN*1000);
+				_log.info("Banning '"+address.getHostAddress()+"' for "+ loginSettings.getTimeBlockAfterBan()+" seconds due to "+failedCount+" invalid user/pass attempts");
+				this.addBanForAddress(address, Util.getMilliSecondsFromSeconds(loginSettings.getTimeBlockAfterBan()));
 			}
 		}
 		else

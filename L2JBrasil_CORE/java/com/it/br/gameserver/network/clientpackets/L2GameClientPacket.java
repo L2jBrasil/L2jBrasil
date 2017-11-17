@@ -17,9 +17,11 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
@@ -45,7 +47,8 @@ public abstract class L2GameClientPacket extends ReceivablePacket<L2GameClient>
 		}
 		catch (Throwable t) 
 		{
-			if (!Config.PACKET_HANDLER_DEBUG)
+			ServerSettings serverSettings = getSettings(ServerSettings.class);
+			if (!serverSettings.isDebugPacketEnabled())
 				return false;
 			
 			 _log.severe("Client: "+getClient().toString()+" - Failed reading: "+getType());
