@@ -1,0 +1,3 @@
+rootProject.name = 'L2jBrasil'
+
+include 'L2JBrasil_MMOCore', 'L2JBrasil_CORE', 'L2JBrasil_DP' 
