@@ -12,7 +12,7 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import static com.it.br.configuration.Configurator.getSettings
+import static com.it.br.configuration.Configurator.getSettings;
 
 import com.it.br.Config;
 import com.it.br.configuration.settings.ServerSettings;
