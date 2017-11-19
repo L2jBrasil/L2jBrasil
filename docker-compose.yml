@@ -1,4 +1,13 @@
 version: "3.0"
+networks:
+  l2jbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.2.0.0/16
+#       - gateway: 10.2.0.1
+
+
 
 services:
 #  antbuild:
@@ -10,12 +19,45 @@ services:
   mysql:
     image: "l2jbrasil/mysql"
     build: "./docker-images/mysql/"
+    networks:
+      l2jbr:
+        ipv4_address: 10.2.0.4
     ports:
       - "3306:3306"
-    volumes:
-      - "./L2JBrasil_DP/Database/sql:/docker-entrypoint-initdb.d"
-  l2jserver:
+  loginserver:
     image: "l2jbrasil/l2jserver"
     build: "./docker-images/l2jserver/"
+    networks:
+      l2jbr:
+        ipv4_address: 10.2.0.2
+    ports:
+      - "2106:2106"
+    environment:
+      - LOGIN_HOST=10.2.0.2
+      - DB_HOST=10.2.0.4
     volumes:
       - ".:/opt/src"
+    links:
+     - "mysql:mysql"
+    working_dir: /l2jbr/Login/
+#    command: cat /l2jbr/Login/config/login.properties
+    command: java -Xmx32m -XX:+UseParallelGC -XX:+AggressiveOpts -XX:ParallelGCThreads=2 -cp "../Game/lib/*" com.it.br.loginserver.L2LoginServer
+  gameserver:
+      image: "l2jbrasil/l2jserver"
+      build: "./docker-images/l2jserver/"
+      networks:
+        l2jbr:
+          ipv4_address: 10.2.0.3
+      ports:
+        - "7777:7777"
+      environment:
+        - LOGIN_HOST=10.2.0.2
+        - DB_HOST=10.2.0.4
+      volumes:
+        - ".:/opt/src"
+      links:
+       - "mysql:mysql"
+       - "loginserver:loginserver"
+      working_dir: /l2jbr/Game/
+#      command: cat /l2jbr/Game/config/server.properties
+      command: java -Xmx1024m -XX:+AggressiveOpts -XX:+HeapDumpOnOutOfMemoryError -cp "./lib/*" com.it.br.gameserver.GameServer
