@@ -1,0 +1,8 @@
+[mysqld]
+pid-file	            = /var/run/mysqld/mysqld.pid
+socket		            = /var/run/mysqld/mysqld.sock
+# Where the database files are stored inside the container
+datadir		            = /var/lib/mysql
+
+# Accept connections from any IP address
+bind-address	            = 0.0.0.0
