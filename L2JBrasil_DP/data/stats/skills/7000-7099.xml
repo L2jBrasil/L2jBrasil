@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7000" levels="1" name="NPC Default">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PDAM" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7001" levels="1" name="Dispel Buff">
         <set name="mpConsume" val="99" />
         <set name="target" val="TARGET_ONE" />
@@ -23,7 +20,6 @@
         <set name="negateStats" val="BUFF" />
         <set name="negatePower" val="20" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7002" levels="1" name="Dispel Debuff">
         <set name="mpConsume" val="99" />
         <set name="target" val="TARGET_ONE" />
@@ -35,7 +31,6 @@
         <set name="effectRange" val="900" />
         <set name="aggroPoints" val="100" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7003" levels="1" name="Dispel All">
         <set name="mpConsume" val="74" />
         <set name="target" val="TARGET_ONE" />
@@ -50,7 +45,6 @@
         <set name="negateStats" val="STUN SLEEP MUTE FEAR CONFUSION POISON BLEED BUFF DEBUFF WEAKNESS PARALYZE" />
         <set name="negatePower" val="20" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7004" levels="2" name="Dispel Petrification">
         <set name="mpConsume" val="73" />
         <set name="target" val="TARGET_SELF" />
@@ -61,7 +55,6 @@
         <set name="negateStats" val="PARALYZE" />
         <set name="aggroPoints" val="566" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7005" levels="1" name="Greater Chant of Vampire">
         <set name="magicLvl" val="74" />
         <set name="mpInitialConsume" val="55" />
@@ -82,7 +75,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7006" levels="13" name="The Love of Pa'agrio">
         <set name="mpConsume" val="272" />
         <set name="target" val="TARGET_CLAN" />
@@ -94,7 +86,6 @@
         <set name="effectRange" val="900" />
         <set name="aggroPoints" val="655" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7007" levels="4" name="Greater Seal of Flame">
         <set name="mpConsume" val="153" />
         <set name="target" val="TARGET_SELF" />
@@ -105,13 +96,11 @@
         <set name="castRange" val="400" />
         <set name="effectRange" val="900" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7028" levels="1" name="For Stationary NPCs">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7029" levels="4" name="Super Haste">
         <table name="#pAtkSpd">2 3 3 2</table>
         <table name="#runSpd">1.5 2 3 4</table>
@@ -140,7 +129,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7030" levels="1" name="Summon King Bugbear">
         <set name="itemConsumeId" val="1458" />
         <set name="mpConsume" val="3" />
@@ -158,7 +146,6 @@
         <!-- Summon-specific -->
         <set name="npcId" val="20150" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7031" levels="1" name="Summon Skeleton Royal Guard">
         <set name="itemConsumeId" val="1458" />
         <set name="mpConsume" val="3" />
@@ -176,7 +163,6 @@
         <!-- Summon-specific -->
         <set name="npcId" val="20169" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7032" levels="1" name="Summon Hunter Gargoyle">
         <set name="itemConsumeId" val="1458" />
         <set name="mpConsume" val="3" />
@@ -194,7 +180,6 @@
         <!-- Summon-specific -->
         <set name="npcId" val="20241" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7033" levels="1" name="Test Flame Strike">
         <set name="mpInitialConsume" val="7" />
         <set name="mpConsume" val="27" />
@@ -211,7 +196,6 @@
         <set name="castRange" val="500" />
         <set name="effectRange" val="1000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7034" levels="1" name="Test Aqua Splash">
         <set name="element" val="3" />
         <!-- Water -->
@@ -226,43 +210,36 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="castRange" val="500" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7035" levels="1" name="Display - Swoop Cannon">
         <set name="target" val="TARGET_ONE" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7036" levels="1" name="Display - Valakas">
         <set name="target" val="TARGET_ONE" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7037" levels="1" name="Display - Tyrannosaurus Capture">
         <set name="target" val="TARGET_ONE" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7038" levels="1" name="Channeling DD Test: Short">
         <set name="target" val="TARGET_ONE" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7039" levels="1" name="Channeling DD Test: Middle">
         <set name="target" val="TARGET_ONE" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7040" levels="1" name="Channeling DD Test: Long">
         <set name="target" val="TARGET_ONE" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7041" levels="1" name="Master's Blessing - Focus">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -280,7 +257,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7042" levels="1" name="Master's Blessing - Death Whisper">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -298,8 +274,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7043" levels="1" name="Master's Blessing - Haste">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -317,7 +291,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7044" levels="1" name="Master's Blessing - Guidance">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -335,7 +308,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7045" levels="1" name="Master's Blessing - Blessed Body">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -353,7 +325,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7046" levels="1" name="Master's Blessing - Blessed Soul">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -370,7 +341,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7047" levels="1" name="Master's Blessing - Agility">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -388,7 +358,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7048" levels="1" name="Master's Blessing - Acumen">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -406,7 +375,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7049" levels="1" name="Master's Blessing - Decrease Weight">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -424,7 +392,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7050" levels="1" name="Master's Blessing - Might">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -442,7 +409,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7051" levels="1" name="Master's Blessing - Shield">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -460,7 +426,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7052" levels="1" name="Master's Blessing - Magic Barrier">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -478,7 +443,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7053" levels="1" name="Master's Blessing - Vampiric Rage">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -496,7 +460,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7054" levels="1" name="Master's Blessing - Empower">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -514,7 +477,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7055" levels="1" name="Master's Blessing - Wind Walk">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -532,7 +494,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7056" levels="1" name="Master's Blessing - Berserker Spirit">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -557,7 +518,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7057" levels="1" name="Master's Blessing - Greater Might">
         <set name="mpConsume" val="2" />
         <set name="reuseDelay" val="6000" />
@@ -574,7 +534,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7058" levels="1" name="Master's Blessing - Greater Shield">
         <set name="mpConsume" val="2" />
         <set name="reuseDelay" val="6000" />
@@ -591,7 +550,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7059" levels="1" name="Master's Blessing - Wild Magic">
         <table name="#mCrit">4</table>
         <set name="mpConsume" val="2" />
@@ -610,7 +568,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7060" levels="1" name="Master's Blessing - Clarity">
         <set name="mpConsume" val="2" />
         <set name="reuseDelay" val="6000" />
@@ -629,7 +586,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7061" levels="1" name="Master's Blessing - Prophecy of Water">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -653,7 +609,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7062" levels="1" name="Master's Blessing - Prophecy of Fire">
         <set name="mpConsume" val="2" />
         <set name="power" val="0.0" />
@@ -679,7 +634,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7063" levels="1" name="Master's Blessing - Prophecy of Wind">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />
@@ -707,7 +661,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="7064" levels="1" name="Master's Blessing - Chant of Victory">
         <set name="mpConsume" val="2" />
         <set name="target" val="TARGET_ONE" />

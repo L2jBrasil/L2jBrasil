@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
     <skill id="4500" levels="1" name="Treasure Chest - Level 27">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -10,7 +9,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4501" levels="1" name="Treasure Chest - Level 29">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -19,7 +17,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4502" levels="1" name="Treasure Chest - Level 31">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -28,7 +25,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4503" levels="1" name="Treasure Chest - Level 32">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -37,7 +33,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4504" levels="1" name="Treasure Chest - Level 33">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -46,7 +41,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4505" levels="1" name="Treasure Chest - Level 35">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -55,7 +49,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4506" levels="1" name="Treasure Chest - Level 39">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -64,7 +57,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4507" levels="1" name="Treasure Chest - Level 42">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -73,7 +65,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4508" levels="1" name="Treasure Chest - Level 43">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -82,7 +73,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4509" levels="1" name="Treasure Chest - Level 45">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -91,7 +81,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4510" levels="1" name="Treasure Chest - Level 47">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -100,7 +89,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4511" levels="1" name="Treasure Chest - Level 49">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -109,7 +97,6 @@
         <set name="magicLvl" val="1" />
     </skill>
     <skill id="4512" levels="1" name="Treasure Chest - Level 52">
-        <!-- This Skill Is Only For Description In The Client -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
         <set name="operateType" val="OP_PASSIVE" />
@@ -942,7 +929,7 @@ Might spell can remove the curse.-->
         <set name="power" val="#power" />
         <set name="skillType" val="MDAM" />
         <set name="target" val="TARGET_ONE" />
-		</skill>
+    </skill>
     <skill id="4565" levels="12" name="NPC Eruption">
         <table name="#mpConsume">13 20 27 35 45 55 65 69 73 75 77 78</table>
         <table name="#power">37 39 41 43 45 46 48 50 51 53 54 56</table>
