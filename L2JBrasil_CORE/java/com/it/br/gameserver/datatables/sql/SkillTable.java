@@ -20,6 +20,7 @@ package com.it.br.gameserver.datatables.sql;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.skills.SkillsEngine;
@@ -32,6 +33,7 @@ import com.it.br.gameserver.templates.L2WeaponType;
  */
 public class SkillTable
 {
+    protected static final Logger _log = Logger.getLogger(SkillTable.class.getName());
 	//private static Logger _log = Logger.getLogger(SkillTable.class.getName());
 	private static SkillTable _instance;
 
@@ -49,6 +51,7 @@ public class SkillTable
 	{
 		_skills = new HashMap<>();
 		SkillsEngine.getInstance().loadAllSkills(_skills);
+        _log.config("SkillsEngine: Loaded "+  _skills.size() +" Skill templates from XML files.");
 	}
 
     public static void reload()

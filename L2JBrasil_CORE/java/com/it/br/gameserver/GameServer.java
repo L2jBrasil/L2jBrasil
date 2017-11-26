@@ -179,7 +179,6 @@ public class GameServer
 		NobleSkillTable.getInstance();
 		HeroSkillTable.getInstance();
 		GMSkillTable.getInstance();
-		_log.info("Skills: loaded !");
 
 		Util.printSection("Items");
 		ItemTable.getInstance();
