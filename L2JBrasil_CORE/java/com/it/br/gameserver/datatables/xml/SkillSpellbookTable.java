@@ -80,7 +80,7 @@ public class SkillSpellbookTable
 				{
 					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
 					{
-						if(d.getNodeName().equalsIgnoreCase("skill_spellbook"))
+						if(d.getNodeName().equalsIgnoreCase("book"))
 						{
 							_skillSpellbooks.put(Integer.valueOf(d.getAttributes().getNamedItem("skill_id").getNodeValue()), Integer.valueOf(d.getAttributes().getNamedItem("item_id").getNodeValue()));
 						}
