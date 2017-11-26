@@ -23,7 +23,6 @@ BOLTERS_SMELLY_SOCKS = 1552
  
 #REWARDS 
 NECKLACE = 906 
-ADENA_ID = 57  
  
 class Quest (JQuest) :
 
@@ -69,7 +68,7 @@ class Quest (JQuest) :
    if npcId == BOLTER and cond == 0 : 
      if onlyone == 1 : 
        htmltext = "<html><body>This quest has already been completed.</body></html>" 
-     elif player.getLevel() >= 2 and player.getLevel() <= 5 : 
+     elif player.getLevel() >= 2 : 
        htmltext = "30554-02.htm" 
      else: 
        htmltext = "30554-01.htm" 
@@ -82,10 +81,8 @@ class Quest (JQuest) :
      st.takeItems(MINERS_PICK,-1) 
      st.takeItems(BOOMBOOM_POWDER,-1) 
      st.takeItems(REDSTONE_BEER,-1) 
-     st.takeItems(BOLTERS_LIST,-1)
-     st.rewardItems(ADENA_ID,2466) 
-     st.giveItems(NECKLACE,1)
-     st.addExpAndSp(5762,446) 
+     st.takeItems(BOLTERS_LIST,-1) 
+     st.giveItems(NECKLACE,1) 
      st.set("cond","0") 
      st.set("onlyone","1") 
      st.setState(COMPLETED) 
@@ -138,4 +135,4 @@ QUEST.addTalkId(SHARI)
 QUEST.addTalkId(GARITA) 
 QUEST.addTalkId(REED) 
 QUEST.addTalkId(BRUNON) 
-QUEST.addTalkId(BOLTER)
+QUEST.addTalkId(BOLTER) 
