@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="9900" levels="1" name="AntiBuff-Shield">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="CONT" />

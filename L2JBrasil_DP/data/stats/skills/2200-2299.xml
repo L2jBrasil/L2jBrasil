@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2200" levels="3" name="Item - Jade Treasue Box">
         <table name="#itemConsumeId">6495 6496 6497</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -11,7 +9,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2201" levels="3" name="Item - Blue Treasue Box">
         <table name="#itemConsumeId">6498 6499 6500</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -21,7 +18,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2202" levels="3" name="Item - Yellow Treasue Box">
         <table name="#itemConsumeId">6501 6502 6503</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -31,7 +27,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2203" levels="3" name="Item - Orange Treasue Box">
         <table name="#itemConsumeId">6504 6505 6506</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -41,7 +36,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2204" levels="3" name="Item - Violet Treasue Box">
         <table name="#itemConsumeId">6507 6508 6509</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -51,7 +45,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2205" levels="3" name="Item - Red Treasue Box">
         <table name="#itemConsumeId">6510 6511 6512</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -61,7 +54,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2206" levels="3" name="Item - White Treasue Box">
         <table name="#itemConsumeId">6513 6514 6515</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -71,7 +63,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2207" levels="3" name="Item - Black Treasue Box">
         <table name="#itemConsumeId">6516 6517 6518</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -81,56 +72,48 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2208" levels="1" name="Item - Blessed Scroll of Enchant Armor">
         <set name="target" val="TARGET_ITEM" />
         <set name="skillType" val="ENCHANT_ARMOR" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2209" levels="1" name="Item - Blessed Scroll of Enchant Armor">
         <set name="target" val="TARGET_ITEM" />
         <set name="skillType" val="ENCHANT_ARMOR" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2210" levels="1" name="Item - Blessed Scroll of Enchant Armor">
         <set name="target" val="TARGET_ITEM" />
         <set name="skillType" val="ENCHANT_ARMOR" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2211" levels="1" name="Item - Blessed Scroll of Enchant Armor">
         <set name="target" val="TARGET_ITEM" />
         <set name="skillType" val="ENCHANT_ARMOR" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2212" levels="1" name="Item - Blessed Scroll of Enchant Armor">
         <set name="target" val="TARGET_ITEM" />
         <set name="skillType" val="ENCHANT_ARMOR" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="magicLvl" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2213" levels="22" name="Escape - to X Town">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="20000" />
         <set name="skillType" val="RECALL" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2214" levels="6" name="Scroll of Escape to Talking Island">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="20000" />
         <set name="skillType" val="RECALL" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2215" levels="4" name="Item - Quest Special Box">
         <table name="#itemConsumeId">7614 7615 7616 7617</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -139,7 +122,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2216" levels="4" name="Item - Quest Special Fish">
         <table name="#itemConsumeId">7610 7611 7612 7613</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -148,7 +130,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2217" levels="5" name="Item - Quest Treasure Box">
         <table name="#itemConsumeId">7629 7630 7631 7632 7633</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -157,7 +138,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2218" levels="3" name="Item - Quest Sac">
         <table name="#itemConsumeId">7636 7637 7725</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -166,7 +146,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2219" levels="2" name="Item - Quest Sac">
         <table name="#itemConsumeId">7634 7635</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -175,7 +154,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2220" levels="9" name="Item - Easy Green Fish">
         <table name="#itemConsumeId">7726 7727 7728 7729 7730 7731 7732 7733 7734</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -184,7 +162,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2221" levels="9" name="Item - Easy Jade Fish">
         <table name="#itemConsumeId">7735 7736 7737 7738 7739 7740 7741 7742 7743</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -193,7 +170,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2222" levels="9" name="Item - Easy Blue Fish">
         <table name="#itemConsumeId">7744 7745 7746 7747 7748 7749 7750 7751 7752</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -202,7 +178,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2223" levels="9" name="Item - Easy Yellow Fish">
         <table name="#itemConsumeId">7753 7754 7755 7756 7757 7758 7759 7760 7761</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -211,7 +186,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2224" levels="9" name="Item - Easy Orange Fish">
         <table name="#itemConsumeId">7762 7763 7764 7765 7766 7767 7768 7769 7770</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -220,7 +194,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2225" levels="9" name="Item - Easy Violet Fish">
         <table name="#itemConsumeId">7771 7772 7773 7774 7775 7776 7777 7778 7779</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -229,7 +202,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2226" levels="9" name="Item - Easy Red Fish">
         <table name="#itemConsumeId">7780 7781 7782 7783 7784 7785 7786 7787 7788</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -238,7 +210,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2227" levels="9" name="Item - Easy White Fish">
         <table name="#itemConsumeId">7789 7790 7791 7792 7793 7794 7795 7796 7797</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -247,7 +218,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2228" levels="9" name="Item - Easy Black Fish">
         <table name="#itemConsumeId">7798 7799 7800 7801 7802 7803 7804 7805 7806</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -256,7 +226,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2229" levels="8" name="Treasure Chest Key">
         <table name="#itemConsume">6665 6666 6667 6668 6669 6670 6671 6672</table>
         <set name="target" val="TARGET_ONE" />
@@ -269,7 +238,6 @@
         <set name="castRange" val="40" />
         <set name="effectRange" val="400" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2230" levels="1" name="Item - Theme Sound Crystal">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -277,7 +245,6 @@
         <set name="itemConsumeId" val="7062" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2231" levels="1" name="Amulet: Protection of Valakas">
         <set name="isMagic" val="true" />
         <set name="itemConsumeCount" val="1" />
@@ -309,7 +276,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2233" levels="1" name="Amulet: Flames of Valakas">
         <table name="#negateId">4683 4684</table>
         <table name="#itemConsume">6653 6654</table>
@@ -325,7 +291,6 @@
         <set name="skillType" val="NEGATE" />
         <set name="target" val="TARGET_SELF" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2234" levels="1" name="Disrupting Arrow">
         <set name="target" val="TARGET_ONE" />
         <set name="hitTime" val="4500" />
@@ -337,7 +302,6 @@
             <effect count="1" name="Stun" time="9" val="0" stackOrder="2" stackType="Stun" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2235" levels="1" name="Anteroom Door Key">
         <set name="target" val="TARGET_UNLOCKABLE" />
         <set name="hitTime" val="500" />
@@ -352,7 +316,6 @@
         <set name="staticReuse" val="true" />
         <set name="staticHitTime" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2236" levels="1" name="Chapel Door Key">
         <set name="target" val="TARGET_UNLOCKABLE" />
         <set name="hitTime" val="500" />
@@ -367,7 +330,6 @@
         <set name="staticReuse" val="true" />
         <set name="staticHitTime" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2237" levels="1" name="Altar Door Key">
         <set name="target" val="TARGET_UNLOCKABLE" />
         <set name="hitTime" val="500" />
@@ -382,7 +344,6 @@
         <set name="staticReuse" val="true" />
         <set name="staticHitTime" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2238" levels="1" name="Room of Splendor Key">
         <set name="target" val="TARGET_UNLOCKABLE" />
         <set name="hitTime" val="500" />
@@ -397,7 +358,6 @@
         <set name="staticReuse" val="true" />
         <set name="staticHitTime" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2239" levels="1" name="Petrifaction Scroll">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="NOTDONE" />
@@ -406,7 +366,6 @@
         <set name="itemConsumeId" val="8379" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2240" levels="1" name="Hot Spring Nectar">
         <set name="target" val="TARGET_ONE" />
         <set name="skillType" val="NOTDONE" />
@@ -417,7 +376,6 @@
         <set name="triggeredId" val="4989" />
         <set name="triggeredLevel" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2241" levels="1" name="Hot Spring Mineral Water">
         <set name="target" val="TARGET_NONE" />
         <set name="skillType" val="NOTDONE" />
@@ -427,21 +385,18 @@
         <set name="triggeredId" val="4990" />
         <set name="triggeredLevel" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2242" levels="1" name="Hot Spring Fountain Water">
         <set name="target" val="TARGET_NONE" />
         <set name="skillType" val="NOTDONE" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="reuseDelay" val="2000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2243" levels="1" name="Hot Spring Sulfur">
         <set name="target" val="TARGET_NONE" />
         <set name="skillType" val="NOTDONE" />
         <set name="operateType" val="OP_PASSIVE" />
         <set name="reuseDelay" val="2000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2244" levels="1" name="Herb of Life">
         <set name="power" val="15" />
         <set name="hitTime" val="100" />
@@ -454,7 +409,6 @@
         <set name="staticReuse" val="true" />
         <set name="staticHitTime" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2245" levels="1" name="Herb of Mana">
         <set name="power" val="12" />
         <set name="hitTime" val="100" />
@@ -467,7 +421,6 @@
         <set name="staticReuse" val="true" />
         <set name="staticHitTime" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2246" levels="1" name="Herb of Power">
         <set name="hitTime" val="100" />
         <set name="target" val="TARGET_SELF" />
@@ -484,7 +437,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2247" levels="1" name="Herb of Magic">
         <set name="hitTime" val="100" />
         <set name="target" val="TARGET_SELF" />
@@ -498,7 +450,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2248" levels="1" name="Bless of Fire">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -514,7 +465,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2249" levels="1" name="Bless of Water">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -530,7 +480,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2250" levels="1" name="Bless of Wind">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -546,7 +495,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2251" levels="1" name="Bless of Earth">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -562,7 +510,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2252" levels="1" name="Bless of Darkness">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -578,7 +525,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2253" levels="1" name="Bless of Sacredness">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -594,7 +540,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2254" levels="3" name="Crystal of Fire">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -606,7 +551,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2255" levels="3" name="Crystal of Water">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -618,7 +562,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2256" levels="3" name="Crystal of Wind">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -630,7 +573,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2257" levels="3" name="Crystal of Earth">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -642,7 +584,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2258" levels="3" name="Crystal of Darkness">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -654,7 +595,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2259" levels="3" name="Crystal of Sacredness">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="1000" />
@@ -666,7 +606,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2260" levels="1" name="Key of Riddles">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="CREATE_ITEM" />
@@ -677,7 +616,6 @@
         <set name="create_item_id" val="8059" />
         <set name="create_item_count" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2261" levels="9" name="Item - Hard Green Fish">
         <table name="#itemConsumeId">8403 8404 8405 8406 8407 8408 8409 8410 8411</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -686,7 +624,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2262" levels="9" name="Item - Hard Jade Fish">
         <table name="#itemConsumeId">8412 8413 8414 8415 8416 8417 8418 8419 8420</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -695,7 +632,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2263" levels="9" name="Item - Hard Blue Fish">
         <table name="#itemConsumeId">8421 8422 8423 8424 8425 8426 8427 8428 8429</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -704,7 +640,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2264" levels="9" name="Item - Hard Yellow Fish">
         <table name="#itemConsumeId">8430 8431 8432 8433 8434 8435 8436 8437 8438</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -713,7 +648,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2265" levels="9" name="Item - Hard Orange Fish">
         <table name="#itemConsumeId">8439 8440 8441 8442 8443 8444 8445 8446 8447</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -722,7 +656,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2266" levels="9" name="Item - Hard Violet Fish">
         <table name="#itemConsumeId">8448 8449 8450 8451 8452 8453 8454 8455 8456</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -731,7 +664,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2267" levels="9" name="Item - Hard Red Fish">
         <table name="#itemConsumeId">8457 8458 8459 8460 8461 8462 8463 8464 8465</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -740,7 +672,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2268" levels="9" name="Item - Hard White Fish">
         <table name="#itemConsumeId">8466 8467 8468 8469 8470 8471 8472 8473 8474</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -749,7 +680,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2269" levels="9" name="Item - Hard Black Fish">
         <table name="#itemConsumeId">8475 8476 8477 8478 8479 8480 8481 8482 8483</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -758,7 +688,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2270" levels="7" name="Item - Adventurer Box">
         <table name="#itemConsumeId">8534 8535 8536 8537 8538 8539 8540</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -767,13 +696,11 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2271" levels="1" name="Item - Hot Spring Fish">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2272" levels="1" name="Item - Fight Song Crystal">
         <set name="itemConsumeId" val="8555" />
         <set name="itemConsumeCount" val="1" />
@@ -781,13 +708,11 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2273" levels="1" name="Item - Red Devil Support Box">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2274" levels="9" name="Fisherman's Potion">
         <table name="#power"> 2 5 8 11 14 17 20 23 26 </table>
         <set name="power" val="#power" />
@@ -800,7 +725,6 @@
             <effect name="Buff" time="3600" count="1" val="0" stackOrder="20" stackType="fishPot" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2275" levels="1" name="Fishing Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="NEGATE" />
@@ -808,7 +732,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="negateId" val="2274" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2276" levels="1" name="Dewdrop of Destruction">
         <set name="target" val="TARGET_NONE" />
         <set name="skillType" val="NOTDONE" />
@@ -816,7 +739,6 @@
         <set name="castRange" val="40" />
         <set name="hitTime" val="2000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2277" levels="6" name="Event Gift Box">
         <table name="#itemConsumeId">8570 8571 8572 8573 8574 8575</table>
         <set name="itemConsumeId" val="#itemConsumeId" />
@@ -825,7 +747,6 @@
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2278" levels="3" name="Herb of Life">
         <table name="#power"> 15 25 100 </table>
         <set name="power" val="#power" />
@@ -835,7 +756,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="isPotion" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2279" levels="3" name="Herb of Mana">
         <table name="#power"> 12 18 100 </table>
         <set name="power" val="#power" />
@@ -845,7 +765,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="isPotion" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2280" levels="1" name="Herb of Power">
         <set name="hitTime" val="100" />
         <set name="target" val="TARGET_SELF" />
@@ -859,7 +778,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2281" levels="1" name="Herb of Magic">
         <set name="hitTime" val="100" />
         <set name="target" val="TARGET_SELF" />
@@ -873,7 +791,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2282" levels="1" name="Herb of Atk. Spd.">
         <set name="hitTime" val="100" />
         <set name="target" val="TARGET_SELF" />
@@ -887,7 +804,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2283" levels="1" name="Herb of Casting Spd.">
         <set name="power" val="0.0" />
         <set name="hitTime" val="100" />
@@ -903,7 +819,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2284" levels="1" name="Herb of Critical Attack">
         <set name="hitTime" val="100" />
         <set name="target" val="TARGET_SELF" />
@@ -917,7 +832,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2285" levels="1" name="Herb of Speed">
         <set name="hitTime" val="100" />
         <set name="target" val="TARGET_SELF" />
@@ -931,13 +845,11 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2286" levels="6" name="Scroll: Recovery">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2287" levels="6" name="Elixir of Life">
         <table name="#power"> 250 650 1100 1500 1900 2300 </table>
         <set name="power" val="#power" />
@@ -948,7 +860,6 @@
         <set name="reuseDelay" val="600000" />
         <set name="isPotion" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2288" levels="6" name="Elixir of Mental Strength">
         <table name="#power"> 60 140 220 290 360 420 </table>
         <set name="power" val="#power" />
@@ -958,7 +869,6 @@
         <set name="reuseDelay" val="300000" />
         <set name="isPotion" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2289" levels="6" name="Elixir of CP">
         <table name="#power"> 150 350 600 800 1000 1200 </table>
         <set name="power" val="#power" />
@@ -968,7 +878,6 @@
         <set name="reuseDelay" val="300000" />
         <set name="isPotion" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2290" levels="1" name="Halloween Box">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -977,7 +886,6 @@
         <set name="itemConsumeId" val="8659" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2291" levels="1" name="Facelifting Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -987,7 +895,6 @@
         <set name="itemConsumeId" val="8664" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2292" levels="1" name="Facelifting Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -997,7 +904,6 @@
         <set name="itemConsumeId" val="8665" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2293" levels="1" name="Facelifting Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -1016,7 +922,6 @@
         <set name="itemConsumeId" val="8667" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2295" levels="1" name="Dye Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -1026,7 +931,6 @@
         <set name="itemConsumeId" val="8668" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2296" levels="1" name="Dye Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -1036,7 +940,6 @@
         <set name="itemConsumeId" val="8669" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2297" levels="1" name="Dye Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -1046,7 +949,6 @@
         <set name="itemConsumeId" val="8670" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2298" levels="1" name="Hair Style Change Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
@@ -1056,7 +958,6 @@
         <set name="itemConsumeId" val="8671" />
         <set name="itemConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="2299" levels="1" name="Hair Style Change Potion">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />

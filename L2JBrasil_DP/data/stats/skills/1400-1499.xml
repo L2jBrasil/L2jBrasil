@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1400" levels="10" name="Turn Undead">
         <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -30,7 +28,6 @@
             <effect count="5" name="Fear" time="2" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1401" levels="11" name="Major Heal" enchantLevels1="30" enchantLevels2="30">
         <table name="#ench1Power"> 947 949 951 954 956 958 960 963 965 967 969 972 974 976 979 981 983 985 988 990 992 994 997 999 1001 1003 1006 1008 1010 1013 </table>
         <table name="#ench2MpConsume">   78 77 76 75 73 72 72 71 70 68 67 66 65 65 63 62 61 60 58 57 57 56 55 53 52 51 50 50 48 47  </table>
@@ -52,7 +49,6 @@
         <enchant1 name="power" val="#ench1Power" />
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1402" levels="5" name="Major Group Heal" enchantLevels1="30" enchantLevels2="30">
         <table name="#ench1Power"> 1173 1176 1179 1182 1186 1189 1192 1195 1199 1202 1205 1208 1212 1215 1218 1221 1224 1228 1231 123 1237 1241 1244 1247 1250 1254 1257 1260 1263 1267 </table>
         <table name="#ench2MpConsume"> 233 231 227 225 221 218 215 212 208 206 202 198 196 192 190 186 183 180 177 173 171 167 165 161 157 155 151 148 145 142 </table>
@@ -72,7 +68,6 @@
         <enchant1 name="power" val="#ench1Power" />
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1403" levels="1" name="Summon Friend">
         <set name="target" val="TARGET_PARTY_MEMBER" />
         <set name="skillRadius" val="-1" />
@@ -87,7 +82,6 @@
         <set name="targetConsumeId" val="8615" />
         <set name="targetConsumeCount" val="1" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1404" levels="1" name="Word of Invitation">
         <set name="target" val="TARGET_PARTY" />
         <set name="skillRadius" val="-1" />
@@ -102,14 +96,12 @@
         <set name="effectRange" val="-2" />
         <set name="isMagic" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1405" levels="4" name="Divine Inspiration">
         <!-- need core support -->
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="COREDONE" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1406" levels="1" name="Summon Feline King">
         <set name="mpInitialConsume" val="28" />
         <set name="mpConsume" val="116" />
@@ -132,7 +124,6 @@
         <set name="expPenalty" val="0.1" />
         <set name="isCubic" val="false" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1407" levels="1" name="Summon Magnus the Unicorn">
         <set name="mpInitialConsume" val="28" />
         <set name="mpConsume" val="116" />
@@ -155,7 +146,6 @@
         <set name="expPenalty" val="0.1" />
         <set name="isCubic" val="false" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1408" levels="1" name="Summon Spectral Lord">
         <set name="mpInitialConsume" val="28" />
         <set name="mpConsume" val="116" />
@@ -178,7 +168,6 @@
         <set name="expPenalty" val="0.1" />
         <set name="isCubic" val="false" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1409" levels="1" name="Cleanse">
         <set name="itemConsumeId" val="8874" />
         <set name="itemConsumeCount" val="1" />
@@ -195,7 +184,6 @@
         <set name="negateStats" val="BLEED CONFUSION DEBUFF FEAR MUTE PARALYZE ROOT SLEEP STUN POISON WEAKNESS" />
         <set name="negatePower" val="9" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1410" levels="1" name="Salvation">
         <set name="magicLvl" val="79" />
         <set name="mpConsume" val="69" />
@@ -213,7 +201,6 @@
             <effect count="1" name="PhoenixBless" time="3600" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1411" levels="1" name="Mystic Immunity">
         <set name="castRange" val="400" />
         <set name="effectRange" val="900" />
@@ -232,7 +219,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1412" levels="1" name="Spell Turning">
         <set name="magicLevel" val="79" />
         <set name="mpConsume" val="23" />
@@ -251,7 +237,6 @@
             <effect count="1" name="RemoveTarget" time="1" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1413" levels="1" name="Magnus' Chant">
         <set name="itemConsumeId" val="3031" />
         <set name="itemConsumeCount" val="40" />
@@ -276,7 +261,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1414" levels="1" name="Victories of Pa'agrio">
         <set name="itemConsumeId" val="3031" />
         <set name="itemConsumeCount" val="40" />
@@ -306,7 +290,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1415" levels="1" name="Pa'agrio's Emblem">
         <set name="mpInitialConsume" val="56" />
         <set name="mpConsume" val="228" />
@@ -325,7 +308,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1416" levels="1" name="Pa'agrio's Fist">
         <set name="mpInitialConsume" val="56" />
         <set name="mpConsume" val="228" />
@@ -344,7 +326,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1417" levels="5" name="Aura Flash" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -375,7 +356,6 @@
             <effect count="1" name="RemoveTarget" time="1" val="0" effectPower="#effectPower" effectType="DEBUFF" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1418" levels="1" name="Celestial Shield">
         <set name="mpConsume" val="60" />
         <set name="target" val="TARGET_ONE" />
@@ -389,7 +369,6 @@
             <effect count="1" name="Invincible" time="10" val="0" stackOrder="1" stackType="Instant_Shield" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1419" levels="1" name="Volcano">
         <set name="target" val="TARGET_SIGNET_GROUND" />
         <set name="operateType" val="OP_ACTIVE" />
@@ -417,7 +396,6 @@
             <effect self="1" count="0x7fffffff" name="SignetMDam" time="2" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1420" levels="1" name="Cyclone">
         <set name="target" val="TARGET_SIGNET_GROUND" />
         <set name="skillType" val="SIGNET_CASTTIME" />
@@ -444,7 +422,6 @@
             <effect self="1" count="0x7fffffff" name="SignetMDam" time="1" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1421" levels="1" name="Raging Waves">
         <set name="target" val="TARGET_GROUND" />
         <set name="skillType" val="SIGNET_CASTTIME" />
@@ -474,7 +451,6 @@
             <effect self="1" count="9" name="SignetMDam" time="2" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1422" levels="1" name="Day of Doom">
         <set name="target" val="TARGET_GROUND" />
         <set name="skillType" val="SIGNET_CASTTIME" />
@@ -499,7 +475,6 @@
             <effect self="1" count="10" name="SignetMDam" time="3" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1423" levels="1" name="Gehenna">
         <set name="target" val="TARGET_GROUND" />
         <set name="skillType" val="SIGNET_CASTTIME" />
@@ -528,7 +503,6 @@
             <effect self="1" count="9" name="SignetMDam" time="2" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1424" levels="1" name="Anti-Summoning Field">
         <set name="target" val="TARGET_GROUND" />
         <set name="skillType" val="SIGNET" />
@@ -553,7 +527,6 @@
             <effect count="6" name="SignetAntiSummon" time="5" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1425" levels="1" name="Purification Field">
         <set name="target" val="TARGET_CLAN" />
         <set name="skillType" val="CANCEL" />
@@ -569,7 +542,6 @@
         <set name="mpInitialConsume" val="70" />
         <set name="mpConsume" val="70" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1426" levels="1" name="Miracle">
         <set name="aggroPoints" val="100" />
         <set name="itemConsumeId" val="8876" />
@@ -590,7 +562,6 @@
             <player spell_force="2" />
         </cond>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1427" levels="1" name="Flames of Invincibility">
         <set name="itemConsumeId" val="8876" />
         <set name="itemConsumeCount" val="1" />
@@ -608,7 +579,6 @@
             <effect name="Invincible" time="30" val="0" stackOrder="1" stackType="Instant_Shield" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1428" levels="1" name="Mass Recharge">
         <set name="itemConsumeId" val="8876" />
         <set name="itemConsumeCount" val="1" />
@@ -627,7 +597,6 @@
             <player spell_force="3" />
         </cond>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1429" levels="1" name="Gate Chant">
         <set name="hitTime" val="15000" />
         <set name="isMagic" val="true" />
@@ -641,7 +610,6 @@
         <set name="skillType" val="SUMMON_FRIEND" />
         <set name="target" val="TARGET_PARTY" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1430" levels="5" name="Invocation">
         <table name="#mpConsume"> 21 22 24 26 27 </table>
         <table name="#mpConsume2"> 6 6 6 7 7 </table>

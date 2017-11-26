@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4100" levels="12" name="NPC Prominence">
         <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
         <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
@@ -20,7 +18,6 @@
         <set name="castRange" val="600" />
         <set name="effectRange" val="1100" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4101" levels="12" name="NPC Spinning Slash">
         <table name="#mpConsume"> 14 22 31 43 55 68 79 84 89 92 94 95 </table>
         <table name="#power"> 46 105 219 417 722 1136 1626 1876 2112 2320 2487 2617 </table>
@@ -36,7 +33,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="coolTime" val="800" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4102" levels="2" name="Become weak against line of fire">
         <table name="#Tab-fireVuln"> 1.15 1.2 </table>
         <table name="#mpConsume"> 35 65 </table>
@@ -47,7 +43,9 @@
         <set name="saveVs" val="MEN" />
         <set name="lvlDepend" val="2" />
         
+        
   ?
+        
         <set name="isDebuff" val="true" />
         <set name="target" val="TARGET_ONE" />
         <set name="reuseDelay" val="8000" />
@@ -63,7 +61,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4103" levels="2" name="NPC Ultimate Evasion">
         <table name="#Tab-rEvas"> 20 25 </table>
         <table name="#mpConsume"> 35 65 </table>
@@ -80,7 +77,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4104" levels="12" name="Flame">
         <table name="#dmg"> 18 27 39 53 67 81 91 91 100 100 108 108 </table>
         <table name="#mpConsume"> 17 31 45 60 75 90 105 112 119 126 132 139 </table>
@@ -104,7 +100,6 @@
             <effect count="45" name="DamOverTime" time="1" val="#dmg" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4105" levels="12" name="NPC Straight Beam Cannon">
         <table name="#mpConsume"> 13 20 27 35 45 55 65 69 73 75 77 78 </table>
         <table name="#power"> 18 26 38 52 68 85 102 110 116 122 126 129 </table>
@@ -121,7 +116,6 @@
         <set name="castRange" val="600" />
         <set name="effectRange" val="1100" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4106" levels="1" name="Antharas Shock">
         <set name="magicLvl" val="85" />
         <set name="power" val="28600" />
@@ -138,7 +132,6 @@
             <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4107" levels="1" name="Antharas Shock">
         <set name="magicLvl" val="85" />
         <set name="element" val="2" />
@@ -155,7 +148,6 @@
             <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4108" levels="1" name="Antharas Terror">
         <set name="magicLvl" val="85" />
         <set name="element" val="2" />
@@ -174,7 +166,6 @@
             <effect count="3" name="Fear" time="4" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4109" levels="1" name="Curse of Antharas">
         <set name="magicLvl" val="85" />
         <set name="lvlDepend" val="1" />
@@ -201,7 +192,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4110" levels="1" name="Breath Attack">
         <set name="magicLvl" val="85" />
         <set name="power" val="650" />
@@ -213,7 +203,6 @@
         <set name="skillType" val="MDAM" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4111" levels="1" name="Antharas Fossilization">
         <set name="magicLvl" val="85" />
         <set name="lvlDepend" val="1" />
@@ -233,7 +222,6 @@
             <effect count="1" name="Petrification" time="20" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4112" levels="1" name="Ordinary Attack">
         <set name="magicLvl" val="85" />
         <set name="element" val="2" />
@@ -248,7 +236,6 @@
         <set name="castRange" val="50" />
         <set name="effectRange" val="400" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4113" levels="1" name="Animal doing ordinary attack">
         <set name="magicLvl" val="85" />
         <set name="element" val="2" />
@@ -263,7 +250,6 @@
         <set name="castRange" val="50" />
         <set name="effectRange" val="400" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4114" levels="1" name="Aden Flame">
         <set name="magicLvl" val="65" />
         <set name="target" val="TARGET_SELF" />
@@ -279,7 +265,6 @@
         <set name="skillRadius" val="200" />
         <set name="mpConsume" val="90" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4115" levels="1" name="Aden Heal">
         <set name="power" val="689" />
         <set name="target" val="TARGET_ONE" />
@@ -292,7 +277,6 @@
         <set name="magicLvl" val="65" />
         <set name="mpConsume" val="105" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4116" levels="10" name="Resist M.Atk">
         <table name="#Tab-mDef"> 15 1.11 1.17 1.25 1.33 1.43 1.67 2 3.33 10 </table>
         <set name="target" val="TARGET_SELF" />
@@ -302,7 +286,6 @@
             <mul order="0x30" stat="mDef" val="#Tab-mDef" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4117" levels="12" name="Paralysis">
         <table name="#mpConsume"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
         <table name="#magicLvl"> 10 16 21 28 36 44 52 55 58 60 61 62 </table>
@@ -323,7 +306,6 @@
             <effect count="1" name="Paralyze" time="30" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4118" levels="7" name="Paralysis">
         <table name="#mpConsume"> 18 29 40 53 68 83 98 104 109 113 115 117 </table>
         <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
@@ -345,7 +327,6 @@
             <effect count="1" name="Paralyze" time="30" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4119" levels="3" name="Fall in accuracy">
         <table name="#mpConsume"> 20 35 65 </table>
         <table name="#Tab-accCombat"> 6 9 12 </table>
@@ -369,7 +350,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4120" levels="12" name="Shock">
         <table name="#mpConsume"> 27 44 62 85 109 135 157 168 177 183 187 189 </table>
         <table name="#power"> 46 105 219 417 722 1136 1626 1876 2112 2320 2487 2617 </table>
@@ -393,13 +373,11 @@
             <effect count="1" name="Stun" time="9" val="0" stackOrder="1" stackType="Stun" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4121" levels="1" name="Summoned Monster Magic Protection">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
         <set name="operateType" val="OP_PASSIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4122" levels="1" name="Antharas">
         <!-- Antharas Skills -->
         <set name="magicLvl" val="70" />
@@ -410,7 +388,6 @@
             <sub stat="stunVuln" val="80" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4123" levels="12" name="Hostile Feeling">
         <table name="#power"> 410 608 853 1134 1427 1695 1903 1973 2024 2064 2097 2123 </table>
         <table name="#mpConsume"> 12 19 26 35 45 55 65 84 89 92 94 95 </table>
@@ -426,7 +403,6 @@
         <set name="castRange" val="400" />
         <set name="effectRange" val="900" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4124" levels="12" name="NPC Spear Attack">
         <table name="#mpConsume"> 27 44 62 85 109 135 157 168 177 183 187 189 </table>
         <table name="#power"> 122 279 584 1110 1923 3030 4336 5002 5632 6187 6632 6978 </table>
@@ -442,7 +418,6 @@
         <set name="castRange" val="700" />
         <set name="effectRange" val="1200" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4125" levels="1" name="Antharas Regeneration">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -453,7 +428,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4126" levels="1" name="Reduction in recovery time">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -466,7 +440,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4127" levels="1" name="Baium: General Attack">
         <set name="magicLvl" val="75" />
         <set name="power" val="0" />
@@ -479,7 +452,6 @@
         <set name="castRange" val="100" />
         <set name="effectRange" val="400" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4128" levels="1" name="Wind Of Force">
         <!-- Baium Skills -->
         <set name="magicLvl" val="75" />
@@ -491,7 +463,6 @@
         <set name="skillType" val="PDAM" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4129" levels="1" name="Earthquake">
         <!-- Baium Skills -->
         <set name="magicLvl" val="75" />
@@ -503,7 +474,6 @@
         <set name="skillType" val="PDAM" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4130" levels="1" name="Striking of Thunderbolt">
         <!-- Baium Skills -->
         <set name="magicLvl" val="75" />
@@ -517,7 +487,6 @@
         <set name="castRange" val="900" />
         <set name="effectRange" val="1000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4131" levels="1" name="Shock">
         <!-- Baium Skills -->
         <set name="power" val="10" />
@@ -536,7 +505,6 @@
             <effect count="1" name="Paralyze" time="30" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4132" levels="1" name="Spear: Pound the Ground">
         <set name="magicLvl" val="75" />
         <set name="power" val="3885" />
@@ -546,7 +514,6 @@
         <set name="skillType" val="PDAM" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4133" levels="1" name="Angel Heal">
         <set name="target" val="TARGET_ONE" />
         <set name="hitTime" val="2000" />
@@ -555,7 +522,6 @@
         <set name="castRange" val="600" />
         <set name="aggroPoints" val="100" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4134" levels="1" name="Seal Skill">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="20000" />
@@ -563,7 +529,6 @@
         <set name="operateType" val="OP_PASSIVE" />
         <set name="castRange" val="700" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4135" levels="1" name="Baium Heal">
         <set name="target" val="TARGET_SELF" />
         <set name="hitTime" val="100" />
@@ -572,7 +537,6 @@
         <set name="castRange" val="-1" />
         <set name="aggroPoints" val="100" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4136" levels="1" name="Baium's Gift">
         <set name="power" val="1000000" />
         <set name="magicLvl" val="75" />
@@ -583,7 +547,6 @@
         <set name="castRange" val="1000" />
         <set name="effectRange" val="2000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4137" levels="12" name="Hydro Screw">
         <table name="#mpConsume"> 18 29 40 53 68 83 98 104 109 113 115 117 </table>
         <table name="#power"> 9 13 19 26 34 43 51 55 58 61 63 65 </table>
@@ -603,7 +566,6 @@
         <set name="castRange" val="500" />
         <set name="effectRange" val="1000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4138" levels="12" name="NPC AE - Corpse Burst">
         <table name="#mpConsume"> 18 29 40 53 68 83 98 104 109 113 115 117 </table>
         <table name="#power"> 9 13 19 26 34 43 51 55 58 61 63 65 </table>
@@ -622,7 +584,6 @@
         <set name="castRange" val="900" />
         <set name="effectRange" val="1400" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4139" levels="12" name="Boom Attack">
         <table name="#power"> 52 78 112 155 203 255 305 328 348 364 377 387 </table>
         <table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
@@ -638,7 +599,6 @@
         <set name="element" val="2" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4140" levels="12" name="Contract Payment">
         <table name="#power"> 3 3.3 3.6 3.9 4.2 4.5 4.8 4.8 5.1 5.1 5.4 5.4</table>
         <set name="power" val="100" />
@@ -653,7 +613,6 @@
             <effect count="0x7fffffff" name="ManaDamOverTime" time="6" val="#power" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="4141" levels="12" name="NPC Wind Fist">
         <table name="#mpConsume">13 20 27 35 45 55 65 65 65 65 65 65</table>
         <table name="#power">18 26 38 52 68 85 102 102 102 102 102 102</table>

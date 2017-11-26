@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1001" levels="10" name="Soul Cry">
         <table name="#patk"> 4.5 14 33.5 66.5 90.5 141.5 208.5 247 310 375.5 </table>
         <table name="#val"> 3 6 9 12 15 18 21 24 27 30 </table>
@@ -16,7 +14,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1002" levels="3" name="Flame Chant" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -51,7 +48,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1003" levels="3" name="Pa'agrian Gift" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -86,7 +82,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1004" levels="3" name="The Wisdom of Pa'agrio" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -121,7 +116,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1005" levels="3" name="Blessings of Pa'agrio" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -156,7 +150,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1006" levels="3" name="Chant of Fire" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -191,7 +184,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1007" levels="3" name="Chant of Battle" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
@@ -211,7 +203,7 @@
         <set name="skillType" val="BUFF" />
         <set name="isMagic" val="true" />
         <set name="operateType" val="OP_ACTIVE" />
-		<enchant1 name="magicLvl" val="#enchantMagicLvl" />
+        <enchant1 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
         <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init" />
@@ -226,7 +218,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1008" levels="3" name="The Glory of Pa'agrio" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -261,7 +252,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1009" levels="3" name="Chant of Shielding" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -299,7 +289,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1010" levels="3" name="Soul Shield" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
@@ -320,7 +309,7 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="castRange" val="400" />
         <set name="effectRange" val="900" />
-		<enchant1 name="magicLvl" val="#enchantMagicLvl" />
+        <enchant1 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
         <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init" />
@@ -335,7 +324,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1011" levels="18" name="Heal">
         <table name="#mpConsume_Init"> 2 3 3 4 4 5 5 6 6 7 7 8 9 9 9 10 10 11 </table>
         <table name="#mpConsume"> 8 10 11 13 15 17 19 21 24 26 28 29 33 35 35 38 40 41 </table>
@@ -353,7 +341,6 @@
         <set name="effectRange" val="1100" />
         <set name="aggroPoints" val="#power" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1012" levels="3" name="Cure Poison">
         <table name="#mpConsume_Init"> 2 6 11 </table>
         <table name="#mpConsume"> 8 24 44 </table>
@@ -372,7 +359,6 @@
         <set name="effectRange" val="1100" />
         <set name="aggroPoints" val="#aggro" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1013" levels="32" name="Recharge" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -403,7 +389,6 @@
             <target class_id_restriction="29, 30, 105, 42, 43, 112" />
         </cond>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1015" levels="15" name="Battle Heal">
         <table name="#mpConsume_Init"> 5 6 7 7 8 9 10 11 11 13 13 14 15 15 16 </table>
         <table name="#mpConsume"> 20 22 25 28 32 35 39 41 43 49 52 53 57 59 62 </table>
@@ -422,7 +407,6 @@
         <set name="effectRange" val="1100" />
         <set name="aggroPoints" val="#aggro" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1016" levels="9" name="Resurrection">
         <table name="#mpConsume_Init"> 12 18 25 31 36 39 42 46 48 </table>
         <table name="#mpConsume"> 47 70 97 121 144 156 165 182 191 </table>
@@ -441,7 +425,6 @@
         <set name="effectRange" val="900" />
         <set name="aggroPoints" val="#aggro" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1018" levels="3" name="Purify">
         <table name="#mpConsume_Init"> 8 10 11 </table>
         <table name="#mpConsume"> 31 38 44 </table>
@@ -461,7 +444,6 @@
         <set name="negatePower" val="#negatePower" />
         <set name="aggroPoints" val="#aggro" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1020" levels="27" name="Vitalize" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -492,7 +474,6 @@
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
         <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1027" levels="15" name="Group Heal">
         <table name="#mpConsume_Init"> 7 8 9 10 11 12 13 14 15 17 18 18 19 20 21 </table>
         <table name="#mpConsume"> 26 30 34 38 42 47 52 55 57 66 69 70 76 79 82 </table>
@@ -509,7 +490,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="aggroPoints" val="#power" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1028" levels="19" name="Might of Heaven" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -538,7 +518,6 @@
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
         <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1031" levels="8" name="Disrupt Undead">
         <table name="#mpConsume_Init"> 4 4 5 5 5 6 6 6 </table>
         <table name="#mpConsume"> 14 16 17 18 20 21 23 24 </table>
@@ -558,7 +537,6 @@
         <set name="castRange" val="400" />
         <set name="effectRange" val="900" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1032" levels="3" name="Invigor" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -592,7 +570,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1033" levels="3" name="Resist Poison" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -628,7 +605,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1034" levels="13" name="Repose">
         <table name="#mpConsume_Init"> 12 13 14 16 16 17 18 18 19 19 20 20 21 </table>
         <table name="#mpConsume"> 47 52 56 61 64 66 69 71 74 76 78 80 82 </table>
@@ -644,7 +620,6 @@
         <set name="isMagic" val="true" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1035" levels="4" name="Mental Shield" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -688,7 +663,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1036" levels="2" name="Magic Barrier" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -724,7 +698,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1040" levels="3" name="Shield" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <table name="#ench2MpConsume"> 30 29 29 28 28 27 27 26 26 25 25 24 24 23 23 22 22 21 21 20 20 19 19 18 18 17 17 16 16 15 </table>
@@ -745,7 +718,7 @@
         <set name="castRange" val="400" />
         <set name="effectRange" val="900" />
         <set name="aggroPoints" val="#aggro" />
-		<enchant1 name="magicLvl" val="#enchantMagicLvl" />
+        <enchant1 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
         <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init" />
@@ -760,7 +733,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1042" levels="12" name="Hold Undead" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -791,7 +763,6 @@
             <effect count="1" name="Paralyze" time="30" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1043" levels="1" name="Holy Weapon" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -825,7 +796,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1044" levels="3" name="Regeneration" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -861,7 +831,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1045" levels="6" name="Bless the Body" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -897,7 +866,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1047" levels="4" name="Mana Regeneration">
         <table name="#regMp"> 1.72 2.16 2.74 3.09 </table>
         <table name="#itemConsumeCount"> 7 9 12 15 </table>
@@ -921,7 +889,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1048" levels="6" name="Bless the Soul" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl">76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85</table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -957,7 +924,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1049" levels="14" name="Requiem">
         <table name="#mpConsume_Init"> 11 12 13 14 16 16 17 18 18 19 19 20 20 21 </table>
         <table name="#mpConsume"> 42 47 52 56 61 64 66 69 71 74 76 78 80 82 </table>
@@ -982,7 +948,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1050" levels="2" name="Return">
         <table name="#mpConsume_Init"> 21 31 </table>
         <table name="#mpConsume"> 84 122 </table>
@@ -996,7 +961,6 @@
         <set name="isMagic" val="true" />
         <set name="operateType" val="OP_ACTIVE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1056" levels="12" name="Cancellation">
         <table name="#mpConsume_Init"> 9 10 11 11 11 12 12 13 13 13 14 14 </table>
         <table name="#mpConsume"> 35 38 41 43 44 46 48 49 51 52 53 55 </table>
@@ -1016,7 +980,6 @@
         <set name="negateStats" val="BUFF" />
         <set name="negatePower" val="5" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1059" levels="3" name="Empower" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1052,7 +1015,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1062" levels="2" name="Berserker Spirit" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1109,7 +1071,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1064" levels="14" name="Silence" enchantLevels1="30" enchantLevels2="30">
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="magicLvl" val="#enchantMagicLvl" />
@@ -1142,7 +1103,6 @@
             <effect count="1" name="Mute" time="60" val="0" stackOrder="1" stackType="silence" effectPower="80" effectType="MUTE" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1068" levels="3" name="Might" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <table name="#ench1time"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
@@ -1163,7 +1123,7 @@
         <set name="castRange" val="400" />
         <set name="effectRange" val="900" />
         <set name="aggroPoints" val="#aggro" />
-		<enchant1 name="magicLvl" val="#enchantMagicLvl" />
+        <enchant1 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
         <enchant2 name="mpInitialConsume" val="#ench2MpConsume_Init" />
@@ -1178,7 +1138,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1069" levels="42" name="Sleep" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1211,7 +1170,6 @@
             <effect count="1" name="Sleep" time="30" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1071" levels="14" name="Surrender To Water" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1249,7 +1207,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1072" levels="5" name="Sleeping Cloud" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1283,7 +1240,6 @@
             <effect count="1" name="Sleep" time="30" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1073" levels="2" name="Kiss of Eva" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1317,7 +1273,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1074" levels="14" name="Surrender To Wind" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1354,7 +1309,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1075" levels="15" name="Peace">
         <table name="#mpConsume_Init"> 6 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
         <table name="#mpConsume"> 24 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
@@ -1370,7 +1324,6 @@
         <set name="castRange" val="600" />
         <set name="effectRange" val="1100" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1077" levels="3" name="Focus" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1406,7 +1359,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1078" levels="6" name="Concentration" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1442,7 +1394,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1083" levels="17" name="Surrender To Fire" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1481,7 +1432,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1085" levels="3" name="Acumen" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1517,7 +1467,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1086" levels="2" name="Haste" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1553,7 +1502,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1087" levels="3" name="Agility" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1588,7 +1536,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1090" levels="6" name="Life Drain">
         <table name="#mpConsume_Init"> 5 8 10 12 14 16 </table>
         <table name="#mpConsume"> 22 32 40 46 54 63 </table>
@@ -1608,7 +1555,6 @@
         <set name="effectRange" val="1100" />
         <set name="absorbPart" val="0.8" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1092" levels="19" name="Fear">
         <table name="#mpConsume_Init"> 3 4 5 6 6 7 8 9 10 11 11 11 12 12 13 13 13 14 14 </table>
         <table name="#mpConsume"> 12 16 18 21 24 28 31 35 38 41 43 44 46 48 49 51 52 53 55 </table>
@@ -1632,7 +1578,6 @@
             <effect count="5" name="Fear" time="6" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1095" levels="5" name="Venom">
         <table name="#mpConsume_Init"> 2 3 4 7 10 </table>
         <table name="#mpConsume"> 8 12 16 28 38 </table>
@@ -1656,7 +1601,6 @@
             <effect count="10" name="DamOverTime" time="3" val="#dmg" abnormal="poison" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1096" levels="16" name="Seal of Chaos" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1691,7 +1635,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1097" levels="20" name="Dreaming Spirit" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -1724,7 +1667,6 @@
             <effect count="1" name="Sleep" time="30" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="1099" levels="15" name="Seal of Slow" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />

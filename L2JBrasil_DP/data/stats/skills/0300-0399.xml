@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="301" levels="5" name="Summon Big Boom" enchantLevels1="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -31,7 +29,6 @@
         <enchant1 name="npcId" val="#enchBigBoom" />
         <enchant1 name="expPenalty" val="#expPenalty" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="302" levels="9" name="Spoil Festival" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -63,7 +60,6 @@
             <effect count="3" name="DamOverTime" time="3" val="354" />
         </enchant2for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="303" levels="4" name="Soul of Sagittarius" enchantLevels1="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -94,7 +90,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="304" levels="1" name="Song of Vitality" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -125,7 +120,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="305" levels="1" name="Song of Vengeance" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -154,7 +148,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="306" levels="1" name="Song of Flame Guard" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -185,7 +178,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="307" levels="1" name="Dance of Aqua Guard" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -217,7 +209,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="308" levels="1" name="Song of Storm Guard" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -248,7 +239,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="309" levels="1" name="Dance of Earth Guard" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -280,7 +270,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="310" levels="1" name="Dance of the Vampire" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -310,7 +299,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="311" levels="1" name="Dance of Protection" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -342,7 +330,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="312" levels="20" name="Vicious Stance" enchantLevels1="30" enchantLevels2="30">
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
         <enchant2 name="magicLvl" val="#enchantMagicLvl" />
@@ -380,7 +367,6 @@
             </effect>
         </enchant2for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="313" levels="8" name="Snipe" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -442,7 +428,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="314" levels="16" name="Fatal Counter" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -474,7 +459,6 @@
             </cond>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="315" levels="16" name="Crush of Doom" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -505,7 +489,6 @@
         <enchant1 name="power" val="#ench1Power" />
         <enchant2 name="hpConsume" val="#ench2HpConsume" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="316" levels="1" name="Aegis">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="PASSIVE" />
@@ -517,7 +500,6 @@
             <add order="0x40" stat="shieldDefAngle" val="360" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="317" levels="5" name="Focus Attack">
         <set name="weaponsAllowed" val="64" />
         <table name="#mpConsume"> 18 22 27 31 34 </table>
@@ -543,7 +525,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="318" levels="1" name="Aegis Stance" enchantLevels1="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -572,7 +553,6 @@
             </effect>
         </enchant1for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="319" levels="2" name="Agile Movement">
         <table name="#Accuracy"> 2 3 </table>
         <table name="#Speed"> 5 10 </table>
@@ -598,7 +578,6 @@
             </add>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="320" levels="10" name="Wrath" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -624,7 +603,6 @@
         <enchant1 name="power" val="#ench1Power" />
         <enchant2 name="mpConsume" val="#ench2MpConsume" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="321" levels="10" name="Blinding Blow">
         <table name="#mpConsume"> 67 68 69 70 71 72 73 74 75 76 </table>
         <table name="#magicLvl"> 65 66 67 68 69 70 71 72 73 74 </table>
@@ -654,7 +632,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="322" levels="6" name="Shield Fortress" enchantLevels1="30" enchantLevels2="30">
         <table name="#enchantMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 82 83 83 83 84 84 85 85 85 </table>
         <enchant1 name="magicLvl" val="#enchantMagicLvl" />
@@ -691,7 +668,6 @@
             </effect>
         </enchant2for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="323" levels="1" name="Quiver of Arrow: Grade A">
         <set name="mpConsume" val="366" />
         <set name="target" val="TARGET_SELF" />
@@ -706,7 +682,6 @@
         <set name="create_item_count" val="700" />
         <set name="random_count" val="4" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="324" levels="1" name="Quiver of Arrow: Grade S">
         <set name="mpConsume" val="398" />
         <set name="target" val="TARGET_SELF" />
@@ -720,7 +695,6 @@
         <set name="create_item_count" val="900" />
         <set name="random_count" val="4" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="325" levels="1" name="Strider Siege Assault">
         <!-- SHOULD WORK ONLY DURING SIEGE -->
         <set name="mpConsume" val="151" />
@@ -737,7 +711,6 @@
         <set name="castRange" val="40" />
         <set name="effectRange" val="400" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="326" levels="1" name="Build Advanced Headquarters">
         <set name="mpInitialConsume" val="30" />
         <set name="itemConsumeId" val="2131" />
@@ -750,7 +723,6 @@
         <set name="operateType" val="OP_ACTIVE" />
         <set name="isAdvanced" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="327" levels="1" name="Wyvern Aegis">
         <set name="mpConsume" val="69" />
         <set name="itemConsumeId" val="3031" />
@@ -775,7 +747,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="328" levels="1" name="Wisdom">
         <set name="magicLvl" val="76" />
         <set name="target" val="TARGET_SELF" />
@@ -787,7 +758,6 @@
             <mul stat="derangementVuln" val="0.8" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="329" levels="1" name="Health">
         <set name="magicLvl" val="76" />
         <set name="target" val="TARGET_SELF" />
@@ -798,7 +768,6 @@
             <mul stat="poisonVuln" order="0x30" val="0.8" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="330" levels="1" name="Skill Mastery">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -807,7 +776,6 @@
             <add order="0x40" stat="skillMastery" val="2" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="331" levels="1" name="Skill Mastery">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -816,7 +784,6 @@
             <add order="0x40" stat="skillMastery" val="2" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="332" levels="1" name="Extra Inventory">
         <!-- Increases size of inventory. -->
         <set name="magicLvl" val="76" />
@@ -827,7 +794,6 @@
             <add order="0x40" stat="inventoryLimit" val="1" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="333" levels="1" name="Extra Sell Inventory">
         <!-- Increases private store sales slots. -->
         <set name="magicLvl" val="76" />
@@ -838,7 +804,6 @@
             <add order="0x40" stat="PrivateSellLimit" val="1" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="334" levels="1" name="Focus Skill Mastery">
         <!-- Skill for dagger and archer Need to be chance/corrected -->
         <set name="mpConsume" val="36" />
@@ -851,7 +816,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="335" levels="1" name="Fortitude">
         <set name="magicLvl" val="76" />
         <set name="target" val="TARGET_SELF" />
@@ -865,7 +829,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="336" levels="1" name="Arcane Wisdom">
         <set name="mpConsume" val="36" />
         <set name="target" val="TARGET_SELF" />
@@ -878,7 +841,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="337" levels="1" name="Arcane Power">
         <set name="mpConsume" val="36" />
         <set name="target" val="TARGET_SELF" />
@@ -891,7 +853,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="338" levels="1" name="Arcane Agility">
         <set name="mpConsume" val="36" />
         <set name="target" val="TARGET_SELF" />
@@ -905,7 +866,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="339" levels="1" name="Parry Stance">
         <set name="magicLvl" val="78" />
         <set name="mpConsume" val="36" />
@@ -922,7 +882,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="340" levels="1" name="Riposte Stance">
         <set name="magicLvl" val="77" />
         <set name="mpConsume" val="35" />
@@ -940,7 +899,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="341" levels="1" name="Touch of Life">
         <set name="hpConsume" val="1215" />
         <set name="magicLvl" val="78" />
@@ -961,7 +919,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="342" levels="1" name="Touch of Death">
         <set name="castRange" val="40" />
         <set name="effectRange" val="400" />
@@ -991,7 +948,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="343" levels="1" name="Lethal Shot">
         <set name="mpConsume" val="153" />
         <set name="weaponsAllowed" val="32" />
@@ -1008,7 +964,6 @@
         <set name="lethal2" val="10" />
         <set name="hitTime" val="4000" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="344" levels="1" name="Lethal Blow">
         <set name="weaponsAllowed" val="16" />
         <set name="baseCritRate" val="20" />
@@ -1029,7 +984,6 @@
         <set name="SSBoost" val="1.5" />
         <set name="target" val="TARGET_ONE" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="345" levels="1" name="Sonic Rage">
         <set name="weaponsAllowed" val="512" />
         <set name="magicLvl" val="78" />
@@ -1050,7 +1004,6 @@
         <set name="num_charges" val="1" />
         <set name="max_charges" val="8" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="346" levels="1" name="Raging Force">
         <set name="magicLvl" val="78" />
         <set name="hpConsume" val="50" />
@@ -1071,7 +1024,6 @@
             <using kind="Fist, Dual Fist" />
         </cond>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="347" levels="1" name="Earthquake">
         <set name="hpConsume" val="340" />
         <set name="mpConsume" val="78" />
@@ -1095,7 +1047,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="348" levels="1" name="Spoil Crush">
         <set name="weaponsAllowed" val="16392" />
         <set name="mpConsume" val="70" />
@@ -1113,7 +1064,6 @@
         <set name="baseCritRate" val="20" />
         <set name="nextActionAttack" val="true" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="349" levels="1" name="Song of Renewal">
         <set name="mpConsume" val="60" />
         <set name="nextDanceCost" val="30" />
@@ -1134,7 +1084,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="350" levels="1" name="Physical Mirror">
         <set name="mpConsume" val="36" />
         <set name="weaponsAllowed" val="2" />
@@ -1152,7 +1101,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="351" levels="1" name="Magical Mirror">
         <set name="mpConsume" val="36" />
         <set name="weaponsAllowed" val="2" />
@@ -1170,7 +1118,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="352" levels="1" name="Shield Bash">
         <set name="magicLvl" val="77" />
         <set name="nextActionAttack" val="true" />
@@ -1193,7 +1140,6 @@
             <effect count="1" name="RemoveTarget" time="1" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="353" levels="1" name="Shield Slam">
         <set name="magicLvl" val="77" />
         <set name="nextActionAttack" val="true" />
@@ -1215,7 +1161,6 @@
             <effect count="1" name="RemoveTarget" time="1" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="354" levels="1" name="Hamstring Shot">
         <set name="magicLvl" val="77" />
         <set name="weaponsAllowed" val="32" />
@@ -1239,7 +1184,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="355" levels="1" name="Focus Death">
         <set name="mpConsume" val="36" />
         <set name="effectPoint" val="669" />
@@ -1274,7 +1218,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="356" levels="1" name="Focus Chance">
         <set name="mpConsume" val="36" />
         <set name="effectPoint" val="669" />
@@ -1313,7 +1256,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="357" levels="1" name="Focus Power">
         <set name="mpConsume" val="36" />
         <set name="effectPoint" val="669" />
@@ -1352,7 +1294,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="358" levels="1" name="Bluff">
         <set name="weaponsAllowed" val="16" />
         <set name="mpConsume" val="35" />
@@ -1371,7 +1312,6 @@
             <effect count="1" name="RemoveTarget" time="1" val="0" noicon="1" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="359" levels="1" name="Eye of Hunter">
         <set name="magicLvl" val="77" />
         <set name="mpConsume" val="70" />
@@ -1389,7 +1329,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="360" levels="1" name="Eye of Slayer">
         <set name="magicLvl" val="77" />
         <set name="mpConsume" val="71" />
@@ -1408,7 +1347,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="361" levels="1" name="Shock Blast">
         <set name="weaponsAllowed" val="64" />
         <set name="magicLvl" val="77" />
@@ -1440,7 +1378,6 @@
             <effect count="1" name="RemoveTarget" time="1" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="362" levels="1" name="Armor Crush">
         <set name="magicLvl" val="77" />
         <set name="weaponsAllowed" val="18444" />
@@ -1469,7 +1406,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="363" levels="1" name="Song of Meditation">
         <set name="mpConsume" val="60" />
         <set name="nextDanceCost" val="30" />
@@ -1488,7 +1424,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="364" levels="1" name="Song of Champion">
         <set name="mpConsume" val="60" />
         <set name="nextDanceCost" val="30" />
@@ -1508,7 +1443,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="365" levels="1" name="Siren's Dance">
         <set name="weaponsAllowed" val="512" />
         <set name="mpConsume" val="60" />
@@ -1527,7 +1461,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="366" levels="1" name="Dance of Shadows">
         <set name="weaponsAllowed" val="512" />
         <set name="mpConsume" val="60" />
@@ -1546,7 +1479,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="367" levels="1" name="Dance of Medusa">
         <set name="magicLvl" val="77" />
         <set name="mpConsume" val="53" />
@@ -1565,7 +1497,6 @@
             <effect count="1" name="Petrification" time="10" val="0" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="368" levels="1" name="Vengeance">
         <set name="weaponsAllowed" val="2" />
         <set name="mpConsume" val="35" />
@@ -1585,7 +1516,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="369" levels="1" name="Evade Shot">
         <set name="weaponsAllowed" val="32" />
         <set name="mpConsume" val="114" />
@@ -1605,7 +1535,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="370" levels="3" name="Clan Vitality">
         <table name="#maxHp"> 1.03 1.05 1.06 </table>
         <set name="target" val="TARGET_SELF" />
@@ -1617,7 +1546,6 @@
             <mul order="0x30" stat="maxHp" val="#maxHp" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="371" levels="3" name="Clan Spirituality">
         <table name="#maxCp"> 1.06 1.1 1.12 </table>
         <set name="target" val="TARGET_SELF" />
@@ -1629,7 +1557,6 @@
             <mul order="0x30" stat="maxCp" val="#maxCp" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="372" levels="3" name="Clan Essence">
         <table name="#maxMp"> 1.03 1.05 1.06 </table>
         <set name="target" val="TARGET_SELF" />
@@ -1641,7 +1568,6 @@
             <mul order="0x30" stat="maxMp" val="#maxMp" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="373" levels="3" name="Clan Lifeblood">
         <!-- Increases the clan members' HP regeneration. Only affects Heir class and above. -->
         <table name="#regHp"> 1.03 1.05 1.06 </table>
@@ -1654,7 +1580,6 @@
             <mul stat="regHp" val="#regHp" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="374" levels="3" name="Clan Morale">
         <!-- Increases the clan members' CP regeneration. Only affects Wise Man class and above. -->
         <table name="#regCp"> 1.06 1.1 1.12 </table>
@@ -1667,7 +1592,6 @@
             <mul stat="regCp" val="#regCp" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="375" levels="3" name="Clan Clarity">
         <!-- Increases the clan members' MP regeneration. Only affects Viscount class and above. -->
         <table name="#regMp"> 1.03 1.05 1.06 </table>
@@ -1680,7 +1604,6 @@
             <mul stat="regMp" val="#regMp" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="376" levels="3" name="Clan Might">
         <!-- Increases the clan members' P. Atk. Only affects Knight class and above. -->
         <table name="#pAtk"> 1.03 1.05 1.06 </table>
@@ -1693,7 +1616,6 @@
             <mul stat="pAtk" val="#pAtk" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="377" levels="3" name="Clan Aegis">
         <!-- Increases clan members' P. Def. It only effects those who are of a Knight class or higher. -->
         <table name="#pDef"> 1.03 1.05 1.06 </table>
@@ -1706,7 +1628,6 @@
             <mul stat="pDef" val="#pDef" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="378" levels="3" name="Clan Empowerment">
         <!-- Increases clan members' M. Atk. It only effects those who are of a Viscount class or higher. -->
         <table name="#mAtk"> 1.06 1.1 1.12 </table>
@@ -1719,7 +1640,6 @@
             <mul stat="mAtk" val="#mAtk" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="379" levels="3" name="Clan Magic Protection">
         <!-- Increases clan members' M. Def. It only effects those who are of an Heir class or higher. -->
         <table name="#mDef"> 1.06 1.10 1.12 </table>
@@ -1732,7 +1652,6 @@
             <mul stat="mDef" val="#mDef" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="380" levels="3" name="Clan Guidance">
         <!-- Increases the clan members' Accuracy. Only affects Baron class and above. -->
         <table name="#accCombat"> 1 2 3 </table>
@@ -1745,7 +1664,6 @@
             <add stat="accCombat" val="#accCombat" order="0x40" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="381" levels="3" name="Clan Agility">
         <!-- Increases the clan members' Evasion. Only affects Baron class and above. -->
         <table name="#rEvas"> 1 2 3 </table>
@@ -1758,7 +1676,6 @@
             <add stat="rEvas" val="#rEvas" order="0x40" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="382" levels="3" name="Clan Withstand-Attack">
         <!-- Increases clan members' Shield defense probability. It only effects those who are of a Viscount class or higher. -->
         <table name="#rShld"> 1.12 1.2 1.24 </table>
@@ -1771,7 +1688,6 @@
             <mul stat="rShld" val="#rShld" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="383" levels="3" name="Clan Shield Boost">
         <!-- Increases clan members' Shield P. Def. It only effects those who are of a Baron class or higher. -->
         <table name="#sDef"> 1.24 1.4 1.48 </table>
@@ -1784,7 +1700,6 @@
             <mul stat="sDef" val="#sDef" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="384" levels="3" name="Clan Cyclonic Resistance">
         <!-- Increases clan members' resistance to water/wind attacks. It only effects those who are of a Viscount class or higher. -->
         <table name="#vuln"> 0.97 0.95 0.94 </table>
@@ -1798,7 +1713,6 @@
             <mul stat="waterVuln" val="#vuln" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="385" levels="3" name="Clan Magmatic Resistance">
         <!-- Increases clan members' resistance to fire/earth attacks. It only effects those who are of a Viscount class or higher. -->
         <table name="#vuln"> 0.97 0.95 0.94 </table>
@@ -1812,7 +1726,6 @@
             <mul stat="earthVuln" val="#vuln" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="386" levels="3" name="Clan Fortitude">
         <!-- Increases the clan members' resistance to shock attacks. Only affects Viscount class and above. -->
         <table name="#vuln"> 0.88 0.80 0.76 </table>
@@ -1825,7 +1738,6 @@
             <mul stat="stunVuln" val="#vuln" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="387" levels="3" name="Clan Freedom">
         <!-- Increases the clan members' resistance to hold attacks. Only affects Viscount class and above. -->
         <table name="#vuln"> 0.88 0.80 0.76 </table>
@@ -1838,7 +1750,6 @@
             <mul stat="rootVuln" val="#vuln" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="388" levels="3" name="Clan Vigilance">
         <!-- Increases the clan members' resistance to sleep attacks. Only affects Viscount class and above. -->
         <table name="#vuln"> 0.88 0.80 0.76 </table>
@@ -1851,7 +1762,6 @@
             <mul stat="sleepVuln" val="#vuln" order="0x30" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="389" levels="3" name="Clan March">
         <!-- Increases clan members' Speed. It only effects those who are of a Count class or higher. -->
         <table name="#runSpd"> 3 5 6 </table>
@@ -1864,7 +1774,6 @@
             <add stat="runSpd" val="#runSpd" order="0x40" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="390" levels="3" name="Clan Luck">
         <table name="#expLost"> 0.9 0.8 0.7 </table>
         <set name="target" val="TARGET_SELF" />
@@ -1876,7 +1785,6 @@
             <mul order="0x30" stat="rExp" val="#expLost" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="391" levels="1" name="Clan Imperium">
         <!-- Gives authority to open up a command channel. Only affects Wise Man class and above. -->
         <set name="target" val="TARGET_SELF" />
@@ -1884,7 +1792,6 @@
         <set name="operateType" val="OP_PASSIVE" />
         <set name="minPledgeClass" val="4" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="395" levels="1" name="Heroic Miracle">
         <set name="aggroPoints" val="676" />
         <set name="hitTime" val="1000" />
@@ -1905,7 +1812,6 @@
             </effect>
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="396" levels="1" name="Heroic Berserker">
         <set name="aggroPoints" val="676" />
         <set name="mpConsume" val="72" />

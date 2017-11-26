@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-    <!-- Pack:L2JBrasil Site:www.l2jbrasil.com -->
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3600" levels="9" name="Special Ability: Anger">
         <table name="#val">20.44 22.64 24.77 26.78 28.59 30.12 31.30 39 45</table>
         <table name="#pvpDam">1 1 1 1 1 1 1.05 1.05 1.05</table>
@@ -19,7 +17,6 @@
             <mul order="0x30" stat="pvpMagicalDmg" val="#pvpDam" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3601" levels="9" name="Special Ability: Haste">
         <table name="#val"> 1.08 1.07 1.07 1.07 1.06 1.06 1.06 1.06 1.07 </table>
         <table name="#pvpDam">1 1 1 1 1 1 1.05 1.05 1.05</table>
@@ -36,7 +33,6 @@
             <add order="0x40" stat="atkCountMax" val="4" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3602" levels="9" name="Special Ability: Guidance">
         <table name="#val">5.27 3.95 4.34 4.68 5.02 5.37 5.72 6.88 7.5</table>
         <table name="#pvpDam">1 1 1 1 1 1 1.05 1.05 1.05</table>
@@ -53,7 +49,6 @@
             <add order="0x40" stat="atkCountMax" val="4" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3603" levels="10" name="Demonic Sword Zariche">
         <table name="#maxCp">12 13 14 15 17 19 21 23 25 27</table>
         <table name="#pAtk">3 4.5 6 7.5 9 10.5 11 11.5 12 12.5</table>
@@ -86,7 +81,6 @@
             <set order="0x08" stat="MEN" val="21" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3604" levels="1" name="Frintezza's Necklace">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -103,7 +97,6 @@
             <mul order="0x30" stat="pReuse" val="0.95" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3605" levels="1" name="Clan Oath Heavy Armor Set">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -113,7 +106,6 @@
             <add order="0x40" stat="maxHp" val="85" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3606" levels="1" name="Clan Oath Light Armor Set">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -123,7 +115,6 @@
             <add order="0x40" stat="rEvas" val="3" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3607" levels="1" name="Clan Oath Robe Set">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -135,7 +126,6 @@
             <mul order="0x30" stat="mAtkSpd" val="1.05" />
         </for>
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3608" levels="1" name="Apella Heavy Armor Set">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
@@ -525,7 +515,6 @@
         <set name="castRange" val="600" />
         <set name="effectRange" val="1100" />
     </skill>
-    <!-- Status:Corrigido Pack:L2JBrasil author:*Slayer -->
     <skill id="3632" name="Clan Gate" levels="1">
         <set name="target" val="TARGET_SELF" />
         <set name="skillType" val="BUFF" />
