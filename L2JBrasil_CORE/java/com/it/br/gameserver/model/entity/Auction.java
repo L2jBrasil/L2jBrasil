@@ -18,6 +18,18 @@
  */
 package com.it.br.gameserver.model.entity;
 
+import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.GameServer;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.dao.AuctionDao;
+import com.it.br.gameserver.datatables.sql.ClanTable;
+import com.it.br.gameserver.idfactory.IdFactory;
+import com.it.br.gameserver.instancemanager.AuctionManager;
+import com.it.br.gameserver.instancemanager.ClanHallManager;
+import com.it.br.gameserver.model.L2Clan;
+import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,17 +38,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.GameServer;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.datatables.sql.ClanTable;
-import com.it.br.gameserver.idfactory.IdFactory;
-import com.it.br.gameserver.instancemanager.AuctionManager;
-import com.it.br.gameserver.instancemanager.ClanHallManager;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 public class Auction
 {
@@ -142,17 +143,10 @@ public class Auction
     /** Load auctions */
 	private void load()
 	{
-        Connection con = null;
         try
         {
-            PreparedStatement statement;
             ResultSet rs;
-
-            con = L2DatabaseFactory.getInstance().getConnection();
-
-            statement = con.prepareStatement("Select * from auction where id = ?");
-            statement.setInt(1, getId());
-            rs = statement.executeQuery();
+            rs = AuctionDao.loadAuctions(this);
 
             while (rs.next())
             {
@@ -163,38 +157,29 @@ public class Auction
         	    _itemObjectId = rs.getInt("itemObjectId");
         	    _itemType = rs.getString("itemType");
         	    _sellerId = rs.getInt("sellerId");
-                    _sellerClanName = rs.getString("sellerClanName");
+                _sellerClanName = rs.getString("sellerClanName");
         	    _sellerName = rs.getString("sellerName");
         	    _startingBid = rs.getInt("startingBid");
             }
-            statement.close();
             loadBid();
+            rs.close();
         }
         catch (Exception e)
         {
-            System.out.println("Exception: Auction.load(): " + e.getMessage());
+            _log.warning(Auction.class.getName() + ": Exception: Auction.load(): " + e.getMessage());
             e.printStackTrace();
         }
-        finally {try { con.close(); } catch (Exception e) {}}
 	}
 	/** Load bidders **/
-	private void loadBid()
+	public void loadBid()
 	{
-                _highestBidderId = 0;
+	    _highestBidderId = 0;
 		_highestBidderName = "";
 		_highestBidderMaxBid = 0;		
 
-        Connection con = null;
         try
         {
-            PreparedStatement statement;
-            ResultSet rs;
-
-            con = L2DatabaseFactory.getInstance().getConnection();
-
-            statement = con.prepareStatement("SELECT bidderId, bidderName, maxBid, clan_name, time_bid FROM auction_bid WHERE auctionId = ? ORDER BY maxBid DESC");
-            statement.setInt(1, getId());
-            rs = statement.executeQuery();
+            ResultSet rs = AuctionDao.loadBid(this);
 
             while (rs.next())
             {
@@ -206,15 +191,13 @@ public class Auction
                 }
                 _bidders.put(rs.getInt("bidderId"), new Bidder(rs.getString("bidderName"), rs.getString("clan_name"), rs.getInt("maxBid"), rs.getLong("time_bid")));
             }
-
-            statement.close();
+            rs.close();
         }
         catch (Exception e)
         {
-            System.out.println("Exception: Auction.loadBid(): " + e.getMessage());
+            _log.warning(Auction.class.getName() + ": Exception: Auction.loadBid(): " + e.getMessage());
             e.printStackTrace();
         }
-        finally {try { con.close(); } catch (Exception e) {}}
 	}
     /** Task Manage */
     private void startAutoTask()
@@ -235,21 +218,7 @@ public class Auction
 	/** Save Auction Data End */
     private void saveAuctionDate()
     {
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("Update auction set endDate = ? where id = ?");
-            statement.setLong(1, _endDate);
-            statement.setInt(2, _id);
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-        	 _log.log(Level.SEVERE, "Exception: saveAuctionDate(): " + e.getMessage(),e);
-        }
-        finally {try { con.close(); } catch (Exception e) {}}
+        AuctionDao.saveAuctionDate(this);
     }
     /** Set a bid */
 	public synchronized void setBid(L2PcInstance bidder, int bid)
@@ -290,36 +259,15 @@ public class Auction
 	/** Update auction in DB */
 	private void updateInDB(L2PcInstance bidder, int bid)
 	{
-		Connection con = null;
         try
         {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement;
-
             if (getBidders().get(bidder.getClanId()) != null)
             {
-                statement = con.prepareStatement("UPDATE auction_bid SET bidderId=?, bidderName=?, maxBid=?, time_bid=? WHERE auctionId=? AND bidderId=?");
-                statement.setInt(1, bidder.getClanId());
-                statement.setString(2, bidder.getClan().getLeaderName());
-                statement.setInt(3, bid);
-                statement.setLong(4, System.currentTimeMillis());
-                statement.setInt(5, getId());
-                statement.setInt(6, bidder.getClanId());
-                statement.execute();
-                statement.close();
+                AuctionDao.updateBidder(bidder, this, bid);
             }
             else
             {
-                statement = con.prepareStatement("INSERT INTO auction_bid (id, auctionId, bidderId, bidderName, maxBid, clan_name, time_bid) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                statement.setInt(1, IdFactory.getInstance().getNextId());
-                statement.setInt(2, getId());
-                statement.setInt(3, bidder.getClanId());
-                statement.setString(4, bidder.getName());
-                statement.setInt(5, bid);
-                statement.setString(6, bidder.getClan().getName());
-                statement.setLong(7, System.currentTimeMillis());
-                statement.execute();
-                statement.close();
+                AuctionDao.addBidder(bidder, this, bid);
                 if (L2World.getInstance().getPlayer(_highestBidderName) != null)
                     L2World.getInstance().getPlayer(_highestBidderName).sendMessage("You have been out bidded");
             }
@@ -340,33 +288,12 @@ public class Auction
         	 _log.log(Level.SEVERE, "Exception: Auction.updateInDB(L2PcInstance bidder, int bid): " + e.getMessage());
             e.printStackTrace();
         }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
 	}
     /** Remove bids */
     private void removeBids()
     {
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement;
+        AuctionDao.removeBid(this);
 
-            statement = con.prepareStatement("DELETE FROM auction_bid WHERE auctionId=?");
-            statement.setInt(1, getId());
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-        	 _log.log(Level.SEVERE, "Exception: Auction.deleteFromDB(): " + e.getMessage(),e);
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
         for (Bidder b : _bidders.values())
         {
           if (ClanTable.getInstance().getClanByName(b.getClanName()).getHasHideout() == 0)
@@ -384,24 +311,7 @@ public class Auction
     public void deleteAuctionFromDB()
     {
         AuctionManager.getInstance().getAuctions().remove(this);
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement;
-            statement = con.prepareStatement("DELETE FROM auction WHERE itemId=?");
-            statement.setInt(1, _itemId);
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-        	 _log.log(Level.SEVERE, "Exception: Auction.deleteFromDB(): " + e.getMessage(),e);
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
+        AuctionDao.deleteAuction(this);
     }
     /** End of auction */
     public void endAuction()
@@ -439,27 +349,8 @@ public class Auction
     /** Cancel bid */
     public synchronized void cancelBid(int bidder)
     {
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement;
-
-            statement = con.prepareStatement("DELETE FROM auction_bid WHERE auctionId=? AND bidderId=?");
-            statement.setInt(1, getId());
-            statement.setInt(2, bidder);
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-        	 _log.log(Level.SEVERE, "Exception: Auction.cancelBid(String bidder): " + e.getMessage(),e);
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
-        returnItem(_bidders.get(bidder).getClanName(), 57, _bidders.get(bidder).getBid(), true);
+        AuctionDao.deleteBid(this, bidder);
+         returnItem(_bidders.get(bidder).getClanName(), 57, _bidders.get(bidder).getBid(), true);
         ClanTable.getInstance().getClanByName(_bidders.get(bidder).getClanName()).setAuctionBiddedAt(0, true);
         _bidders.clear();
         loadBid();
@@ -474,34 +365,7 @@ public class Auction
     public void confirmAuction()
     {
         AuctionManager.getInstance().getAuctions().add(this);
-        Connection con = null;
-        try
-        {
-            PreparedStatement statement;
-            con = L2DatabaseFactory.getInstance().getConnection();
-
-            statement = con.prepareStatement("INSERT INTO auction (id, sellerId, sellerName, sellerClanName, itemType, itemId, itemObjectId, itemName, itemQuantity, startingBid, currentBid, endDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-            statement.setInt(1, getId());
-            statement.setInt(2, _sellerId);
-            statement.setString(3, _sellerName);
-            statement.setString(4, _sellerClanName);
-            statement.setString(5, _itemType);
-            statement.setInt(6, _itemId);
-            statement.setInt(7, _itemObjectId);
-            statement.setString(8, _itemName);
-            statement.setInt(9, _itemQuantity);
-            statement.setInt(10, _startingBid);
-            statement.setInt(11, _currentBid);
-            statement.setLong(12, _endDate);
-            statement.execute();
-            statement.close();
-            loadBid();
-        }
-        catch (Exception e)
-        {
-            _log.log(Level.SEVERE, "Exception: Auction.load(): " + e.getMessage(),e);
-        }
-        finally {try { con.close(); } catch (Exception e) {}}
+        AuctionDao.insertAuction(this);
     }
     /** Get var auction */
 	public final int getId() { return _id; }
