@@ -9,7 +9,6 @@
 	<property name="build.dist.login" location="${build.dist}/Login"/>
 	<property name="build.dist.game" location="${build.dist}/Game"/>
 	<property name="build.dist.game.lib" location="${build.dist}/Game/lib"/>
-	<property name="properties-file" location="${build.dist.game}/config/other/l2jcore.properties"/>
 
     <path id="classpath"> 
     	<fileset dir="${lib}">
@@ -51,14 +50,17 @@
 
         <copy todir="${build.dist.login}">
             <fileset dir="dist">
-                <include name="Login.bat"/>
+				<include name="login.sh"/>
+				<include name="register.sh"/>
+				<include name="Login.bat"/>
             	<include name="Register.bat"/>
             </fileset>
         </copy>
 
     	<copy todir="${build.dist.game}">
             <fileset dir="dist">
-                <include name="Game.bat"/>
+				<include name="Game.bat"/>
+				<include name="game.sh"/>
             </fileset>
         </copy>
 

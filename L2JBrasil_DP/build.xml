@@ -6,7 +6,6 @@
 	<property name="build.dist.game" location="${build.dist}/Game"/>
 	<property name="build.dist.db" location="${build.dist}/Database"/>
 	<property name="build.dist.sql" location="${build.dist}/Database/sql"/>
-	<property name="properties-file" location="${build.dist.game}/config/other/l2jdp.properties"/>
 
 	<target name="init" description="Create the output directories. Do nothing if dirs were already created">
 		<mkdir dir="${build}"/>
