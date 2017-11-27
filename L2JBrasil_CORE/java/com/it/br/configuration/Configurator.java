@@ -78,18 +78,26 @@ public class Configurator {
 		return settingsMap.containsKey(settingsClass) &&  settingsMap.get(settingsClass) != null;
 	}
 
-	public void reloadAll() {
+	public static void reloadAll() {
 		logger.info("Reloading all settings");
-		settingsMap = new ConcurrentHashMap<>();
+		getInstance().reload();
+	}
+	
+	private void reload() {
+		settingsMap.clear();
 		load();
 	}
-	
-	public void reloadSettings(Class<? extends Settings>  settingsClass) {
+
+	public static void reloadSettings(Class<? extends Settings>  settingsClass) {
 		logger.info("Reloading settings " + settingsClass.getName());
-		settingsMap.remove(settingsClass);
+		getInstance().removeSettings(settingsClass);
 	}
 	
 	
+	private void removeSettings(Class<? extends Settings> settingsClass) {
+		settingsMap.remove(settingsClass);
+	}
+
 	public static Configurator getInstance() {
 		if(configurator == null) {
 			configurator = new Configurator();

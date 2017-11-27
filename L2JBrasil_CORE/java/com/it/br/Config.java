@@ -57,7 +57,6 @@ public final class Config
     protected static final Logger _log = Logger.getLogger(Config.class.getName());
 
     /* Properties Files Definitions */
-    public static final String COMMAND_FILE		    = "./config/custom/command.properties";
     public static final String L2JBRASIL_FILE		= "./config/custom/l2jbrasil.properties";
     public static final String L2JMOD_FILE			= "./config/custom/l2jmods.properties";
 
@@ -1101,82 +1100,6 @@ public final class Config
             e.printStackTrace();
             throw new Error("Failed to Load " + ADMIN_FILE + " File.");
         }
-    }
-
-
-    // --------------------------------------------- //
-    public static boolean ALLOW_RES_COMMAND;
-    // ============================================================
-    public static int RES_CMD_CONSUME_ID;
-    // --------------------------------------------- //
-    public static int RES_ITEM_COUNT;
-    // -        VOICE COMMAND PROPERTIES           - //
-    public static boolean REC_BUY;
-    public static int REC_ITEM_ID;
-    public static int REC_ITEM_COUNT;
-    public static int REC_REWARD;
-    public static boolean ALLOW_LOC_VOICECOMMAND;
-    public static boolean ALLOW_TRADEOFF_VOICE_COMMAND;
-    public static boolean ENABLE_VIP_TELEPORT;
-    public static boolean ENABLE_ONLINE_COMMAND;
-    public static boolean ALLOW_STAT_VIEW;
-    public static boolean ENABLE_INFO;
-    public static boolean BANKING_SYSTEM_ENABLED;
-	public static boolean ALLOW_STATS_COMMAND;
-	public static boolean ALLOW_CASTLE_COMMAND;
-	public static boolean ALLOW_SET_COMMAND;
-    public static int BANKING_SYSTEM_GOLDBARS;
-    public static int BANKING_SYSTEM_ADENA;
-    public static int BANKING_SYSTEM_GB_ID;
-    public static boolean ALLOW_AWAY_STATUS;
-	public static boolean AWAY_PEACE_ZONE;
-	public static boolean ALT_AWAY_ALLOW_INTERFERENCE;
-	public static boolean AWAY_PLAYER_TAKE_AGGRO;
-	public static int AWAY_TITLE_COLOR;
-	public static int AWAY_TIMER;
-	public static int BACK_TIMER;
-	// ============================================================
-
-    public static void loadCommandConfig()
-    {
-	    try(InputStream is = new FileInputStream(new File(COMMAND_FILE)))
-	    {
-	    	Properties Command = new Properties();
-	    	Command.load(is);
-
-	    	ALLOW_RES_COMMAND = Boolean.parseBoolean(Command.getProperty("AllowResCommand", "False"));
-	    	RES_CMD_CONSUME_ID = Integer.parseInt(Command.getProperty("ResCommandConsumeId", "3470"));
-	    	RES_ITEM_COUNT = Integer.parseInt(Command.getProperty("ResItemCount", "1"));
-	    	REC_BUY = Boolean.parseBoolean(Command.getProperty("AlowBuyRec", "True"));
-	    	REC_ITEM_ID = Integer.parseInt(Command.getProperty("RecItemID", "57"));
-	    	REC_ITEM_COUNT = Integer.parseInt(Command.getProperty("RecItemCount", "1000000000"));
-	    	REC_REWARD = Integer.parseInt(Command.getProperty("RecReward", "1"));
-	    	ALLOW_LOC_VOICECOMMAND = Boolean.parseBoolean(Command.getProperty("LocVoiceCommand", "False"));
-	    	ALLOW_TRADEOFF_VOICE_COMMAND = Boolean.parseBoolean(Command.getProperty("TradeOffCommand","False"));
-	    	ENABLE_VIP_TELEPORT = Boolean.parseBoolean(Command.getProperty("VipTeleport","False"));
-	    	ENABLE_ONLINE_COMMAND = Boolean.parseBoolean(Command.getProperty("EnableOnlinePlayersCommand", "False"));
-	    	ALLOW_STAT_VIEW = Boolean.valueOf(Command.getProperty("AllowStatView", "False"));
-	    	ENABLE_INFO = Boolean.parseBoolean(Command.getProperty("AllowinfoView","False"));
-	    	BANKING_SYSTEM_ENABLED = Boolean.parseBoolean(Command.getProperty("BankingEnabled", "False"));
-	    	BANKING_SYSTEM_GOLDBARS = Integer.parseInt(Command.getProperty("BankingGoldbarCount", "1"));
-	    	BANKING_SYSTEM_ADENA = Integer.parseInt(Command.getProperty("BankingAdenaCount", "500000000"));
-	    	BANKING_SYSTEM_GB_ID = Integer.parseInt(Command.getProperty("BankingGoldbarId", "3470"));
-			ALLOW_STATS_COMMAND = Boolean.parseBoolean(Command.getProperty("StatsCommandEnabled", "False"));
-			ALLOW_CASTLE_COMMAND = Boolean.parseBoolean(Command.getProperty("CastleCommandEnabled", "False"));
-			ALLOW_SET_COMMAND = Boolean.parseBoolean(Command.getProperty("SetCommandEnabled", "False"));
-			ALLOW_AWAY_STATUS = Boolean.parseBoolean(Command.getProperty("AllowAwayStatus", "False"));
-	    	AWAY_PEACE_ZONE = Boolean.parseBoolean(Command.getProperty("AwayOnlyInPeaceZone", "False"));
-	    	ALT_AWAY_ALLOW_INTERFERENCE = Boolean.parseBoolean(Command.getProperty("AwayAllowInterference", "False"));
-	    	AWAY_PLAYER_TAKE_AGGRO = Boolean.parseBoolean(Command.getProperty("AwayPlayerTakeAggro", "False"));
-	    	AWAY_TITLE_COLOR = Integer.decode("0x" + Command.getProperty("AwayTitleColor", "0000FF"));
-	    	AWAY_TIMER = Integer.parseInt(Command.getProperty("AwayTimer", "30"));
-	    	BACK_TIMER = Integer.parseInt(Command.getProperty("BackTimer", "30"));
-	    }
-		catch (Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + COMMAND_FILE + " File.");
-		}
     }
 
 	// --------------------------------------------- //
@@ -4385,7 +4308,6 @@ public final class Config
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
     		loadBrasilConfig();
-    		loadCommandConfig();
     		loadL2JModConfig();
 
     		loadCHConfig();

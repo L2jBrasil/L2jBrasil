@@ -14,7 +14,9 @@
  */
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.instancemanager.AwayManager;
 import com.it.br.gameserver.instancemanager.SiegeManager;
@@ -61,7 +63,7 @@ public class AwayVoicedCommand implements IVoicedCommandHandler
 			return false;
 		}
 
-		if(!activeChar.isInsideZone(ZONE_PEACE) && Config.AWAY_PEACE_ZONE)
+		if(!activeChar.isInsideZone(ZONE_PEACE) && getSettings(CommandSettings.class).isAwayOnlyInPeaceZone())
 		{
 			activeChar.sendMessage("You can only Away in peace zone.");
 			return false;

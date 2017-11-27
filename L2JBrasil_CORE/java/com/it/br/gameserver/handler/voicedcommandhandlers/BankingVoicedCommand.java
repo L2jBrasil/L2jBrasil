@@ -14,7 +14,9 @@
  */
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
@@ -31,6 +33,10 @@ public class BankingVoicedCommand implements IVoicedCommandHandler
 
 	public boolean useVoicedCommand(String command, L2PcInstance activeChar,String target)
 	{
+		CommandSettings commandSettings = getSettings(CommandSettings.class);
+		int goldBarId = commandSettings.getBankingGoldbarId();
+		int goldBarCount = commandSettings.getBankingGoldbarCount();
+		int adenaCount = commandSettings.getBankingAdenaCount();
 		if (!activeChar.getFloodProtectors().getBankingSystem().tryPerformAction("BankingSystem"))
 		{
         	activeChar.sendMessage("You can not use Banking System so fast!");
@@ -38,38 +44,38 @@ public class BankingVoicedCommand implements IVoicedCommandHandler
 		}
 	    if (command.equalsIgnoreCase("bank"))
 		{
-			activeChar.sendMessage(".deposit (" + Config.BANKING_SYSTEM_ADENA + " Adena = " + Config.BANKING_SYSTEM_GOLDBARS + " Goldbar) / .withdraw (" + Config.BANKING_SYSTEM_GOLDBARS + " Goldbar = " + Config.BANKING_SYSTEM_ADENA + " Adena)");
+			activeChar.sendMessage(".deposit (" + adenaCount + " Adena = " + goldBarCount + " Goldbar) / .withdraw (" + goldBarCount + " Goldbar = " + adenaCount + " Adena)");
 		}
 	    else if (command.equalsIgnoreCase("deposit"))
 		{
-	    	if (activeChar.getInventory().getInventoryItemCount(57, 0) >= Config.BANKING_SYSTEM_ADENA)
+	    	if (activeChar.getInventory().getInventoryItemCount(57, 0) >= adenaCount)
 			{
 				InventoryUpdate iu = new InventoryUpdate();
-				activeChar.getInventory().reduceAdena("Goldbar", Config.BANKING_SYSTEM_ADENA, activeChar, null);
-				activeChar.getInventory().addItem("Goldbar", Config.BANKING_SYSTEM_GB_ID, Config.BANKING_SYSTEM_GOLDBARS, activeChar, null);
+				activeChar.getInventory().reduceAdena("Goldbar", adenaCount, activeChar, null);
+				activeChar.getInventory().addItem("Goldbar", goldBarId, goldBarCount, activeChar, null);
 				activeChar.getInventory().updateDatabase();
 				activeChar.sendPacket(iu);
-				activeChar.sendMessage("Thank you, you now have " + Config.BANKING_SYSTEM_GOLDBARS + " Goldbar(s), and " + Config.BANKING_SYSTEM_ADENA + " less adena.");
+				activeChar.sendMessage("Thank you, you now have " + goldBarCount + " Goldbar(s), and " + adenaCount + " less adena.");
 			}
 	    	else
 			{
-				activeChar.sendMessage("You do not have enough Adena to convert to Goldbar(s), you need " + Config.BANKING_SYSTEM_ADENA + " Adena.");
+				activeChar.sendMessage("You do not have enough Adena to convert to Goldbar(s), you need " + adenaCount + " Adena.");
 			}
 		}
 	    else if (command.equalsIgnoreCase("withdraw"))
 		{
-			if (activeChar.getInventory().getInventoryItemCount(Config.BANKING_SYSTEM_GB_ID, 0) >= Config.BANKING_SYSTEM_GOLDBARS)
+			if (activeChar.getInventory().getInventoryItemCount(goldBarId, 0) >= goldBarCount)
 			{
 				InventoryUpdate iu = new InventoryUpdate();
-				activeChar.getInventory().destroyItemByItemId("Adena", Config.BANKING_SYSTEM_GB_ID, Config.BANKING_SYSTEM_GOLDBARS, activeChar, null);
-				activeChar.getInventory().addAdena("Adena", Config.BANKING_SYSTEM_ADENA, activeChar, null);
+				activeChar.getInventory().destroyItemByItemId("Adena", goldBarId, goldBarCount, activeChar, null);
+				activeChar.getInventory().addAdena("Adena", adenaCount, activeChar, null);
 				activeChar.getInventory().updateDatabase();
 				activeChar.sendPacket(iu);
-				activeChar.sendMessage("Thank you, you now have " + Config.BANKING_SYSTEM_ADENA + " Adena, and " + Config.BANKING_SYSTEM_GOLDBARS + " less Goldbar(s).");
+				activeChar.sendMessage("Thank you, you now have " + adenaCount + " Adena, and " + goldBarCount + " less Goldbar(s).");
 			}
 			else
 			{
-				activeChar.sendMessage("You do not have any Goldbars to turn into " + Config.BANKING_SYSTEM_ADENA + " Adena.");
+				activeChar.sendMessage("You do not have any Goldbars to turn into " + adenaCount + " Adena.");
 			}
 		}
 		return true;

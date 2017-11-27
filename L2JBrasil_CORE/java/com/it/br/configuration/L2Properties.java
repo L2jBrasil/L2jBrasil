@@ -38,8 +38,12 @@ public final class L2Properties extends Properties
 	}
 	
 	public int getInteger(String key, int defaultValue){
+		return getInteger(key, 10, defaultValue);
+	}
+	
+	public int getInteger(String key, int radix, int defaultValue) {
 		try {
-			return Integer.parseInt(getProperty(key));
+			return Integer.parseInt(getProperty(key), radix);
 		} catch (Exception e) {
 			_log.warn("Error getting property " + key + ": " + e.getMessage());
 		}
@@ -58,4 +62,5 @@ public final class L2Properties extends Properties
 		String[] value = getProperty(key, defaultValue).split(delim);
 		return Arrays.asList(value);
 	}
+	
 }

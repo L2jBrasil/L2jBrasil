@@ -1,6 +1,8 @@
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
@@ -29,14 +31,18 @@ public class ResVoicedCommand implements IVoicedCommandHandler
         	 	 activeChar.sendMessage("You cannot use this feature during TvT."); 
         	 return false; 
            } 
-           if(activeChar.getInventory().getItemByItemId(Config.RES_CMD_CONSUME_ID) == null)
+           
+           CommandSettings commandSettings = getSettings(CommandSettings.class);
+           int consumeId = commandSettings.getResCommandConsumeId();
+           
+           if(activeChar.getInventory().getItemByItemId(consumeId) == null)
            {
               activeChar.sendMessage("You need 1 or more Gold Bars to use the ressurection system.");
              return false;
            }
            
               activeChar.sendMessage("You have been ressurected!");
-              activeChar.getInventory().destroyItemByItemId("RessSystem", Config.RES_CMD_CONSUME_ID, 1, activeChar, activeChar.getTarget());
+              activeChar.getInventory().destroyItemByItemId("RessSystem", consumeId, 1, activeChar, activeChar.getTarget());
               activeChar.doRevive();
               activeChar.broadcastUserInfo();
               activeChar.sendMessage("One GoldBar has dissapeared! Thank you!");

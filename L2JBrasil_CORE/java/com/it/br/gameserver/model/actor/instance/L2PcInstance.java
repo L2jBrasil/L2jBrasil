@@ -19,6 +19,7 @@
 package com.it.br.gameserver.model.actor.instance;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.*;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.ai.L2CharacterAI;
@@ -69,6 +70,8 @@ import com.it.br.gameserver.util.Util;
 import com.it.br.util.L2FastList;
 import com.it.br.util.Point3D;
 import com.it.br.util.Rnd;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 import java.sql.ResultSet;
 import java.util.*;
@@ -3468,7 +3471,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			return;
 		}
 
-		if (isAway() && !Config.ALT_AWAY_ALLOW_INTERFERENCE)
+		if (isAway() && !getSettings(CommandSettings.class).isAwayInterferenceEnabled())
 		{
 			sendMessage("You can't target Away Players");
 			sendPacket(ActionFailed.STATIC_PACKET);

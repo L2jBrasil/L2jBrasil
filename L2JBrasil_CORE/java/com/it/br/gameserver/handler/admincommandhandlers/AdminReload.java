@@ -25,6 +25,7 @@ import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.LoginSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
@@ -155,7 +156,7 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("custom")) 
                 { 
-					Config.loadCommandConfig();
+					Configurator.reloadSettings(CommandSettings.class);
 					Config.loadBrasilConfig();
 					Config.loadL2JModConfig();
 					sendReloadPage(activeChar);
@@ -274,8 +275,8 @@ public class AdminReload implements IAdminCommandHandler
 
 
     private void reloadAllConfigs() {
+    	Configurator.reloadAll();
         Config.loadGMAcessConfig();
-        Config.loadCommandConfig();
         Config.loadBrasilConfig();
         Config.loadL2JModConfig();
         Config.loadCHConfig();
@@ -293,8 +294,6 @@ public class AdminReload implements IAdminCommandHandler
         Config.loadOtherConfig();
         Config.loadPvPConfig();
         Config.loadRatesConfig();
-	Configurator.getInstance().reloadSettings(ServerSettings.class);
-	Configurator.getInstance().reloadSettings(LoginSettings.class);
         Config.loadFloodConfig();
         Config.loadIdFactoryConfig();
         Config.loadScriptingConfig();

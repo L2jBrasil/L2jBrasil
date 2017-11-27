@@ -18,6 +18,7 @@
  */
 package com.it.br.gameserver.ai;
 
+import static com.it.br.configuration.Configurator.getSettings;
 import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
@@ -25,6 +26,7 @@ import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
 import java.util.concurrent.Future;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.GeoData;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -177,7 +179,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 				return false;
 
 			// check player is in away mod
-			if(((L2PcInstance) target).isAway() && !Config.AWAY_PLAYER_TAKE_AGGRO)
+			if(((L2PcInstance) target).isAway() && !getSettings(CommandSettings.class).isAwayPlayerTakeAggro())
 				return false;
 
 			if(target.isInParty() && target.getParty().isInDimensionalRift())

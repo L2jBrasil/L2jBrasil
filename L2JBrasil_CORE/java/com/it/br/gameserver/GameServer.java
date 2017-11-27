@@ -34,6 +34,7 @@ import java.util.logging.Logger;
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.MmoCoreSettings;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
@@ -383,7 +384,7 @@ public class GameServer
 		else
 			_log.info("Wedding Manager is Disabled");
 
-		if(Config.ALLOW_AWAY_STATUS)
+		if(getSettings(CommandSettings.class).isAwayStatusEnabled())
 		{
 			AwayManager.getInstance();
 			_log.info("Away is Enable");
