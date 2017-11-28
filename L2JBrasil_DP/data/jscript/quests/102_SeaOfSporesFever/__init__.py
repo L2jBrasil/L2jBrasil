@@ -27,7 +27,7 @@ def check(st) :
        st.getQuestItemsCount(COBS_MEDICINE4_ID)==\
        st.getQuestItemsCount(COBS_MEDICINE5_ID)==0) :
        st.set("cond","6")
-       st.playSound(self.SOUND_QUEST_MIDDLE)
+       st.playSound("ItemSound.quest_middle")
 
 class Quest (JQuest) :
 
@@ -43,13 +43,13 @@ class Quest (JQuest) :
         st.giveItems(ALBERRYUS_LETTER_ID,1)
         st.set("cond","1")
         st.setState(STARTED)
-        st.playSound(self.SOUND_QUEST_START)
+        st.playSound("ItemSound.quest_accept")
     return htmltext
 
 
  def onTalk (self,npc,player):
    npcId = npc.getNpcId()
-   htmltext = self.NO_QUEST
+   htmltext = "<html><body>You are either not carrying out your quest or don't meet the criteria.</body></html>"
    st = player.getQuestState(qn)
    if not st: return htmltext
 
@@ -68,7 +68,7 @@ class Quest (JQuest) :
          htmltext = "30284-08.htm"
          st.exitQuest(1)
    elif npcId == 30284 and st.getInt("cond")==0 and st.getInt("onlyone")==1 :
-        htmltext = self.QUEST_DONE
+        htmltext = "<html><body>This quest has already been completed.</body></html>"
    elif id == STARTED :
       if npcId == 30284 and st.getInt("cond")==1 and st.getQuestItemsCount(ALBERRYUS_LETTER_ID)==1 :
            htmltext = "30284-03.htm"
@@ -122,7 +122,7 @@ class Quest (JQuest) :
            st.takeItems(ALBERRYUS_LIST_ID,1)
            st.set("cond","0")
            st.setState(COMPLETED)
-           st.playSound(self.SOUND_QUEST_DONE)
+           st.playSound("ItemSound.quest_finish")
            htmltext = "30284-06.htm"
            st.set("onlyone","1")
            if player.getClassId().getId() in range(18,25) :
@@ -147,10 +147,10 @@ class Quest (JQuest) :
             if st.getRandom(10)<3 :
                st.giveItems(DRYAD_TEARS_ID,1)
                if st.getQuestItemsCount(DRYAD_TEARS_ID) == 10 :
-                 st.playSound(self.SOUND_QUEST_MIDDLE)
+                 st.playSound("ItemSound.quest_middle")
                  st.set("cond","3")
                else:
-                 st.playSound(self.SOUND_ITEM_GET)
+                 st.playSound("ItemSound.quest_itemget")
    return
 
 QUEST       = Quest(102,qn,"Sea of Spores Fever")
