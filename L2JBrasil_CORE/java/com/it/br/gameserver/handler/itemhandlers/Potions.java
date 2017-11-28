@@ -18,10 +18,13 @@
  */
 package com.it.br.gameserver.handler.itemhandlers;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.handler.IItemHandler;
@@ -139,7 +142,8 @@ public class Potions implements IItemHandler
 				break;
 			case 728: // mana_potion, xml: 2005
 			{
-				activeChar.setCurrentMp(Config.MANA_POTION_RES + activeChar.getCurrentMp());
+				int manaRestore = getSettings(L2JBrasilSettings.class).getManaPotionMPRes();
+				activeChar.setCurrentMp(manaRestore + activeChar.getCurrentMp());
 				StatusUpdate su = new StatusUpdate(activeChar.getObjectId());
 				su.addAttribute(StatusUpdate.CUR_MP, (int) activeChar.getCurrentMp());
 				activeChar.sendPacket(su);
@@ -149,7 +153,7 @@ public class Potions implements IItemHandler
 				sm.addItemName(itemId);
 				activeChar.sendPacket(sm);
 				playable.destroyItem("Consume", item.getObjectId(), 1, null, false);
-				activeChar.sendMessage("restored " + Config.MANA_POTION_RES + " MP." );
+				activeChar.sendMessage("restored " + manaRestore + " MP." );
 			}
 			return;
 			// CRYSTALS AND BLESSINGS ELEMENT - By StormMaker

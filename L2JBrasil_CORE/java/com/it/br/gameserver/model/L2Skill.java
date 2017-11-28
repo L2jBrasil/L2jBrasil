@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver.model;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.GeoData;
 import com.it.br.gameserver.datatables.HeroSkillTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -502,11 +505,13 @@ public abstract class L2Skill implements IChanceSkillTrigger
         _isDebuff = set.getBool("isDebuff", false);       
         _hitTime = set.getInteger("hitTime", 0);
         _coolTime = set.getInteger("coolTime", 0);
-        if (Config.ENABLE_MODIFY_SKILL_REUSE && Config.SKILL_REUSE_LIST.containsKey(_id)) 
+        
+        L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+        if (l2jBrasilSettings.isModifySkillReuseEnabled() && l2jBrasilSettings.getSkillReuseMap().containsKey(_id)) 
 	    { 
 	       if ( Config.DEBUG ) 
-	    	   _log.info("*** Skill " + _name + " (" + _level + ") changed reuse from " + set.getInteger("reuseDelay", 0) + " to " + Config.SKILL_REUSE_LIST.get(_id) + " seconds."); 
-	       _reuseDelay = Config.SKILL_REUSE_LIST.get(_id); 
+	    	   _log.info("*** Skill " + _name + " (" + _level + ") changed reuse from " + set.getInteger("reuseDelay", 0) + " to " + l2jBrasilSettings.getSkillReuseMap().get(_id) + " seconds."); 
+	       _reuseDelay = l2jBrasilSettings.getSkillReuseMap().get(_id); 
 	    } 
         else 
         { 

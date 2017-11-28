@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.handler.itemhandlers;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -33,15 +36,11 @@ import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
 
 public class NobleCustomItem implements IItemHandler
 {
-    private static final int ITEM_IDS[] = 
-    { 
-    	Config.NOBLE_CUSTOM_ITEM_ID 
-    };
-
 
 	public void useItem(L2PlayableInstance playable, L2ItemInstance item)
     {
-        if(Config.ALLOW_NOBLE_CUSTOM_ITEM)
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+        if(l2jBrasilSettings.isNobleCustomItemEnabled())
         {
             if(!(playable instanceof L2PcInstance))
                 return;
@@ -57,7 +56,7 @@ public class NobleCustomItem implements IItemHandler
          	 	 activeChar.sendMessage("You cannot use this feature during TvT."); 
          	     return;
             } 
-            if (activeChar.isSubClassActive() && Config.ACTIVE_SUB_NEEDED_TO_USE_NOBLE_ITEM)
+            if (activeChar.isSubClassActive() && l2jBrasilSettings.isActiveSubNeededToUseNobleItem())
             {
             	activeChar.sendPacket(new ActionFailed());
             	activeChar.sendMessage("You Must Be With Your SubClass");
@@ -77,7 +76,7 @@ public class NobleCustomItem implements IItemHandler
              		   activeChar.sendPacket(new ActionFailed());
              		   return;
             }
-        	if (activeChar.getLevel() <= Config.NOBLE_CUSTOM_LEVEL)
+        	if (activeChar.getLevel() <= getSettings(L2JBrasilSettings.class).getLevelNeededToUseNobleCustomItem())
         	{
         		activeChar.sendMessage("You Don't Meet The Creteria. Your Level is Low.");
         		activeChar.sendPacket(new ActionFailed());
@@ -99,6 +98,6 @@ public class NobleCustomItem implements IItemHandler
 
 	public int[] getItemIds()
     {
-        return ITEM_IDS;
+        return new int[] { getSettings(L2JBrasilSettings.class).getNobleItemId() };
     }
 }

@@ -35,6 +35,7 @@ import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
 import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.MmoCoreSettings;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
@@ -167,10 +168,9 @@ public class GameServer
 		L2ScriptEngineManager.getInstance();
 		GameTimeController.getInstance();
 
-		if (Config.GG_ENABLE)
-		{
+		if (getSettings(L2JBrasilSettings.class).isGuardSystemEnabled()) {
 			nProtect.getInstance();
-				_log.info("nProtect System Enabled");
+			_log.info("nProtect System Enabled");
 		}
 
 		Util.printSection("Skills");

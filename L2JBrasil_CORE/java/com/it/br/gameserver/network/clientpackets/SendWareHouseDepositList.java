@@ -18,9 +18,12 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
 import com.it.br.gameserver.model.ClanWarehouse;
 import com.it.br.gameserver.model.ItemContainer;
@@ -131,9 +134,9 @@ public final class SendWareHouseDepositList extends L2GameClientPacket
                
         // Alt game - Karma punishment
         if (!Config.ALT_GAME_KARMA_PLAYER_CAN_USE_WAREHOUSE && player.getKarma() > 0) return;
-
+        
         // Freight price from config or normal price per item slot (30)
-		int fee = _count * Config.ALT_WH_DEPOSIT_FEE;
+		int fee = _count * getSettings(L2JBrasilSettings.class).getAltWarehouseDepositFee();
 		int currentAdena = player.getAdena();
         int slots = 0;
 

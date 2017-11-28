@@ -18,12 +18,15 @@
  */
 package com.it.br.gameserver.model.entity;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.instancemanager.DuelManager;
@@ -232,7 +235,8 @@ public class Duel
 					// players need to be teleportet first
 					//TODO: stadia manager needs a function to return an unused stadium for duels
 					// currently only teleports to the same stadium
-					_duel.teleportPlayers(Config.DUEL_SPAWN_X, Config.DUEL_SPAWN_Y, Config.DUEL_SPAWN_Z);
+					L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+					_duel.teleportPlayers(l2jBrasilSettings.getPartyDuelSpawnX(), l2jBrasilSettings.getPartyDuelSpawnY(), l2jBrasilSettings.getPartyDuelSpawnZ());
 
 					// give players 20 seconds to complete teleport and get ready (its ought to be 30 on offical..)
 					ThreadPoolManager.getInstance().scheduleGeneral(this, 30000);

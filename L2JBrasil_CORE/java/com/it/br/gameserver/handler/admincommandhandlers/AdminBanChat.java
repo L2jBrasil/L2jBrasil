@@ -20,11 +20,14 @@ package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -130,7 +133,7 @@ public class AdminBanChat implements IAdminCommandHandler
 				targetPlayer.setPunishLevel(L2PcInstance.PunishLevel.CHAT, duration);
 				if (duration > 0)
 					banLengthStr = " for " + duration + " minutes";
-				if (Config.ANNOUNCE_BAN_CHAT)
+				if (getSettings(L2JBrasilSettings.class).isAnnounceBanChat())
 					Announcements.getInstance().announceToAll(targetPlayer.getName() + " is now chat banned" + banLengthStr + ".");
 				else
 					activeChar.sendMessage(targetPlayer.getName() + " is now chat banned" + banLengthStr + ".");
@@ -151,10 +154,10 @@ public class AdminBanChat implements IAdminCommandHandler
 			}
 			if (targetPlayer != null)
 			{
-				if (targetPlayer.isChatBanned())
-				{
+				if (targetPlayer.isChatBanned()) {
 					targetPlayer.setPunishLevel(L2PcInstance.PunishLevel.NONE, 0);
-					if (Config.ANNOUNCE_UNBAN_CHAT)
+					
+					if (getSettings(L2JBrasilSettings.class).isAnnounceUnbanChat())
 						Announcements.getInstance().announceToAll(targetPlayer.getName() + "'s chat ban has been lifted.");
 					else
 						activeChar.sendMessage(targetPlayer.getName() + "'s chat ban has now been lifted.");

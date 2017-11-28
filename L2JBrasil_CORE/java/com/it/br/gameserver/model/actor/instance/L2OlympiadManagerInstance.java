@@ -18,10 +18,13 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.List;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Multisell;
 import com.it.br.gameserver.model.L2World;
@@ -75,7 +78,8 @@ public class L2OlympiadManagerInstance extends L2FolkInstance
             int val = Integer.parseInt(command.substring(14));
             NpcHtmlMessage reply;
             StringBuilder replyMSG;
-
+            
+            
             switch(val)
             {
                 case 1:
@@ -131,7 +135,7 @@ public class L2OlympiadManagerInstance extends L2FolkInstance
                     }
                     break;
                 case 4:
-					if (player._active_boxes > 1 && !Config.ALLOW_DUALBOX_OLY)
+					if (player._active_boxes > 1 && !getSettings(L2JBrasilSettings.class).isDualBoxInOlyEnabled())
 					{
 						boolean already_in_oly = false;
 						List<String> players_in_boxes = player.active_boxes_characters;
@@ -157,7 +161,7 @@ public class L2OlympiadManagerInstance extends L2FolkInstance
 						Olympiad.getInstance().registerNoble(player, false);
 					break;
 				case 5:
-					if(player._active_boxes > 1 && !Config.ALLOW_DUALBOX_OLY)
+					if(player._active_boxes > 1 && !getSettings(L2JBrasilSettings.class).isDualBoxInOlyEnabled())
 					{
 						boolean already_in_oly = false;
 						List<String> players_in_boxes = player.active_boxes_characters;

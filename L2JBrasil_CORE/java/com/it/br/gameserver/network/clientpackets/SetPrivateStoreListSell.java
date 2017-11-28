@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.model.TradeList;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
@@ -87,9 +90,11 @@ public class SetPrivateStoreListSell extends L2GameClientPacket
             return;
         }
 
-		if(player.getPvpKills() < Config.PVP_TO_USE_STORE)
+        L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+        int pvpToUseStore = l2jBrasilSettings.getPvPToUseStore();
+		if(player.getPvpKills() < pvpToUseStore)
 		{
-			player.sendMessage("You need " + Config.PVP_TO_USE_STORE + " Pvp(s) to use the store.");
+			player.sendMessage("You need " + pvpToUseStore + " Pvp(s) to use the store.");
 			return;
 		}
 		

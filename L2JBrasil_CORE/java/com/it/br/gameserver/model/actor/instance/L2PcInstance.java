@@ -18,9 +18,38 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+
 import com.it.br.Config;
 import com.it.br.configuration.settings.CommandSettings;
-import com.it.br.gameserver.*;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.gameserver.Announcements;
+import com.it.br.gameserver.GameTimeController;
+import com.it.br.gameserver.GeoData;
+import com.it.br.gameserver.GmListTable;
+import com.it.br.gameserver.ItemsAutoDestroy;
+import com.it.br.gameserver.LoginServerThread;
+import com.it.br.gameserver.RecipeController;
+import com.it.br.gameserver.SevenSigns;
+import com.it.br.gameserver.SevenSignsFestival;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.Universe;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.ai.L2CharacterAI;
 import com.it.br.gameserver.ai.L2PlayerAI;
@@ -34,23 +63,72 @@ import com.it.br.gameserver.datatables.NobleSkillTable;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
-import com.it.br.gameserver.datatables.xml.*;
+import com.it.br.gameserver.datatables.xml.CharTemplateTable;
+import com.it.br.gameserver.datatables.xml.FishTable;
+import com.it.br.gameserver.datatables.xml.HennaTable;
+import com.it.br.gameserver.datatables.xml.MapRegionTable;
+import com.it.br.gameserver.datatables.xml.NpcTable;
+import com.it.br.gameserver.datatables.xml.SkillTreeTable;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.handler.ItemHandler;
 import com.it.br.gameserver.handler.SkillHandler;
 import com.it.br.gameserver.handler.skillhandlers.SiegeFlag;
 import com.it.br.gameserver.handler.skillhandlers.StrSiegeAssault;
-import com.it.br.gameserver.instancemanager.*;
-import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.instancemanager.CastleManager;
+import com.it.br.gameserver.instancemanager.CoupleManager;
+import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
+import com.it.br.gameserver.instancemanager.DimensionalRiftManager;
+import com.it.br.gameserver.instancemanager.DuelManager;
+import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
+import com.it.br.gameserver.instancemanager.QuestManager;
+import com.it.br.gameserver.instancemanager.SiegeManager;
+import com.it.br.gameserver.model.BlockList;
+import com.it.br.gameserver.model.FishData;
+import com.it.br.gameserver.model.ForceBuff;
+import com.it.br.gameserver.model.Inventory;
+import com.it.br.gameserver.model.ItemContainer;
+import com.it.br.gameserver.model.L2Attackable;
+import com.it.br.gameserver.model.L2CharPosition;
+import com.it.br.gameserver.model.L2Character;
+import com.it.br.gameserver.model.L2Clan;
+import com.it.br.gameserver.model.L2ClanMember;
+import com.it.br.gameserver.model.L2Effect;
+import com.it.br.gameserver.model.L2Fishing;
+import com.it.br.gameserver.model.L2HennaInstance;
+import com.it.br.gameserver.model.L2ItemInstance;
+import com.it.br.gameserver.model.L2Macro;
+import com.it.br.gameserver.model.L2ManufactureList;
+import com.it.br.gameserver.model.L2Object;
+import com.it.br.gameserver.model.L2Party;
+import com.it.br.gameserver.model.L2Radar;
+import com.it.br.gameserver.model.L2RecipeList;
+import com.it.br.gameserver.model.L2Request;
+import com.it.br.gameserver.model.L2ShortCut;
+import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2Skill.SkillTargetType;
 import com.it.br.gameserver.model.L2Skill.SkillType;
+import com.it.br.gameserver.model.L2SkillLearn;
+import com.it.br.gameserver.model.L2Summon;
+import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.MacroList;
+import com.it.br.gameserver.model.PcFreight;
+import com.it.br.gameserver.model.PcInventory;
+import com.it.br.gameserver.model.PcWarehouse;
+import com.it.br.gameserver.model.PetInventory;
+import com.it.br.gameserver.model.ShortCuts;
+import com.it.br.gameserver.model.TradeList;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
 import com.it.br.gameserver.model.actor.appearance.PcAppearance;
 import com.it.br.gameserver.model.actor.knownlist.PcKnownList;
 import com.it.br.gameserver.model.actor.stat.PcStat;
 import com.it.br.gameserver.model.actor.status.PcStatus;
-import com.it.br.gameserver.model.base.*;
+import com.it.br.gameserver.model.base.ClassId;
+import com.it.br.gameserver.model.base.ClassLevel;
+import com.it.br.gameserver.model.base.Experience;
+import com.it.br.gameserver.model.base.PlayerClass;
+import com.it.br.gameserver.model.base.Race;
+import com.it.br.gameserver.model.base.SubClass;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.model.entity.Duel;
 import com.it.br.gameserver.model.entity.L2Event;
@@ -60,26 +138,74 @@ import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.*;
+import com.it.br.gameserver.network.serverpackets.ActionFailed;
+import com.it.br.gameserver.network.serverpackets.CameraMode;
+import com.it.br.gameserver.network.serverpackets.ChangeWaitType;
+import com.it.br.gameserver.network.serverpackets.CharInfo;
+import com.it.br.gameserver.network.serverpackets.ConfirmDlg;
+import com.it.br.gameserver.network.serverpackets.EtcStatusUpdate;
+import com.it.br.gameserver.network.serverpackets.ExAutoSoulShot;
+import com.it.br.gameserver.network.serverpackets.ExDuelUpdateUserInfo;
+import com.it.br.gameserver.network.serverpackets.ExFishingEnd;
+import com.it.br.gameserver.network.serverpackets.ExFishingStart;
+import com.it.br.gameserver.network.serverpackets.ExOlympiadMode;
+import com.it.br.gameserver.network.serverpackets.ExOlympiadUserInfo;
+import com.it.br.gameserver.network.serverpackets.ExPCCafePointInfo;
+import com.it.br.gameserver.network.serverpackets.ExSetCompassZoneCode;
+import com.it.br.gameserver.network.serverpackets.HennaInfo;
+import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
+import com.it.br.gameserver.network.serverpackets.ItemList;
+import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
+import com.it.br.gameserver.network.serverpackets.LeaveWorld;
+import com.it.br.gameserver.network.serverpackets.MagicSkillCanceld;
+import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
+import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
+import com.it.br.gameserver.network.serverpackets.ObservationMode;
+import com.it.br.gameserver.network.serverpackets.ObservationReturn;
+import com.it.br.gameserver.network.serverpackets.PartySmallWindowUpdate;
+import com.it.br.gameserver.network.serverpackets.PetInventoryUpdate;
+import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
+import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListDelete;
+import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListUpdate;
+import com.it.br.gameserver.network.serverpackets.PrivateStoreListBuy;
+import com.it.br.gameserver.network.serverpackets.PrivateStoreListSell;
+import com.it.br.gameserver.network.serverpackets.QuestList;
+import com.it.br.gameserver.network.serverpackets.RecipeShopSellList;
+import com.it.br.gameserver.network.serverpackets.RelationChanged;
+import com.it.br.gameserver.network.serverpackets.Ride;
+import com.it.br.gameserver.network.serverpackets.SendTradeDone;
+import com.it.br.gameserver.network.serverpackets.SetupGauge;
+import com.it.br.gameserver.network.serverpackets.ShortCutInit;
+import com.it.br.gameserver.network.serverpackets.SkillList;
+import com.it.br.gameserver.network.serverpackets.Snoop;
+import com.it.br.gameserver.network.serverpackets.SocialAction;
+import com.it.br.gameserver.network.serverpackets.SpecialCamera;
+import com.it.br.gameserver.network.serverpackets.StatusUpdate;
+import com.it.br.gameserver.network.serverpackets.StopMove;
+import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.TargetSelected;
+import com.it.br.gameserver.network.serverpackets.TitleUpdate;
+import com.it.br.gameserver.network.serverpackets.TradePressOtherOk;
+import com.it.br.gameserver.network.serverpackets.TradePressOwnOk;
+import com.it.br.gameserver.network.serverpackets.TradeStart;
+import com.it.br.gameserver.network.serverpackets.UserInfo;
+import com.it.br.gameserver.network.serverpackets.ValidateLocation;
 import com.it.br.gameserver.skills.Formulas;
 import com.it.br.gameserver.skills.Stats;
-import com.it.br.gameserver.templates.*;
+import com.it.br.gameserver.templates.L2Armor;
+import com.it.br.gameserver.templates.L2ArmorType;
+import com.it.br.gameserver.templates.L2EtcItemType;
+import com.it.br.gameserver.templates.L2Henna;
+import com.it.br.gameserver.templates.L2Item;
+import com.it.br.gameserver.templates.L2PcTemplate;
+import com.it.br.gameserver.templates.L2Weapon;
+import com.it.br.gameserver.templates.L2WeaponType;
 import com.it.br.gameserver.util.Broadcast;
 import com.it.br.gameserver.util.FloodProtectors;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.L2FastList;
 import com.it.br.util.Point3D;
 import com.it.br.util.Rnd;
-
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.sql.ResultSet;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
 
 /**
  * This class represents all player characters in the world.
@@ -1790,8 +1916,9 @@ public final class L2PcInstance extends L2PlayableInstance
 
 		newPenalty = newPenalty - getExpertiseIndex();
 
-		if (newPenalty <= 0 || Config.DISABLE_GRADE_PENALTY)
+		if (newPenalty <= 0 || getSettings(L2JBrasilSettings.class).isGradePenaltyDisabled()) {
             newPenalty = 0;
+		}
 
 		if (getExpertisePenalty() != newPenalty)
 		{
@@ -3386,21 +3513,20 @@ public final class L2PcInstance extends L2PlayableInstance
 		return item;
 	}
 
-	/**
-	 * Set _protectEndTime according settings.
-	 */
-	public void setProtection(boolean protect)
-	{
+
+	public void setProtection(boolean protect) {
 
 		if(isInOlympiadMode() || getPvpFlag() > 0 || TvTEvent.isPlayerParticipant(getObjectId()) || getKarma() > 0)
 			return;
 
+		int spawnProtection = getSettings(L2JBrasilSettings.class).getPlayerSpawnProtection();
+		
 		if (Config.DEVELOPER && (protect || _protectEndTime > 0))
 		{
-			System.out.println(getName() + ": Protection " + (protect ? "ON " + (GameTimeController.getGameTicks() + Config.PLAYER_SPAWN_PROTECTION * GameTimeController.TICKS_PER_SECOND) : "OFF") + " (currently " + GameTimeController.getGameTicks() + ")");
+			System.out.println(getName() + ": Protection " + (protect ? "ON " + (GameTimeController.getGameTicks() + spawnProtection * GameTimeController.TICKS_PER_SECOND) : "OFF") + " (currently " + GameTimeController.getGameTicks() + ")");
 		}
 
-		_protectEndTime = protect ? GameTimeController.getGameTicks() + Config.PLAYER_SPAWN_PROTECTION * GameTimeController.TICKS_PER_SECOND : 0;
+		_protectEndTime = protect ? GameTimeController.getGameTicks() + spawnProtection * GameTimeController.TICKS_PER_SECOND : 0;
 	}
 
 	/**
@@ -3505,7 +3631,7 @@ public final class L2PcInstance extends L2PlayableInstance
 					// Check if this L2PcInstance is autoAttackable
 					if (isAutoAttackable(player))
 					{
-						if(Config.ALLOW_CHAR_KILL_PROTECT)
+						if(getSettings(L2JBrasilSettings.class).isLowLvlProtectEnabled())
 						{
 							Siege siege = SiegeManager.getInstance().getSiege(player);
 
@@ -4682,7 +4808,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			return;
 
         // Check if it's pvp
-        if (Config.ALLOW_SAME_IP_NOT_GIVE_PVP_POINT)
+        if (getSettings(L2JBrasilSettings.class).isSameIPDontGivePvPPointEnabled())
         {
         	String player1 = getClient().getConnection().getInetAddress().getHostAddress();
         	String player1target = targetPlayer.getClient().getConnection().getInetAddress().getHostAddress();
@@ -6378,7 +6504,7 @@ public final class L2PcInstance extends L2PlayableInstance
 	{
 		try
 		{
-			if (!Config.KEEP_SUBCLASS_SKILLS)
+			if (!getSettings(L2JBrasilSettings.class).isKeepSubClassSkillsEnabled())
 			{
                 // Retrieve all skills of this L2PcInstance from the database
                 ResultSet rset = PlayerDao.restoreSkills(this);
@@ -8229,7 +8355,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 	public void setHero(boolean hero)
 	{
-		if (hero && _baseClass == _activeClass || Config.ALLOW_HERO_SKILLS_ON_SUB && this.isHero())
+		if (hero && _baseClass == _activeClass || getSettings(L2JBrasilSettings.class).isHeroSkillsOnSubEnabled() && this.isHero())
 		{
 			for (L2Skill s : HeroSkillTable.GetHeroSkills())
 				addSkill(s, false); //Dont Save Hero skills to database
@@ -8791,8 +8917,9 @@ public final class L2PcInstance extends L2PlayableInstance
         regiveTemporarySkills();
         rewardSkills();
 
-        if (Config.RESTORE_EFFECTS_ON_SUBCLASS_CHANGE)
+        if (getSettings(L2JBrasilSettings.class).isRestoreEffectsOnSubEnabled()) {
         	restoreEffects();
+        }
 
         sendPacket(new EtcStatusUpdate(this));
 
@@ -9131,8 +9258,9 @@ public final class L2PcInstance extends L2PlayableInstance
 	public void onActionRequest()
 	{
 		setProtection(false);
-		if (Config.PLAYER_SPAWN_PROTECTION_EFFECT)
-			stopAbnormalEffect(Config.PLAYER_EFFECT_ID);
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+		if (l2jBrasilSettings.isPlayerSpawnEffectEnabled())
+			stopAbnormalEffect(l2jBrasilSettings.getPlayerEffectId());
 	}
 
 	/**
@@ -9156,11 +9284,12 @@ public final class L2PcInstance extends L2PlayableInstance
 		super.onTeleported();
 		// Force a revalidation
 		revalidateZone(true);
-		if (Config.PLAYER_SPAWN_PROTECTION > 0 && !((L2Character)this).isInsideZone(ZONE_PEACE))
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+		if (l2jBrasilSettings.getPlayerSpawnProtection() > 0 && !((L2Character)this).isInsideZone(ZONE_PEACE))
 		{
 			setProtection(true);
-			if (Config.PLAYER_SPAWN_PROTECTION_EFFECT)
-				startAbnormalEffect(Config.PLAYER_EFFECT_ID);
+			if (l2jBrasilSettings.isPlayerSpawnEffectEnabled())
+				startAbnormalEffect(l2jBrasilSettings.getPlayerEffectId());
 		}
 
 		// Modify the position of the tamed beast if necessary (normal pets are handled by super...though
@@ -11284,14 +11413,14 @@ public final class L2PcInstance extends L2PlayableInstance
 						String ip = player.getClient().getConnection().getInetAddress().getHostAddress();
 						if (thisip.equals(ip) && this != player && player != null)
 						{
-							if(!Config.ALLOW_DUALBOX)
+							if(!getSettings(L2JBrasilSettings.class).isDualBoxEnabled())
 							{
 								output = false;
 								break;
 							}
 							else
 							{
-								if (boxes_number+1 > Config.ALLOWED_BOXES)//actual count+actual player one
+								if (boxes_number+1 > getSettings(L2JBrasilSettings.class).getAllowedBoxes())
 								{
 									output = false;
 									break;

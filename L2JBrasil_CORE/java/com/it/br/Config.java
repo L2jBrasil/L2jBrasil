@@ -38,6 +38,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.Olympiad.OlympiadPeriod;
 import com.it.br.gameserver.util.FloodProtectorConfig;
@@ -57,7 +58,6 @@ public final class Config
     protected static final Logger _log = Logger.getLogger(Config.class.getName());
 
     /* Properties Files Definitions */
-    public static final String L2JBRASIL_FILE		= "./config/custom/l2jbrasil.properties";
     public static final String L2JMOD_FILE			= "./config/custom/l2jmods.properties";
 
     public static final String CH_FILE              = "./config/event/clanhall.properties";
@@ -1102,311 +1102,6 @@ public final class Config
         }
     }
 
-	// --------------------------------------------- //
-    // -            L2JBRASIL PROPERTIES           - //
-    // --------------------------------------------- //
-    // ============================================================
-	public static byte LEVEL_ON_ENTER;
-    public static int SP_ON_ENTER;
-    public static int STARTING_ADENA;
-    public static boolean CUSTOM_STARTER_ITEMS_ENABLED;
-	public static List<int[]> STARTING_CUSTOM_ITEMS_F = new ArrayList<>();
-	public static List<int[]> STARTING_CUSTOM_ITEMS_M = new ArrayList<>();
-	public static int STARTING_GB_ID;
-    public static long STARTING_GB_COUNT;
-    public static boolean ALT_NEW_SPAWN;
-    public static int ALT_NEW_SPAWN_X;
-    public static int ALT_NEW_SPAWN_Y;
-    public static int ALT_NEW_SPAWN_Z;
-	public static boolean CUSTOM_RESPAWN;
-	public static int RESPAWN_X;
-	public static int RESPAWN_Y;
-	public static int RESPAWN_Z;
-	public static boolean CHARS_TITLE;
-    public static String  TITLE_FOR_NEW_CHARS;
-    public static int MANA_POTION_RES;
-    public static int ALT_SUBCLASS_LEVEL;
-    public static boolean DISABLE_GRADE_PENALTY;
-    public static boolean ALLOW_CLASS_USE_HEAVY;
-    public static List<Integer> NOT_ALLOWED_USE_HEAVY;
-    public static boolean ALLOW_CLASS_USE_LIGHT;
-    public static List<Integer> NOT_ALLOWED_USE_LIGHT;
-    public static boolean ALLOW_DAGGERS_WEAR_HEAVY;
-	public static boolean SHOW_NPC_CREST;
-    public static boolean WELCOME_HTM;
-    public static boolean ALLOW_MESSAGE_ON_ENTER;
-    public static String MESSAGE_ON_ENTER;
-    public static boolean ONLINE_PLAYERS_ON_LOGIN;
-    public static int PLAYERS_ONLINE_TRICK;
-    public static boolean SHOW_WELCOME_PM;
-    public static String  PM_FROM;
-    public static String  PM_TEXT1;
-    public static String  PM_TEXT2;
-    public static boolean ANNOUNCE_GM_LOGIN;
-    public static boolean ANNOUNCE_CASTLE_LORDS;
-    public static boolean ANNOUNCE_VIP_LOGIN;
-    public static boolean ANNOUNCE_AIO_LOGIN;
-    public static boolean ANNOUNCE_TO_ALL_SPAWN_RB;
-    public static String  SERVERNAME;
-	public static boolean ANNOUNCE_BAN_CHAT;
-	public static boolean ANNOUNCE_UNBAN_CHAT;
-    public static boolean ENABLE_MODIFY_SKILL_DURATION;
-    public static Map<Integer, Integer> SKILL_DURATION_LIST;
-    public static boolean ENABLE_MODIFY_SKILL_REUSE;
-    public static Map<Integer, Integer> SKILL_REUSE_LIST;
-    public static boolean LEAVE_BUFFS_ON_DIE;
-    public static boolean ALLOW_HERO_SKILLS_ON_SUB;
-    public static boolean RESTORE_EFFECTS_ON_SUBCLASS_CHANGE;
-    public static boolean KEEP_SUBCLASS_SKILLS;
-    public static boolean ALLOW_DUALBOX;
-	public static int ALLOWED_BOXES;
-	public static boolean ALLOW_DUALBOX_OLY;
-	public static boolean ALLOW_DUALBOX_EVENT;
-	public static boolean ALLOW_CHAR_KILL_PROTECT;
-	public static boolean L2WALKER_PROTECTION;
-	public static boolean ALLOW_SAME_IP_NOT_GIVE_PVP_POINT;
-	public static boolean GG_ENABLE;
-	public static boolean ALLOW_PARTY_TRADE;
-	public static String[] FORBIDDEN_NAMES;
-	public static int ALT_PLAYER_PROTECTION_LEVEL;
-	public static int MAX_RUN_SPEED;
-	public static int RUN_SPD_BOOST;
-	public static int MAX_PATK_SPEED;
-    public static int MAX_MATK_SPEED;
-    public static int MAX_EVASION;
-    public static int MAX_PCRIT_RATE;
-    public static int MAX_MCRIT_RATE;
-    public static double MULTIPLE_MCRIT;
-    public static boolean CUSTOM_SPAWNLIST_TABLE;
-    public static boolean DELETE_GMSPAWN_ON_CUSTOM;
-    public static int DUEL_SPAWN_X;
-    public static int DUEL_SPAWN_Y;
-    public static int DUEL_SPAWN_Z;
-    public static boolean ALLOW_NOBLE_CUSTOM_ITEM;
-    public static int NOBLE_CUSTOM_ITEM_ID;
-    public static boolean ACTIVE_SUB_NEEDED_TO_USE_NOBLE_ITEM;
-    public static int NOBLE_CUSTOM_LEVEL;
-    public static boolean ALLOW_HERO_CUSTOM_ITEM;
-    public static int HERO_CUSTOM_ITEM_ID;
-    public static boolean NOBLE_STATUS_NEEDED_TO_USE_HERO_ITEM;
-    public  static  boolean ALT_DISABLE_RAIDBOSS_PETRIFICATION;
-    public static int PLAYER_SPAWN_PROTECTION;
-    public static boolean PLAYER_SPAWN_PROTECTION_EFFECT;
-    public static int PLAYER_EFFECT_ID;
-    public static int ALT_WH_DEPOSIT_FEE;
-    public static boolean ARGUMENTS_RETAIL;
-	public static boolean SELL_BY_ITEM;
-	public static int SELL_ITEM;
-	public static int PVP_TO_USE_STORE;
-
-    // ============================================================
-	public static void loadBrasilConfig()
-	{
-	    try(InputStream is = new FileInputStream(new File(L2JBRASIL_FILE)))
-	    {
-	    	Properties L2JBrasil = new Properties();
-	    	L2JBrasil.load(is);
-
-	    	LEVEL_ON_ENTER = Byte.parseByte(L2JBrasil.getProperty("LevelOnEnter", "0"));
-	    	SP_ON_ENTER = Integer.parseInt(L2JBrasil.getProperty("SPOnEnter", "0"));
-	    	STARTING_ADENA = Integer.parseInt(L2JBrasil.getProperty("StartingAdena", "100"));
-	    	CUSTOM_STARTER_ITEMS_ENABLED = Boolean.parseBoolean(L2JBrasil.getProperty("CustomStarterItemsEnabled", "False"));
-	    	if (Config.CUSTOM_STARTER_ITEMS_ENABLED)
-	    	{
-	    		String[] propertySplit = L2JBrasil.getProperty("StartingItemsMage", "57,0").split(";");
-	    		for (String reward : propertySplit)
-	    		{
-	    			String[] rewardSplit = reward.split(",");
-	    			if (rewardSplit.length != 2)
-	    				_log.warning("StartingCustomItemsMage[Config.load()]: invalid config property -> StartingCustomItemsMage \"" + reward + "\"");
-	    			else
-	    			{
-	    				try
-	    				{
-	    					STARTING_CUSTOM_ITEMS_M.add(new int[]{Integer.parseInt(rewardSplit[0]), Integer.parseInt(rewardSplit[1])});
-	    				}
-	    				catch (NumberFormatException nfe)
-	    				{
-	    					nfe.printStackTrace();
-	    					if (!reward.isEmpty())
-	    						_log.warning("StartingCustomItemsMage[Config.load()]: invalid config property -> StartingCustomItemsMage \"" + reward + "\"");
-	    				}
-	    			}
-	    		}
-	    		propertySplit = L2JBrasil.getProperty("StartingItemsFighter", "57,0").split(";");
-	    		for (String reward : propertySplit)
-	    		{
-	    			String[] rewardSplit = reward.split(",");
-	    			if (rewardSplit.length != 2)
-	    				_log.warning("StartingCustomItemsFighter[Config.load()]: invalid config property -> StartingCustomItemsFighter \"" + reward + "\"");
-	    			else
-	    			{
-	    				try
-	    				{
-	    					STARTING_CUSTOM_ITEMS_F.add(new int[]{Integer.parseInt(rewardSplit[0]), Integer.parseInt(rewardSplit[1])});
-	    				}
-	    				catch (NumberFormatException nfe)
-	    				{
-	    					nfe.printStackTrace();
-	    					if (!reward.isEmpty())
-	    						_log.warning("StartingCustomItemsFighter[Config.load()]: invalid config property -> StartingCustomItemsFighter \"" + reward + "\"");
-	    				}
-	    			}
-	    		}
-	    	}
-	    	STARTING_GB_ID = Integer.parseInt(L2JBrasil.getProperty("StartingGBId", "3470"));
-	    	STARTING_GB_COUNT = Long.parseLong(L2JBrasil.getProperty("StartingGBCount", "0"));
-	    	ALT_NEW_SPAWN = Boolean.parseBoolean(L2JBrasil.getProperty("Customspawn", "False"));
-	    	ALT_NEW_SPAWN_X = Integer.parseInt(L2JBrasil.getProperty("CustomSpawnX", ""));
-	    	ALT_NEW_SPAWN_Y = Integer.parseInt(L2JBrasil.getProperty("CustomSpawnY", ""));
-	    	ALT_NEW_SPAWN_Z = Integer.parseInt(L2JBrasil.getProperty("CustomSpawnZ", ""));
-	    	CUSTOM_RESPAWN = Boolean.parseBoolean(L2JBrasil.getProperty("CustomReSpawn", "False"));
-	    	RESPAWN_X = Integer.parseInt(L2JBrasil.getProperty("RespawnLocationX", ""));
-	    	RESPAWN_Y = Integer.parseInt(L2JBrasil.getProperty("RespawnLocationY", ""));
-	    	RESPAWN_Z = Integer.parseInt(L2JBrasil.getProperty("RespawnLocationZ", ""));
-	    	CHARS_TITLE = Boolean.parseBoolean(L2JBrasil.getProperty("NewCharTitle", "False"));
-	    	TITLE_FOR_NEW_CHARS = L2JBrasil.getProperty("CharTitle", "L2JBrasil");
-	    	MANA_POTION_RES = Integer.parseInt(L2JBrasil.getProperty("ManaPotionMPRes", "200"));
-	    	ALT_SUBCLASS_LEVEL = Integer.parseInt(L2JBrasil.getProperty("AltSubClassLevel", "40"));
-	    	DISABLE_GRADE_PENALTY = Boolean.parseBoolean(L2JBrasil.getProperty("DisableGradePenalty", "False"));
-	    	ALLOW_CLASS_USE_LIGHT = Boolean.parseBoolean(L2JBrasil.getProperty("AllowHeavyUseLight", "False"));
-            NOT_ALLOWED_USE_LIGHT = new ArrayList<>();
-            for(String classId : L2JBrasil.getProperty("NotAllowedUseLight", "").split(","))
-            {
-                NOT_ALLOWED_USE_LIGHT.add(Integer.parseInt(classId));
-            }
-            ALLOW_CLASS_USE_HEAVY = Boolean.parseBoolean(L2JBrasil.getProperty("AllowLightUseHeavy", "False"));
-            NOT_ALLOWED_USE_HEAVY = new ArrayList<>();
-            for(String classId : L2JBrasil.getProperty("NotAllowedUseHeavy", "").split(","))
-            {
-                NOT_ALLOWED_USE_HEAVY.add(Integer.parseInt(classId));
-            }
-	    	ALLOW_DAGGERS_WEAR_HEAVY = Boolean.parseBoolean(L2JBrasil.getProperty("AllowDaggersUseHeavy", "True"));
-	    	SHOW_NPC_CREST = Boolean.parseBoolean(L2JBrasil.getProperty("ShowNpcCrest", "False"));
-	    	WELCOME_HTM = Boolean.parseBoolean(L2JBrasil.getProperty("WelcomeHtm", "False"));
-	    	ALLOW_MESSAGE_ON_ENTER = Boolean.parseBoolean(L2JBrasil.getProperty("AllowMessageOnEnter", "False"));
-	    	MESSAGE_ON_ENTER = L2JBrasil.getProperty("MessageOnEnter", "L2Frenetic Project!");
-	    	ONLINE_PLAYERS_ON_LOGIN = Boolean.parseBoolean(L2JBrasil.getProperty("OnlineOnLogin", "False"));
-	    	PLAYERS_ONLINE_TRICK = Integer.parseInt(L2JBrasil.getProperty("OnlinePlayerAdd", "0"));
-	    	SHOW_WELCOME_PM = Boolean.parseBoolean(L2JBrasil.getProperty("ShowWelcomePM", "False"));
-	    	PM_FROM = L2JBrasil.getProperty("PMFrom", "Server");
-	    	PM_TEXT1 = L2JBrasil.getProperty("PMText1", "Welcome to our server");
-	    	PM_TEXT2 = L2JBrasil.getProperty("PMText2", "Visit our web http://Your.Web.Adress");
-	    	ANNOUNCE_GM_LOGIN = Boolean.parseBoolean(L2JBrasil.getProperty("AnnounceGMLogin", "False"));
-	    	ANNOUNCE_CASTLE_LORDS = Boolean.parseBoolean(L2JBrasil.getProperty("AnnounceCastleLords", "False"));
-	    	ANNOUNCE_VIP_LOGIN = Boolean.parseBoolean(L2JBrasil.getProperty("AnnounceVipLogin", "False"));
-	    	ANNOUNCE_AIO_LOGIN = Boolean.parseBoolean(L2JBrasil.getProperty("AnnounceAioLogin", "False"));
-	    	ANNOUNCE_TO_ALL_SPAWN_RB = Boolean.parseBoolean(L2JBrasil.getProperty("AnnounceSpawnRaid", "False"));
-	    	SERVERNAME = L2JBrasil.getProperty("ServerName", "L2JBrasil");
-	    	ANNOUNCE_BAN_CHAT = Boolean.parseBoolean(L2JBrasil.getProperty("AnnounceBanChat", "false"));
-	    	ANNOUNCE_UNBAN_CHAT = Boolean.parseBoolean(L2JBrasil.getProperty("AnnounceUnbanChat", "false"));
-	    	ENABLE_MODIFY_SKILL_DURATION = Boolean.parseBoolean(L2JBrasil.getProperty("EnableModifySkillDuration", "False"));
-	    	if (ENABLE_MODIFY_SKILL_DURATION)
-	    	{
-	    		String[] propertySplit = L2JBrasil.getProperty("SkillDurationList", "").split(";");
-	    		SKILL_DURATION_LIST = new HashMap<>(propertySplit.length);
-	    		for (String skill : propertySplit)
-	    		{
-	    			String[] skillSplit = skill.split(",");
-	    			if (skillSplit.length != 2)
-	    			{
-	    				System.out.println("[SkillDurationList]: invalid config property -> SkillDurationList \"" + skill + "\"");
-	    			}
-	    			else
-	    			{
-	    				try
-	    				{
-	    					SKILL_DURATION_LIST.put(Integer.parseInt(skillSplit[0]), Integer.parseInt(skillSplit[1]));
-	    				}
-	    				catch (NumberFormatException nfe)
-	    				{
-	    					if (!skill.equals(""))
-	    					{
-	    						System.out.println("[SkillDurationList]: invalid config property -> SkillList \"" + skillSplit[0] + "\"" + skillSplit[1]);
-	    					}
-	    				}
-	    			}
-	    		}
-	    	}
-	    	ENABLE_MODIFY_SKILL_REUSE = Boolean.parseBoolean(L2JBrasil.getProperty("EnableModifySkillReuse", "false"));
-	    	if (ENABLE_MODIFY_SKILL_REUSE)
-	    	{
-	    		String[] propertySplit = L2JBrasil.getProperty("SkillReuseList", "").split(";");
-	    		SKILL_REUSE_LIST = new HashMap<>(propertySplit.length);
-	    		for (String skill : propertySplit)
-	    		{
-	    			String[] skillSplit = skill.split(",");
-	    			if (skillSplit.length != 2)
-	    			{
-	    				System.out.println("[SkillReuseList]: invalid config property -> SkillReuseList \"" + skill + "\"");
-	    			}
-	    			else
-	    			{
-	    				try
-	    				{
-	    					SKILL_REUSE_LIST.put(Integer.valueOf(skillSplit[0]), Integer.valueOf(skillSplit[1]));
-	    				}
-	    				catch (NumberFormatException nfe)
-	    				{
-	    					if (!skill.equals(""))
-	    					{
-	    						System.out.println("[SkillReuseList]: invalid config property -> SkillList \"" + skillSplit[0] + "\"" + skillSplit[1]);
-	            	  		}
-	    				}
-	    			}
-	    		}
-	    	}
-	    	LEAVE_BUFFS_ON_DIE = Boolean.parseBoolean(L2JBrasil.getProperty("NoRemoveBuffsOnDie", "False"));
-	    	ALLOW_HERO_SKILLS_ON_SUB = Boolean.parseBoolean(L2JBrasil.getProperty("AllowHeroSkillsOnSub", "False"));
-	    	RESTORE_EFFECTS_ON_SUBCLASS_CHANGE = Boolean.parseBoolean(L2JBrasil.getProperty("RestoreEffectsOnSub", "False"));
-	    	KEEP_SUBCLASS_SKILLS = Boolean.parseBoolean(L2JBrasil.getProperty("KeepSubClassSkills", "False"));
-	    	ALLOW_DUALBOX = Boolean.parseBoolean(L2JBrasil.getProperty("AllowDualBox", "True"));
-	    	ALLOWED_BOXES = Integer.parseInt(L2JBrasil.getProperty("AllowedBoxes", "2"));
-	    	ALLOW_DUALBOX_OLY = Boolean.parseBoolean(L2JBrasil.getProperty("AllowDualBoxInOly", "True"));
-	    	ALLOW_DUALBOX_EVENT = Boolean.parseBoolean(L2JBrasil.getProperty("AllowDualBoxInEvent", "True"));
-	    	ALLOW_CHAR_KILL_PROTECT = Boolean.parseBoolean(L2JBrasil.getProperty("AllowLowLvlProtect", "False"));
-	    	L2WALKER_PROTECTION = Boolean.parseBoolean(L2JBrasil.getProperty("L2WalkerProtection", "False"));
-	    	ALLOW_SAME_IP_NOT_GIVE_PVP_POINT = Boolean.parseBoolean(L2JBrasil.getProperty("AllowSameIPDontGivePvPPoint", "False"));
-            GG_ENABLE = Boolean.parseBoolean(L2JBrasil.getProperty("GuardSystem", "False"));
-	    	ALLOW_PARTY_TRADE = Boolean.parseBoolean(L2JBrasil.getProperty("AllowPartyTrade", "False"));
-	    	FORBIDDEN_NAMES = L2JBrasil.getProperty("ForbiddenNames", "").split(",");
-	    	ALT_PLAYER_PROTECTION_LEVEL = Integer.parseInt(L2JBrasil.getProperty("AltPlayerProtectionLevel", "0"));
-	    	MAX_RUN_SPEED = Integer.parseInt(L2JBrasil.getProperty("MaxRunSpeed", "250"));
-	    	RUN_SPD_BOOST = Integer.parseInt(L2JBrasil.getProperty("RunSpeedBoost", "0"));
-	    	MAX_PATK_SPEED = Integer.parseInt(L2JBrasil.getProperty("MaxPAtkSpeed", "1500"));
-	    	MAX_MATK_SPEED = Integer.parseInt(L2JBrasil.getProperty("MaxMAtkSpeed", "1999"));
-	    	MAX_EVASION = Integer.parseInt(L2JBrasil.getProperty("MaxEvasion", "200"));
-	    	MAX_PCRIT_RATE = Integer.parseInt(L2JBrasil.getProperty("MaxPCritRate", "500"));
-	    	MAX_MCRIT_RATE = Integer.parseInt(L2JBrasil.getProperty("MaxMCritRate", "300"));
-	    	MULTIPLE_MCRIT = Double.parseDouble(L2JBrasil.getProperty("MultipleMCrit", "4.0"));
-	    	CUSTOM_SPAWNLIST_TABLE = Boolean.valueOf(L2JBrasil.getProperty("GmSpawnOnCustom", "True"));
-	    	DELETE_GMSPAWN_ON_CUSTOM = Boolean.valueOf(L2JBrasil.getProperty("DeleteGmSpawnOnCustom", "False"));
-	    	DUEL_SPAWN_X = Integer.parseInt(L2JBrasil.getProperty("PartyDuelSpawnX", "149319"));
-	    	DUEL_SPAWN_Y = Integer.parseInt(L2JBrasil.getProperty("PartyDuelSpawnY", "46710"));
-	    	DUEL_SPAWN_Z = Integer.parseInt(L2JBrasil.getProperty("PartyDuelSpawnZ", "-3413"));
-	    	ALLOW_NOBLE_CUSTOM_ITEM = Boolean.parseBoolean(L2JBrasil.getProperty("AllowNobleCustomItem", "False"));
-	    	NOBLE_CUSTOM_ITEM_ID = Integer.parseInt(L2JBrasil.getProperty("NobleItemId", "6673"));
-	    	ACTIVE_SUB_NEEDED_TO_USE_NOBLE_ITEM = Boolean.parseBoolean(L2JBrasil.getProperty("ActiveSubNeededToUseNobleItem", "True"));
-	    	NOBLE_CUSTOM_LEVEL = Integer.parseInt(L2JBrasil.getProperty("LevelNeededToUseNobleCustomItem", "76"));
-	    	ALLOW_HERO_CUSTOM_ITEM = Boolean.parseBoolean(L2JBrasil.getProperty("AllowHeroCustomItem", "False"));
-	    	HERO_CUSTOM_ITEM_ID = Integer.parseInt(L2JBrasil.getProperty("HeroCustomItemID", "7196"));
-	    	NOBLE_STATUS_NEEDED_TO_USE_HERO_ITEM = Boolean.parseBoolean(L2JBrasil.getProperty("NobleStatusNeededToUseHeroItem", "True"));
-	    	ALT_DISABLE_RAIDBOSS_PETRIFICATION  = Boolean.parseBoolean(L2JBrasil.getProperty("DisableRaidBossPetrification", "False"));
-	    	PLAYER_SPAWN_PROTECTION = Integer.parseInt(L2JBrasil.getProperty("PlayerSpawnProtection", "0"));
-	    	PLAYER_SPAWN_PROTECTION_EFFECT = Boolean.parseBoolean(L2JBrasil.getProperty("PlayerSpawnEffect", "0"));
-	    	PLAYER_EFFECT_ID = Integer.parseInt(L2JBrasil.getProperty("PlayerEffectId", "0"));
-	    	ALT_WH_DEPOSIT_FEE = Integer.parseInt(L2JBrasil.getProperty("AltWarehouseDepositFee", "30"));
-	    	ARGUMENTS_RETAIL = Boolean.parseBoolean(L2JBrasil.getProperty("ArgumentsRetailLike", "true"));
-	    	SELL_BY_ITEM = Boolean.parseBoolean(L2JBrasil.getProperty("SellByItem", "False"));
-	    	SELL_ITEM = Integer.parseInt(L2JBrasil.getProperty("SellItem", "57"));
-	    	PVP_TO_USE_STORE = Integer.parseInt(L2JBrasil.getProperty("PvPToUseStore", "1"));
-	    }
-	    catch (Exception e)
-	    {
-	    	e.printStackTrace();
-	    	throw new Error("Failed to Load " + L2JBRASIL_FILE + " File.");
-	    }
-	}
 
 	// --------------------------------------------- //
     // -             L2JMODS PROPERTIES            - //
@@ -4149,9 +3844,9 @@ public final class Config
         else if (pName.equalsIgnoreCase("RaidMpRegenMultiplier")) RAID_MP_REGEN_MULTIPLIER = Double.parseDouble(pValue);
         else if (pName.equalsIgnoreCase("RaidDefenceMultiplier")) RAID_DEFENCE_MULTIPLIER = Double.parseDouble(pValue) /100;
         else if (pName.equalsIgnoreCase("RaidMinionRespawnTime")) RAID_MINION_RESPAWN_TIMER =Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("StartingAdena")) STARTING_ADENA = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("StartingAdena")) getSettings(L2JBrasilSettings.class).setStartingAdena(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("UnstuckInterval")) UNSTUCK_INTERVAL = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("PlayerSpawnProtection")) PLAYER_SPAWN_PROTECTION = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("PlayerSpawnProtection")) getSettings(L2JBrasilSettings.class).setPlayerSpawnProtection(Integer.parseInt(pValue)); 
         else if (pName.equalsIgnoreCase("PlayerFakeDeathUpProtection")) PLAYER_FAKEDEATH_UP_PROTECTION = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("PartyXpCutoffMethod")) PARTY_XP_CUTOFF_METHOD = pValue;
         else if (pName.equalsIgnoreCase("PartyXpCutoffPercent")) PARTY_XP_CUTOFF_PERCENT = Double.parseDouble(pValue);
@@ -4190,8 +3885,8 @@ public final class Config
         else if (pName.equalsIgnoreCase("AutoLoot")) AUTO_LOOT = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("AutoLootRaids")) AUTO_LOOT_RAIDS = Boolean.parseBoolean(pValue);
         else if (pName.equalsIgnoreCase("AutoLootHerbs")) AUTO_LOOT_HERBS = Boolean.valueOf(pValue);
-        else if (pName.equalsIgnoreCase("MaxPAtkSpeed")) MAX_PATK_SPEED = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("MaxMAtkSpeed")) MAX_MATK_SPEED = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("MaxMAtkSpeed")) getSettings(L2JBrasilSettings.class).setMaxMAtkSpeed(Integer.parseInt(pValue)); 
+        else if (pName.equalsIgnoreCase("MaxPAtkSpeed")) getSettings(L2JBrasilSettings.class).setMaxPAtkSpeed(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("AltKarmaPlayerCanBeKilledInPeaceZone")) ALT_GAME_KARMA_PLAYER_CAN_BE_KILLED_IN_PEACEZONE = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("AltKarmaPlayerCanShop")) ALT_GAME_KARMA_PLAYER_CAN_SHOP = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("AltKarmaPlayerCanUseGK")) ALT_GAME_KARMA_PLAYER_CAN_USE_GK = Boolean.valueOf(pValue);
@@ -4237,7 +3932,7 @@ public final class Config
         else if (pName.equalsIgnoreCase("TvTEventParticipationTime")) TVT_EVENT_PARTICIPATION_TIME = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("TvTEventRunningTime")) TVT_EVENT_RUNNING_TIME = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("TvTEventParticipationNpcId")) TVT_EVENT_PARTICIPATION_NPC_ID = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ServerName")) SERVERNAME = (pValue);
+        else if (pName.equalsIgnoreCase("ServerName")) getSettings(L2JBrasilSettings.class).setServerName(pValue);
         else if (pName.equalsIgnoreCase("MinKarma")) KARMA_MIN_KARMA = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("MaxKarma")) KARMA_MAX_KARMA = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("XPDivider")) KARMA_XP_DIVIDER = Integer.parseInt(pValue);
@@ -4307,7 +4002,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadBrasilConfig();
     		loadL2JModConfig();
 
     		loadCHConfig();

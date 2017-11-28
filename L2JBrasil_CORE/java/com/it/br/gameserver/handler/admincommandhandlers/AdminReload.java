@@ -26,6 +26,7 @@ import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.LoginSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
@@ -157,7 +158,7 @@ public class AdminReload implements IAdminCommandHandler
 				else if (type.startsWith("custom")) 
                 { 
 					Configurator.reloadSettings(CommandSettings.class);
-					Config.loadBrasilConfig();
+					Configurator.reloadSettings(L2JBrasilSettings.class);
 					Config.loadL2JModConfig();
 					sendReloadPage(activeChar);
                     activeChar.sendMessage("Custom config settings reloaded"); 
@@ -277,7 +278,6 @@ public class AdminReload implements IAdminCommandHandler
     private void reloadAllConfigs() {
     	Configurator.reloadAll();
         Config.loadGMAcessConfig();
-        Config.loadBrasilConfig();
         Config.loadL2JModConfig();
         Config.loadCHConfig();
         Config.loadSepulchersConfig();

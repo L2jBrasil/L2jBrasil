@@ -14,6 +14,8 @@
  */
 package com.it.br.gameserver.model.entity.event;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -446,7 +449,7 @@ public class TvTEvent
 			teamId = (byte) (_teams[0].getParticipatedPlayerCount() > _teams[1].getParticipatedPlayerCount() ? 1 : 0);
 		}
 
-		if(!Config.ALLOW_DUALBOX_EVENT && playerInstance._active_boxes> 1)
+		if(!getSettings(L2JBrasilSettings.class).isDualBoxInEventEnabled() && playerInstance._active_boxes> 1)
 		{
 			List<String> players_in_boxes = playerInstance.active_boxes_characters;
 			if(players_in_boxes != null && players_in_boxes.size()>1)

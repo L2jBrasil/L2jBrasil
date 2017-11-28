@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -79,8 +82,7 @@ public class Orfen extends Quest implements Runnable
     				int loc_z = -5412;
     				int heading = 0;
     				orfen = (L2GrandBossInstance) addSpawn(ORFEN, loc_x,loc_y,loc_z,heading, false, 0);
-    				if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-    				{
+    				if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
     					Announcements.getInstance().announceToAll("Raid boss " + orfen.getName() + " spawned in world.");
     				}
     				GrandBossManager.getInstance().setBossStatus(ORFEN, LIVE);
@@ -104,8 +106,7 @@ public class Orfen extends Quest implements Runnable
     			int hp = info.getInteger("currentHP");
     			int mp = info.getInteger("currentMP");
     			orfen = (L2GrandBossInstance) addSpawn(ORFEN, loc_x, loc_y, loc_z, heading, false, 0);
-    			if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-				{
+    			if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
 					Announcements.getInstance().announceToAll("Raid boss " + orfen.getName() + " spawned in world.");
 				}
     			GrandBossManager.getInstance().addBoss(orfen);
@@ -119,8 +120,7 @@ public class Orfen extends Quest implements Runnable
 				int loc_z = -5412;
 				int heading = 0;
         		orfen = (L2GrandBossInstance) addSpawn(ORFEN, loc_x,loc_y,loc_z,heading, false, 0);
-        		if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-				{
+        		if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
 					Announcements.getInstance().announceToAll("Raid boss " + orfen.getName() + " spawned in world.");
 				}
         		GrandBossManager.getInstance().setBossStatus(ORFEN, LIVE);
@@ -152,8 +152,7 @@ public class Orfen extends Quest implements Runnable
 					int heading = 0;
 
 					orfen = (L2GrandBossInstance) addSpawn(ORFEN,  loc_x,loc_y,loc_z,heading, false, 0);
-					if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-    				{
+					if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
     					Announcements.getInstance().announceToAll("Raid boss " + orfen.getName() + " spawned in world.");
     				}
 					GrandBossManager.getInstance().setBossStatus(ORFEN, LIVE);

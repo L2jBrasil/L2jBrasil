@@ -18,10 +18,13 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.instancemanager.GrandBossManager;
 import com.it.br.gameserver.model.L2Attackable;
@@ -88,8 +91,7 @@ public class Core extends Quest implements Runnable
 			{
 				// the time has already expired while the server was offline. Immediately spawn Core.
 				L2GrandBossInstance core = (L2GrandBossInstance) addSpawn(CORE, 17726, 108915, -6480, 0, false, 0);
-				if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-				{
+				if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
 					Announcements.getInstance().announceToAll("Raid boss " + core.getName() + " spawned in world.");
 				}
 				GrandBossManager.getInstance().setBossStatus(CORE, ALIVE);
@@ -112,8 +114,7 @@ public class Core extends Quest implements Runnable
 			L2GrandBossInstance core = (L2GrandBossInstance) addSpawn(CORE,loc_x,loc_y,loc_z,heading,false,0);
 			core.setCurrentHpMp(hp,mp);*/
 			L2GrandBossInstance core = (L2GrandBossInstance) addSpawn(CORE, 17726, 108915, -6480, 0, false, 0);
-			if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-			{
+			if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
 				Announcements.getInstance().announceToAll("Raid boss " + core.getName() + " spawned in world.");
 			}
 			spawnBoss(core);
@@ -134,8 +135,7 @@ public class Core extends Quest implements Runnable
 		if(event.equalsIgnoreCase("core_unlock"))
 		{
 			L2GrandBossInstance core = (L2GrandBossInstance) addSpawn(CORE, 17726, 108915, -6480, 0, false, 0);
-			if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-			{
+			if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
 				Announcements.getInstance().announceToAll("Raid boss " + core.getName() + " spawned in world.");
 			}
 			GrandBossManager.getInstance().setBossStatus(CORE, ALIVE);

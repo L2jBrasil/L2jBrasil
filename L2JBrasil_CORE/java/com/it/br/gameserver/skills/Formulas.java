@@ -18,9 +18,12 @@
  */
 package com.it.br.gameserver.skills;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
@@ -378,8 +381,9 @@ public final class Formulas
 			{
 				env.value *= BaseStats.DEX.calcBonus(env.player);
 				env.value *= 10;
-				if(env.value > Config.MAX_PCRIT_RATE)
-					env.value = Config.MAX_PCRIT_RATE;
+				int maxPCritRate = getSettings(L2JBrasilSettings.class).getMaxPCritRate();
+				if(env.value > maxPCritRate)
+					env.value = maxPCritRate;
 			}
 			env.baseValue = env.value;
 		}
