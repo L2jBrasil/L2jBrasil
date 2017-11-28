@@ -1,0 +1,104 @@
+apply plugin: 'distribution'
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '4.3.1'
+}
+
+repositories {
+	mavenCentral()
+    jcenter()
+}
+
+configurations {
+	core {
+		transitive true
+	}
+	
+	jar {
+		transitive false
+	}
+}
+
+dependencies {
+	core project(':L2JBrasil_CORE')
+	jar project(':L2JBrasil_CORE')
+}
+
+distributions {
+    main{
+        baseName = 'L2jBrasil_CORE'
+        
+        contents {
+            from ('L2JBrasil_CORE/data')  {
+                into 'Game/data'
+            }
+            
+            from('L2JBrasil_CORE/dist'){
+            	into('Game')
+            	
+            	include 'Game.bat'
+            	include 'game.sh'
+            }
+            
+            from('L2JBrasil_CORE/config'){
+            	into('Game/config')
+            	
+            	exclude 'login*'
+				exclude 'other/banned_ip.*'
+				exclude 'other/servername.*'
+            	
+            	rename 'server-(.*)', '$1'
+            }
+            
+            from('L2JBrasil_CORE/config') {
+            	into 'Login/config'
+            	
+            	include 'mmocore.properties'
+				include 'other/log.*'
+				include 'other/banned_ip.*'
+				include 'other/console.*'
+				include 'other/servername.*'
+				include 'login*'
+				
+				rename 'login-(.*)', '$1'
+            }
+            
+            from('L2JBrasil_CORE/dist'){
+            	into 'Login'
+            	
+            	exclude 'Game.bat'
+            	exclude 'game.sh'
+            }
+            
+            from(configurations.core) {
+            	into 'Game/lib'
+            }
+            
+            from('LICENSE')
+        }        
+	}
+}
+
+task dpZip(type: Zip) {
+	from('L2JBrasil_DP/data') {
+		into('Game/data')
+	}
+	
+	from('L2JBrasil_DP/Database') {
+		into('Database')
+	}
+	
+	archiveName 'L2JBrasil_DP.zip'
+}
+
+
+task jar(type: Copy) {
+	from configurations.jar.singleFile
+	 
+	destinationDir project.buildDir
+
+}
+
+task dist(dependsOn: ['clean', 'dpZip', 'distZip'])
+
+

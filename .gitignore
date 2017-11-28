@@ -3,3 +3,6 @@
 .idea/workspace.xml
 *.class
 L2JBrasil_CORE/build
+/bin/
+/.gradle/
+/build/
