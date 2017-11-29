@@ -58,7 +58,6 @@ public final class Config
     protected static final Logger _log = Logger.getLogger(Config.class.getName());
 
     /* Properties Files Definitions */
-    public static final String L2JMOD_FILE			= "./config/custom/l2jmods.properties";
 
     public static final String CH_FILE              = "./config/event/clanhall.properties";
     public static final String SEPULCHERS_FILE		= "./config/event/sepulchers.properties";
@@ -1157,86 +1156,6 @@ public final class Config
     public static boolean L2JMOD_CHECK_HERO_SKILLS;
     public static boolean L2JMOD_CHECK_NOBLE_SKILLS;
 	public static List<Integer> L2JMOD_LIST_NO_CHECK_SKILLS;
-
-	// ============================================================
-	public static void loadL2JModConfig()
-	{
-		try(InputStream is = new FileInputStream(new File(L2JMOD_FILE)))
-	    {
-			Properties L2JModSettings = new Properties();
-	        L2JModSettings.load(is);
-
-	        L2JMOD_CHAMPION_ENABLE = Boolean.parseBoolean(L2JModSettings.getProperty("ChampionEnable", "false"));
-	        L2JMOD_CHAMPION_FREQUENCY = Integer.parseInt(L2JModSettings.getProperty("ChampionFrequency", "0"));
-	        L2JMOD_CHAMP_MIN_LVL = Integer.parseInt(L2JModSettings.getProperty("ChampionMinLevel", "20"));
-	        L2JMOD_CHAMP_MAX_LVL = Integer.parseInt(L2JModSettings.getProperty("ChampionMaxLevel", "60"));
-	        L2JMOD_CHAMPION_HP = Integer.parseInt(L2JModSettings.getProperty("ChampionHp", "7"));
-	        L2JMOD_CHAMPION_REWARDS = Integer.parseInt(L2JModSettings.getProperty("ChampionRewards", "8"));
-	        L2JMOD_CHAMPION_ADENAS_REWARDS = Float.parseFloat(L2JModSettings.getProperty("ChampionAdenasRewards", "1"));
-	        L2JMOD_CHAMPION_HP_REGEN = Float.parseFloat(L2JModSettings.getProperty("ChampionHpRegen", "1."));
-	        L2JMOD_CHAMPION_ATK = Float.parseFloat(L2JModSettings.getProperty("ChampionAtk", "1."));
-	        L2JMOD_CHAMPION_SPD_ATK = Float.parseFloat(L2JModSettings.getProperty("ChampionSpdAtk", "1."));
-	        L2JMOD_CHAMPION_REWARD = Integer.parseInt(L2JModSettings.getProperty("ChampionRewardItem", "0"));
-	        L2JMOD_CHAMPION_REWARD_ID = Integer.parseInt(L2JModSettings.getProperty("ChampionRewardItemID", "6393"));
-	        L2JMOD_CHAMPION_REWARD_QTY = Integer.parseInt(L2JModSettings.getProperty("ChampionRewardItemQty", "1"));
-
-	        /* L2JMOD Wedding system  */
-	        L2JMOD_WEDDING_ANNOUNCE = Boolean.parseBoolean(L2JModSettings.getProperty("AnnounceWeddings", "True"));
-	        L2JMOD_ALLOW_WEDDING = Boolean.valueOf(L2JModSettings.getProperty("AllowWedding", "False"));
-	        L2JMOD_WEDDING_PRICE = Integer.parseInt(L2JModSettings.getProperty("WeddingPrice", "250000000"));
-	        L2JMOD_WEDDING_PUNISH_INFIDELITY = Boolean.parseBoolean(L2JModSettings.getProperty("WeddingPunishInfidelity", "True"));
-	        L2JMOD_WEDDING_TELEPORT = Boolean.parseBoolean(L2JModSettings.getProperty("WeddingTeleport", "True"));
-	        L2JMOD_WEDDING_TELEPORT_PRICE = Integer.parseInt(L2JModSettings.getProperty("WeddingTeleportPrice", "50000"));
-	        L2JMOD_WEDDING_TELEPORT_DURATION = Integer.parseInt(L2JModSettings.getProperty("WeddingTeleportDuration", "60"));
-	        L2JMOD_WEDDING_SAMESEX = Boolean.parseBoolean(L2JModSettings.getProperty("WeddingAllowSameSex", "False"));
-	        L2JMOD_WEDDING_FORMALWEAR = Boolean.parseBoolean(L2JModSettings.getProperty("WeddingFormalWear", "True"));
-	        L2JMOD_WEDDING_DIVORCE_COSTS = Integer.parseInt(L2JModSettings.getProperty("WeddingDivorceCosts", "20"));
-	        L2JMOD_WEDDING_COLOR_NAME = Boolean.parseBoolean(L2JModSettings.getProperty("ColorWeddingName", "True"));
-	        L2JMOD_WEDDING_COLOR_NAMES = Integer.decode("0x" + L2JModSettings.getProperty("WeddingNameColor", "FFFF00"));
-	        L2JMOD_WEDDING_COLOR_NAMES_GEY = Integer.decode("0x" + L2JModSettings.getProperty("WeddingNameGeyColor", "FF0000"));
-	        L2JMOD_WEDDING_COLOR_NAMES_LIZ = Integer.decode("0x" + L2JModSettings.getProperty("WeddingNameLizColor", "F0F000"));
-	        PCB_ENABLE = Boolean.parseBoolean(L2JModSettings.getProperty("PcBangPointEnable", "true"));
-		    PCB_MIN_LEVEL = Integer.parseInt(L2JModSettings.getProperty("PcBangPointMinLevel", "20"));
-		    PCB_POINT_MIN = Integer.parseInt(L2JModSettings.getProperty("PcBangPointMinCount", "20"));
-		    PCB_POINT_MAX = Integer.parseInt(L2JModSettings.getProperty("PcBangPointMaxCount", "1000000"));
-		    if(PCB_POINT_MAX < 1)
-		    {
-		      PCB_POINT_MAX = Integer.MAX_VALUE;
-		    }
-		    PCB_CHANCE_DUAL_POINT = Integer.parseInt(L2JModSettings.getProperty("PcBangPointDualChance", "20"));
-		    PCB_INTERVAL = Integer.parseInt(L2JModSettings.getProperty("PcBangPointTimeStamp", "900"));
-		    PCB_ITEMS_ID = Integer.parseInt(L2JModSettings.getProperty("PcBangPointId","65436"));
-			OFFLINE_TRADE_ENABLE = Boolean.parseBoolean(L2JModSettings.getProperty("OfflineTradeEnable", "false"));
-			OFFLINE_CRAFT_ENABLE = Boolean.parseBoolean(L2JModSettings.getProperty("OfflineCraftEnable", "false"));
-			OFFLINE_SET_NAME_COLOR = Boolean.parseBoolean(L2JModSettings.getProperty("OfflineNameColorEnable", "false"));
-			OFFLINE_NAME_COLOR = Integer.decode("0x" + L2JModSettings.getProperty("OfflineNameColor", "ff00ff"));
-			OFFLINE_LOGOUT = Boolean.parseBoolean(L2JModSettings.getProperty("OfflineLogout", "False"));
-			OFFLINE_SLEEP_EFFECT = Boolean.parseBoolean(L2JModSettings.getProperty("OfflineSleepEffect", "True"));
-			OFFLINE_RESTORE_OFFLINERS = Boolean.parseBoolean(L2JModSettings.getProperty("RestoreOffliners", "false"));
-			OFFLINE_MAX_DAYS = Integer.parseInt(L2JModSettings.getProperty("OfflineMaxDays", "10"));
-			OFFLINE_DISCONNECT_FINISHED = Boolean.parseBoolean(L2JModSettings.getProperty("OfflineDisconnectFinished", "true"));
-		    OFFLINE_LOGOUT_ITEM_ID = Integer.parseInt(L2JModSettings.getProperty("LogoutItemId", "5283"));
-		    OFFLINE_LOGOUT_ITEM_COUNT = Integer.parseInt(L2JModSettings.getProperty("LogoutItemCount", "10"));
-	        L2JMOD_CHECK_SKILLS_ON_ENTER = Boolean.parseBoolean(L2JModSettings.getProperty("CheckSkillsOnEnter", "False"));
-	        L2JMOD_ALLOWED_SKILLS_LIST = new ArrayList<>();
-	        for (String id : L2JModSettings.getProperty("AllowedSkills", "10").split(","))
-	        {
-	        	L2JMOD_ALLOWED_SKILLS_LIST.add(Integer.parseInt(id.trim()));
-	        }
-	        L2JMOD_CHECK_HERO_SKILLS = Boolean.valueOf(L2JModSettings.getProperty("CheckHeroSkills", "True"));
-	        L2JMOD_CHECK_NOBLE_SKILLS = Boolean.valueOf(L2JModSettings.getProperty("CheckNobleSkills", "True"));
-	        L2JMOD_LIST_NO_CHECK_SKILLS = new ArrayList<>();
-	        for (String id : L2JModSettings.getProperty("NonCheckSkills", "10000").split(","))
-			{
-	        	L2JMOD_LIST_NO_CHECK_SKILLS.add(Integer.parseInt(id.trim()));
-	        }
-	    }
-	    catch (Exception e)
-	    {
-	        e.printStackTrace();
-	        throw new Error("Failed to Load " + L2JMOD_FILE + " File.");
-	    }
-	}
 
 	// --------------------------------------------- //
     // -        ELITE CLAN HALL PROPERTIES         - //
@@ -4002,8 +3921,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadL2JModConfig();
-
     		loadCHConfig();
     		loadSepulchersConfig();
     		loadTvTConfig();

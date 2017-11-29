@@ -256,7 +256,7 @@ public class Util
 	}
 
 
-	public static long getMilliSecondsFromSeconds(int seconds){
+	public static long getSecondsInMilliseconds(int seconds){
 		return seconds * 1000L;
 	}
 }

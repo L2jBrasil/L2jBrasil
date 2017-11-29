@@ -36,6 +36,7 @@ import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.GmListTable;
@@ -304,9 +305,9 @@ public class EnterWorld extends L2GameClientPacket
             activeChar.restoreEffects();
 
         activeChar.sendPacket(new EtcStatusUpdate(activeChar));
-
+        L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
         // engage and notify Partner
-        if(Config.L2JMOD_ALLOW_WEDDING)
+        if(l2jModsSettings.isWeddingEnabled())
         {
             engage(activeChar);
             notifyPartner(activeChar,activeChar.getPartnerId());
@@ -384,8 +385,10 @@ public class EnterWorld extends L2GameClientPacket
 				sendPacket(new NpcHtmlMessage(1, serverNews));
 		}
 
+        
 	    // check for ilegal skills 
-	    if (Config.L2JMOD_CHECK_SKILLS_ON_ENTER && !Config.ALT_GAME_SKILL_LEARN && !activeChar.isAio() && (activeChar.isVip() && !Config.ENABLE_VIP_SYSTEM)) 
+        
+	    if (l2jModsSettings.isCheckSkillsOnEnter() && !Config.ALT_GAME_SKILL_LEARN && !activeChar.isAio() && (activeChar.isVip() && !Config.ENABLE_VIP_SYSTEM)) 
 	    	activeChar.checkAllowedSkills();
 
 	    ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
@@ -483,7 +486,7 @@ public class EnterWorld extends L2GameClientPacket
 		notifySponsorOrApprentice(activeChar);
 		activeChar.onPlayerEnter();
 
-        if(Config.PCB_ENABLE)
+        if(l2jModsSettings.isPcBangPointEnabled())
         {
             activeChar.showPcBangWindow();
         }
@@ -612,19 +615,20 @@ public class EnterWorld extends L2GameClientPacket
         if(cha.getPartnerId() != 0)
         {
             L2PcInstance partner = (L2PcInstance)L2World.getInstance().findObject(cha.getPartnerId());
-            if(cha.isMarried() && Config.L2JMOD_WEDDING_COLOR_NAME)
-                cha.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES);
-            if(partner != null && partner.getAppearance().getSex() == cha.getAppearance().getSex() && cha.isMarried() && Config.L2JMOD_WEDDING_COLOR_NAME)
+            L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+            if(cha.isMarried() && l2jModsSettings.isColorWeddingNameEnabled())
+                cha.getAppearance().setNameColor(l2jModsSettings.getWeddingNameColor());
+            if(partner != null && partner.getAppearance().getSex() == cha.getAppearance().getSex() && cha.isMarried() && l2jModsSettings.isColorWeddingNameEnabled())
             {
                 if(cha.getAppearance().getSex())
                 {
-                    cha.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_LIZ);
-                    partner.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_LIZ);
+                    cha.getAppearance().setNameColor(l2jModsSettings.getWeddingNameLizColor());
+                    partner.getAppearance().setNameColor(l2jModsSettings.getWeddingNameLizColor());
                 } 
                 else
                 {
-                    cha.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_GEY);
-                    partner.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_GEY);
+                    cha.getAppearance().setNameColor(l2jModsSettings.getWeddingNameGeyColor());
+                    partner.getAppearance().setNameColor(l2jModsSettings.getWeddingNameGeyColor());
                 }
                 partner.sendMessage("Your Partner has logged in");
 				partner.broadcastUserInfo();

@@ -1,8 +1,10 @@
 package com.it.br.gameserver.model.entity;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
@@ -32,7 +34,6 @@ public class PcPoint implements Runnable
 		_log.info("PcBang point event started.");
 	}
 
-	@SuppressWarnings("deprecation")
 	public void run()
 	{
 
@@ -40,11 +41,11 @@ public class PcPoint implements Runnable
         boolean duble = false;
 		for(L2PcInstance activeChar: L2World.getInstance().getAllPlayers())
 		{
-
-			if(activeChar.getLevel() > Config.PCB_MIN_LEVEL && !activeChar.isOffline())
+			L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+			if(activeChar.getLevel() > l2jModsSettings.getPcBangPointMinLevel() && !activeChar.isOffline())
 			{
-				score = Rnd.get(Config.PCB_POINT_MIN, Config.PCB_POINT_MAX);
-				if(Rnd.get(100) <= Config.PCB_CHANCE_DUAL_POINT)
+				score = Rnd.get(l2jModsSettings.getPcBangPointMinCount(), l2jModsSettings.getPcBangPointMaxCount());
+				if(Rnd.get(100) <= l2jModsSettings.getPcBangPointDualChance())
 				{
 					duble = true;
 					score *= 2;

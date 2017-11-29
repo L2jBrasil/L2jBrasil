@@ -89,7 +89,7 @@ public final class AwayManager
 		// XXX possible data integer overflow
 		SetupGauge sg = new SetupGauge(SetupGauge.BLUE,  awayTimer * 1000);
 		activeChar.sendPacket(sg);
-		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerAwayTask(activeChar, text), Util.getMilliSecondsFromSeconds(awayTimer));
+		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerAwayTask(activeChar, text), Util.getSecondsInMilliseconds(awayTimer));
 	}
 
 	
@@ -101,7 +101,7 @@ public final class AwayManager
 		// XXX possible data integer overflow
 		SetupGauge sg = new SetupGauge(SetupGauge.BLUE, backTimer * 1000);
 		activeChar.sendPacket(sg);
-		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerBackTask(activeChar), Util.getMilliSecondsFromSeconds(backTimer));
+		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerBackTask(activeChar), Util.getSecondsInMilliseconds(backTimer));
 	}
 
 	public void extraBack(L2PcInstance activeChar)

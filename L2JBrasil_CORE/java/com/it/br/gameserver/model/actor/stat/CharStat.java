@@ -22,6 +22,7 @@ import static com.it.br.configuration.Configurator.getSettings;
 
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -242,9 +243,10 @@ public class CharStat
 
 		float bonusAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isChampionEnabled() && _activeChar.isChampion())
 		{
-			bonusAtk = Config.L2JMOD_CHAMPION_ATK;
+			bonusAtk = l2jModsSettings.getChampionAtk();
 		}
 
 		double attack = _activeChar.getTemplate().baseMAtk * bonusAtk;
@@ -321,9 +323,10 @@ public class CharStat
 
 		float bonusSpdAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isChampionEnabled() && _activeChar.isChampion())
 		{
-			bonusSpdAtk = Config.L2JMOD_CHAMPION_SPD_ATK;
+			bonusSpdAtk = l2jModsSettings.getChampionSpdAtk();
 		}
 
 		double val = calcStat(Stats.MAGIC_ATTACK_SPEED, _activeChar.getTemplate().baseMAtkSpd * bonusSpdAtk, null, null);
@@ -439,9 +442,10 @@ public class CharStat
 
 		float bonusAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
+		L2JModsSettings l2jModsSettings =  getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isChampionEnabled() && _activeChar.isChampion())
 		{
-			bonusAtk = Config.L2JMOD_CHAMPION_ATK;
+			bonusAtk = l2jModsSettings.getChampionAtk();
 		}
 
 		return (int) calcStat(Stats.POWER_ATTACK, _activeChar.getTemplate().basePAtk * bonusAtk, target, null);
@@ -486,9 +490,9 @@ public class CharStat
 
 		float bonusAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
-		{
-			bonusAtk = Config.L2JMOD_CHAMPION_SPD_ATK;
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(getSettings(L2JModsSettings.class).isChampionEnabled() && _activeChar.isChampion()) {
+			bonusAtk =  l2jModsSettings.getChampionSpdAtk();
 		}
 
 		double val = calcStat(Stats.POWER_ATTACK_SPEED, _activeChar.getTemplate().basePAtkSpd * bonusAtk, null, null);

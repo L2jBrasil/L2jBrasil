@@ -39,6 +39,7 @@ import java.util.logging.Level;
 import com.it.br.Config;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.GeoData;
@@ -5429,7 +5430,7 @@ public final class L2PcInstance extends L2PlayableInstance
 				getAppearance().setNameColor(_accessLevel.getNameColor());
 			*/
 			this.store();
-			if (Config.OFFLINE_DISCONNECT_FINISHED)
+			if (getSettings(L2JModsSettings.class).isOfflineDisconnectFinished())
 			{
 				this.deleteMe();
 				store();
@@ -10942,8 +10943,9 @@ public final class L2PcInstance extends L2PlayableInstance
 				if (skillid >= 3000 && skillid < 7000)
 					foundskill = true;
 
+				L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
 				// exclude nobles skills and common skills
-				if(Config.L2JMOD_CHECK_NOBLE_SKILLS)
+				if(l2jModsSettings.isCheckNobleSkills())
 				{
 					if (isNoble() && skillid >= 325 && skillid <= 327)
 						foundskill = true;
@@ -10960,7 +10962,7 @@ public final class L2PcInstance extends L2PlayableInstance
 				}
 
 				// exclude Hero skills and common skills and Vip
-				if(Config.L2JMOD_CHECK_HERO_SKILLS)
+				if(l2jModsSettings.isCheckHeroSkills())
 				{
 					if (isHero() && skillid >= 395 && skillid <= 396)
 						foundskill = true;
@@ -10977,10 +10979,10 @@ public final class L2PcInstance extends L2PlayableInstance
 				}
 
 				// exclude Skills from AllowedSkills in L2JMODS.properties
-				if (Config.L2JMOD_ALLOWED_SKILLS_LIST.contains(skillid))
+				if (l2jModsSettings.getAllowedSkills().contains(skillid))
 					foundskill = true;
 
-				if(Config.L2JMOD_LIST_NO_CHECK_SKILLS.contains(Integer.valueOf(skillid)))
+				if(l2jModsSettings.getNonCheckSkills().contains(Integer.valueOf(skillid)))
 					foundskill = true;
 
 				// remove skill and do a lil log message

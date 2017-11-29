@@ -36,6 +36,7 @@ import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.MmoCoreSettings;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
@@ -376,7 +377,8 @@ public class GameServer
 
 		Util.printSection("Custom Mods");
 		TvTManager.getInstance();
-		if(Config.L2JMOD_ALLOW_WEDDING)
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isWeddingEnabled())
 		{
 			CoupleManager.getInstance();
 			_log.info("Wedding Manager is Enable");
@@ -392,15 +394,15 @@ public class GameServer
 		else
 			_log.info("Away is Disabled");
 
-        if(Config.PCB_ENABLE)
+        if(l2jModsSettings.isPcBangPointEnabled())
         {
-            ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(PcPoint.getInstance(), Config.PCB_INTERVAL * 1000, Config.PCB_INTERVAL * 1000);
+            ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(PcPoint.getInstance(), Util.getSecondsInMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()), Util.getSecondsInMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()));
             _log.info("PC Bang Manager is Enable");
         }
 		else
 			_log.info("PC Bang Manager is Disabled");
 
-        if ((Config.OFFLINE_TRADE_ENABLE || Config.OFFLINE_CRAFT_ENABLE) && Config.OFFLINE_RESTORE_OFFLINERS)
+        if ((l2jModsSettings.isOfflineTradeEnabled()|| l2jModsSettings.isOfflineCraftEnabled()) && l2jModsSettings.isRestoreOfflinersEnabled())
 			OfflineTradeTable.restoreOfflineTraders();
 
         try

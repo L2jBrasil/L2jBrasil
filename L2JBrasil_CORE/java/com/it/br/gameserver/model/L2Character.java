@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.GeoData;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -6884,13 +6885,15 @@ public abstract class L2Character extends L2Object
 	// Method - Public
 	public void addStatusListener(L2Character object) { getStatus().addStatusListener(object); }
 	public void reduceCurrentHp(double i, L2Character attacker) { reduceCurrentHp(i, attacker, true); }
-	public void reduceCurrentHp(double i, L2Character attacker, boolean awake)
-	{
-		if (Config.L2JMOD_CHAMPION_ENABLE && isChampion() && Config.L2JMOD_CHAMPION_HP != 0)
-			getStatus().reduceHp(i/Config.L2JMOD_CHAMPION_HP, attacker, awake);
+	
+	public void reduceCurrentHp(double i, L2Character attacker, boolean awake) {
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if (l2jModsSettings.isChampionEnabled() && isChampion() && l2jModsSettings.getChampionHp() != 0)
+			getStatus().reduceHp( i / l2jModsSettings.getChampionHp(), attacker, awake);
 		else
 			getStatus().reduceHp(i, attacker, awake);
 	}
+	
 	public void reduceCurrentMp(double i) { getStatus().reduceMp(i); }
 	public void removeStatusListener(L2Character object) { getStatus().removeStatusListener(object); }
 	protected void stopHpMpRegeneration() { getStatus().stopHpMpRegeneration(); }

@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.handler.ItemHandler;
 import com.it.br.gameserver.instancemanager.CastleManager;
@@ -73,7 +74,7 @@ public final class UseItem extends L2GameClientPacket
 		}
 
 		L2ItemInstance item = activeChar.getInventory().getItemByObjectId(_objectId);
-		if (activeChar.getPrivateStoreType() != 0 && !(item.getItemId() == Config.OFFLINE_LOGOUT_ITEM_ID))
+		if (activeChar.getPrivateStoreType() != 0 && item.getItemId() != getSettings(L2JModsSettings.class).getLogoutItemId())
 		{
 			activeChar.sendPacket(new SystemMessage(SystemMessageId.CANNOT_TRADE_DISCARD_DROP_ITEM_WHILE_IN_SHOPMODE));
 			activeChar.sendPacket(new ActionFailed());

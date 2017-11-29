@@ -28,6 +28,7 @@ import static com.it.br.configuration.Configurator.getSettings;
 import com.it.br.Config;
 
 import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.voicedcommandhandlers.*;
 
 public class VoicedCommandHandler
@@ -83,7 +84,7 @@ public class VoicedCommandHandler
 		if (commandSettings.isVipTeleportEnabled())
 			registerVoicedCommandHandler(new VipTeleportVoicedCommand());
 
-		if (Config.L2JMOD_ALLOW_WEDDING)
+		if (getSettings(L2JModsSettings.class).isWeddingEnabled())
 			registerVoicedCommandHandler(new WeddingVoicedCommand());
 
 		if (commandSettings.isStatsCommandEnabled())

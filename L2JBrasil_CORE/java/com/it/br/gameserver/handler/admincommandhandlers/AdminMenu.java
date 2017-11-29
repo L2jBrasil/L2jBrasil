@@ -20,12 +20,15 @@ package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.LoginServerThread;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -248,8 +251,8 @@ public class AdminMenu implements IAdminCommandHandler
 				target.reduceCurrentHp(target.getMaxHp() + target.getMaxCp() + 1, activeChar);
 				filename = "charmanage.htm";
 			}
-			else if (Config.L2JMOD_CHAMPION_ENABLE && target.isChampion())
-				target.reduceCurrentHp(target.getMaxHp()*Config.L2JMOD_CHAMPION_HP + 1, activeChar);
+			else if (getSettings(L2JModsSettings.class).isChampionEnabled() && target.isChampion())
+				target.reduceCurrentHp(target.getMaxHp() * getSettings(L2JModsSettings.class).getChampionHp() + 1, activeChar);
 			else
 				target.reduceCurrentHp(target.getMaxHp() + 1, activeChar);
 		}

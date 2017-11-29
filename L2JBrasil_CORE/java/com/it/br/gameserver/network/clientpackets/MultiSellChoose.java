@@ -18,6 +18,7 @@
 package com.it.br.gameserver.network.clientpackets;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.L2Augmentation;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -37,6 +38,8 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2Armor;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2Weapon;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -202,6 +205,7 @@ public class MultiSellChoose extends L2GameClientPacket
 		}
 		// now check if the player has sufficient items in the inventory to
 		// cover the ingredients' expences
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
 		for (MultiSellIngredient e : _ingredientsList)
 		{
 			if ((double) e.getItemCount() * _amount > Integer.MAX_VALUE)
@@ -211,7 +215,8 @@ public class MultiSellChoose extends L2GameClientPacket
 				_ingredientsList = null;
 				return;
 			}
-			if (e.getItemId() != 65336 && e.getItemId() != Config.PCB_ITEMS_ID)
+			
+			if (e.getItemId() != 65336 && e.getItemId() != l2jModsSettings.getPcBangPointId())
 			{
 				// if this is not a list that maintains enchantment, check the
 				// count of all items that have the given id.
@@ -246,7 +251,7 @@ public class MultiSellChoose extends L2GameClientPacket
 					}
                 }
 
-                if(e.getItemId() == Config.PCB_ITEMS_ID && e.getItemCount() * _amount > player.getPcBangScore())
+                if(e.getItemId() == l2jModsSettings.getPcBangPointId() && e.getItemCount() * _amount > player.getPcBangScore())
                 {
                     player.sendPacket(new SystemMessage(SystemMessageId.NOT_ENOUGH_ITEMS));
                     return;
@@ -259,7 +264,7 @@ public class MultiSellChoose extends L2GameClientPacket
 		/** All ok, remove items and add final product */
 		for (MultiSellIngredient e : entry.getIngredients())
 		{
-			if (e.getItemId() != 65336 && e.getItemId() != Config.PCB_ITEMS_ID)
+			if (e.getItemId() != 65336 && e.getItemId() != l2jModsSettings.getPcBangPointId())
 			{
 				for (MultiSellIngredient a : entry.getProducts())
                 {

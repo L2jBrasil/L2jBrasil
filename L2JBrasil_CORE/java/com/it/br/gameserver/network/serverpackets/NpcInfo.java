@@ -22,6 +22,7 @@ import static com.it.br.configuration.Configurator.getSettings;
 
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.instancemanager.TownManager;
 import com.it.br.gameserver.model.L2Character;
@@ -60,7 +61,7 @@ public class NpcInfo extends L2GameServerPacket
         if (cha.getTemplate().serverSideName)
         	_name = cha.getTemplate().name;
 
-        if(Config.L2JMOD_CHAMPION_ENABLE && cha.isChampion())
+        if(getSettings(L2JModsSettings.class).isChampionEnabled() && cha.isChampion())
             _title = ("Champion");
         else if (cha.getTemplate().serverSideTitle)
     		_title = cha.getTemplate().title;

@@ -112,4 +112,13 @@ public final class L2Properties extends Properties
 		return defaultValue;
 	}
 
+	public float getFloat(String key, float defaultValue) {
+		try {
+			return Float.parseFloat(getProperty(key));
+		} catch (NumberFormatException e) {
+			_log.warn("Error getting property " + key + ": " + e.getMessage());
+		}
+		return defaultValue;
+	}
+
 }
