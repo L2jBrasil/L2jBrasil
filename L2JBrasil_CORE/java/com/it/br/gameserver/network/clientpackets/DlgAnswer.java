@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.network.SystemMessageId;
 
 /**
@@ -47,7 +50,7 @@ public final class DlgAnswer extends L2GameClientPacket
 			_log.fine(getType()+": Answer acepted. Message ID "+_messageId+", asnwer "+_answer+", unknown field "+_unk);
 		if (_messageId == SystemMessageId.RESSURECTION_REQUEST.getId())
 			getClient().getActiveChar().reviveAnswer(_answer);
-		else if (_messageId==614 && Config.L2JMOD_ALLOW_WEDDING)
+		else if (_messageId==614 && getSettings(L2JModsSettings.class).isWeddingEnabled())
 						getClient().getActiveChar().EngageAnswer(_answer);
 	}
 

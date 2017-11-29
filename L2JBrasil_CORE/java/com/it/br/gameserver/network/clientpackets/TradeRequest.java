@@ -18,9 +18,12 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Shutdown;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2World;
@@ -123,7 +126,7 @@ public final class TradeRequest extends L2GameClientPacket
 			return;
 		}
 
-		if (player.isInParty() && Config.ALLOW_PARTY_TRADE|| partner.isInParty() && Config.ALLOW_PARTY_TRADE)
+		if ((player.isInParty() || partner.isInParty()) && !getSettings(L2JBrasilSettings.class).isPartyTradeEnabled() )
 		{
 			player.sendMessage("Cannot trade in party mode for security reasons");
 			partner.sendMessage("Cannot trade in party mode for security reasons");

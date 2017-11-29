@@ -18,9 +18,12 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
@@ -149,9 +152,10 @@ public final class RequestRestartPoint extends L2GameClientPacket
 						break;
 
 					default:
-						if (Config.CUSTOM_RESPAWN)
+						L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+						if (l2jBrasilSettings.isCustomReSpawnEnabled())
 						{
-							loc = new Location(Config.RESPAWN_X, Config.RESPAWN_Y, Config.RESPAWN_Z);
+							loc = new Location(l2jBrasilSettings.getRespawnLocationX(), l2jBrasilSettings.getRespawnLocationY(), l2jBrasilSettings.getRespawnLocationZ());
 						}
 						else
 						{

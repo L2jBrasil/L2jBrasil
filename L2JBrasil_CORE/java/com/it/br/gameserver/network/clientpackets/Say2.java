@@ -18,12 +18,15 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.nio.BufferUnderflowException;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.handler.ChatHandler;
 import com.it.br.gameserver.handler.IChatHandler;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -150,7 +153,7 @@ public final class Say2 extends L2GameClientPacket
 			activeChar.sendMessage("Don't Spam");
 			return;
 		}
-		if (Config.L2WALKER_PROTECTION && _type == TELL && checkBot(_text))
+		if (getSettings(L2JBrasilSettings.class).isL2WalkerProtectionEnabled() && _type == TELL && checkBot(_text))
 		{
 			Util.handleIllegalPlayerAction(activeChar, "Client Emulator Detect: Player " + activeChar.getName() + " using l2walker.", Config.DEFAULT_PUNISH);
 			return;

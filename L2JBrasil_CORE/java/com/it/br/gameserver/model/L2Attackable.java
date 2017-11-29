@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver.model;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.ItemsAutoDestroy;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -448,13 +451,16 @@ public class L2Attackable extends L2NpcInstance
         }
         catch (Exception e) { _log.log(Level.SEVERE, "", e); }
         setChampion(false);
-        if (Config.L2JMOD_CHAMPION_ENABLE)
+        L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+        if (l2jModsSettings.isChampionEnabled())
         {
         	//Set champion on next spawn
-        	if (!(this instanceof L2GrandBossInstance) && !(this instanceof L2RaidBossInstance) && !(this instanceof L2MinionInstance) && this instanceof L2MonsterInstance && Config.L2JMOD_CHAMPION_FREQUENCY > 0 && getLevel()>=Config.L2JMOD_CHAMP_MIN_LVL && getLevel()<=Config.L2JMOD_CHAMP_MAX_LVL)
+        	if (!(this instanceof L2GrandBossInstance) && !(this instanceof L2RaidBossInstance) && 
+        			!(this instanceof L2MinionInstance) && this instanceof L2MonsterInstance && l2jModsSettings.getChampionFrequency() > 0 
+        			&& getLevel() >= l2jModsSettings.getChampionMinLevel() && getLevel() <= l2jModsSettings.getChampionMaxLevel())
         	{
         		int random = Rnd.get(100);
-        		if (random < Config.L2JMOD_CHAMPION_FREQUENCY)
+        		if (random < l2jModsSettings.getChampionFrequency())
         			setChampion(true);
         	}
         }
@@ -599,10 +605,10 @@ public class L2Attackable extends L2NpcInstance
         					exp *= 1 - penalty;
         					sp = tmp[1];
 
-        					if (Config.L2JMOD_CHAMPION_ENABLE && isChampion())
-        					{
-        						exp *= Config.L2JMOD_CHAMPION_REWARDS;
-        						sp *= Config.L2JMOD_CHAMPION_REWARDS;
+        					L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+        					if (l2jModsSettings.isChampionEnabled() && isChampion()) {
+        						exp *= l2jModsSettings.getChampionRewards();
+        						sp *= l2jModsSettings.getChampionRewards();
         					}
 
         					// Check for an over-hit enabled strike
@@ -719,10 +725,11 @@ public class L2Attackable extends L2NpcInstance
         				exp = tmp[0];
         				sp = tmp[1];
 
-        				if (Config.L2JMOD_CHAMPION_ENABLE && isChampion())
+        				L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+        				if (l2jModsSettings.isChampionEnabled() && isChampion())
         				{
-        					exp *= Config.L2JMOD_CHAMPION_REWARDS;
-        					sp *= Config.L2JMOD_CHAMPION_REWARDS;
+        					exp *= l2jModsSettings.getChampionRewards();
+        					sp *= l2jModsSettings.getChampionRewards();
         				}
 
         				exp *= partyMul;
@@ -984,8 +991,10 @@ public class L2Attackable extends L2NpcInstance
          else if (isSweep) dropChance *= Config.RATE_DROP_SPOIL;
          else dropChance *= isRaid() ? Config.RATE_DROP_ITEMS_BY_RAID : Config.RATE_DROP_ITEMS;
 
-         if (Config.L2JMOD_CHAMPION_ENABLE && isChampion())
-	         dropChance *= Config.L2JMOD_CHAMPION_REWARDS;
+         L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+         if (l2jModsSettings.isChampionEnabled() && isChampion()) {
+	         dropChance *= l2jModsSettings.getChampionRewards();
+         }
 
          // Round drop chance
          dropChance = Math.round(dropChance);
@@ -1022,9 +1031,10 @@ public class L2Attackable extends L2NpcInstance
              // Prepare for next iteration if dropChance > L2DropData.MAX_CHANCE
              dropChance -= L2DropData.MAX_CHANCE;
          }
-		 if (Config.L2JMOD_CHAMPION_ENABLE)
+         
+		 if (l2jModsSettings.isChampionEnabled() )
 			if ((drop.getItemId() == 57 || (drop.getItemId() >= 6360 && drop.getItemId() <= 6362)) && isChampion())
-				itemCount *= Config.L2JMOD_CHAMPION_ADENAS_REWARDS;
+				itemCount *= l2jModsSettings.getChampionAdenasRewards();
 
          if (itemCount > 0) return new RewardItem(drop.getItemId(), itemCount);
          else if (itemCount == 0 && Config.DEBUG) _log.fine("Roll produced 0 items to drop...");
@@ -1069,8 +1079,9 @@ public class L2Attackable extends L2NpcInstance
 
           // Applies Drop rates
           categoryDropChance *= isRaid() ? Config.RATE_DROP_ITEMS_BY_RAID : Config.RATE_DROP_ITEMS;
-          if (Config.L2JMOD_CHAMPION_ENABLE && isChampion())
-			categoryDropChance *= Config.L2JMOD_CHAMPION_REWARDS;
+          L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+          if (l2jModsSettings.isChampionEnabled() && isChampion())
+			categoryDropChance *= l2jModsSettings.getChampionRewards();
 
           // Round drop chance
           categoryDropChance = Math.round(categoryDropChance);
@@ -1100,8 +1111,10 @@ public class L2Attackable extends L2NpcInstance
         	  int dropChance = drop.getChance();
               if (drop.getItemId() == 57) dropChance *= Config.RATE_DROP_ADENA;
               else dropChance *= isRaid() ? Config.RATE_DROP_ITEMS_BY_RAID : Config.RATE_DROP_ITEMS;
-              if (Config.L2JMOD_CHAMPION_ENABLE && isChampion())
-				dropChance *= Config.L2JMOD_CHAMPION_REWARDS;
+              
+              if (getSettings(L2JModsSettings.class).isChampionEnabled() && isChampion()) {
+				dropChance *= l2jModsSettings.getChampionRewards();
+              }
 
               dropChance = Math.round(dropChance);
 
@@ -1139,9 +1152,9 @@ public class L2Attackable extends L2NpcInstance
                   // Prepare for next iteration if dropChance > L2DropData.MAX_CHANCE
                   dropChance -= L2DropData.MAX_CHANCE;
               }
-              if (Config.L2JMOD_CHAMPION_ENABLE)
+              if (l2jModsSettings.isChampionEnabled())
             	  if ((drop.getItemId() == 57 || (drop.getItemId() >= 6360 && drop.getItemId() <= 6362)) && isChampion())
-            		  itemCount *= Config.L2JMOD_CHAMPION_ADENAS_REWARDS;
+            		  itemCount *= l2jModsSettings.getChampionAdenasRewards();
               if (!Config.MULTIPLE_ITEM_DROP && !ItemTable.getInstance().getTemplate(drop.getItemId()).isStackable() && itemCount > 1) 
                       itemCount = 1; 
               if (itemCount > 0)
@@ -1305,18 +1318,25 @@ public class L2Attackable extends L2NpcInstance
     	 }
 
     	 // Apply Special Item drop with rnd qty for champions
-    	 if (Config.L2JMOD_CHAMPION_ENABLE && isChampion() && (player.getLevel() <= getLevel()) && Config.L2JMOD_CHAMPION_REWARD > 0 && (Rnd.get(100) < Config.L2JMOD_CHAMPION_REWARD))
-		 {
-    		 int champqty = Rnd.get(Config.L2JMOD_CHAMPION_REWARD_QTY);
+    	 L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+    	 if (l2jModsSettings.isChampionEnabled() && isChampion() && (player.getLevel() <= getLevel()) && 
+    			 l2jModsSettings.getChampionRewardItem() > 0 && (Rnd.get(100) < l2jModsSettings.getChampionRewardItem()))  {
+    		 int champqty = Rnd.get(l2jModsSettings.getChampionRewardItemQty());
    			 champqty++; //quantity should actually vary between 1 and whatever admin specified as max, inclusive.
 
-    		 RewardItem item = new RewardItem(Config.L2JMOD_CHAMPION_REWARD_ID,champqty);
-    		 if (Config.AUTO_LOOT && !Config.NO_AUTO_LOOT_LIST.contains(this.getNpcId()) ) player.addItem("ChampionLoot", item.getItemId(), item.getCount(), this, true); // Give this or these Item(s) to the L2PcInstance that has killed the L2Attackable
-             if (Config.AUTO_LOOT_RAIDS && !Config.NO_AUTO_LOOT_LIST.contains(this.getNpcId()) && isRaid()) 
-                        player.doAutoLoot(this, item); // Give this or these Item(s) to the L2PcInstance that has killed the L2Attackable 
-             else if (Config.AUTO_LOOT && !Config.NO_AUTO_LOOT_LIST.contains(this.getNpcId())  && !isRaid()) 
-                        player.doAutoLoot(this, item); 
-    		 else DropItem(player, item);
+    		 RewardItem item = new RewardItem(l2jModsSettings.getChampionRewardItemID(), champqty);
+    		 if (Config.AUTO_LOOT && !Config.NO_AUTO_LOOT_LIST.contains(this.getNpcId()) ) { 
+    			 player.addItem("ChampionLoot", item.getItemId(), item.getCount(), this, true); // Give this or these Item(s) to the L2PcInstance that has killed the L2Attackable
+    		 }
+             if (Config.AUTO_LOOT_RAIDS && !Config.NO_AUTO_LOOT_LIST.contains(this.getNpcId()) && isRaid()) { 
+            	 player.doAutoLoot(this, item); // Give this or these Item(s) to the L2PcInstance that has killed the L2Attackable
+             }
+             else if (Config.AUTO_LOOT && !Config.NO_AUTO_LOOT_LIST.contains(this.getNpcId())  && !isRaid())  {
+            	 player.doAutoLoot(this, item);
+             }
+    		 else { 
+    			 DropItem(player, item);
+    		 }
     	 }
 
          //Instant Item Drop :>

@@ -14,17 +14,20 @@
  */
 package com.it.br.gameserver.instancemanager;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SetupGauge;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.util.Util;
 
 /**
  * @author *Slayer
@@ -74,32 +77,31 @@ public final class AwayManager
 		_awayPlayers = Collections.synchronizedMap(new WeakHashMap<L2PcInstance, RestoreData>());
 	}
 
-	/**
-	 * @param activeChar
-	 * @param text
-	 */
-	public void setAway(L2PcInstance activeChar, String text)
-	{
+
+	public void setAway(L2PcInstance activeChar, String text) {
+		CommandSettings commandSettings = getSettings(CommandSettings.class);
+		int awayTimer = commandSettings.getAwayTimer();
 		activeChar.set_awaying(true);
 		activeChar.broadcastPacket(new SocialAction(activeChar.getObjectId(), 9));
-		activeChar.sendMessage("Your status is Away in " + Config.AWAY_TIMER + " Sec.");
+		activeChar.sendMessage("Your status is Away in " + awayTimer + " Sec.");
 		activeChar.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
-		SetupGauge sg = new SetupGauge(SetupGauge.BLUE, Config.AWAY_TIMER * 1000);
+		
+		// XXX possible data integer overflow
+		SetupGauge sg = new SetupGauge(SetupGauge.BLUE,  awayTimer * 1000);
 		activeChar.sendPacket(sg);
-		sg = null;
-		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerAwayTask(activeChar, text), Config.AWAY_TIMER * 1000);
+		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerAwayTask(activeChar, text), Util.getSecondsInMilliseconds(awayTimer));
 	}
 
-	/**
-	 * @param activeChar
-	 */
-	public void setBack(L2PcInstance activeChar)
-	{
-		activeChar.sendMessage("You are back from Away Status in " + Config.BACK_TIMER + " Sec.");
-		SetupGauge sg = new SetupGauge(SetupGauge.BLUE, Config.BACK_TIMER * 1000);
+	
+	public void setBack(L2PcInstance activeChar) {
+		CommandSettings commandSettings = getSettings(CommandSettings.class);
+		int backTimer = commandSettings.getAwayBackTimer();
+		activeChar.sendMessage("You are back from Away Status in " + backTimer + " Sec.");
+		
+		// XXX possible data integer overflow
+		SetupGauge sg = new SetupGauge(SetupGauge.BLUE, backTimer * 1000);
 		activeChar.sendPacket(sg);
-		sg = null;
-		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerBackTask(activeChar), Config.BACK_TIMER * 1000);
+		ThreadPoolManager.getInstance().scheduleGeneral(new setPlayerBackTask(activeChar), Util.getSecondsInMilliseconds(backTimer));
 	}
 
 	public void extraBack(L2PcInstance activeChar)
@@ -154,7 +156,7 @@ public final class AwayManager
 				_activeChar.sendMessage("You are now Away *" + _awayText + "*");
 			}
 
-			_activeChar.getAppearance().setTitleColor(Config.AWAY_TITLE_COLOR);
+			_activeChar.getAppearance().setTitleColor(getSettings(CommandSettings.class).getAwayTitleColor());
 
 			if(_awayText.length() <= 1)
 			{

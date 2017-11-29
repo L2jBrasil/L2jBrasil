@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.handler.itemhandlers;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -33,12 +36,12 @@ import com.it.br.gameserver.network.serverpackets.ActionFailed;
 
 public class OfflineCustomItem implements IItemHandler
 {
-    private static final int ITEM_IDS[] = { Config.OFFLINE_LOGOUT_ITEM_ID };
 
 	public void useItem(L2PlayableInstance playable, L2ItemInstance item)
     {
 		L2PcInstance activeChar = (L2PcInstance)playable;
-		if ((activeChar.isInStoreMode() && Config.OFFLINE_TRADE_ENABLE) || (activeChar.isInCraftMode() && Config.OFFLINE_CRAFT_ENABLE))
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if ((activeChar.isInStoreMode() && l2jModsSettings.isOfflineTradeEnabled()) || (activeChar.isInCraftMode() && l2jModsSettings.isOfflineCraftEnabled()))
         {
             if(!(playable instanceof L2PcInstance))
                 return;
@@ -77,8 +80,9 @@ public class OfflineCustomItem implements IItemHandler
             }
 
             activeChar.sendMessage("You are in offline mode bye bye :p!");
-            activeChar.destroyItem("Consume", item.getObjectId(), Config.OFFLINE_LOGOUT_ITEM_COUNT, null, false);
-            if (Config.OFFLINE_SLEEP_EFFECT)
+            
+            activeChar.destroyItem("Consume", item.getObjectId(), l2jModsSettings.getLogoutItemCount(), null, false);
+            if (l2jModsSettings.isOfflineSleepEffectEnabled())
             	activeChar.startAbnormalEffect(L2Character.ABNORMAL_EFFECT_SLEEP);
             activeChar.store();
             activeChar.closeNetConnection();
@@ -88,8 +92,7 @@ public class OfflineCustomItem implements IItemHandler
         }
     }
 
-	public int[] getItemIds()
-    {
-        return ITEM_IDS;
+	public int[] getItemIds() {
+		return new int[] { getSettings(L2JModsSettings.class).getLogoutItemId() };
     }
 }

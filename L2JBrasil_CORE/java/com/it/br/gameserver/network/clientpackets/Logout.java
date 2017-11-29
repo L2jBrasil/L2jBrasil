@@ -18,12 +18,15 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.communitybbs.Manager.RegionBBSManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -108,12 +111,13 @@ public final class Logout extends L2GameClientPacket
 			return;
 		}
 
-		if (Config.OFFLINE_LOGOUT)
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if (l2jModsSettings.isOfflineLogoutEnabled())
 		{
-			if ((player.isInStoreMode() && Config.OFFLINE_TRADE_ENABLE) || (player.isInCraftMode() && Config.OFFLINE_CRAFT_ENABLE))
+			if ((player.isInStoreMode() && l2jModsSettings.isOfflineTradeEnabled()) || (player.isInCraftMode() && l2jModsSettings.isOfflineCraftEnabled()))
 			{
 				// Sleep effect, not official feature but however L2OFF features (like offline trade)
-				if (Config.OFFLINE_SLEEP_EFFECT)
+				if (l2jModsSettings.isOfflineSleepEffectEnabled())
 					player.startAbnormalEffect(L2Character.ABNORMAL_EFFECT_SLEEP);
 				
 				player.store();

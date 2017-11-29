@@ -18,13 +18,21 @@
  */
 package com.it.br.gameserver.communitybbs.Manager;
 
-import java.util.*;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.GameServer;
 import com.it.br.gameserver.model.BlockList;
 import com.it.br.gameserver.model.L2World;
@@ -410,7 +418,7 @@ public class RegionBBSManager extends BaseBBSManager
     	            htmlCode.append("<td align=left valign=top FIXWIDTH=110><a action=\"bypass _bbsloc;playerinfo;" + player.getName() + "\">");
     
     	            if (player.isGM()) htmlCode.append("<font color=\"LEVEL\">" + player.getName()+ "</font>");
-    	            else if(player.isAway() && Config.ALLOW_AWAY_STATUS)
+    	            else if(player.isAway() && getSettings(CommandSettings.class).isAwayStatusEnabled())
     	            	htmlCode.append(player.getName() + "*Away*");
     	            else htmlCode.append(player.getName());
     

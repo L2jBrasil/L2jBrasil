@@ -18,8 +18,15 @@
  */
 package com.it.br.gameserver.skills;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,6 +37,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.ChanceCondition;
 import com.it.br.gameserver.model.L2Character;
@@ -205,16 +213,17 @@ abstract class DocumentBase
         if (attrs.getNamedItem("time") != null)
         {
         	time = Integer.decode(getValue(attrs.getNamedItem("time").getNodeValue(),template));
-        	if (Config.ENABLE_MODIFY_SKILL_DURATION)
-        	{
-        		if (Config.SKILL_DURATION_LIST.containsKey(((L2Skill) template).getId()))
-        		{
+        	L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+        	
+        	if (l2jBrasilSettings.isModifySkillDurationEnabled()) {
+        		Map<Integer, Integer> skillDuration = l2jBrasilSettings.getSkillDurationMap();
+        		if (skillDuration.containsKey(((L2Skill) template).getId())) {
         			if (((L2Skill) template).getLevel() < 100)
-        				time = Config.SKILL_DURATION_LIST.get(((L2Skill) template).getId());
+        				time = skillDuration.get(((L2Skill) template).getId());
         			else if ((((L2Skill) template).getLevel() >= 100) && (((L2Skill) template).getLevel() < 140))
-        				time += Config.SKILL_DURATION_LIST.get(((L2Skill) template).getId());
+        				time += skillDuration.get(((L2Skill) template).getId());
         			else if (((L2Skill) template).getLevel() > 140)
-        				time = Config.SKILL_DURATION_LIST.get(((L2Skill) template).getId());
+        				time = skillDuration.get(((L2Skill) template).getId());
         			if (Config.DEBUG)
         				_log.info("*** Skill " + ((L2Skill) template).getName() + " (" + ((L2Skill) template).getLevel() + ") changed duration to " + time + " seconds.");
         		}

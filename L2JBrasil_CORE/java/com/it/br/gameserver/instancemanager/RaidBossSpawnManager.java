@@ -19,6 +19,8 @@
 package com.it.br.gameserver.instancemanager;
 
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,6 +33,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -166,8 +169,7 @@ public class RaidBossSpawnManager
                 _storedInfo.put(bossId, info);
 
                 GmListTable.broadcastMessageToGMs("Spawning Raid Boss " + raidboss.getName());
-                if(Config.ANNOUNCE_TO_ALL_SPAWN_RB)
-				{
+                if(getSettings(L2JBrasilSettings.class).isAnnounceSpawnRaidEnabled()) {
 					Announcements.announceToPlayers("Raid boss " + raidboss.getName() + " spawned in world.");
 				}
                 _bosses.put(bossId, raidboss);

@@ -20,11 +20,14 @@ package com.it.br.gameserver.network.clientpackets;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.CharNameTable;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -107,17 +110,13 @@ public final class CharacterCreate extends L2GameClientPacket
 		return;
 	    }
         
-		if(Config.FORBIDDEN_NAMES.length > 1)
-		{
-			for(String st : Config.FORBIDDEN_NAMES)
-			{
-				if(_name.toLowerCase().contains(st.toLowerCase()))
-				{
-					sendPacket(new CharCreateFail(CharCreateFail.REASON_INCORRECT_NAME));
-					return;
-				}
-			}
-		}
+        for(String st : getSettings(L2JBrasilSettings.class).getForbiddenNames()) {
+        	if(_name.toLowerCase().contains(st.toLowerCase()))
+        	{
+        		sendPacket(new CharCreateFail(CharCreateFail.REASON_INCORRECT_NAME));
+        		return;
+        	}
+        }
 		
         L2PcInstance newChar = null;
 		L2PcTemplate template = null;
@@ -198,136 +197,113 @@ public final class CharacterCreate extends L2GameClientPacket
             return result;
     }
 
-	private void initNewChar(L2GameClient client, L2PcInstance newChar)
-	{
-		if (Config.DEBUG) _log.fine("Character init start");
+	private void initNewChar(L2GameClient client, L2PcInstance newChar) {
+		if (Config.DEBUG)
+			_log.fine("Character init start");
 		L2World.getInstance().storeObject(newChar);
 
 		L2PcTemplate template = newChar.getTemplate();
+		
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+		
+		newChar.addAdena("Init", l2jBrasilSettings.getStartingAdena(), null, false);
+		newChar.addItem("Init", l2jBrasilSettings.getStartingGBId(), l2jBrasilSettings.getStartingGBCount(), null, false);
+		
+		
+		int levelOnEnter = l2jBrasilSettings.getLevelOnEnter();
+		
+		if (levelOnEnter > 1) {
+			newChar.getStat().addLevel((byte) (levelOnEnter - 1));
+		}
+		
+		
+		if (l2jBrasilSettings.getsPOnEnter() > 0) {
+			newChar.getStat().addSp(l2jBrasilSettings.getsPOnEnter());
+		}
+		
+		if (l2jBrasilSettings.isCustomStarterItemsEnabled()) {
+			Map<Integer, Integer> startItens;
+			if (newChar.isMageClass()) {
+				startItens = l2jBrasilSettings.getStartingItemsMage();
+			} else {
+				startItens = l2jBrasilSettings.getStartingItemsFighter();
+			}
+			
+			for(Entry<Integer, Integer> item : startItens.entrySet()) {
+				if (ItemTable.getInstance().createDummyItem(item.getKey()).isStackable()) {
+					newChar.getInventory().addItem("Starter Items", item.getKey(), item.getValue(), newChar, null);
+				} else {
+					for (int i = 0; i < item.getValue(); ++i) {
+						newChar.getInventory().addItem("Starter Items", item.getKey(), 1, newChar, null);
+					}
+				}
+			}
+		}
+		
+		if (l2jBrasilSettings.isCustomSpawnEnabled()) {
+			newChar.setXYZInvisible(l2jBrasilSettings.getCustomSpawnX(), l2jBrasilSettings.getCustomSpawnY(), l2jBrasilSettings.getCustomSpawnZ());
+		} else
+			newChar.setXYZInvisible(template.spawnX, template.spawnY, template.spawnZ);
 
-		newChar.addAdena("Init", Config.STARTING_ADENA, null, false);
-        	newChar.addItem("Init", Config.STARTING_GB_ID, (int) Config.STARTING_GB_COUNT, null, false);
+		if (l2jBrasilSettings.isNewCharTitleEnabled()) {
+			newChar.setTitle(l2jBrasilSettings.getCharTitle());
+		} else
+			newChar.setTitle("");
 
-        	if (Config.LEVEL_ON_ENTER > 1)  
-            {  
-                     newChar.getStat().addLevel((byte)(Config.LEVEL_ON_ENTER - 1));  
-            }  
-            if (Config.SP_ON_ENTER > 0)  
-            {  
-                     newChar.getStat().addSp(Config.SP_ON_ENTER);  
-            }
-    		if(Config.CUSTOM_STARTER_ITEMS_ENABLED)
-    		{
-    			if(newChar.isMageClass())
-    			{
-    				for(int[] reward : Config.STARTING_CUSTOM_ITEMS_M)
-    				{
-    					if(ItemTable.getInstance().createDummyItem(reward[0]).isStackable())
-    					{
-    						newChar.getInventory().addItem("Starter Items Mage", reward[0], reward[1], newChar, null);
-    					}
-    					else
-    					{
-    						for(int i = 0; i < reward[1]; ++i)
-    						{
-    							newChar.getInventory().addItem("Starter Items Mage", reward[0], 1, newChar, null);
-    						}
-    					}
-    				}
-    			}
-    			else
-    			{
-    				for(int[] reward : Config.STARTING_CUSTOM_ITEMS_F)
-    				{
-    					if(ItemTable.getInstance().createDummyItem(reward[0]).isStackable())
-    					{
-    						newChar.getInventory().addItem("Starter Items Fighter", reward[0], reward[1], newChar, null);
-    					}
-    					else
-    					{
-    						for(int i = 0; i < reward[1]; ++i)
-    						{
-    							newChar.getInventory().addItem("Starter Items Fighter", reward[0], 1, newChar, null);
-    						}
-    					}
-    				}
-    			}
-    		}
-            else  
- 	        newChar.setXYZInvisible(template.spawnX, template.spawnY, template.spawnZ);     
-           	if (Config.ALT_NEW_SPAWN)
-    		{
-    			newChar.setXYZInvisible(Config.ALT_NEW_SPAWN_X, Config.ALT_NEW_SPAWN_Y, Config.ALT_NEW_SPAWN_Z);
-    		}
-            else 
-            newChar.setXYZInvisible(template.spawnX, template.spawnY, template.spawnZ);
-
-            if (Config.CHARS_TITLE) 
-            { 
-                newChar.setTitle(Config.TITLE_FOR_NEW_CHARS); 
-            } 
-            else            
-                newChar.setTitle("");
-	         
-                L2ShortCut shortcut;
-		//add attack shortcut
-		shortcut = new L2ShortCut(0,0,3,2,-1,1);
+		L2ShortCut shortcut;
+		// add attack shortcut
+		shortcut = new L2ShortCut(0, 0, 3, 2, -1, 1);
 		newChar.registerShortCut(shortcut);
-		//add take shortcut
-		shortcut = new L2ShortCut(3,0,3,5,-1,1);
+		// add take shortcut
+		shortcut = new L2ShortCut(3, 0, 3, 5, -1, 1);
 		newChar.registerShortCut(shortcut);
-		//add sit shortcut
-		shortcut = new L2ShortCut(10,0,3,0,-1,1);
+		// add sit shortcut
+		shortcut = new L2ShortCut(10, 0, 3, 0, -1, 1);
 		newChar.registerShortCut(shortcut);
 
 		ItemTable itemTable = ItemTable.getInstance();
-		for (PcTemplateItem ia : template.getItems())
-		{
+		for (PcTemplateItem ia : template.getItems()) {
 			L2ItemInstance item = newChar.getInventory().addItem("Init", ia.getItemId(), ia.getAmount(), newChar, null);
-			if (item.getItemId()==5588)
-			{
-			    //add tutbook shortcut
-			    shortcut = new L2ShortCut(11,0,1,item.getObjectId(),-1,1);
-			    newChar.registerShortCut(shortcut);
+			if (item.getItemId() == 5588) {
+				// add tutbook shortcut
+				shortcut = new L2ShortCut(11, 0, 1, item.getObjectId(), -1, 1);
+				newChar.registerShortCut(shortcut);
 			}
-			if (item.isEquipable())
-			{
-			  if (newChar.getActiveWeaponItem() == null || !(item.getItem().getType2() != L2Item.TYPE2_WEAPON))
-			    newChar.getInventory().equipItemAndRecord(item);
+			if (item.isEquipable()) {
+				if (newChar.getActiveWeaponItem() == null || !(item.getItem().getType2() != L2Item.TYPE2_WEAPON))
+					newChar.getInventory().equipItemAndRecord(item);
 			}
 		}
 
 		L2SkillLearn[] startSkills = SkillTreeTable.getInstance().getAvailableSkills(newChar, newChar.getClassId());
-		for (int i = 0; i < startSkills.length; i++)
-		{
+		for (int i = 0; i < startSkills.length; i++) {
 			newChar.addSkill(SkillTable.getInstance().getInfo(startSkills[i].getId(), startSkills[i].getLevel()), true);
-			if (startSkills[i].getId()==1001 || startSkills[i].getId()==1177)
-                        {
-			    shortcut = new L2ShortCut(1,0,2,startSkills[i].getId(),1,1);
-			    newChar.registerShortCut(shortcut);
+			if (startSkills[i].getId() == 1001 || startSkills[i].getId() == 1177) {
+				shortcut = new L2ShortCut(1, 0, 2, startSkills[i].getId(), 1, 1);
+				newChar.registerShortCut(shortcut);
 			}
-			if (startSkills[i].getId()==1216)
-                        {
-			    shortcut = new L2ShortCut(10,0,2,startSkills[i].getId(),1,1);
-			    newChar.registerShortCut(shortcut);
+			if (startSkills[i].getId() == 1216) {
+				shortcut = new L2ShortCut(10, 0, 2, startSkills[i].getId(), 1, 1);
+				newChar.registerShortCut(shortcut);
 			}
 			if (Config.DEBUG)
-				_log.fine("adding starter skill:" + startSkills[i].getId()+ " / "+ startSkills[i].getLevel());
+				_log.fine("adding starter skill:" + startSkills[i].getId() + " / " + startSkills[i].getLevel());
 		}
-		
+
 		if (!Config.ALT_DEV_NO_TUTORIAL)
-		startTutorialQuest(newChar); 
+			startTutorialQuest(newChar);
 
 		L2GameClient.saveCharToDisk(newChar);
 		newChar.deleteMe(); // release the world of this character and it's inventory
-                L2World.getInstance().removeObject(newChar);
+		L2World.getInstance().removeObject(newChar);
 
 		// send char list
-		CharSelectInfo cl =	new CharSelectInfo(client.getAccountName(), client.getSessionId().playOkID1);
+		CharSelectInfo cl = new CharSelectInfo(client.getAccountName(), client.getSessionId().playOkID1);
 		client.getConnection().sendPacket(cl);
-                client.setCharSelection(cl.getCharInfo());
-                if (Config.DEBUG) _log.fine("Character init end");
-        } 
+		client.setCharSelection(cl.getCharInfo());
+		if (Config.DEBUG)
+			_log.fine("Character init end");
+	}
  
         public void startTutorialQuest(L2PcInstance player) 
         { 

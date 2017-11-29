@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.model.TradeList;
 import com.it.br.gameserver.model.actor.instance.L2MerchantInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -34,47 +37,47 @@ public class PrivateStoreListSell extends L2GameServerPacket
 	//	private static final String _S__B4_PRIVATEBUYLISTSELL = "[S] 9b PrivateBuyListSell";
 	private static final String _S__B4_PRIVATESTORELISTSELL = "[S] 9b PrivateStoreListSell";
 	private L2PcInstance _storePlayer;
-	private L2PcInstance _activeChar;
-	private int _playerAdena;
-	private boolean _packageSale;
-	private TradeList.TradeItem[] _items;
+	private L2PcInstance activeChar;
+	private int playerAdena;
+	private boolean packageSale;
+	private TradeList.TradeItem[] items;
 
 	// player's private shop
 	public PrivateStoreListSell(L2PcInstance player, L2PcInstance storePlayer)
 	{
-		_activeChar = player;
+		activeChar = player;
 		_storePlayer = storePlayer;
 		
-		if(Config.SELL_BY_ITEM)
-		{
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+		if(l2jBrasilSettings.isSellByItemEnabled()) {
 			CreatureSay cs11 = new CreatureSay(0, 15, "", "ATTENTION: Store System is not based on Adena, be careful!"); // 8D
-			_activeChar.sendPacket(cs11);
-			_playerAdena = _activeChar.getItemCount(Config.SELL_ITEM, -1);
+			activeChar.sendPacket(cs11);
+			playerAdena = activeChar.getItemCount(l2jBrasilSettings.getSellItem(), -1);
 		}
 		else
-			_playerAdena = _activeChar.getAdena();
+			playerAdena = activeChar.getAdena();
 		
-		_items = _storePlayer.getSellList().getItems();
-		_packageSale = _storePlayer.getSellList().isPackaged();
+		items = _storePlayer.getSellList().getItems();
+		packageSale = _storePlayer.getSellList().isPackaged();
 	}
 
 	// lease shop
 	@Deprecated
 	public PrivateStoreListSell(L2PcInstance player, L2MerchantInstance storeMerchant)
 	{
-		_activeChar = player;
+		activeChar = player;
 		
-		if(Config.SELL_BY_ITEM)
-		{
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+		if(l2jBrasilSettings.isSellByItemEnabled())	{
 			CreatureSay cs11 = new CreatureSay(0, 15, "", "ATTENTION: Store System is not based on Adena, be careful!"); // 8D
-			_activeChar.sendPacket(cs11);
-			_playerAdena = _activeChar.getItemCount(Config.SELL_ITEM, -1);
+			activeChar.sendPacket(cs11);
+			playerAdena = activeChar.getItemCount(l2jBrasilSettings.getSellItem(), -1);
 		}
 		else
-			_playerAdena = _activeChar.getAdena();
+			playerAdena = activeChar.getAdena();
 		
-		_items = _storePlayer.getSellList().getItems();
-		_packageSale = _storePlayer.getSellList().isPackaged();
+		items = _storePlayer.getSellList().getItems();
+		packageSale = _storePlayer.getSellList().isPackaged();
 	}
 
 
@@ -83,11 +86,11 @@ public class PrivateStoreListSell extends L2GameServerPacket
 	{
 		writeC(0x9b);
 		writeD(_storePlayer.getObjectId());
-		writeD(_packageSale ? 1 : 0);
-		writeD(_playerAdena);
+		writeD(packageSale ? 1 : 0);
+		writeD(playerAdena);
 
-		writeD(_items.length);
-		for(TradeList.TradeItem item : _items)
+		writeD(items.length);
+		for(TradeList.TradeItem item : items)
 		{
 			writeD(item.getItem().getType2());
 			writeD(item.getObjectId());

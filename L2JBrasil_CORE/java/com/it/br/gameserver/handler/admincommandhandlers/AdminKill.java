@@ -18,7 +18,16 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.logging.Logger;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2Character;
@@ -28,12 +37,6 @@ import com.it.br.gameserver.model.actor.instance.L2ControllableMobInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands:
@@ -155,16 +158,18 @@ public class AdminKill implements IAdminCommandHandler
 		return true;
 	}
 
-	private void kill(L2PcInstance activeChar, L2Character target)
-	{
+	private void kill(L2PcInstance activeChar, L2Character target) {
+		
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		
 		if (target instanceof L2PcInstance)
 		{
 			if(!((L2PcInstance)target).isGM())
 				target.stopAllEffects(); // e.g. invincibility effect
 			target.reduceCurrentHp(target.getMaxHp() + target.getMaxCp() + 1, activeChar);
 		}
-		else if (Config.L2JMOD_CHAMPION_ENABLE && target.isChampion())
-			target.reduceCurrentHp(target.getMaxHp()*Config.L2JMOD_CHAMPION_HP + 1, activeChar);
+		else if (l2jModsSettings.isChampionEnabled() && target.isChampion())
+			target.reduceCurrentHp(target.getMaxHp() * l2jModsSettings.getChampionHp() + 1, activeChar);
 		else
         { 
         if(target.isInvul()) target.setIsInvul(false); 

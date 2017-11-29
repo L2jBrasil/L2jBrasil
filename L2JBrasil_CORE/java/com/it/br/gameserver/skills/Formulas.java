@@ -18,9 +18,13 @@
  */
 package com.it.br.gameserver.skills;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
@@ -378,8 +382,9 @@ public final class Formulas
 			{
 				env.value *= BaseStats.DEX.calcBonus(env.player);
 				env.value *= 10;
-				if(env.value > Config.MAX_PCRIT_RATE)
-					env.value = Config.MAX_PCRIT_RATE;
+				int maxPCritRate = getSettings(L2JBrasilSettings.class).getMaxPCritRate();
+				if(env.value > maxPCritRate)
+					env.value = maxPCritRate;
 			}
 			env.baseValue = env.value;
 		}
@@ -930,8 +935,9 @@ public final class Formulas
 		double hpRegenMultiplier = cha.isRaid() ? Config.RAID_HP_REGEN_MULTIPLIER : Config.HP_REGEN_MULTIPLIER;
 		double hpRegenBonus = 0;
 
-		if (Config.L2JMOD_CHAMPION_ENABLE && cha.isChampion())
-			hpRegenMultiplier *= Config.L2JMOD_CHAMPION_HP_REGEN;
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if (l2jModsSettings.isChampionEnabled() && cha.isChampion())
+			hpRegenMultiplier *= l2jModsSettings.getChampionHpRegen();
 
 		if (cha instanceof L2PcInstance)
 		{

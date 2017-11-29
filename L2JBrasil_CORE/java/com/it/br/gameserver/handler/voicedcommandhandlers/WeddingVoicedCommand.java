@@ -1,6 +1,8 @@
 /* This program is free software; you can redistribute it and/or modify */
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +10,8 @@ import java.sql.ResultSet;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -71,8 +73,9 @@ public class WeddingVoicedCommand implements IVoicedCommandHandler
 
         if(activeChar.isMarried())
         {
+        	L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
             activeChar.sendMessage("You are now divorced.");
-            AdenaAmount = (activeChar.getAdena()/100)*Config.L2JMOD_WEDDING_DIVORCE_COSTS;
+            AdenaAmount = ( activeChar.getAdena() / 100 ) * l2jModsSettings.getWeddingDivorceCosts();
             activeChar.getInventory().reduceAdena("Wedding", AdenaAmount, activeChar, null);
         }
         else
@@ -118,7 +121,7 @@ public class WeddingVoicedCommand implements IVoicedCommandHandler
         if (activeChar.getPartnerId()!=0)
         {
             activeChar.sendMessage("You are already engaged.");
-            if(Config.L2JMOD_WEDDING_PUNISH_INFIDELITY)
+            if(getSettings(L2JModsSettings.class).isWeddingPunishInfidelityEnabled())
             {
                 activeChar.startAbnormalEffect((short)0x2000); // give player a Big Head
                 // lets recycle the sevensigns debuffs
@@ -174,7 +177,7 @@ public class WeddingVoicedCommand implements IVoicedCommandHandler
             return false;
         }
 
-        if (ptarget.getAppearance().getSex()==activeChar.getAppearance().getSex() && !Config.L2JMOD_WEDDING_SAMESEX)
+        if (ptarget.getAppearance().getSex()==activeChar.getAppearance().getSex() && getSettings(L2JModsSettings.class).isWeddingSameSexEnabled())
         {
             activeChar.sendMessage("Gay marriage is not allowed on this server!");
             return false;
@@ -290,11 +293,12 @@ public class WeddingVoicedCommand implements IVoicedCommandHandler
         	activeChar.sendPacket(new ActionFailed());
         	return false;
         }
-
-        int teleportTimer = Config.L2JMOD_WEDDING_TELEPORT_DURATION*1000;
+        
+        L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+        int teleportTimer = l2jModsSettings.getWeddingTeleportDuration() *1000;
 
         activeChar.sendMessage("After " + teleportTimer/60000 + " min. you will be teleported to your fiance.");
-        activeChar.getInventory().reduceAdena("Wedding", Config.L2JMOD_WEDDING_TELEPORT_PRICE, activeChar, null);
+        activeChar.getInventory().reduceAdena("Wedding", l2jModsSettings.getWeddingTeleportPrice(), activeChar, null);
 
         activeChar.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
         //SoE Animation section

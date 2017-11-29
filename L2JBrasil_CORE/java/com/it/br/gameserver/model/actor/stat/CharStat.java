@@ -18,7 +18,11 @@
  */
 package com.it.br.gameserver.model.actor.stat;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -122,10 +126,11 @@ public class CharStat
 		int criticalHit = (int) (calcStat(Stats.CRITICAL_RATE, _activeChar.getTemplate().baseCritRate, target, skill) * 10.0 + 0.5);
 
 		criticalHit /= 10;
+		
+		int maxPCritRate = getSettings(L2JBrasilSettings.class).getMaxPCritRate();
 
-		if(criticalHit > Config.MAX_PCRIT_RATE)
-		{
-			criticalHit = Config.MAX_PCRIT_RATE;
+		if(criticalHit > maxPCritRate) {
+			criticalHit = maxPCritRate;
 		}
 
 		return criticalHit;
@@ -147,10 +152,10 @@ public class CharStat
 		{
 			return 1;
 		}
-
+		int maxEvasion = getSettings(L2JBrasilSettings.class).getMaxEvasion();
 		int val = (int) (calcStat(Stats.EVASION_RATE, 0, target, null) / _activeChar.getArmourExpertisePenalty());
-		if (val > Config.MAX_EVASION  && !(_activeChar instanceof L2PcInstance && ((L2PcInstance)_activeChar).isGM())) 
-            val = Config.MAX_EVASION;
+		if (val > maxEvasion  && !(_activeChar instanceof L2PcInstance && ((L2PcInstance)_activeChar).isGM())) 
+            val = maxEvasion;
 		return val;
 	}
 
@@ -238,9 +243,10 @@ public class CharStat
 
 		float bonusAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isChampionEnabled() && _activeChar.isChampion())
 		{
-			bonusAtk = Config.L2JMOD_CHAMPION_ATK;
+			bonusAtk = l2jModsSettings.getChampionAtk();
 		}
 
 		double attack = _activeChar.getTemplate().baseMAtk * bonusAtk;
@@ -317,18 +323,19 @@ public class CharStat
 
 		float bonusSpdAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isChampionEnabled() && _activeChar.isChampion())
 		{
-			bonusSpdAtk = Config.L2JMOD_CHAMPION_SPD_ATK;
+			bonusSpdAtk = l2jModsSettings.getChampionSpdAtk();
 		}
 
 		double val = calcStat(Stats.MAGIC_ATTACK_SPEED, _activeChar.getTemplate().baseMAtkSpd * bonusSpdAtk, null, null);
 
 		val /= _activeChar.getArmourExpertisePenalty();
-
-		if(val > Config.MAX_MATK_SPEED && _activeChar instanceof L2PcInstance)
+		int maxMAtkSpeed = getSettings(L2JBrasilSettings.class).getMaxMAtkSpeed();
+		if(val > maxMAtkSpeed && _activeChar instanceof L2PcInstance)
 		{
-			val = Config.MAX_MATK_SPEED;
+			val = maxMAtkSpeed;
 		}
 
 		return (int) val;
@@ -341,11 +348,14 @@ public class CharStat
 			return 1;
 		}
 
-		double mrate = calcStat(Stats.MCRITICAL_RATE, Config.MULTIPLE_MCRIT, target, skill);
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+		
+		double mrate = calcStat(Stats.MCRITICAL_RATE, l2jBrasilSettings.getMultipleMCrit(), target, skill);
 
-		if(mrate > Config.MAX_MCRIT_RATE)
+		int maxMCritRate = getSettings(L2JBrasilSettings.class).getMaxMCritRate();
+		if(mrate > maxMCritRate)
 		{
-			mrate = Config.MAX_MCRIT_RATE;
+			mrate = maxMCritRate;
 		}
 
 		return (int) mrate;
@@ -432,9 +442,10 @@ public class CharStat
 
 		float bonusAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
+		L2JModsSettings l2jModsSettings =  getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isChampionEnabled() && _activeChar.isChampion())
 		{
-			bonusAtk = Config.L2JMOD_CHAMPION_ATK;
+			bonusAtk = l2jModsSettings.getChampionAtk();
 		}
 
 		return (int) calcStat(Stats.POWER_ATTACK, _activeChar.getTemplate().basePAtk * bonusAtk, target, null);
@@ -479,18 +490,18 @@ public class CharStat
 
 		float bonusAtk = 1;
 
-		if(Config.L2JMOD_CHAMPION_ENABLE && _activeChar.isChampion())
-		{
-			bonusAtk = Config.L2JMOD_CHAMPION_SPD_ATK;
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(getSettings(L2JModsSettings.class).isChampionEnabled() && _activeChar.isChampion()) {
+			bonusAtk =  l2jModsSettings.getChampionSpdAtk();
 		}
 
 		double val = calcStat(Stats.POWER_ATTACK_SPEED, _activeChar.getTemplate().basePAtkSpd * bonusAtk, null, null);
 
 		val /= _activeChar.getArmourExpertisePenalty();
 
-		if(val > Config.MAX_PATK_SPEED && _activeChar instanceof L2PcInstance)
-		{
-			val = Config.MAX_PATK_SPEED;
+		int maxPAtkSpeed = getSettings(L2JBrasilSettings.class).getMaxPAtkSpeed();
+		if(val > maxPAtkSpeed && _activeChar instanceof L2PcInstance) {
+			val = maxPAtkSpeed;
 		}
 
 		return (int) val;
@@ -569,8 +580,10 @@ public class CharStat
 		{
 			return 1;
 		}
+		
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
 
-		int val = (int) Math.round(calcStat(Stats.RUN_SPEED, _activeChar.getTemplate().baseRunSpd, null, null)) + Config.RUN_SPD_BOOST;
+		int val = (int) Math.round(calcStat(Stats.RUN_SPEED, _activeChar.getTemplate().baseRunSpd, null, null)) + l2jBrasilSettings.getRunSpeedBoost();
 
 		if(_activeChar.isInsideZone(L2Character.ZONE_WATER))
 		{
@@ -590,10 +603,10 @@ public class CharStat
 		}
 
 		val /= _activeChar.getArmourExpertisePenalty();
-
-		if(val > Config.MAX_RUN_SPEED && !_activeChar.charIsGM())
-		{
-			val = Config.MAX_RUN_SPEED;
+		
+		int maxRunSpeed = l2jBrasilSettings.getMaxRunSpeed();
+		if(val > maxRunSpeed && !_activeChar.charIsGM()) {
+			val = maxRunSpeed;
 		}
 
 		return val;

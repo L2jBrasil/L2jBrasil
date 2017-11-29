@@ -18,6 +18,7 @@
  */
 package com.it.br.gameserver.model;
 
+import static com.it.br.configuration.Configurator.getSettings;
 import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
 
 import java.util.*;
@@ -27,6 +28,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.GeoData;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -729,17 +732,19 @@ public abstract class L2Character extends L2Object
 		        	sendPacket(new ActionFailed());
 		        	return;
 		        }
+		        
+		        int playerProtectionLevel = getSettings(L2JBrasilSettings.class).getAltPlayerProtectionLevel();
 
-				if (getLevel() < Config.ALT_PLAYER_PROTECTION_LEVEL)
+				if (getLevel() < playerProtectionLevel)
 				{
-					((L2PcInstance)this).sendMessage("Your level is too low to participate in player vs player combat until level " + String.valueOf(Config.ALT_PLAYER_PROTECTION_LEVEL) + ".");
+					((L2PcInstance)this).sendMessage("Your level is too low to participate in player vs player combat until level " + playerProtectionLevel + ".");
 					sendPacket(new ActionFailed());
 					return;
 				}
 
-				if (target.getLevel() < Config.ALT_PLAYER_PROTECTION_LEVEL)
+				if (target.getLevel() < playerProtectionLevel)
 				{
-					((L2PcInstance)this).sendMessage("Player under newbie protection until level " + String.valueOf(Config.ALT_PLAYER_PROTECTION_LEVEL) + ".");
+					((L2PcInstance)this).sendMessage("Player under newbie protection until level " + playerProtectionLevel + ".");
 					sendPacket(new ActionFailed());
 					return;
 				}
@@ -1693,7 +1698,7 @@ public abstract class L2Character extends L2Object
 			if (((L2PlayableInstance)this).getCharmOfLuck()) //remove Lucky Charm if player has SoulOfThePhoenix/Salvation buff 
 			((L2PlayableInstance)this).stopCharmOfLuck(null); 
 		} 
-		else if (!Config.LEAVE_BUFFS_ON_DIE)
+		else if (!getSettings(L2JBrasilSettings.class).isNoRemoveBuffsOnDie())
 		{
 			stopAllEffects();
 		}		
@@ -5145,7 +5150,7 @@ public abstract class L2Character extends L2Object
 			// Check Raidboss attack
 			// Character will be petrified if attacking a raid that's more
 			// than 8 levels lower
-			if (target.isRaid() && !Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION)
+			if (target.isRaid() && !getSettings(L2JBrasilSettings.class).isRaidBossPetrificationDisabled())
 			{
 				if (getLevel() > target.getLevel() + 8)
 				{
@@ -6404,7 +6409,7 @@ public abstract class L2Character extends L2Object
 						targetsAttackTarget = target.getAI().getAttackTarget();
 						targetsCastTarget = target.getAI().getCastTarget();
 					}
-					if (!Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
+					if (!getSettings(L2JBrasilSettings.class).isRaidBossPetrificationDisabled()
 							&& ((target.isRaid() && target.giveRaidCurse() && getLevel() > target.getLevel() + 8)
 									||
 									(!skill.isOffensive() && targetsAttackTarget != null && targetsAttackTarget.isRaid()
@@ -6880,13 +6885,15 @@ public abstract class L2Character extends L2Object
 	// Method - Public
 	public void addStatusListener(L2Character object) { getStatus().addStatusListener(object); }
 	public void reduceCurrentHp(double i, L2Character attacker) { reduceCurrentHp(i, attacker, true); }
-	public void reduceCurrentHp(double i, L2Character attacker, boolean awake)
-	{
-		if (Config.L2JMOD_CHAMPION_ENABLE && isChampion() && Config.L2JMOD_CHAMPION_HP != 0)
-			getStatus().reduceHp(i/Config.L2JMOD_CHAMPION_HP, attacker, awake);
+	
+	public void reduceCurrentHp(double i, L2Character attacker, boolean awake) {
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if (l2jModsSettings.isChampionEnabled() && isChampion() && l2jModsSettings.getChampionHp() != 0)
+			getStatus().reduceHp( i / l2jModsSettings.getChampionHp(), attacker, awake);
 		else
 			getStatus().reduceHp(i, attacker, awake);
 	}
+	
 	public void reduceCurrentMp(double i) { getStatus().reduceMp(i); }
 	public void removeStatusListener(L2Character object) { getStatus().removeStatusListener(object); }
 	protected void stopHpMpRegeneration() { getStatus().stopHpMpRegeneration(); }

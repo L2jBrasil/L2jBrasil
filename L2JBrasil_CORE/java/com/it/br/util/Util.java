@@ -243,9 +243,12 @@ public class Util
 		printJvmInfo();
 	}
 	
+	public static boolean isNotEmpty(String string) {
+		return !isNullOrEmpty(string);
+	}
 	
 	public static boolean isNullOrEmpty(String string) {
-		return string == null || string.isEmpty();
+		return string == null || string.trim().isEmpty();
 	}
 	
 	public static boolean isNullOrEmpty(Collection<?> collection) {
@@ -253,7 +256,7 @@ public class Util
 	}
 
 
-	public static long getMilliSecondsFromSeconds(int seconds){
-		return seconds * 1000;
+	public static long getSecondsInMilliseconds(int seconds){
+		return seconds * 1000L;
 	}
 }

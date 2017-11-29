@@ -18,11 +18,15 @@
  */
 package com.it.br.gameserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.datatables.sql.OfflineTradeTable;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
@@ -304,7 +308,7 @@ public class Shutdown extends Thread
         if(_shutdownMode > 0)
         {
             _an.announceToAll("Attention players!");
-            _an.announceToAll("Server " + Config.SERVERNAME + " " + MODE_TEXT[_shutdownMode] + " in "+seconds+ " seconds!");
+            _an.announceToAll("Server " + getSettings(L2JBrasilSettings.class).getServerName() + " " + MODE_TEXT[_shutdownMode] + " in "+seconds+ " seconds!");
             if(_shutdownMode == 1 || _shutdownMode == 2)
             {
                 _an.announceToAll("Please, avoid to use Gatekeepers/SoE");
@@ -455,7 +459,8 @@ public class Shutdown extends Thread
         catch(Exception e){e.printStackTrace();}
         System.err.println("Olympiad System: Data saved!!");
 
-        if ((Config.OFFLINE_TRADE_ENABLE || Config.OFFLINE_CRAFT_ENABLE) && Config.OFFLINE_RESTORE_OFFLINERS)
+        L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+        if ((l2jModsSettings.isOfflineTradeEnabled() || l2jModsSettings.isOfflineCraftEnabled()) && l2jModsSettings.isRestoreOfflinersEnabled())
             OfflineTradeTable.storeOffliners();
 
         // Save Cursed Weapons data before closing.

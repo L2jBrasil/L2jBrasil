@@ -18,10 +18,14 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.Arrays;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.handler.ItemHandler;
 import com.it.br.gameserver.instancemanager.CastleManager;
@@ -70,7 +74,7 @@ public final class UseItem extends L2GameClientPacket
 		}
 
 		L2ItemInstance item = activeChar.getInventory().getItemByObjectId(_objectId);
-		if (activeChar.getPrivateStoreType() != 0 && !(item.getItemId() == Config.OFFLINE_LOGOUT_ITEM_ID))
+		if (activeChar.getPrivateStoreType() != 0 && item.getItemId() != getSettings(L2JModsSettings.class).getLogoutItemId())
 		{
 			activeChar.sendPacket(new SystemMessage(SystemMessageId.CANNOT_TRADE_DISCARD_DROP_ITEM_WHILE_IN_SHOPMODE));
 			activeChar.sendPacket(new ActionFailed());
@@ -343,8 +347,10 @@ public final class UseItem extends L2GameClientPacket
 			// Prevent player to remove the weapon on special conditions
 			if ((activeChar.isCastingNow() || activeChar.isMounted() || activeChar.isAfraid()) && (bodyPart == L2Item.SLOT_LR_HAND || bodyPart == L2Item.SLOT_L_HAND || bodyPart == L2Item.SLOT_R_HAND))
 				return;
+			
+	        L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
 
-			if (Config.ARGUMENTS_RETAIL)
+			if (l2jBrasilSettings.isArgumentsRetailLike())
 			{
 				if (bodyPart == L2Item.SLOT_L_HAND)
 				{
@@ -434,7 +440,7 @@ public final class UseItem extends L2GameClientPacket
 			if (activeChar.isCursedWeaponEquipped() && ((bodyPart == L2Item.SLOT_LR_HAND || bodyPart == L2Item.SLOT_L_HAND || bodyPart == L2Item.SLOT_R_HAND) || itemId == 6408)) // Don't allow to put formal wear 
 				return;	
 
-			if (!Config.ALLOW_DAGGERS_WEAR_HEAVY)
+			if (!l2jBrasilSettings.isDaggersUseHeavyEnabled())
 			{
 				if (activeChar.getClassId().getId() == 93 || activeChar.getClassId().getId() == 108 || activeChar.getClassId().getId() == 101 || activeChar.getClassId().getId() == 8 || activeChar.getClassId().getId() == 23 || activeChar.getClassId().getId() == 36) 
 				{ 
@@ -446,9 +452,9 @@ public final class UseItem extends L2GameClientPacket
 				} 
 			}
 
-			if (!Config.ALLOW_CLASS_USE_LIGHT)
+			if (!l2jBrasilSettings.isAnyClassUseLightEnabled())
 			{
-				if (Config.NOT_ALLOWED_USE_LIGHT.contains( activeChar.getClassId().getId()))
+				if (l2jBrasilSettings.getNotAllowedUseLight().contains( activeChar.getClassId().getId()))
 				{
 					if (item.getItemType() == L2ArmorType.LIGHT)
 					{
@@ -458,9 +464,9 @@ public final class UseItem extends L2GameClientPacket
 				}
 			}
 
-			if (!Config.ALLOW_CLASS_USE_HEAVY)
+			if (!l2jBrasilSettings.isAnyClassUseHeavyEnabled())
 			{
-				if (Config.NOT_ALLOWED_USE_HEAVY.contains( activeChar.getClassId().getId()))
+				if (l2jBrasilSettings.getNotAllowedUseHeavy().contains( activeChar.getClassId().getId()))
 				{
 					if (item.getItemType() == L2ArmorType.HEAVY)
 					{

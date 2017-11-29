@@ -23,7 +23,12 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+
+import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.voicedcommandhandlers.*;
 
 public class VoicedCommandHandler
@@ -47,46 +52,48 @@ public class VoicedCommandHandler
 	{
 		_datatable = new HashMap<>();
 		
-		if (Config.ALLOW_LOC_VOICECOMMAND)
+		CommandSettings commandSettings = getSettings(CommandSettings.class);
+		
+		if (commandSettings.isLocVoiceCommandEnabled())
 			registerVoicedCommandHandler(new LocationVoicedCommand());
 
-		if (Config.ALLOW_AWAY_STATUS)
+		if (commandSettings.isAwayStatusEnabled())
 			registerVoicedCommandHandler(new AwayVoicedCommand());
 
-		if (Config.BANKING_SYSTEM_ENABLED) 
+		if (commandSettings.isBankingEnabled()) 
 	    	registerVoicedCommandHandler(new BankingVoicedCommand());
 
-		if (Config.REC_BUY)
+		if (commandSettings.isBuyRecEnabled())
 			registerVoicedCommandHandler(new BuyRecVoicedCommand());
 
-		if (Config.ENABLE_INFO)
+		if (commandSettings.isInfoViewEnabled())
 			registerVoicedCommandHandler(new InfoVoicedCommand());
 
-		if (Config.ENABLE_ONLINE_COMMAND)
+		if (commandSettings.isOnlinePlayersCommandEnabled())
 			registerVoicedCommandHandler(new OnlineVoicedCommand());
 
-		if (Config.ALLOW_RES_COMMAND)
+		if (commandSettings.isResCommandEnabled())
 			registerVoicedCommandHandler(new ResVoicedCommand());
 
-		if (Config.ALLOW_STAT_VIEW)
+		if (commandSettings.isStatViewEnabled())
 			registerVoicedCommandHandler(new StatVoicedCommand());
 
-		if (Config.ALLOW_TRADEOFF_VOICE_COMMAND)
+		if (commandSettings.isTradeOffCommandEnabled())
 			registerVoicedCommandHandler(new TradeOffVoicedCommand());
 
-		if (Config.ENABLE_VIP_TELEPORT)
+		if (commandSettings.isVipTeleportEnabled())
 			registerVoicedCommandHandler(new VipTeleportVoicedCommand());
 
-		if (Config.L2JMOD_ALLOW_WEDDING)
+		if (getSettings(L2JModsSettings.class).isWeddingEnabled())
 			registerVoicedCommandHandler(new WeddingVoicedCommand());
 
-		if (Config.ALLOW_STATS_COMMAND)
+		if (commandSettings.isStatsCommandEnabled())
 			registerVoicedCommandHandler(new StatsVoicedCommand());
 
-		if (Config.ALLOW_CASTLE_COMMAND)
+		if (commandSettings.isCastleCommandEnabled())
 			registerVoicedCommandHandler(new CastleVoicedCommand());
 
-		if (Config.ALLOW_SET_COMMAND)
+		if (commandSettings.isSetCommandEnabled())
 			registerVoicedCommandHandler(new SetVoicedCommand());
 	}
 

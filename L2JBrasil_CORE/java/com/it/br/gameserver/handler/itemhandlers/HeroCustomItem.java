@@ -1,6 +1,8 @@
 package com.it.br.gameserver.handler.itemhandlers;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -16,11 +18,10 @@ import com.it.br.gameserver.network.serverpackets.SocialAction;
 
 public class HeroCustomItem  implements IItemHandler
 {
-    private static final int ITEM_IDS[] = { Config.HERO_CUSTOM_ITEM_ID };
-
 	public void useItem(L2PlayableInstance playable, L2ItemInstance item)
     {
-        if(Config.ALLOW_HERO_CUSTOM_ITEM)
+		 
+        if(getSettings(L2JBrasilSettings.class).isHeroCustomItemEnabled())
         {
             if(!(playable instanceof L2PcInstance))
                 return;
@@ -58,7 +59,7 @@ public class HeroCustomItem  implements IItemHandler
         		   return;
         	}
 
-        	if (!activeChar.isNoble() && Config.NOBLE_STATUS_NEEDED_TO_USE_HERO_ITEM)
+        	if (!activeChar.isNoble() && getSettings(L2JBrasilSettings.class).isNobleStatusNeededToUseHeroItem())
         	{
         		activeChar.sendMessage("You must be a Noblesse in order to use the Hero Item!");
         		activeChar.sendPacket(new ActionFailed());
@@ -76,6 +77,6 @@ public class HeroCustomItem  implements IItemHandler
 
 	public int[] getItemIds()
     {
-        return ITEM_IDS;
+        return new int[] { getSettings(L2JBrasilSettings.class).getHeroCustomItemID() } ;
     }
 }

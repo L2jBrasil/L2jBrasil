@@ -18,7 +18,9 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.model.TradeList;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
@@ -31,27 +33,26 @@ public class PrivateStoreListBuy extends L2GameServerPacket
 {
 	private static final String _S__D1_PRIVATESTORELISTBUY = "[S] b8 PrivateStoreListBuy";
 	private L2PcInstance _storePlayer;
-	private L2PcInstance _activeChar;
-	private int _playerAdena;
-	private TradeList.TradeItem[] _items;
+	private L2PcInstance activeChar;
+	private int playerAdena;
+	private TradeList.TradeItem[] items;
 
-	public PrivateStoreListBuy(L2PcInstance player, L2PcInstance storePlayer)
-	{
+	public PrivateStoreListBuy(L2PcInstance player, L2PcInstance storePlayer) {
 		_storePlayer = storePlayer;
-		_activeChar = player;
+		activeChar = player;
 		
-		if(Config.SELL_BY_ITEM)
-		{
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
+		if(l2jBrasilSettings.isSellByItemEnabled()) {
 			CreatureSay cs11 = new CreatureSay(0, 15, "", "ATTENTION: Store System is not based on Adena, be careful!"); // 8D
-			_activeChar.sendPacket(cs11);
-			_playerAdena = _activeChar.getItemCount(Config.SELL_ITEM, -1);
+			activeChar.sendPacket(cs11);
+			playerAdena = activeChar.getItemCount(l2jBrasilSettings.getSellItem(), -1);
 		}
 		else
-			_playerAdena = _activeChar.getAdena();
+			playerAdena = activeChar.getAdena();
 		
 		_storePlayer.getSellList().updateItems(); // Update SellList for case inventory content has changed
 		//this items must be the items available into the _activeChar (seller) inventory
-		_items = _storePlayer.getBuyList().getAvailableItems(_activeChar.getInventory());
+		items = _storePlayer.getBuyList().getAvailableItems(activeChar.getInventory());
 		
 		
 	}
@@ -62,11 +63,11 @@ public class PrivateStoreListBuy extends L2GameServerPacket
 	{
 		writeC(0xb8);
 		writeD(_storePlayer.getObjectId());
-		writeD(_playerAdena);
+		writeD(playerAdena);
 
-		writeD(_items.length);
+		writeD(items.length);
 
-		for(TradeList.TradeItem item : _items)
+		for(TradeList.TradeItem item : items)
 		{
 			writeD(item.getObjectId());
 			writeD(item.getItem().getItemId());

@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver.datatables.sql;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,6 +30,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.instancemanager.DayNightSpawnManager;
 import com.it.br.gameserver.model.L2Spawn;
@@ -68,10 +71,11 @@ public class SpawnTable
 	
 	private void fillSpawnTable()
 	{
+		L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
 		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 		{
 			PreparedStatement statement;
-			if (Config.DELETE_GMSPAWN_ON_CUSTOM)
+			if (l2jBrasilSettings.isDeleteGmSpawnOnCustom())
 			{
 				statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay, loc_id, periodOfDay FROM spawnlist where id NOT in ( select id from custom_notspawned where isCustom = false ) ORDER BY id");
 			}
@@ -150,12 +154,12 @@ public class SpawnTable
 
 		_log.config("SpawnTable: Loaded " + _spawntable.size() + " Npc Spawn Locations.");
 		
-		if (Config.CUSTOM_SPAWNLIST_TABLE)
+		if (l2jBrasilSettings.isGmSpawnOnCustomEnabled())
 		{
 			try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 			{
 				PreparedStatement statement;
-				if (Config.DELETE_GMSPAWN_ON_CUSTOM)
+				if (l2jBrasilSettings.isDeleteGmSpawnOnCustom())
 				{
 					statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay, loc_id, periodOfDay FROM custom_spawnlist where id NOT in ( select id from custom_notspawned where isCustom = true ) ORDER BY id");
 				}
@@ -256,7 +260,7 @@ public class SpawnTable
 		if (storeInDb)
 		{
 			String spawnTable;
-			if (spawn.isCustom() && Config.CUSTOM_SPAWNLIST_TABLE)
+			if (spawn.isCustom() && getSettings(L2JBrasilSettings.class).isGmSpawnOnCustomEnabled())
 				spawnTable = "custom_spawnlist";
 			else
 				spawnTable = "spawnlist";
@@ -293,7 +297,7 @@ public class SpawnTable
 		
 		if (updateDb)
 		{
-			if (Config.DELETE_GMSPAWN_ON_CUSTOM)
+			if (getSettings(L2JBrasilSettings.class).isDeleteGmSpawnOnCustom())
 			{
 				try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
 				{

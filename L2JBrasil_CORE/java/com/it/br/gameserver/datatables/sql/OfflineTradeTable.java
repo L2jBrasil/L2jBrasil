@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver.datatables.sql;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,6 +29,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.LoginServerThread;
 import com.it.br.gameserver.lib.Log;
 import com.it.br.gameserver.model.L2Character;
@@ -84,7 +87,7 @@ public class OfflineTradeTable
 						switch (pc.getPrivateStoreType())
 						{
 							case L2PcInstance.STORE_PRIVATE_BUY:
-								if (!Config.OFFLINE_TRADE_ENABLE)
+								if (!getSettings(L2JModsSettings.class).isOfflineTradeEnabled())
 									continue;
 								title = pc.getBuyList().getTitle();
 								for (TradeItem i : pc.getBuyList().getItems())
@@ -100,7 +103,7 @@ public class OfflineTradeTable
 								break;
 							case L2PcInstance.STORE_PRIVATE_SELL:
 							case L2PcInstance.STORE_PRIVATE_PACKAGE_SELL:
-								if (!Config.OFFLINE_TRADE_ENABLE)
+								if (!getSettings(L2JModsSettings.class).isOfflineTradeEnabled())
 									continue;
 								title = pc.getSellList().getTitle();
 								pc.getSellList().updateItems();
@@ -117,7 +120,7 @@ public class OfflineTradeTable
 								break;
 							case L2PcInstance.STORE_PRIVATE_MANUFACTURE:
 								
-								if (!Config.OFFLINE_CRAFT_ENABLE)
+								if (!getSettings(L2JModsSettings.class).isOfflineCraftEnabled())
 									continue;
 								title = pc.getCreateList().getStoreName();
 								for (L2ManufactureItem i : pc.getCreateList().getList())
@@ -175,11 +178,13 @@ public class OfflineTradeTable
 			while (rs.next())
 			{
 				long time = rs.getLong("time");
-				if (Config.OFFLINE_MAX_DAYS > 0)
+				L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+				int offlineMaxDays = l2jModsSettings.getOfflineMaxDays();
+				if (offlineMaxDays > 0)
 				{
 					Calendar cal = Calendar.getInstance();
 					cal.setTimeInMillis(time);
-					cal.add(Calendar.DAY_OF_YEAR, Config.OFFLINE_MAX_DAYS);
+					cal.add(Calendar.DAY_OF_YEAR, offlineMaxDays);
 					if (cal.getTimeInMillis() <= System.currentTimeMillis())
 					{
 						_log.info("Offline trader with id "+rs.getInt("charId")+" reached OfflineMaxDays, kicked.");
@@ -203,7 +208,7 @@ public class OfflineTradeTable
 					player.setClient(client);
 					player.setOffline(true);
 					player.setOfflineStartTime(time);
-					if (Config.OFFLINE_SLEEP_EFFECT)
+					if (l2jModsSettings.isOfflineSleepEffectEnabled())
 						player.startAbnormalEffect(L2Character.ABNORMAL_EFFECT_SLEEP);
 					player.spawnMe(player.getX(), player.getY(), player.getZ());
 					LoginServerThread.getInstance().addGameServerLogin(player.getAccountName(), client);
@@ -245,9 +250,9 @@ public class OfflineTradeTable
 					stm_items.close();
 
 					player.sitDown();
-					if (Config.OFFLINE_SET_NAME_COLOR){
+					if (l2jModsSettings.isOfflineNameColorEnabled()){
 						player._originalNameColorOffline = player.getAppearance().getNameColor();
-						player.getAppearance().setNameColor(Config.OFFLINE_NAME_COLOR);
+						player.getAppearance().setNameColor(l2jModsSettings.getOfflineNameColor());
 					}
 					player.setPrivateStoreType(type);
 					player.setOnlineStatus(true);
@@ -312,7 +317,7 @@ public class OfflineTradeTable
 				switch (pc.getPrivateStoreType())
 				{
 					case L2PcInstance.STORE_PRIVATE_BUY:
-						if (!Config.OFFLINE_TRADE_ENABLE)
+						if (!getSettings(L2JModsSettings.class).isOfflineTradeEnabled())
 							break;
 						title = pc.getBuyList().getTitle();
 						for (TradeItem i : pc.getBuyList().getItems())
@@ -328,7 +333,7 @@ public class OfflineTradeTable
 						break;
 					case L2PcInstance.STORE_PRIVATE_SELL:
 					case L2PcInstance.STORE_PRIVATE_PACKAGE_SELL:
-						if (!Config.OFFLINE_TRADE_ENABLE)
+						if (!getSettings(L2JModsSettings.class).isOfflineTradeEnabled())
 							break;
 						title = pc.getSellList().getTitle();
 						pc.getSellList().updateItems();
@@ -345,7 +350,7 @@ public class OfflineTradeTable
 						break;
 					case L2PcInstance.STORE_PRIVATE_MANUFACTURE:
 						
-						if (!Config.OFFLINE_CRAFT_ENABLE)
+						if (!getSettings(L2JModsSettings.class).isOfflineCraftEnabled())
 							break;
 						title = pc.getCreateList().getStoreName();
 						for (L2ManufactureItem i : pc.getCreateList().getList())

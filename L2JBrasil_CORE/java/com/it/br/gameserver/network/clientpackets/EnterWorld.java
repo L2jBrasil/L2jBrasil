@@ -35,6 +35,8 @@ import java.util.regex.PatternSyntaxException;
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.GmListTable;
@@ -235,15 +237,18 @@ public class EnterWorld extends L2GameClientPacket
             		activeChar.getAppearance().setTitleColor(Config.GM_TITLE_COLOR);
             }
         }
+		
+        L2JBrasilSettings l2jBrasilSettings = getSettings(L2JBrasilSettings.class);
 
-        if(Config.ALLOW_MESSAGE_ON_ENTER)
+        if(l2jBrasilSettings.isMessageOnEnterEnabled())
         {
-        	activeChar.sendPacket(new ExShowScreenMessage(Config.MESSAGE_ON_ENTER, 10000, 2, true));
+        	activeChar.sendPacket(new ExShowScreenMessage(l2jBrasilSettings.getMessageOnEnter(), 10000, 2, true));
         }
 
-        if(Config.ONLINE_PLAYERS_ON_LOGIN)
+        if(l2jBrasilSettings.isShowPlayerOnLoginEnabled())
         {
-            int PLAYERS_ONLINE = L2World.getInstance().getAllPlayers().size() + Config.PLAYERS_ONLINE_TRICK;
+        	// XXX why this? Can we remove this? I can't see a point on that.  
+            int PLAYERS_ONLINE = L2World.getInstance().getAllPlayers().size() + l2jBrasilSettings.getOnlinePlayerAdd();
             activeChar.sendMessage((new StringBuilder()).append("Players online: ").append(PLAYERS_ONLINE).toString());
         }
 
@@ -256,7 +261,9 @@ public class EnterWorld extends L2GameClientPacket
         	}
         }
 
-        if (Config.ANNOUNCE_GM_LOGIN) 
+        
+        
+        if (l2jBrasilSettings.isAnnounceGMLoginEnabled()) 
         { 
         	if (activeChar.getAccessLevel() >= 101) 
         	{ 
@@ -268,11 +275,11 @@ public class EnterWorld extends L2GameClientPacket
         	} 
         } 
 
-        if (Config.PLAYER_SPAWN_PROTECTION > 0)
-		{
+        if (l2jBrasilSettings.getPlayerSpawnProtection() > 0) {
         	activeChar.setProtection(true);
-			if (Config.PLAYER_SPAWN_PROTECTION_EFFECT)
-				activeChar.startAbnormalEffect(Config.PLAYER_EFFECT_ID);
+			if (l2jBrasilSettings.isPlayerSpawnEffectEnabled()) {
+				activeChar.startAbnormalEffect(l2jBrasilSettings.getPlayerEffectId());
+			}
 		}
 
         if(!activeChar.isGM() && (activeChar.getName().length() < 3 || activeChar.getName().length() > 16 || !Util.isAlphaNumeric(activeChar.getName()) || !isValidName(activeChar.getName())))
@@ -298,23 +305,23 @@ public class EnterWorld extends L2GameClientPacket
             activeChar.restoreEffects();
 
         activeChar.sendPacket(new EtcStatusUpdate(activeChar));
-
+        L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
         // engage and notify Partner
-        if(Config.L2JMOD_ALLOW_WEDDING)
+        if(l2jModsSettings.isWeddingEnabled())
         {
             engage(activeChar);
             notifyPartner(activeChar,activeChar.getPartnerId());
         }
-
-        if (Config.ANNOUNCE_CASTLE_LORDS)
+        
+        if (l2jBrasilSettings.isAnnounceCastleLordsEnabled())
         	notifyCastleOwner(activeChar);
 
-        if (Config.ANNOUNCE_VIP_LOGIN && activeChar.isVip())
+        if (l2jBrasilSettings.isAnnounceVipLoginEnabled() && activeChar.isVip())
         {
         	Announcements.getInstance().announceToAll("Vip: "+activeChar.getName()+" has been logged in.");
         }
 
-        if (Config.ANNOUNCE_AIO_LOGIN && activeChar.isAio())
+        if (l2jBrasilSettings.isAnnounceAioLoginEnabled() && activeChar.isAio())
         {
         	Announcements.getInstance().announceToAll("Aio: "+activeChar.getName()+" has been logged in.");
         }
@@ -378,8 +385,10 @@ public class EnterWorld extends L2GameClientPacket
 				sendPacket(new NpcHtmlMessage(1, serverNews));
 		}
 
+        
 	    // check for ilegal skills 
-	    if (Config.L2JMOD_CHECK_SKILLS_ON_ENTER && !Config.ALT_GAME_SKILL_LEARN && !activeChar.isAio() && (activeChar.isVip() && !Config.ENABLE_VIP_SYSTEM)) 
+        
+	    if (l2jModsSettings.isCheckSkillsOnEnter() && !Config.ALT_GAME_SKILL_LEARN && !activeChar.isAio() && (activeChar.isVip() && !Config.ENABLE_VIP_SYSTEM)) 
 	    	activeChar.checkAllowedSkills();
 
 	    ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
@@ -395,7 +404,7 @@ public class EnterWorld extends L2GameClientPacket
                 sendPacket(html);
             }
         }
-        else if(Config.WELCOME_HTM && isValidName(activeChar.getName()))
+        else if(l2jBrasilSettings.isWelcomeHtmEnabled() && isValidName(activeChar.getName()))
         {
             String Welcome_Path = "data/html/mods/welcome/welcome.htm";
             File mainText = new File(serverSettings.getDatapackDirectory(), Welcome_Path);
@@ -438,11 +447,12 @@ public class EnterWorld extends L2GameClientPacket
 
 		if(Config.ALLOW_AIO_TCOLOR && activeChar.isAio())
 		activeChar.getAppearance().setTitleColor(Config.AIO_TCOLOR);
+		
+		
 
-        if (Config.SHOW_WELCOME_PM)
-        {
-           CreatureSay np = new CreatureSay(0, Say2.TELL,Config.PM_FROM,Config.PM_TEXT1); 
-           CreatureSay na = new CreatureSay(0, Say2.TELL,Config.PM_FROM,Config.PM_TEXT2); 
+        if (l2jBrasilSettings.isShowWelcomePM()) {
+           CreatureSay np = new CreatureSay(0, Say2.TELL, l2jBrasilSettings.getpMFrom(), l2jBrasilSettings.getpMText1()); 
+           CreatureSay na = new CreatureSay(0, Say2.TELL, l2jBrasilSettings.getpMFrom(), l2jBrasilSettings.getpMText2()); 
            activeChar.sendPacket(np); 
            activeChar.sendPacket(na);
         }     
@@ -476,7 +486,7 @@ public class EnterWorld extends L2GameClientPacket
 		notifySponsorOrApprentice(activeChar);
 		activeChar.onPlayerEnter();
 
-        if(Config.PCB_ENABLE)
+        if(l2jModsSettings.isPcBangPointEnabled())
         {
             activeChar.showPcBangWindow();
         }
@@ -605,19 +615,20 @@ public class EnterWorld extends L2GameClientPacket
         if(cha.getPartnerId() != 0)
         {
             L2PcInstance partner = (L2PcInstance)L2World.getInstance().findObject(cha.getPartnerId());
-            if(cha.isMarried() && Config.L2JMOD_WEDDING_COLOR_NAME)
-                cha.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES);
-            if(partner != null && partner.getAppearance().getSex() == cha.getAppearance().getSex() && cha.isMarried() && Config.L2JMOD_WEDDING_COLOR_NAME)
+            L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+            if(cha.isMarried() && l2jModsSettings.isColorWeddingNameEnabled())
+                cha.getAppearance().setNameColor(l2jModsSettings.getWeddingNameColor());
+            if(partner != null && partner.getAppearance().getSex() == cha.getAppearance().getSex() && cha.isMarried() && l2jModsSettings.isColorWeddingNameEnabled())
             {
                 if(cha.getAppearance().getSex())
                 {
-                    cha.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_LIZ);
-                    partner.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_LIZ);
+                    cha.getAppearance().setNameColor(l2jModsSettings.getWeddingNameLizColor());
+                    partner.getAppearance().setNameColor(l2jModsSettings.getWeddingNameLizColor());
                 } 
                 else
                 {
-                    cha.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_GEY);
-                    partner.getAppearance().setNameColor(Config.L2JMOD_WEDDING_COLOR_NAMES_GEY);
+                    cha.getAppearance().setNameColor(l2jModsSettings.getWeddingNameGeyColor());
+                    partner.getAppearance().setNameColor(l2jModsSettings.getWeddingNameGeyColor());
                 }
                 partner.sendMessage("Your Partner has logged in");
 				partner.broadcastUserInfo();

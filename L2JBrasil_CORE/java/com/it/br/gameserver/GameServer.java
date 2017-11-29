@@ -34,6 +34,9 @@ import java.util.logging.Logger;
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.Server;
+import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.MmoCoreSettings;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
@@ -166,10 +169,9 @@ public class GameServer
 		L2ScriptEngineManager.getInstance();
 		GameTimeController.getInstance();
 
-		if (Config.GG_ENABLE)
-		{
+		if (getSettings(L2JBrasilSettings.class).isGuardSystemEnabled()) {
 			nProtect.getInstance();
-				_log.info("nProtect System Enabled");
+			_log.info("nProtect System Enabled");
 		}
 
 		Util.printSection("Skills");
@@ -375,7 +377,8 @@ public class GameServer
 
 		Util.printSection("Custom Mods");
 		TvTManager.getInstance();
-		if(Config.L2JMOD_ALLOW_WEDDING)
+		L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
+		if(l2jModsSettings.isWeddingEnabled())
 		{
 			CoupleManager.getInstance();
 			_log.info("Wedding Manager is Enable");
@@ -383,7 +386,7 @@ public class GameServer
 		else
 			_log.info("Wedding Manager is Disabled");
 
-		if(Config.ALLOW_AWAY_STATUS)
+		if(getSettings(CommandSettings.class).isAwayStatusEnabled())
 		{
 			AwayManager.getInstance();
 			_log.info("Away is Enable");
@@ -391,15 +394,15 @@ public class GameServer
 		else
 			_log.info("Away is Disabled");
 
-        if(Config.PCB_ENABLE)
+        if(l2jModsSettings.isPcBangPointEnabled())
         {
-            ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(PcPoint.getInstance(), Config.PCB_INTERVAL * 1000, Config.PCB_INTERVAL * 1000);
+            ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(PcPoint.getInstance(), Util.getSecondsInMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()), Util.getSecondsInMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()));
             _log.info("PC Bang Manager is Enable");
         }
 		else
 			_log.info("PC Bang Manager is Disabled");
 
-        if ((Config.OFFLINE_TRADE_ENABLE || Config.OFFLINE_CRAFT_ENABLE) && Config.OFFLINE_RESTORE_OFFLINERS)
+        if ((l2jModsSettings.isOfflineTradeEnabled()|| l2jModsSettings.isOfflineCraftEnabled()) && l2jModsSettings.isRestoreOfflinersEnabled())
 			OfflineTradeTable.restoreOfflineTraders();
 
         try

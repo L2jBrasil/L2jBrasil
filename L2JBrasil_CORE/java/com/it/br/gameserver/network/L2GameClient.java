@@ -34,6 +34,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.LoginServerThread;
 import com.it.br.gameserver.LoginServerThread.SessionKey;
@@ -664,17 +665,18 @@ public final class L2GameClient extends MMOClient<MMOConnection<L2GameClient>>
 						AwayManager.getInstance().extraBack(player);
 					}
 
+					L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
 					if(!Olympiad.getInstance().isRegistered(player) && !player.isInOlympiadMode() && !player.isInFunEvent() && !TvTEvent.isPlayerParticipant(player.getObjectId())
-							&& ((player.isInStoreMode() && Config.OFFLINE_TRADE_ENABLE) || (player.isInCraftMode() && Config.OFFLINE_CRAFT_ENABLE)))
+							&& ((player.isInStoreMode() && l2jModsSettings.isOfflineTradeEnabled()) || (player.isInCraftMode() && l2jModsSettings.isOfflineCraftEnabled())))
 					{
 						player.setOffline(true);
 						player.leaveParty();
 						player.store();
 
-						if(Config.OFFLINE_SET_NAME_COLOR)
+						if(l2jModsSettings.isOfflineNameColorEnabled())
 						{
 							player._originalNameColorOffline=player.getAppearance().getNameColor();
-							player.getAppearance().setNameColor(Config.OFFLINE_NAME_COLOR);
+							player.getAppearance().setNameColor(l2jModsSettings.getOfflineNameColor());
 							player.broadcastUserInfo();
 						}
 

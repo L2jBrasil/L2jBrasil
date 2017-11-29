@@ -18,7 +18,11 @@
  */
 package com.it.br.gameserver.model.base;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.ServerSettings;
 
 /**
  * Character Sub-Class Definition
@@ -30,9 +34,9 @@ import com.it.br.Config;
 public final class SubClass
 {
     private PlayerClass _class;
-    private long _exp = Experience.LEVEL[Config.ALT_SUBCLASS_LEVEL];
+    private long _exp;
     private int _sp = 0;
-    private byte _level = (byte) Config.ALT_SUBCLASS_LEVEL;
+    private byte _level;
     private int _classIndex = 1;
 
     public SubClass(int classId, long exp, int sp, byte level, int classIndex)
@@ -48,6 +52,9 @@ public final class SubClass
     {
         // Used for defining a sub class using default values for XP, SP and player level.
         _class = PlayerClass.values()[classId];
+        int subclassLevel = getSettings(L2JBrasilSettings.class).getAltSubClassLevel();
+        _exp = Experience.LEVEL[subclassLevel];
+        _level = (byte) subclassLevel;
         _classIndex = classIndex;
     }
 
@@ -55,6 +62,9 @@ public final class SubClass
     {
         // Used for specifying ALL attributes of a sub class directly,
         // using the preset default values.
+    	 int subclassLevel = getSettings(L2JBrasilSettings.class).getAltSubClassLevel();
+    	_exp = Experience.LEVEL[subclassLevel];
+    	_level = (byte) subclassLevel;
     }
 
     public PlayerClass getClassDefinition()
@@ -112,10 +122,11 @@ public final class SubClass
 
     public void setLevel(byte levelValue)
     {
+    	int subclassLevel = getSettings(L2JBrasilSettings.class).getAltSubClassLevel();
         if (levelValue > (Experience.MAX_LEVEL - 1))
             levelValue = (Experience.MAX_LEVEL - 1);
-        else if (levelValue < Config.ALT_SUBCLASS_LEVEL)
-            levelValue = (byte) Config.ALT_SUBCLASS_LEVEL;
+        else if (levelValue < subclassLevel)
+            levelValue = (byte) subclassLevel;
 
         _level = levelValue;
     }
@@ -131,7 +142,7 @@ public final class SubClass
 
     public void decLevel()
     {
-        if (getLevel() == Config.ALT_SUBCLASS_LEVEL)
+        if (getLevel() ==  getSettings(L2JBrasilSettings.class).getAltSubClassLevel())
             return;
 
         _level--;

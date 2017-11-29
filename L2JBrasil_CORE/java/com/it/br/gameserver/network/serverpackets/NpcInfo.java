@@ -18,7 +18,11 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.instancemanager.TownManager;
 import com.it.br.gameserver.model.L2Character;
@@ -57,7 +61,7 @@ public class NpcInfo extends L2GameServerPacket
         if (cha.getTemplate().serverSideName)
         	_name = cha.getTemplate().name;
 
-        if(Config.L2JMOD_CHAMPION_ENABLE && cha.isChampion())
+        if(getSettings(L2JModsSettings.class).isChampionEnabled() && cha.isChampion())
             _title = ("Champion");
         else if (cha.getTemplate().serverSideTitle)
     		_title = cha.getTemplate().title;
@@ -73,8 +77,7 @@ public class NpcInfo extends L2GameServerPacket
 			_title = t;
 	    }
         
-        if(Config.SHOW_NPC_CREST)
-        {
+        if(getSettings(L2JBrasilSettings.class).isShowNpcCrest()) {
         	if(cha != null && cha.isInsideZone(L2Character.ZONE_PEACE) && cha.getCastle().getOwnerId() != 0)
         	{
         		_x = cha.getX();
@@ -185,8 +188,7 @@ public class NpcInfo extends L2GameServerPacket
 		writeD(0000);  // hmm karma ??
 
 		writeD(_activeChar.getAbnormalEffect());  // C2
-	    if(Config.SHOW_NPC_CREST)
-	    {
+	    if(getSettings(L2JBrasilSettings.class).isShowNpcCrest()) {
 	    	writeD(_clanId);
 	    	writeD(_clanCrest);
 	    	writeD(_allyId);

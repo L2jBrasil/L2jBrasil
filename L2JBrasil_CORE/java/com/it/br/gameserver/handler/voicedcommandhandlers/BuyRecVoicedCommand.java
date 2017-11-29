@@ -14,7 +14,9 @@
  */
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
@@ -31,12 +33,16 @@ public class BuyRecVoicedCommand implements IVoicedCommandHandler
 	{
 		if (command.equalsIgnoreCase("buyrec"))
 		{
-            if(activeChar.getInventory().getItemByItemId(Config.REC_ITEM_ID) != null && activeChar.getInventory().getItemByItemId(Config.REC_ITEM_ID).getCount() >= Config.REC_ITEM_COUNT)
+			CommandSettings commandSettings = getSettings(CommandSettings.class);
+			int itemId = commandSettings.getRecItemID();
+			int itemCount = commandSettings.getRecItemCount();
+			int rewardCount = commandSettings.getRecReward();
+            if(activeChar.getInventory().getItemByItemId(itemId) != null && activeChar.getInventory().getItemByItemId(itemId).getCount() >= itemCount)
             {
             	InventoryUpdate iu = new InventoryUpdate();
-            	activeChar.getInventory().destroyItemByItemId("Rec", Config.REC_ITEM_ID, Config.REC_ITEM_COUNT, activeChar, activeChar.getTarget());
-            	activeChar.setRecomHave(activeChar.getRecomHave() + Config.REC_REWARD);
-                activeChar.sendMessage("You Have Earned "+Config.REC_REWARD+" Recomends.");
+            	activeChar.getInventory().destroyItemByItemId("Rec", itemId, itemCount, activeChar, activeChar.getTarget());
+            	activeChar.setRecomHave(activeChar.getRecomHave() + rewardCount);
+                activeChar.sendMessage("You Have Earned " + rewardCount + " Recomends.");
 				activeChar.getInventory().updateDatabase();
 				activeChar.sendPacket(iu);
 				activeChar.broadcastUserInfo();
