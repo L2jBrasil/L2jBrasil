@@ -1,0 +1,56 @@
+apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+
+
+sourceSets {
+	main.java.srcDirs = ['java']
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '4.3.1'
+}
+
+repositories {
+	mavenCentral()
+    jcenter()
+}
+
+dependencies {
+	compile project(':L2JBrasil_MMOCore')
+	
+	compile 'commons-logging:commons-logging:1.1.1'
+	compile 'org.python:jython:2.2'
+	compile 'bsf:bsf:2.4.0'
+	compile 'mysql:mysql-connector-java:5.1.44'
+	compile 'com.zaxxer:HikariCP:2.7.3'
+	
+	runtime 'org.beanshell:bsh:2.0b5'
+	runtime 'org.eclipse.jdt.core.compiler:ecj:4.4'
+	runtime 'com.mchange:mchange-commons-java:0.2.3.1'
+	runtime 'org.slf4j:slf4j-log4j12:1.7.25'
+	runtime files('lib/java-engine-1.8.jar', 'lib/jython-engine-2.2.1.jar')
+	
+}
+
+jar {
+	baseName 'L2jBrasil'
+}
+
+distributions {
+    main{
+        baseName = 'L2jBrasil'
+        
+        contents {
+            from(jar.destinationDir) {
+                into 'lib'
+            }
+            
+            from('lib') {
+            	into 'lib'
+            	include 'jython-engine-2.2.1.jar'
+            	include 'java-engine-1.8.jar'
+            }
+            
+        }
+    }
+}
