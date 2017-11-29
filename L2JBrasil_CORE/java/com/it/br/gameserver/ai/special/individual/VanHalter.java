@@ -18,20 +18,10 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
+import com.it.br.gameserver.database.dao.VanHalterDao;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
@@ -52,10 +42,18 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.Rnd;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ScheduledFuture;
+import java.util.logging.Logger;
+
 /**
  * This class ... control for sequence of fight against "High Priestess van Halter".
- * @reworked *slayer
- * @version $Revision: $ $Date: $
+ * @refactor by Tayram
+ * @version 3.0.4
  * @author L2J_JP SANDMAN
  **/
 
@@ -105,11 +103,11 @@ public class VanHalter extends Quest implements Runnable
 	protected ScheduledFuture<?> _setBleedTask = null;
 
 	// State of High Priestess van Halter
-	boolean _isLocked = false;
-	boolean _isHalterSpawned = false;
-	boolean _isSacrificeSpawned = false;
-	boolean _isCaptainSpawned = false;
-	boolean _isHelperCalled = false;
+	private boolean _isLocked = false;
+    private boolean _isHalterSpawned = false;
+    private boolean _isSacrificeSpawned = false;
+    private boolean _isCaptainSpawned = false;
+    private boolean _isHelperCalled = false;
 
 	//VanHalter Status Tracking :
 	private static final byte INTERVAL = 0;
@@ -288,17 +286,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load Royal Guard.
-	protected void loadRoyalGuard()
+	private void loadRoyalGuard()
 	{
 		_royalGuardSpawn.clear();
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		try(ResultSet rset = VanHalterDao.loadFromSpawnListBetweenIds(22175, 22176))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid between ? and ? ORDER BY id");
-			statement.setInt(1, 22175);
-			statement.setInt(2, 22176);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -322,9 +315,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadRoyalGuard: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadRoyalGuard: Loaded " + _royalGuardSpawn.size() + " Royal Guard spawn locations.");
@@ -334,13 +324,12 @@ public class VanHalter extends Quest implements Runnable
 		{
 			if(Config.DEBUG)
 				e.printStackTrace();
-			
 			// Problem with initializing spawn, go to next one
 			_log.warning("VanHalterManager.loadRoyalGuard: Spawn could not be initialized: " + e);
 		}
 	}
 
-	protected void spawnRoyalGuard()
+	private void spawnRoyalGuard()
 	{
 		if(!_royalGuard.isEmpty())
 		{
@@ -354,7 +343,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void deleteRoyalGuard()
+	private void deleteRoyalGuard()
 	{
 		for(L2NpcInstance rg : _royalGuard)
 		{
@@ -366,17 +355,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load Triol's Revelation.
-	protected void loadTriolRevelation()
+	private void loadTriolRevelation()
 	{
 		_triolRevelationSpawn.clear();
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		try(ResultSet rset = VanHalterDao.loadFromSpawnListBetweenIds(32058, 32068))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid between ? and ? ORDER BY id");
-			statement.setInt(1, 32058);
-			statement.setInt(2, 32068);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -400,9 +384,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadTriolRevelation: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadTriolRevelation: Loaded " + _triolRevelationSpawn.size() + " Triol's Revelation spawn locations.");
@@ -413,12 +394,11 @@ public class VanHalter extends Quest implements Runnable
 			// Problem with initializing spawn, go to next one
 			if(Config.DEBUG)
 				e.printStackTrace();
-			
 			_log.warning("VanHalterManager.loadTriolRevelation: Spawn could not be initialized: " + e);
 		}
 	}
 
-	protected void spawnTriolRevelation()
+	private void spawnTriolRevelation()
 	{
 		if(!_triolRevelation.isEmpty())
 		{
@@ -436,7 +416,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void deleteTriolRevelation()
+	private void deleteTriolRevelation()
 	{
 		for(L2NpcInstance tr : _triolRevelation)
 		{
@@ -448,16 +428,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load Royal Guard Captain.
-	protected void loadRoyalGuardCaptain()
+	private void loadRoyalGuardCaptain()
 	{
 		_royalGuardCaptainSpawn.clear();
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(22188))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid = ? ORDER BY id");
-			statement.setInt(1, 22188);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -481,9 +457,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadRoyalGuardCaptain: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadRoyalGuardCaptain: Loaded " + _royalGuardCaptainSpawn.size() + " Royal Guard Captain spawn locations.");
@@ -499,7 +472,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void spawnRoyalGuardCaptain()
+	private void spawnRoyalGuardCaptain()
 	{
 		if(!_royalGuardCaptain.isEmpty())
 		{
@@ -514,7 +487,7 @@ public class VanHalter extends Quest implements Runnable
 		_isCaptainSpawned = true;
 	}
 
-	protected void deleteRoyalGuardCaptain()
+	private void deleteRoyalGuardCaptain()
 	{
 		for(L2NpcInstance tr : _royalGuardCaptain)
 		{
@@ -526,16 +499,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load Royal Guard Helper.
-	protected void loadRoyalGuardHelper()
+	private void loadRoyalGuardHelper()
 	{
 		_royalGuardHelperSpawn.clear();
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(22191))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid = ? ORDER BY id");
-			statement.setInt(1, 22191);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -559,9 +528,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadRoyalGuardHelper: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadRoyalGuardHelper: Loaded " + _royalGuardHelperSpawn.size() + " Royal Guard Helper spawn locations.");
@@ -577,7 +543,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void spawnRoyalGuardHepler()
+	private void spawnRoyalGuardHepler()
 	{
 		for(L2Spawn trs : _royalGuardHelperSpawn)
 		{
@@ -586,7 +552,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void deleteRoyalGuardHepler()
+	private void deleteRoyalGuardHepler()
 	{
 		for(L2NpcInstance tr : _royalGuardHepler)
 		{
@@ -597,16 +563,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load Guard Of Altar
-	protected void loadGuardOfAltar()
+	private void loadGuardOfAltar()
 	{
 		_guardOfAltarSpawn.clear();
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(32051))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid = ? ORDER BY id");
-			statement.setInt(1, 32051);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -630,9 +592,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadGuardOfAltar: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadGuardOfAltar: Loaded " + _guardOfAltarSpawn.size() + " Guard Of Altar spawn locations.");
@@ -648,7 +607,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void spawnGuardOfAltar()
+	private void spawnGuardOfAltar()
 	{
 		if(!_guardOfAltar.isEmpty())
 		{
@@ -662,7 +621,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void deleteGuardOfAltar()
+	private void deleteGuardOfAltar()
 	{
 		for(L2NpcInstance tr : _guardOfAltar)
 		{
@@ -674,16 +633,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load High Priestess van Halter.
-	protected void loadVanHalter()
+	private void loadVanHalter()
 	{
 		_vanHalterSpawn = null;
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+        try(ResultSet rset = VanHalterDao.loadFromSpawnListById(29062))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid = ? ORDER BY id");
-			statement.setInt(1, 29062);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -707,9 +662,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadVanHalter: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadVanHalter: Loaded High Priestess van Halter spawn locations.");
@@ -725,7 +677,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void spawnVanHalter()
+	private void spawnVanHalter()
 	{
 		_vanHalter = (L2RaidBossInstance) _vanHalterSpawn.doSpawn();
 		//_vanHalter.setIsImmobilized(true);
@@ -733,7 +685,7 @@ public class VanHalter extends Quest implements Runnable
 		_isHalterSpawned = true;
 	}
 
-	protected void deleteVanHalter()
+	private void deleteVanHalter()
 	{
 		//_vanHalter.setIsImmobilized(false);
 		_vanHalter.setIsInvul(false);
@@ -742,16 +694,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load Ritual Offering.
-	protected void loadRitualOffering()
+	private void loadRitualOffering()
 	{
 		_ritualOfferingSpawn = null;
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(32038))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid = ? ORDER BY id");
-			statement.setInt(1, 32038);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -775,9 +723,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadRitualOffering: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadRitualOffering: Loaded Ritual Offering spawn locations.");
@@ -793,7 +738,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void spawnRitualOffering()
+	private void spawnRitualOffering()
 	{
 		_ritualOffering = _ritualOfferingSpawn.doSpawn();
 		//_ritualOffering.setIsImmobilized(true);
@@ -801,7 +746,7 @@ public class VanHalter extends Quest implements Runnable
 		_ritualOffering.setIsParalyzed(true);
 	}
 
-	protected void deleteRitualOffering()
+	private void deleteRitualOffering()
 	{
 		//_ritualOffering.setIsImmobilized(false);
 		_ritualOffering.setIsInvul(false);
@@ -811,16 +756,12 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Load Ritual Sacrifice.
-	protected void loadRitualSacrifice()
+	private void loadRitualSacrifice()
 	{
 		_ritualSacrificeSpawn = null;
 
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
+        try(ResultSet rset = VanHalterDao.loadFromSpawnListById(32038))
 		{
-			PreparedStatement statement = con.prepareStatement("SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist Where npc_templateid = ? ORDER BY id");
-			statement.setInt(1, 22195);
-			ResultSet rset = statement.executeQuery();
-
 			L2Spawn spawnDat;
 			L2NpcTemplate template1;
 
@@ -844,9 +785,6 @@ public class VanHalter extends Quest implements Runnable
 					_log.warning("VanHalterManager.loadRitualSacrifice: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
-
-			rset.close();
-			statement.close();
 			if(Config.DEBUG)
 			{
 				_log.info("VanHalterManager.loadRitualSacrifice: Loaded Ritual Sacrifice spawn locations.");
@@ -862,7 +800,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void spawnRitualSacrifice()
+	private void spawnRitualSacrifice()
 	{
 		_ritualSacrifice = _ritualSacrificeSpawn.doSpawn();
 		//_ritualSacrifice.setIsImmobilized(true);
@@ -870,7 +808,7 @@ public class VanHalter extends Quest implements Runnable
 		_isSacrificeSpawned = true;
 	}
 
-	protected void deleteRitualSacrifice()
+	private void deleteRitualSacrifice()
 	{
 		if(!_isSacrificeSpawned)
 			return;
@@ -880,7 +818,7 @@ public class VanHalter extends Quest implements Runnable
 		_isSacrificeSpawned = false;
 	}
 
-	protected void spawnCameraMarker()
+	private void spawnCameraMarker()
 	{
 		_cameraMarker.clear();
 		for(int i = 1; i <= _cameraMarkerSpawn.size(); i++)
@@ -891,7 +829,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void deleteCameraMarker()
+	private void deleteCameraMarker()
 	{
 		if(_cameraMarker.isEmpty())
 			return;
@@ -903,11 +841,7 @@ public class VanHalter extends Quest implements Runnable
 		_cameraMarker.clear();
 	}
 
-	// Door control.
-	/**
-	 * @param intruder
-	 */
-	public void intruderDetection(L2PcInstance intruder)
+	public void intruderDetection()
 	{
 		if(_lockUpDoorOfAltarTask == null && !_isLocked && _isCaptainSpawned)
 		{
@@ -925,7 +859,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void openDoorOfAltar(boolean loop)
+	private void openDoorOfAltar(boolean loop)
 	{
 		for(L2DoorInstance door : _doorOfAltar)
 		{
@@ -971,7 +905,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void closeDoorOfAltar(boolean loop)
+	private void closeDoorOfAltar(boolean loop)
 	{
 		for(L2DoorInstance door : _doorOfAltar)
 		{
@@ -1005,7 +939,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void openDoorOfSacrifice()
+	private void openDoorOfSacrifice()
 	{
 		for(L2DoorInstance door : _doorOfSacrifice)
 		{
@@ -1023,7 +957,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	protected void closeDoorOfSacrifice()
+	private void closeDoorOfSacrifice()
 	{
 		for(L2DoorInstance door : _doorOfSacrifice)
 		{
@@ -1042,7 +976,7 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// event
-	public void checkTriolRevelationDestroy()
+	private void checkTriolRevelationDestroy()
 	{
 		if(_isCaptainSpawned)
 			return;
@@ -1062,7 +996,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	public void checkRoyalGuardCaptainDestroy()
+	private void checkRoyalGuardCaptainDestroy()
 	{
 		if(!_isHalterSpawned)
 			return;
@@ -1086,7 +1020,7 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Start fight against High Priestess van Halter.
-	protected void combatBeginning()
+	private void combatBeginning()
 	{
 		if(_timeUpTask != null)
 		{
@@ -1107,7 +1041,7 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Call Royal Guard Helper and escape from player.
-	public void callRoyalGuardHelper()
+	private void callRoyalGuardHelper()
 	{
 		if(!_isHelperCalled)
 		{
@@ -1203,7 +1137,7 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Check bleeding player.
-	protected void addBleeding()
+	private void addBleeding()
 	{
 		L2Skill bleed = SkillTable.getInstance().getInfo(4615, 12);
 
@@ -1231,7 +1165,7 @@ public class VanHalter extends Quest implements Runnable
 		}
 	}
 
-	public void removeBleeding(int npcId)
+	private void removeBleeding(int npcId)
 	{
 		if(_bleedingPlayers.get(npcId) == null)
 			return;
@@ -1260,7 +1194,7 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// High Priestess van Halter dead or time up.
-	public void enterInterval()
+	private void enterInterval()
 	{
 		// Cancel all task
 		if(_callRoyalGuardHelperTask != null)
@@ -1359,7 +1293,7 @@ public class VanHalter extends Quest implements Runnable
 	}
 
 	// Interval end.
-	public void setupAltar()
+	private void setupAltar()
 	{
 		// Cancel all task
 		if(_callRoyalGuardHelperTask != null)

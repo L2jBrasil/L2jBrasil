@@ -18,20 +18,16 @@
  */
 package com.it.br.gameserver.model.entity;
 
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.GameServer;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.dao.AuctionDao;
 import com.it.br.gameserver.datatables.sql.ClanTable;
-import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.instancemanager.AuctionManager;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.HashMap;
