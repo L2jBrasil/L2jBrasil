@@ -25,6 +25,7 @@ import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.configuration.settings.ClanHallSiegeSettings;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
@@ -166,7 +167,7 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("event")) 
                 { 
-					Config.loadCHConfig();
+					Configurator.reloadSettings(ClanHallSiegeSettings.class);
 					Config.loadSepulchersConfig();
 					Config.loadOlympConfig();
 					Config.loadSevenSignsConfig();
@@ -279,7 +280,6 @@ public class AdminReload implements IAdminCommandHandler
     private void reloadAllConfigs() {
     	Configurator.reloadAll();
         Config.loadGMAcessConfig();
-        Config.loadCHConfig();
         Config.loadSepulchersConfig();
         Config.loadOlympConfig();
         Config.loadSevenSignsConfig();

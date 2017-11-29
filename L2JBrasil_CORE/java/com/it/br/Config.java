@@ -39,6 +39,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.Olympiad.OlympiadPeriod;
 import com.it.br.gameserver.util.FloodProtectorConfig;
@@ -59,7 +60,6 @@ public final class Config
 
     /* Properties Files Definitions */
 
-    public static final String CH_FILE              = "./config/event/clanhall.properties";
     public static final String SEPULCHERS_FILE		= "./config/event/sepulchers.properties";
     public static final String OLYMPIAD_FILE		= "./config/event/olympiad.properties";
     public static final String SEVENSIGNS_FILE		= "./config/event/sevensigns.properties";
@@ -1100,94 +1100,6 @@ public final class Config
             throw new Error("Failed to Load " + ADMIN_FILE + " File.");
         }
     }
-
-
-	// --------------------------------------------- //
-    // -             L2JMODS PROPERTIES            - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static boolean L2JMOD_CHAMPION_ENABLE;
-    public static int L2JMOD_CHAMPION_FREQUENCY;
-    public static int L2JMOD_CHAMP_MIN_LVL;
-    public static int L2JMOD_CHAMP_MAX_LVL;
-    public static int L2JMOD_CHAMPION_HP;
-    public static int L2JMOD_CHAMPION_REWARDS;
-    public static float L2JMOD_CHAMPION_ADENAS_REWARDS;
-    public static float L2JMOD_CHAMPION_HP_REGEN;
-    public static float L2JMOD_CHAMPION_ATK;
-    public static float L2JMOD_CHAMPION_SPD_ATK;
-    public static int L2JMOD_CHAMPION_REWARD;
-    public static int L2JMOD_CHAMPION_REWARD_ID;
-    public static int L2JMOD_CHAMPION_REWARD_QTY;
-    public static boolean L2JMOD_WEDDING_ANNOUNCE;
-    public static boolean L2JMOD_ALLOW_WEDDING;
-    public static int L2JMOD_WEDDING_PRICE;
-    public static boolean L2JMOD_WEDDING_PUNISH_INFIDELITY;
-    public static boolean L2JMOD_WEDDING_TELEPORT;
-    public static int L2JMOD_WEDDING_TELEPORT_PRICE;
-    public static int L2JMOD_WEDDING_TELEPORT_DURATION;
-    public static boolean L2JMOD_WEDDING_SAMESEX;
-    public static boolean L2JMOD_WEDDING_FORMALWEAR;
-    public static int L2JMOD_WEDDING_DIVORCE_COSTS;
-	public static boolean L2JMOD_WEDDING_COLOR_NAME;
-	public static int L2JMOD_WEDDING_COLOR_NAMES;
-	public static int L2JMOD_WEDDING_COLOR_NAMES_GEY;
-	public static int L2JMOD_WEDDING_COLOR_NAMES_LIZ;
-    public static boolean PCB_ENABLE;
-    public static int PCB_MIN_LEVEL;
-    public static int PCB_POINT_MIN;
-    public static int PCB_POINT_MAX;
-    public static int PCB_CHANCE_DUAL_POINT;
-    public static int PCB_INTERVAL;
-    public static int PCB_ITEMS_ID;
-	public static boolean OFFLINE_TRADE_ENABLE;
-	public static boolean OFFLINE_CRAFT_ENABLE;
-	public static boolean OFFLINE_SET_NAME_COLOR;
-	public static int OFFLINE_NAME_COLOR;
-	public static boolean OFFLINE_LOGOUT;
-	public static boolean OFFLINE_SLEEP_EFFECT;
-	public static boolean OFFLINE_RESTORE_OFFLINERS;
-	public static int OFFLINE_MAX_DAYS;
-	public static boolean OFFLINE_DISCONNECT_FINISHED;
-	public static int OFFLINE_LOGOUT_ITEM_ID;
-	public static int OFFLINE_LOGOUT_ITEM_COUNT;
-    public static boolean L2JMOD_CHECK_SKILLS_ON_ENTER;
-    public static List<Integer>  L2JMOD_ALLOWED_SKILLS_LIST;
-    public static boolean L2JMOD_CHECK_HERO_SKILLS;
-    public static boolean L2JMOD_CHECK_NOBLE_SKILLS;
-	public static List<Integer> L2JMOD_LIST_NO_CHECK_SKILLS;
-
-	// --------------------------------------------- //
-    // -        ELITE CLAN HALL PROPERTIES         - //
-    // --------------------------------------------- //
-	// ============================================================
-	public static int DEVASTATED_DAY;
-	public static int DEVASTATED_HOUR;
-	public static int DEVASTATED_MINUTES;
-	public static int PARTISAN_DAY;
-	public static int PARTISAN_HOUR;
-	public static int PARTISAN_MINUTES;
-	// ============================================================
-	public static void loadCHConfig()
-	{
-		try(InputStream is = new FileInputStream(new File(CH_FILE)))
-		{
-			Properties clanHallSettings = new Properties();
-			clanHallSettings.load(is);
-
-			DEVASTATED_DAY = Integer.valueOf(clanHallSettings.getProperty("DevastatedDay", "1"));
-			DEVASTATED_HOUR = Integer.valueOf(clanHallSettings.getProperty("DevastatedHour", "18"));
-			DEVASTATED_MINUTES = Integer.valueOf(clanHallSettings.getProperty("DevastatedMinutes", "0"));
-			PARTISAN_DAY = Integer.valueOf(clanHallSettings.getProperty("PartisanDay", "5"));
-			PARTISAN_HOUR = Integer.valueOf(clanHallSettings.getProperty("PartisanHour", "21"));
-			PARTISAN_MINUTES = Integer.valueOf(clanHallSettings.getProperty("PartisanMinutes", "0"));
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + CH_FILE + " File.");
-		}
-	}
 
 	// --------------------------------------------- //
     // -       SEPULCHERS CONFIG PROPERTIES        - //
@@ -3823,28 +3735,28 @@ public final class Config
         else if (pName.equalsIgnoreCase("AltMembersCanWithdrawFromClanWH")) MEMBERS_CAN_WITHDRAW_FROM_CLANWH = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("DwarfRecipeLimit")) DWARF_RECIPE_LIMIT = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("CommonRecipeLimit")) COMMON_RECIPE_LIMIT = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionEnable")) L2JMOD_CHAMPION_ENABLE =  Boolean.valueOf(pValue);
-        else if (pName.equalsIgnoreCase("ChampionFrequency")) L2JMOD_CHAMPION_FREQUENCY = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionMinLevel")) L2JMOD_CHAMP_MIN_LVL = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionMaxLevel")) L2JMOD_CHAMP_MAX_LVL = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionHp")) L2JMOD_CHAMPION_HP = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionHpRegen")) L2JMOD_CHAMPION_HP_REGEN = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewards")) L2JMOD_CHAMPION_REWARDS = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionAdenasRewards")) L2JMOD_CHAMPION_ADENAS_REWARDS = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionAtk")) L2JMOD_CHAMPION_ATK = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionSpdAtk")) L2JMOD_CHAMPION_SPD_ATK = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewardItem")) L2JMOD_CHAMPION_REWARD = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewardItemID")) L2JMOD_CHAMPION_REWARD_ID = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewardItemQty")) L2JMOD_CHAMPION_REWARD_QTY = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("AllowWedding")) L2JMOD_ALLOW_WEDDING = Boolean.valueOf(pValue);
-        else if (pName.equalsIgnoreCase("WeddingPrice")) L2JMOD_WEDDING_PRICE = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("WeddingPunishInfidelity")) L2JMOD_WEDDING_PUNISH_INFIDELITY = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingTeleport")) L2JMOD_WEDDING_TELEPORT = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingTeleportPrice")) L2JMOD_WEDDING_TELEPORT_PRICE = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("WeddingTeleportDuration")) L2JMOD_WEDDING_TELEPORT_DURATION = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("WeddingAllowSameSex")) L2JMOD_WEDDING_SAMESEX = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingFormalWear")) L2JMOD_WEDDING_FORMALWEAR = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingDivorceCosts")) L2JMOD_WEDDING_DIVORCE_COSTS = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("ChampionEnable")) getSettings(L2JModsSettings.class).setChampionEnabled(Boolean.valueOf(pValue));
+        else if (pName.equalsIgnoreCase("ChampionFrequency")) getSettings(L2JModsSettings.class).setChampionFrequency(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionMinLevel")) getSettings(L2JModsSettings.class).setChampionMinLevel(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionMaxLevel")) getSettings(L2JModsSettings.class).setChampionMaxLevel(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionHp")) getSettings(L2JModsSettings.class).setChampionHp(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionHpRegen")) getSettings(L2JModsSettings.class).setChampionHpRegen(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewards")) getSettings(L2JModsSettings.class).setChampionRewards(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionAdenasRewards")) getSettings(L2JModsSettings.class).setChampionAdenasRewards(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionAtk")) getSettings(L2JModsSettings.class).setChampionAtk(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionSpdAtk")) getSettings(L2JModsSettings.class).setChampionSpdAtk(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewardItem")) getSettings(L2JModsSettings.class).setChampionRewardItem(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewardItemID")) getSettings(L2JModsSettings.class).setChampionRewardItemID(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewardItemQty")) getSettings(L2JModsSettings.class).setChampionRewardItemQty(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("AllowWedding")) getSettings(L2JModsSettings.class).setWeddingEnabled(Boolean.valueOf(pValue));
+        else if (pName.equalsIgnoreCase("WeddingPrice")) getSettings(L2JModsSettings.class).setWeddingPrice(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("WeddingPunishInfidelity")) getSettings(L2JModsSettings.class).setWeddingPunishInfidelityEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingTeleport")) getSettings(L2JModsSettings.class).setWeddingTeleportEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingTeleportPrice")) getSettings(L2JModsSettings.class).setWeddingTeleportPrice(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("WeddingTeleportDuration")) getSettings(L2JModsSettings.class).setWeddingTeleportDuration(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("WeddingAllowSameSex")) getSettings(L2JModsSettings.class).setWeddingSameSexEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingFormalWear")) getSettings(L2JModsSettings.class).setWeddingFormalWearEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingDivorceCosts")) getSettings(L2JModsSettings.class).setWeddingDivorceCosts(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("EnableRndSpawns")) ALLOW_RND_SPAWN = Boolean.parseBoolean(pValue);
         else if (pName.equalsIgnoreCase("TvTEventEnabled")) TVT_EVENT_ENABLED = Boolean.parseBoolean(pValue);
         else if (pName.equalsIgnoreCase("TvTEventInterval")) TVT_EVENT_INTERVAL = pValue.split(",");
@@ -3921,7 +3833,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadCHConfig();
     		loadSepulchersConfig();
     		loadTvTConfig();
     		loadOlympConfig();
