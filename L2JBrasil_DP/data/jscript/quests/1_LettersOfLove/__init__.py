@@ -19,7 +19,6 @@ BAULS_POTION       = 1080
  
 #REWARD 
 NECKLACE = 906
-ADENA_ID = 57
  
 class Quest (JQuest) :
 
@@ -105,10 +104,8 @@ class Quest (JQuest) :
            htmltext = "30048-09.htm" 
          elif ItemsCount_BP > 0 : 
            htmltext = "30048-10.htm" 
-           st.takeItems(BAULS_POTION,-1)
-           st.rewardItems(ADENA_ID, 2466) 
-           st.giveItems(NECKLACE,1)
-           st.addExpAndSp(5672,446) 
+           st.takeItems(BAULS_POTION,-1) 
+           st.giveItems(NECKLACE,1) 
            st.set("cond","0") 
            st.set("onlyone","1") 
            st.setState(COMPLETED)

@@ -3,6 +3,7 @@
 # http://forum.l2jdp.com to meet the community behind it, or
 # http://l2jdp.com/trac if you need to report a bug.
 import sys
+from com.it.br import Config 
 from com.it.br.gameserver.model.quest import State
 from com.it.br.gameserver.model.quest import QuestState
 from com.it.br.gameserver.model.quest.jython import QuestJython as JQuest
