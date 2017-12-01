@@ -17,6 +17,8 @@
  */
 package com.it.br.gameserver.model;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -25,6 +27,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
@@ -337,11 +340,12 @@ public class CursedWeapon
 	public boolean checkDrop(L2Attackable attackable, L2PcInstance player)
 	{
 
-                if (Config.TVT_EVENT_ENABLED && TvTEvent.isStarted() && TvTEvent.isPlayerParticipant(player.getObjectId()))
-                {
-                    player.sendMessage("You can't drop it in the TvTEvent.");
-                    return false;
-                }
+        if (getSettings(EventSettings.class).isTvTEventEnabled() && TvTEvent.isStarted() && TvTEvent.isPlayerParticipant(player.getObjectId()))
+        {
+            player.sendMessage("You can't drop it in the TvTEvent.");
+            return false;
+        }
+        
 		if (Rnd.get(100000) < _dropRate)
 		{
 			// Drop the item

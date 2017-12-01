@@ -325,17 +325,6 @@ public final class Util
 		return new String(ch2);
 	}
 
-	/**
-	 * converts a given time from minutes -> miliseconds
-	 * 
-	 * @param string
-	 * @return
-	 */
-	public static int convertMinutesToMiliseconds(int minutesToConvert)
-	{
-		return minutesToConvert * 60000;
-	}
-	
 	public static boolean contains(int[] array, int obj)
 	{
 		for (int i = 0; i < array.length; i++)

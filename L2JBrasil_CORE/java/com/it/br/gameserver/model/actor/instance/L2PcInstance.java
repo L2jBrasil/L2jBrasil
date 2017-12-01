@@ -38,6 +38,7 @@ import java.util.logging.Level;
 
 import com.it.br.Config;
 import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.Announcements;
@@ -5005,8 +5006,9 @@ public final class L2PcInstance extends L2PlayableInstance
 
         if (player_target == null)
            return;
-
-		if (Config.TVT_EVENT_ALLOW_FLAG && TvTEvent.isStarted() && TvTEvent.isPlayerParticipant(getObjectId()))
+        
+        
+		if (getSettings(EventSettings.class).isTvTAllowFlag() && TvTEvent.isStarted() && TvTEvent.isPlayerParticipant(getObjectId()))
 			return;
 
         if ((isInDuel() && player_target.getDuelId() == getDuelId()))

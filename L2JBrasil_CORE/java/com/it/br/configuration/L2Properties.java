@@ -91,7 +91,6 @@ public final class L2Properties extends Properties
 	public List<Integer> getIntegerList(String key, String delimiter) {
 		String[] values = getProperty(key).split(delimiter);
 		List<Integer> list = new ArrayList<>(values.length);
-		
 		Stream.of(values).filter(Util::isNotEmpty).forEach( v -> {
 			try {
 				int value = Integer.parseInt(v.trim());
@@ -119,6 +118,26 @@ public final class L2Properties extends Properties
 			_log.warn("Error getting property " + key + ": " + e.getMessage());
 		}
 		return defaultValue;
+	}
+
+	public int[] getIntegerArray(String key, String delimiter) {
+		String[] values = getProperty(key).split(",");
+		int[] array = new int[values.length];
+		int index = 0;
+		for (String v : values) {
+			
+			if(Util.isNullOrEmpty(v)) {
+				continue;
+			}
+			
+			try {
+				int value = Integer.parseInt(v);
+				array[index++] = value;
+			} catch (NumberFormatException e) {
+				_log.warn("Error getting property " + key + ": " + e.getMessage());
+			}
+		}
+		return array;
 	}
 
 }

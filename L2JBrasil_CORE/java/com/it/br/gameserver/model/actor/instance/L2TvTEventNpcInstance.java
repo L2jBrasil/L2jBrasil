@@ -18,7 +18,10 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import com.it.br.Config;
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
@@ -58,14 +61,14 @@ public class L2TvTEventNpcInstance extends L2NpcInstance
 
 	    	if (htmContent != null)
 	    	{
+	    		EventSettings eventSettings = getSettings(EventSettings.class);
 	    		int[] teamsPlayerCounts = TvTEvent.getTeamsPlayerCounts();
 	    		NpcHtmlMessage npcHtmlMessage = new NpcHtmlMessage(getObjectId());
-
 				npcHtmlMessage.setHtml(htmContent);
 	    		npcHtmlMessage.replace("%objectId%", String.valueOf(getObjectId()));
-				npcHtmlMessage.replace("%team1name%", Config.TVT_EVENT_TEAM_1_NAME);
+				npcHtmlMessage.replace("%team1name%", eventSettings.getTvTEventTeam1Name());
 				npcHtmlMessage.replace("%team1playercount%", String.valueOf(teamsPlayerCounts[0]));
-				npcHtmlMessage.replace("%team2name%", Config.TVT_EVENT_TEAM_2_NAME);
+				npcHtmlMessage.replace("%team2name%", eventSettings.getTvTEventTeam2Name());
 				npcHtmlMessage.replace("%team2playercount%", String.valueOf(teamsPlayerCounts[1]));
 				npcHtmlMessage.replace("%playercount%", String.valueOf(teamsPlayerCounts[0]+teamsPlayerCounts[1]));
 				if (!isParticipant)
@@ -83,13 +86,13 @@ public class L2TvTEventNpcInstance extends L2NpcInstance
 	    		int[] teamsPlayerCounts = TvTEvent.getTeamsPlayerCounts();
 	    		int[] teamsPointsCounts = TvTEvent.getTeamsPoints();
 	    		NpcHtmlMessage npcHtmlMessage = new NpcHtmlMessage(getObjectId());
-
+	    		EventSettings eventSettings = getSettings(EventSettings.class);
 				npcHtmlMessage.setHtml(htmContent);
 	    		//npcHtmlMessage.replace("%objectId%", String.valueOf(getObjectId()));
-				npcHtmlMessage.replace("%team1name%", Config.TVT_EVENT_TEAM_1_NAME);
+				npcHtmlMessage.replace("%team1name%", eventSettings.getTvTEventTeam1Name());
 				npcHtmlMessage.replace("%team1playercount%", String.valueOf(teamsPlayerCounts[0]));
 				npcHtmlMessage.replace("%team1points%", String.valueOf(teamsPointsCounts[0]));
-				npcHtmlMessage.replace("%team2name%", Config.TVT_EVENT_TEAM_2_NAME);
+				npcHtmlMessage.replace("%team2name%",  eventSettings.getTvTEventTeam2Name());
 				npcHtmlMessage.replace("%team2playercount%", String.valueOf(teamsPlayerCounts[1]));
 				npcHtmlMessage.replace("%team2points%", String.valueOf(teamsPointsCounts[1])); // <---- array index from 0 to 1 thx DaRkRaGe
 	    		playerInstance.sendPacket(npcHtmlMessage);

@@ -396,7 +396,7 @@ public class GameServer
 
         if(l2jModsSettings.isPcBangPointEnabled())
         {
-            ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(PcPoint.getInstance(), Util.getSecondsInMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()), Util.getSecondsInMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()));
+            ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(PcPoint.getInstance(), Util.secondsToMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()), Util.secondsToMilliseconds(l2jModsSettings.getPcBangPointTimeStamp()));
             _log.info("PC Bang Manager is Enable");
         }
 		else

@@ -30,6 +30,7 @@ import java.io.LineNumberReader;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +39,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
@@ -64,7 +66,6 @@ public final class Config
     public static final String OLYMPIAD_FILE		= "./config/event/olympiad.properties";
     public static final String SEVENSIGNS_FILE		= "./config/event/sevensigns.properties";
     public static final String SIEGE_FILE			= "./config/event/siege.properties";
-    public static final String EVENT_CONFIG_FILE	= "./config/event/event.properties";
 
     public static final String ADMIN_FILE			= "./config/main/admin.properties";
     public static final String ALTSETTINGS_FILE	    = "./config/main/altsettings.properties";
@@ -1265,258 +1266,6 @@ public final class Config
 	    }
     }
 
-    // --------------------------------------------- //
-    // -           TVT EVENT PROPERTIES            - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static int HIDE_IMAGEM_ITEM;
-    public static int HIDE_REWARD_ITEM;
-    public static int HIDE_REWARD_COUNT;
-    public static boolean TVT_EVENT_ENABLED;
-	public static String[] TVT_EVENT_INTERVAL;
-	public static int TVT_EVENT_PARTICIPATION_TIME;
-	public static int TVT_EVENT_RUNNING_TIME;
-	public static int TVT_EVENT_PARTICIPATION_NPC_ID;
-	public static int[] TVT_EVENT_PARTICIPATION_NPC_COORDINATES = new int[4];
-	public static int[] TVT_EVENT_PARTICIPATION_FEE = new int[2];
-	public static int TVT_EVENT_MIN_PLAYERS_IN_TEAMS;
-	public static int TVT_EVENT_MAX_PLAYERS_IN_TEAMS;
-	public static byte TVT_EVENT_MIN_LVL;
-	public static byte TVT_EVENT_MAX_LVL;
-	public static int TVT_EVENT_RESPAWN_TELEPORT_DELAY;
-	public static int TVT_EVENT_START_LEAVE_TELEPORT_DELAY;
-	public static String TVT_EVENT_TEAM_1_NAME;
-	public static int[] TVT_EVENT_TEAM_1_COORDINATES = new int[3];
-	public static String TVT_EVENT_TEAM_2_NAME;
-	public static int[] TVT_EVENT_TEAM_2_COORDINATES = new int[3];
-	public static List<int[]> TVT_EVENT_REWARDS;
-	public static boolean TVT_EVENT_TARGET_TEAM_MEMBERS_ALLOWED;
-	public static boolean TVT_EVENT_SCROLL_ALLOWED;
-	public static boolean TVT_EVENT_POTIONS_ALLOWED;
-	public static boolean TVT_EVENT_SUMMON_BY_ITEM_ALLOWED;
-	public static List<Integer> TVT_DOORS_IDS_TO_OPEN;
-	public static List<Integer> TVT_DOORS_IDS_TO_CLOSE;
-	public static boolean TVT_REWARD_TEAM_TIE;
-	public static int TVT_EVENT_EFFECTS_REMOVAL;
-    public static Map<Integer, Integer> TVT_EVENT_FIGHTER_BUFFS;
-    public static Map<Integer, Integer> TVT_EVENT_MAGE_BUFFS;
-    public static String TVT_EVENT_ON_KILL;
-	public static boolean TVT_RESTORE_PLAYER_POS;
-	public static List<Integer> LIST_TVT_RESTRICTED_ITEMS = new ArrayList<>();
-	public static boolean TVT_REWARD_ONLY_KILLERS;
-	public static int TVT_EVENT_REWARD_KILL;
-	public static boolean TVT_EVENT_ALLOW_PEACE_ATTACK;
-	public static boolean TVT_EVENT_ALLOW_FLAG;
-	public static boolean TVT_EVENT_RESTORE_CPHPMP;
-	// ============================================================
-
-    public static void loadTvTConfig()
-    {
-	    try(InputStream is = new FileInputStream(new File(EVENT_CONFIG_FILE)))
-	    {
-	        Properties TvTevent  = new Properties();
-	        TvTevent.load(is);
-
-	        HIDE_IMAGEM_ITEM = Integer.parseInt(TvTevent.getProperty("HideImageItem", "7683"));
-	        HIDE_REWARD_ITEM = Integer.parseInt(TvTevent.getProperty("HideRewardItem", "2807"));
-	        HIDE_REWARD_COUNT = Integer.parseInt(TvTevent.getProperty("HideRewardCount", "50"));
-
-	        TVT_EVENT_ENABLED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventEnabled", "False"));
-			TVT_EVENT_INTERVAL = TvTevent.getProperty("TvTEventInterval", "20:00").split(",");
-			TVT_EVENT_PARTICIPATION_TIME = Integer.parseInt(TvTevent.getProperty("TvTEventParticipationTime", "3600"));
-			TVT_EVENT_RUNNING_TIME = Integer.parseInt(TvTevent.getProperty("TvTEventRunningTime", "1800"));
-			TVT_EVENT_PARTICIPATION_NPC_ID = Integer.parseInt(TvTevent.getProperty("TvTEventParticipationNpcId", "0"));
-			if (TVT_EVENT_PARTICIPATION_NPC_ID == 0)
-			{
-				TVT_EVENT_ENABLED = false;
-				_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationNpcId");
-			}
-			else
-			{
-				String[] propertySplit = TvTevent.getProperty("TvTEventParticipationNpcCoordinates", "0,0,0").split(",");
-				if (propertySplit.length < 3)
-				{
-					TVT_EVENT_ENABLED = false;
-					_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationNpcCoordinates");
-				}
-				else
-				{
-					TVT_EVENT_REWARDS = new ArrayList<>();
-					TVT_DOORS_IDS_TO_OPEN = new ArrayList<>();
-					TVT_DOORS_IDS_TO_CLOSE = new ArrayList<>();
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES = new int[4];
-					TVT_EVENT_TEAM_1_COORDINATES = new int[3];
-					TVT_EVENT_TEAM_2_COORDINATES = new int[3];
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
-					if (propertySplit.length == 4)
-						TVT_EVENT_PARTICIPATION_NPC_COORDINATES[3] = Integer.parseInt(propertySplit[3]);
-					TVT_EVENT_MIN_PLAYERS_IN_TEAMS = Integer.parseInt(TvTevent.getProperty("TvTEventMinPlayersInTeams", "1"));
-					TVT_EVENT_MAX_PLAYERS_IN_TEAMS = Integer.parseInt(TvTevent.getProperty("TvTEventMaxPlayersInTeams", "20"));
-					TVT_EVENT_MIN_LVL = (byte)Integer.parseInt(TvTevent.getProperty("TvTEventMinPlayerLevel", "1"));
-					TVT_EVENT_MAX_LVL = (byte)Integer.parseInt(TvTevent.getProperty("TvTEventMaxPlayerLevel", "80"));
-					TVT_EVENT_RESPAWN_TELEPORT_DELAY = Integer.parseInt(TvTevent.getProperty("TvTEventRespawnTeleportDelay", "20"));
-					TVT_EVENT_START_LEAVE_TELEPORT_DELAY = Integer.parseInt(TvTevent.getProperty("TvTEventStartLeaveTeleportDelay", "20"));
-					TVT_EVENT_EFFECTS_REMOVAL = Integer.parseInt(TvTevent.getProperty("TvTEventEffectsRemoval", "0"));
-					TVT_RESTORE_PLAYER_POS = Boolean.parseBoolean(TvTevent.getProperty("TvTRestorePlayerOldPosition", "False"));
-					String[] split = TvTevent.getProperty("TvTRestrictedItems","0").split(",");
-					LIST_TVT_RESTRICTED_ITEMS = new ArrayList<>();
-					for (String id : split)
-					{
-						LIST_TVT_RESTRICTED_ITEMS.add(Integer.parseInt(id));
-					}
-					TVT_REWARD_ONLY_KILLERS = Boolean.parseBoolean(TvTevent.getProperty("TvTRewardOnlyKillers", "False"));
-					TVT_EVENT_ALLOW_PEACE_ATTACK = Boolean.parseBoolean(TvTevent.getProperty("TvTAllowPeaceAttack", "True"));
-					TVT_EVENT_ALLOW_FLAG = Boolean.parseBoolean(TvTevent.getProperty("TvTAllowFlag", "True"));
-					TVT_EVENT_RESTORE_CPHPMP = Boolean.parseBoolean(TvTevent.getProperty("TvTRestoreCPHPMP", "False"));
-					TVT_EVENT_TEAM_1_NAME = TvTevent.getProperty("TvTEventTeam1Name", "Team1");
-					propertySplit = TvTevent.getProperty("TvTEventTeam1Coordinates", "0,0,0").split(",");
-					if (propertySplit.length < 3)
-					{
-						TVT_EVENT_ENABLED = false;
-						_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventTeam1Coordinates");
-					}
-					else
-					{
-						TVT_EVENT_TEAM_1_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
-						TVT_EVENT_TEAM_1_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
-						TVT_EVENT_TEAM_1_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
-						TVT_EVENT_TEAM_2_NAME = TvTevent.getProperty("TvTEventTeam2Name", "Team2");
-						propertySplit = TvTevent.getProperty("TvTEventTeam2Coordinates", "0,0,0").split(",");
-						if (propertySplit.length < 3)
-						{
-							TVT_EVENT_ENABLED= false;
-							_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventTeam2Coordinates");
-						}
-						else
-						{
-							TVT_EVENT_TEAM_2_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
-							TVT_EVENT_TEAM_2_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
-							TVT_EVENT_TEAM_2_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
-							propertySplit = TvTevent.getProperty("TvTEventParticipationFee", "0,0").split(",");
-							try
-							{
-								TVT_EVENT_PARTICIPATION_FEE[0] = Integer.parseInt(propertySplit[0]);
-								TVT_EVENT_PARTICIPATION_FEE[1] = Integer.parseInt(propertySplit[1]);
-							}
-							catch (NumberFormatException nfe)
-							{
-								if (propertySplit.length > 0)
-									_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationFee");
-							}
-							propertySplit = TvTevent.getProperty("TvTEventReward", "57,100000").split(";");
-							for (String reward : propertySplit)
-							{
-								String[] rewardSplit = reward.split(",");
-								if (rewardSplit.length != 2)
-									_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"", reward, "\""));
-								else
-								{
-									try
-									{
-										TVT_EVENT_REWARDS.add(new int[]{Integer.parseInt(rewardSplit[0]), Integer.parseInt(rewardSplit[1])});
-									}
-									catch (NumberFormatException nfe)
-									{
-										if (!reward.isEmpty())
-											_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"", reward, "\""));
-									}
-								}
-							}
-							TVT_EVENT_ON_KILL = TvTevent.getProperty("TvTEventOnKill", "pmteam");
-							TVT_EVENT_REWARD_KILL = Integer.parseInt(TvTevent.getProperty("TvTEventRewardKill", "2"));
-							TVT_EVENT_TARGET_TEAM_MEMBERS_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventTargetTeamMembersAllowed", "True"));
-							TVT_EVENT_SCROLL_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventScrollsAllowed", "False"));
-							TVT_EVENT_POTIONS_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventPotionsAllowed", "False"));
-							TVT_EVENT_SUMMON_BY_ITEM_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventSummonByItemAllowed", "False"));
-							TVT_REWARD_TEAM_TIE = Boolean.parseBoolean(TvTevent.getProperty("TvTRewardTeamTie", "False"));
-							propertySplit = TvTevent.getProperty("TvTDoorsToOpen", "").split(";");
-							for (String door : propertySplit)
-							{
-								try
-								{
-									TVT_DOORS_IDS_TO_OPEN.add(Integer.parseInt(door));
-								}
-								catch (NumberFormatException nfe)
-								{
-									if (!door.isEmpty())
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTDoorsToOpen \"", door, "\""));
-								}
-							}
-
-							propertySplit = TvTevent.getProperty("TvTDoorsToClose", "").split(";");
-							for (String door : propertySplit)
-							{
-								try
-								{
-									TVT_DOORS_IDS_TO_CLOSE.add(Integer.parseInt(door));
-								}
-								catch (NumberFormatException nfe)
-								{
-									if (!door.isEmpty())
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTDoorsToClose \"", door, "\""));
-								}
-							}
-
-							propertySplit = TvTevent.getProperty("TvTEventFighterBuffs", "").split(";");
-							if (!propertySplit[0].isEmpty())
-							{
-								TVT_EVENT_FIGHTER_BUFFS = new HashMap<>();
-								for (String skill : propertySplit)
-								{
-									String[] skillSplit = skill.split(",");
-									if (skillSplit.length != 2)
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventFighterBuffs \"", skill, "\""));
-									else
-									{
-										try
-										{
-											TVT_EVENT_FIGHTER_BUFFS.put(Integer.parseInt(skillSplit[0]), Integer.parseInt(skillSplit[1]));
-										}
-										catch (NumberFormatException nfe)
-										{
-											if (!skill.isEmpty())
-												_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventFighterBuffs \"", skill, "\""));
-										}
-									}
-								}
-							}
-
-							propertySplit = TvTevent.getProperty("TvTEventMageBuffs", "").split(";");
-							if (!propertySplit[0].isEmpty())
-							{
-								TVT_EVENT_MAGE_BUFFS = new HashMap<>();
-								for (String skill : propertySplit)
-								{
-									String[] skillSplit = skill.split(",");
-									if (skillSplit.length != 2)
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventMageBuffs \"", skill, "\""));
-									else
-									{
-										try
-										{
-											TVT_EVENT_MAGE_BUFFS.put(Integer.parseInt(skillSplit[0]), Integer.parseInt(skillSplit[1]));
-										}
-										catch (NumberFormatException nfe)
-										{
-											if (!skill.isEmpty())
-												_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventMageBuffs \"", skill, "\""));
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-        }
-        catch (Exception e)
-        {
-                e.printStackTrace();
-                throw new Error("Failed to Load " + EVENT_CONFIG_FILE + " File.");
-        }
-    }
 
     // --------------------------------------------- //
     // -       ALTSETTINGS PROPERTIES              - //
@@ -3758,11 +3507,11 @@ public final class Config
         else if (pName.equalsIgnoreCase("WeddingFormalWear")) getSettings(L2JModsSettings.class).setWeddingFormalWearEnabled(Boolean.parseBoolean(pValue));
         else if (pName.equalsIgnoreCase("WeddingDivorceCosts")) getSettings(L2JModsSettings.class).setWeddingDivorceCosts(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("EnableRndSpawns")) ALLOW_RND_SPAWN = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventEnabled")) TVT_EVENT_ENABLED = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventInterval")) TVT_EVENT_INTERVAL = pValue.split(",");
-        else if (pName.equalsIgnoreCase("TvTEventParticipationTime")) TVT_EVENT_PARTICIPATION_TIME = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventRunningTime")) TVT_EVENT_RUNNING_TIME = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventParticipationNpcId")) TVT_EVENT_PARTICIPATION_NPC_ID = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("TvTEventEnabled")) getSettings(EventSettings.class).setTvTEventEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("TvTEventInterval")) getSettings(EventSettings.class).setTvTEventInterval(Arrays.asList(pValue.split(",")));
+        else if (pName.equalsIgnoreCase("TvTEventParticipationTime")) getSettings(EventSettings.class).setTvTEventParticipationTime(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("TvTEventRunningTime"))  getSettings(EventSettings.class).setTvTEventRunningTime(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("TvTEventParticipationNpcId")) getSettings(EventSettings.class).setTvTEventParticipationNpcId(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("ServerName")) getSettings(L2JBrasilSettings.class).setServerName(pValue);
         else if (pName.equalsIgnoreCase("MinKarma")) KARMA_MIN_KARMA = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("MaxKarma")) KARMA_MAX_KARMA = Integer.parseInt(pValue);
@@ -3834,7 +3583,6 @@ public final class Config
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
     		loadSepulchersConfig();
-    		loadTvTConfig();
     		loadOlympConfig();
     		loadSevenSignsConfig();
 
