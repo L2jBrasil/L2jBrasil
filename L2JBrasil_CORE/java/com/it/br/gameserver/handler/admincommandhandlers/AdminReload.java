@@ -25,7 +25,6 @@ import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.configuration.settings.ClanHallSiegeSettings;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
@@ -168,7 +167,6 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("event")) 
                 { 
-					Configurator.reloadSettings(ClanHallSiegeSettings.class);
 					Config.loadSepulchersConfig();
 					Config.loadOlympConfig();
 					Config.loadSevenSignsConfig();
