@@ -1564,6 +1564,7 @@ public class L2Attackable extends L2NpcInstance
 
     /**
      * Return the active weapon of this L2Attackable (= null).<BR><BR>
+     * @return 
      */
     public L2ItemInstance getActiveWeapon()
     {
@@ -1572,6 +1573,7 @@ public class L2Attackable extends L2NpcInstance
 
     /**
      * Return True if the _aggroList of this L2Attackable is Empty.<BR><BR>
+     * @return 
      */
     public boolean noTarget()
     {
