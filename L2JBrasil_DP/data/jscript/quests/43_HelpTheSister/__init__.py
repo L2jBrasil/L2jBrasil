@@ -1,5 +1,6 @@
 #quest by zerghase
 import sys
+from com.it.br import Config
 from com.it.br.gameserver.model.quest import State
 from com.it.br.gameserver.model.quest import QuestState
 from com.it.br.gameserver.model.quest.jython import QuestJython as JQuest
