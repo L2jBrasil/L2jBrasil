@@ -43,7 +43,6 @@ import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.Olympiad.OlympiadPeriod;
 import com.it.br.gameserver.util.FloodProtectorConfig;
 import com.it.br.gameserver.util.StringUtil;
 
@@ -63,7 +62,6 @@ public final class Config
     /* Properties Files Definitions */
 
     public static final String SEPULCHERS_FILE		= "./config/event/sepulchers.properties";
-    public static final String OLYMPIAD_FILE		= "./config/event/olympiad.properties";
     public static final String SEVENSIGNS_FILE		= "./config/event/sevensigns.properties";
     public static final String SIEGE_FILE			= "./config/event/siege.properties";
 
@@ -1140,89 +1138,6 @@ public final class Config
 		{
 			e.printStackTrace();
 			throw new Error("Failed to Load " + SEPULCHERS_FILE + " File.");
-		}
-	}
-
-	// --------------------------------------------- //
-    // -             OLYMPIAD PROPIETERS           - //
-    // --------------------------------------------- //
-    // ============================================================
-	public static int ALT_OLY_START_TIME;
-	public static int ALT_OLY_MIN;
-	public static long ALT_OLY_CPERIOD;
-	public static long ALT_OLY_BATTLE;
-	public static long ALT_OLY_BWAIT;
-	public static long ALT_OLY_IWAIT;
-	public static long ALT_OLY_WPERIOD;
-	public static long ALT_OLY_VPERIOD;
-	public static int ALT_OLY_CLASSED;
-	public static int ALT_OLY_NONCLASSED;
-	public static int ALT_OLY_BATTLE_REWARD_ITEM;
-	public static int ALT_OLY_CLASSED_RITEM_C;
-	public static int ALT_OLY_NONCLASSED_RITEM_C;
-	public static int ALT_OLY_COMP_RITEM;
-	public static int ALT_OLY_GP_PER_POINT;
-	public static int ALT_OLY_MIN_POINT_FOR_EXCH;
-	public static int ALT_OLY_HERO_POINTS;
-	public static List<Integer> ALT_OLY_RESTRICTED_ITEMS;
-	public static boolean ALT_OLY_RESTRICTED_ITEMS_S;
-	public static OlympiadPeriod ALT_OLY_PERIOD;
-	public static int ALT_OLY_PERIOD_MULTIPLIER;
-	public static boolean ALLOW_EVENTS_DURING_OLY;
-	public static boolean ALT_OLY_RECHARGE_SKILLS;
-	public static int ALT_OLY_ENCHANT_LIMIT;
-	public static boolean ALLOW_SKILL_AUGMENTS_IN_OLYM;
-	public static boolean OLY_SKILL_PROTECT;
-	public static List<Integer> OLY_SKILL_LIST;
-	//============================================================
-
-	public static void loadOlympConfig()
-	{
-	    try(InputStream is = new FileInputStream(new File(OLYMPIAD_FILE)))
-		{
-			Properties Olym = new Properties();
-			Olym.load(is);
-
-			ALT_OLY_START_TIME = Integer.parseInt(Olym.getProperty("AltOlyStartTime", "18"));
-			ALT_OLY_MIN = Integer.parseInt(Olym.getProperty("AltOlyMin", "00"));
-			ALT_OLY_CPERIOD = Long.parseLong(Olym.getProperty("AltOlyCPeriod", "21600000"));
-			ALT_OLY_BATTLE = Long.parseLong(Olym.getProperty("AltOlyBattle", "360000"));
-			ALT_OLY_BWAIT = Long.parseLong(Olym.getProperty("AltOlyBWait", "600000"));
-			ALT_OLY_IWAIT = Long.parseLong(Olym.getProperty("AltOlyIWait", "300000"));
-			ALT_OLY_WPERIOD = Long.parseLong(Olym.getProperty("AltOlyWPeriod", "604800000"));
-			ALT_OLY_VPERIOD = Long.parseLong(Olym.getProperty("AltOlyVPeriod", "86400000"));
-			ALT_OLY_CLASSED = Integer.parseInt(Olym.getProperty("AltOlyClassedParticipants", "5"));
-			ALT_OLY_NONCLASSED = Integer.parseInt(Olym.getProperty("AltOlyNonClassedParticipants", "9"));
-			ALT_OLY_BATTLE_REWARD_ITEM = Integer.parseInt(Olym.getProperty("AltOlyBattleRewItem", "6651"));
-			ALT_OLY_CLASSED_RITEM_C = Integer.parseInt(Olym.getProperty("AltOlyClassedRewItemCount", "50"));
-			ALT_OLY_NONCLASSED_RITEM_C = Integer.parseInt(Olym.getProperty("AltOlyNonClassedRewItemCount", "30"));
-			ALT_OLY_COMP_RITEM = Integer.parseInt(Olym.getProperty("AltOlyCompRewItem", "6651"));
-			ALT_OLY_GP_PER_POINT = Integer.parseInt(Olym.getProperty("AltOlyGPPerPoint", "1000"));
-			ALT_OLY_MIN_POINT_FOR_EXCH = Integer.parseInt(Olym.getProperty("AltOlyMinPointForExchange", "50"));
-			ALT_OLY_HERO_POINTS = Integer.parseInt(Olym.getProperty("AltOlyHeroPoints", "300"));
-	    	ALT_OLY_RESTRICTED_ITEMS = new ArrayList<>();
-	    	for (String id : Olym.getProperty("OlyRestrictedItems","0").split(","))
-	    	{
-	    		ALT_OLY_RESTRICTED_ITEMS.add(Integer.parseInt(id));
-	    	}
-	    	ALT_OLY_RESTRICTED_ITEMS_S = Boolean.parseBoolean(Olym.getProperty("AllowOlyGradS", "False"));
-			ALT_OLY_PERIOD = OlympiadPeriod.valueOf(Olym.getProperty("AltOlyPeriod", "MONTH"));
-			ALT_OLY_PERIOD_MULTIPLIER = Integer.parseInt(Olym.getProperty("AltOlyPeriodMultiplier", "1"));
-			ALLOW_EVENTS_DURING_OLY = Boolean.parseBoolean(Olym.getProperty("AllowEventsDuringOly", "False"));
-			ALT_OLY_RECHARGE_SKILLS = Boolean.parseBoolean(Olym.getProperty("AltOlyRechargeSkills", "False"));
-			ALT_OLY_ENCHANT_LIMIT = Integer.parseInt(Olym.getProperty("OlyMaxEnchant", "-1"));
-			ALLOW_SKILL_AUGMENTS_IN_OLYM = Boolean.parseBoolean(Olym.getProperty("AllowSkillAugmentInOlym", "True"));
-			OLY_SKILL_PROTECT = Boolean.parseBoolean(Olym.getProperty("OlySkillProtect", "True"));
-            OLY_SKILL_LIST = new ArrayList<>();
-			for (String id : Olym.getProperty("OllySkillId","0").split(","))
-			{
-				OLY_SKILL_LIST.add(Integer.parseInt(id));
-			}
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + OLYMPIAD_FILE + " File.");
 		}
 	}
 
@@ -3583,7 +3498,6 @@ public final class Config
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
     		loadSepulchersConfig();
-    		loadOlympConfig();
     		loadSevenSignsConfig();
 
     		loadGMAcessConfig();

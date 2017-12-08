@@ -18,7 +18,9 @@
  */
 package com.it.br.gameserver.skills.funcs;
 
-import com.it.br.Config;
+import static com.it.br.configuration.Configurator.getSettings;
+
+import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.skills.Env;
@@ -57,16 +59,17 @@ public class FuncEnchant extends Func
         if(env.player != null && env.player instanceof L2PcInstance)
 		{
 			L2PcInstance player = (L2PcInstance) env.player;
-			if(player.isInOlympiadMode() && Config.ALT_OLY_ENCHANT_LIMIT >= 0 && enchant + overenchant > Config.ALT_OLY_ENCHANT_LIMIT)
+			int enchantLimit = getSettings(OlympiadSettings.class).getMaximumEnchant();
+			if(player.isInOlympiadMode() && enchantLimit >= 0 && enchant + overenchant > enchantLimit)
 			{
-				if(Config.ALT_OLY_ENCHANT_LIMIT > 3)
+				if(enchantLimit > 3)
 				{
-					overenchant = Config.ALT_OLY_ENCHANT_LIMIT - 3;
+					overenchant = enchantLimit - 3;
 				}
 				else
 				{
 					overenchant = 0;
-					enchant = Config.ALT_OLY_ENCHANT_LIMIT;
+					enchant = enchantLimit;
 				}
 			}
 		}

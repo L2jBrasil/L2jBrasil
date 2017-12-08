@@ -23,8 +23,8 @@ import static com.it.br.configuration.Configurator.getSettings;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Multisell;
 import com.it.br.gameserver.model.L2World;
@@ -41,11 +41,12 @@ public class L2OlympiadManagerInstance extends L2FolkInstance
 {
     private static Logger _logOlymp = Logger.getLogger(L2OlympiadManagerInstance.class.getName());
 
-    private static final int GATE_PASS = Config.ALT_OLY_COMP_RITEM;
+    private int gatePass;
 
     public L2OlympiadManagerInstance (int objectId, L2NpcTemplate template)
     {
         super(objectId, template);
+        gatePass = getSettings(OlympiadSettings.class).getCompetitionRewardItem();
     }
 
 
@@ -189,7 +190,7 @@ public class L2OlympiadManagerInstance extends L2FolkInstance
                 	int passes = Olympiad.getInstance().getNoblessePasses(player.getObjectId());
                     if (passes > 0)
                     {
-                        L2ItemInstance item = player.getInventory().addItem("Olympiad", GATE_PASS, passes, player, this);
+                        L2ItemInstance item = player.getInventory().addItem("Olympiad", gatePass, passes, player, this);
 
                         InventoryUpdate iu = new InventoryUpdate();
                         iu.addModifiedItem(item);

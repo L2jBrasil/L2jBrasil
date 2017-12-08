@@ -331,7 +331,7 @@ class OlympiadGameTask extends Olympiad implements Runnable
 				_game.makeCompetitionStart();
 
 				//Wait 3 mins (Battle)
-				for(int i = 0; i < BATTLE_PERIOD; i += 5000)
+				for(int i = 0; i < battlePeriod; i += 5000)
 				{
 					try
 					{

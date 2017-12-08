@@ -23,13 +23,13 @@ import java.util.StringTokenizer;
 
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
-import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.configuration.settings.OlympiadSettings;
+import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -168,7 +168,7 @@ public class AdminReload implements IAdminCommandHandler
 				else if (type.startsWith("event")) 
                 { 
 					Config.loadSepulchersConfig();
-					Config.loadOlympConfig();
+					Configurator.reloadSettings(OlympiadSettings.class);
 					Config.loadSevenSignsConfig();
 					Configurator.reloadSettings(EventSettings.class);
 					sendReloadPage(activeChar);
@@ -280,7 +280,6 @@ public class AdminReload implements IAdminCommandHandler
     	Configurator.reloadAll();
         Config.loadGMAcessConfig();
         Config.loadSepulchersConfig();
-        Config.loadOlympConfig();
         Config.loadSevenSignsConfig();
         Config.loadAltSettingsConfig();
         Config.loadBossConfig();

@@ -23,9 +23,9 @@ import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -119,7 +119,7 @@ public class TvTEvent
 			return false;
 		}
 
-		if(!Config.ALLOW_EVENTS_DURING_OLY && Olympiad.getInstance().inCompPeriod())
+		if(!getSettings(OlympiadSettings.class).isEventsDuringOlympiadEnabled() && Olympiad.getInstance().inCompPeriod())
 		{
 			System.out.println("TvTEventEngine : TvT Event uninitialized, Olympiad running");
 			return false;

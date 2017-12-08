@@ -140,4 +140,13 @@ public final class L2Properties extends Properties
 		return array;
 	}
 
+	public long getLong(String key, long defaultValue) {
+		try {
+			return Long.parseLong(getProperty(key));
+		} catch (NumberFormatException e) {
+			_log.warn("Error getting property " + key + ": " + e.getMessage());
+		}
+		return defaultValue;
+	}
+
 }
