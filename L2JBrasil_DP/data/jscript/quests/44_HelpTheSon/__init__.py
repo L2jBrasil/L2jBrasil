@@ -1,5 +1,6 @@
 #quest by zerghase
 import sys
+from com.it.br import Config
 from com.it.br.gameserver.model.quest import State
 from com.it.br.gameserver.model.quest import QuestState
 from com.it.br.gameserver.model.quest.jython import QuestJython as JQuest
@@ -94,7 +95,7 @@ class Quest (JQuest) :
     npcId = npc.getNpcId()
     cond=st.getInt("cond")
     if cond==2:
-      numItems,chance = divmod(100*Config.RATE_QUESTS_REWARD_ITEMS,100)
+      numItems,chance = divmod(100*Config.RATE_QUESTS_REWARD,100)
       if st.getRandom(100) < chance :
         numItems = numItems +1  
       pieces=st.getQuestItemsCount(GEMSTONE_FRAGMENT)

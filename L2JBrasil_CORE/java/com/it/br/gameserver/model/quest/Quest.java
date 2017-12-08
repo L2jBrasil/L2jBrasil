@@ -1506,8 +1506,8 @@ public class Quest extends ManagedScript
      * Auxilary function for party quests. 
      * Note: This function is only here because of how commonly it may be used by quest developers.
      * For any variations on this function, the quest script can always handle things on its own
-     * @param player: the instance of a player whose party is to be searched
-     * @param state: the state in which the party member's queststate must be in order to be considered.
+     * @param player the instance of a player whose party is to be searched
+     * @param state the state in which the party member's queststate must be in order to be considered.
      * @return L2PcInstance: L2PcInstance for a random party member that matches the specified 
      * 				condition, or null if no match.  If the var is null, any random party 
      * 				member is returned (i.e. no condition is applied).
@@ -1688,7 +1688,16 @@ public class Quest extends ManagedScript
 	{
 		return questItemIds;
 	}
-
+	
+	/**
+	 * Registers all items that have to be destroyed in case player abort the quest or finish it.
+	 * @param itemIds
+	 */
+	public void questItemIds(int... itemIds)
+	{
+		questItemIds = itemIds;
+	}
+	
 	/**
 	 * @see com.it.br.gameserver.scripting.ManagedScript#getScriptName()
 	 */
