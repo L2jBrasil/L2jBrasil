@@ -17,6 +17,8 @@
  */
 package com.it.br.gameserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,6 +30,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.model.AutoChatHandler;
@@ -945,7 +948,8 @@ public class SevenSigns
 		int totalAncientAdena = currPlayer.getInteger("ancient_adena_amount") + calcAncientAdenaReward(blueCount, greenCount, redCount);
 		int totalContribScore = currPlayer.getInteger("contribution_score") + contribScore;
 
-		if (totalContribScore > Config.ALT_MAXIMUM_PLAYER_CONTRIB)
+		
+		if (totalContribScore > getSettings(SevensignsSettings.class).getMaximumPlayerContribuition())
 			return -1;
 
 		currPlayer.set("red_stones", currPlayer.getInteger("red_stones") + redCount);

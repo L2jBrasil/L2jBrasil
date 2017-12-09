@@ -61,7 +61,6 @@ public final class Config
 
     /* Properties Files Definitions */
 
-    public static final String SEVENSIGNS_FILE		= "./config/event/sevensigns.properties";
     public static final String SIEGE_FILE			= "./config/event/siege.properties";
 
     public static final String ADMIN_FILE			= "./config/main/admin.properties";
@@ -1097,47 +1096,6 @@ public final class Config
             e.printStackTrace();
             throw new Error("Failed to Load " + ADMIN_FILE + " File.");
         }
-    }
-
-
-    // --------------------------------------------- //
-    // -          SEVEN SIGNS PROPERTIES           - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static int ALT_FESTIVAL_MIN_PLAYER;
-    public static int ALT_MAXIMUM_PLAYER_CONTRIB;
-    public static long ALT_FESTIVAL_MANAGER_START;
-    public static long ALT_FESTIVAL_LENGTH;
-    public static long ALT_FESTIVAL_CYCLE_LENGTH;
-    public static long ALT_FESTIVAL_FIRST_SPAWN;
-    public static long ALT_FESTIVAL_FIRST_SWARM;
-    public static long ALT_FESTIVAL_SECOND_SPAWN;
-    public static long ALT_FESTIVAL_SECOND_SWARM;
-    public static long ALT_FESTIVAL_CHEST_SPAWN;
-	// ============================================================
-    public static void loadSevenSignsConfig()
-    {
-	    try(InputStream is = new FileInputStream(new File(SEVENSIGNS_FILE)))
-	    {
-	    	Properties SevenSettings = new Properties();
-	    	SevenSettings.load(is);
-
-	    	ALT_FESTIVAL_MIN_PLAYER = Integer.parseInt(SevenSettings.getProperty("AltFestivalMinPlayer", "5"));
-	    	ALT_MAXIMUM_PLAYER_CONTRIB = Integer.parseInt(SevenSettings.getProperty("AltMaxPlayerContrib", "1000000"));
-	    	ALT_FESTIVAL_MANAGER_START = Long.parseLong(SevenSettings.getProperty("AltFestivalManagerStart", "2"));
-	    	ALT_FESTIVAL_LENGTH = Long.parseLong(SevenSettings.getProperty("AltFestivalLength", "18"));
-	    	ALT_FESTIVAL_CYCLE_LENGTH = Long.parseLong(SevenSettings.getProperty("AltFestivalCycleLength", "38"));
-	    	ALT_FESTIVAL_FIRST_SPAWN = Long.parseLong(SevenSettings.getProperty("AltFestivalFirstSpawn", "2"));
-	    	ALT_FESTIVAL_FIRST_SWARM = Long.parseLong(SevenSettings.getProperty("AltFestivalFirstSwarm", "5"));
-	    	ALT_FESTIVAL_SECOND_SPAWN = Long.parseLong(SevenSettings.getProperty("AltFestivalSecondSpawn", "9"));
-	    	ALT_FESTIVAL_SECOND_SWARM = Long.parseLong(SevenSettings.getProperty("AltFestivalSecondSwarm", "12"));
-	    	ALT_FESTIVAL_CHEST_SPAWN = Long.parseLong(SevenSettings.getProperty("AltFestivalChestSpawn", "15"));
-	    }
-	    catch (Exception e)
-	    {
-	    	e.printStackTrace();
-	        throw new Error("Failed to Load "+SEVENSIGNS_FILE+" File.");
-	    }
     }
 
 
@@ -3456,8 +3414,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadSevenSignsConfig();
-
     		loadGMAcessConfig();
     		loadAltSettingsConfig();
     		loadBossConfig();
@@ -3469,7 +3425,6 @@ public final class Config
     		loadOptionConfig();
     		loadPvPConfig();
     		loadRatesConfig();
-
     		loadFloodConfig();
     		loadHexidConfig();
     		loadIdFactoryConfig();

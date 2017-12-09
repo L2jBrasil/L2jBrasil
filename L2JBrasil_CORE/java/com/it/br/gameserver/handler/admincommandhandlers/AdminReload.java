@@ -31,6 +31,7 @@ import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.configuration.settings.SepulchersSettings;
 import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -170,7 +171,7 @@ public class AdminReload implements IAdminCommandHandler
                 { 
 					Configurator.reloadSettings(SepulchersSettings.class);
 					Configurator.reloadSettings(OlympiadSettings.class);
-					Config.loadSevenSignsConfig();
+					Configurator.reloadSettings(SevensignsSettings.class);
 					Configurator.reloadSettings(EventSettings.class);
 					sendReloadPage(activeChar);
                     activeChar.sendMessage("Event config settings reloaded"); 
@@ -280,7 +281,6 @@ public class AdminReload implements IAdminCommandHandler
     private void reloadAllConfigs() {
     	Configurator.reloadAll();
         Config.loadGMAcessConfig();
-        Config.loadSevenSignsConfig();
         Config.loadAltSettingsConfig();
         Config.loadBossConfig();
         Config.loadClanConfig();

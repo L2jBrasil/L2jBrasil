@@ -17,6 +17,9 @@
  */
 package com.it.br.gameserver;
 
+import static com.it.br.configuration.Configurator.getSettings;
+import static com.it.br.util.Util.minutesToMiliseconds;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +33,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
@@ -82,7 +86,7 @@ public class SevenSignsFestival implements SpawnListener
      * The chest spawn time is for when the bonus festival chests spawn, usually
      * towards the end of the festival.
      */
-    public static final long FESTIVAL_SIGNUP_TIME = Config.ALT_FESTIVAL_CYCLE_LENGTH - Config.ALT_FESTIVAL_LENGTH - 60000;
+    private long signupTime;
 
     // Key Constants \\
     private static final int FESTIVAL_MAX_OFFSET_X = 230;
@@ -792,6 +796,8 @@ public class SevenSignsFestival implements SpawnListener
 
     public SevenSignsFestival()
     {
+    	SevensignsSettings sevensignsSettings = getSettings(SevensignsSettings.class);
+    	signupTime = minutesToMiliseconds(sevensignsSettings.getCycleDuration() - sevensignsSettings.getDuration()) - 60000L;
         _accumulatedBonuses = new ArrayList<>();
 
         _dawnFestivalParticipants = new HashMap<>();
@@ -933,10 +939,13 @@ public class SevenSignsFestival implements SpawnListener
         // Start the Festival Manager for the first time after the server has started
         // at the specified time, then invoke it automatically after every cycle.
         FestivalManager fm = new FestivalManager();
-        setNextFestivalStart(Config.ALT_FESTIVAL_MANAGER_START + FESTIVAL_SIGNUP_TIME);
-        _managerScheduledTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(fm, Config.ALT_FESTIVAL_MANAGER_START, Config.ALT_FESTIVAL_CYCLE_LENGTH);
+        SevensignsSettings sevensignsSettings = getSettings(SevensignsSettings.class);
+        long managerStart = minutesToMiliseconds(sevensignsSettings.getManagerStart());
+        long cycleDuration = minutesToMiliseconds(sevensignsSettings.getCycleDuration());
+        setNextFestivalStart(managerStart + signupTime);
+        _managerScheduledTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(fm, managerStart, cycleDuration);
 
-        _log.info("SevenSignsFestival: The first Festival of Darkness cycle begins in " + (Config.ALT_FESTIVAL_MANAGER_START / 60000) + " minute(s).");
+        _log.info("SevenSignsFestival: The first Festival of Darkness cycle begins in " + (managerStart / 60000) + " minute(s).");
     }
 
     /**
@@ -1277,7 +1286,8 @@ public class SevenSignsFestival implements SpawnListener
 
     public void setNextCycleStart()
     {
-        _nextFestivalCycleStart = System.currentTimeMillis() + Config.ALT_FESTIVAL_CYCLE_LENGTH;
+    	long cycleDuration = minutesToMiliseconds(getSettings(SevensignsSettings.class).getCycleDuration());
+        _nextFestivalCycleStart = System.currentTimeMillis() + cycleDuration;
     }
 
     public void setNextFestivalStart(long milliFromNow)
@@ -1748,7 +1758,8 @@ public class SevenSignsFestival implements SpawnListener
 
             // Set the next start timers.
             setNextCycleStart();
-            setNextFestivalStart(Config.ALT_FESTIVAL_CYCLE_LENGTH - FESTIVAL_SIGNUP_TIME);
+            long CycleDuration = minutesToMiliseconds(getSettings(SevensignsSettings.class).getCycleDuration());
+            setNextFestivalStart(CycleDuration - signupTime);
         }
 
         public synchronized void run()
@@ -1759,7 +1770,9 @@ public class SevenSignsFestival implements SpawnListener
 
             // If the next period is due to start before the end of this
             // festival cycle, then don't run it.
-            if (SevenSigns.getInstance().getMilliToPeriodChange() < Config.ALT_FESTIVAL_CYCLE_LENGTH)
+            SevensignsSettings sevensignsSettings = getSettings(SevensignsSettings.class);
+            long cycleDuration = minutesToMiliseconds(sevensignsSettings.getCycleDuration());
+            if (SevenSigns.getInstance().getMilliToPeriodChange() < cycleDuration)
                 return;
 
             if (Config.DEBUG)
@@ -1770,7 +1783,7 @@ public class SevenSignsFestival implements SpawnListener
             // Stand by until the allowed signup period has elapsed.
             try
             {
-                wait(FESTIVAL_SIGNUP_TIME);
+                wait(signupTime);
             }
             catch (InterruptedException e) { }
 
@@ -1800,20 +1813,22 @@ public class SevenSignsFestival implements SpawnListener
             // Prevent future signups while festival is in progress.
             _festivalInitialized = true;
 
-            setNextFestivalStart(Config.ALT_FESTIVAL_CYCLE_LENGTH);
+            setNextFestivalStart(cycleDuration);
             sendMessageToAll("Festival Guide", "The main event is now starting.");
 
+            
+            long firstSpawn = minutesToMiliseconds(sevensignsSettings.getFirstSpawn());
             if (Config.DEBUG)
-                _log.info("SevenSignsFestival: The current set of festivals will begin in " + (Config.ALT_FESTIVAL_FIRST_SPAWN / 60000) + " minute(s).");
+                _log.info("SevenSignsFestival: The current set of festivals will begin in " + (firstSpawn / 60000) + " minute(s).");
 
             // Stand by for a short length of time before starting the festival.
             try
             {
-                wait(Config.ALT_FESTIVAL_FIRST_SPAWN);
+                wait(firstSpawn);
             }
             catch (InterruptedException e) { }
 
-            elapsedTime = Config.ALT_FESTIVAL_FIRST_SPAWN;
+            elapsedTime = firstSpawn;
 
             // Participants can now opt to increase the challenge, if desired.
             _festivalInProgress = true;
@@ -1826,55 +1841,60 @@ public class SevenSignsFestival implements SpawnListener
                 festivalInst.sendMessageToParticipants("The festival is about to begin!");
             }
 
+  
             if (Config.DEBUG)
-                _log.info("SevenSignsFestival: Each of the festivals will end in " + (Config.ALT_FESTIVAL_LENGTH / 60000) + " minutes. New participants can signup then.");
+                _log.info("SevenSignsFestival: Each of the festivals will end in " + (sevensignsSettings.getDuration()) + " minutes. New participants can signup then.");
 
             // After a short time period, move all idle spawns to the center of the arena.
+            long firstSwarm = minutesToMiliseconds(sevensignsSettings.getFirstSwarm());
             try
             {
-                wait(Config.ALT_FESTIVAL_FIRST_SWARM - Config.ALT_FESTIVAL_FIRST_SPAWN);
+                wait(firstSwarm - firstSpawn);
             }
             catch (InterruptedException e) { }
 
-            elapsedTime += Config.ALT_FESTIVAL_FIRST_SWARM - Config.ALT_FESTIVAL_FIRST_SPAWN;
+            elapsedTime += firstSwarm - firstSpawn;
 
             for (L2DarknessFestival festivalInst : _festivalInstances.values())
                 festivalInst.moveMonstersToCenter();
 
-
+            long secondSpawn = minutesToMiliseconds(sevensignsSettings.getSecondSpawn());
             // Stand by until the time comes for the second spawn.
             try
             {
-                wait(Config.ALT_FESTIVAL_SECOND_SPAWN - Config.ALT_FESTIVAL_FIRST_SWARM);
+                wait(secondSpawn - firstSwarm);
             }
             catch (InterruptedException e) { }
 
             // Spawn an extra set of monsters (archers) on the free platforms with
             // a faster respawn when killed.
+            long duration = minutesToMiliseconds(sevensignsSettings.getDuration());
             for (L2DarknessFestival festivalInst : _festivalInstances.values())
             {
                 festivalInst.spawnFestivalMonsters(FESTIVAL_DEFAULT_RESPAWN / 2, 2);
-                festivalInst.sendMessageToParticipants("The festival will end in " + ((Config.ALT_FESTIVAL_LENGTH - Config.ALT_FESTIVAL_SECOND_SPAWN) / 60000) + " minute(s).");
+                festivalInst.sendMessageToParticipants("The festival will end in " + ((duration - secondSpawn) / 60000) + " minute(s).");
             }
 
-            elapsedTime += Config.ALT_FESTIVAL_SECOND_SPAWN - Config.ALT_FESTIVAL_FIRST_SWARM;
+            elapsedTime += secondSpawn - firstSwarm;
 
+            long secondSwarm = minutesToMiliseconds(sevensignsSettings.getSecondSwarm());
             // After another short time period, again move all idle spawns to the center of the arena.
             try
             {
-                wait(Config.ALT_FESTIVAL_SECOND_SWARM - Config.ALT_FESTIVAL_SECOND_SPAWN);
+                wait(secondSwarm - secondSpawn);
             }
             catch (InterruptedException e) { }
 
             for (L2DarknessFestival festivalInst : _festivalInstances.values())
                 festivalInst.moveMonstersToCenter();
 
-            elapsedTime += Config.ALT_FESTIVAL_SECOND_SWARM - Config.ALT_FESTIVAL_SECOND_SPAWN;
+            elapsedTime += secondSwarm - secondSpawn;
 
             // Stand by until the time comes for the chests to be spawned.
+            long chestSpawn = minutesToMiliseconds(sevensignsSettings.getChestSpawn());
             try
             {
-                wait(Config.ALT_FESTIVAL_CHEST_SPAWN - Config.ALT_FESTIVAL_SECOND_SWARM);
+                wait(chestSpawn - secondSwarm);
             }
             catch (InterruptedException e) { }
 
@@ -1886,12 +1906,12 @@ public class SevenSignsFestival implements SpawnListener
                 festivalInst.sendMessageToParticipants("The chests have spawned! Be quick, the festival will end soon.");
             }
 
-            elapsedTime += Config.ALT_FESTIVAL_CHEST_SPAWN - Config.ALT_FESTIVAL_SECOND_SWARM;
+            elapsedTime += chestSpawn - secondSwarm;
 
             // Stand by and wait until it's time to end the festival.
             try
             {
-                wait(Config.ALT_FESTIVAL_LENGTH - elapsedTime);
+                wait(duration - elapsedTime);
             }
             catch (InterruptedException e) { }
 

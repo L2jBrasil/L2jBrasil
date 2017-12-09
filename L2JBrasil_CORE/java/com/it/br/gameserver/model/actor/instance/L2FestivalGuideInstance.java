@@ -18,10 +18,12 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.Calendar;
 import java.util.List;
 
-import com.it.br.Config;
+import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -180,9 +182,8 @@ public final class L2FestivalGuideInstance extends L2FolkInstance
                         showChatWindow(player, 2, "c", false);
                         return;
                     }
-
                     // Check to see if the party has at least 5 members.
-                    if (playerParty.getMemberCount() < Config.ALT_FESTIVAL_MIN_PLAYER)
+                    if (playerParty.getMemberCount() < getSettings(SevensignsSettings.class).getMinimumPlayers())
                     {
                         showChatWindow(player, 2, "b", false);
                         return;
@@ -415,7 +416,7 @@ public final class L2FestivalGuideInstance extends L2FolkInstance
         html.replace("%festivalType%", SevenSignsFestival.getFestivalName(_festivalType));
         html.replace("%cycleMins%", String.valueOf(SevenSignsFestival.getInstance().getMinsToNextCycle()));
         if (!isDescription && "2b".equals(val + suffix))
-            html.replace("%minFestivalPartyMembers%", String.valueOf(Config.ALT_FESTIVAL_MIN_PLAYER));
+            html.replace("%minFestivalPartyMembers%", String.valueOf(getSettings(SevensignsSettings.class).getMinimumPlayers()));
 
         // If the stats or bonus table is required, construct them.
         if (val == 5) html.replace("%statsTable%", getStatsTable());
