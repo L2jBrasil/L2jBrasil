@@ -29,6 +29,7 @@ import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.configuration.settings.OlympiadSettings;
+import com.it.br.configuration.settings.SepulchersSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
@@ -167,7 +168,7 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("event")) 
                 { 
-					Config.loadSepulchersConfig();
+					Configurator.reloadSettings(SepulchersSettings.class);
 					Configurator.reloadSettings(OlympiadSettings.class);
 					Config.loadSevenSignsConfig();
 					Configurator.reloadSettings(EventSettings.class);
@@ -279,7 +280,6 @@ public class AdminReload implements IAdminCommandHandler
     private void reloadAllConfigs() {
     	Configurator.reloadAll();
         Config.loadGMAcessConfig();
-        Config.loadSepulchersConfig();
         Config.loadSevenSignsConfig();
         Config.loadAltSettingsConfig();
         Config.loadBossConfig();

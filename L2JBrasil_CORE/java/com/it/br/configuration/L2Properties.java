@@ -95,7 +95,7 @@ public final class L2Properties extends Properties
 			try {
 				int value = Integer.parseInt(v.trim());
 				list.add(value);
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				_log.warn("Error getting property " + key + " on value " + v +" : " + e.getMessage());
 			}
 		});
@@ -105,7 +105,7 @@ public final class L2Properties extends Properties
 	public double getDouble(String key, double defaultValue) {
 		try {
 			return Double.parseDouble(getProperty(key));
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			_log.warn("Error getting property " + key + ": " + e.getMessage());
 		}
 		return defaultValue;
@@ -114,7 +114,7 @@ public final class L2Properties extends Properties
 	public float getFloat(String key, float defaultValue) {
 		try {
 			return Float.parseFloat(getProperty(key));
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			_log.warn("Error getting property " + key + ": " + e.getMessage());
 		}
 		return defaultValue;
@@ -133,7 +133,7 @@ public final class L2Properties extends Properties
 			try {
 				int value = Integer.parseInt(v);
 				array[index++] = value;
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				_log.warn("Error getting property " + key + ": " + e.getMessage());
 			}
 		}
@@ -143,7 +143,7 @@ public final class L2Properties extends Properties
 	public long getLong(String key, long defaultValue) {
 		try {
 			return Long.parseLong(getProperty(key));
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			_log.warn("Error getting property " + key + ": " + e.getMessage());
 		}
 		return defaultValue;

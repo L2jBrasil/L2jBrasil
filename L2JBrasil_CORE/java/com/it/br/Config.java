@@ -61,7 +61,6 @@ public final class Config
 
     /* Properties Files Definitions */
 
-    public static final String SEPULCHERS_FILE		= "./config/event/sepulchers.properties";
     public static final String SEVENSIGNS_FILE		= "./config/event/sevensigns.properties";
     public static final String SIEGE_FILE			= "./config/event/siege.properties";
 
@@ -1100,46 +1099,6 @@ public final class Config
         }
     }
 
-	// --------------------------------------------- //
-    // -       SEPULCHERS CONFIG PROPERTIES        - //
-    // --------------------------------------------- //
-    // ============================================================
-	public static int FS_TIME_ATTACK;
-	public static int FS_TIME_COOLDOWN;
-	public static int FS_TIME_ENTRY;
-	public static int FS_TIME_WARMUP;
-	public static int FS_PARTY_MEMBER_COUNT;
-    // ============================================================
-
-	public static void loadSepulchersConfig()
-	{
-	    try(InputStream is = new FileInputStream(SEPULCHERS_FILE))
-		{
-			Properties Sepulchers = new Properties();
-			Sepulchers.load(is);
-
-			FS_TIME_ATTACK = Integer.parseInt(Sepulchers.getProperty("TimeOfAttack", "50"));
-			FS_TIME_COOLDOWN = Integer.parseInt(Sepulchers.getProperty("TimeOfCoolDown", "5"));
-			FS_TIME_ENTRY = Integer.parseInt(Sepulchers.getProperty("TimeOfEntry", "3"));
-			FS_TIME_WARMUP = Integer.parseInt(Sepulchers.getProperty("TimeOfWarmUp", "2"));
-			FS_PARTY_MEMBER_COUNT = Integer.parseInt(Sepulchers.getProperty("NumberOfNecessaryPartyMembers", "4"));
-			if (FS_TIME_ATTACK <= 0)
-				FS_TIME_ATTACK = 50;
-			if (FS_TIME_COOLDOWN <= 0)
-				FS_TIME_COOLDOWN = 5;
-			if (FS_TIME_ENTRY <= 0)
-				FS_TIME_ENTRY = 3;
-			if (FS_TIME_ENTRY <= 0)
-				FS_TIME_ENTRY = 3;
-			if (FS_TIME_ENTRY <= 0)
-				FS_TIME_ENTRY = 3;
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + SEPULCHERS_FILE + " File.");
-		}
-	}
 
     // --------------------------------------------- //
     // -          SEVEN SIGNS PROPERTIES           - //
@@ -3497,7 +3456,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadSepulchersConfig();
     		loadSevenSignsConfig();
 
     		loadGMAcessConfig();
