@@ -105,6 +105,7 @@ import com.it.br.gameserver.instancemanager.RaidBossPointsManager;
 import com.it.br.gameserver.instancemanager.RaidBossSpawnManager;
 import com.it.br.gameserver.instancemanager.SiegeManager;
 import com.it.br.gameserver.instancemanager.ZoneManager;
+import com.it.br.gameserver.instancemanager.clanhallsiege.FortResistSiege;
 import com.it.br.gameserver.model.AutoChatHandler;
 import com.it.br.gameserver.model.AutoSpawnHandler;
 import com.it.br.gameserver.model.L2Manor;
@@ -256,7 +257,8 @@ public class GameServer
 		ClanHallManager.getInstance();
 		AuctionManager.getInstance();
 		ClanTable.getInstance();
-
+		FortResistSiege.getInstance();
+		
 		Util.printSection("Spawnlist");
 		if(!Config.ALT_DEV_NO_SPAWNS)
 		{

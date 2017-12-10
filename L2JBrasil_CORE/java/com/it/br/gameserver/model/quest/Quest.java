@@ -23,9 +23,12 @@ import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -1323,7 +1326,7 @@ public class Quest extends ManagedScript
 	{
 		return addEventId(talkId, Quest.QuestEventType.ON_TALK);
 	}
-	
+
 	public void addTalkId(int[] talkIds)
 	{
 		for (int id : talkIds)

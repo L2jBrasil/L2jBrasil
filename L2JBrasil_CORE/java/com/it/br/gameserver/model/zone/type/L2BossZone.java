@@ -37,13 +37,13 @@ public class L2BossZone extends L2ZoneType
 	private Map<Integer, Long> _playerAllowedReEntryTimes;
     private L2FastList<Integer> _playersAllowed;
 	private int[] _oustLoc = { 0, 0, 0 };
-	protected L2FastList<L2Character> _raidList = new L2FastList<L2Character>();
+	protected L2FastList<L2Character> _raidList = new L2FastList<>();
 
 	public L2BossZone()
 	{
 		super();
 		_playerAllowedReEntryTimes = new HashMap<>();
-		_playersAllowed = new L2FastList<Integer>();
+		_playersAllowed = new L2FastList<>();
 		_oustLoc = new int[3];
 	}
 
@@ -267,7 +267,7 @@ public class L2BossZone extends L2ZoneType
     /**
 	 * This function is to be used by external sources, such as quests and AI in order to allow a player for entry into the zone for some time. Naturally if the player does not enter within the allowed time, he/she will be teleported out again...
 	 *
-	 * @param player: reference to the player we wish to allow
+	 * @param player reference to the player we wish to allow
 	 * @param durationInSec : amount of time in seconds during which entry is valid.
 	 */
 	public void allowPlayerEntry(L2PcInstance player, int durationInSec)
