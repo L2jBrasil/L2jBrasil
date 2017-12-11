@@ -67,7 +67,7 @@ public final class QuestState
 	private boolean _isCompleted;
 
 	/** List of couples (variable for quest,value of the variable for quest) */
-	private Map<String, String> _vars;
+	private Map<String, String> _vars = new HashMap<>();
 
     /** Boolean flag letting QuestStateManager know to exit quest when cleaning up */
     private boolean _isExitQuestOnCleanUp = false;
@@ -198,11 +198,8 @@ public final class QuestState
 	 */
 	String setInternal(String var, String val)
 	{
-		if (_vars == null)
-			_vars = new HashMap<>();
-
-		if (val == null)
-			val = "";
+		if (var == null || var.isEmpty() || val == null || val.isEmpty())
+			return "";
 
 		_vars.put(var, val);
 		return val;
@@ -223,8 +220,6 @@ public final class QuestState
 	 */
 	public String set(String var, String val)
 	{
-		if (_vars == null)
-			_vars = new HashMap<>();
 
 		if (val == null)
 			val = "";
@@ -880,6 +875,9 @@ public final class QuestState
 		_isCompleted = true;
 		// Clean registered quest items
 
+		// Remove quest variables.
+		_vars.clear();
+
 		int[] itemIdList = getQuest().getRegisteredItemIds();
 		if (itemIdList != null)
 		{
@@ -896,14 +894,8 @@ public final class QuestState
 			_vars = null;
 		}
 		else
-        {
-            // Otherwise, delete variables for quest and update database (quest CANNOT be created again => not repeatable)
-			if (_vars != null)
-				for (String var : _vars.keySet())
-					unset(var);
 
-			Quest.updateQuestInDb(this);
-        }
+		Quest.updateQuestInDb(this);
 		return this;
 	}
 	 
