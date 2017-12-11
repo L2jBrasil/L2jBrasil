@@ -1631,6 +1631,12 @@ public final class Config
     public static long CH_FRONT_FEE_RATIO;
     public static int CH_FRONT1_FEE;
     public static int CH_FRONT2_FEE;
+	public static int DEVASTATED_DAY;
+	public static int DEVASTATED_HOUR;
+	public static int DEVASTATED_MINUTES;
+	public static int PARTISAN_DAY;
+	public static int PARTISAN_HOUR;
+	public static int PARTISAN_MINUTES;
     // ============================================================
 
 	public static void loadClanConfig()
@@ -1778,6 +1784,12 @@ public final class Config
 	        CH_FRONT_FEE_RATIO = Long.valueOf(clanSettings.getProperty("ClanHallFrontPlatformFunctionFeeRation", "86400000"));
 	        CH_FRONT1_FEE = Integer.valueOf(clanSettings.getProperty("ClanHallFrontPlatformFunctionFeeLvl1", "86400000"));
 	        CH_FRONT2_FEE = Integer.valueOf(clanSettings.getProperty("ClanHallFrontPlatformFunctionFeeLvl2", "86400000"));
+			DEVASTATED_DAY = Integer.valueOf(clanSettings.getProperty("DevastatedDay", "1"));
+			DEVASTATED_HOUR = Integer.valueOf(clanSettings.getProperty("DevastatedHour", "18"));
+			DEVASTATED_MINUTES = Integer.valueOf(clanSettings.getProperty("DevastatedMinutes", "0"));
+			PARTISAN_DAY = Integer.valueOf(clanSettings.getProperty("PartisanDay", "5"));
+			PARTISAN_HOUR = Integer.valueOf(clanSettings.getProperty("PartisanHour", "21"));
+			PARTISAN_MINUTES = Integer.valueOf(clanSettings.getProperty("PartisanMinutes", "0"));
 		}
 	    catch (Exception e)
 	    {
