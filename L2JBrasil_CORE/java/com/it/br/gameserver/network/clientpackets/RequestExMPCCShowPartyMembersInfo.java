@@ -17,39 +17,39 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.serverpackets.ExMPCCShowPartyMemberInfo;
+
 /**
  * Format:(ch) h
  * @author  -Wooden-
  */
 public final class RequestExMPCCShowPartyMembersInfo extends L2GameClientPacket
 {
-	private static final String _C__D0_26_REQUESTMPCCSHOWPARTYMEMBERINFO = "[C] D0:26 RequestExMPCCShowPartyMembersInfo";
-	private int _unk;
-
+	private int _partyLeaderId;
 
 	@Override
 	protected void readImpl()
 	{
-		_unk = readD();
+		_partyLeaderId = readD();
 	}
-
-	/**
-	 * @see com.it.br.gameserver.network.clientpackets.ClientBasePacket#runImpl()
-	 */
 
 	@Override
 	protected void runImpl()
 	{
-		System.out.println("C6: RequestExMPCCShowPartyMembersInfo. unk: "+_unk);
-	}
+		final L2PcInstance activeChar = getClient().getActiveChar();
+		if (activeChar == null)
+			return;
 
-	/**
-	 * @see com.it.br.gameserver.BasePacket#getType()
-	 */
+		final L2PcInstance player = L2World.getInstance().getPlayer(_partyLeaderId);
+		if (player != null && player.getParty() != null)
+			activeChar.sendPacket(new ExMPCCShowPartyMemberInfo(player.getParty()));
+	}
 
 	@Override
 	public String getType()
 	{
-		return _C__D0_26_REQUESTMPCCSHOWPARTYMEMBERINFO;
+		return "[C] D0:26 RequestExMPCCShowPartyMembersInfo";
 	}
 }

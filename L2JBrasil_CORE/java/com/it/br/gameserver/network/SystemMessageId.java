@@ -6042,7 +6042,25 @@ public enum SystemMessageId
 	 * Message: Leader: $s1
 	 */
 	PARTY_LEADER_S1(1611),
-	
+
+	/**
+	 * ID: 1582<br>
+	 * Message: You have joined the Command Channel.
+	 */
+	JOINED_COMMAND_CHANNEL(1582),
+
+	/**
+	 * ID: 1581<br>
+	 * Message: The Command Channel has been disbanded.
+	 */
+	COMMAND_CHANNEL_DISBANDED(1581),
+
+	/**
+	 * ID: 1589<br>
+	 * Message: Command Channel authority has been transferred to $s1.
+	 */
+	COMMAND_CHANNEL_LEADER_NOW_S1(1589),
+
 	/**
      * ID: 1612<br>
      * Message: =====<War List>=====
@@ -6231,6 +6249,55 @@ public enum SystemMessageId
      * Message: You don't have enough soulshots needed for a pet/servitor.
      */
     NOT_ENOUGH_SOULSHOTS_FOR_PET(1701),
+
+
+	/**
+	 * ID: 1586<br>
+	 * Message: You have quit the Command Channel.
+	 */
+	LEFT_COMMAND_CHANNEL(1586),
+
+	/**
+	 * ID: 1587<br>
+	 * Message: $s1's party has left the Command Channel.
+	 */
+	S1_PARTY_LEFT_COMMAND_CHANNEL(1587),
+
+	/**
+	 * ID: 1575<br>
+	 * Message: Command Channels can only be formed by a party leader who is also the leader of a level 5 clan.
+	 */
+	COMMAND_CHANNEL_ONLY_BY_LEVEL_5_CLAN_LEADER_PARTY_LEADER(1575),
+
+	/**
+	 * ID: 1529<br>
+	 * Message: $s1 is inviting you to the command channel. Do you want accept?
+	 */
+	COMMAND_CHANNEL_CONFIRM(1529),
+
+	/**
+	 * ID: 1580<br>
+	 * Message: The Command Channel has been formed.
+	 */
+	COMMAND_CHANNEL_FORMED(1580),
+
+	/**
+	 * ID: 1680<br>
+	 * Message: $s1 has declined the channel invitation.
+	 */
+	S1_DECLINED_CHANNEL_INVITATION(1680),
+
+	/**
+	 * ID: 1594<br>
+	 * Message: $s1's party is already a member of the Command Channel.
+	 */
+	S1_ALREADY_MEMBER_OF_COMMAND_CHANNEL(1594),
+
+	/**
+	 * ID: 1593<br>
+	 * Message: You do not have authority to invite someone to the Command Channel.
+	 */
+	CANNOT_INVITE_TO_COMMAND_CHANNEL(1593),
 
 	/**
 	* ID: 1709<br>

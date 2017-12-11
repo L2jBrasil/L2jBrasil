@@ -20,6 +20,8 @@ package com.it.br.gameserver.network.clientpackets;
 
 import com.it.br.gameserver.model.L2CommandChannel;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.SystemMessageId;
+import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
 /**
  * @author -Wooden-
@@ -29,20 +31,11 @@ public final class RequestExAcceptJoinMPCC extends L2GameClientPacket
 	private static final String _C__D0_0E_REQUESTEXASKJOINMPCC = "[C] D0:0E RequestExAcceptJoinMPCC";
 	private int _response;
 
-	/**
-	 * @param buf
-	 * @param client
-	 */
-
 	@Override
 	protected void readImpl()
 	{
 		_response = readD();
 	}
-
-	/* (non-Javadoc)
-	 * @see com.it.br.gameserver.network.clientpackets.ClientBasePacket#runImpl()
-	 */
 
 	@Override
 	protected void runImpl()
@@ -63,18 +56,12 @@ public final class RequestExAcceptJoinMPCC extends L2GameClientPacket
 				requestor.getParty().getCommandChannel().addParty(player.getParty());
 			}
 			else
-	        {
-				requestor.sendMessage("The player declined to join your Command Channel.");
-			}
+				requestor.sendPacket(new SystemMessage(SystemMessageId.S1_DECLINED_CHANNEL_INVITATION).addString(player.getName()));
 
 			player.setActiveRequester(null);
 			requestor.onTransactionResponse();
         }
 	}
-
-	/* (non-Javadoc)
-	 * @see com.it.br.gameserver.BasePacket#getType()
-	 */
 
 	@Override
 	public String getType()

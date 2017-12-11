@@ -2509,10 +2509,17 @@ public abstract class L2Character extends L2Object
 
 			// Remove first Buff if number of buffs > getMaxBuffCount()
 			L2Skill tempskill = newEffect.getSkill();
-			if (getBuffCount() > getMaxBuffCount() && !doesStack(tempskill) && ((tempskill.getSkillType() == L2Skill.SkillType.BUFF ||
-                tempskill.getSkillType() == L2Skill.SkillType.REFLECT ||
-                tempskill.getSkillType() == L2Skill.SkillType.HEAL_PERCENT ||
-                tempskill.getSkillType() == L2Skill.SkillType.MANAHEAL_PERCENT)&& !(tempskill.getId() > 4360  && tempskill.getId() < 4367))) removeFirstBuff(tempskill.getId());
+			if (getBuffCount() >= getMaxBuffCount()
+					&& !doesStack(tempskill)
+					&& (tempskill.getSkillType() == L2Skill.SkillType.BUFF
+					|| tempskill.getSkillType() == L2Skill.SkillType.REFLECT
+					|| tempskill.getSkillType() == L2Skill.SkillType.HEAL_PERCENT
+					|| tempskill.getSkillType() == L2Skill.SkillType.MANAHEAL_PERCENT)
+					&& !(tempskill.getId() > 4360
+					&& tempskill.getId() < 4367)
+					&& !(tempskill.getId() > 4550
+					&& tempskill.getId() < 4555))
+				removeFirstBuff(tempskill.getId());
 
 			// Remove first DeBuff if number of debuffs > DEBUFFS_MAX_AMOUNT
 			if(getDeBuffCount() >= Config.DEBUFFS_MAX_AMOUNT && !doesStack(tempskill) && tempskill.getSkillType() == L2Skill.SkillType.DEBUFF)

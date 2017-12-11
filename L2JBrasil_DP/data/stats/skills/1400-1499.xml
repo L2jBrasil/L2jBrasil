@@ -214,8 +214,8 @@
         <set name="target" val="TARGET_ONE" />
         <for>
             <effect name="Buff" time="30" count="1" val="0" stackOrder="3" stackType="abnormal_invincibility">
-                <set order="0x08" stat="debuffImmunity" val="1" />
-                <!-- Immunity to debuff 100% -->
+                <set order="0x08" stat="debuffImmunity" val="1" /><!-- Immunity to debuff 100% -->
+                <set order="0x08" stat="buffImmunity" val="1" /><!-- Immunity to buff 100% -->
             </effect>
         </for>
     </skill>

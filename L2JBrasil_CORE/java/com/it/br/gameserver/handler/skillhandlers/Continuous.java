@@ -36,6 +36,7 @@ import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.skills.Formulas;
+import com.it.br.gameserver.skills.Stats;
 
 /**
  * This class ...
@@ -97,8 +98,17 @@ public class Continuous implements ISkillHandler
             // Walls and Door should not be buffed
             if(target instanceof L2DoorInstance && (skill.getSkillType() == L2Skill.SkillType.BUFF || skill.getSkillType() == L2Skill.SkillType.HOT))
             	continue;
-				
-           // Anti-Buff Protection prevents you from getting buffs by other players
+
+			if (target.calcStat(Stats.BUFF_IMMUNITY, 0, null, skill) > 0
+					&& (skill.getSkillType() == L2Skill.SkillType.BUFF
+					|| skill.getSkillType() == L2Skill.SkillType.HEAL_PERCENT
+					|| skill.getSkillType() == L2Skill.SkillType.FORCE_BUFF
+					|| skill.getSkillType() == L2Skill.SkillType.MANAHEAL_PERCENT
+					|| skill.getSkillType() == L2Skill.SkillType.COMBATPOINTHEAL
+					|| skill.getSkillType() == L2Skill.SkillType.REFLECT))
+				continue;
+
+			// Anti-Buff Protection prevents you from getting buffs by other players
            if (activeChar instanceof L2PlayableInstance && target != activeChar && target.isBuffProtected() && !skill.isHeroSkill()
            && (skill.getSkillType() == L2Skill.SkillType.BUFF
            || skill.getSkillType() == L2Skill.SkillType.HEAL_PERCENT
@@ -108,7 +118,7 @@ public class Continuous implements ISkillHandler
            || skill.getSkillType() == L2Skill.SkillType.REFLECT))
                continue;
 
-            // Player holding a cursed weapon can't be buffed and can't buff
+			// Player holding a cursed weapon can't be buffed and can't buff
             if (skill.getSkillType() == L2Skill.SkillType.BUFF)
             {
 	            if (target != activeChar)

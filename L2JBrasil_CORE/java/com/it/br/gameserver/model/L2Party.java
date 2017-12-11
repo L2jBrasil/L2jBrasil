@@ -31,13 +31,7 @@ import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 import com.it.br.gameserver.model.actor.instance.L2SummonInstance;
 import com.it.br.gameserver.model.entity.DimensionalRift;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
-import com.it.br.gameserver.network.serverpackets.PartySmallWindowAdd;
-import com.it.br.gameserver.network.serverpackets.PartySmallWindowAll;
-import com.it.br.gameserver.network.serverpackets.PartySmallWindowDelete;
-import com.it.br.gameserver.network.serverpackets.PartySmallWindowDeleteAll;
-import com.it.br.gameserver.network.serverpackets.PartySmallWindowUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.skills.Stats;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
@@ -261,6 +255,9 @@ public class L2Party
 		for(L2PcInstance member : getPartyMembers())
 			member.updateEffectIcons(true); // update party icons only
 
+		if (isInCommandChannel())
+			player.sendPacket(new ExOpenMPCC());
+
 		if (isInDimensionalRift())
 			_dr.partyMemberInvited();
 	}
@@ -295,16 +292,34 @@ public class L2Party
 			if (isInDimensionalRift())
 				_dr.partyMemberExited(player);
 
+			if (isInCommandChannel())
+				player.sendPacket(new ExCloseMPCC());
+
 			if (getPartyMembers().size() == 1)
 			{
-                L2PcInstance leader = getLeader(); 
-	       if (leader != null) 
-	        { 
-               leader.setParty(null); 
-	       if (leader.isInDuel()) 
-	           DuelManager.getInstance().onRemoveFromParty(leader); 
-	          } 		
-	       }
+				if (isInCommandChannel())
+				{
+					// delete the whole command channel when the party who opened the channel is disbanded
+					if (getCommandChannel().getChannelLeader().equals(getLeader()))
+					{
+						getCommandChannel().disbandChannel();
+					}
+					else
+					{
+						getCommandChannel().removeParty(this);
+					}
+				}
+
+				L2PcInstance leader = getLeader();
+
+			  	if (leader != null)
+				{
+               		leader.setParty(null);
+               		if (leader.isInDuel())
+               			DuelManager.getInstance().onRemoveFromParty(leader);
+	          	}
+				_members.clear();
+			}
 		}
 	}
 
@@ -341,6 +356,14 @@ public class L2Party
 					if (isInCommandChannel())
 					{
 						_commandChannel.setChannelLeader(getPartyMembers().get(0));
+					}
+
+					if (isInCommandChannel() && temp.equals(_commandChannel.getChannelLeader()))
+					{
+						_commandChannel.setChannelLeader(getLeader());
+						msg = new SystemMessage(SystemMessageId.COMMAND_CHANNEL_LEADER_NOW_S1);
+						msg.addString(_commandChannel.getChannelLeader().getName());
+						_commandChannel.broadcastToChannelMembers(msg);
 					}
 				}
 			}

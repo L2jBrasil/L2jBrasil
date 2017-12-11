@@ -112,7 +112,8 @@ public enum Stats
     CRIT_VULN        ("critVuln"),
     
     DEBUFF_IMMUNITY("debuffImmunity"),
-    
+    BUFF_IMMUNITY("buffImmunity"),
+
 	NONE_WPN_VULN 		("noneWpnVuln"),
 	SWORD_WPN_VULN 		("swordWpnVuln"),
 	BLUNT_WPN_VULN 		("bluntWpnVuln"),

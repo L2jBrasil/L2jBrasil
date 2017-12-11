@@ -680,8 +680,7 @@ Might spell can remove the curse.-->
         <set name="magicLvl" val="75" />
         <set name="target" val="TARGET_ONE" />
         <set name="hitTime" val="1500" />
-        <!-- test -->
-        <set name="skillType" val="BUFF" />
+        <set name="skillType" val="DEBUFF" />
         <set name="isMagic" val="true" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="castRange" val="600" />
@@ -702,8 +701,7 @@ Might spell can remove the curse.-->
         <set name="magicLvl" val="75" />
         <set name="target" val="TARGET_ONE" />
         <set name="hitTime" val="1500" />
-        <!-- test -->
-        <set name="skillType" val="BUFF" />
+        <set name="skillType" val="DEBUFF" />
         <set name="isMagic" val="true" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="castRange" val="600" />
@@ -724,8 +722,7 @@ Might spell can remove the curse.-->
         <set name="magicLvl" val="75" />
         <set name="target" val="TARGET_ONE" />
         <set name="hitTime" val="1500" />
-        <!-- test -->
-        <set name="skillType" val="BUFF" />
+        <set name="skillType" val="DEBUFF" />
         <set name="isMagic" val="true" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="castRange" val="600" />
@@ -746,8 +743,7 @@ Might spell can remove the curse.-->
         <set name="magicLvl" val="75" />
         <set name="target" val="TARGET_ONE" />
         <set name="hitTime" val="1500" />
-        <!-- test -->
-        <set name="skillType" val="BUFF" />
+        <set name="skillType" val="DEBUFF" />
         <set name="isMagic" val="true" />
         <set name="operateType" val="OP_ACTIVE" />
         <set name="castRange" val="600" />
