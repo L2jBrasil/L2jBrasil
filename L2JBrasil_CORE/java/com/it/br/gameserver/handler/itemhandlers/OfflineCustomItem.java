@@ -21,6 +21,7 @@ package com.it.br.gameserver.handler.itemhandlers;
 import static com.it.br.configuration.Configurator.getSettings;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.model.L2Character;
@@ -66,7 +67,7 @@ public class OfflineCustomItem implements IItemHandler
             	activeChar.sendMessage("You can't teleport while you are in observer mode");
             	return;
             }
-            else if (Config.TVT_EVENT_ENABLED && TvTEvent.isStarted() && TvTEvent.isPlayerParticipant(activeChar.getObjectId())) 
+            else if (getSettings(EventSettings.class).isTvTEventEnabled() && TvTEvent.isStarted() && TvTEvent.isPlayerParticipant(activeChar.getObjectId())) 
             {
                 activeChar.sendMessage("You can't teleport while you are in the TvTEvent.");
                 return;

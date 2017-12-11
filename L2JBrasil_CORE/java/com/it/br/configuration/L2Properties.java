@@ -91,12 +91,11 @@ public final class L2Properties extends Properties
 	public List<Integer> getIntegerList(String key, String delimiter) {
 		String[] values = getProperty(key).split(delimiter);
 		List<Integer> list = new ArrayList<>(values.length);
-		
 		Stream.of(values).filter(Util::isNotEmpty).forEach( v -> {
 			try {
 				int value = Integer.parseInt(v.trim());
 				list.add(value);
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				_log.warn("Error getting property " + key + " on value " + v +" : " + e.getMessage());
 			}
 		});
@@ -106,7 +105,7 @@ public final class L2Properties extends Properties
 	public double getDouble(String key, double defaultValue) {
 		try {
 			return Double.parseDouble(getProperty(key));
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			_log.warn("Error getting property " + key + ": " + e.getMessage());
 		}
 		return defaultValue;
@@ -115,7 +114,36 @@ public final class L2Properties extends Properties
 	public float getFloat(String key, float defaultValue) {
 		try {
 			return Float.parseFloat(getProperty(key));
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
+			_log.warn("Error getting property " + key + ": " + e.getMessage());
+		}
+		return defaultValue;
+	}
+
+	public int[] getIntegerArray(String key, String delimiter) {
+		String[] values = getProperty(key).split(",");
+		int[] array = new int[values.length];
+		int index = 0;
+		for (String v : values) {
+			
+			if(Util.isNullOrEmpty(v)) {
+				continue;
+			}
+			
+			try {
+				int value = Integer.parseInt(v);
+				array[index++] = value;
+			} catch (Exception e) {
+				_log.warn("Error getting property " + key + ": " + e.getMessage());
+			}
+		}
+		return array;
+	}
+
+	public long getLong(String key, long defaultValue) {
+		try {
+			return Long.parseLong(getProperty(key));
+		} catch (Exception e) {
 			_log.warn("Error getting property " + key + ": " + e.getMessage());
 		}
 		return defaultValue;

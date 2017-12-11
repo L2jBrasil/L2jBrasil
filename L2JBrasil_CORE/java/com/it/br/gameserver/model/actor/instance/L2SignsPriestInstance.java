@@ -18,9 +18,12 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.StringTokenizer;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.sql.ClanTable;
@@ -245,7 +248,8 @@ public class L2SignsPriestInstance extends L2FolkInstance
                     int contribScore = SevenSigns.getInstance().getPlayerContribScore(player);
                     boolean stonesFound = false;
 
-                    if (contribScore == Config.ALT_MAXIMUM_PLAYER_CONTRIB)
+                    int maximumContribuition = getSettings(SevensignsSettings.class).getMaximumPlayerContribuition();
+                    if (contribScore == maximumContribuition)
                     {
                         player.sendPacket(new SystemMessage(SystemMessageId.CONTRIB_SCORE_EXCEEDED));
                         break;
@@ -259,34 +263,34 @@ public class L2SignsPriestInstance extends L2FolkInstance
                         switch (stoneType)
                         {
                             case 1:
-                                blueContribCount = (Config.ALT_MAXIMUM_PLAYER_CONTRIB - contribScore)
+                                blueContribCount = (maximumContribuition - contribScore)
                                     / SevenSigns.BLUE_CONTRIB_POINTS;
                                 if (blueContribCount > blueStoneCount)
                                     blueContribCount = blueStoneCount;
                                 break;
                             case 2:
-                                greenContribCount = (Config.ALT_MAXIMUM_PLAYER_CONTRIB - contribScore)
+                                greenContribCount = (maximumContribuition - contribScore)
                                     / SevenSigns.GREEN_CONTRIB_POINTS;
                                 if (greenContribCount > greenStoneCount)
                                     greenContribCount = greenStoneCount;
                                 break;
                             case 3:
-                                redContribCount = (Config.ALT_MAXIMUM_PLAYER_CONTRIB - contribScore)
+                                redContribCount = (maximumContribuition - contribScore)
                                     / SevenSigns.RED_CONTRIB_POINTS;
                                 if (redContribCount > redStoneCount) redContribCount = redStoneCount;
                                 break;
                             case 4:
                                 int tempContribScore = contribScore;
-                                redContribCount = (Config.ALT_MAXIMUM_PLAYER_CONTRIB - tempContribScore)
+                                redContribCount = (maximumContribuition - tempContribScore)
                                     / SevenSigns.RED_CONTRIB_POINTS;
                                 if (redContribCount > redStoneCount) redContribCount = redStoneCount;
                                 tempContribScore += redContribCount * SevenSigns.RED_CONTRIB_POINTS;
-                                greenContribCount = (Config.ALT_MAXIMUM_PLAYER_CONTRIB - tempContribScore)
+                                greenContribCount = (maximumContribuition - tempContribScore)
                                     / SevenSigns.GREEN_CONTRIB_POINTS;
                                 if (greenContribCount > greenStoneCount)
                                     greenContribCount = greenStoneCount;
                                 tempContribScore += greenContribCount * SevenSigns.GREEN_CONTRIB_POINTS;
-                                blueContribCount = (Config.ALT_MAXIMUM_PLAYER_CONTRIB - tempContribScore)
+                                blueContribCount = (maximumContribuition - tempContribScore)
                                     / SevenSigns.BLUE_CONTRIB_POINTS;
                                 if (blueContribCount > blueStoneCount)
                                     blueContribCount = blueStoneCount;

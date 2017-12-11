@@ -30,6 +30,7 @@ import java.io.LineNumberReader;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +39,10 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.Olympiad.OlympiadPeriod;
 import com.it.br.gameserver.util.FloodProtectorConfig;
 import com.it.br.gameserver.util.StringUtil;
 
@@ -59,12 +61,7 @@ public final class Config
 
     /* Properties Files Definitions */
 
-    public static final String CH_FILE              = "./config/event/clanhall.properties";
-    public static final String SEPULCHERS_FILE		= "./config/event/sepulchers.properties";
-    public static final String OLYMPIAD_FILE		= "./config/event/olympiad.properties";
-    public static final String SEVENSIGNS_FILE		= "./config/event/sevensigns.properties";
     public static final String SIEGE_FILE			= "./config/event/siege.properties";
-    public static final String EVENT_CONFIG_FILE	= "./config/event/event.properties";
 
     public static final String ADMIN_FILE			= "./config/main/admin.properties";
     public static final String ALTSETTINGS_FILE	    = "./config/main/altsettings.properties";
@@ -1101,510 +1098,6 @@ public final class Config
         }
     }
 
-
-	// --------------------------------------------- //
-    // -             L2JMODS PROPERTIES            - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static boolean L2JMOD_CHAMPION_ENABLE;
-    public static int L2JMOD_CHAMPION_FREQUENCY;
-    public static int L2JMOD_CHAMP_MIN_LVL;
-    public static int L2JMOD_CHAMP_MAX_LVL;
-    public static int L2JMOD_CHAMPION_HP;
-    public static int L2JMOD_CHAMPION_REWARDS;
-    public static float L2JMOD_CHAMPION_ADENAS_REWARDS;
-    public static float L2JMOD_CHAMPION_HP_REGEN;
-    public static float L2JMOD_CHAMPION_ATK;
-    public static float L2JMOD_CHAMPION_SPD_ATK;
-    public static int L2JMOD_CHAMPION_REWARD;
-    public static int L2JMOD_CHAMPION_REWARD_ID;
-    public static int L2JMOD_CHAMPION_REWARD_QTY;
-    public static boolean L2JMOD_WEDDING_ANNOUNCE;
-    public static boolean L2JMOD_ALLOW_WEDDING;
-    public static int L2JMOD_WEDDING_PRICE;
-    public static boolean L2JMOD_WEDDING_PUNISH_INFIDELITY;
-    public static boolean L2JMOD_WEDDING_TELEPORT;
-    public static int L2JMOD_WEDDING_TELEPORT_PRICE;
-    public static int L2JMOD_WEDDING_TELEPORT_DURATION;
-    public static boolean L2JMOD_WEDDING_SAMESEX;
-    public static boolean L2JMOD_WEDDING_FORMALWEAR;
-    public static int L2JMOD_WEDDING_DIVORCE_COSTS;
-	public static boolean L2JMOD_WEDDING_COLOR_NAME;
-	public static int L2JMOD_WEDDING_COLOR_NAMES;
-	public static int L2JMOD_WEDDING_COLOR_NAMES_GEY;
-	public static int L2JMOD_WEDDING_COLOR_NAMES_LIZ;
-    public static boolean PCB_ENABLE;
-    public static int PCB_MIN_LEVEL;
-    public static int PCB_POINT_MIN;
-    public static int PCB_POINT_MAX;
-    public static int PCB_CHANCE_DUAL_POINT;
-    public static int PCB_INTERVAL;
-    public static int PCB_ITEMS_ID;
-	public static boolean OFFLINE_TRADE_ENABLE;
-	public static boolean OFFLINE_CRAFT_ENABLE;
-	public static boolean OFFLINE_SET_NAME_COLOR;
-	public static int OFFLINE_NAME_COLOR;
-	public static boolean OFFLINE_LOGOUT;
-	public static boolean OFFLINE_SLEEP_EFFECT;
-	public static boolean OFFLINE_RESTORE_OFFLINERS;
-	public static int OFFLINE_MAX_DAYS;
-	public static boolean OFFLINE_DISCONNECT_FINISHED;
-	public static int OFFLINE_LOGOUT_ITEM_ID;
-	public static int OFFLINE_LOGOUT_ITEM_COUNT;
-    public static boolean L2JMOD_CHECK_SKILLS_ON_ENTER;
-    public static List<Integer>  L2JMOD_ALLOWED_SKILLS_LIST;
-    public static boolean L2JMOD_CHECK_HERO_SKILLS;
-    public static boolean L2JMOD_CHECK_NOBLE_SKILLS;
-	public static List<Integer> L2JMOD_LIST_NO_CHECK_SKILLS;
-
-	// --------------------------------------------- //
-    // -        ELITE CLAN HALL PROPERTIES         - //
-    // --------------------------------------------- //
-	// ============================================================
-	public static int DEVASTATED_DAY;
-	public static int DEVASTATED_HOUR;
-	public static int DEVASTATED_MINUTES;
-	public static int PARTISAN_DAY;
-	public static int PARTISAN_HOUR;
-	public static int PARTISAN_MINUTES;
-	// ============================================================
-	public static void loadCHConfig()
-	{
-		try(InputStream is = new FileInputStream(new File(CH_FILE)))
-		{
-			Properties clanHallSettings = new Properties();
-			clanHallSettings.load(is);
-
-			DEVASTATED_DAY = Integer.valueOf(clanHallSettings.getProperty("DevastatedDay", "1"));
-			DEVASTATED_HOUR = Integer.valueOf(clanHallSettings.getProperty("DevastatedHour", "18"));
-			DEVASTATED_MINUTES = Integer.valueOf(clanHallSettings.getProperty("DevastatedMinutes", "0"));
-			PARTISAN_DAY = Integer.valueOf(clanHallSettings.getProperty("PartisanDay", "5"));
-			PARTISAN_HOUR = Integer.valueOf(clanHallSettings.getProperty("PartisanHour", "21"));
-			PARTISAN_MINUTES = Integer.valueOf(clanHallSettings.getProperty("PartisanMinutes", "0"));
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + CH_FILE + " File.");
-		}
-	}
-
-	// --------------------------------------------- //
-    // -       SEPULCHERS CONFIG PROPERTIES        - //
-    // --------------------------------------------- //
-    // ============================================================
-	public static int FS_TIME_ATTACK;
-	public static int FS_TIME_COOLDOWN;
-	public static int FS_TIME_ENTRY;
-	public static int FS_TIME_WARMUP;
-	public static int FS_PARTY_MEMBER_COUNT;
-    // ============================================================
-
-	public static void loadSepulchersConfig()
-	{
-	    try(InputStream is = new FileInputStream(SEPULCHERS_FILE))
-		{
-			Properties Sepulchers = new Properties();
-			Sepulchers.load(is);
-
-			FS_TIME_ATTACK = Integer.parseInt(Sepulchers.getProperty("TimeOfAttack", "50"));
-			FS_TIME_COOLDOWN = Integer.parseInt(Sepulchers.getProperty("TimeOfCoolDown", "5"));
-			FS_TIME_ENTRY = Integer.parseInt(Sepulchers.getProperty("TimeOfEntry", "3"));
-			FS_TIME_WARMUP = Integer.parseInt(Sepulchers.getProperty("TimeOfWarmUp", "2"));
-			FS_PARTY_MEMBER_COUNT = Integer.parseInt(Sepulchers.getProperty("NumberOfNecessaryPartyMembers", "4"));
-			if (FS_TIME_ATTACK <= 0)
-				FS_TIME_ATTACK = 50;
-			if (FS_TIME_COOLDOWN <= 0)
-				FS_TIME_COOLDOWN = 5;
-			if (FS_TIME_ENTRY <= 0)
-				FS_TIME_ENTRY = 3;
-			if (FS_TIME_ENTRY <= 0)
-				FS_TIME_ENTRY = 3;
-			if (FS_TIME_ENTRY <= 0)
-				FS_TIME_ENTRY = 3;
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + SEPULCHERS_FILE + " File.");
-		}
-	}
-
-	// --------------------------------------------- //
-    // -             OLYMPIAD PROPIETERS           - //
-    // --------------------------------------------- //
-    // ============================================================
-	public static int ALT_OLY_START_TIME;
-	public static int ALT_OLY_MIN;
-	public static long ALT_OLY_CPERIOD;
-	public static long ALT_OLY_BATTLE;
-	public static long ALT_OLY_BWAIT;
-	public static long ALT_OLY_IWAIT;
-	public static long ALT_OLY_WPERIOD;
-	public static long ALT_OLY_VPERIOD;
-	public static int ALT_OLY_CLASSED;
-	public static int ALT_OLY_NONCLASSED;
-	public static int ALT_OLY_BATTLE_REWARD_ITEM;
-	public static int ALT_OLY_CLASSED_RITEM_C;
-	public static int ALT_OLY_NONCLASSED_RITEM_C;
-	public static int ALT_OLY_COMP_RITEM;
-	public static int ALT_OLY_GP_PER_POINT;
-	public static int ALT_OLY_MIN_POINT_FOR_EXCH;
-	public static int ALT_OLY_HERO_POINTS;
-	public static List<Integer> ALT_OLY_RESTRICTED_ITEMS;
-	public static boolean ALT_OLY_RESTRICTED_ITEMS_S;
-	public static OlympiadPeriod ALT_OLY_PERIOD;
-	public static int ALT_OLY_PERIOD_MULTIPLIER;
-	public static boolean ALLOW_EVENTS_DURING_OLY;
-	public static boolean ALT_OLY_RECHARGE_SKILLS;
-	public static int ALT_OLY_ENCHANT_LIMIT;
-	public static boolean ALLOW_SKILL_AUGMENTS_IN_OLYM;
-	public static boolean OLY_SKILL_PROTECT;
-	public static List<Integer> OLY_SKILL_LIST;
-	//============================================================
-
-	public static void loadOlympConfig()
-	{
-	    try(InputStream is = new FileInputStream(new File(OLYMPIAD_FILE)))
-		{
-			Properties Olym = new Properties();
-			Olym.load(is);
-
-			ALT_OLY_START_TIME = Integer.parseInt(Olym.getProperty("AltOlyStartTime", "18"));
-			ALT_OLY_MIN = Integer.parseInt(Olym.getProperty("AltOlyMin", "00"));
-			ALT_OLY_CPERIOD = Long.parseLong(Olym.getProperty("AltOlyCPeriod", "21600000"));
-			ALT_OLY_BATTLE = Long.parseLong(Olym.getProperty("AltOlyBattle", "360000"));
-			ALT_OLY_BWAIT = Long.parseLong(Olym.getProperty("AltOlyBWait", "600000"));
-			ALT_OLY_IWAIT = Long.parseLong(Olym.getProperty("AltOlyIWait", "300000"));
-			ALT_OLY_WPERIOD = Long.parseLong(Olym.getProperty("AltOlyWPeriod", "604800000"));
-			ALT_OLY_VPERIOD = Long.parseLong(Olym.getProperty("AltOlyVPeriod", "86400000"));
-			ALT_OLY_CLASSED = Integer.parseInt(Olym.getProperty("AltOlyClassedParticipants", "5"));
-			ALT_OLY_NONCLASSED = Integer.parseInt(Olym.getProperty("AltOlyNonClassedParticipants", "9"));
-			ALT_OLY_BATTLE_REWARD_ITEM = Integer.parseInt(Olym.getProperty("AltOlyBattleRewItem", "6651"));
-			ALT_OLY_CLASSED_RITEM_C = Integer.parseInt(Olym.getProperty("AltOlyClassedRewItemCount", "50"));
-			ALT_OLY_NONCLASSED_RITEM_C = Integer.parseInt(Olym.getProperty("AltOlyNonClassedRewItemCount", "30"));
-			ALT_OLY_COMP_RITEM = Integer.parseInt(Olym.getProperty("AltOlyCompRewItem", "6651"));
-			ALT_OLY_GP_PER_POINT = Integer.parseInt(Olym.getProperty("AltOlyGPPerPoint", "1000"));
-			ALT_OLY_MIN_POINT_FOR_EXCH = Integer.parseInt(Olym.getProperty("AltOlyMinPointForExchange", "50"));
-			ALT_OLY_HERO_POINTS = Integer.parseInt(Olym.getProperty("AltOlyHeroPoints", "300"));
-	    	ALT_OLY_RESTRICTED_ITEMS = new ArrayList<>();
-	    	for (String id : Olym.getProperty("OlyRestrictedItems","0").split(","))
-	    	{
-	    		ALT_OLY_RESTRICTED_ITEMS.add(Integer.parseInt(id));
-	    	}
-	    	ALT_OLY_RESTRICTED_ITEMS_S = Boolean.parseBoolean(Olym.getProperty("AllowOlyGradS", "False"));
-			ALT_OLY_PERIOD = OlympiadPeriod.valueOf(Olym.getProperty("AltOlyPeriod", "MONTH"));
-			ALT_OLY_PERIOD_MULTIPLIER = Integer.parseInt(Olym.getProperty("AltOlyPeriodMultiplier", "1"));
-			ALLOW_EVENTS_DURING_OLY = Boolean.parseBoolean(Olym.getProperty("AllowEventsDuringOly", "False"));
-			ALT_OLY_RECHARGE_SKILLS = Boolean.parseBoolean(Olym.getProperty("AltOlyRechargeSkills", "False"));
-			ALT_OLY_ENCHANT_LIMIT = Integer.parseInt(Olym.getProperty("OlyMaxEnchant", "-1"));
-			ALLOW_SKILL_AUGMENTS_IN_OLYM = Boolean.parseBoolean(Olym.getProperty("AllowSkillAugmentInOlym", "True"));
-			OLY_SKILL_PROTECT = Boolean.parseBoolean(Olym.getProperty("OlySkillProtect", "True"));
-            OLY_SKILL_LIST = new ArrayList<>();
-			for (String id : Olym.getProperty("OllySkillId","0").split(","))
-			{
-				OLY_SKILL_LIST.add(Integer.parseInt(id));
-			}
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + OLYMPIAD_FILE + " File.");
-		}
-	}
-
-    // --------------------------------------------- //
-    // -          SEVEN SIGNS PROPERTIES           - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static int ALT_FESTIVAL_MIN_PLAYER;
-    public static int ALT_MAXIMUM_PLAYER_CONTRIB;
-    public static long ALT_FESTIVAL_MANAGER_START;
-    public static long ALT_FESTIVAL_LENGTH;
-    public static long ALT_FESTIVAL_CYCLE_LENGTH;
-    public static long ALT_FESTIVAL_FIRST_SPAWN;
-    public static long ALT_FESTIVAL_FIRST_SWARM;
-    public static long ALT_FESTIVAL_SECOND_SPAWN;
-    public static long ALT_FESTIVAL_SECOND_SWARM;
-    public static long ALT_FESTIVAL_CHEST_SPAWN;
-	// ============================================================
-    public static void loadSevenSignsConfig()
-    {
-	    try(InputStream is = new FileInputStream(new File(SEVENSIGNS_FILE)))
-	    {
-	    	Properties SevenSettings = new Properties();
-	    	SevenSettings.load(is);
-
-	    	ALT_FESTIVAL_MIN_PLAYER = Integer.parseInt(SevenSettings.getProperty("AltFestivalMinPlayer", "5"));
-	    	ALT_MAXIMUM_PLAYER_CONTRIB = Integer.parseInt(SevenSettings.getProperty("AltMaxPlayerContrib", "1000000"));
-	    	ALT_FESTIVAL_MANAGER_START = Long.parseLong(SevenSettings.getProperty("AltFestivalManagerStart", "2"));
-	    	ALT_FESTIVAL_LENGTH = Long.parseLong(SevenSettings.getProperty("AltFestivalLength", "18"));
-	    	ALT_FESTIVAL_CYCLE_LENGTH = Long.parseLong(SevenSettings.getProperty("AltFestivalCycleLength", "38"));
-	    	ALT_FESTIVAL_FIRST_SPAWN = Long.parseLong(SevenSettings.getProperty("AltFestivalFirstSpawn", "2"));
-	    	ALT_FESTIVAL_FIRST_SWARM = Long.parseLong(SevenSettings.getProperty("AltFestivalFirstSwarm", "5"));
-	    	ALT_FESTIVAL_SECOND_SPAWN = Long.parseLong(SevenSettings.getProperty("AltFestivalSecondSpawn", "9"));
-	    	ALT_FESTIVAL_SECOND_SWARM = Long.parseLong(SevenSettings.getProperty("AltFestivalSecondSwarm", "12"));
-	    	ALT_FESTIVAL_CHEST_SPAWN = Long.parseLong(SevenSettings.getProperty("AltFestivalChestSpawn", "15"));
-	    }
-	    catch (Exception e)
-	    {
-	    	e.printStackTrace();
-	        throw new Error("Failed to Load "+SEVENSIGNS_FILE+" File.");
-	    }
-    }
-
-    // --------------------------------------------- //
-    // -           TVT EVENT PROPERTIES            - //
-    // --------------------------------------------- //
-    // ============================================================
-    public static int HIDE_IMAGEM_ITEM;
-    public static int HIDE_REWARD_ITEM;
-    public static int HIDE_REWARD_COUNT;
-    public static boolean TVT_EVENT_ENABLED;
-	public static String[] TVT_EVENT_INTERVAL;
-	public static int TVT_EVENT_PARTICIPATION_TIME;
-	public static int TVT_EVENT_RUNNING_TIME;
-	public static int TVT_EVENT_PARTICIPATION_NPC_ID;
-	public static int[] TVT_EVENT_PARTICIPATION_NPC_COORDINATES = new int[4];
-	public static int[] TVT_EVENT_PARTICIPATION_FEE = new int[2];
-	public static int TVT_EVENT_MIN_PLAYERS_IN_TEAMS;
-	public static int TVT_EVENT_MAX_PLAYERS_IN_TEAMS;
-	public static byte TVT_EVENT_MIN_LVL;
-	public static byte TVT_EVENT_MAX_LVL;
-	public static int TVT_EVENT_RESPAWN_TELEPORT_DELAY;
-	public static int TVT_EVENT_START_LEAVE_TELEPORT_DELAY;
-	public static String TVT_EVENT_TEAM_1_NAME;
-	public static int[] TVT_EVENT_TEAM_1_COORDINATES = new int[3];
-	public static String TVT_EVENT_TEAM_2_NAME;
-	public static int[] TVT_EVENT_TEAM_2_COORDINATES = new int[3];
-	public static List<int[]> TVT_EVENT_REWARDS;
-	public static boolean TVT_EVENT_TARGET_TEAM_MEMBERS_ALLOWED;
-	public static boolean TVT_EVENT_SCROLL_ALLOWED;
-	public static boolean TVT_EVENT_POTIONS_ALLOWED;
-	public static boolean TVT_EVENT_SUMMON_BY_ITEM_ALLOWED;
-	public static List<Integer> TVT_DOORS_IDS_TO_OPEN;
-	public static List<Integer> TVT_DOORS_IDS_TO_CLOSE;
-	public static boolean TVT_REWARD_TEAM_TIE;
-	public static int TVT_EVENT_EFFECTS_REMOVAL;
-    public static Map<Integer, Integer> TVT_EVENT_FIGHTER_BUFFS;
-    public static Map<Integer, Integer> TVT_EVENT_MAGE_BUFFS;
-    public static String TVT_EVENT_ON_KILL;
-	public static boolean TVT_RESTORE_PLAYER_POS;
-	public static List<Integer> LIST_TVT_RESTRICTED_ITEMS = new ArrayList<>();
-	public static boolean TVT_REWARD_ONLY_KILLERS;
-	public static int TVT_EVENT_REWARD_KILL;
-	public static boolean TVT_EVENT_ALLOW_PEACE_ATTACK;
-	public static boolean TVT_EVENT_ALLOW_FLAG;
-	public static boolean TVT_EVENT_RESTORE_CPHPMP;
-	// ============================================================
-
-    public static void loadTvTConfig()
-    {
-	    try(InputStream is = new FileInputStream(new File(EVENT_CONFIG_FILE)))
-	    {
-	        Properties TvTevent  = new Properties();
-	        TvTevent.load(is);
-
-	        HIDE_IMAGEM_ITEM = Integer.parseInt(TvTevent.getProperty("HideImageItem", "7683"));
-	        HIDE_REWARD_ITEM = Integer.parseInt(TvTevent.getProperty("HideRewardItem", "2807"));
-	        HIDE_REWARD_COUNT = Integer.parseInt(TvTevent.getProperty("HideRewardCount", "50"));
-
-	        TVT_EVENT_ENABLED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventEnabled", "False"));
-			TVT_EVENT_INTERVAL = TvTevent.getProperty("TvTEventInterval", "20:00").split(",");
-			TVT_EVENT_PARTICIPATION_TIME = Integer.parseInt(TvTevent.getProperty("TvTEventParticipationTime", "3600"));
-			TVT_EVENT_RUNNING_TIME = Integer.parseInt(TvTevent.getProperty("TvTEventRunningTime", "1800"));
-			TVT_EVENT_PARTICIPATION_NPC_ID = Integer.parseInt(TvTevent.getProperty("TvTEventParticipationNpcId", "0"));
-			if (TVT_EVENT_PARTICIPATION_NPC_ID == 0)
-			{
-				TVT_EVENT_ENABLED = false;
-				_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationNpcId");
-			}
-			else
-			{
-				String[] propertySplit = TvTevent.getProperty("TvTEventParticipationNpcCoordinates", "0,0,0").split(",");
-				if (propertySplit.length < 3)
-				{
-					TVT_EVENT_ENABLED = false;
-					_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationNpcCoordinates");
-				}
-				else
-				{
-					TVT_EVENT_REWARDS = new ArrayList<>();
-					TVT_DOORS_IDS_TO_OPEN = new ArrayList<>();
-					TVT_DOORS_IDS_TO_CLOSE = new ArrayList<>();
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES = new int[4];
-					TVT_EVENT_TEAM_1_COORDINATES = new int[3];
-					TVT_EVENT_TEAM_2_COORDINATES = new int[3];
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
-					TVT_EVENT_PARTICIPATION_NPC_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
-					if (propertySplit.length == 4)
-						TVT_EVENT_PARTICIPATION_NPC_COORDINATES[3] = Integer.parseInt(propertySplit[3]);
-					TVT_EVENT_MIN_PLAYERS_IN_TEAMS = Integer.parseInt(TvTevent.getProperty("TvTEventMinPlayersInTeams", "1"));
-					TVT_EVENT_MAX_PLAYERS_IN_TEAMS = Integer.parseInt(TvTevent.getProperty("TvTEventMaxPlayersInTeams", "20"));
-					TVT_EVENT_MIN_LVL = (byte)Integer.parseInt(TvTevent.getProperty("TvTEventMinPlayerLevel", "1"));
-					TVT_EVENT_MAX_LVL = (byte)Integer.parseInt(TvTevent.getProperty("TvTEventMaxPlayerLevel", "80"));
-					TVT_EVENT_RESPAWN_TELEPORT_DELAY = Integer.parseInt(TvTevent.getProperty("TvTEventRespawnTeleportDelay", "20"));
-					TVT_EVENT_START_LEAVE_TELEPORT_DELAY = Integer.parseInt(TvTevent.getProperty("TvTEventStartLeaveTeleportDelay", "20"));
-					TVT_EVENT_EFFECTS_REMOVAL = Integer.parseInt(TvTevent.getProperty("TvTEventEffectsRemoval", "0"));
-					TVT_RESTORE_PLAYER_POS = Boolean.parseBoolean(TvTevent.getProperty("TvTRestorePlayerOldPosition", "False"));
-					String[] split = TvTevent.getProperty("TvTRestrictedItems","0").split(",");
-					LIST_TVT_RESTRICTED_ITEMS = new ArrayList<>();
-					for (String id : split)
-					{
-						LIST_TVT_RESTRICTED_ITEMS.add(Integer.parseInt(id));
-					}
-					TVT_REWARD_ONLY_KILLERS = Boolean.parseBoolean(TvTevent.getProperty("TvTRewardOnlyKillers", "False"));
-					TVT_EVENT_ALLOW_PEACE_ATTACK = Boolean.parseBoolean(TvTevent.getProperty("TvTAllowPeaceAttack", "True"));
-					TVT_EVENT_ALLOW_FLAG = Boolean.parseBoolean(TvTevent.getProperty("TvTAllowFlag", "True"));
-					TVT_EVENT_RESTORE_CPHPMP = Boolean.parseBoolean(TvTevent.getProperty("TvTRestoreCPHPMP", "False"));
-					TVT_EVENT_TEAM_1_NAME = TvTevent.getProperty("TvTEventTeam1Name", "Team1");
-					propertySplit = TvTevent.getProperty("TvTEventTeam1Coordinates", "0,0,0").split(",");
-					if (propertySplit.length < 3)
-					{
-						TVT_EVENT_ENABLED = false;
-						_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventTeam1Coordinates");
-					}
-					else
-					{
-						TVT_EVENT_TEAM_1_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
-						TVT_EVENT_TEAM_1_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
-						TVT_EVENT_TEAM_1_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
-						TVT_EVENT_TEAM_2_NAME = TvTevent.getProperty("TvTEventTeam2Name", "Team2");
-						propertySplit = TvTevent.getProperty("TvTEventTeam2Coordinates", "0,0,0").split(",");
-						if (propertySplit.length < 3)
-						{
-							TVT_EVENT_ENABLED= false;
-							_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventTeam2Coordinates");
-						}
-						else
-						{
-							TVT_EVENT_TEAM_2_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
-							TVT_EVENT_TEAM_2_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
-							TVT_EVENT_TEAM_2_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
-							propertySplit = TvTevent.getProperty("TvTEventParticipationFee", "0,0").split(",");
-							try
-							{
-								TVT_EVENT_PARTICIPATION_FEE[0] = Integer.parseInt(propertySplit[0]);
-								TVT_EVENT_PARTICIPATION_FEE[1] = Integer.parseInt(propertySplit[1]);
-							}
-							catch (NumberFormatException nfe)
-							{
-								if (propertySplit.length > 0)
-									_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationFee");
-							}
-							propertySplit = TvTevent.getProperty("TvTEventReward", "57,100000").split(";");
-							for (String reward : propertySplit)
-							{
-								String[] rewardSplit = reward.split(",");
-								if (rewardSplit.length != 2)
-									_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"", reward, "\""));
-								else
-								{
-									try
-									{
-										TVT_EVENT_REWARDS.add(new int[]{Integer.parseInt(rewardSplit[0]), Integer.parseInt(rewardSplit[1])});
-									}
-									catch (NumberFormatException nfe)
-									{
-										if (!reward.isEmpty())
-											_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"", reward, "\""));
-									}
-								}
-							}
-							TVT_EVENT_ON_KILL = TvTevent.getProperty("TvTEventOnKill", "pmteam");
-							TVT_EVENT_REWARD_KILL = Integer.parseInt(TvTevent.getProperty("TvTEventRewardKill", "2"));
-							TVT_EVENT_TARGET_TEAM_MEMBERS_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventTargetTeamMembersAllowed", "True"));
-							TVT_EVENT_SCROLL_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventScrollsAllowed", "False"));
-							TVT_EVENT_POTIONS_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventPotionsAllowed", "False"));
-							TVT_EVENT_SUMMON_BY_ITEM_ALLOWED = Boolean.parseBoolean(TvTevent.getProperty("TvTEventSummonByItemAllowed", "False"));
-							TVT_REWARD_TEAM_TIE = Boolean.parseBoolean(TvTevent.getProperty("TvTRewardTeamTie", "False"));
-							propertySplit = TvTevent.getProperty("TvTDoorsToOpen", "").split(";");
-							for (String door : propertySplit)
-							{
-								try
-								{
-									TVT_DOORS_IDS_TO_OPEN.add(Integer.parseInt(door));
-								}
-								catch (NumberFormatException nfe)
-								{
-									if (!door.isEmpty())
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTDoorsToOpen \"", door, "\""));
-								}
-							}
-
-							propertySplit = TvTevent.getProperty("TvTDoorsToClose", "").split(";");
-							for (String door : propertySplit)
-							{
-								try
-								{
-									TVT_DOORS_IDS_TO_CLOSE.add(Integer.parseInt(door));
-								}
-								catch (NumberFormatException nfe)
-								{
-									if (!door.isEmpty())
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTDoorsToClose \"", door, "\""));
-								}
-							}
-
-							propertySplit = TvTevent.getProperty("TvTEventFighterBuffs", "").split(";");
-							if (!propertySplit[0].isEmpty())
-							{
-								TVT_EVENT_FIGHTER_BUFFS = new HashMap<>();
-								for (String skill : propertySplit)
-								{
-									String[] skillSplit = skill.split(",");
-									if (skillSplit.length != 2)
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventFighterBuffs \"", skill, "\""));
-									else
-									{
-										try
-										{
-											TVT_EVENT_FIGHTER_BUFFS.put(Integer.parseInt(skillSplit[0]), Integer.parseInt(skillSplit[1]));
-										}
-										catch (NumberFormatException nfe)
-										{
-											if (!skill.isEmpty())
-												_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventFighterBuffs \"", skill, "\""));
-										}
-									}
-								}
-							}
-
-							propertySplit = TvTevent.getProperty("TvTEventMageBuffs", "").split(";");
-							if (!propertySplit[0].isEmpty())
-							{
-								TVT_EVENT_MAGE_BUFFS = new HashMap<>();
-								for (String skill : propertySplit)
-								{
-									String[] skillSplit = skill.split(",");
-									if (skillSplit.length != 2)
-										_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventMageBuffs \"", skill, "\""));
-									else
-									{
-										try
-										{
-											TVT_EVENT_MAGE_BUFFS.put(Integer.parseInt(skillSplit[0]), Integer.parseInt(skillSplit[1]));
-										}
-										catch (NumberFormatException nfe)
-										{
-											if (!skill.isEmpty())
-												_log.warning(StringUtil.concat("TvTEventEngine[Config.load()]: invalid config property -> TvTEventMageBuffs \"", skill, "\""));
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-        }
-        catch (Exception e)
-        {
-                e.printStackTrace();
-                throw new Error("Failed to Load " + EVENT_CONFIG_FILE + " File.");
-        }
-    }
 
     // --------------------------------------------- //
     // -       ALTSETTINGS PROPERTIES              - //
@@ -3823,34 +3316,34 @@ public final class Config
         else if (pName.equalsIgnoreCase("AltMembersCanWithdrawFromClanWH")) MEMBERS_CAN_WITHDRAW_FROM_CLANWH = Boolean.valueOf(pValue);
         else if (pName.equalsIgnoreCase("DwarfRecipeLimit")) DWARF_RECIPE_LIMIT = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("CommonRecipeLimit")) COMMON_RECIPE_LIMIT = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionEnable")) L2JMOD_CHAMPION_ENABLE =  Boolean.valueOf(pValue);
-        else if (pName.equalsIgnoreCase("ChampionFrequency")) L2JMOD_CHAMPION_FREQUENCY = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionMinLevel")) L2JMOD_CHAMP_MIN_LVL = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionMaxLevel")) L2JMOD_CHAMP_MAX_LVL = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionHp")) L2JMOD_CHAMPION_HP = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionHpRegen")) L2JMOD_CHAMPION_HP_REGEN = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewards")) L2JMOD_CHAMPION_REWARDS = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionAdenasRewards")) L2JMOD_CHAMPION_ADENAS_REWARDS = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionAtk")) L2JMOD_CHAMPION_ATK = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionSpdAtk")) L2JMOD_CHAMPION_SPD_ATK = Float.parseFloat(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewardItem")) L2JMOD_CHAMPION_REWARD = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewardItemID")) L2JMOD_CHAMPION_REWARD_ID = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("ChampionRewardItemQty")) L2JMOD_CHAMPION_REWARD_QTY = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("AllowWedding")) L2JMOD_ALLOW_WEDDING = Boolean.valueOf(pValue);
-        else if (pName.equalsIgnoreCase("WeddingPrice")) L2JMOD_WEDDING_PRICE = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("WeddingPunishInfidelity")) L2JMOD_WEDDING_PUNISH_INFIDELITY = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingTeleport")) L2JMOD_WEDDING_TELEPORT = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingTeleportPrice")) L2JMOD_WEDDING_TELEPORT_PRICE = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("WeddingTeleportDuration")) L2JMOD_WEDDING_TELEPORT_DURATION = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("WeddingAllowSameSex")) L2JMOD_WEDDING_SAMESEX = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingFormalWear")) L2JMOD_WEDDING_FORMALWEAR = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("WeddingDivorceCosts")) L2JMOD_WEDDING_DIVORCE_COSTS = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("ChampionEnable")) getSettings(L2JModsSettings.class).setChampionEnabled(Boolean.valueOf(pValue));
+        else if (pName.equalsIgnoreCase("ChampionFrequency")) getSettings(L2JModsSettings.class).setChampionFrequency(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionMinLevel")) getSettings(L2JModsSettings.class).setChampionMinLevel(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionMaxLevel")) getSettings(L2JModsSettings.class).setChampionMaxLevel(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionHp")) getSettings(L2JModsSettings.class).setChampionHp(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionHpRegen")) getSettings(L2JModsSettings.class).setChampionHpRegen(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewards")) getSettings(L2JModsSettings.class).setChampionRewards(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionAdenasRewards")) getSettings(L2JModsSettings.class).setChampionAdenasRewards(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionAtk")) getSettings(L2JModsSettings.class).setChampionAtk(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionSpdAtk")) getSettings(L2JModsSettings.class).setChampionSpdAtk(Float.parseFloat(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewardItem")) getSettings(L2JModsSettings.class).setChampionRewardItem(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewardItemID")) getSettings(L2JModsSettings.class).setChampionRewardItemID(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("ChampionRewardItemQty")) getSettings(L2JModsSettings.class).setChampionRewardItemQty(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("AllowWedding")) getSettings(L2JModsSettings.class).setWeddingEnabled(Boolean.valueOf(pValue));
+        else if (pName.equalsIgnoreCase("WeddingPrice")) getSettings(L2JModsSettings.class).setWeddingPrice(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("WeddingPunishInfidelity")) getSettings(L2JModsSettings.class).setWeddingPunishInfidelityEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingTeleport")) getSettings(L2JModsSettings.class).setWeddingTeleportEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingTeleportPrice")) getSettings(L2JModsSettings.class).setWeddingTeleportPrice(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("WeddingTeleportDuration")) getSettings(L2JModsSettings.class).setWeddingTeleportDuration(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("WeddingAllowSameSex")) getSettings(L2JModsSettings.class).setWeddingSameSexEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingFormalWear")) getSettings(L2JModsSettings.class).setWeddingFormalWearEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("WeddingDivorceCosts")) getSettings(L2JModsSettings.class).setWeddingDivorceCosts(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("EnableRndSpawns")) ALLOW_RND_SPAWN = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventEnabled")) TVT_EVENT_ENABLED = Boolean.parseBoolean(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventInterval")) TVT_EVENT_INTERVAL = pValue.split(",");
-        else if (pName.equalsIgnoreCase("TvTEventParticipationTime")) TVT_EVENT_PARTICIPATION_TIME = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventRunningTime")) TVT_EVENT_RUNNING_TIME = Integer.parseInt(pValue);
-        else if (pName.equalsIgnoreCase("TvTEventParticipationNpcId")) TVT_EVENT_PARTICIPATION_NPC_ID = Integer.parseInt(pValue);
+        else if (pName.equalsIgnoreCase("TvTEventEnabled")) getSettings(EventSettings.class).setTvTEventEnabled(Boolean.parseBoolean(pValue));
+        else if (pName.equalsIgnoreCase("TvTEventInterval")) getSettings(EventSettings.class).setTvTEventInterval(Arrays.asList(pValue.split(",")));
+        else if (pName.equalsIgnoreCase("TvTEventParticipationTime")) getSettings(EventSettings.class).setTvTEventParticipationTime(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("TvTEventRunningTime"))  getSettings(EventSettings.class).setTvTEventRunningTime(Integer.parseInt(pValue));
+        else if (pName.equalsIgnoreCase("TvTEventParticipationNpcId")) getSettings(EventSettings.class).setTvTEventParticipationNpcId(Integer.parseInt(pValue));
         else if (pName.equalsIgnoreCase("ServerName")) getSettings(L2JBrasilSettings.class).setServerName(pValue);
         else if (pName.equalsIgnoreCase("MinKarma")) KARMA_MIN_KARMA = Integer.parseInt(pValue);
         else if (pName.equalsIgnoreCase("MaxKarma")) KARMA_MAX_KARMA = Integer.parseInt(pValue);
@@ -3921,12 +3414,6 @@ public final class Config
 	{
     	if(Server.serverMode == Server.MODE_GAMESERVER)
 		{
-    		loadCHConfig();
-    		loadSepulchersConfig();
-    		loadTvTConfig();
-    		loadOlympConfig();
-    		loadSevenSignsConfig();
-
     		loadGMAcessConfig();
     		loadAltSettingsConfig();
     		loadBossConfig();
@@ -3938,7 +3425,6 @@ public final class Config
     		loadOptionConfig();
     		loadPvPConfig();
     		loadRatesConfig();
-
     		loadFloodConfig();
     		loadHexidConfig();
     		loadIdFactoryConfig();

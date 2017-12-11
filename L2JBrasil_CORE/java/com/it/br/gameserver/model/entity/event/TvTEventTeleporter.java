@@ -15,11 +15,15 @@
 package com.it.br.gameserver.model.entity.event;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Summon;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Duel;
 import com.it.br.util.Rnd;
+import com.it.br.util.Util;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,8 +51,8 @@ public class TvTEventTeleporter implements Runnable
 		_playerInstance = playerInstance;
 		_coordinates = coordinates;
 		_adminRemove = adminRemove;
-
-		long delay = (TvTEvent.isStarted() ? Config.TVT_EVENT_RESPAWN_TELEPORT_DELAY : Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY) * 1000;
+		EventSettings eventSettings = getSettings(EventSettings.class);
+		long delay = Util.secondsToMilliseconds((TvTEvent.isStarted() ?  eventSettings.getTvTEventRespawnTeleportDelay() : eventSettings.getTvTEventStartLeaveTeleportDelay()) );
 
 		ThreadPoolManager.getInstance().scheduleGeneral(this, fastSchedule ? 0 : delay);
 	}
@@ -71,9 +75,11 @@ public class TvTEventTeleporter implements Runnable
 
 		if (summon != null)
 			summon.unSummon(_playerInstance);
+		EventSettings eventSettings = getSettings(EventSettings.class);
 
-		if (Config.TVT_EVENT_EFFECTS_REMOVAL == 0
-				|| (Config.TVT_EVENT_EFFECTS_REMOVAL == 1 && (_playerInstance.getTeam() == 0 || (_playerInstance.isInDuel() && _playerInstance.getDuelState() != Duel.DUELSTATE_INTERRUPTED))))
+		int effectRemoval = eventSettings.getTvTEventEffectsRemoval();
+		if (effectRemoval == 0
+				|| (effectRemoval == 1 && (_playerInstance.getTeam() == 0 || (_playerInstance.isInDuel() && _playerInstance.getDuelState() != Duel.DUELSTATE_INTERRUPTED))))
 			_playerInstance.stopAllEffects();
 
 		if (_playerInstance.isInDuel())
@@ -100,7 +106,8 @@ public class TvTEventTeleporter implements Runnable
 
 		int objId = _playerInstance.getObjectId();
 
-		if (Config.TVT_RESTORE_PLAYER_POS && TvTEvent.isStarted() && !_adminRemove)
+		boolean restorePosition = eventSettings.isTvTRestorePlayerOldPosition();
+		if (restorePosition && TvTEvent.isStarted() && !_adminRemove)
 		{
 			final Integer[] oldCoords =
 			{
@@ -111,7 +118,7 @@ public class TvTEventTeleporter implements Runnable
 			_oldPlayerPos.put(objId, oldCoords);
 		}
 
-		if (Config.TVT_RESTORE_PLAYER_POS && !TvTEvent.isStarted())
+		if (restorePosition && !TvTEvent.isStarted())
 		{
 			Integer[] coor = _oldPlayerPos.get(objId);
 

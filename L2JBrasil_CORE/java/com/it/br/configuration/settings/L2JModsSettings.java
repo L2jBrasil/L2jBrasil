@@ -147,45 +147,89 @@ public class L2JModsSettings implements Settings {
 	public int getChampionMinLevel() {
 		return championMinLevel;
 	}
+	
+	public void setChampionMinLevel(int championMinLevel) {
+		this.championMinLevel = championMinLevel;
+	}
 
 	public int getChampionMaxLevel() {
 		return championMaxLevel;
+	}
+	
+	public void setChampionMaxLevel(int championMaxLevel) {
+		this.championMaxLevel = championMaxLevel;
 	}
 
 	public int getChampionHp() {
 		return championHp;
 	}
+	
+	public void setChampionHp(int championHp) {
+		this.championHp = championHp;
+	}
 
 	public int getChampionRewards() {
 		return championRewards;
+	}
+	
+	public void setChampionRewards(int championRewards) {
+		this.championRewards = championRewards;
 	}
 
 	public float getChampionAdenasRewards() {
 		return championAdenasRewards;
 	}
+	
+	public void setChampionAdenasRewards(float championAdenasRewards) {
+		this.championAdenasRewards = championAdenasRewards;
+	}
 
 	public float getChampionHpRegen() {
 		return championHpRegen;
+	}
+	
+	public void setChampionHpRegen(float championHpRegen) {
+		this.championHpRegen = championHpRegen;
 	}
 
 	public float getChampionAtk() {
 		return championAtk;
 	}
+	
+	public void setChampionAtk(float championAtk) {
+		this.championAtk = championAtk;
+	}
 
 	public float getChampionSpdAtk() {
 		return championSpdAtk;
+	}
+	
+	public void setChampionSpdAtk(float championSpdAtk) {
+		this.championSpdAtk = championSpdAtk;
 	}
 
 	public int getChampionRewardItem() {
 		return championRewardItem;
 	}
+	
+	public void setChampionRewardItem(int championRewardItem) {
+		this.championRewardItem = championRewardItem;
+	}
 
 	public int getChampionRewardItemID() {
 		return championRewardItemID;
 	}
+	
+	public void setChampionRewardItemID(int championRewardItemID) {
+		this.championRewardItemID = championRewardItemID;
+	}
 
 	public int getChampionRewardItemQty() {
 		return championRewardItemQty;
+	}
+	
+	public void setChampionRewardItemQty(int championRewardItemQty) {
+		this.championRewardItemQty = championRewardItemQty;
 	}
 
 	public boolean isWeddingEnabled() {

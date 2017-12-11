@@ -619,7 +619,7 @@ public class LoginController
 			if (failedCount >= loginSettings.getTriesBeforeBan())
 			{
 				_log.info("Banning '"+address.getHostAddress()+"' for "+ loginSettings.getTimeBlockAfterBan()+" seconds due to "+failedCount+" invalid user/pass attempts");
-				this.addBanForAddress(address, Util.getSecondsInMilliseconds(loginSettings.getTimeBlockAfterBan()));
+				this.addBanForAddress(address, Util.secondsToMilliseconds(loginSettings.getTimeBlockAfterBan()));
 			}
 		}
 		else

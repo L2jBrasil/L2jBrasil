@@ -23,12 +23,15 @@ import java.util.StringTokenizer;
 
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.configuration.settings.CommandSettings;
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
-import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.configuration.settings.OlympiadSettings;
+import com.it.br.configuration.settings.SepulchersSettings;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -166,11 +169,10 @@ public class AdminReload implements IAdminCommandHandler
                 }
 				else if (type.startsWith("event")) 
                 { 
-					Config.loadCHConfig();
-					Config.loadSepulchersConfig();
-					Config.loadOlympConfig();
-					Config.loadSevenSignsConfig();
-					Config.loadTvTConfig();
+					Configurator.reloadSettings(SepulchersSettings.class);
+					Configurator.reloadSettings(OlympiadSettings.class);
+					Configurator.reloadSettings(SevensignsSettings.class);
+					Configurator.reloadSettings(EventSettings.class);
 					sendReloadPage(activeChar);
                     activeChar.sendMessage("Event config settings reloaded"); 
                 }
@@ -279,11 +281,6 @@ public class AdminReload implements IAdminCommandHandler
     private void reloadAllConfigs() {
     	Configurator.reloadAll();
         Config.loadGMAcessConfig();
-        Config.loadCHConfig();
-        Config.loadSepulchersConfig();
-        Config.loadOlympConfig();
-        Config.loadSevenSignsConfig();
-        Config.loadTvTConfig();
         Config.loadAltSettingsConfig();
         Config.loadBossConfig();
         Config.loadClanConfig();

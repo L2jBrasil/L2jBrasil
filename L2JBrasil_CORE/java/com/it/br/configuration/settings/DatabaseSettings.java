@@ -27,6 +27,10 @@ public class DatabaseSettings implements Settings {
 	
 	@Override
 	public void load(L2Properties properties) {
+		if(properties == null) {
+			return;
+		}
+		
 		driver = properties.getString("Driver", "com.mysql.jdbc.Driver");
 		url = properties.getString("Url", "jdbc:mysql://localhost/l2jdb");
 		username = properties.getString("Username", "root");

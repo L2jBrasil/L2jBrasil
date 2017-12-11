@@ -18,6 +18,8 @@
  */
 package com.it.br.gameserver.model;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,6 +30,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -354,14 +357,13 @@ public final class L2ItemInstance extends L2Object
 		return _dropTime;
 	}
 
-	public boolean isOlyRestrictedItem()
-	{
-		return (Config.ALT_OLY_RESTRICTED_ITEMS.contains(_itemId));
+	public boolean isOlyRestrictedItem() {
+		return ( getSettings(OlympiadSettings.class).getRestrictedItems().contains(_itemId));
 	}
 
 	public boolean isOlyRestrictedGradS()
 	{
-		return (Config.ALT_OLY_RESTRICTED_ITEMS_S && (_item.getCrystalType() == L2Item.CRYSTAL_S));
+		return (!getSettings(OlympiadSettings.class).isEquipmentGradeSEnabled() && (_item.getCrystalType() == L2Item.CRYSTAL_S));
 	}
 
 	public boolean isWear()

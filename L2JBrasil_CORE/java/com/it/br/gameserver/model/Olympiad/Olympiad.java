@@ -47,6 +47,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -85,15 +86,6 @@ public class Olympiad
 	private static final String GET_EACH_CLASS_LEADER = "SELECT char_name from " + "olympiad_nobles where class_id = ? order by olympiad_points desc, " + "competitions_done desc";
 	private static final String OLYMPIAD_DELETE_ALL = "DELETE from olympiad_nobles";
 
-	private static final int COMP_START = Config.ALT_OLY_START_TIME; // 6PM
-	private static final int COMP_MIN = Config.ALT_OLY_MIN; // 00 mins
-	private static final long COMP_PERIOD = Config.ALT_OLY_CPERIOD; // 6 hours
-	protected static final long BATTLE_PERIOD = Config.ALT_OLY_BATTLE; // 6 mins
-	protected static final long BATTLE_WAIT = Config.ALT_OLY_BWAIT; // 10mins
-	protected static final long INITIAL_WAIT = Config.ALT_OLY_IWAIT; // 5mins
-	protected static final long WEEKLY_PERIOD = Config.ALT_OLY_WPERIOD; // 1 week
-	protected static final long VALIDATION_PERIOD = Config.ALT_OLY_VPERIOD; // 24 hours
-
 	private static final int DEFAULT_POINTS = 18;
 	protected static final int WEEKLY_POINTS = 3;
 
@@ -103,6 +95,16 @@ public class Olympiad
 	public static final String POINTS = "olympiad_points";
 	public static final String COMP_DONE = "competitions_done";
 
+	
+	private int startHour;
+	private int startMinute; 
+	protected long validationPeriod;
+	protected long weeklyPeriod;
+	protected long initialWait;
+	private long competitionPeriod;
+	protected long battlePeriod;
+	protected long battleWait;
+	
 	protected long _olympiadEnd;
 	protected long _validationEnd;
 	protected int _period;
@@ -160,8 +162,17 @@ public class Olympiad
 		return _instance;
 	}
 
-	public Olympiad()
-	{}
+	public Olympiad() {
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
+		startHour = olympiadSettings.getStartHour();
+		startMinute = olympiadSettings.getStartMinute();
+		competitionPeriod = olympiadSettings.getCompetitionPeriod();
+		initialWait = olympiadSettings.getInitialWaitTime();
+		battlePeriod = olympiadSettings.getBattlePeriod();
+		battleWait = olympiadSettings.getBattleWaitTime();
+		validationPeriod = olympiadSettings.getValidationPeriod();
+		weeklyPeriod = olympiadSettings.getWeeklyPeriod();
+	}
 
 	public void load()
 	{
@@ -344,9 +355,9 @@ public class Olympiad
 		_classBasedRegisters = new HashMap<>();
 
 		_compStart = Calendar.getInstance();
-		_compStart.set(Calendar.HOUR_OF_DAY, COMP_START);
-		_compStart.set(Calendar.MINUTE, COMP_MIN);
-		_compEnd = _compStart.getTimeInMillis() + COMP_PERIOD;
+		_compStart.set(Calendar.HOUR_OF_DAY, startHour);
+		_compStart.set(Calendar.MINUTE, startMinute);
+		_compEnd = _compStart.getTimeInMillis() + competitionPeriod;
 
 		_scheduledOlympiadEnd = ThreadPoolManager.getInstance().scheduleGeneral(new Runnable() {
 			@Override
@@ -369,7 +380,7 @@ public class Olympiad
 				}
 
 				Calendar validationEnd = Calendar.getInstance();
-				_validationEnd = validationEnd.getTimeInMillis() + VALIDATION_PERIOD;
+				_validationEnd = validationEnd.getTimeInMillis() + validationPeriod;
 
 				saveNobleData();
 
@@ -771,7 +782,7 @@ public class Olympiad
 		}
 
 		Calendar validationEnd = Calendar.getInstance();
-		_validationEnd = validationEnd.getTimeInMillis() + VALIDATION_PERIOD;
+		_validationEnd = validationEnd.getTimeInMillis() + validationPeriod;
 
 		saveNobleData();
 
@@ -834,17 +845,24 @@ public class Olympiad
 		currentTime.set(Calendar.MINUTE, 0);
 		currentTime.set(Calendar.SECOND, 0);
 		
-		switch(Config.ALT_OLY_PERIOD){
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
+		OlympiadPeriod period = OlympiadPeriod.valueOf(olympiadSettings.getPeriod());
+		int periodMultiplier = olympiadSettings.getPeriodMultiplier();
+		if(period == null) {
+			period = OlympiadPeriod.MONTH;
+		}
+		
+		switch(period){
 			case DAY:{
-				currentTime.add(Calendar.DAY_OF_MONTH, Config.ALT_OLY_PERIOD_MULTIPLIER);
+				currentTime.add(Calendar.DAY_OF_MONTH, periodMultiplier);
 				currentTime.add(Calendar.DAY_OF_MONTH, -1); //last day is for validation
 				
-				if(Config.ALT_OLY_PERIOD_MULTIPLIER>=14){
+				if(periodMultiplier >= 14){
 					Calendar nextChange = Calendar.getInstance();
-					_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD;
-				}else if(Config.ALT_OLY_PERIOD_MULTIPLIER>=7){
+					_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod;
+				}else if(periodMultiplier >= 7){
 					Calendar nextChange = Calendar.getInstance();
-					_nextWeeklyChange = nextChange.getTimeInMillis() + (WEEKLY_PERIOD/2);
+					_nextWeeklyChange = nextChange.getTimeInMillis() + (weeklyPeriod/2);
 				}else{
 					//nothing to do, too low period
 				}
@@ -852,25 +870,25 @@ public class Olympiad
 			}
 			break;
 			case WEEK:{
-				currentTime.add(Calendar.WEEK_OF_MONTH, Config.ALT_OLY_PERIOD_MULTIPLIER);
+				currentTime.add(Calendar.WEEK_OF_MONTH, periodMultiplier);
 				currentTime.add(Calendar.DAY_OF_MONTH, -1); //last day is for validation
 				
-				if(Config.ALT_OLY_PERIOD_MULTIPLIER>1){
+				if(periodMultiplier > 1 ){
 					Calendar nextChange = Calendar.getInstance();
-					_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD;
+					_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod;
 				}else{
 					Calendar nextChange = Calendar.getInstance();
-					_nextWeeklyChange = nextChange.getTimeInMillis() + (WEEKLY_PERIOD/2);
+					_nextWeeklyChange = nextChange.getTimeInMillis() + (weeklyPeriod/2);
 				}
 				
 			}
 			break;
 			case MONTH:{
-				currentTime.add(Calendar.MONTH, Config.ALT_OLY_PERIOD_MULTIPLIER);
+				currentTime.add(Calendar.MONTH, periodMultiplier);
 				currentTime.add(Calendar.DAY_OF_MONTH, -1); //last day is for validation
 				
 				Calendar nextChange = Calendar.getInstance();
-				_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD;
+				_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod;
 
 			}
 			break;
@@ -901,10 +919,10 @@ public class Olympiad
 	private long setNewCompBegin()
 	{
 		_compStart = Calendar.getInstance();
-		_compStart.set(Calendar.HOUR_OF_DAY, COMP_START);
-		_compStart.set(Calendar.MINUTE, COMP_MIN);
+		_compStart.set(Calendar.HOUR_OF_DAY, startHour);
+		_compStart.set(Calendar.MINUTE, startMinute);
 		_compStart.add(Calendar.HOUR_OF_DAY, 24);
-		_compEnd = _compStart.getTimeInMillis() + COMP_PERIOD;
+		_compEnd = _compStart.getTimeInMillis() + competitionPeriod;
 
 		_log.info("Olympiad System: New Schedule @ " + _compStart.getTime());
 
@@ -927,7 +945,14 @@ public class Olympiad
 
 	private void scheduleWeeklyChange()
 	{
-		switch(Config.ALT_OLY_PERIOD){
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
+		OlympiadPeriod period = OlympiadPeriod.valueOf(olympiadSettings.getPeriod());
+		int periodMultiplier = olympiadSettings.getPeriodMultiplier();
+		if(period == null) {
+			period = OlympiadPeriod.MONTH;
+		}
+		
+		switch(period){
 			case MONTH:{
 				_scheduledWeeklyTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new Runnable() {
 					@Override
@@ -937,14 +962,14 @@ public class Olympiad
 						_log.info("Olympiad System: Added weekly points to nobles");
 
 						Calendar nextChange = Calendar.getInstance();
-						_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD;
+						_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod;
 					}
-				}, getMillisToWeekChange(), WEEKLY_PERIOD);
+				}, getMillisToWeekChange(), weeklyPeriod);
 			}
 			break;
 			case WEEK:{
 				
-				if(Config.ALT_OLY_PERIOD_MULTIPLIER>1){
+				if(periodMultiplier > 1){
 					_scheduledWeeklyTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new Runnable() {
 						@Override
 						public void run()
@@ -953,9 +978,9 @@ public class Olympiad
 							_log.info("Olympiad System: Added weekly points to nobles");
 
 							Calendar nextChange = Calendar.getInstance();
-							_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD;
+							_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod;
 						}
-					}, getMillisToWeekChange(), WEEKLY_PERIOD);
+					}, getMillisToWeekChange(), weeklyPeriod);
 				}else{
 					_scheduledWeeklyTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new Runnable() {
 						@Override
@@ -965,16 +990,16 @@ public class Olympiad
 							_log.info("Olympiad System: Added weekly points to nobles");
 
 							Calendar nextChange = Calendar.getInstance();
-							_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD/2;
+							_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod/2;
 						}
-					}, getMillisToWeekChange(), WEEKLY_PERIOD/2);
+					}, getMillisToWeekChange(), weeklyPeriod/2);
 				}
 				
 			}
 			break;
 			case DAY:{
 				
-				if(Config.ALT_OLY_PERIOD_MULTIPLIER>=14){
+				if(periodMultiplier >= 14){
 					_scheduledWeeklyTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new Runnable() {
 						@Override
 						public void run()
@@ -983,10 +1008,10 @@ public class Olympiad
 							_log.info("Olympiad System: Added weekly points to nobles");
 
 							Calendar nextChange = Calendar.getInstance();
-							_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD;
+							_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod;
 						}
-					}, getMillisToWeekChange(), WEEKLY_PERIOD);
-				}else if(Config.ALT_OLY_PERIOD_MULTIPLIER>=7){
+					}, getMillisToWeekChange(), weeklyPeriod);
+				}else if(periodMultiplier >= 7){
 					_scheduledWeeklyTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new Runnable() {
 						@Override
 						public void run()
@@ -995,9 +1020,9 @@ public class Olympiad
 							_log.info("Olympiad System: Added weekly points to nobles");
 
 							Calendar nextChange = Calendar.getInstance();
-							_nextWeeklyChange = nextChange.getTimeInMillis() + WEEKLY_PERIOD/2;
+							_nextWeeklyChange = nextChange.getTimeInMillis() + weeklyPeriod/2;
 						}
-					}, getMillisToWeekChange(), WEEKLY_PERIOD/2);
+					}, getMillisToWeekChange(), weeklyPeriod/2);
 				}else{
 					//nothing to do, too low period
 				}
@@ -1339,7 +1364,7 @@ public class Olympiad
 
 			StatsSet noble = _nobles.get(charId);
 			int currentPoints = noble.getInteger(POINTS);
-			currentPoints += Config.ALT_OLY_HERO_POINTS;
+			currentPoints +=  getSettings(OlympiadSettings.class).getHeroPoints();
 			noble.set(POINTS, currentPoints);
 
 			_nobles.remove(charId);
@@ -1356,14 +1381,15 @@ public class Olympiad
 		if(noble == null)
 			return 0;
 		int points = noble.getInteger(POINTS);
-		if(points <= Config.ALT_OLY_MIN_POINT_FOR_EXCH)
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
+		if(points <= olympiadSettings.getMinimumPointForExchange())
 			return 0;
 
 		noble.set(POINTS, 0);
 		_nobles.remove(objId);
 		_nobles.put(objId, noble);
 
-		points *= Config.ALT_OLY_GP_PER_POINT;
+		points *= olympiadSettings.getGatePassPerPoint();
 
 		return points;
 	}

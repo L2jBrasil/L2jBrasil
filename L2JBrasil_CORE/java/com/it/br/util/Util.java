@@ -256,7 +256,13 @@ public class Util
 	}
 
 
-	public static long getSecondsInMilliseconds(int seconds){
+	public static long secondsToMilliseconds(int seconds){
 		return seconds * 1000L;
 	}
+	
+	public static long minutesToMiliseconds(int minutesToConvert) {
+		return minutesToConvert * 60000L;
+	}
+			
+		
 }

@@ -19,6 +19,7 @@
 package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2Object;
@@ -26,6 +27,8 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.model.entity.event.TvTEventTeleporter;
 import com.it.br.gameserver.model.entity.event.TvTManager;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -130,6 +133,6 @@ public class AdminTvTEvent implements IAdminCommandHandler
 			return;
 		}
 
-		new TvTEventTeleporter(playerInstance, Config.TVT_EVENT_PARTICIPATION_NPC_COORDINATES, true, true);
+		new TvTEventTeleporter(playerInstance, getSettings(EventSettings.class).getTvTEventParticipationNpcCoordinates(), true, true);
 	}
 }

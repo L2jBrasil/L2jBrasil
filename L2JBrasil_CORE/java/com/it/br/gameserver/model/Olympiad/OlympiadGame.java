@@ -18,10 +18,13 @@
  */
 package com.it.br.gameserver.model.Olympiad;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.Arrays;
 import java.util.Map;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.datatables.HeroSkillTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.instancemanager.OlympiadStadiaManager;
@@ -156,15 +159,17 @@ class OlympiadGame extends Olympiad
 		if(_playerTwo.isDead())
 			_playerTwo.doRevive();
 
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
 		for(L2PcInstance player : _players)
 		{
 			try
 			{
-				if (Config.OLY_SKILL_PROTECT)
+				
+				if (olympiadSettings.isSkillProtectionEnabled())
 				{
 					for(L2Skill skill : player.getAllSkills())
 					{
-						if (Config.OLY_SKILL_LIST.contains(skill.getId()))
+						if (olympiadSettings.getSkillProtectionIds().contains(skill.getId()))
 							player.disableSkill(skill.getId());
 						player.sendPacket(new ExShowScreenMessage ("This skill can not be used", 4000));
 					}
@@ -323,7 +328,7 @@ class OlympiadGame extends Olympiad
 				}
 				
 				// Skill recharge is a Gracia Final feature, but we have it configurable ;)
-				if (Config.ALT_OLY_RECHARGE_SKILLS)
+				if (olympiadSettings.isRechargeSkillsEnabled())
 				{
 					for (L2Skill skill : player.getAllSkills())
 						if(skill.getId() != 1324)
@@ -481,15 +486,16 @@ class OlympiadGame extends Olympiad
 
 	protected void PlayersStatusBack()
 	{
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
 		for(L2PcInstance player : _players)
 		{
 			try
 			{
-				if (Config.OLY_SKILL_PROTECT)
+				if (olympiadSettings.isSkillProtectionEnabled())
 				{
 					for(L2Skill skill : player.getAllSkills())
 					{
-						if (Config.OLY_SKILL_LIST.contains(skill.getId()))
+						if (olympiadSettings.getSkillProtectionIds().contains(skill.getId()))
 							player.enableSkill(skill.getId());
 						player.updateEffectIcons();
 						player.sendPacket(new ExShowScreenMessage ("His skill can be used normally", 5000));
@@ -668,16 +674,16 @@ class OlympiadGame extends Olympiad
 		if(new_two!=null)
 			_playerTwo = new_two;
 		_players.set(1, _playerTwo);
-		
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
 		switch(_type)
 		{
 			case NON_CLASSED:
 				_div = 5;
-				_gpreward = Config.ALT_OLY_NONCLASSED_RITEM_C;
+				_gpreward = olympiadSettings.getNonClassedRewardCount();
 				break;
 			default:
 				_div = 3;
-				_gpreward = Config.ALT_OLY_CLASSED_RITEM_C;
+				_gpreward = olympiadSettings.getClassedRewardCount();
 				break;
 		}
 
@@ -707,7 +713,7 @@ class OlympiadGame extends Olympiad
 			try
 			{
 				result = " (" + playerOneHp + "hp vs " + playerTwoHp + "hp - " + _playerOne.dmgDealt + "dmg vs " + _playerTwo.dmgDealt + "dmg) " + _playerOneName + " win " + pointDiff + " points";
-				L2ItemInstance item = _playerOne.getInventory().addItem("Olympiad", Config.ALT_OLY_BATTLE_REWARD_ITEM, _gpreward, _playerOne, null);
+				L2ItemInstance item = _playerOne.getInventory().addItem("Olympiad", olympiadSettings.getBattleRewardItem(), _gpreward, _playerOne, null);
 				InventoryUpdate iu = new InventoryUpdate();
 				iu.addModifiedItem(item);
 				_playerOne.sendPacket(iu);
@@ -749,7 +755,7 @@ class OlympiadGame extends Olympiad
 			try
 			{
 				result = " (" + playerOneHp + "hp vs " + playerTwoHp + "hp - " + _playerOne.dmgDealt + "dmg vs " + _playerTwo.dmgDealt + "dmg) " + _playerTwoName + " win " + pointDiff + " points";
-				L2ItemInstance item = _playerTwo.getInventory().addItem("Olympiad", Config.ALT_OLY_BATTLE_REWARD_ITEM, _gpreward, _playerTwo, null);
+				L2ItemInstance item = _playerTwo.getInventory().addItem("Olympiad", olympiadSettings.getBattleRewardItem(), _gpreward, _playerTwo, null);
 				InventoryUpdate iu = new InventoryUpdate();
 				iu.addModifiedItem(item);
 				_playerTwo.sendPacket(iu);
@@ -817,15 +823,16 @@ class OlympiadGame extends Olympiad
 
 	protected void additions()
 	{
+		OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
 		for(L2PcInstance player : _players)
 		{
 			try
 			{
-				if (Config.OLY_SKILL_PROTECT)
+				if (olympiadSettings.isSkillProtectionEnabled())
 				{
 					for(L2Skill skill : player.getAllSkills())
 					{
-						if (Config.OLY_SKILL_LIST.contains(skill.getId()))
+						if (olympiadSettings.getSkillProtectionIds().contains(skill.getId()))
 							player.enableSkill(skill.getId());
 						player.updateEffectIcons();
 						player.sendPacket(new ExShowScreenMessage ("You can use your skill", 3000));
@@ -902,15 +909,15 @@ class OlympiadGame extends Olympiad
 		broadcastMessage(_sm, true);
 		try
 		{
-			
+			OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
 			for(L2PcInstance player : _players)
 			{
 				player.setIsOlympiadStart(true);
-				if (Config.OLY_SKILL_PROTECT)
+				if (olympiadSettings.isSkillProtectionEnabled())
 				{
 					for(L2Skill skill : player.getAllSkills())
 					{
-						if (Config.OLY_SKILL_LIST.contains(skill.getId()))
+						if (olympiadSettings.getSkillProtectionIds().contains(skill.getId()))
 							player.enableSkill(skill.getId());
 						player.updateEffectIcons();
 					}

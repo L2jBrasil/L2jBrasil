@@ -14,16 +14,25 @@
  */
 package com.it.br.gameserver.instancemanager;
 
+import static com.it.br.configuration.Configurator.getSettings;
+import static com.it.br.util.Util.minutesToMiliseconds;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
+import com.it.br.configuration.settings.SepulchersSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
@@ -226,9 +235,10 @@ public class FourSepulchersManager
 			tmp.set(Calendar.HOUR, Calendar.getInstance().get(Calendar.HOUR) - 1);
 		tmp.set(Calendar.MINUTE, _newCycleMin);
 		_coolDownTimeEnd = tmp.getTimeInMillis();
-		_entryTimeEnd = _coolDownTimeEnd + Config.FS_TIME_ENTRY * 60000;
-		_warmUpTimeEnd = _entryTimeEnd + Config.FS_TIME_WARMUP * 60000;
-		_attackTimeEnd = _warmUpTimeEnd + Config.FS_TIME_ATTACK * 60000;
+		SepulchersSettings sepulcheresSettings = getSettings(SepulchersSettings.class);
+		_entryTimeEnd = _coolDownTimeEnd + minutesToMiliseconds(sepulcheresSettings.getEntryTime());
+		_warmUpTimeEnd = _entryTimeEnd + minutesToMiliseconds(sepulcheresSettings.getWarmUpTime());
+		_attackTimeEnd = _warmUpTimeEnd + minutesToMiliseconds(sepulcheresSettings.getAttackTime());
 	}
 
 	public void clean()
@@ -840,9 +850,12 @@ public class FourSepulchersManager
 			showHtmlFile(player, npcId + "-FULL.htm", npc, null);
 			return;
 		}
-		if (Config.FS_PARTY_MEMBER_COUNT > 1)
+		
+		
+		SepulchersSettings settings = getSettings(SepulchersSettings.class);
+		if (settings.getMinimunPartyMembers() > 1)
 		{
-			if (!player.isInParty() || player.getParty().getMemberCount() < Config.FS_PARTY_MEMBER_COUNT)
+			if (!player.isInParty() || player.getParty().getMemberCount() < settings.getMinimunPartyMembers())
 			{
 				showHtmlFile(player, npcId + "-SP.htm", npc, null);
 				return;
@@ -872,7 +885,7 @@ public class FourSepulchersManager
 				}
 			}
 		}
-		else if (Config.FS_PARTY_MEMBER_COUNT <= 1 && player.isInParty())
+		else if (settings.getMinimunPartyMembers() <= 1 && player.isInParty())
 		{
 			if (!player.getParty().isLeader(player))
 			{
@@ -932,7 +945,8 @@ public class FourSepulchersManager
 		int[] Location = _startHallSpawns.get(npcId);
 		int driftx;
 		int drifty;
-		if (Config.FS_PARTY_MEMBER_COUNT > 1)
+		SepulchersSettings sepulcheresSettings = getSettings(SepulchersSettings.class);
+		if (sepulcheresSettings.getMinimunPartyMembers() > 1)
 		{
 			List<L2PcInstance> members = new ArrayList<>();
 			for (L2PcInstance mem : player.getParty().getPartyMembers())
@@ -956,7 +970,7 @@ public class FourSepulchersManager
 			_hallInUse.remove(npcId);
 			_hallInUse.put(npcId, true);
 		}
-		if (Config.FS_PARTY_MEMBER_COUNT <= 1 && player.isInParty())
+		if (sepulcheresSettings.getMinimunPartyMembers() <= 1 && player.isInParty())
 		{
 			List<L2PcInstance> members = new ArrayList<>();
 			for (L2PcInstance mem : player.getParty().getPartyMembers())
@@ -1417,7 +1431,8 @@ public class FourSepulchersManager
 			{
 				Calendar tmp = Calendar.getInstance();
 				tmp.setTimeInMillis(Calendar.getInstance().getTimeInMillis() - _warmUpTimeEnd);
-				if (tmp.get(Calendar.MINUTE) + 5 < Config.FS_TIME_ATTACK)
+				int attackTime = getSettings(SepulchersSettings.class).getAttackTime();
+				if (tmp.get(Calendar.MINUTE) + 5 < attackTime)
 				{
 					managerSay((byte) tmp.get(Calendar.MINUTE)); // byte
 					// because
@@ -1428,7 +1443,7 @@ public class FourSepulchersManager
 					ThreadPoolManager.getInstance().scheduleGeneral(new ManagerSay(), 5 * 60000);
 				}
 				// attack time ending chat
-				else if (tmp.get(Calendar.MINUTE) + 5 >= Config.FS_TIME_ATTACK)
+				else if (tmp.get(Calendar.MINUTE) + 5 >= attackTime)
 					managerSay((byte) 90); // sending a unique id :D
 			}
 			else if (_inEntryTime)
@@ -1454,7 +1469,7 @@ public class FourSepulchersManager
 			if (_firstTimeRun)
 				interval = _entryTimeEnd - Calendar.getInstance().getTimeInMillis();
 			else
-				interval = Config.FS_TIME_ENTRY * 60000; // else use stupid
+				interval = minutesToMiliseconds(getSettings(SepulchersSettings.class).getEntryTime()); // else use stupid
 			// method
 			// launching saying process...
 			ThreadPoolManager.getInstance().scheduleGeneral(new ManagerSay(), 0);
@@ -1484,7 +1499,7 @@ public class FourSepulchersManager
 			if (_firstTimeRun)
 				interval = _warmUpTimeEnd - Calendar.getInstance().getTimeInMillis();
 			else
-				interval = Config.FS_TIME_WARMUP * 60000;
+				interval = minutesToMiliseconds(getSettings(SepulchersSettings.class).getWarmUpTime());
 			_changeAttackTimeTask = ThreadPoolManager.getInstance().scheduleGeneral(new ChangeAttackTime(), interval);
 			if (_changeWarmUpTimeTask != null)
 			{
@@ -1533,7 +1548,7 @@ public class FourSepulchersManager
 			if (_firstTimeRun)
 				interval = _attackTimeEnd - Calendar.getInstance().getTimeInMillis();
 			else
-				interval = Config.FS_TIME_ATTACK * 60000;
+				interval = minutesToMiliseconds(getSettings(SepulchersSettings.class).getAttackTime());
 			_changeCoolDownTimeTask = ThreadPoolManager.getInstance().scheduleGeneral(new ChangeCoolDownTime(), interval);
 			if (_changeAttackTimeTask != null)
 			{

@@ -18,10 +18,13 @@
  */
 package com.it.br.gameserver.model.Olympiad;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import com.it.br.Config;
+import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.util.L2FastList;
 import com.it.br.util.Rnd;
@@ -69,8 +72,12 @@ class OlympiadManager extends Olympiad implements Runnable
 			{
 				classBasedPgCount += classList.size();
 			}
-			while((_gamesQueue.size() > 0 || classBasedPgCount >= Config.ALT_OLY_CLASSED || _nonClassBasedRegisters.size() >= Config.ALT_OLY_NONCLASSED) && inCompPeriod())
-			{
+			
+			
+			OlympiadSettings olympiadSettings = getSettings(OlympiadSettings.class);
+			while((_gamesQueue.size() > 0 || classBasedPgCount >= olympiadSettings.getMinimumClassedParticipants()|| 
+					_nonClassBasedRegisters.size() >= olympiadSettings.getMinimumNonClassedParticipants()) 
+					&& inCompPeriod()) {
 				//first cycle do nothing
 				int _gamesQueueSize = 0;
 				_gamesQueueSize = _gamesQueue.size();
