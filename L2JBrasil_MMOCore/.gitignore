@@ -1,3 +1,4 @@
-# build fora dos commits
+# Folders excludes on git
 /build/
 /bin/
+/.idea/
