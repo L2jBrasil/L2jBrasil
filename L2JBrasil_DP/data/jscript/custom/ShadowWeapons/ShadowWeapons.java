@@ -48,6 +48,7 @@ public class ShadowWeapons extends Quest
 		}
 	}
 
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		String htmltext = "";

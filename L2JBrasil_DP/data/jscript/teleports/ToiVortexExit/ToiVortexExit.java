@@ -31,6 +31,7 @@ public class ToiVortexExit extends Quest
 		addTalkId(NPC);
 	}
 
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		QuestState st = player.getQuestState(getName());

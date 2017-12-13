@@ -1527,6 +1527,9 @@ public class L2Attackable extends L2NpcInstance
 
      /**
       * Drop reward item.<BR><BR>
+     * @param lastAttacker 
+     * @param item 
+     * @return 
       */
      public L2ItemInstance DropItem(L2PcInstance lastAttacker, RewardItem item)
      {

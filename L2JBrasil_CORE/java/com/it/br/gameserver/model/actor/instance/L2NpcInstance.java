@@ -20,10 +20,6 @@ package com.it.br.gameserver.model.actor.instance;
 
 import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
@@ -66,6 +62,7 @@ import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.model.zone.type.L2TownZone;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.SystemMessageId;
+import com.it.br.gameserver.network.clientpackets.Say2;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.ExShowVariationCancelWindow;
 import com.it.br.gameserver.network.serverpackets.ExShowVariationMakeWindow;
@@ -73,6 +70,7 @@ import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
 import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.NpcInfo;
+import com.it.br.gameserver.network.serverpackets.NpcSay;
 import com.it.br.gameserver.network.serverpackets.RadarControl;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
 import com.it.br.gameserver.network.serverpackets.StatusUpdate;
@@ -85,6 +83,10 @@ import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.L2Weapon;
 import com.it.br.util.Rnd;
+
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * This class represents a Non-Player-Character in the world. It can be a monster or a friendly character.
  * It also uses a template to fetch some static values. The templates are hardcoded in the client, so we can rely on them.<BR><BR>
@@ -2307,4 +2309,13 @@ public class L2NpcInstance extends L2Character
     {
     	return _currentCollisionRadius;
     }
+	
+	/**
+	 * Make the NPC speaks to his current knownlist.
+	 * @param message The String message to send.
+	 */
+	public void broadcastNpcSay(String message)
+	{
+		broadcastPacket(new NpcSay(getObjectId(), Say2.ALL, getNpcId(), message));
+	}
 }

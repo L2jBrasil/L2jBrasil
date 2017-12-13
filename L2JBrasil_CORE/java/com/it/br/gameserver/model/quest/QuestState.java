@@ -629,7 +629,20 @@ public final class QuestState
 		getPlayer().getRadar().removeAllMarkers();
 		}
 	// END STUFF THAT WILL PROBABLY BE CHANGED
-
+	
+	/**
+	 * Reward player with items. The amount is affected by Config.RATE_QUEST_REWARD or Config.RATE_QUEST_REWARD_ADENA.
+	 * @param itemId : Identifier of the item.
+	 * @param itemCount : Quantity of item to reward before applying multiplier.
+	 */
+	public void rewardItems(int itemId, int itemCount)
+	{
+		if (itemId == 57)
+			giveItems(itemId, (int) (itemCount * Config.RATE_QUEST_REWARD_ADENA), 0);
+		else
+			giveItems(itemId, (int) (itemCount * Config.RATE_QUESTS_REWARD), 0);
+	}
+	
 	/**
 	 * Remove items from player's inventory when talking to NPC in order to have rewards.<BR><BR>
 	 * <U><I>Actions :</I></U>

@@ -55,6 +55,7 @@ public class Clan extends Quest
 		}
 	}
 
+	@Override
 	public String onEvent(String event, QuestState st)
 	{
 		String htmltext = event;
@@ -93,6 +94,7 @@ public class Clan extends Quest
 		return htmltext;
 	}
 
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance talker)
 	{
 		String htmltext = "";

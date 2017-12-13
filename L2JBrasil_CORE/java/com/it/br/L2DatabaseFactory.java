@@ -81,7 +81,7 @@ public class L2DatabaseFactory
 		}
 	}
 
-	public final String prepQuerySelect(String[] fields, String tableName, String whereClause, boolean returnOnlyTopRecord)
+	public final static String prepQuerySelect(String[] fields, String tableName, String whereClause, boolean returnOnlyTopRecord)
 	{
 		String msSqlTop1 = "";
 		String mySqlTop1 = "";
@@ -103,7 +103,7 @@ public class L2DatabaseFactory
         (Exception e) {_log.log(Level.INFO, "", e);}
 
     }
-    public final String safetyString(String[] whatToCheck)
+    public final static String safetyString(String[] whatToCheck)
     {
         // NOTE: Use brace as a safty percaution just incase name is a reserved word
         String braceLeft = "`";

@@ -38,6 +38,7 @@ public class HotSpringsBuffs extends Quest
 		}
 	}
 
+	@Override
 	public String onAttack(L2NpcInstance npc, L2PcInstance attacker, int damage, boolean isPet)
 	{
 		int npcId = npc.getNpcId();

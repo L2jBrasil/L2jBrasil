@@ -40,6 +40,7 @@ public class PaganTeleporter extends Quest
 		}
 	}
 	
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		QuestState st = player.getQuestState(getName());

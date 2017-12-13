@@ -2911,6 +2911,7 @@ public final class Config
     public static int RATE_DROP_MANOR;
     public static float RATE_DROP_QUEST;
     public static float RATE_QUESTS_REWARD;
+    public static float RATE_QUEST_REWARD_ADENA;
     public static float RATE_KARMA_EXP_LOST;
     public static float RATE_SIEGE_GUARDS_PRICE;
     public static int PLAYER_DROP_LIMIT;
@@ -2951,6 +2952,7 @@ public final class Config
 	        RATE_DROP_MANOR = Integer.parseInt(ratesSettings.getProperty("RateDropManor", "1"));
 	        RATE_DROP_QUEST = Float.parseFloat(ratesSettings.getProperty("RateDropQuest", "1.00"));
 	        RATE_QUESTS_REWARD = Float.parseFloat(ratesSettings.getProperty("RateQuestsReward", "1.00"));
+	        RATE_QUEST_REWARD_ADENA  = Float.parseFloat(ratesSettings.getProperty("RateQuestRewardAdena", "1.00"));
 	        RATE_KARMA_EXP_LOST = Float.parseFloat(ratesSettings.getProperty("RateKarmaExpLost", "1.00"));
 	        RATE_SIEGE_GUARDS_PRICE = Float.parseFloat(ratesSettings.getProperty("RateSiegeGuardsPrice", "1.00"));
 	        PLAYER_DROP_LIMIT = Integer.parseInt(ratesSettings.getProperty("PlayerDropLimit", "3"));
@@ -3170,7 +3172,6 @@ public final class Config
      * @param pName (String) : name of the parameter to change
      * @param pValue (String) : new value of the parameter
      * @return boolean : true if modification has been made
-     * @link useAdminCommand
      */
     public static boolean setParameterValue(String pName, String pValue) {
     	ServerSettings serverSettings = getSettings(ServerSettings.class);
@@ -3388,8 +3389,8 @@ public final class Config
 
     /**
      * Save hexadecimal ID of the server in the properties file.
+     * @param serverId 
      * @param string (String) : hexadecimal ID of the server to store
-     * @link LoginServerThread
      */
     public static void saveHexid(int serverId, String string)
     {
@@ -3398,6 +3399,7 @@ public final class Config
 
     /**
      * Save hexadecimal ID of the server in the properties file.
+     * @param serverId 
      * @param hexId (String) : hexadecimal ID of the server to store
      * @param fileName (String) : name of the properties file
      */

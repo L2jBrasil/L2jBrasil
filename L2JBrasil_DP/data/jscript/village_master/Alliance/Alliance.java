@@ -59,6 +59,7 @@ public class Alliance extends Quest
 		}
 	}
 
+	@Override
 	public String onEvent(String event, QuestState st)
 	{
 		boolean ClanLeader = st.getPlayer().isClanLeader();
@@ -85,6 +86,7 @@ public class Alliance extends Quest
 		return htmltext;
 	}
 
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance talker)
 	{
 		String htmltext = ""; 

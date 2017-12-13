@@ -44,6 +44,7 @@ public class NewbieTravelToken extends Quest
 		data.put("30598", new int[] {-84053,243343,-3729}); //TI
 	}
 
+	@Override
 	public String onAdvEvent(String event, L2NpcInstance npc, L2PcInstance player)
 	{
 		QuestState st = player.getQuestState(getName());
@@ -70,6 +71,7 @@ public class NewbieTravelToken extends Quest
 		return null;
 	}
 
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		String htmltext = "";

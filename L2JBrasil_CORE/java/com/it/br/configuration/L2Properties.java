@@ -77,7 +77,7 @@ public final class L2Properties extends Properties
 		return map;
 	}
 
-	private void putInMap(String key, String valueDelimiter, Map<Integer, Integer> map, String entry) {
+	private static void putInMap(String key, String valueDelimiter, Map<Integer, Integer> map, String entry) {
 		try {
 			String[] value = entry.split(valueDelimiter);
 			int mapKey = Integer.parseInt(value[0].trim());

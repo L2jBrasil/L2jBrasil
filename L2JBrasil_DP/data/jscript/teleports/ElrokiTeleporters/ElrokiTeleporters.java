@@ -38,6 +38,7 @@ public class ElrokiTeleporters extends Quest
 		}
 	}
 
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		int npcId = npc.getNpcId();

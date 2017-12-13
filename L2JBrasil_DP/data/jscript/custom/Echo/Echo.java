@@ -40,6 +40,7 @@ public class Echo extends Quest
 		}
 	}
 
+	@Override
 	public String onAdvEvent(String event, L2NpcInstance npc, L2PcInstance player)
 	{
 		QuestState st = player.getQuestState(getName());
@@ -140,10 +141,10 @@ public class Echo extends Quest
 			st.exitQuest(true);
 			return htmltext;
 		}
-		else
-			return null;
+		return null;
 	}
 
+	@Override
 	public String onTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		return "1.htm";

@@ -18,20 +18,6 @@
  */
 package com.it.br.gameserver.model.quest;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -53,6 +39,20 @@ import com.it.br.gameserver.scripting.ManagedScript;
 import com.it.br.gameserver.scripting.ScriptManager;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Rnd;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Luis Arias
@@ -311,10 +311,10 @@ public class Quest extends ManagedScript
     
     /**
      * Add a timer to the quest, if it doesn't exist already
-     * @param name: name of the timer (also passed back as "event" in onAdvEvent)
-     * @param time: time in ms for when to fire the timer
-     * @param npc:  npc associated with this timer (can be null)
-     * @param player: player associated with this timer (can be null)
+     * @param name name of the timer (also passed back as "event" in onAdvEvent)
+     * @param time time in ms for when to fire the timer
+     * @param npc  npc associated with this timer (can be null)
+     * @param player player associated with this timer (can be null)
      */
     public void startQuestTimer(String name, long time, L2NpcInstance npc, L2PcInstance player)
 	{
@@ -857,6 +857,7 @@ public class Quest extends ManagedScript
 	 * <LI><U>"res" ends with string ".html" :</U> an HTML is opened in order to be shown in a dialog box</LI>
 	 * <LI><U>"res" starts with "<html>" :</U> the message hold in "res" is shown in a dialog box</LI>
 	 * <LI><U>otherwise :</U> the message hold in "res" is shown in chat box</LI>
+	 * @param player 
 	 * @param res : String pointing out the message to show at the player
 	 * @return boolean
 	 */
@@ -1262,7 +1263,17 @@ public class Quest extends ManagedScript
 	{
 		return addEventId(npcId, Quest.QuestEventType.QUEST_START);
 	}
-
+	
+	/**
+	 * Add the quest to the NPC's startQuest
+	 * @param npcIds A serie of ids.
+	 */
+	public void addStartNpc(int... npcIds)
+	{
+		for (int npcId : npcIds)
+			addEventId(npcId, Quest.QuestEventType.QUEST_START);
+	}
+	
 	/**
 	 * Add the quest to the NPC's first-talk (default action dialog)
 	 * 
@@ -1309,11 +1320,16 @@ public class Quest extends ManagedScript
 		return addEventId(killId, Quest.QuestEventType.ON_KILL);
 	}
 	
-	public void addKillId(int[] killIds)
+	/**
+	 * Add this quest to the list of quests that the passed mob will respond to for Kill Events.
+	 * @param killIds A serie of ids.
+	 */
+	public void addKillId(int... killIds)
 	{
-		for (int id : killIds)
-			addKillId(id);
+		for (int killId : killIds)
+			addEventId(killId, Quest.QuestEventType.ON_KILL);
 	}
+	
 
 	/**
 	 * Add this quest to the list of quests that the passed npc will respond to for Talk Events.<BR>
@@ -1326,12 +1342,17 @@ public class Quest extends ManagedScript
 	{
 		return addEventId(talkId, Quest.QuestEventType.ON_TALK);
 	}
-
-	public void addTalkId(int[] talkIds)
+	
+	/**
+	 * Add this quest to the list of quests that the passed npc will respond to for Talk Events.
+	 * @param talkIds : A serie of ids.
+	 */
+	public void addTalkId(int... talkIds)
 	{
-		for (int id : talkIds)
-			addTalkId(id);
+		for (int talkId : talkIds)
+			addEventId(talkId, Quest.QuestEventType.ON_TALK);
 	}
+
 	
 	/**
 	 * Add this quest to the list of quests that the passed npc will respond to for Spawn Events.<BR>
@@ -1366,7 +1387,7 @@ public class Quest extends ManagedScript
 	 * Add this quest to the list of quests that the passed npc will respond to for Faction Call Events.<BR>
 	 * <BR>
 	 *
-	 * @param npcId: ID of the NPC
+	 * @param npcId ID of the NPC
 	 * @return int : ID of the NPC
 	 */
 	public L2NpcTemplate addFactionCallId(int npcId)
@@ -1435,8 +1456,8 @@ public class Quest extends ManagedScript
      * Auxilary function for party quests. 
      * Note: This function is only here because of how commonly it may be used by quest developers.
      * For any variations on this function, the quest script can always handle things on its own
-     * @param player: the instance of a player whose party is to be searched
-     * @param value: the value of the "cond" variable that must be matched
+     * @param player the instance of a player whose party is to be searched
+     * @param value the value of the "cond" variable that must be matched
      * @return L2PcInstance: L2PcInstance for a random party member that matches the specified 
      * 			condition, or null if no match.
      */
@@ -1444,13 +1465,25 @@ public class Quest extends ManagedScript
     {
     	return getRandomPartyMember(player, "cond", value);
     }
-
+	
+	/**
+	 * Get a random party member with required cond value.
+	 * @param player the instance of a player whose party is to be searched
+	 * @param cond the value of the "cond" variable that must be matched
+	 * @return a random party member that matches the specified condition, or {@code null} if no match was found
+	 */
+	public L2PcInstance getRandomPartyMember(L2PcInstance player, int cond)
+	{
+		return getRandomPartyMember(player, "cond", String.valueOf(cond));
+	}
+	
     /**
      * Auxilary function for party quests. 
      * Note: This function is only here because of how commonly it may be used by quest developers.
      * For any variations on this function, the quest script can always handle things on its own
-     * @param player: the instance of a player whose party is to be searched
-     * @param var/value: a tuple specifying a quest condition that must be satisfied for
+     * @param player the instance of a player whose party is to be searched
+     * @param var 
+     * @param value a tuple specifying a quest condition that must be satisfied for
      *     a party member to be considered.
      * @return L2PcInstance: L2PcInstance for a random party member that matches the specified 
      * 				condition, or null if no match.  If the var is null, any random party 
@@ -1467,8 +1500,7 @@ public class Quest extends ManagedScript
     	// for null var condition, return any random party member.
     	if (var == null) 
     		return getRandomPartyMember(player);
-    	
-    	
+    		
     	// normal cases...if the player is not in a party, check the player's state
     	QuestState temp = null;
     	L2Party party = player.getParty();
@@ -1562,6 +1594,7 @@ public class Quest extends ManagedScript
 
 	/**
 	 * Show HTML file to client
+	 * @param player 
 	 * @param fileName
 	 * @return String : message sent to client 
 	 */
@@ -1614,6 +1647,9 @@ public class Quest extends ManagedScript
     /**
      * Add a temporary (quest) spawn
      * Return instance of newly spawned npc
+     * @param npcId 
+     * @param cha 
+     * @return 
      */
 	public L2NpcInstance addSpawn(int npcId, L2Character cha)
 	{
@@ -1622,6 +1658,10 @@ public class Quest extends ManagedScript
 	
 	/**
 	 * Add a temporary (quest) spawn Return instance of newly spawned npc with summon animation
+	 * @param npcId 
+	 * @param cha 
+	 * @param isSummonSpawn 
+	 * @return 
 	 */
 	public L2NpcInstance addSpawn(int npcId, L2Character cha, boolean isSummonSpawn)
 	{
@@ -1858,7 +1898,33 @@ public class Quest extends ManagedScript
 		String result = HtmCache.getInstance().getHtm("data/html/noquest.htm");
 		if(result != null && result.length() > 0)
 			return result;
-		else
-			return "<html><body>You are either not on a quest that involves this NPC, or you don't meet this NPC's minimum quest requirements.</body></html>";
+		return "<html><body>You are either not on a quest that involves this NPC, or you don't meet this NPC's minimum quest requirements.</body></html>";
 	}
+	
+	/**
+	 * @return default html page "This quest has already been completed."
+	 */
+	public static String getAlreadyCompletedMsg()
+	{
+		return QUEST_DONE;
+	}
+	
+	/**
+	 * Get the specified player's {@link QuestState} object for this quest.<br>
+	 * If the player does not have it and initIfNode is {@code true},<br>
+	 * create a new QuestState object and return it, otherwise return {@code null}.
+	 * @param player the player whose QuestState to get
+	 * @param initIfNone if true and the player does not have a QuestState for this quest,<br>
+	 *            create a new QuestState
+	 * @return the QuestState object for this quest or null if it doesn't exist
+	 */
+	public QuestState getQuestState(L2PcInstance player, boolean initIfNone)
+	{
+		final QuestState qs = player.getQuestState(_name);
+		if ((qs != null) || !initIfNone)
+			return qs;
+		
+		return newQuestState(player);
+	}
+	
 }

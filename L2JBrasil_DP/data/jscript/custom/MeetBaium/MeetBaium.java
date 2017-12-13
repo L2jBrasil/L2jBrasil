@@ -39,6 +39,7 @@ public class MeetBaium extends Quest
 	}
 	
 		
+	@Override
 	public String onFirstTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		QuestState st = player.getQuestState(getName());
@@ -51,12 +52,9 @@ public class MeetBaium extends Quest
 			st.exitQuest(true);
 			return "31862.htm";
 		}
-		else
-		{
-			npc.showChatWindow(player);
-			st.exitQuest(true);
-			return null;
-		}
+		npc.showChatWindow(player);
+		st.exitQuest(true);
+		return null;
 	}
 
 	public static void main(String[] args)

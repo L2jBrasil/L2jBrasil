@@ -39,7 +39,7 @@ class LazyConfiguratorLoader {
 	}
 
 	@SuppressWarnings("unchecked")
-	private  Class<? extends Settings> createSettings(String className)	{
+	private static  Class<? extends Settings> createSettings(String className)	{
 		try {
 			Class<?> clazz = Class.forName(className);
 			if(Settings.class.isAssignableFrom(clazz)) {
@@ -60,7 +60,7 @@ class LazyConfiguratorLoader {
 		return loadSettings(settingsClass, configurationFile);
 	}
 
-	private  <T extends Settings> T loadSettings(Class<T> settingsClass, String configurationFile) {
+	private static  <T extends Settings> T loadSettings(Class<T> settingsClass, String configurationFile) {
 		try {
 			return newSettingsInstance(settingsClass, configurationFile);
 		} catch (InstantiationException | IllegalAccessException e) {
@@ -70,13 +70,12 @@ class LazyConfiguratorLoader {
 		return null;
 	}
 
-	private <T extends Settings> T newSettingsInstance(Class<T> settingsClass, String configurationFile)
+	private static <T extends Settings> T newSettingsInstance(Class<T> settingsClass, String configurationFile)
 			throws InstantiationException, IllegalAccessException {
 		/* 
 		 * Deprecated since java 9
 		 * TODO replace for settingsClass.getDeclaredContructor().newInstance()
 		 */
-		@SuppressWarnings("deprecation") 
 		T settings = settingsClass.newInstance();
 		L2Properties properties = Util.isNullOrEmpty(configurationFile) ?  new L2Properties() : new L2Properties(configurationFile);
 

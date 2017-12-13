@@ -36,6 +36,7 @@ public class Toivortex extends Quest
 		}
 	}
 	
+	@Override
 	public String onAdvEvent (String event, L2NpcInstance npc, L2PcInstance player)
 	{
 		QuestState st = player.getQuestState(getName());
@@ -84,6 +85,7 @@ public class Toivortex extends Quest
 		return htmltext;
 	}
 
+	@Override
 	public String onFirstTalk(L2NpcInstance npc, L2PcInstance player)
 	{
 		QuestState st = player.getQuestState(getName());
