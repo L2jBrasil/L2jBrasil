@@ -17,7 +17,19 @@
  */
 package com.it.br.gameserver.model;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.EventSettings;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.sql.SkillTable;
+import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.model.entity.event.TvTEvent;
+import com.it.br.gameserver.network.SystemMessageId;
+import com.it.br.gameserver.network.serverpackets.*;
+import com.it.br.gameserver.templates.L2Item;
+import com.it.br.util.Point3D;
+import com.it.br.util.Rnd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,26 +37,7 @@ import java.sql.SQLException;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.settings.EventSettings;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.datatables.sql.SkillTable;
-import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.entity.event.TvTEvent;
-import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.Earthquake;
-import com.it.br.gameserver.network.serverpackets.ExRedSky;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.Ride;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.UserInfo;
-import com.it.br.gameserver.templates.L2Item;
-import com.it.br.util.Point3D;
-import com.it.br.util.Rnd;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class CursedWeapon
 {

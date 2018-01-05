@@ -16,18 +16,19 @@
  *
  * http://www.gnu.org/copyleft/gpl.html
  */
-package com.it.br;
+package com.it.br.gameserver.database;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.DatabaseSettings;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.it.br.configuration.settings.DatabaseSettings;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class L2DatabaseFactory
 {

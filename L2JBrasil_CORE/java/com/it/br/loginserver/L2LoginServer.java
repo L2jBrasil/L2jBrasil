@@ -17,15 +17,18 @@
  */
 package com.it.br.loginserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.Server;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.configuration.settings.MmoCoreSettings;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.status.Status;
+import com.l2jserver.mmocore.network.SelectorConfig;
+import com.l2jserver.mmocore.network.SelectorThread;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
@@ -33,16 +36,7 @@ import java.sql.SQLException;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.Server;
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.LoginSettings;
-import com.it.br.configuration.settings.MmoCoreSettings;
-import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.status.Status;
-import com.l2jserver.mmocore.network.SelectorConfig;
-import com.l2jserver.mmocore.network.SelectorThread;
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  *

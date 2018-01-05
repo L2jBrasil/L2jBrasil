@@ -18,20 +18,10 @@
  */
 package com.it.br.gameserver.model.entity;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.GameServer;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
 import com.it.br.gameserver.instancemanager.AuctionManager;
@@ -43,6 +33,16 @@ import com.it.br.gameserver.model.zone.type.L2ClanHallZone;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ClanHall
 {

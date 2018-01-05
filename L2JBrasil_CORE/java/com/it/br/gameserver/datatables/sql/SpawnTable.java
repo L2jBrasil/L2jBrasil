@@ -18,7 +18,14 @@
  */
 package com.it.br.gameserver.datatables.sql;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.xml.NpcTable;
+import com.it.br.gameserver.instancemanager.DayNightSpawnManager;
+import com.it.br.gameserver.model.L2Spawn;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.templates.L2NpcTemplate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,14 +35,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.settings.L2JBrasilSettings;
-import com.it.br.gameserver.datatables.xml.NpcTable;
-import com.it.br.gameserver.instancemanager.DayNightSpawnManager;
-import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.templates.L2NpcTemplate;
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class ...

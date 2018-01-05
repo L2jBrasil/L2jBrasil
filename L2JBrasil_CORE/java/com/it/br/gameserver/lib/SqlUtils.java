@@ -17,11 +17,11 @@
  */
 package com.it.br.gameserver.lib;
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
 
 public class SqlUtils
 {

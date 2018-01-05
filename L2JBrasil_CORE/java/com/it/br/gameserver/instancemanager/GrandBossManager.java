@@ -14,20 +14,20 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.*;
-import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.it.br.gameserver.model.zone.type.L2BossZone;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.L2FastList;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * 

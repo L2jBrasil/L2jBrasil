@@ -1,8 +1,12 @@
 package com.it.br.gameserver.database.dao;
 
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.ItemsAutoDestroy;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
 import com.it.br.gameserver.model.L2ItemInstance;
+import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.templates.L2EtcItemType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +14,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
+/**
+ * @author Tayran
+ * @version 3.0.4
+ */
 public class ItemsOnGroundDao {
 
     private static final Logger _log = Logger.getLogger(ItemsOnGroundDao.class.getName());
@@ -36,19 +44,58 @@ public class ItemsOnGroundDao {
         }
     }
 
-    public static ResultSet selectItemsOnGround()
+    public static void selectItemsOnGround()
     {
-        ResultSet rset = null;
+        int count = 0;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(SELECT_ITEMS_GROUND)) {
-            rset = statement.executeQuery();
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                L2ItemInstance item = new L2ItemInstance(result.getInt(1), result.getInt(2));
+                L2World.getInstance().storeObject(item);
+
+                if (item.isStackable() && result.getInt(3) > 1) //this check and..
+                    item.setCount(result.getInt(3));
+
+                if (result.getInt(4) > 0)            // this, are really necessary?
+                    item.setEnchantLevel(result.getInt(4));
+
+                item.getPosition().setWorldPosition(result.getInt(5), result.getInt(6), result.getInt(7));
+                item.getPosition().setWorldRegion(L2World.getInstance().getRegion(item.getPosition().getWorldPosition()));
+                item.getPosition().getWorldRegion().addVisibleObject(item);
+                item.setDropTime(result.getLong(8));
+
+                if (result.getLong(8) == -1)
+                    item.setProtected(true);
+                else
+                    item.setProtected(false);
+
+                item.setIsVisible(true);
+                L2World.getInstance().addVisibleObject(item, item.getPosition().getWorldRegion(), null);
+
+                ItemsOnGroundManager.getItems().add(item);
+                count++;
+                // add to ItemsAutoDestroy only items not protected
+                if (!Config.LIST_PROTECTED_ITEMS.contains(item.getItemId())) {
+                    if (result.getLong(8) > -1) {
+                        if ((Config.AUTODESTROY_ITEM_AFTER > 0 && item.getItemType() != L2EtcItemType.HERB)
+                                || (Config.HERB_AUTO_DESTROY_TIME > 0 && item.getItemType() == L2EtcItemType.HERB))
+                            ItemsAutoDestroy.getInstance().addItem(item);
+                    }
+                }
+            }
+            result.close();
+            if (count > 0)
+                System.out.println("ItemsOnGroundManager: restored " + count + " items.");
+            else
+                System.out.println("Initializing ItemsOnGroundManager.");
+
         }
         catch (SQLException e)
         {
             _log.warning(ItemsOnGroundDao.class.getName() + " : error while select table ItemsOnGround " + e);
             e.printStackTrace();
         }
-        return rset;
     }
 
     public static void deleteAllItems()
@@ -64,7 +111,7 @@ public class ItemsOnGroundDao {
         }
     }
 
-    public static void insertIntoItemsOnGround(L2ItemInstance item)
+    public static void insert(L2ItemInstance item)
     {
         try (Connection con = L2DatabaseFactory.getInstance().getConnection();
              PreparedStatement statement = con.prepareStatement(INSERT)) {

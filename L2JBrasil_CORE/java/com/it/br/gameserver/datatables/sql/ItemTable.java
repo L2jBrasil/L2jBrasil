@@ -18,22 +18,10 @@
  */
 package com.it.br.gameserver.datatables.sql;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.Item;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.L2Attackable;
@@ -45,14 +33,19 @@ import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
 import com.it.br.gameserver.skills.SkillsEngine;
-import com.it.br.gameserver.templates.L2Armor;
-import com.it.br.gameserver.templates.L2ArmorType;
-import com.it.br.gameserver.templates.L2EtcItem;
-import com.it.br.gameserver.templates.L2EtcItemType;
-import com.it.br.gameserver.templates.L2Item;
-import com.it.br.gameserver.templates.L2Weapon;
-import com.it.br.gameserver.templates.L2WeaponType;
-import com.it.br.gameserver.templates.StatsSet;
+import com.it.br.gameserver.templates.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ScheduledFuture;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 /**
  * This class ...

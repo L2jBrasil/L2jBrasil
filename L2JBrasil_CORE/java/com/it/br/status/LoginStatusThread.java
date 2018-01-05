@@ -18,13 +18,14 @@
 package com.it.br.status;
 
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.loginserver.GameServerTable;
+import com.it.br.loginserver.L2LoginServer;
+import com.it.br.loginserver.LoginController;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -37,12 +38,7 @@ import java.sql.SQLException;
 import java.util.Base64;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.loginserver.GameServerTable;
-import com.it.br.loginserver.L2LoginServer;
-import com.it.br.loginserver.LoginController;
+import static com.it.br.configuration.Configurator.getSettings;
 
 
 public class LoginStatusThread extends Thread

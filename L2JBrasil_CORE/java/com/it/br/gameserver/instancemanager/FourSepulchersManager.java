@@ -14,36 +14,16 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import static com.it.br.configuration.Configurator.getSettings;
-import static com.it.br.util.Util.minutesToMiliseconds;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.settings.SepulchersSettings;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2SepulcherMonsterInstance;
-import com.it.br.gameserver.model.actor.instance.L2SepulcherNpcInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -51,6 +31,17 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
+import java.util.concurrent.ScheduledFuture;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static com.it.br.configuration.Configurator.getSettings;
+import static com.it.br.util.Util.minutesToMiliseconds;
 
 /**
  * @author sandman

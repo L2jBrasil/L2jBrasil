@@ -18,18 +18,18 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.serverpackets.ExAutoSoulShot;
+import com.it.br.gameserver.network.serverpackets.ShortCutInit;
+import com.it.br.gameserver.templates.L2EtcItemType;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.serverpackets.ExAutoSoulShot;
-import com.it.br.gameserver.network.serverpackets.ShortCutInit;
-import com.it.br.gameserver.templates.L2EtcItemType;
 
 /**
  * This class ...

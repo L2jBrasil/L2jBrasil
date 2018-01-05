@@ -18,25 +18,20 @@
  */
 package com.it.br.gameserver.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.ArmorSetsTable;
 import com.it.br.gameserver.model.L2ItemInstance.ItemLocation;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.templates.L2Armor;
-import com.it.br.gameserver.templates.L2EtcItem;
-import com.it.br.gameserver.templates.L2EtcItemType;
-import com.it.br.gameserver.templates.L2Item;
-import com.it.br.gameserver.templates.L2Weapon;
-import com.it.br.gameserver.templates.L2WeaponType;
+import com.it.br.gameserver.templates.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class manages inventory

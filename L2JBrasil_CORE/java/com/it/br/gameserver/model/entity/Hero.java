@@ -23,18 +23,8 @@
 
 package com.it.br.gameserver.model.entity;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -48,6 +38,16 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.network.serverpackets.UserInfo;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.StatsSet;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
 
 
 public class Hero

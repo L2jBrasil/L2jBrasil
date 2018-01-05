@@ -18,20 +18,10 @@
  */
 package com.it.br.gameserver.instancemanager.clanhallsiege;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ScheduledFuture;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
 import com.it.br.gameserver.model.L2Clan;
@@ -39,6 +29,15 @@ import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ScheduledFuture;
 
 public class FortResistSiege
 {

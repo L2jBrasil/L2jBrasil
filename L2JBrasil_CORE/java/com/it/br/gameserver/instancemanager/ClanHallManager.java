@@ -17,17 +17,17 @@
  */
 package com.it.br.gameserver.instancemanager;
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.sql.ClanTable;
+import com.it.br.gameserver.model.L2Clan;
+import com.it.br.gameserver.model.entity.ClanHall;
+import com.it.br.gameserver.model.zone.type.L2ClanHallZone;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.datatables.sql.ClanTable;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.entity.ClanHall;
-import com.it.br.gameserver.model.zone.type.L2ClanHallZone;
 
 public class ClanHallManager
 {

@@ -42,7 +42,6 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.Rnd;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +51,7 @@ import java.util.logging.Logger;
 
 /**
  * This class ... control for sequence of fight against "High Priestess van Halter".
- * @refactor by Tayram
+ * @refactor by Tayran
  * @version 3.0.4
  * @author L2J_JP SANDMAN
  **/
@@ -290,43 +289,12 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_royalGuardSpawn.clear();
 
-		try(ResultSet rset = VanHalterDao.loadFromSpawnListBetweenIds(22175, 22176))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
+		List<L2Spawn> spawnList = VanHalterDao.loadFromSpawnListBetweenIds(22175, 22176);
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_royalGuardSpawn.add(spawnDat);
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadRoyalGuard: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadRoyalGuard: Loaded " + _royalGuardSpawn.size() + " Royal Guard spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			if(Config.DEBUG)
-				e.printStackTrace();
-			// Problem with initializing spawn, go to next one
-			_log.warning("VanHalterManager.loadRoyalGuard: Spawn could not be initialized: " + e);
-		}
+		spawnList.forEach(spawnDat -> {
+			SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+			_royalGuardSpawn.add(spawnDat);
+		});
 	}
 
 	private void spawnRoyalGuard()
@@ -359,43 +327,13 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_triolRevelationSpawn.clear();
 
-		try(ResultSet rset = VanHalterDao.loadFromSpawnListBetweenIds(32058, 32068))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_triolRevelationSpawn.add(spawnDat);
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadTriolRevelation: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadTriolRevelation: Loaded " + _triolRevelationSpawn.size() + " Triol's Revelation spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			// Problem with initializing spawn, go to next one
-			if(Config.DEBUG)
-				e.printStackTrace();
-			_log.warning("VanHalterManager.loadTriolRevelation: Spawn could not be initialized: " + e);
-		}
+		List<L2Spawn> spawnList = VanHalterDao.loadFromSpawnListBetweenIds(32058, 32068);
+
+		spawnList.forEach(spawnDat -> {
+			SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+			_triolRevelationSpawn.add(spawnDat);
+		});
 	}
 
 	private void spawnTriolRevelation()
@@ -432,43 +370,13 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_royalGuardCaptainSpawn.clear();
 
-		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(22188))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
+		L2Spawn spawnDat = VanHalterDao.loadFromSpawnListById(22188);
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_royalGuardCaptainSpawn.add(spawnDat);
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadRoyalGuardCaptain: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadRoyalGuardCaptain: Loaded " + _royalGuardCaptainSpawn.size() + " Royal Guard Captain spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			// Problem with initializing spawn, go to next one
-			if(Config.DEBUG)
-				e.printStackTrace();
-			
-			_log.warning("VanHalterManager.loadRoyalGuardCaptain: Spawn could not be initialized: " + e);
+		SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+		_royalGuardCaptainSpawn.add(spawnDat);
+
+		if (Config.DEBUG) {
+			_log.info("VanHalterManager.loadRoyalGuardCaptain: Loaded " + _royalGuardCaptainSpawn.size() + " Royal Guard Captain spawn locations.");
 		}
 	}
 
@@ -503,43 +411,13 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_royalGuardHelperSpawn.clear();
 
-		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(22191))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
+		L2Spawn spawnDat = VanHalterDao.loadFromSpawnListById(22191);
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_royalGuardHelperSpawn.add(spawnDat);
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadRoyalGuardHelper: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadRoyalGuardHelper: Loaded " + _royalGuardHelperSpawn.size() + " Royal Guard Helper spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			// Problem with initializing spawn, go to next one
-			if(Config.DEBUG)
-				e.printStackTrace();
-			
-			_log.warning("VanHalterManager.loadRoyalGuardHelper: Spawn could not be initialized: " + e);
+		SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+		_royalGuardHelperSpawn.add(spawnDat);
+
+		if (Config.DEBUG) {
+			_log.info("VanHalterManager.loadRoyalGuardHelper: Loaded " + _royalGuardHelperSpawn.size() + " Royal Guard Helper spawn locations.");
 		}
 	}
 
@@ -567,43 +445,13 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_guardOfAltarSpawn.clear();
 
-		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(32051))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
+		L2Spawn spawnDat = VanHalterDao.loadFromSpawnListById(32051);
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_guardOfAltarSpawn.add(spawnDat);
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadGuardOfAltar: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadGuardOfAltar: Loaded " + _guardOfAltarSpawn.size() + " Guard Of Altar spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			// Problem with initializing spawn, go to next one
-			if(Config.DEBUG)
-				e.printStackTrace();
-			
-			_log.warning("VanHalterManager.loadGuardOfAltar: Spawn could not be initialized: " + e);
+		SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+		_guardOfAltarSpawn.add(spawnDat);
+
+		if (Config.DEBUG) {
+			_log.info("VanHalterManager.loadGuardOfAltar: Loaded " + _guardOfAltarSpawn.size() + " Guard Of Altar spawn locations.");
 		}
 	}
 
@@ -637,43 +485,13 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_vanHalterSpawn = null;
 
-        try(ResultSet rset = VanHalterDao.loadFromSpawnListById(29062))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
+        L2Spawn spawnDat = VanHalterDao.loadFromSpawnListById(29062);
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_vanHalterSpawn = spawnDat;
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadVanHalter: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadVanHalter: Loaded High Priestess van Halter spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			// Problem with initializing spawn, go to next one
-			if(Config.DEBUG)
-				e.printStackTrace();
-			
-			_log.warning("VanHalterManager.loadVanHalter: Spawn could not be initialized: " + e);
+		SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+		_vanHalterSpawn = spawnDat;
+
+		if (Config.DEBUG) {
+			_log.info("VanHalterManager.loadVanHalter: Loaded High Priestess van Halter spawn locations.");
 		}
 	}
 
@@ -698,43 +516,13 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_ritualOfferingSpawn = null;
 
-		try(ResultSet rset = VanHalterDao.loadFromSpawnListById(32038))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
+		L2Spawn spawnDat = VanHalterDao.loadFromSpawnListById(32038);
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_ritualOfferingSpawn = spawnDat;
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadRitualOffering: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadRitualOffering: Loaded Ritual Offering spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			// Problem with initializing spawn, go to next one
-			if(Config.DEBUG)
-				e.printStackTrace();
-			
-			_log.warning("VanHalterManager.loadRitualOffering: Spawn could not be initialized: " + e);
+		SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+		_ritualOfferingSpawn = spawnDat;
+
+		if (Config.DEBUG) {
+			_log.info("VanHalterManager.loadRitualOffering: Loaded Ritual Offering spawn locations.");
 		}
 	}
 
@@ -760,43 +548,13 @@ public class VanHalter extends Quest implements Runnable
 	{
 		_ritualSacrificeSpawn = null;
 
-        try(ResultSet rset = VanHalterDao.loadFromSpawnListById(32038))
-		{
-			L2Spawn spawnDat;
-			L2NpcTemplate template1;
+        L2Spawn spawnDat = VanHalterDao.loadFromSpawnListById(32038);
 
-			while(rset.next())
-			{
-				template1 = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
-				if(template1 != null)
-				{
-					spawnDat = new L2Spawn(template1);
-					spawnDat.setAmount(rset.getInt("count"));
-					spawnDat.setLocx(rset.getInt("locx"));
-					spawnDat.setLocy(rset.getInt("locy"));
-					spawnDat.setLocz(rset.getInt("locz"));
-					spawnDat.setHeading(rset.getInt("heading"));
-					spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
-					_ritualSacrificeSpawn = spawnDat;
-				}
-				else
-				{
-					_log.warning("VanHalterManager.loadRitualSacrifice: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
-				}
-			}
-			if(Config.DEBUG)
-			{
-				_log.info("VanHalterManager.loadRitualSacrifice: Loaded Ritual Sacrifice spawn locations.");
-			}
-		}
-		catch(Exception e)
-		{
-			// Problem with initializing spawn, go to next one
-			if(Config.DEBUG)
-				e.printStackTrace();
-			
-			_log.warning("VanHalterManager.loadRitualSacrifice: Spawn could not be initialized: " + e);
+		SpawnTable.getInstance().addNewSpawn(spawnDat, false);
+		_ritualSacrificeSpawn = spawnDat;
+
+		if (Config.DEBUG) {
+			_log.info("VanHalterManager.loadRitualSacrifice: Loaded Ritual Sacrifice spawn locations.");
 		}
 	}
 
@@ -1396,7 +1154,7 @@ public class VanHalter extends Quest implements Runnable
 		private final int _distance = 6502500;
 		private final int _taskId;
 
-		public Movie(int taskId)
+		private Movie(int taskId)
 		{
 			_taskId = taskId;
 		}

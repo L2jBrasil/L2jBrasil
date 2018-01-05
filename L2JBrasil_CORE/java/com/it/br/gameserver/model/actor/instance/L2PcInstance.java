@@ -18,40 +18,12 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
-import com.it.br.gameserver.Announcements;
-import com.it.br.gameserver.GameTimeController;
-import com.it.br.gameserver.GeoData;
-import com.it.br.gameserver.GmListTable;
-import com.it.br.gameserver.ItemsAutoDestroy;
-import com.it.br.gameserver.LoginServerThread;
-import com.it.br.gameserver.RecipeController;
-import com.it.br.gameserver.SevenSigns;
-import com.it.br.gameserver.SevenSignsFestival;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.Universe;
+import com.it.br.gameserver.*;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.ai.L2CharacterAI;
 import com.it.br.gameserver.ai.L2PlayerAI;
@@ -62,75 +34,23 @@ import com.it.br.gameserver.communitybbs.Manager.ForumsBBSManager;
 import com.it.br.gameserver.database.dao.PlayerDao;
 import com.it.br.gameserver.datatables.HeroSkillTable;
 import com.it.br.gameserver.datatables.NobleSkillTable;
-import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
-import com.it.br.gameserver.datatables.xml.CharTemplateTable;
-import com.it.br.gameserver.datatables.xml.FishTable;
-import com.it.br.gameserver.datatables.xml.HennaTable;
-import com.it.br.gameserver.datatables.xml.MapRegionTable;
-import com.it.br.gameserver.datatables.xml.NpcTable;
-import com.it.br.gameserver.datatables.xml.SkillTreeTable;
+import com.it.br.gameserver.datatables.xml.*;
 import com.it.br.gameserver.handler.IItemHandler;
-import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.handler.ItemHandler;
-import com.it.br.gameserver.handler.SkillHandler;
 import com.it.br.gameserver.handler.skillhandlers.SiegeFlag;
 import com.it.br.gameserver.handler.skillhandlers.StrSiegeAssault;
-import com.it.br.gameserver.instancemanager.CastleManager;
-import com.it.br.gameserver.instancemanager.CoupleManager;
-import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
-import com.it.br.gameserver.instancemanager.DimensionalRiftManager;
-import com.it.br.gameserver.instancemanager.DuelManager;
-import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
-import com.it.br.gameserver.instancemanager.QuestManager;
-import com.it.br.gameserver.instancemanager.SiegeManager;
-import com.it.br.gameserver.model.BlockList;
-import com.it.br.gameserver.model.FishData;
-import com.it.br.gameserver.model.ForceBuff;
-import com.it.br.gameserver.model.Inventory;
-import com.it.br.gameserver.model.ItemContainer;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2CharPosition;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2ClanMember;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2Fishing;
-import com.it.br.gameserver.model.L2HennaInstance;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Macro;
-import com.it.br.gameserver.model.L2ManufactureList;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Party;
-import com.it.br.gameserver.model.L2Radar;
-import com.it.br.gameserver.model.L2RecipeList;
-import com.it.br.gameserver.model.L2Request;
-import com.it.br.gameserver.model.L2ShortCut;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.instancemanager.*;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillTargetType;
 import com.it.br.gameserver.model.L2Skill.SkillType;
-import com.it.br.gameserver.model.L2SkillLearn;
-import com.it.br.gameserver.model.L2Summon;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.MacroList;
-import com.it.br.gameserver.model.PcFreight;
-import com.it.br.gameserver.model.PcInventory;
-import com.it.br.gameserver.model.PcWarehouse;
-import com.it.br.gameserver.model.PetInventory;
-import com.it.br.gameserver.model.ShortCuts;
-import com.it.br.gameserver.model.TradeList;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
 import com.it.br.gameserver.model.actor.appearance.PcAppearance;
 import com.it.br.gameserver.model.actor.knownlist.PcKnownList;
 import com.it.br.gameserver.model.actor.stat.PcStat;
 import com.it.br.gameserver.model.actor.status.PcStatus;
-import com.it.br.gameserver.model.base.ClassId;
-import com.it.br.gameserver.model.base.ClassLevel;
-import com.it.br.gameserver.model.base.Experience;
-import com.it.br.gameserver.model.base.PlayerClass;
-import com.it.br.gameserver.model.base.Race;
-import com.it.br.gameserver.model.base.SubClass;
+import com.it.br.gameserver.model.base.*;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.model.entity.Duel;
 import com.it.br.gameserver.model.entity.L2Event;
@@ -140,74 +60,25 @@ import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.CameraMode;
-import com.it.br.gameserver.network.serverpackets.ChangeWaitType;
-import com.it.br.gameserver.network.serverpackets.CharInfo;
-import com.it.br.gameserver.network.serverpackets.ConfirmDlg;
-import com.it.br.gameserver.network.serverpackets.EtcStatusUpdate;
-import com.it.br.gameserver.network.serverpackets.ExAutoSoulShot;
-import com.it.br.gameserver.network.serverpackets.ExDuelUpdateUserInfo;
-import com.it.br.gameserver.network.serverpackets.ExFishingEnd;
-import com.it.br.gameserver.network.serverpackets.ExFishingStart;
-import com.it.br.gameserver.network.serverpackets.ExOlympiadMode;
-import com.it.br.gameserver.network.serverpackets.ExOlympiadUserInfo;
-import com.it.br.gameserver.network.serverpackets.ExPCCafePointInfo;
-import com.it.br.gameserver.network.serverpackets.ExSetCompassZoneCode;
-import com.it.br.gameserver.network.serverpackets.HennaInfo;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
-import com.it.br.gameserver.network.serverpackets.LeaveWorld;
-import com.it.br.gameserver.network.serverpackets.MagicSkillCanceld;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.ObservationMode;
-import com.it.br.gameserver.network.serverpackets.ObservationReturn;
-import com.it.br.gameserver.network.serverpackets.PartySmallWindowUpdate;
-import com.it.br.gameserver.network.serverpackets.PetInventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
-import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListDelete;
-import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListUpdate;
-import com.it.br.gameserver.network.serverpackets.PrivateStoreListBuy;
-import com.it.br.gameserver.network.serverpackets.PrivateStoreListSell;
-import com.it.br.gameserver.network.serverpackets.QuestList;
-import com.it.br.gameserver.network.serverpackets.RecipeShopSellList;
-import com.it.br.gameserver.network.serverpackets.RelationChanged;
-import com.it.br.gameserver.network.serverpackets.Ride;
-import com.it.br.gameserver.network.serverpackets.SendTradeDone;
-import com.it.br.gameserver.network.serverpackets.SetupGauge;
-import com.it.br.gameserver.network.serverpackets.ShortCutInit;
-import com.it.br.gameserver.network.serverpackets.SkillList;
-import com.it.br.gameserver.network.serverpackets.Snoop;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.SpecialCamera;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.StopMove;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.TargetSelected;
-import com.it.br.gameserver.network.serverpackets.TitleUpdate;
-import com.it.br.gameserver.network.serverpackets.TradePressOtherOk;
-import com.it.br.gameserver.network.serverpackets.TradePressOwnOk;
-import com.it.br.gameserver.network.serverpackets.TradeStart;
-import com.it.br.gameserver.network.serverpackets.UserInfo;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.skills.Formulas;
 import com.it.br.gameserver.skills.Stats;
-import com.it.br.gameserver.templates.L2Armor;
-import com.it.br.gameserver.templates.L2ArmorType;
-import com.it.br.gameserver.templates.L2EtcItemType;
-import com.it.br.gameserver.templates.L2Henna;
-import com.it.br.gameserver.templates.L2Item;
-import com.it.br.gameserver.templates.L2PcTemplate;
-import com.it.br.gameserver.templates.L2Weapon;
-import com.it.br.gameserver.templates.L2WeaponType;
+import com.it.br.gameserver.templates.*;
 import com.it.br.gameserver.util.Broadcast;
 import com.it.br.gameserver.util.FloodProtectors;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.L2FastList;
 import com.it.br.util.Point3D;
 import com.it.br.util.Rnd;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class represents all player characters in the world.
@@ -258,6 +129,11 @@ public final class L2PcInstance extends L2PlayableInstance
 
 	private static final int[] COMMON_CRAFT_LEVELS = { 5,20,28,36,43,49,55,62 };
 	private static final long FALLING_VALIDATION_DELAY = 0;
+
+	/** List with the recomendations that I've give */
+	public List<Integer> getRecomChars() {
+		return _recomChars;
+	}
 
 	//private static Logger _log = Logger.getLogger(L2PcInstance.class.getName());
 
@@ -338,10 +214,6 @@ public final class L2PcInstance extends L2PlayableInstance
 	}
 
 	private L2GameClient _client;
-
-    public String get_accountName() {
-        return _accountName;
-    }
 
     private String _accountName;
 	private long _deleteTimer;
@@ -501,7 +373,6 @@ public final class L2PcInstance extends L2PlayableInstance
 
 	/** Date when recom points were updated last time */
 	private long _lastRecomUpdate;
-	/** List with the recomendations that I've give */
 	private List<Integer> _recomChars = new ArrayList<>();
 
 	/** The random number of the L2PcInstance */
@@ -953,7 +824,7 @@ public final class L2PcInstance extends L2PlayableInstance
 	 * @param accountName The name of the account including this L2PcInstance
 	 *
 	 */
-	private L2PcInstance(int objectId, L2PcTemplate template, String accountName, PcAppearance app)
+	public L2PcInstance(int objectId, L2PcTemplate template, String accountName, PcAppearance app)
 	{
 		super(objectId, template);
 		getKnownList();	// init knownlist
@@ -1764,12 +1635,12 @@ public final class L2PcInstance extends L2PlayableInstance
         }
 		target.incRecomHave();
 		decRecomLeft();
-		_recomChars.add(target.getObjectId());
+		getRecomChars().add(target.getObjectId());
 	}
 
 	public boolean canRecom(L2PcInstance target)
 	{
-		return !_recomChars.contains(target.getObjectId());
+		return !getRecomChars().contains(target.getObjectId());
 	}
 
 	/**
@@ -5946,164 +5817,17 @@ public final class L2PcInstance extends L2PlayableInstance
 	private static L2PcInstance restore(int objectId)
 	{
 		L2PcInstance player = null;
-        ResultSet rset = null;
 
 		try
 		{
 			// Retrieve the L2PcInstance from the characters table of the database
-			rset = PlayerDao.restorePlayer(objectId);
-
-			double currentCp = 0;
-			double currentHp = 0;
-			double currentMp = 0;
-
-			while (rset.next())
-			{
-				final int activeClassId = rset.getInt("classid");
-				final boolean female = rset.getInt("sex")!=0;
-				final L2PcTemplate template = CharTemplateTable.getInstance().getTemplate(activeClassId);
-				PcAppearance app = new PcAppearance(rset.getByte("face"), rset.getByte("hairColor"), rset.getByte("hairStyle"), female);
-
-				player = new L2PcInstance(objectId, template, rset.getString("account_name"), app);
-				player.setName(rset.getString("char_name"));
-				player._lastAccess = rset.getLong("lastAccess");
-				player.getStat().setExp(rset.getLong("exp"));
-				player.setExpBeforeDeath(rset.getLong("expBeforeDeath"));
-				player.getStat().setLevel(rset.getByte("level"));
-				player.getStat().setSp(rset.getInt("sp"));
-				player.setWantsPeace(rset.getInt("wantspeace"));
-				player.setHeading(rset.getInt("heading"));
-				player.setKarma(rset.getInt("karma"));
-				player.setPvpKills(rset.getInt("pvpkills"));
-				player.setPkKills(rset.getInt("pkkills"));
-				player.setOnlineTime(rset.getLong("onlinetime"));
-				player.setNewbie(rset.getInt("newbie")==1);
-				player.setNoble(rset.getInt("nobless")==1);
-				player.setHero(rset.getInt("hero") == 1);
-				player.setClanJoinExpiryTime(rset.getLong("clan_join_expiry_time"));
-				if (player.getClanJoinExpiryTime() < System.currentTimeMillis())
-				{
-					player.setClanJoinExpiryTime(0);
-				}
-				player.setClanCreateExpiryTime(rset.getLong("clan_create_expiry_time"));
-				if (player.getClanCreateExpiryTime() < System.currentTimeMillis())
-				{
-					player.setClanCreateExpiryTime(0);
-				}
-				int clanId	= rset.getInt("clanid");
-				player.setPowerGrade((int)rset.getLong("power_grade"));
-				player.setPledgeType(rset.getInt("subpledge"));
-				player.setLastRecomUpdate(rset.getLong("last_recom_date"));
-				//player.setApprentice(rset.getInt("apprentice"));
-				if (clanId > 0)
-				{
-					player.setClan(ClanTable.getInstance().getClan(clanId));
-				}
-				if (player.getClan() != null)
-                {
-                    if (player.getClan().getLeaderId() != player.getObjectId())
-                    {
-                        if (player.getPowerGrade() == 0)
-                        {
-                        	player.setPowerGrade(5);
-                        }
-                    	player.setClanPrivileges(player.getClan().getRankPrivs(player.getPowerGrade()));
-                    }
-                    else
-                    {
-                    	player.setClanPrivileges(L2Clan.CP_ALL);
-                    	player.setPowerGrade(1);
-                    }
-                }
-                else
-            	{
-                	player.setClanPrivileges(L2Clan.CP_NOTHING);
-            	}
-				player.setDeleteTimer(rset.getLong("deletetime"));
-				player.setTitle(rset.getString("title"));
-				player.setAccessLevel(rset.getInt("accesslevel"));
-				player.setFistsWeaponItem(player.findFistsWeaponItem(activeClassId));
-				player.setUptime(System.currentTimeMillis());
-				currentHp = rset.getDouble("curHp");
-				player.setCurrentHp(rset.getDouble("curHp"));
-				currentCp = rset.getDouble("curCp");
-				player.setCurrentCp(rset.getDouble("curCp"));
-				currentMp = rset.getDouble("curMp");
-				player.setCurrentMp(rset.getDouble("curMp"));
-				//Check recs
-				player.checkRecom(rset.getInt("rec_have"),rset.getInt("rec_left"));
-				player._classIndex = 0;
-				try { player.setBaseClass(rset.getInt("base_class")); }
-				catch (Exception e) { player.setBaseClass(activeClassId); }
-
-				// Restore Subclass Data (cannot be done earlier in function)
-                if (restoreSubClassData(player))
-                {
-                	if (activeClassId != player.getBaseClass())
-                	{
-                    	for (SubClass subClass : player.getSubClasses().values())
-                    		if (subClass.getClassId() == activeClassId)
-                    			player._classIndex = subClass.getClassIndex();
-                	}
-                }
-                if (player.getClassIndex() == 0 && activeClassId != player.getBaseClass())
-                {
-                	// Subclass in use but doesn't exist in DB -
-                	// a possible restart-while-modifysubclass cheat has been attempted.
-                	// Switching to use base class
-                	player.setClassId(player.getBaseClass());
-                	_log.warning("Player "+player.getName()+" reverted to base class. Possibly has tried a relogin exploit while subclassing.");
-                }
-                else player._activeClass = activeClassId;
-                player.setApprentice(rset.getInt("apprentice"));
-                player.setSponsor(rset.getInt("sponsor"));
-                player.setLvlJoinedAcademy(rset.getInt("lvl_joined_academy"));
-                player.setIsIn7sDungeon(rset.getInt("isin7sdungeon")==1);
-                player.setPunishLevel(rset.getInt("punish_level"));
-                if (player.getPunishLevel() != PunishLevel.NONE)
-                	player.setPunishTimer(rset.getLong("punish_timer"));
-                else
-                	player.setPunishTimer(0);
-                CursedWeaponsManager.getInstance().checkPlayer(player);
-                player.setAllianceWithVarkaKetra(rset.getInt("varka_ketra_ally"));
-                player.setDeathPenaltyBuffLevel(rset.getInt("death_penalty_level"));
-                player.pcBangPoint = rset.getInt("pc_point");
-                player.setVip(rset.getInt("vip") == 1);
-                player.setVipEndTime(rset.getLong("vip_end"));
-                player.setAio(rset.getInt("aio") == 1);
-                player.setAioEndTime(rset.getLong("aio_end"));
-                player.setChatFilterCount(rset.getInt("chat_filter_count"));
-
-				// Add the L2PcInstance object in _allObjects
-				//L2World.getInstance().storeObject(player);
-
-				// Set the x,y,z position of the L2PcInstance and make it invisible
-				player.setXYZInvisible(rset.getInt("x"), rset.getInt("y"), rset.getInt("z"));
-
-                ResultSet chars = PlayerDao.otherPlayersInAccount(objectId, player._accountName);
-				while (chars.next())
-				{
-					Integer charId = chars.getInt("obj_Id");
-					String charName = chars.getString("char_name");
-					player._chars.put(charId, charName);
-				}
-
-				chars.close();
-				break;
-			}
-
-			rset.close();
+			player = PlayerDao.restorePlayer(objectId);
 
 			// Retrieve from the database all secondary data of this L2PcInstance
 			// and reward expertise/lucky skills if necessary.
 			// Note that Clan, Noblesse and Hero skills are given separately and not here.
 			player.restoreCharData();
 			player.rewardSkills();
-
-			// Restore current Cp, HP and MP values
-			player.setCurrentCp(currentCp);
-			player.setCurrentHp(currentHp);
-			player.setCurrentMp(currentMp);
 
 			// Restore pet if exists in the world
 			player.setPet(L2World.getInstance().getPet(player.getObjectId()));
@@ -6172,37 +5896,6 @@ public final class L2PcInstance extends L2PlayableInstance
 		_forumMemo = forum;
 	}
 
-    /**
-     * Restores sub-class data for the L2PcInstance, used to check the current
-     * class index for the character.
-     */
-    private static boolean restoreSubClassData(L2PcInstance player)
-    {
-        try
-        {
-            ResultSet rset = PlayerDao.restoreCharSubClasses(player);
-
-            while (rset.next())
-            {
-                SubClass subClass = new SubClass();
-                subClass.setClassId(rset.getInt("class_id"));
-                subClass.setLevel(rset.getByte("level"));
-                subClass.setExp(rset.getLong("exp"));
-                subClass.setSp(rset.getInt("sp"));
-                subClass.setClassIndex(rset.getInt("class_index"));
-
-                // Enforce the correct indexing of _subClasses against their class indexes.
-                player.getSubClasses().put(subClass.getClassIndex(), subClass);
-            }
-        }
-        catch (Exception e) {
-            _log.warning("Could not restore classes for " + player.getName() + ": " + e);
-            e.printStackTrace();
-        }
-
-        return true;
-    }
-
 	/**
 	 * Restores secondary data for the L2PcInstance, based on the current class index.
 	 */
@@ -6248,22 +5941,9 @@ public final class L2PcInstance extends L2PlayableInstance
 	 */
 	private void restoreRecipeBook()
 	{
-        ResultSet rset = null;
         try
         {
-            rset = PlayerDao.restoreRecipeBook(this);
-
-			L2RecipeList recipe;
-			while (rset.next())
-			{
-				recipe = RecipeController.getInstance().getRecipeList(rset.getInt("id") - 1);
-
-				if (rset.getInt("type") == 1)
-					registerDwarvenRecipeList(recipe);
-				else
-					registerCommonRecipeList(recipe);
-			}
-			rset.close();
+            PlayerDao.restoreRecipeBook(this);
 		}
 		catch (Exception e) {
 			_log.warning("Could not restore recipe book data:" + e);
@@ -6510,49 +6190,12 @@ public final class L2PcInstance extends L2PlayableInstance
 			if (!getSettings(L2JBrasilSettings.class).isKeepSubClassSkillsEnabled())
 			{
                 // Retrieve all skills of this L2PcInstance from the database
-                ResultSet rset = PlayerDao.restoreSkills(this);
-                // Go though the recordset of this SQL query
-                while (rset.next())
-                {
-                    int id = rset.getInt("skill_id");
-                    int level = rset.getInt("skill_level");
-
-                    if (id > 9000)
-                    {
-                        continue; // fake skills for base stats
-                    }
-                    // Create a L2Skill object for each record
-                    L2Skill skill = SkillTable.getInstance().getInfo(id, level);
-
-                    // Add the L2Skill object to the L2Character _skills and its Func objects to the calculator set of the L2Character
-                    super.addSkill(skill);
-                }
-                rset.close();
+                PlayerDao.restoreSkills(this);
 			}
 			else
 			{
 				// Retrieve all skills of this L2PcInstance from the database
-
-				ResultSet rset = PlayerDao.restoreSkillsAlternative(this);
-
-				// Go though the recordset of this SQL query
-				while(rset.next())
-				{
-					int id = rset.getInt("skill_id");
-					int level = rset.getInt("skill_level");
-
-					if(id > 9000)
-					{
-						continue; // fake skills for base stats
-					}
-
-					// Create a L2Skill object for each record
-					L2Skill skill = SkillTable.getInstance().getInfo(id, level);
-
-					// Add the L2Skill object to the L2Character _skills and its Func objects to the calculator set of the L2Character
-					super.addSkill(skill);
-				}
-				rset.close();
+				PlayerDao.restoreSkillsAlternative(this);
 			}
 		}
 		catch (Exception e)
@@ -6567,64 +6210,17 @@ public final class L2PcInstance extends L2PlayableInstance
 	public void restoreEffects()
 	{
         L2Object[] targets = new L2Character[]{this};
-        ResultSet rset;
         try
 		{
-			rset = PlayerDao.restoreEffects(this, 0);
-
-			while (rset.next())
-			{
-				int skillId = rset.getInt("skill_id");
-				int skillLvl = rset.getInt("skill_level");
-				int effectCount = rset.getInt("effect_count");
-				int effectCurTime = rset.getInt("effect_cur_time");
-				long reuseDelay = rset.getLong("reuse_delay");
-
-				// Just incase the admin minipulated this table incorrectly :x
-				if(skillId == -1 || effectCount == -1 || effectCurTime == -1 || reuseDelay < 0) continue;
-
-				L2Skill skill = SkillTable.getInstance().getInfo(skillId, skillLvl);
-				ISkillHandler IHand = SkillHandler.getInstance().getSkillHandler(skill.getSkillType());
-				if (IHand != null)
-					IHand.useSkill(this, skill, targets);
-				else
-					skill.useSkill(this, targets);
-
-				if (reuseDelay > 10)
-				{
-					disableSkill(skillId, reuseDelay);
-					addTimeStamp(new TimeStamp(skillId, reuseDelay));
-				}
-
-				for (L2Effect effect : getAllEffects())
-                {
-					if (effect.getSkill().getId() == skillId)
-					{
-						effect.setCount(effectCount);
-						effect.setFirstTime(effectCurTime);
-					}
-                }
-			}
-			rset.close();
+			PlayerDao.restoreEffects(this, targets, 0);
 
 			/*
 			 * Restore Type 1
 			 * The remaning skills lost effect upon logout but
 			 * were still under a high reuse delay.
 			 */
-			rset = PlayerDao.restoreEffects(this, 1);
+			PlayerDao.restoreEffects(this, targets, 1);
 
-			while (rset.next())
-			{
-				int skillId = rset.getInt("skill_id");
-				long reuseDelay = rset.getLong("reuse_delay");
-
-				if (reuseDelay <= 0) continue;
-
-				disableSkill(skillId, reuseDelay);
-				addTimeStamp(new TimeStamp(skillId, reuseDelay));
-			}
-			rset.close();
             PlayerDao.deleteSkillsSave(this);
 		}
 		catch (Exception e)
@@ -6640,38 +6236,12 @@ public final class L2PcInstance extends L2PlayableInstance
 	 */
 	private void restoreHenna()
 	{
-        ResultSet rset = null;
         try
 		{
-			rset = PlayerDao.restoreHenna(this);
-
 			for (int i=0;i<3;i++)
 				_henna[i]=null;
 
-			while (rset.next())
-			{
-				int slot = rset.getInt("slot");
-
-				if (slot<1 || slot>3)
-                    continue;
-
-				int symbol_id = rset.getInt("symbol_id");
-
-				L2HennaInstance sym = null;
-
-				if (symbol_id != 0)
-				{
-					L2Henna tpl = HennaTable.getInstance().getTemplate(symbol_id);
-
-					if (tpl != null)
-					{
-						sym = new L2HennaInstance(tpl);
-						_henna[slot-1] = sym;
-					}
-				}
-			}
-
-			rset.close();
+			PlayerDao.restoreHenna(this);
 		}
 		catch (Exception e)
 		{
@@ -6687,16 +6257,9 @@ public final class L2PcInstance extends L2PlayableInstance
 	 */
 	private void restoreRecom()
 	{
-        ResultSet rset = null;
         try
 		{
-            rset = PlayerDao.restoreRecomends(this);
-			while (rset.next())
-			{
-				_recomChars.add(rset.getInt("target_id"));
-			}
-
-			rset.close();
+            PlayerDao.restoreRecomends(this);
 		}
 		catch (Exception e)
 		{
@@ -6834,9 +6397,17 @@ public final class L2PcInstance extends L2PlayableInstance
 	public L2HennaInstance getHenna(int slot)
 	{
 		if (slot < 1 || slot > 3)
-            return null;
+			return null;
 
 		return _henna[slot - 1];
+	}
+
+	public void setHenna(int slot, L2HennaInstance symbol)
+	{
+		if (slot < 1 || slot > 3)
+			return;
+
+		_henna[slot - 1] = symbol;
 	}
 
 	/**
@@ -9105,7 +8676,12 @@ public final class L2PcInstance extends L2PlayableInstance
 		return _lastAccess;
 	}
 
-	private void checkRecom(int recsHave, int recsLeft)
+	public void setLastAccess(long lastAccess)
+	{
+		_lastAccess = lastAccess;
+	}
+
+	public void checkRecom(int recsHave, int recsLeft)
 	{
 		Calendar check = Calendar.getInstance();
 		check.setTimeInMillis(_lastRecomUpdate);
@@ -10789,7 +10365,7 @@ public final class L2PcInstance extends L2PlayableInstance
 	 * instance for restoration purposes only.
 	 * @param T
 	 */
-	private void addTimeStamp(TimeStamp T)
+	public void addTimeStamp(TimeStamp T)
 	{
 		ReuseTimeStamps.put(T.getSkill(), T);
 	}

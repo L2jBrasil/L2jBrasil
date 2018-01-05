@@ -18,20 +18,12 @@
  */
 package com.it.br.gameserver.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.cache.CrestCache;
 import com.it.br.gameserver.cache.CrestCache.CrestType;
 import com.it.br.gameserver.communitybbs.BB.Forum;
 import com.it.br.gameserver.communitybbs.Manager.ForumsBBSManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
@@ -39,20 +31,19 @@ import com.it.br.gameserver.instancemanager.CrownManager;
 import com.it.br.gameserver.instancemanager.SiegeManager;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
-import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
-import com.it.br.gameserver.network.serverpackets.PledgeReceiveSubPledgeCreated;
-import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
-import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListAll;
-import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListDeleteAll;
-import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListUpdate;
-import com.it.br.gameserver.network.serverpackets.PledgeSkillListAdd;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.UserInfo;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Util;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class L2Clan
 {

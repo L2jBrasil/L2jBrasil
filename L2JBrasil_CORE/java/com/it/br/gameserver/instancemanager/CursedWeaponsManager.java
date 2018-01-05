@@ -17,6 +17,19 @@
  */
 package com.it.br.gameserver.instancemanager;
 
+import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.model.actor.instance.*;
+import com.it.br.gameserver.network.SystemMessageId;
+import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,31 +41,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.CursedWeapon;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.actor.instance.L2FeedableBeastInstance;
-import com.it.br.gameserver.model.actor.instance.L2FestivalMonsterInstance;
-import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
-import com.it.br.gameserver.model.actor.instance.L2GuardInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2RiftInvaderInstance;
-import com.it.br.gameserver.model.actor.instance.L2SiegeGuardInstance;
-import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
 public class CursedWeaponsManager
 {

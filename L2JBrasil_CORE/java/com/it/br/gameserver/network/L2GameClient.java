@@ -17,29 +17,14 @@
  */
 package com.it.br.gameserver.network;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.net.InetAddress;
-import java.nio.ByteBuffer;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Future;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.LoginServerThread;
 import com.it.br.gameserver.LoginServerThread.SessionKey;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.communitybbs.Manager.RegionBBSManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.OfflineTradeTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
@@ -58,6 +43,21 @@ import com.it.br.gameserver.util.FloodProtectors;
 import com.it.br.util.EventData;
 import com.l2jserver.mmocore.network.MMOClient;
 import com.l2jserver.mmocore.network.MMOConnection;
+
+import java.net.InetAddress;
+import java.nio.ByteBuffer;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Future;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public final class L2GameClient extends MMOClient<MMOConnection<L2GameClient>>
 {

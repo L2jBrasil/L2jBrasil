@@ -18,6 +18,14 @@
  */
 package com.it.br.gameserver.handler;
 
+import com.it.br.gameserver.Announcements;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,16 +33,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
-
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.Announcements;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 
 /**
  * Auto Announcment Handler Automatically send announcment at a set time interval.

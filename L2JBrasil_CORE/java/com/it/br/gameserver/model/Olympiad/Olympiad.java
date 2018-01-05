@@ -22,35 +22,12 @@
  */
 package com.it.br.gameserver.model.Olympiad;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.instancemanager.OlympiadStadiaManager;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Hero;
@@ -59,6 +36,18 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.L2FastList;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
+import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.*;
+import java.util.concurrent.ScheduledFuture;
+import java.util.logging.Logger;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class Olympiad
 {

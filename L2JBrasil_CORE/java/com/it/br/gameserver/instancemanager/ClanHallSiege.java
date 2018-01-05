@@ -17,13 +17,13 @@
  */
  package com.it.br.gameserver.instancemanager;
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
 
 /**
  *

@@ -18,28 +18,23 @@
  */
 package com.it.br.gameserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.OfflineTradeTable;
-import com.it.br.gameserver.instancemanager.CastleManorManager;
-import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
-import com.it.br.gameserver.instancemanager.GrandBossManager;
-import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
-import com.it.br.gameserver.instancemanager.QuestManager;
-import com.it.br.gameserver.instancemanager.RaidBossSpawnManager;
+import com.it.br.gameserver.instancemanager.*;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
 import com.it.br.gameserver.network.serverpackets.ServerClose;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class Shutdown extends Thread
 {

@@ -18,6 +18,16 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.Config;
+import com.it.br.gameserver.SevenSigns;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.model.actor.instance.L2SiegeGuardInstance;
+import com.it.br.gameserver.network.serverpackets.CreatureSay;
+import com.it.br.util.Rnd;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,16 +37,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.SevenSigns;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2SiegeGuardInstance;
-import com.it.br.gameserver.network.serverpackets.CreatureSay;
-import com.it.br.util.Rnd;
 
 /**
  * Auto Chat Handler

@@ -19,7 +19,7 @@
 package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2World;

@@ -1,11 +1,15 @@
 package com.it.br.gameserver.database.dao;
 
-import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.xml.NpcTable;
+import com.it.br.gameserver.model.L2Spawn;
+import com.it.br.gameserver.templates.L2NpcTemplate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -21,45 +25,85 @@ public class VanHalterDao {
      * Load from vanhalter_spawnlist by ID
      * @param id1 first id range
      * @param id2 Second id range
-     * @return ResultSet
+     * @return List<L2Spawn>
      */
-    public static ResultSet loadFromSpawnListBetweenIds(int id1, int id2)
+    public static List<L2Spawn> loadFromSpawnListBetweenIds(int id1, int id2)
     {
-        ResultSet rset = null;
+        List<L2Spawn> list = new ArrayList<>();
+
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(LOAD_FROM_VAN_HALTER_SPAWNLIST_BETWEEN_ID))
         {
-            statement.setInt(1, 22175);
-            statement.setInt(2, 22176);
-            rset = statement.executeQuery();
+            statement.setInt(1, id1);
+            statement.setInt(2, id2);
+            ResultSet rset = statement.executeQuery();
+
+            while(rset.next())
+            {
+                L2Spawn spawnDat;
+                L2NpcTemplate template = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
+                if(template != null)
+                {
+                    spawnDat = new L2Spawn(template);
+                    spawnDat.setAmount(rset.getInt("count"));
+                    spawnDat.setLocx(rset.getInt("locx"));
+                    spawnDat.setLocy(rset.getInt("locy"));
+                    spawnDat.setLocz(rset.getInt("locz"));
+                    spawnDat.setHeading(rset.getInt("heading"));
+                    spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
+                    list.add(spawnDat);
+                }
+                else
+                {
+                    _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListBetweenIds: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
+                }
+            }
+
         }
-        catch(SQLException e)
+        catch(Exception e)
         {
-            _log.warning(VanHalterDao.class.getName() + ".loadRoyals(): Spawn Royals could not be initialized: " + e);
+            _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListBetweenIds(): Spawn Royals could not be initialized: " + e);
             e.printStackTrace();
         }
-        return rset;
+        return list;
     }
 
     /**
      * Load from vanhalter_spawnlist by ID
-     * @return ResultSet
+     * @return List<L2Spawn>
      */
-    public static ResultSet loadFromSpawnListById(int id)
+    public static L2Spawn loadFromSpawnListById(int id)
     {
-        ResultSet rset = null;
+        L2Spawn spawnDat = null;
+
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(LOAD_FROM_VAN_HALTER_SPAWNLIST_BY_ID))
         {
             statement.setInt(1, id);
-            rset = statement.executeQuery();
-        }
-        catch(SQLException e)
-        {
-            _log.warning(VanHalterDao.class.getName() + ".loadRoyalCaptain(): Spawn could not be initialized: " + e);
+            ResultSet rset = statement.executeQuery();
+
+            while (rset.next())
+            {
+                L2NpcTemplate template = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
+                if (template != null)
+                {
+                    spawnDat = new L2Spawn(template);
+                    spawnDat.setAmount(rset.getInt("count"));
+                    spawnDat.setLocx(rset.getInt("locx"));
+                    spawnDat.setLocy(rset.getInt("locy"));
+                    spawnDat.setLocz(rset.getInt("locz"));
+                    spawnDat.setHeading(rset.getInt("heading"));
+                    spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
+                }
+                else {
+                    _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListById(int id): Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
+                }
+            }
+        } catch (Exception e) {
+            _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListById(int id): Spawn could not be initialized: " + e);
             e.printStackTrace();
         }
-        return rset;
+        return spawnDat;
     }
 
 }

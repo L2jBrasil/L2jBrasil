@@ -18,16 +18,9 @@
  */
 package com.it.br.gameserver.model.entity;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
@@ -36,13 +29,8 @@ import com.it.br.gameserver.instancemanager.MercTicketManager;
 import com.it.br.gameserver.instancemanager.SiegeGuardManager;
 import com.it.br.gameserver.instancemanager.SiegeManager;
 import com.it.br.gameserver.instancemanager.SiegeManager.SiegeSpawn;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2SiegeClan;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2SiegeClan.SiegeClanType;
-import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2ArtefactInstance;
 import com.it.br.gameserver.model.actor.instance.L2ControlTowerInstance;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
@@ -53,6 +41,13 @@ import com.it.br.gameserver.network.serverpackets.SiegeInfo;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.network.serverpackets.UserInfo;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 public class Siege
 {

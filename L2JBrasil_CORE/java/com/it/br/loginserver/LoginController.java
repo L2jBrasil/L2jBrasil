@@ -1,7 +1,16 @@
 package com.it.br.loginserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.LoginSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.lib.Log;
+import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
+import com.it.br.loginserver.GameServerTable.GameServerInfo;
+import com.it.br.loginserver.crypt.ScrambledKeyPair;
+import com.it.br.util.Rnd;
+import com.it.br.util.Util;
 
+import javax.crypto.Cipher;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
@@ -12,26 +21,11 @@ import java.security.spec.RSAKeyGenParameterSpec;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Base64;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-import javax.crypto.Cipher;
-
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.settings.LoginSettings;
-import com.it.br.gameserver.lib.Log;
-import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
-import com.it.br.loginserver.GameServerTable.GameServerInfo;
-import com.it.br.loginserver.crypt.ScrambledKeyPair;
-import com.it.br.util.Rnd;
-import com.it.br.util.Util;
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class ...

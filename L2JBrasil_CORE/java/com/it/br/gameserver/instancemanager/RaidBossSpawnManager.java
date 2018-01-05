@@ -19,7 +19,20 @@
 package com.it.br.gameserver.instancemanager;
 
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.L2JBrasilSettings;
+import com.it.br.gameserver.Announcements;
+import com.it.br.gameserver.GmListTable;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.sql.SpawnTable;
+import com.it.br.gameserver.datatables.xml.NpcTable;
+import com.it.br.gameserver.model.L2Spawn;
+import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
+import com.it.br.gameserver.skills.Stats;
+import com.it.br.gameserver.templates.L2NpcTemplate;
+import com.it.br.gameserver.templates.StatsSet;
+import com.it.br.util.Rnd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,20 +44,7 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.settings.L2JBrasilSettings;
-import com.it.br.gameserver.Announcements;
-import com.it.br.gameserver.GmListTable;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.datatables.xml.NpcTable;
-import com.it.br.gameserver.datatables.sql.SpawnTable;
-import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
-import com.it.br.gameserver.skills.Stats;
-import com.it.br.gameserver.templates.L2NpcTemplate;
-import com.it.br.gameserver.templates.StatsSet;
-import com.it.br.util.Rnd;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class RaidBossSpawnManager 
 {

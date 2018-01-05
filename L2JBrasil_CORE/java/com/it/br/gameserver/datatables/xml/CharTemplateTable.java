@@ -12,6 +12,22 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.sql.ItemTable;
+import com.it.br.gameserver.model.base.ClassId;
+import com.it.br.gameserver.templates.L2PcTemplate;
+import com.it.br.gameserver.templates.StatsSet;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,24 +38,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.datatables.sql.ItemTable;
-import com.it.br.gameserver.model.base.ClassId;
-import com.it.br.gameserver.templates.L2PcTemplate;
-import com.it.br.gameserver.templates.StatsSet;
 
 public class CharTemplateTable
 {

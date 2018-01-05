@@ -19,15 +19,15 @@
 package com.it.br.gameserver.communitybbs.BB;
 
 
+import com.it.br.gameserver.communitybbs.Manager.PostBBSManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.communitybbs.Manager.PostBBSManager;
 
 /**
  * @author Maktakien

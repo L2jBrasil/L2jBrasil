@@ -17,20 +17,20 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.SevenSigns;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2ClanMember;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CastleManager

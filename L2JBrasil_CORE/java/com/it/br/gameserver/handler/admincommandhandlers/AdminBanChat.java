@@ -19,15 +19,13 @@
 package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Announcements;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-
-import static com.it.br.configuration.Configurator.getSettings;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,6 +34,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $

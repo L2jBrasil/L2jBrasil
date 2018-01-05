@@ -18,16 +18,9 @@
  */
 package com.it.br.gameserver.datatables.sql;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.instancemanager.SiegeManager;
 import com.it.br.gameserver.model.L2Clan;
@@ -35,12 +28,15 @@ import com.it.br.gameserver.model.L2ClanMember;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Siege;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
-import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListAll;
-import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.UserInfo;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Util;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
 
 public class ClanTable
 {

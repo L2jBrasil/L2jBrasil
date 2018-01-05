@@ -18,6 +18,12 @@
  */
 package com.it.br.gsregistering;
 
+import com.it.br.Config;
+import com.it.br.Server;
+import com.it.br.gameserver.LoginServerThread;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.loginserver.GameServerTable;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
@@ -26,12 +32,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Map;
-
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.Server;
-import com.it.br.gameserver.LoginServerThread;
-import com.it.br.loginserver.GameServerTable;
 
 public class GameServerRegister
 {

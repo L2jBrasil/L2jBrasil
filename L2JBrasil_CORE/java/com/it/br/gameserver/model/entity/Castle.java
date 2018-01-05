@@ -1,17 +1,11 @@
 package com.it.br.gameserver.model.entity;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.*;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.CastleUpdater;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
@@ -27,6 +21,12 @@ import com.it.br.gameserver.model.zone.type.L2CastleTeleportZone;
 import com.it.br.gameserver.model.zone.type.L2CastleZone;
 import com.it.br.gameserver.model.zone.type.L2SiegeZone;
 import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class Castle
 {

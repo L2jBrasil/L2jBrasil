@@ -28,9 +28,9 @@ import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
-import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -139,62 +139,38 @@ public class Auction
     /** Load auctions */
 	private void load()
 	{
-        try
-        {
-            ResultSet rs;
-            rs = AuctionDao.loadAuctions(this);
+		List<Object> listAuctions = AuctionDao.loadAuctions(this);
 
-            while (rs.next())
-            {
-        	    _currentBid = rs.getInt("currentBid");
-        	    _endDate= rs.getLong("endDate");
-        	    _itemId = rs.getInt("itemId");
-        	    _itemName = rs.getString("itemName");
-        	    _itemObjectId = rs.getInt("itemObjectId");
-        	    _itemType = rs.getString("itemType");
-        	    _sellerId = rs.getInt("sellerId");
-                _sellerClanName = rs.getString("sellerClanName");
-        	    _sellerName = rs.getString("sellerName");
-        	    _startingBid = rs.getInt("startingBid");
-            }
-            loadBid();
-            rs.close();
-        }
-        catch (Exception e)
-        {
-            _log.warning(Auction.class.getName() + ": Exception: Auction.load(): " + e.getMessage());
-            e.printStackTrace();
-        }
+		if (!listAuctions.isEmpty()) {
+			_currentBid = (int) listAuctions.get(0);
+			_endDate = (long) listAuctions.get(1);
+			_itemId = (int) listAuctions.get(2);
+			_itemName = (String) listAuctions.get(3);
+			_itemObjectId = (int) listAuctions.get(4);
+			_itemType = (String) listAuctions.get(5);
+			_sellerId = (int) listAuctions.get(6);
+			_sellerClanName = (String) listAuctions.get(7);
+			_sellerName = (String) listAuctions.get(8);
+			_startingBid = (int) listAuctions.get(9);
+		}
+
+		loadBid();
 	}
+
 	/** Load bidders **/
-	public void loadBid()
-	{
-	    _highestBidderId = 0;
+	public void loadBid() {
+		_highestBidderId = 0;
 		_highestBidderName = "";
-		_highestBidderMaxBid = 0;		
+		_highestBidderMaxBid = 0;
 
-        try
-        {
-            ResultSet rs = AuctionDao.loadBid(this);
+		List<Object> listBid = AuctionDao.loadBid(this);
 
-            while (rs.next())
-            {
-                if (rs.isFirst())
-                {
-                    _highestBidderId = rs.getInt("bidderId");
-                    _highestBidderName = rs.getString("bidderName");
-                    _highestBidderMaxBid = rs.getInt("maxBid");
-                }
-                _bidders.put(rs.getInt("bidderId"), new Bidder(rs.getString("bidderName"), rs.getString("clan_name"), rs.getInt("maxBid"), rs.getLong("time_bid")));
-            }
-            rs.close();
-        }
-        catch (Exception e)
-        {
-            _log.warning(Auction.class.getName() + ": Exception: Auction.loadBid(): " + e.getMessage());
-            e.printStackTrace();
-        }
+		_highestBidderId = (int) listBid.get(0);
+		_highestBidderName = (String) listBid.get(1);
+		_highestBidderMaxBid = (int) listBid.get(2);
+		_bidders.put((int) listBid.get(0), new Bidder((String) listBid.get(1), (String) listBid.get(3), (int) listBid.get(2), (long) listBid.get(4)));
 	}
+
     /** Task Manage */
     private void startAutoTask()
     {
@@ -362,6 +338,7 @@ public class Auction
     {
         AuctionManager.getInstance().getAuctions().add(this);
         AuctionDao.insertAuction(this);
+        loadBid();
     }
     /** Get var auction */
 	public final int getId() { return _id; }

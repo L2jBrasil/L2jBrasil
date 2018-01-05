@@ -17,15 +17,8 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
 import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.AutoChatHandler;
@@ -35,6 +28,13 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2SiegeGuardInstance;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 
 
 /**

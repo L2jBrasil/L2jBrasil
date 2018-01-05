@@ -18,17 +18,17 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.model.L2Macro.L2MacroCmd;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.serverpackets.SendMacroList;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.model.L2Macro.L2MacroCmd;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.serverpackets.SendMacroList;
 
 /**
  * This class ...

@@ -17,8 +17,20 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.L2WorldRegion;
+import com.it.br.gameserver.model.zone.L2ZoneType;
+import com.it.br.gameserver.model.zone.form.ZoneCuboid;
+import com.it.br.gameserver.model.zone.form.ZoneNPoly;
+import com.it.br.gameserver.model.zone.type.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
 
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,40 +42,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.L2WorldRegion;
-import com.it.br.gameserver.model.zone.L2ZoneType;
-import com.it.br.gameserver.model.zone.form.ZoneCuboid;
-import com.it.br.gameserver.model.zone.form.ZoneNPoly;
-import com.it.br.gameserver.model.zone.type.L2ArenaZone;
-import com.it.br.gameserver.model.zone.type.L2BigheadZone;
-import com.it.br.gameserver.model.zone.type.L2BossZone;
-import com.it.br.gameserver.model.zone.type.L2CastleTeleportZone;
-import com.it.br.gameserver.model.zone.type.L2CastleZone;
-import com.it.br.gameserver.model.zone.type.L2ClanHallZone;
-import com.it.br.gameserver.model.zone.type.L2DamageZone;
-import com.it.br.gameserver.model.zone.type.L2DerbyTrackZone;
-import com.it.br.gameserver.model.zone.type.L2FishingZone;
-import com.it.br.gameserver.model.zone.type.L2JailZone;
-import com.it.br.gameserver.model.zone.type.L2MotherTreeZone;
-import com.it.br.gameserver.model.zone.type.L2NoLandingZone;
-import com.it.br.gameserver.model.zone.type.L2OlympiadStadiumZone;
-import com.it.br.gameserver.model.zone.type.L2PeaceZone;
-import com.it.br.gameserver.model.zone.type.L2PoisonZone;
-import com.it.br.gameserver.model.zone.type.L2SiegeZone;
-import com.it.br.gameserver.model.zone.type.L2SkillZone;
-import com.it.br.gameserver.model.zone.type.L2SwampZone;
-import com.it.br.gameserver.model.zone.type.L2TownZone;
-import com.it.br.gameserver.model.zone.type.L2WaterZone;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class ZoneManager
 {

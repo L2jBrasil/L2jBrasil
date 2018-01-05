@@ -17,16 +17,17 @@
  */
 package com.it.br.loginserver;
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.xmlfactory.XMLDocumentFactory;
+import com.it.br.loginserver.gameserverpackets.ServerStatus;
+import com.it.br.util.Rnd;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.math.BigInteger;
-import java.security.GeneralSecurityException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
+import java.security.*;
 import java.security.spec.RSAKeyGenParameterSpec;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,14 +38,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.xmlfactory.XMLDocumentFactory;
-import com.it.br.loginserver.gameserverpackets.ServerStatus;
-import com.it.br.util.Rnd;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
 
 /**
  *

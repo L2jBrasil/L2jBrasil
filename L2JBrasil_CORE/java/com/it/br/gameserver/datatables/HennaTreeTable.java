@@ -19,6 +19,11 @@
 package com.it.br.gameserver.datatables;
 
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.xml.HennaTable;
+import com.it.br.gameserver.model.L2HennaInstance;
+import com.it.br.gameserver.model.base.ClassId;
+import com.it.br.gameserver.templates.L2Henna;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,12 +33,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.datatables.xml.HennaTable;
-import com.it.br.gameserver.model.L2HennaInstance;
-import com.it.br.gameserver.model.base.ClassId;
-import com.it.br.gameserver.templates.L2Henna;
 /**
  * This class ...
  *

@@ -18,24 +18,20 @@
 package com.it.br.gameserver.instancemanager;
 
 import com.it.br.Config;
-import com.it.br.gameserver.ItemsAutoDestroy;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.dao.ItemsOnGroundDao;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.templates.L2EtcItemType;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  * This class manage all items on ground
  *
- * @version $Revision: $ $Date: $
+ * @refactor by Tayran
+ * @version 3.0.4
  * @author  DiezelMax - original ideea
  * @author  Enforcer  - actual build
  */
@@ -43,9 +39,14 @@ public class ItemsOnGroundManager
 {
     static final Logger _log = Logger.getLogger(ItemsOnGroundManager.class.getName());
     private static ItemsOnGroundManager _instance;
-    protected List<L2ItemInstance> _items = null;
 
-    private ItemsOnGroundManager()
+    public static List<L2ItemInstance> getItems() {
+        return _items;
+    }
+
+    protected static List<L2ItemInstance> _items = null;
+
+    public ItemsOnGroundManager()
     {
     	if(!Config.SAVE_DROPPED_ITEM) return;
     		_items = new ArrayList<>();
@@ -79,51 +80,8 @@ public class ItemsOnGroundManager
             ItemsOnGroundDao.updateItemsGroundOnLoad();
         }
         int count = 0;
-        try {
-            ResultSet result = ItemsOnGroundDao.selectItemsOnGround();
-            while (result.next()) {
-                L2ItemInstance item = new L2ItemInstance(result.getInt(1), result.getInt(2));
-                L2World.getInstance().storeObject(item);
 
-                if (item.isStackable() && result.getInt(3) > 1) //this check and..
-                    item.setCount(result.getInt(3));
-
-                if (result.getInt(4) > 0)            // this, are really necessary?
-                    item.setEnchantLevel(result.getInt(4));
-
-                item.getPosition().setWorldPosition(result.getInt(5), result.getInt(6), result.getInt(7));
-                item.getPosition().setWorldRegion(L2World.getInstance().getRegion(item.getPosition().getWorldPosition()));
-                item.getPosition().getWorldRegion().addVisibleObject(item);
-                item.setDropTime(result.getLong(8));
-
-                if (result.getLong(8) == -1)
-                    item.setProtected(true);
-                else
-                    item.setProtected(false);
-
-                item.setIsVisible(true);
-                L2World.getInstance().addVisibleObject(item, item.getPosition().getWorldRegion(), null);
-
-                _items.add(item);
-                count++;
-                // add to ItemsAutoDestroy only items not protected
-                if (!Config.LIST_PROTECTED_ITEMS.contains(item.getItemId())) {
-                    if (result.getLong(8) > -1) {
-                        if ((Config.AUTODESTROY_ITEM_AFTER > 0 && item.getItemType() != L2EtcItemType.HERB)
-                                || (Config.HERB_AUTO_DESTROY_TIME > 0 && item.getItemType() == L2EtcItemType.HERB))
-                            ItemsAutoDestroy.getInstance().addItem(item);
-                    }
-                }
-            }
-            result.close();
-            if (count > 0)
-                System.out.println("ItemsOnGroundManager: restored " + count + " items.");
-            else
-                System.out.println("Initializing ItemsOnGroundManager.");
-        } catch (Exception e) {
-            _log.log(Level.SEVERE, "error while loading ItemsOnGround " + e);
-            e.printStackTrace();
-        }
+        ItemsOnGroundDao.selectItemsOnGround();
 
         if (Config.EMPTY_DROPPED_ITEM_TABLE_AFTER_LOAD)
             emptyTable();
@@ -175,7 +133,7 @@ public class ItemsOnGroundManager
                 if (CursedWeaponsManager.getInstance().isCursed(item.getItemId()))
                     continue; // Cursed Items not saved to ground, prevent double save
 
-                ItemsOnGroundDao.insertIntoItemsOnGround(item);
+                ItemsOnGroundDao.insert(item);
             }
             if (Config.DEBUG)
                 _log.warning("ItemsOnGroundManager: " + _items.size() + " items on ground saved");

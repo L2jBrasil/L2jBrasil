@@ -17,20 +17,9 @@
  */
 package com.it.br.gameserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.settings.SevensignsSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.model.AutoChatHandler;
@@ -42,6 +31,17 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SignsSky;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.StatsSet;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class SevenSigns
 {

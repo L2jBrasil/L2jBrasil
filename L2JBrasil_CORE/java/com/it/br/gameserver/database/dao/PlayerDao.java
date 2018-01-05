@@ -1,12 +1,20 @@
 package com.it.br.gameserver.database.dao;
 
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2HennaInstance;
-import com.it.br.gameserver.model.L2RecipeList;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.RecipeController;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.sql.ClanTable;
+import com.it.br.gameserver.datatables.sql.SkillTable;
+import com.it.br.gameserver.datatables.xml.CharTemplateTable;
+import com.it.br.gameserver.datatables.xml.HennaTable;
+import com.it.br.gameserver.handler.ISkillHandler;
+import com.it.br.gameserver.handler.SkillHandler;
+import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
+import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.model.actor.appearance.PcAppearance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.base.SubClass;
+import com.it.br.gameserver.templates.L2Henna;
+import com.it.br.gameserver.templates.L2PcTemplate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +24,7 @@ import java.util.logging.Logger;
 
 /**
  * @author Tayran
- * @version 3.0.3
+ * @version 3.0.4
  */
 public class PlayerDao
 {
@@ -117,7 +125,7 @@ public class PlayerDao
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(INSERT_CHAR_IN_DB))
         {
-            statement.setString(1, player.get_accountName());
+            statement.setString(1, player.getAccountName());
             statement.setInt(2, player.getObjectId());
             statement.setString(3, player.getName());
             statement.setInt(4, player.getLevel());
@@ -191,55 +199,202 @@ public class PlayerDao
         return true;
     }
 
-    public static ResultSet restorePlayer(int objectId)
+    public static L2PcInstance restorePlayer(int objectId)
     {
-        ResultSet rset = null;
+        L2PcInstance player = null;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(RESTORE_CHARACTER)) {
             statement.setInt(1, objectId);
-            rset = statement.executeQuery();
+            ResultSet rset = statement.executeQuery();
+
+            while(rset.next())
+            {
+                final int activeClassId = rset.getInt("classid");
+                final boolean female = rset.getInt("sex")!=0;
+                final L2PcTemplate template = CharTemplateTable.getInstance().getTemplate(activeClassId);
+                PcAppearance app = new PcAppearance(rset.getByte("face"), rset.getByte("hairColor"), rset.getByte("hairStyle"), female);
+
+                player = new L2PcInstance(objectId, template, rset.getString("account_name"), app);
+                player.setName(rset.getString("char_name"));
+                player.setLastAccess(rset.getLong("lastAccess"));
+                player.getStat().setExp(rset.getLong("exp"));
+                player.setExpBeforeDeath(rset.getLong("expBeforeDeath"));
+                player.getStat().setLevel(rset.getByte("level"));
+                player.getStat().setSp(rset.getInt("sp"));
+                player.setWantsPeace(rset.getInt("wantspeace"));
+                player.setHeading(rset.getInt("heading"));
+                player.setKarma(rset.getInt("karma"));
+                player.setPvpKills(rset.getInt("pvpkills"));
+                player.setPkKills(rset.getInt("pkkills"));
+                player.setOnlineTime(rset.getLong("onlinetime"));
+                player.setNewbie(rset.getInt("newbie")==1);
+                player.setNoble(rset.getInt("nobless")==1);
+                player.setHero(rset.getInt("hero") == 1);
+                player.setClanJoinExpiryTime(rset.getLong("clan_join_expiry_time"));
+                if (player.getClanJoinExpiryTime() < System.currentTimeMillis())
+                {
+                    player.setClanJoinExpiryTime(0);
+                }
+                player.setClanCreateExpiryTime(rset.getLong("clan_create_expiry_time"));
+                if (player.getClanCreateExpiryTime() < System.currentTimeMillis())
+                {
+                    player.setClanCreateExpiryTime(0);
+                }
+                int clanId	= rset.getInt("clanid");
+                player.setPowerGrade((int)rset.getLong("power_grade"));
+                player.setPledgeType(rset.getInt("subpledge"));
+                player.setLastRecomUpdate(rset.getLong("last_recom_date"));
+                //player.setApprentice(rset.getInt("apprentice"));
+                if (clanId > 0)
+                {
+                    player.setClan(ClanTable.getInstance().getClan(clanId));
+                }
+                if (player.getClan() != null)
+                {
+                    if (player.getClan().getLeaderId() != player.getObjectId())
+                    {
+                        if (player.getPowerGrade() == 0)
+                        {
+                            player.setPowerGrade(5);
+                        }
+                        player.setClanPrivileges(player.getClan().getRankPrivs(player.getPowerGrade()));
+                    }
+                    else
+                    {
+                        player.setClanPrivileges(L2Clan.CP_ALL);
+                        player.setPowerGrade(1);
+                    }
+                }
+                else
+                {
+                    player.setClanPrivileges(L2Clan.CP_NOTHING);
+                }
+                player.setDeleteTimer(rset.getLong("deletetime"));
+                player.setTitle(rset.getString("title"));
+                player.setAccessLevel(rset.getInt("accesslevel"));
+                player.setFistsWeaponItem(player.findFistsWeaponItem(activeClassId));
+                player.setUptime(System.currentTimeMillis());
+
+                player.setCurrentHp(rset.getDouble("curHp"));
+
+                player.setCurrentCp(rset.getDouble("curCp"));
+
+                player.setCurrentMp(rset.getDouble("curMp"));
+                //Check recs
+                player.checkRecom(rset.getInt("rec_have"),rset.getInt("rec_left"));
+                player.setClassIndex(0);
+                try { player.setBaseClass(rset.getInt("base_class")); }
+                catch (Exception e) { player.setBaseClass(activeClassId); }
+
+                // Restore Subclass Data (cannot be done earlier in function)
+                if (restoreCharSubClasses(player))
+                {
+                    if (activeClassId != player.getBaseClass())
+                    {
+                        for (SubClass subClass : player.getSubClasses().values())
+                            if (subClass.getClassId() == activeClassId)
+                                player.setClassIndex(subClass.getClassIndex());
+                    }
+                }
+                if (player.getClassIndex() == 0 && activeClassId != player.getBaseClass())
+                {
+                    // Subclass in use but doesn't exist in DB -
+                    // a possible restart-while-modifysubclass cheat has been attempted.
+                    // Switching to use base class
+                    player.setClassId(player.getBaseClass());
+                    _log.warning("Player "+player.getName()+" reverted to base class. Possibly has tried a relogin exploit while subclassing.");
+                }
+                else player.setActiveClass(activeClassId);
+                player.setApprentice(rset.getInt("apprentice"));
+                player.setSponsor(rset.getInt("sponsor"));
+                player.setLvlJoinedAcademy(rset.getInt("lvl_joined_academy"));
+                player.setIsIn7sDungeon(rset.getInt("isin7sdungeon")==1);
+                player.setPunishLevel(rset.getInt("punish_level"));
+                if (player.getPunishLevel() != L2PcInstance.PunishLevel.NONE)
+                    player.setPunishTimer(rset.getLong("punish_timer"));
+                else
+                    player.setPunishTimer(0);
+                CursedWeaponsManager.getInstance().checkPlayer(player);
+                player.setAllianceWithVarkaKetra(rset.getInt("varka_ketra_ally"));
+                player.setDeathPenaltyBuffLevel(rset.getInt("death_penalty_level"));
+                player.addPcBangScore(rset.getInt("pc_point"));
+                player.setVip(rset.getInt("vip") == 1);
+                player.setVipEndTime(rset.getLong("vip_end"));
+                player.setAio(rset.getInt("aio") == 1);
+                player.setAioEndTime(rset.getLong("aio_end"));
+                player.setChatFilterCount(rset.getInt("chat_filter_count"));
+
+                // Add the L2PcInstance object in _allObjects
+                //L2World.getInstance().storeObject(player);
+
+                // Set the x,y,z position of the L2PcInstance and make it invisible
+                player.setXYZInvisible(rset.getInt("x"), rset.getInt("y"), rset.getInt("z"));
+
+                PlayerDao.otherPlayersInAccount(player);
+                break;
+            }
+            rset.close();
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
-        return rset;
+        return player;
     }
 
-    public static ResultSet otherPlayersInAccount(int objectId, String accountName)
+    private static void otherPlayersInAccount(L2PcInstance player)
     {
-        ResultSet rset = null;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement("SELECT obj_Id, char_name FROM characters WHERE account_name=? AND obj_Id<>?"))
         {
-            statement.setString(1, accountName);
-            statement.setInt(2, objectId);
-            rset = statement.executeQuery();
+            statement.setString(1, player.getAccountName());
+            statement.setInt(2, player.getObjectId());
+            ResultSet rset = statement.executeQuery();
+            while (rset.next())
+            {
+                Integer charId = rset.getInt("obj_Id");
+                String charName = rset.getString("char_name");
+                player.getAccountChars().put(charId, charName);
+            }
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
-        return rset;
     }
 
-    public static ResultSet restoreCharSubClasses(L2PcInstance player)
+    /**
+     * Restores sub-class data for the L2PcInstance, used to check the current
+     * class index for the character.
+     */
+    private static boolean restoreCharSubClasses(L2PcInstance player)
     {
-        ResultSet rset;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(RESTORE_CHAR_SUBCLASSES))
         {
             statement.setInt(1, player.getObjectId());
+            ResultSet rset = statement.executeQuery();
 
-            rset = statement.executeQuery();
+            while (rset.next())
+            {
+                SubClass subClass = new SubClass();
+                subClass.setClassId(rset.getInt("class_id"));
+                subClass.setLevel(rset.getByte("level"));
+                subClass.setExp(rset.getLong("exp"));
+                subClass.setSp(rset.getInt("sp"));
+                subClass.setClassIndex(rset.getInt("class_index"));
+
+                // Enforce the correct indexing of _subClasses against their class indexes.
+                player.getSubClasses().put(subClass.getClassIndex(), subClass);
+            }
+
         }
         catch (Exception e)
         {
             _log.warning(PlayerDao.class.getName() + ": Could not restore classes for " + player.getName() + ": " + e);
             e.printStackTrace();
-            return null;
         }
-        return rset;
+        return true;
     }
 
     /**
@@ -281,19 +436,28 @@ public class PlayerDao
         }
     }
 
-    public static ResultSet restoreRecipeBook(L2PcInstance player)
+    public static void restoreRecipeBook(L2PcInstance player)
     {
-        ResultSet rset = null;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement("SELECT id, type FROM character_recipebook WHERE char_id=?"))
         {
             statement.setInt(1, player.getObjectId());
-            rset = statement.executeQuery();
+            ResultSet rset = statement.executeQuery();
+            L2RecipeList recipe;
+            while (rset.next())
+            {
+                recipe = RecipeController.getInstance().getRecipeList(rset.getInt("id") - 1);
+
+                if (rset.getInt("type") == 1)
+                    player.registerDwarvenRecipeList(recipe);
+                else
+                    player.registerCommonRecipeList(recipe);
+            }
+
         }
         catch (SQLException e) {
             _log.warning(PlayerDao.class.getName() + ": Could not restore recipe book data:" + e);
         }
-        return rset;
     }
 
     public static void storeCharBase(L2PcInstance player)
@@ -550,38 +714,70 @@ public class PlayerDao
         }
     }
 
-    public static ResultSet restoreSkills(L2PcInstance player)
+    public static void restoreSkills(L2PcInstance player)
     {
-        ResultSet rset;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(RESTORE_SKILLS_FOR_CHAR))
         {
             statement.setInt(1, player.getObjectId());
             statement.setInt(2, player.getClassIndex());
-            rset = statement.executeQuery();
-            return rset;
+            ResultSet rset = statement.executeQuery();
+
+            // Go though the recordset of this SQL query
+            while (rset.next())
+            {
+                int id = rset.getInt("skill_id");
+                int level = rset.getInt("skill_level");
+
+                if (id > 9000)
+                {
+                    continue; // fake skills for base stats
+                }
+                // Create a L2Skill object for each record
+                L2Skill skill = SkillTable.getInstance().getInfo(id, level);
+
+                // Add the L2Skill object to the L2Character _skills and its Func objects to the calculator set of the L2Character
+                player.addSkill(skill);
+            }
+            rset.close();
         }
         catch (SQLException e)
         {
             _log.warning(PlayerDao.class.getName() + ": Could not restore character skills: " + e);
         }
-        return null;
     }
 
-    public static ResultSet restoreSkillsAlternative(L2PcInstance player)
+    public static void restoreSkillsAlternative(L2PcInstance player)
     {
-        ResultSet rset;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(RESTORE_SKILLS_FOR_CHAR_ALT_SUBCLASS))
         {
             statement.setInt(1, player.getObjectId());
-            rset = statement.executeQuery();
-            return rset;
-        }catch (SQLException e)
+            ResultSet rset = statement.executeQuery();
+
+            // Go though the recordset of this SQL query
+            while(rset.next())
+            {
+                int id = rset.getInt("skill_id");
+                int level = rset.getInt("skill_level");
+
+                if(id > 9000)
+                {
+                    continue; // fake skills for base stats
+                }
+
+                // Create a L2Skill object for each record
+                L2Skill skill = SkillTable.getInstance().getInfo(id, level);
+
+                // Add the L2Skill object to the L2Character _skills and its Func objects to the calculator set of the L2Character
+                player.addSkill(skill);
+            }
+            rset.close();
+        }
+        catch (SQLException e)
         {
             _log.warning(PlayerDao.class.getName() + ": Could not restore character skills: " + e);
         }
-        return null;
     }
 
     /**
@@ -595,62 +791,134 @@ public class PlayerDao
      * The remaning skills lost effect upon logout but
      * were still under a high reuse delay.
      */
-    public static ResultSet restoreEffects(L2PcInstance player, int restoreType)
+    public static void restoreEffects(L2PcInstance player, L2Object[] targets, int restoreType)
     {
-        ResultSet rset;
-
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(RESTORE_SKILL_SAVE))
         {
             statement.setInt(1, player.getObjectId());
             statement.setInt(2, player.getClassIndex());
             statement.setInt(3, restoreType);
-            rset = statement.executeQuery();
-            return rset;
+            ResultSet rset = statement.executeQuery();
+
+            if(restoreType == 0)
+            {
+
+                while (rset.next())
+                {
+                    int skillId = rset.getInt("skill_id");
+                    int skillLvl = rset.getInt("skill_level");
+                    int effectCount = rset.getInt("effect_count");
+                    int effectCurTime = rset.getInt("effect_cur_time");
+                    long reuseDelay = rset.getLong("reuse_delay");
+
+                    // Just incase the admin minipulated this table incorrectly :x
+                    if(skillId == -1 || effectCount == -1 || effectCurTime == -1 || reuseDelay < 0) continue;
+
+                    L2Skill skill = SkillTable.getInstance().getInfo(skillId, skillLvl);
+                    ISkillHandler IHand = SkillHandler.getInstance().getSkillHandler(skill.getSkillType());
+                    if (IHand != null)
+                        IHand.useSkill(player, skill, targets);
+                    else
+                        skill.useSkill(player, targets);
+
+                    if (reuseDelay > 10)
+                    {
+                        player.disableSkill(skillId, reuseDelay);
+                        player.addTimeStamp(player.new TimeStamp(skillId, reuseDelay));
+                    }
+
+                    for (L2Effect effect : player.getAllEffects())
+                    {
+                        if (effect.getSkill().getId() == skillId)
+                        {
+                            effect.setCount(effectCount);
+                            effect.setFirstTime(effectCurTime);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                while (rset.next())
+                {
+                    int skillId = rset.getInt("skill_id");
+                    long reuseDelay = rset.getLong("reuse_delay");
+
+                    if (reuseDelay <= 0) continue;
+
+                    player.disableSkill(skillId, reuseDelay);
+                    player.addTimeStamp(player.new TimeStamp(skillId, reuseDelay));
+                }
+                rset.close();
+
+            }
+            rset.close();
         }
-        catch (SQLException e)
+        catch (Exception e)
         {
             _log.warning(PlayerDao.class.getName() + ": Could not restore active effect data: " + e);
         }
-        return null;
     }
 
-
-    public static ResultSet restoreHenna(L2PcInstance player)
+    public static void restoreHenna(L2PcInstance player)
     {
-        ResultSet rset;
+        L2HennaInstance sym;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(RESTORE_CHAR_HENNAS))
         {
             statement.setInt(1, player.getObjectId());
             statement.setInt(2, player.getClassIndex());
-            rset = statement.executeQuery();
-            return rset;
+            ResultSet rset = statement.executeQuery();
+
+            while (rset.next())
+            {
+                int slot = rset.getInt("slot");
+
+                if (slot < 1 || slot > 3) {
+                    continue;
+                }
+
+                int symbol_id = rset.getInt("symbol_id");
+
+
+                if (symbol_id != 0)
+                {
+                    L2Henna tpl = HennaTable.getInstance().getTemplate(symbol_id);
+
+                    if (tpl != null)
+                    {
+                        sym = new L2HennaInstance(tpl);
+                        player.setHenna(slot-1, sym);
+                    }
+                }
+            }
+
 
         } catch (SQLException e) {
             _log.warning(PlayerDao.class.getName() + ": Could not restore henna : " + e);
             e.printStackTrace();
         }
-        return null;
     }
 
 
-    public static ResultSet restoreRecomends(L2PcInstance player)
+    public static void restoreRecomends(L2PcInstance player)
     {
-        ResultSet rset;
         try(Connection con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement = con.prepareStatement(RESTORE_CHAR_RECOMS))
         {
             statement.setInt(1, player.getObjectId());
-            rset = statement.executeQuery();
-            return rset;
+            ResultSet rset = statement.executeQuery();
+            while (rset.next())
+            {
+                player.getRecomChars().add(rset.getInt("target_id"));
+            }
         }
         catch (SQLException e)
         {
             _log.warning(PlayerDao.class.getName() + ": Could not restore recommendations : " + e);
             e.printStackTrace();
         }
-        return null;
     }
 
     public static void deleteHenna(L2PcInstance player, int slot)

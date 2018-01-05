@@ -18,14 +18,14 @@
  */
 package com.it.br.gameserver.idfactory;
 
+import com.it.br.Config;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
 
 /**
  * This class ...

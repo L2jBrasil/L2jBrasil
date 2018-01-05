@@ -19,7 +19,9 @@
 package com.it.br.gameserver.datatables;
 
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,10 +32,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.datatables.xml.L2PetDataTable;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class PetNameTable
 {

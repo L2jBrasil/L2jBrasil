@@ -18,19 +18,19 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
+import com.it.br.gameserver.cache.CrestCache;
+import com.it.br.gameserver.cache.CrestCache.CrestType;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.sql.ClanTable;
+import com.it.br.gameserver.idfactory.IdFactory;
+import com.it.br.gameserver.model.L2Clan;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.cache.CrestCache;
-import com.it.br.gameserver.cache.CrestCache.CrestType;
-import com.it.br.gameserver.datatables.sql.ClanTable;
-import com.it.br.gameserver.idfactory.IdFactory;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 /**
  * This class ...

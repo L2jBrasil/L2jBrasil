@@ -17,37 +17,20 @@
  */
 package com.it.br.gameserver.taskmanager;
 
-import static com.it.br.gameserver.taskmanager.TaskTypes.TYPE_FIXED_SHEDULED;
-import static com.it.br.gameserver.taskmanager.TaskTypes.TYPE_GLOBAL_TASK;
-import static com.it.br.gameserver.taskmanager.TaskTypes.TYPE_NONE;
-import static com.it.br.gameserver.taskmanager.TaskTypes.TYPE_SHEDULED;
-import static com.it.br.gameserver.taskmanager.TaskTypes.TYPE_SPECIAL;
-import static com.it.br.gameserver.taskmanager.TaskTypes.TYPE_STARTUP;
-import static com.it.br.gameserver.taskmanager.TaskTypes.TYPE_TIME;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.taskmanager.tasks.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.taskmanager.tasks.TaskCleanUp;
-import com.it.br.gameserver.taskmanager.tasks.TaskJython;
-import com.it.br.gameserver.taskmanager.tasks.TaskOlympiadSave;
-import com.it.br.gameserver.taskmanager.tasks.TaskRecom;
-import com.it.br.gameserver.taskmanager.tasks.TaskRestart;
-import com.it.br.gameserver.taskmanager.tasks.TaskSevenSignsUpdate;
-import com.it.br.gameserver.taskmanager.tasks.TaskShutdown;
+import static com.it.br.gameserver.taskmanager.TaskTypes.*;
 
 /**
  * @author Layane

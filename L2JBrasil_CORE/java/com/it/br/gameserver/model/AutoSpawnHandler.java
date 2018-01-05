@@ -17,6 +17,18 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.Config;
+import com.it.br.gameserver.Announcements;
+import com.it.br.gameserver.ThreadPoolManager;
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.datatables.sql.SpawnTable;
+import com.it.br.gameserver.datatables.xml.MapRegionTable;
+import com.it.br.gameserver.datatables.xml.NpcTable;
+import com.it.br.gameserver.idfactory.IdFactory;
+import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
+import com.it.br.gameserver.templates.L2NpcTemplate;
+import com.it.br.util.Rnd;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,18 +39,6 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.Announcements;
-import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.datatables.sql.SpawnTable;
-import com.it.br.gameserver.datatables.xml.MapRegionTable;
-import com.it.br.gameserver.datatables.xml.NpcTable;
-import com.it.br.gameserver.idfactory.IdFactory;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.templates.L2NpcTemplate;
-import com.it.br.util.Rnd;
 
 /**
  * @author Tempy

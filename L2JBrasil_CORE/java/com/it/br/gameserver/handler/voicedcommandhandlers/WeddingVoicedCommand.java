@@ -1,20 +1,11 @@
 /* This program is free software; you can redistribute it and/or modify */
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.it.br.L2DatabaseFactory;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.instancemanager.CastleManager;
@@ -25,12 +16,16 @@ import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ConfirmDlg;
-import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
-import com.it.br.gameserver.network.serverpackets.SetupGauge;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Broadcast;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @author evill33t

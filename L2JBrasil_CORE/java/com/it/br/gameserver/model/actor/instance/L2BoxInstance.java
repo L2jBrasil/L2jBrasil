@@ -17,7 +17,7 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import com.it.br.L2DatabaseFactory;
+import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;

@@ -18,13 +18,13 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.instancemanager.SiegeManager;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import com.it.br.L2DatabaseFactory;
-import com.it.br.gameserver.instancemanager.SiegeManager;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 /**
  * This class ...
