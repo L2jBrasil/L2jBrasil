@@ -21,17 +21,60 @@ public class AuctionDao
 {
     private static final Logger _log = Logger.getLogger(AuctionDao.class.getName());
 
-    private static final String SELECT_ALL_AUCTIONS      = "SELECT * FROM auction WHERE id = ?";
-    private static final String SELECT_AUCTIONS_BID      = "SELECT bidderId, bidderName, maxBid, clan_name, time_bid FROM auction_bid WHERE auctionId = ? ORDER BY maxBid DESC";
-    private static final String SELECT_AUCTIONS_END_DATE = "UPDATE auction SET endDate = ? WHERE id = ?";
-    private static final String UPDATE_BIDDER            = "UPDATE auction_bid SET bidderId=?, bidderName=?, maxBid=?, time_bid=? WHERE auctionId=? AND bidderId=?";
-    private static final String INSERT_BIDDER            = "INSERT INTO auction_bid (id, auctionId, bidderId, bidderName, maxBid, clan_name, time_bid) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    private static final String DELETE_BID               = "DELETE FROM auction_bid WHERE auctionId=?";
-    private static final String DELETE_AUCTION           = "DELETE FROM auction WHERE itemId=?";
-    private static final String DELETE_AUCTION_BID       = "DELETE FROM auction_bid WHERE auctionId=? AND bidderId=?";
-    private static final String INSERT_AUCTION           = "INSERT INTO auction (id, sellerId, sellerName, sellerClanName, itemType, itemId, itemObjectId, itemName, itemQuantity, startingBid, currentBid, endDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String SELECT_AUCTIONS_ORDER_BY_ID = "SELECT id FROM auction ORDER BY id";
+    private static final String SELECT_ALL_AUCTIONS         = "SELECT * FROM auction WHERE id = ?";
+    private static final String SELECT_AUCTIONS_BID         = "SELECT bidderId, bidderName, maxBid, clan_name, time_bid FROM auction_bid WHERE auctionId = ? ORDER BY maxBid DESC";
+    private static final String SELECT_AUCTIONS_END_DATE    = "UPDATE auction SET endDate = ? WHERE id = ?";
+    private static final String UPDATE_BIDDER               = "UPDATE auction_bid SET bidderId=?, bidderName=?, maxBid=?, time_bid=? WHERE auctionId=? AND bidderId=?";
+    private static final String INSERT_BIDDER               = "INSERT INTO auction_bid (id, auctionId, bidderId, bidderName, maxBid, clan_name, time_bid) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String DELETE_BID                  = "DELETE FROM auction_bid WHERE auctionId=?";
+    private static final String DELETE_AUCTION              = "DELETE FROM auction WHERE itemId=?";
+    private static final String DELETE_AUCTION_BID          = "DELETE FROM auction_bid WHERE auctionId=? AND bidderId=?";
+    private static final String INSERT_AUCTION              = "INSERT INTO auction (id, sellerId, sellerName, sellerClanName, itemType, itemId, itemObjectId, itemName, itemQuantity, startingBid, currentBid, endDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String INSERT_VALUES               = "INSERT INTO `auction` VALUES ?";
+    private static final String[] ITEM_INIT_DATA =
+            {
+                    "(22, 0, 'NPC', 'NPC Clan', 'ClanHall', 22, 0, 'Moonstone Hall', 1, 20000000, 0, 1164841200000)",
+                    "(23, 0, 'NPC', 'NPC Clan', 'ClanHall', 23, 0, 'Onyx Hall', 1, 20000000, 0, 1164841200000)",
+                    "(24, 0, 'NPC', 'NPC Clan', 'ClanHall', 24, 0, 'Topaz Hall', 1, 20000000, 0, 1164841200000)",
+                    "(25, 0, 'NPC', 'NPC Clan', 'ClanHall', 25, 0, 'Ruby Hall', 1, 20000000, 0, 1164841200000)",
+                    "(26, 0, 'NPC', 'NPC Clan', 'ClanHall', 26, 0, 'Crystal Hall', 1, 20000000, 0, 1164841200000)",
+                    "(27, 0, 'NPC', 'NPC Clan', 'ClanHall', 27, 0, 'Onyx Hall', 1, 20000000, 0, 1164841200000)",
+                    "(28, 0, 'NPC', 'NPC Clan', 'ClanHall', 28, 0, 'Sapphire Hall', 1, 20000000, 0, 1164841200000)",
+                    "(29, 0, 'NPC', 'NPC Clan', 'ClanHall', 29, 0, 'Moonstone Hall', 1, 20000000, 0, 1164841200000)",
+                    "(30, 0, 'NPC', 'NPC Clan', 'ClanHall', 30, 0, 'Emerald Hall', 1, 20000000, 0, 1164841200000)",
+                    "(31, 0, 'NPC', 'NPC Clan', 'ClanHall', 31, 0, 'The Atramental Barracks', 1, 8000000, 0, 1164841200000)",
+                    "(32, 0, 'NPC', 'NPC Clan', 'ClanHall', 32, 0, 'The Scarlet Barracks', 1, 8000000, 0, 1164841200000)",
+                    "(33, 0, 'NPC', 'NPC Clan', 'ClanHall', 33, 0, 'The Viridian Barracks', 1, 8000000, 0, 1164841200000)",
+                    "(36, 0, 'NPC', 'NPC Clan', 'ClanHall', 36, 0, 'The Golden Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(37, 0, 'NPC', 'NPC Clan', 'ClanHall', 37, 0, 'The Silver Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(38, 0, 'NPC', 'NPC Clan', 'ClanHall', 38, 0, 'The Mithril Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(39, 0, 'NPC', 'NPC Clan', 'ClanHall', 39, 0, 'Silver Manor', 1, 50000000, 0, 1164841200000)",
+                    "(40, 0, 'NPC', 'NPC Clan', 'ClanHall', 40, 0, 'Gold Manor', 1, 50000000, 0, 1164841200000)",
+                    "(41, 0, 'NPC', 'NPC Clan', 'ClanHall', 41, 0, 'The Bronze Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(42, 0, 'NPC', 'NPC Clan', 'ClanHall', 42, 0, 'The Golden Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(43, 0, 'NPC', 'NPC Clan', 'ClanHall', 43, 0, 'The Silver Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(44, 0, 'NPC', 'NPC Clan', 'ClanHall', 44, 0, 'The Mithril Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(45, 0, 'NPC', 'NPC Clan', 'ClanHall', 45, 0, 'The Bronze Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(46, 0, 'NPC', 'NPC Clan', 'ClanHall', 46, 0, 'Silver Manor', 1, 50000000, 0, 1164841200000)",
+                    "(47, 0, 'NPC', 'NPC Clan', 'ClanHall', 47, 0, 'Moonstone Hall', 1, 50000000, 0, 1164841200000)",
+                    "(48, 0, 'NPC', 'NPC Clan', 'ClanHall', 48, 0, 'Onyx Hall', 1, 50000000, 0, 1164841200000)",
+                    "(49, 0, 'NPC', 'NPC Clan', 'ClanHall', 49, 0, 'Emerald Hall', 1, 50000000, 0, 1164841200000)",
+                    "(50, 0, 'NPC', 'NPC Clan', 'ClanHall', 50, 0, 'Sapphire Hall', 1, 50000000, 0, 1164841200000)",
+                    "(51, 0, 'NPC', 'NPC Clan', 'ClanHall', 51, 0, 'Mont Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(52, 0, 'NPC', 'NPC Clan', 'ClanHall', 52, 0, 'Astaire Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(53, 0, 'NPC', 'NPC Clan', 'ClanHall', 53, 0, 'Aria Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(54, 0, 'NPC', 'NPC Clan', 'ClanHall', 54, 0, 'Yiana Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(55, 0, 'NPC', 'NPC Clan', 'ClanHall', 55, 0, 'Roien Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(56, 0, 'NPC', 'NPC Clan', 'ClanHall', 56, 0, 'Luna Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(57, 0, 'NPC', 'NPC Clan', 'ClanHall', 57, 0, 'Traban Chamber', 1, 50000000, 0, 1164841200000)",
+                    "(58, 0, 'NPC', 'NPC Clan', 'ClanHall', 58, 0, 'Eisen Hall', 1, 50000000, 0, 1164841200000)",
+                    "(59, 0, 'NPC', 'NPC Clan', 'ClanHall', 59, 0, 'Heavy Metal Hall', 1, 50000000, 0, 1164841200000)",
+                    "(60, 0, 'NPC', 'NPC Clan', 'ClanHall', 60, 0, 'Molten Ore Hall', 1, 50000000, 0, 1164841200000)",
+                    "(61, 0, 'NPC', 'NPC Clan', 'ClanHall', 61, 0, 'Titan Hall', 1, 50000000, 0, 1164841200000)"
+            };
 
-    public static List<Object> loadAuctions(Auction auction)
+    public static List<Object> load(Auction auction)
     {
         List<Object> list = new ArrayList<>();
         try (Connection con = L2DatabaseFactory.getInstance().getConnection();
@@ -56,7 +99,25 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: loadAuctions(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: load(Auction): " + e.getMessage());
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static List<Integer> loadOrderById()
+    {
+        List<Integer> list = new ArrayList<>();
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(SELECT_AUCTIONS_ORDER_BY_ID))
+        {
+            ResultSet rs = statement.executeQuery();
+            while (rs.next())
+                list.add(rs.getInt("id"));
+        }
+        catch (SQLException e)
+        {
+            _log.warning( AuctionDao.class.getName() + ": Exception: loadOrderById(): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -82,7 +143,7 @@ public class AuctionDao
         }
         catch (Exception e)
         {
-            _log.warning(AuctionDao.class.getName() + ".: Exception: loadBid(): " + e.getMessage());
+            _log.warning(AuctionDao.class.getName() + ".: Exception: loadBid(Auction): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -99,7 +160,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: saveAuctionDate(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: saveAuctionDate(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -119,7 +180,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: updateBidder(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: updateBidder(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -140,7 +201,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: addBidder(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: addBidder(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -155,7 +216,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: removeBid(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: removeBid(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -170,7 +231,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: deleteAuction(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: deleteAuction(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -186,7 +247,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: deleteBid(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: deleteBid(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -213,7 +274,23 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: insertAuction(): " + e.getMessage());
+            _log.warning( AuctionDao.class.getName() + ": Exception: insertAuction(Auction): " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertByValues(int arrayPos)
+    {
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(INSERT_VALUES))
+        {
+            statement.setString(1, ITEM_INIT_DATA[arrayPos]);
+            statement.execute();
+            statement.close();
+        }
+        catch (SQLException e)
+        {
+            _log.warning( AuctionDao.class.getName() + ": Exception: insertByValues(int arrayPos): " + e.getMessage());
             e.printStackTrace();
         }
     }

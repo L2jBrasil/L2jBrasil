@@ -139,7 +139,7 @@ public class Auction
     /** Load auctions */
 	private void load()
 	{
-		List<Object> listAuctions = AuctionDao.loadAuctions(this);
+		List<Object> listAuctions = AuctionDao.load(this);
 
 		if (!listAuctions.isEmpty()) {
 			_currentBid = (int) listAuctions.get(0);

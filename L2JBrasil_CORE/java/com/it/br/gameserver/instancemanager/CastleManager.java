@@ -18,7 +18,8 @@
 package com.it.br.gameserver.instancemanager;
 
 import com.it.br.gameserver.SevenSigns;
-import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.CastleDao;
+import com.it.br.gameserver.database.dao.ItemsDao;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2ClanMember;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -26,9 +27,6 @@ import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,35 +84,11 @@ public class CastleManager
 
     // =========================================================
     // Method - Private
-    private final void load()
+    private void load()
     {
-        Connection con = null;
-        try
-        {
-            PreparedStatement statement;
-            ResultSet rs;
-
-            con = L2DatabaseFactory.getInstance().getConnection();
-
-            statement = con.prepareStatement("Select id from castle order by id");
-            rs = statement.executeQuery();
-
-            while (rs.next())
-            {
-                getCastles().add(new Castle(rs.getInt("id")));
-            }
-
-            statement.close();
-
-            System.out.println("Loaded: " + getCastles().size() + " castles");
-        }
-        catch (Exception e)
-        {
-            System.out.println("Exception: loadCastleData(): " + e.getMessage());
-            e.printStackTrace();
-        }
-
-        finally {try { con.close(); } catch (Exception e) {}}
+        List<Integer> castles = CastleDao.loadAllCastle();
+        castles.forEach(castle -> getCastles().add(new Castle(castle)));
+        System.out.println("Loaded: " + getCastles().size() + " castles");
     }
 
     // =========================================================
@@ -265,25 +239,7 @@ public class CastleManager
 				}
 			}
 			// else offline-player circlet removal
-			Connection con = null;
-			try
-			{
-				con = L2DatabaseFactory.getInstance().getConnection();
-				PreparedStatement statement = con.prepareStatement("DELETE FROM items WHERE owner_id = ? and item_id = ?");
-				statement.setInt(1, member.getObjectId());
-				statement.setInt(2, circletId);
-				statement.execute();
-				statement.close();
-			}
-			catch (Exception e)
-			{
-				System.out.println("Failed to remove castle circlets offline for player "+member.getName());
-				e.printStackTrace();
-			}
-			finally
-			{
-				try { con.close(); } catch (Exception e) {}
-			}
+            ItemsDao.delete(member, circletId);
 		}
 	}
 }
