@@ -35,7 +35,7 @@ public class CastleManager
 {
     // =========================================================
     private static CastleManager _instance;
-    public static final CastleManager getInstance()
+    public static CastleManager getInstance()
     {
         if (_instance == null)
         {
@@ -155,7 +155,7 @@ public class CastleManager
     	return getCastleIndex(activeObject.getX(), activeObject.getY(), activeObject.getZ());
     }
 
-    public final int getCastleIndex(int x, int y, int z)
+    private int getCastleIndex(int x, int y, int z)
     {
         Castle castle;
         for (int i = 0; i < getCastles().size(); i++)
@@ -190,12 +190,6 @@ public class CastleManager
 		for(Castle castle : _castles)
 			if(castle.getTaxPercent() > maxTax)
 				castle.setTaxPercent(maxTax);
-	}
-
-	int _castleId = 1; // from this castle
-	public int getCirclet()
-	{
-		return getCircletByCastleId(_castleId);
 	}
 
 	public int getCircletByCastleId(int castleId)

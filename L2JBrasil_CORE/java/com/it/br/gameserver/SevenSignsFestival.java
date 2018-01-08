@@ -21,6 +21,8 @@ import com.it.br.Config;
 import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.ClanDao;
+import com.it.br.gameserver.database.dao.SevenSignsDao;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
@@ -59,7 +61,6 @@ public class SevenSignsFestival implements SpawnListener
     protected static final Logger _log = Logger.getLogger(SevenSignsFestival.class.getName());
     private static SevenSignsFestival _instance;
 
-    private static final String GET_CLAN_NAME = "SELECT clan_name FROM clan_data WHERE clan_id = (SELECT clanid FROM characters WHERE char_name = ?)";
 
     /**
      * These length settings are important! :)
@@ -956,73 +957,48 @@ public class SevenSignsFestival implements SpawnListener
         if (Config.DEBUG)
             _log.info("SevenSignsFestival: Restoring festival data. Current SS Cycle: " + _signsCycle);
 
-        try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
-        {
-	        statement = con.prepareStatement("SELECT festivalId, cabal, cycle, date, score, members " + "FROM seven_signs_festival");
-	        rset = statement.executeQuery();
+        Map<Integer, List<Object>> sevenSigns = SevenSignsDao.load();
+        sevenSigns.forEach((k,v) -> {
+            Integer cycle = (Integer) v.get(0);
+            Integer festivalId = (Integer) v.get(1);
+            String cabal = (String) v.get(2);
+            String date = (String) v.get(3);
+            Integer score = (Integer) v.get(4);
+            String members = (String) v.get(5);
 
-	        while (rset.next())
-	        {
-	            int festivalCycle = rset.getInt("cycle");
-	            int festivalId = rset.getInt("festivalId");
-	            String cabal = rset.getString("cabal");
+            StatsSet festivalDat = new StatsSet();
+            festivalDat.set("festivalId", festivalId);
+            festivalDat.set("cabal", cabal);
+            festivalDat.set("cycle", cycle);
+            festivalDat.set("date", date);
+            festivalDat.set("score", score);
+            festivalDat.set("members", members);
 
-	            StatsSet festivalDat = new StatsSet();
-	            festivalDat.set("festivalId", festivalId);
-	            festivalDat.set("cabal", cabal);
-	            festivalDat.set("cycle", festivalCycle);
-	            festivalDat.set("date", rset.getString("date"));
-	            festivalDat.set("score", rset.getInt("score"));
-	            festivalDat.set("members", rset.getString("members"));
+            if (Config.DEBUG)
+                _log.info("SevenSignsFestival: Loaded data from DB for (Cycle = " + cycle + ", Oracle = " + cabal + ", Festival = "+ getFestivalName(festivalId));
 
-	            if (Config.DEBUG)
-	                _log.info("SevenSignsFestival: Loaded data from DB for (Cycle = " + festivalCycle + ", Oracle = " + cabal + ", Festival = "+ getFestivalName(festivalId));
+            if (cabal.equals("dawn"))
+                festivalId += FESTIVAL_COUNT;
 
-	            if (cabal.equals("dawn"))
-	                festivalId += FESTIVAL_COUNT;
+            Map<Integer, StatsSet> tempData = _festivalData.get(cycle);
 
-	            Map<Integer, StatsSet> tempData = _festivalData.get(festivalCycle);
+            if (tempData == null)
+                tempData = new HashMap<>();
 
-	            if (tempData == null)
-	                tempData = new HashMap<>();
+            tempData.put(festivalId, festivalDat);
+            _festivalData.put(cycle, tempData);
 
-	            tempData.put(festivalId, festivalDat);
-	            _festivalData.put(festivalCycle, tempData);
-	        }
+            Map<Integer, List<Integer>> festivalCycle = SevenSignsDao.selectCycle();
 
-	        rset.close();
-	        statement.close();
+            festivalCycle.forEach((key, value) -> {
+                _festivalCycle = value.get(0);
+                for(int i = 0; i < FESTIVAL_COUNT; i++)
+                    _accumulatedBonuses.add(i, value.get(1) + i);
+            });
 
-	        String query = "SELECT festival_cycle, ";
-
-	        for (int i = 0; i < FESTIVAL_COUNT-1; i++)
-
-	        query += "accumulated_bonus" + String.valueOf(i) + ", ";
-	        query += "accumulated_bonus" + String.valueOf(FESTIVAL_COUNT -1) + " ";
-	        query += "FROM seven_signs_status WHERE id=0";
-
-	        statement = con.prepareStatement(query);
-	        rset = statement.executeQuery();
-
-	        while (rset.next())
-	        {
-	            _festivalCycle = rset.getInt("festival_cycle");
-
-	            for(int i = 0; i < FESTIVAL_COUNT; i++)
-	                _accumulatedBonuses.add(i, rset.getInt("accumulated_bonus" + String.valueOf(i)));
-	        }
-
-	        rset.close();
-	        statement.close();
-	        con.close();
-
-	        if (Config.DEBUG)
-	            _log.info("SevenSignsFestival: Loaded data from database.");
-        }
-        catch (SQLException e)
-        {
-            _log.severe("SevenSignsFestival: Failed to load configuration: " + e);
-        }
+            if (Config.DEBUG)
+                _log.info("SevenSignsFestival: Loaded data from database.");
+        });
      }
 
     /**
@@ -1163,36 +1139,20 @@ public class SevenSignsFestival implements SpawnListener
 		}
 		else
 		{
-            try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
-        	{
-        		PreparedStatement statement = con.prepareStatement(GET_CLAN_NAME);
-        		statement.setString(1, partyMemberName);
-        		ResultSet rset = statement.executeQuery();
-        		if (rset.next())
-        		{
-        			String clanName = rset.getString("clan_name");
-        			if (clanName != null)
-        			{
-        				L2Clan clan = ClanTable.getInstance().getClanByName(clanName);
-        				if (clan != null)
-        				{
-        					clan.setReputationScore(clan.getReputationScore()+Config.FESTIVAL_WIN_POINTS, true);
-        					clan.broadcastToOnlineMembers(new PledgeShowInfoUpdate(clan));
-        					SystemMessage sm = new SystemMessage(SystemMessageId.CLAN_MEMBER_S1_WAS_IN_HIGHEST_RANKED_PARTY_IN_FESTIVAL_OF_DARKNESS_AND_GAINED_S2_REPUTATION);
-        	                sm.addString(partyMemberName);
-        	                sm.addNumber(Config.FESTIVAL_WIN_POINTS);
-        					clan.broadcastToOnlineMembers(sm);
-        				}
-        			}
-        		}
-
-        		rset.close();
-        		statement.close();
-        	}
-        	catch (Exception e)
-        	{
-        		_log.warning("could not get clan name of " + partyMemberName + ": "+e);
-        	}
+            String clanName = ClanDao.getClanName(partyMemberName);
+            if (clanName != null)
+            {
+                L2Clan clan = ClanTable.getInstance().getClanByName(clanName);
+                if (clan != null)
+                {
+                    clan.setReputationScore(clan.getReputationScore()+Config.FESTIVAL_WIN_POINTS, true);
+                    clan.broadcastToOnlineMembers(new PledgeShowInfoUpdate(clan));
+                    SystemMessage sm = new SystemMessage(SystemMessageId.CLAN_MEMBER_S1_WAS_IN_HIGHEST_RANKED_PARTY_IN_FESTIVAL_OF_DARKNESS_AND_GAINED_S2_REPUTATION);
+                    sm.addString(partyMemberName);
+                    sm.addNumber(Config.FESTIVAL_WIN_POINTS);
+                    clan.broadcastToOnlineMembers(sm);
+                }
+            }
 		}
     }
 
