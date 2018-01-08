@@ -17,36 +17,26 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.BoxesDao;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class L2BoxInstance extends L2NpcInstance {
 
 	@SuppressWarnings("rawtypes")
-	private class L2BoxItem implements Comparable {
+	public class L2BoxItem implements Comparable {
 		public int itemid;
 		public int id;
 		public int count;
 		@SuppressWarnings("unused")
 		public int enchant;
 		public String name;
-		
-		@SuppressWarnings("unused")
-		public L2BoxItem()
-		{
-			//
-		}
+
 		public L2BoxItem(int _itemid, int _count, String _name, int _id, int _enchant)
 		{
 			itemid = _itemid;
@@ -69,9 +59,6 @@ public class L2BoxInstance extends L2NpcInstance {
 
     //private static Logger _log = Logger.getLogger(L2BoxInstance.class.getName());
 	private static final int MAX_ITEMS_PER_PAGE = 25;
-	private static final String INSERT_GRANT = "INSERT INTO boxaccess (charname,spawn) VALUES(?,?)";
-	private static final String DELETE_GRANT = "DELETE FROM boxaccess WHERE charname=? AND spawn=?";
-	private static final String LIST_GRANT = "SELECT charname FROM boxaccess WHERE spawn=?";
     private static final String VARIABLE_PREFIX = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 	public L2BoxInstance(int objectId, L2NpcTemplate _template)
@@ -84,7 +71,7 @@ public class L2BoxInstance extends L2NpcInstance {
 	public void onBypassFeedback(L2PcInstance player, String command)
 	{
 		String playerName = player.getName();
-		boolean access = hasAccess(playerName);
+		boolean access = BoxesDao.hasAccess(playerName, getSpawn());
 
 		if (command.startsWith("Withdraw"))
 		{
@@ -133,92 +120,6 @@ public class L2BoxInstance extends L2NpcInstance {
 		return "data/html/custom/" + pom + ".htm";
 	}
 
-	public boolean hasAccess(String player)
-	{
-		Connection con = null;
-		boolean result = false;
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement st = con.prepareStatement("SELECT spawn, charname FROM boxaccess WHERE charname=? AND spawn=?");
-			st.setString(1, player);
-			st.setInt(2, getSpawn().getId());
-			ResultSet rs = st.executeQuery();
-			if (rs.next())
-				result = true;
-			rs.close();
-			st.close();
-		}
-		catch (Exception e)
-		{
-			_log.info("hasAccess failed: "+e);
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
-		}
-		return result;
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List getAccess()
-	{
-		Connection con = null;
-		List<String> acl = new ArrayList<>();
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement st = con.prepareStatement(LIST_GRANT);
-			st.setInt(1, getSpawn().getId());
-			ResultSet rs = st.executeQuery();
-			while (rs.next())
-			{
-				acl.add(rs.getString("charname"));
-			}
-			rs.close();
-			st.close();
-		}
-		catch (Exception e)
-		{
-			_log.info("getAccess failed: "+e);
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) { }
-		}
-		return acl;
-	}
-
-	public boolean grantAccess(String player, boolean what)
-	{
-		Connection con = null;
-		boolean result = false;
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			String _query;
-			if (what)
-				_query = INSERT_GRANT;
-			else
-				_query = DELETE_GRANT;
-
-			PreparedStatement st = con.prepareStatement(_query);
-			st.setString(1, player);
-			st.setInt(2, getSpawn().getId());
-			st.execute();
-			st.close();
-		}
-		catch (Exception e)
-		{
-			result = false;
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) { }
-		}
-		return result;
-	}
-
 	private void showWithdrawWindow(L2PcInstance player, String command)
 	{
 		String drawername = "trash";
@@ -233,7 +134,7 @@ public class L2BoxInstance extends L2NpcInstance {
 
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		int nitems = 0;
-		Set<L2BoxItem> _items = getItems(drawername);
+		Set<L2BoxItem> _items = BoxesDao.getItems(this, getSpawn(), getNpcId(), drawername);
 		if (startPos >= _items.size())
 			startPos = 0;
 		String button = "<button value=\"Withdraw\" width=80 height=15 action=\"bypass -h npc_"+getObjectId()+"_OutBox "+drawername;
@@ -309,37 +210,6 @@ public class L2BoxInstance extends L2NpcInstance {
 		player.sendPacket(html);
 
 		player.sendPacket( new ActionFailed() );
-	}
-
-	private Set<L2BoxItem> getItems(String drawer)
-	{
-		Set<L2BoxItem> it = new HashSet<>();
-		Connection con = null;
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT id, spawn, npcid, drawer, itemid, name, count, enchant FROM boxes where spawn=? and npcid=? and drawer=?");
-			statement.setInt(1, getSpawn().getId());
-			statement.setInt(2, getNpcId());
-			statement.setString(3, drawer);
-			ResultSet rs = statement.executeQuery();
-			while (rs.next())
-			{
-				_log.fine("found: itemid="+rs.getInt("itemid")+", count="+rs.getInt("count"));
-				it.add(new L2BoxItem(rs.getInt("itemid"),rs.getInt("count"),rs.getString("name"),rs.getInt("id"),rs.getInt("enchant")));
-			}
-			rs.close();
-			statement.close();
-		}
-		catch (Exception e)
-		{
-			_log.info("getItems failed: "+e);
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
-		}
-		return it;
 	}
 
 	private void putInBox(L2PcInstance player, String command)

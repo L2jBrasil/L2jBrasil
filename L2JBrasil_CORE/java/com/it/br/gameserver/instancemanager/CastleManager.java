@@ -86,7 +86,7 @@ public class CastleManager
     // Method - Private
     private void load()
     {
-        List<Integer> castles = CastleDao.loadAllCastle();
+        List<Integer> castles = CastleDao.load();
         castles.forEach(castle -> getCastles().add(new Castle(castle)));
         System.out.println("Loaded: " + getCastles().size() + " castles");
     }
