@@ -18,7 +18,7 @@
  */
 package com.it.br.gameserver.model;
 
-import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.PetsDao;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
@@ -26,8 +26,6 @@ import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
 import com.it.br.gameserver.network.serverpackets.StatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -283,7 +281,7 @@ public class L2TradeList
 			newitem.setEnchantLevel(temp.getEnchantLevel());
 
             // DIRTY FIX: Fix for trading pet collar not updating pet with new collar object id
-            changePetItemObjectId(playerItem.getObjectId(), newitem.getObjectId());
+            PetsDao.updateObjId(playerItem.getObjectId(), newitem.getObjectId());
 
             // Remove item from sender and add item to reciever
 		    if (reciever.isGM() || player.isGM()){
@@ -343,22 +341,6 @@ public class L2TradeList
 		su.addAttribute(StatusUpdate.CUR_LOAD, reciever.getCurrentLoad());
 		reciever.sendPacket(su);
 	}
-
-    private void changePetItemObjectId(int oldObjectId, int newObjectId)
-    {
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("UPDATE pets SET item_obj_id = ? WHERE item_obj_id = ?");
-            statement.setInt(1, newObjectId);
-            statement.setInt(2, oldObjectId);
-            statement.executeUpdate();
-            statement.close();
-        }
-        catch (Exception e) { _log.warning("could not change pet item object id: " + e); }
-        finally { try { con.close(); } catch (Exception e) {} }
-    }
 
     public void updateBuyList(L2PcInstance player, List<TradeItem> list)
 	{

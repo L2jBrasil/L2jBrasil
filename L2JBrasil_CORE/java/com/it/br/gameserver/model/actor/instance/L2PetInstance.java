@@ -21,7 +21,7 @@ package com.it.br.gameserver.model.actor.instance;
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
-import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.PetsDao;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
@@ -154,7 +154,7 @@ public class L2PetInstance extends L2Summon
     	if (L2World.getInstance().getPet(owner.getObjectId()) != null)
     		return null; // owner has a pet listed in world
 
-    	L2PetInstance pet = restore(control, template, owner);
+    	L2PetInstance pet = PetsDao.restore(control, template, owner);
     	// add the pet instance to world
     	if (pet != null)
         { 
@@ -203,6 +203,9 @@ public class L2PetInstance extends L2Summon
 
 	public boolean isRespawned() { return _respawned; }
 
+	public void setRespawned(boolean resp) {
+		_respawned = resp;
+	}
 
 	@Override
 	public int getSummonType() { return 2; }
@@ -523,7 +526,7 @@ public class L2PetInstance extends L2Summon
 	/**
      * Transfers item to another inventory
 	 * @param process : String Identifier of process triggering this action
-     * @param itemId : int Item Identifier of the item to be transfered
+     * @param objectId : int Item Identifier of the item to be transfered
      * @param count : int Quantity of items to be transfered
 	 * @param actor : L2PcInstance Player requesting the item transfer
 	 * @param reference : L2Object Object referencing current action like NPC selling item or previous item in transformation
@@ -655,28 +658,12 @@ public class L2PetInstance extends L2Summon
 
 			L2World world = L2World.getInstance();
 			world.removeObject(removedItem);
+
+			// pet control item no longer exists, delete the pet from the db
+			PetsDao.delete(removedItem);
 		}
 		catch (Exception e){
 			_logPet.warning("Error while destroying control item: " + e);
-		}
-
-		// pet control item no longer exists, delete the pet from the db
-		Connection con = null;
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement("DELETE FROM pets WHERE item_obj_id=?");
-			statement.setInt(1, getControlItemId());
-			statement.execute();
-			statement.close();
-		}
-		catch (Exception e)
-		{
-			_logPet.warning("could not delete pet:"+e);
-		}
-		finally
-		{
-			try { con.close(); } catch (Exception e) {}
 		}
 	}
 
@@ -735,55 +722,6 @@ public class L2PetInstance extends L2Summon
 	@Override
 	public boolean isMountable() { return _mountable; }
 
-	private static L2PetInstance restore(L2ItemInstance control, L2NpcTemplate template, L2PcInstance owner)
-	{
-		Connection con = null;
-		try
-		{
-			L2PetInstance pet;
-			if (template.type.compareToIgnoreCase("L2BabyPet")==0)
-				pet = new L2BabyPetInstance(IdFactory.getInstance().getNextId(), template, owner, control);
-			else
-				pet = new L2PetInstance(IdFactory.getInstance().getNextId(), template, owner, control);
-
-			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT item_obj_id, name, level, curHp, curMp, exp, sp, karma, pkkills, fed FROM pets WHERE item_obj_id=?");
-			statement.setInt(1, control.getObjectId());
-			ResultSet rset = statement.executeQuery();
-			if (!rset.next())
-			{
-	            rset.close();
-				statement.close();
-				return pet;
-			}
-
-            pet._respawned = true;
-			pet.setName(rset.getString("name"));
-
-            pet.getStat().setLevel(rset.getByte("level"));
-            pet.getStat().setExp(rset.getLong("exp"));
-            pet.getStat().setSp(rset.getInt("sp"));
-
-            pet.getStatus().setCurrentHp(rset.getDouble("curHp"));
-            pet.getStatus().setCurrentMp(rset.getDouble("curMp"));
-			pet.getStatus().setCurrentCp(pet.getMaxCp());
-
-			pet.setKarma(rset.getInt("karma"));
-			pet.setPkKills(rset.getInt("pkkills"));
-			pet.setCurrentFed(rset.getInt("fed"));
-
-            rset.close();
-			statement.close();
-			return pet;
-		} catch (Exception e) {
-			_logPet.warning("could not restore pet data: "+ e);
-			return null;
-		} finally {
-			try { con.close(); } catch (Exception e) {}
-		}
-	}
-
-
 	@Override
 	public void store()
 	{
@@ -793,36 +731,7 @@ public class L2PetInstance extends L2Summon
 			return;
 		}
 
-		String req;
-		if (!isRespawned())
-			req = "INSERT INTO pets (name,level,curHp,curMp,exp,sp,karma,pkkills,fed,item_obj_id) "+
-				"VALUES (?,?,?,?,?,?,?,?,?,?)";
-		else
-			req = "UPDATE pets SET name=?,level=?,curHp=?,curMp=?,exp=?,sp=?,karma=?,pkkills=?,fed=? "+
-				"WHERE item_obj_id = ?";
-		Connection con = null;
-		try
-		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(req);
-			statement.setString(1, getName());
-			statement.setInt(2, getStat().getLevel());
-			statement.setDouble(3, getStatus().getCurrentHp());
-			statement.setDouble(4, getStatus().getCurrentMp());
-			statement.setLong(5, getStat().getExp());
-			statement.setInt(6, getStat().getSp());
-			statement.setInt(7, getKarma());
-			statement.setInt(8, getPkKills());
-			statement.setInt(9, getCurrentFed());
-			statement.setInt(10, getControlItemId());
-			statement.executeUpdate();
-			statement.close();
-			_respawned = true;
-		} catch (Exception e) {
-			_logPet.warning("could not store pet data: "+e);
-		} finally {
-			try { con.close(); } catch (Exception e) {}
-		}
+		PetsDao.insert(this);
 
 		L2ItemInstance itemInst = getControlItem();
 		if (itemInst != null && itemInst.getEnchantLevel() != getStat().getLevel())

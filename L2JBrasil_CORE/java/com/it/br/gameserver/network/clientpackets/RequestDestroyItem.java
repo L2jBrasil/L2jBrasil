@@ -20,6 +20,7 @@ package com.it.br.gameserver.network.clientpackets;
 
 import com.it.br.Config;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.PetsDao;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -84,7 +85,7 @@ public final class RequestDestroyItem extends L2GameClientPacket
 		if (itemToRemove == null) 
 			return;
 
-		if (itemToRemove.isAugmented()) 
+		if (itemToRemove.isAugmented())
 		{ 
 			activeChar.sendPacket(new SystemMessage(SystemMessageId.AUGMENTED_ITEM_CANNOT_BE_DISCARDED));
 			activeChar.sendPacket(new ActionFailed());
@@ -145,29 +146,11 @@ public final class RequestDestroyItem extends L2GameClientPacket
 
 		if (L2PetDataTable.isPetItem(itemId))
 		{
-			Connection con = null;
-			try
+			if (activeChar.getPet() != null && activeChar.getPet().getControlItemId() == _objectId)
 			{
-				if (activeChar.getPet() != null && activeChar.getPet().getControlItemId() == _objectId)
-				{
-					activeChar.getPet().unSummon(activeChar);
-				}
-
-				// if it's a pet control item, delete the pet
-				con = L2DatabaseFactory.getInstance().getConnection();
-				PreparedStatement statement = con.prepareStatement("DELETE FROM pets WHERE item_obj_id=?");
-				statement.setInt(1, _objectId);
-				statement.execute();
-				statement.close();
+				activeChar.getPet().unSummon(activeChar);
 			}
-			catch (Exception e)
-			{
-				_log.log(Level.WARNING, "could not delete pet objectid: ", e);
-			}
-			finally
-			{
-				try { con.close(); } catch (Exception e) {}
-			}
+			PetsDao.delete(itemToRemove);
 		}
 
 		L2ItemInstance removedItem = activeChar.getInventory().destroyItem("Destroy", _objectId, count, activeChar, null);

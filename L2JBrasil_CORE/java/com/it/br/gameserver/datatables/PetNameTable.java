@@ -21,6 +21,7 @@ package com.it.br.gameserver.datatables;
 
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.PetsDao;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 
 import java.sql.Connection;
@@ -51,29 +52,7 @@ public class PetNameTable
 
 	public boolean doesPetNameExist(String name, int petNpcId)
 	{
-		boolean result = true;
-		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
-		{
-			PreparedStatement statement = con.prepareStatement("SELECT name FROM pets p, items i WHERE p.item_obj_id = i.object_id AND name=? AND i.item_id IN (?)");
-			statement.setString(1, name);
-
-			String cond = "";
-			for (int it : L2PetDataTable.getPetItemsAsNpc(petNpcId))
-			{
-				if (cond != "") cond += ", ";
-				cond += it;
-			}
-			statement.setString(2, cond);
-			ResultSet rset = statement.executeQuery();
-			result = rset.next();
-			rset.close();
-			statement.close();
-		}
-		catch (SQLException e)
-		{
-			_log.warning("could not check existing petname:"+e.getMessage());
-		}
-		return result;
+		return PetsDao.doesPetNameExist(name, petNpcId);
 	}
 
     public boolean isValidPetName(String name)
