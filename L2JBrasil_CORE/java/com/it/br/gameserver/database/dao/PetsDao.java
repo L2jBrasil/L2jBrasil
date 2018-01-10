@@ -80,7 +80,7 @@ public class PetsDao {
             statement.close();
             return pet;
         } catch (SQLException e) {
-            _log.warning(PetsDao.class.getName() + ": Exception: updateObjId(int newObjectId, int oldObjectId): " + e.getMessage());
+            _log.warning(PetsDao.class.getName() + ": Exception: restore(L2ItemInstance, L2NpcTemplate, L2PcInstance): " + e.getMessage());
             e.printStackTrace();
             return null;
         }
@@ -110,7 +110,7 @@ public class PetsDao {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(PetsDao.class.getName() + ": Exception: delete(L2ItemInstance): " + e.getMessage());
+            _log.warning(PetsDao.class.getName() + ": Exception: insert(L2PetInstance pet): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -153,6 +153,5 @@ public class PetsDao {
         }
         return result;
     }
-
 
 }

@@ -265,7 +265,7 @@ public class Siege
             removeControlTower(); // Remove all control tower from this castle
             _siegeGuardManager.unspawnSiegeGuard(); // Remove all spawned siege guard from this castle
             if (getCastle().getOwnerId() > 0)
-            	_siegeGuardManager.removeMercs();
+                CastleDao.removeMercs(_siegeGuardManager.getCastle());
             getCastle().spawnDoor(); // Respawn door to castle
             getCastle().getZone().updateZoneStatusForCharactersInside();
         }
@@ -302,7 +302,7 @@ public class Siege
     {
         if (getIsInProgress()) // Siege still in progress
         {
-            if (getCastle().getOwnerId() > 0) _siegeGuardManager.removeMercs(); // Remove all merc entry from db
+            if (getCastle().getOwnerId() > 0) CastleDao.removeMercs(_siegeGuardManager.getCastle()); // Remove all merc entry from db
 
             if (getDefenderClans().size() == 0 && // If defender doesn't exist (Pc vs Npc)
                 getAttackerClans().size() == 1 // Only 1 attacker

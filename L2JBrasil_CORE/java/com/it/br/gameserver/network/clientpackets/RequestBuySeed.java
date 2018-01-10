@@ -19,6 +19,7 @@
 package com.it.br.gameserver.network.clientpackets;
 
 import com.it.br.Config;
+import com.it.br.gameserver.database.dao.CastleManorDao;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
@@ -46,7 +47,6 @@ import com.it.br.gameserver.util.Util;
  * d    // seed id
  * q    // count
  * ]
- * @param decrypt
  * @author l3x
  */
 
@@ -188,7 +188,7 @@ public class RequestBuySeed extends L2GameClientPacket
 					CastleManorManager.PERIOD_CURRENT);
 			seed.setCanProduce(seed.getCanProduce() - count);
 			if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
-				CastleManager.getInstance().getCastleById(_manorId).updateSeed(
+				CastleManorDao.updateSeed(CastleManager.getInstance().getCastleById(_manorId),
 						seed.getId(), seed.getCanProduce(),
 						CastleManorManager.PERIOD_CURRENT);
 

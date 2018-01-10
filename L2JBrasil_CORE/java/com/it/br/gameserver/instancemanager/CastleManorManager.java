@@ -19,7 +19,7 @@ package com.it.br.gameserver.instancemanager;
 
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.CastleManorDao;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -28,9 +28,6 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.util.Rnd;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -50,11 +47,6 @@ public class CastleManorManager {
 
 	public static final int PERIOD_CURRENT = 0;
 	public static final int PERIOD_NEXT = 1;
-
-	private static final String CASTLE_MANOR_LOAD_PROCURE =
-											"SELECT * FROM castle_manor_procure WHERE castle_id=?";
-	private static final String CASTLE_MANOR_LOAD_PRODUCTION =
-											"SELECT * FROM castle_manor_production WHERE castle_id=?";
 
 	private static final int NEXT_PERIOD_APPROVE = Config.ALT_MANOR_APPROVE_TIME;       // 6:00
 	private static final int NEXT_PERIOD_APPROVE_MIN = Config.ALT_MANOR_APPROVE_MIN;    //
@@ -156,69 +148,24 @@ public class CastleManorManager {
 	}
 
 	private void load() {
-		Connection con = null;
-		ResultSet rs;
-		PreparedStatement statement;
-		try {
-			// Get Connection
-			con = L2DatabaseFactory.getInstance().getConnection();
-			for (Castle castle : CastleManager.getInstance().getCastles()) {
-				List<SeedProduction> production = new ArrayList<>();
-				List<SeedProduction> productionNext = new ArrayList<>();
-				List<CropProcure> procure = new ArrayList<>();
-				List<CropProcure> procureNext = new ArrayList<>();
+		for (Castle castle : CastleManager.getInstance().getCastles()) {
+			List<List<SeedProduction>> listProduction = CastleManorDao.loadProduction(castle, this);
+			List<SeedProduction> production = listProduction.get(0);
+			List<SeedProduction> productionNext = listProduction.get(1);
 
-				// restore seed production info
-				statement = con.prepareStatement(CASTLE_MANOR_LOAD_PRODUCTION);
-				statement.setInt(1, castle.getCastleId());
-				rs = statement.executeQuery();
-				while(rs.next()) {
-					int seedId = rs.getInt("seed_id");
-					int canProduce = rs.getInt("can_produce");
-					int startProduce = rs.getInt("start_produce");
-					int price = rs.getInt("seed_price");
-					int period = rs.getInt("period");
-					if (period == PERIOD_CURRENT)
-						production.add(new SeedProduction(seedId,canProduce,price,startProduce));
-					else
-						productionNext.add(new SeedProduction(seedId,canProduce,price,startProduce));
-				}
-				statement.close();
-				rs.close();
 
-				castle.setSeedProduction(production, PERIOD_CURRENT);
-				castle.setSeedProduction(productionNext, PERIOD_NEXT);
+			castle.setSeedProduction(production, PERIOD_CURRENT);
+			castle.setSeedProduction(productionNext, PERIOD_NEXT);
 
-				// restore procure info
-				statement = con.prepareStatement(CASTLE_MANOR_LOAD_PROCURE);
-				statement.setInt(1, castle.getCastleId());
-				rs = statement.executeQuery();
-				while(rs.next()) {
-					int cropId = rs.getInt("crop_id");
-					int canBuy = rs.getInt("can_buy");
-					int startBuy = rs.getInt("start_buy");
-					int rewardType = rs.getInt("reward_type");
-					int price = rs.getInt("price");
-					int period = rs.getInt("period");
-					if (period == PERIOD_CURRENT)
-						procure.add(new CropProcure(cropId, canBuy, rewardType, startBuy, price));
-					else
-						procureNext.add(new CropProcure(cropId, canBuy, rewardType, startBuy, price));
-				}
-				statement.close();
-				rs.close();
+			List<List<CropProcure>> listProcure = CastleManorDao.loadProcure(castle, this);
+			List<CropProcure> procure = listProcure.get(0);
+			List<CropProcure> procureNext = listProcure.get(1);
 
-				castle.setCropProcure(procure, PERIOD_CURRENT);
-				castle.setCropProcure(procureNext, PERIOD_NEXT);
+			castle.setCropProcure(procure, PERIOD_CURRENT);
+			castle.setCropProcure(procureNext, PERIOD_NEXT);
 
-				if (!procure.isEmpty() || !procureNext.isEmpty() ||
-						!production.isEmpty() || !productionNext.isEmpty())
-					_log.info(castle.getName() + ": Data loaded");
-			}
-		} catch (Exception e) {
-			_log.info("Error restoring manor data: " + e.getMessage() );
-		} finally {
-			try { con.close(); } catch (Exception e) {}
+			if (!procure.isEmpty() || !procureNext.isEmpty() || !production.isEmpty() || !productionNext.isEmpty())
+				_log.info(castle.getName() + ": Data loaded");
 		}
 	}
 

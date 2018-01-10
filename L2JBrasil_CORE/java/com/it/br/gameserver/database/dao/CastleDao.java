@@ -1,15 +1,16 @@
 package com.it.br.gameserver.database.dao;
 
-import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.CastleUpdater;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
+import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.model.L2Clan;
+import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
 import com.it.br.gameserver.model.entity.Castle;
-import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
+import com.it.br.gameserver.templates.L2NpcTemplate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +19,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -38,6 +38,11 @@ public class CastleDao {
     private static final String INSERT_DOORUPGRADE = "INSERT INTO castle_doorupgrade (doorId, hp, pDef, mDef) VALUES (?,?,?,?)";
     private static final String UPDATE_CLAN_DATA_SET_HAS_CASTLE_0_WHERE_HAS_CASTLE = "UPDATE clan_data SET hasCastle=0 WHERE hasCastle=?";
     private static final String UPDATE_CLAN_DATA_SET_HAS_CASTLE_WHERE_CLAN_ID = "UPDATE clan_data SET hasCastle=? WHERE clan_id=?";
+    private static final String UPDATE_CASTLE_SET_SHOW_NPC_CREST_WHERE_ID = "UPDATE castle SET showNpcCrest = ? WHERE id = ?";
+    private static final String DELETE_CASTLE_SIEGE_GUARDS_WHERE_NPC_ID_AND_X_AND_Y_AND_Z_AND_IS_HIRED_1 = "Delete From castle_siege_guards Where npcId = ? And x = ? AND y = ? AND z = ? AND isHired = 1";
+    private static final String DELETE_CASTLE_SIEGE_GUARDS_WHERE_CASTLE_ID_AND_IS_HIRED_1 = "Delete From castle_siege_guards Where castleId = ? And isHired = 1";
+    private static final String SELECT_CASTLE_SIEGE_GUARDS_WHERE_CASTLE_ID_AND_IS_HIRED = "SELECT * FROM castle_siege_guards Where castleId = ? And isHired = ?";
+    private static final String INSERT_CASTLE_SIEGE_GUARDS = "Insert Into castle_siege_guards (castleId, npcId, x, y, z, heading, respawnDelay, isHired) Values (?, ?, ?, ?, ?, ?, ?, ?)";
 
     public static List<Integer> load() {
         List<Integer> list = new ArrayList<>();
@@ -101,7 +106,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: load(): " + e.getMessage());
+            _log.warning( CastleDao.class.getName() + ": Exception: loadById(Castle castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -205,9 +210,9 @@ public class CastleDao {
             statement.execute();
 
             try(PreparedStatement st2 = con.prepareStatement(UPDATE_CLAN_DATA_SET_HAS_CASTLE_WHERE_CLAN_ID)) {
-                statement.setInt(1, castle.getCastleId());
-                statement.setInt(2, castle.getOwnerId());
-                statement.execute();
+                st2.setInt(1, castle.getCastleId());
+                st2.setInt(2, castle.getOwnerId());
+                st2.execute();
             }
         }
         catch (SQLException e)
@@ -242,7 +247,129 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: updateTaxPercent(L2Clan): " + e.getMessage());
+            _log.warning( CastleDao.class.getName() + ": Exception: updateTreasuryTax(int trerasury, int castleId): " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateShowNpcCrest(Castle castle) {
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(UPDATE_CASTLE_SET_SHOW_NPC_CREST_WHERE_ID))
+        {
+            statement.setString(1, String.valueOf(castle.getShowNpcCrest()));
+            statement.setInt(2, castle.getCastleId());
+            statement.execute();
+        }
+        catch (SQLException e)
+        {
+            _log.warning( CastleDao.class.getName() + ": Exception: updateShowNpcCrest(Castle): " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void removeMerc(int npcId, int x, int y, int z)
+    {
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(DELETE_CASTLE_SIEGE_GUARDS_WHERE_NPC_ID_AND_X_AND_Y_AND_Z_AND_IS_HIRED_1))
+        {
+            statement.setInt(1, npcId);
+            statement.setInt(2, x);
+            statement.setInt(3, y);
+            statement.setInt(4, z);
+            statement.execute();
+        }
+        catch (SQLException e)
+        {
+            _log.warning( CastleDao.class.getName() + ": Exception: removeMerc(int npcId, int x, int y, int z): " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void removeMercs(Castle castle)
+    {
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(DELETE_CASTLE_SIEGE_GUARDS_WHERE_CASTLE_ID_AND_IS_HIRED_1))
+        {
+            statement.setInt(1, castle.getCastleId());
+            statement.execute();
+        }
+        catch (SQLException e)
+        {
+            _log.warning( CastleDao.class.getName() + ": Exception: removeMercs(Castle): " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static List<L2Spawn> loadSiegeGuard(Castle castle)
+    {
+        L2Spawn spawn;
+        List<L2Spawn> list = new ArrayList<>();
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(SELECT_CASTLE_SIEGE_GUARDS_WHERE_CASTLE_ID_AND_IS_HIRED))
+        {
+            statement.setInt(1, castle.getCastleId());
+            if (castle.getOwnerId() > 0)   // If castle is owned by a clan, then don't spawn default guards
+            {
+                statement.setInt(2, 1);
+            }
+            else {
+                statement.setInt(2, 0);
+            }
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next())
+            {
+                L2NpcTemplate template = NpcTable.getInstance().getTemplate(rs.getInt("npcId"));
+                if (template != null)
+                {
+                    spawn = new L2Spawn(template);
+                    spawn.setId(rs.getInt("id"));
+                    spawn.setAmount(1);
+                    spawn.setLocx(rs.getInt("x"));
+                    spawn.setLocy(rs.getInt("y"));
+                    spawn.setLocz(rs.getInt("z"));
+                    spawn.setHeading(rs.getInt("heading"));
+                    spawn.setRespawnDelay(rs.getInt("respawnDelay"));
+                    spawn.setLocation(0);
+
+                    list.add(spawn);
+                }
+                else
+                {
+                    _log.warning("Missing npc data in npc table for id: " + rs.getInt("npcId"));
+                }
+            }
+
+        }
+        catch (Exception e)
+        {
+            _log.warning( CastleDao.class.getName() + ": Exception: loadSiegeGuard(Castle): " + e.getMessage());
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static void saveSiegeGuard(Castle castle, int x, int y, int z, int heading, int npcId, int isHire)
+    {
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(INSERT_CASTLE_SIEGE_GUARDS))
+        {
+            statement.setInt(1, castle.getCastleId());
+            statement.setInt(2, npcId);
+            statement.setInt(3, x);
+            statement.setInt(4, y);
+            statement.setInt(5, z);
+            statement.setInt(6, heading);
+            if (isHire == 1)
+                statement.setInt(7, 0);
+            else
+                statement.setInt(7, 600);
+            statement.setInt(8, isHire);
+            statement.execute();
+        }
+        catch (SQLException e)
+        {
+            _log.warning( CastleDao.class.getName() + ": Exception: saveSiegeGuard(Castle castle, int x, int y, int z, int heading, int npcId, int isHire): " + e.getMessage());
             e.printStackTrace();
         }
     }

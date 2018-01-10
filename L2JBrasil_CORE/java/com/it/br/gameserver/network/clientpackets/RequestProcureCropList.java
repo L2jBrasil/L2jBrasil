@@ -19,6 +19,7 @@
 package com.it.br.gameserver.network.clientpackets;
 
 import com.it.br.Config;
+import com.it.br.gameserver.database.dao.CastleManorDao;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
@@ -256,7 +257,7 @@ public class RequestProcureCropList extends L2GameClientPacket
 					player.getInventory().reduceAdena("Manor", fee, player,manorManager);
 				crop.setAmount(crop.getAmount() - count);
 				if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
-					CastleManager.getInstance().getCastleById(manorId).updateCrop(crop.getId(), crop.getAmount(), CastleManorManager.PERIOD_CURRENT);
+					CastleManorDao.updateCrop(CastleManager.getInstance().getCastleById(manorId), crop.getId(), crop.getAmount(), CastleManorManager.PERIOD_CURRENT);
 				itemAdd = player.getInventory().addItem("Manor", rewardItem,rewardItemCount, player, manorManager);
 			}
 			else

@@ -19,6 +19,7 @@ package com.it.br.gameserver.instancemanager;
 
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.CastleDao;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.AutoChatHandler;
@@ -439,7 +440,7 @@ public class MercTicketManager
 
     	if (npcId > 0 && castle != null)
     	{
-    		(new SiegeGuardManager(castle)).removeMerc(npcId, item.getX(), item.getY(), item.getZ());
+			CastleDao.removeMerc(npcId, item.getX(), item.getY(), item.getZ());
     	}
 
     	getDroppedTickets().remove(item);

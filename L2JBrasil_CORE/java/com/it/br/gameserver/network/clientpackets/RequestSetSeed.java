@@ -19,6 +19,7 @@
 package com.it.br.gameserver.network.clientpackets;
 
 import com.it.br.Config;
+import com.it.br.gameserver.database.dao.CastleManorDao;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
 import com.it.br.gameserver.instancemanager.CastleManorManager.SeedProduction;
@@ -93,7 +94,7 @@ public class RequestSetSeed extends L2GameClientPacket {
 
 		CastleManager.getInstance().getCastleById(_manorId).setSeedProduction(seeds, CastleManorManager.PERIOD_NEXT);
 		if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
-			CastleManager.getInstance().getCastleById(_manorId).saveSeedData(CastleManorManager.PERIOD_NEXT);
+			CastleManorDao.saveSeed(CastleManager.getInstance().getCastleById(_manorId), CastleManorManager.PERIOD_NEXT);
 	}
 
 
