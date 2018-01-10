@@ -26,6 +26,7 @@ import com.it.br.gameserver.cache.CrestCache;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.communitybbs.Manager.ForumsBBSManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.OfflineTradeDao;
 import com.it.br.gameserver.datatables.*;
 import com.it.br.gameserver.datatables.csv.ExtractableItemsData;
 import com.it.br.gameserver.datatables.sql.*;
@@ -347,7 +348,7 @@ public class GameServer
 			_log.info("PC Bang Manager is Disabled");
 
         if ((l2jModsSettings.isOfflineTradeEnabled()|| l2jModsSettings.isOfflineCraftEnabled()) && l2jModsSettings.isRestoreOfflinersEnabled())
-			OfflineTradeTable.restoreOfflineTraders();
+			OfflineTradeDao.restoreOfflineTraders();
 
         try
         {

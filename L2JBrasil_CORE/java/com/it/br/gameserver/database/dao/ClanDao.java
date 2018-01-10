@@ -21,18 +21,18 @@ import java.util.logging.Logger;
 public class ClanDao {
     private static final Logger _log = Logger.getLogger(ClanDao.class.getName());
 
-    private static String SELECT_ID = "SELECT clan_id FROM clan_data";
-    private static String DELETE_CLAN_DATA = "DELETE FROM clan_data WHERE clan_id=?";
-    private static String DELETE_CLAN_PRIVS = "DELETE FROM clan_privs WHERE clan_id=?";
-    private static String DELETE_CLAN_SKILLS = "DELETE FROM clan_skills WHERE clan_id=?";
-    private static String DELETE_CLAN_SUBPLEDGES = "DELETE FROM clan_subpledges WHERE clan_id=?";
-    private static String DELETE_CLAN_WARS = "DELETE FROM clan_wars WHERE clan1=? OR clan2=?";
-    private static String DELETE_CLAN_NOTICES = "DELETE FROM clan_notices WHERE clanID=?";
-    private static String STORE_WARS = "REPLACE INTO clan_wars (clan1, clan2, wantspeace1, wantspeace2) VALUES(?,?,?,?)";
-    private static String RESTORE_WARS = "SELECT clan1, clan2, wantspeace1, wantspeace2 FROM clan_wars";
-    private static String GET_CLAN_NAME = "SELECT clan_name FROM clan_data WHERE clan_id = (SELECT clanid FROM characters WHERE char_name = ?)";
-
-    private static String DELETE_TWO_CLAN_WARS = "DELETE FROM clan_wars WHERE clan1=? AND clan2=?";
+    private static final String SELECT_ID = "SELECT clan_id FROM clan_data";
+    private static final String DELETE_CLAN_DATA = "DELETE FROM clan_data WHERE clan_id=?";
+    private static final String DELETE_CLAN_PRIVS = "DELETE FROM clan_privs WHERE clan_id=?";
+    private static final String DELETE_CLAN_SKILLS = "DELETE FROM clan_skills WHERE clan_id=?";
+    private static final String DELETE_CLAN_SUBPLEDGES = "DELETE FROM clan_subpledges WHERE clan_id=?";
+    private static final String DELETE_CLAN_WARS = "DELETE FROM clan_wars WHERE clan1=? OR clan2=?";
+    private static final String DELETE_CLAN_NOTICES = "DELETE FROM clan_notices WHERE clanID=?";
+    private static final String STORE_WARS = "REPLACE INTO clan_wars (clan1, clan2, wantspeace1, wantspeace2) VALUES(?,?,?,?)";
+    private static final String RESTORE_WARS = "SELECT clan1, clan2, wantspeace1, wantspeace2 FROM clan_wars";
+    private static final String GET_CLAN_NAME = "SELECT clan_name FROM clan_data WHERE clan_id = (SELECT clanid FROM characters WHERE char_name = ?)";
+    private static final String GET_CLAN_WITH_CASTLE = "SELECT clan_id FROM clan_data WHERE hasCastle = ?";
+    private static final String DELETE_TWO_CLAN_WARS = "DELETE FROM clan_wars WHERE clan1=? AND clan2=?";
 
     public static List<Integer> load() {
         List<Integer> list = new ArrayList<>();
@@ -50,6 +50,27 @@ public class ClanDao {
         catch (SQLException e)
         {
             _log.warning( ClanDao.class.getName() + ": Exception: load(): " + e.getMessage());
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static List<Integer> getClanIdByCastleId(int castleId) {
+        List<Integer> list = new ArrayList<>();
+        try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(GET_CLAN_WITH_CASTLE))
+        {
+            statement.setInt(1, castleId);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next())
+            {
+                list.add(rs.getInt("clan_id"));
+            }
+        }
+        catch (SQLException e)
+        {
+            _log.warning( ClanDao.class.getName() + ": Exception: getClanIdByCastleId(): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -105,7 +126,7 @@ public class ClanDao {
 
             if(castleId != 0)
             {
-                CastleDao.updateTaxPercent(clan);
+                CastleDao.updateTaxPercent(castleId, 0);
             }
 
             if (Config.DEBUG) _log.fine("Clan " + clan.getName() + "removed in db, clan id: " + clan.getClanId());

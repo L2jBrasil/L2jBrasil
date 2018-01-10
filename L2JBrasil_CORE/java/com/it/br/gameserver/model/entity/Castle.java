@@ -6,6 +6,7 @@ import com.it.br.gameserver.CastleUpdater;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.CastleDao;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
@@ -49,6 +50,11 @@ public class Castle
 
 	private int _castleId = 0;
 	private List<L2DoorInstance> _doors = new ArrayList<>();
+
+	public List<String> getDoorDefault() {
+		return _doorDefault;
+	}
+
 	private List<String> _doorDefault = new ArrayList<>();
 	private String _name = "";
 	private int _ownerId = 0;
@@ -76,8 +82,8 @@ public class Castle
 		_castleId = castleId;
 		if(_castleId == 7 || castleId == 9) // Goddard and Schuttgart
 			_nbArtifact = 2;
-        load();
-		loadDoor();
+        CastleDao.loadById(this);
+		CastleDao.loadDoor(this);
 	}
 
 	public void Engrave(L2Clan clan, int objId)
@@ -147,18 +153,8 @@ public class Castle
         	else _treasury += amount;
         }
 
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("Update castle set treasury = ? where id = ?");
-            statement.setInt(1, getTreasury());
-            statement.setInt(2, getCastleId());
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e) {}
-        finally {try { con.close(); } catch (Exception e) {}}
+		CastleDao.updateTreasuryTax(getTreasury(), getCastleId());
+
         return true;
     }
 
@@ -332,18 +328,7 @@ public class Castle
         _taxPercent = taxPercent;
         _taxRate = _taxPercent / 100.0;
 
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("Update castle set taxPercent = ? where id = ?");
-            statement.setInt(1, taxPercent);
-            statement.setInt(2, getCastleId());
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e) {}
-        finally {try { con.close(); } catch (Exception e) {}}
+        CastleDao.updateTaxPercent(getCastleId(), taxPercent);
     }
 
 	/**
@@ -395,7 +380,7 @@ public class Castle
 
 			door = null;
 		}
-		loadDoorUpgrade(); // Check for any upgrade the doors may have
+		CastleDao.loadDoorUpgrade(this); // Check for any upgrade the doors may have
 	}
 
 	// This method upgrade door
@@ -405,246 +390,57 @@ public class Castle
 	    if (door == null)
 	        return;
 
-        if (door != null && door.getDoorId() == doorId)
+        if (door.getDoorId() == doorId)
         {
         	door.setCurrentHp(door.getMaxHp() + hp);
-
-        	saveDoorUpgrade(doorId, hp, pDef, mDef);
-            return;
+			CastleDao.insertDoorUpgrade(doorId, hp, pDef, mDef);
         }
 	}
 
-	// =========================================================
-	// Method - Private
-	// This method loads castle
-	private void load()
-	{
-        Connection con = null;
-        try
-        {
-            PreparedStatement statement;
-            ResultSet rs;
-
-            con = L2DatabaseFactory.getInstance().getConnection();
-
-            statement = con.prepareStatement("Select * from castle where id = ?");
-            statement.setInt(1, getCastleId());
-            rs = statement.executeQuery();
-
-            while (rs.next())
-            {
-        	    _name = rs.getString("name");
-        	    //_OwnerId = rs.getInt("ownerId");
-
-        	    _siegeDate = Calendar.getInstance();
-        	    _siegeDate.setTimeInMillis(rs.getLong("siegeDate"));
-
-        	    _siegeDayOfWeek = rs.getInt("siegeDayOfWeek");
-        	    if (_siegeDayOfWeek < 1 || _siegeDayOfWeek > 7)
-        	        _siegeDayOfWeek = 7;
-
-        	    _siegeHourOfDay = rs.getInt("siegeHourOfDay");
-        	    if (_siegeHourOfDay < 0 || _siegeHourOfDay > 23)
-        	        _siegeHourOfDay = 20;
-
-        	    _taxPercent = rs.getInt("taxPercent");
-        	    _treasury = rs.getInt("treasury");
-        	    _showNpcCrest = rs.getBoolean("showNpcCrest");
-            }
-
-            statement.close();
-
-            _taxRate = _taxPercent / 100.0;
-
-            statement = con.prepareStatement("Select clan_id from clan_data where hasCastle = ?");
-            statement.setInt(1, getCastleId());
-            rs = statement.executeQuery();
-
-            while (rs.next())
-            {
-        	    _ownerId = rs.getInt("clan_id");
-            }
-
-            if (getOwnerId() > 0)
-            {
-                L2Clan clan = ClanTable.getInstance().getClan(getOwnerId());                        // Try to find clan instance
-                ThreadPoolManager.getInstance().scheduleGeneral(new CastleUpdater(clan, 1), 3600000);     // Schedule owner tasks to start running
-            }
-
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("Exception: loadCastleData(): " + e.getMessage());
-            e.printStackTrace();
-        }
-        finally {try { con.close(); } catch (Exception e) {}}
+	public void setName(String _name) {
+		this._name = _name;
 	}
 
-	// This method loads castle door data from database
-	private void loadDoor()
-	{
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("Select * from castle_door where castleId = ?");
-            statement.setInt(1, getCastleId());
-            ResultSet rs = statement.executeQuery();
-
-            while (rs.next())
-            {
-                // Create list of the door default for use when respawning dead doors
-                _doorDefault.add(rs.getString("name")
-                        + ";" + rs.getInt("id")
-                        + ";" + rs.getInt("x")
-                        + ";" + rs.getInt("y")
-                        + ";" + rs.getInt("z")
-                        + ";" + rs.getInt("range_xmin")
-                        + ";" + rs.getInt("range_ymin")
-                        + ";" + rs.getInt("range_zmin")
-                        + ";" + rs.getInt("range_xmax")
-                        + ";" + rs.getInt("range_ymax")
-                        + ";" + rs.getInt("range_zmax")
-                        + ";" + rs.getInt("hp")
-                        + ";" + rs.getInt("pDef")
-                        + ";" + rs.getInt("mDef"));
-
-                L2DoorInstance door = DoorTable.parseList(_doorDefault.get(_doorDefault.size() - 1));
-				door.spawnMe(door.getX(), door.getY(),door.getZ());
-                _doors.add(door);
-                DoorTable.getInstance().putDoor(door);
-            }
-
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("Exception: loadCastleDoor(): " + e.getMessage());
-            e.printStackTrace();
-        }
-        finally {try { con.close(); } catch (Exception e) {}}
+	public void setSiegeDate(Calendar _siegeDate) {
+		this._siegeDate = _siegeDate;
 	}
 
-	// This method loads castle door upgrade data from database
-	private void loadDoorUpgrade()
-	{
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("Select * from castle_doorupgrade where doorId in (Select Id from castle_door where castleId = ?)");
-            statement.setInt(1, getCastleId());
-            ResultSet rs = statement.executeQuery();
-
-            while (rs.next())
-            {
-                upgradeDoor(rs.getInt("id"), rs.getInt("hp"), rs.getInt("pDef"), rs.getInt("mDef"));
-            }
-
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("Exception: loadCastleDoorUpgrade(): " + e.getMessage());
-            e.printStackTrace();
-        }
-        finally {try { con.close(); } catch (Exception e) {}}
+	public void setSiegeDayOfWeek(int _siegeDayOfWeek) {
+		this._siegeDayOfWeek = _siegeDayOfWeek;
 	}
 
-	public void removeDoorUpgrade()
-	{
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("delete from castle_doorupgrade where doorId in (select id from castle_door where castleId=?)");
-            statement.setInt(1, getCastleId());
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("Exception: removeDoorUpgrade(): " + e.getMessage());
-            e.printStackTrace();
-        }
-        finally {try { con.close(); } catch (Exception e) {}}
+	public void setSiegeHourOfDay(int _siegeHourOfDay) {
+		this._siegeHourOfDay = _siegeHourOfDay;
 	}
 
-	private void saveDoorUpgrade(int doorId, int hp, int pDef, int mDef)
-	{
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement = con.prepareStatement("INSERT INTO castle_doorupgrade (doorId, hp, pDef, mDef) values (?,?,?,?)");
-            statement.setInt(1, doorId);
-            statement.setInt(2, hp);
-            statement.setInt(3, pDef);
-            statement.setInt(4, mDef);
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("Exception: saveDoorUpgrade(int doorId, int hp, int pDef, int mDef): " + e.getMessage());
-            e.printStackTrace();
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
+	public void setTreasury(int _treasury) {
+		this._treasury = _treasury;
+	}
+
+	public void setOwnerId(int _ownerId) {
+		this._ownerId = _ownerId;
+	}
+
+	public void setTaxRate(double _taxRate) {
+		this._taxRate = _taxRate;
 	}
 
 	private void updateOwnerInDB(L2Clan clan)
 	{
+		if (clan != null) _ownerId = clan.getClanId(); // Update owner id property
+		else _ownerId = 0; // Remove owner
+
+		CastleDao.updateClanOwner(this);
+
+		// Announce to clan memebers
 		if (clan != null)
-		    _ownerId = clan.getClanId(); // Update owner id property
-		else
-                {
-			_ownerId = 0; // Remove owner
-                }
+		{
+			clan.setHasCastle(getCastleId()); // Set has castle flag for new owner
+			new Announcements().announceToAll(clan.getName() + " has taken " + getName() + " castle!");
+			clan.broadcastToOnlineMembers(new PledgeShowInfoUpdate(clan));
 
-	    Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection();
-            PreparedStatement statement;
-
-            // ============================================================================
-            // NEED TO REMOVE HAS CASTLE FLAG FROM CLAN_DATA
-            // SHOULD BE CHECKED FROM CASTLE TABLE
-            statement = con.prepareStatement("UPDATE clan_data SET hasCastle=0 WHERE hasCastle=?");
-            statement.setInt(1, getCastleId());
-            statement.execute();
-            statement.close();
-
-            statement = con.prepareStatement("UPDATE clan_data SET hasCastle=? WHERE clan_id=?");
-            statement.setInt(1, getCastleId());
-            statement.setInt(2, getOwnerId());
-            statement.execute();
-            statement.close();
-            // ============================================================================
-
-            // Announce to clan memebers
-            if (clan != null)
-            {
-    		    clan.setHasCastle(getCastleId()); // Set has castle flag for new owner
-    		    new Announcements().announceToAll(clan.getName() + " has taken " + getName() + " castle!");
-    		    clan.broadcastToOnlineMembers(new PledgeShowInfoUpdate(clan));
-
-    		    ThreadPoolManager.getInstance().scheduleGeneral(new CastleUpdater(clan, 1), 3600000);	// Schedule owner tasks to start running
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println("Exception: updateOwnerInDB(L2Clan clan): " + e.getMessage());
-            e.printStackTrace();
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
-        }
+			ThreadPoolManager.getInstance().scheduleGeneral(new CastleUpdater(clan, 1), 3600000);	// Schedule owner tasks to start running
+		}
 	}
 
 	// =========================================================

@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ItemTable;
-import com.it.br.gameserver.datatables.sql.OfflineTradeTable;
+import com.it.br.gameserver.database.dao.OfflineTradeDao;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
@@ -750,7 +750,7 @@ public class TradeList
         player.sendPacket(playerIU);
         
         if(_owner.isOffline())
-			OfflineTradeTable.storeOffliner(_owner);
+			OfflineTradeDao.storeOffliner(_owner);
         return true;
     }
 
@@ -850,7 +850,7 @@ public class TradeList
         player.sendPacket(playerIU);
         
         if(_owner.isOffline())
-			OfflineTradeTable.storeOffliner(_owner);
+			OfflineTradeDao.storeOffliner(_owner);
         return true;
     }
 

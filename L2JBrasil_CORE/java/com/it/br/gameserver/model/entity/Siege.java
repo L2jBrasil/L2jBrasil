@@ -21,6 +21,7 @@ package com.it.br.gameserver.model.entity;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.CastleDao;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
@@ -377,7 +378,7 @@ public class Siege
                 teleportPlayer(Siege.TeleportWhoType.Attacker, MapRegionTable.TeleportWhereType.SiegeFlag); // Teleport to the second closest town
                 teleportPlayer(Siege.TeleportWhoType.Spectator, MapRegionTable.TeleportWhereType.Town);     // Teleport to the second closest town
                 removeDefenderFlags(); 		 // Removes defenders' flags
-                getCastle().removeDoorUpgrade(); // Remove all castle upgrade
+                CastleDao.removeDoorUpgrade(getCastle()); // Remove all castle upgrade
                 getCastle().spawnDoor(true); // Respawn door to castle but make them weaker (50% hp)
                 updatePlayerSiegeStateFlags(false);
             }
@@ -782,7 +783,7 @@ public class Siege
 
     /**
      * Remove clan from siege<BR><BR>
-     * @param player The L2PcInstance of player/clan being removed
+     * @param clan The L2Clan of player/clan being removed
      */
     public void removeSiegeClan(L2Clan clan)
     {

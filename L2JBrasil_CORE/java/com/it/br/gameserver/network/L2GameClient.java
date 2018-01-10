@@ -25,7 +25,7 @@ import com.it.br.gameserver.LoginServerThread.SessionKey;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.communitybbs.Manager.RegionBBSManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
-import com.it.br.gameserver.datatables.sql.OfflineTradeTable;
+import com.it.br.gameserver.database.dao.OfflineTradeDao;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.instancemanager.AwayManager;
@@ -683,7 +683,7 @@ public final class L2GameClient extends MMOClient<MMOConnection<L2GameClient>>
 						if (player.getOfflineStartTime() == 0)
 							player.setOfflineStartTime(System.currentTimeMillis());
 
-						OfflineTradeTable.storeOffliner(player);
+						OfflineTradeDao.storeOffliner(player);
 
 						return;
 					}

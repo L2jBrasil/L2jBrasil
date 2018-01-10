@@ -22,7 +22,7 @@ import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.database.L2DatabaseFactory;
-import com.it.br.gameserver.datatables.sql.OfflineTradeTable;
+import com.it.br.gameserver.database.dao.OfflineTradeDao;
 import com.it.br.gameserver.instancemanager.*;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
@@ -456,7 +456,7 @@ public class Shutdown extends Thread
 
         L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
         if ((l2jModsSettings.isOfflineTradeEnabled() || l2jModsSettings.isOfflineCraftEnabled()) && l2jModsSettings.isRestoreOfflinersEnabled())
-            OfflineTradeTable.storeOffliners();
+            OfflineTradeDao.storeOffliners();
 
         // Save Cursed Weapons data before closing.
         CursedWeaponsManager.getInstance().saveData();
