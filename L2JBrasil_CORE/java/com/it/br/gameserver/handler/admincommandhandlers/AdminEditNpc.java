@@ -18,6 +18,7 @@ import com.it.br.Config;
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import com.it.br.gameserver.database.dao.NpcDao;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
@@ -965,7 +966,7 @@ public class AdminEditNpc implements IAdminCommandHandler
 			_log.warning("Error saving new npc value: " + e);
 		}
 
-		NpcTable.getInstance().saveNpc(newNpcData);
+		NpcDao.updateNpc(newNpcData);
 
 		int npcId = newNpcData.getInteger("npcId");
 

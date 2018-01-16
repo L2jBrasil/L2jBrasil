@@ -1,7 +1,6 @@
 package com.it.br.gameserver.database.dao;
 
 import com.it.br.gameserver.database.L2DatabaseFactory;
-import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
 import com.it.br.gameserver.model.entity.Castle;
 
