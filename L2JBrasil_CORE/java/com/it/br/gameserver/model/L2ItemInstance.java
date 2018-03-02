@@ -394,15 +394,20 @@ public final class L2ItemInstance extends L2Object
 		return _itemId;
 	}
 	
-	public boolean isEnchantList()
-	{
-		return Config.ALT_ENCHANTS_LIST.containsKey(_itemId);
-	}
+//	public boolean isEnchantList()
+//	{
+//
+//		return Config.ALT_ENCHANTS_LIST.containsKey(_itemId);
+//	}
 
-	public int getMaxEnchantCustom()
-    {
-        return Config.ALT_ENCHANTS_LIST.get(_itemId);
-    }
+	public int getMaxEnchantCustom(final int defaultEnchantValue)
+	{
+		try {
+			return Config.ALT_ENCHANTS_LIST.get(_itemId);
+		} catch (NullPointerException e) {
+			return defaultEnchantValue;
+		}
+	}
 
     /**
      * Returns the quantity of crystals for crystallization
