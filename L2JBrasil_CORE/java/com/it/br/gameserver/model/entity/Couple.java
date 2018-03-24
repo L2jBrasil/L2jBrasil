@@ -21,8 +21,8 @@ package com.it.br.gameserver.model.entity;
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,29 +31,22 @@ import java.util.Calendar;
 
 /**
  * @author evill33t
- *
  */
-public class Couple
-{
-    private static final Log _log = LogFactory.getLog(Couple.class.getName());
+public class Couple {
+    private static final Logger _log = LoggerFactory.getLogger(Couple.class);
 
-    // =========================================================
-    // Data Field
-    private int _Id                             = 0;
-    private int _player1Id                      = 0;
-    private int _player2Id                      = 0;
-    private boolean _maried                     = false;
+    private int _Id = 0;
+    private int _player1Id = 0;
+    private int _player2Id = 0;
+    private boolean _maried = false;
     private Calendar _affiancedDate;
     private Calendar _weddingDate;
 
-    // =========================================================
-    // Constructor
-    public Couple(int coupleId)
-    {
+
+    public Couple(int coupleId) {
         _Id = coupleId;
         Connection con = null;
-        try
-        {
+        try {
             PreparedStatement statement;
             ResultSet rs;
 
@@ -62,11 +55,10 @@ public class Couple
             statement.setInt(1, _Id);
             rs = statement.executeQuery();
 
-            while (rs.next())
-            {
+            while (rs.next()) {
                 _player1Id = rs.getInt("player1Id");
                 _player2Id = rs.getInt("player2Id");
-                _maried    = rs.getBoolean("married");
+                _maried = rs.getBoolean("married");
 
                 _affiancedDate = Calendar.getInstance();
                 _affiancedDate.setTimeInMillis(rs.getLong("affianceDate"));
@@ -75,17 +67,18 @@ public class Couple
                 _weddingDate.setTimeInMillis(rs.getLong("weddingDate"));
             }
             statement.close();
-	    this._maried = true;
+            this._maried = true;
+        } catch (Exception e) {
+            _log.error(e.getMessage(), e);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+            }
         }
-        catch (Exception e)
-        {
-            _log.error("Exception: Couple.load(): " + e.getMessage(),e);
-        }
-        finally {try { con.close(); } catch (Exception e) {}}
     }
 
-    public Couple(L2PcInstance player1,L2PcInstance player2)
-    {
+    public Couple(L2PcInstance player1, L2PcInstance player2) {
         int _tempPlayer1Id = player1.getObjectId();
         int _tempPlayer2Id = player2.getObjectId();
 
@@ -99,8 +92,7 @@ public class Couple
         _weddingDate.setTimeInMillis(Calendar.getInstance().getTimeInMillis());
 
         Connection con = null;
-        try
-        {
+        try {
             con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement;
             _Id = IdFactory.getInstance().getNextId();
@@ -113,22 +105,19 @@ public class Couple
             statement.setLong(6, _weddingDate.getTimeInMillis());
             statement.execute();
             statement.close();
-        }
-        catch (Exception e)
-        {
-            _log.error("",e);
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
+        } catch (Exception e) {
+            _log.error(e.getMessage(), e);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+            }
         }
     }
 
-    public void marry()
-    {
+    public void marry() {
         Connection con = null;
-        try
-        {
+        try {
             con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement;
 
@@ -140,46 +129,56 @@ public class Couple
             statement.execute();
             statement.close();
             _maried = true;
-        }
-        catch (Exception e)
-        {
-            _log.error("",e);
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
+        } catch (Exception e) {
+            _log.error(e.getMessage(), e);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+            }
         }
     }
 
-    public void divorce()
-    {
+    public void divorce() {
         Connection con = null;
-        try
-        {
+        try {
             con = L2DatabaseFactory.getInstance().getConnection();
             PreparedStatement statement;
 
             statement = con.prepareStatement("DELETE FROM mods_wedding WHERE id=?");
             statement.setInt(1, _Id);
             statement.execute();
-        }
-        catch (Exception e)
-        {
-            _log.error("Exception: Couple.divorce(): " + e.getMessage(),e);
-        }
-        finally
-        {
-            try { con.close(); } catch (Exception e) {}
+        } catch (Exception e) {
+            _log.error(e.getMessage(), e);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+            }
         }
     }
 
-    public final int getId() { return _Id; }
+    public final int getId() {
+        return _Id;
+    }
 
-    public final int getPlayer1Id() { return _player1Id; }
-    public final int getPlayer2Id() { return _player2Id; }
+    public final int getPlayer1Id() {
+        return _player1Id;
+    }
 
-    public final boolean getMaried() { return _maried; }
+    public final int getPlayer2Id() {
+        return _player2Id;
+    }
 
-    public final Calendar getAffiancedDate() { return _affiancedDate; }
-    public final Calendar getWeddingDate() { return _weddingDate; }
+    public final boolean getMaried() {
+        return _maried;
+    }
+
+    public final Calendar getAffiancedDate() {
+        return _affiancedDate;
+    }
+
+    public final Calendar getWeddingDate() {
+        return _weddingDate;
+    }
 }

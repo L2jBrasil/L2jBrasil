@@ -1,4 +1,5 @@
 apply plugin: 'java-library'
+apply plugin: 'idea'
 
 task wrapper(type: Wrapper) {
   gradleVersion = '4.3.1'

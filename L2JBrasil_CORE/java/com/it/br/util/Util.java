@@ -32,8 +32,8 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -43,7 +43,7 @@ import org.apache.commons.logging.LogFactory;
 
 public class Util
 {
-	private final static Log _log = LogFactory.getLog(Util.class.getName());
+	private final static Logger _log = LoggerFactory.getLogger(Util.class);
 
 	public static boolean isInternalIP(String ipAddress)
     {
@@ -223,11 +223,12 @@ public class Util
 	private static void printJvmInfo()
 	{
 		_log.info("Virtual Machine Information (JVM)");
-		_log.info("JVM Name: " + System.getProperty("java.vm.name"));
-		_log.info("JVM installation directory: " + System.getProperty("java.home"));
-		_log.info("JVM version: " + System.getProperty("java.vm.version"));
-		_log.info("JVM Vendor: " + System.getProperty("java.vm.vendor"));
-		_log.info("JVM Info: " + System.getProperty("java.vm.info"));
+		_log.info("JVM Name: {}", System.getProperty("java.vm.name"));
+		_log.info("JVM installation directory: {}", System.getProperty("java.home"));
+		_log.info("JVM version: {}", System.getProperty("java.vm.version"));
+		_log.info("JVM Vendor: {}", System.getProperty("java.vm.vendor"));
+		_log.info("JVM Info: {}", System.getProperty("java.vm.info"));
+
 		_log.info("..................................................");
 		_log.info("..................................................");
 	}

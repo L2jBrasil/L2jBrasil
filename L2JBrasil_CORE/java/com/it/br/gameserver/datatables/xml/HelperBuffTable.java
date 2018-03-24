@@ -12,159 +12,132 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.templates.L2HelperBuff;
+import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilderFactory;
+public class HelperBuffTable {
+    private static final Logger _log = LoggerFactory.getLogger(HelperBuffTable.class);
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
+    private List<L2HelperBuff> _helperBuff;
+    private boolean _initialized = false;
+    private int _magicClassLowestLevel = 100;
+    private int _physicClassLowestLevel = 100;
 
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.templates.L2HelperBuff;
-import com.it.br.gameserver.templates.StatsSet;
+    private int _magicClassHighestLevel = 1;
+    private int _physicClassHighestLevel = 1;
 
-public class HelperBuffTable
-{
-	private static final Log _log = LogFactory.getLog(HelperBuffTable.class.getName());
+    public static HelperBuffTable getInstance() {
+        return SingletonHolder._instance;
+    }
 
-	private List<L2HelperBuff> _helperBuff;
-	private boolean _initialized = false;
-	private int _magicClassLowestLevel = 100;
-	private int _physicClassLowestLevel = 100;
+    private HelperBuffTable() {
+        _helperBuff = new ArrayList<>();
 
-	private int _magicClassHighestLevel = 1;
-	private int _physicClassHighestLevel = 1;
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+        ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/helper_buff_list.xml");
+        if (!f.exists()) {
+            _log.warn("HelperBuffTable: helper_buff_list.xml could not be loaded: file {} not found", f.getAbsolutePath());
+            return;
+        }
+        try {
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("buff")) {
+                            int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
+                            int skill_id = Integer.valueOf(d.getAttributes().getNamedItem("skill_id").getNodeValue());
+                            int skill_level = Integer.valueOf(d.getAttributes().getNamedItem("skill_level").getNodeValue());
+                            int lower_level = Integer.valueOf(d.getAttributes().getNamedItem("lower_level").getNodeValue());
+                            int upper_level = Integer.valueOf(d.getAttributes().getNamedItem("upper_level").getNodeValue());
+                            boolean is_magic_class = Boolean.valueOf(d.getAttributes().getNamedItem("is_magic_class").getNodeValue());
 
-	public static HelperBuffTable getInstance()
-	{
-		return SingletonHolder._instance;
-	}
+                            StatsSet helperBuffDat = new StatsSet();
 
-	private HelperBuffTable()
-	{
-		_helperBuff = new ArrayList<>();
+                            helperBuffDat.set("id", id);
+                            helperBuffDat.set("skillID", skill_id);
+                            helperBuffDat.set("skillLevel", skill_level);
+                            helperBuffDat.set("lowerLevel", lower_level);
+                            helperBuffDat.set("upperLevel", upper_level);
+                            helperBuffDat.set("isMagicClass", is_magic_class);
 
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
-		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/helper_buff_list.xml");
-		if(!f.exists())
-		{
-			_log.warn("HelperBuffTable: helper_buff_list.xml could not be loaded: file not found");
-			return;
-		}
-		try
-		{
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("buff"))
-						{
-							int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
-							int skill_id = Integer.valueOf(d.getAttributes().getNamedItem("skill_id").getNodeValue());
-							int skill_level = Integer.valueOf(d.getAttributes().getNamedItem("skill_level").getNodeValue());
-							int lower_level = Integer.valueOf(d.getAttributes().getNamedItem("lower_level").getNodeValue());
-							int upper_level = Integer.valueOf(d.getAttributes().getNamedItem("upper_level").getNodeValue());
-							boolean is_magic_class = Boolean.valueOf(d.getAttributes().getNamedItem("is_magic_class").getNodeValue());
+                            if (!is_magic_class) {
+                                if (lower_level < _physicClassLowestLevel) {
+                                    _physicClassLowestLevel = lower_level;
+                                }
 
-							StatsSet helperBuffDat = new StatsSet();
+                                if (upper_level > _physicClassHighestLevel) {
+                                    _physicClassHighestLevel = upper_level;
+                                }
+                            } else {
+                                if (lower_level < _magicClassLowestLevel) {
+                                    _magicClassLowestLevel = lower_level;
+                                }
 
-							helperBuffDat.set("id", id);
-							helperBuffDat.set("skillID", skill_id);
-							helperBuffDat.set("skillLevel", skill_level);
-							helperBuffDat.set("lowerLevel", lower_level);
-							helperBuffDat.set("upperLevel", upper_level);
-							helperBuffDat.set("isMagicClass", is_magic_class);
-							
-							if(!is_magic_class)
-							{
-								if(lower_level < _physicClassLowestLevel)
-								{
-									_physicClassLowestLevel = lower_level;
-								}
+                                if (upper_level > _magicClassHighestLevel) {
+                                    _magicClassHighestLevel = upper_level;
+                                }
+                            }
 
-								if(upper_level > _physicClassHighestLevel)
-								{
-									_physicClassHighestLevel = upper_level;
-								}
-							}
-							else
-							{
-								if(lower_level < _magicClassLowestLevel)
-								{
-									_magicClassLowestLevel = lower_level;
-								}
-
-								if(upper_level > _magicClassHighestLevel)
-								{
-									_magicClassHighestLevel = upper_level;
-								}
-							}
-
-							// Add this Helper Buff to the Helper Buff List
-							L2HelperBuff template = new L2HelperBuff(helperBuffDat);
-							_helperBuff.add(template);
-						}
-					}
-				}
-			}
-		}
-		catch (Exception e)
-        {
+                            // Add this Helper Buff to the Helper Buff List
+                            L2HelperBuff template = new L2HelperBuff(helperBuffDat);
+                            _helperBuff.add(template);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
             _log.error("Error while creating table", e);
         }
-		_log.info("HelperBuffTable: Loaded " + _helperBuff.size() + " buffs.");
+        _log.info("HelperBuffTable: Loaded {} buffs.", _helperBuff.size());
         _initialized = true;
-	}
+    }
 
-	public List<L2HelperBuff> getHelperBuffTable()
-	{
-		return _helperBuff;
-	}
+    public List<L2HelperBuff> getHelperBuffTable() {
+        return _helperBuff;
+    }
 
-	public int getMagicClassHighestLevel()
-	{
-		return _magicClassHighestLevel;
-	}
+    public int getMagicClassHighestLevel() {
+        return _magicClassHighestLevel;
+    }
 
-	public int getMagicClassLowestLevel()
-	{
-		return _magicClassLowestLevel;
-	}
+    public int getMagicClassLowestLevel() {
+        return _magicClassLowestLevel;
+    }
 
-	public int getPhysicClassHighestLevel()
-	{
-		return _physicClassHighestLevel;
-	}
+    public int getPhysicClassHighestLevel() {
+        return _physicClassHighestLevel;
+    }
 
-	public int getPhysicClassLowestLevel()
-	{
-		return _physicClassLowestLevel;
-	}
+    public int getPhysicClassLowestLevel() {
+        return _physicClassLowestLevel;
+    }
 
-	private static class SingletonHolder
-	{
-		protected static final HelperBuffTable _instance = new HelperBuffTable();
-	}
-	
-	public boolean isInitialized()
-	{
-		return _initialized;
-	}
+    private static class SingletonHolder {
+        protected static final HelperBuffTable _instance = new HelperBuffTable();
+    }
+
+    public boolean isInitialized() {
+        return _initialized;
+    }
 
 }

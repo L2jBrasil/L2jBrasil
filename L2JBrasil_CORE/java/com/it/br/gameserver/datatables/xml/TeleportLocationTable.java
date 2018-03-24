@@ -12,73 +12,58 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import com.it.br.Config;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2TeleportLocation;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
-public class TeleportLocationTable
-{
-	private static final Log _log = LogFactory.getLog(TeleportLocationTable.class.getName());
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
-	private static TeleportLocationTable _instance;
+import static com.it.br.configuration.Configurator.getSettings;
 
-	private Map<Integer, L2TeleportLocation> _teleports;
+public class TeleportLocationTable {
+    private static final Logger _log = LoggerFactory.getLogger(TeleportLocationTable.class);
 
-	public static TeleportLocationTable getInstance()
-	{
-		if(_instance == null)
-		{
-			_instance = new TeleportLocationTable();
-		}
+    private static TeleportLocationTable _instance;
 
-		return _instance;
-	}
+    private Map<Integer, L2TeleportLocation> _teleports;
 
-	private TeleportLocationTable()
-	{
+    public static TeleportLocationTable getInstance() {
+        if (_instance == null) {
+            _instance = new TeleportLocationTable();
+        }
+
+        return _instance;
+    }
+
+    private TeleportLocationTable() {
         _teleports = new HashMap<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setValidating(false);
         factory.setIgnoringComments(true);
         ServerSettings serverSettings = getSettings(ServerSettings.class);
-        File f = new File(serverSettings.getDatapackDirectory()  + "/data/xml/teleports.xml");
-        if(!f.exists())
-        {
-            _log.warn("teleports.xml could not be loaded: file not found");
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/teleports.xml");
+        if (!f.exists()) {
+            _log.warn("teleports.xml could not be loaded: file {} not found", f.getAbsolutePath());
             return;
         }
-        try
-        {
+        try {
             InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
             in.setEncoding("UTF-8");
             Document doc = factory.newDocumentBuilder().parse(in);
             L2TeleportLocation teleport;
-            for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-            {
-                if(n.getNodeName().equalsIgnoreCase("list"))
-                {
-                    for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-                    {
-                        if(d.getNodeName().equalsIgnoreCase("teleport"))
-                        {
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("teleport")) {
                             teleport = new L2TeleportLocation();
                             int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
                             int loc_x = Integer.valueOf(d.getAttributes().getNamedItem("loc_x").getNodeValue());
@@ -100,22 +85,18 @@ public class TeleportLocationTable
                     }
                 }
             }
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             _log.error("Error while creating table", e);
         }
 
-        _log.info("TeleportLocationTable: Loaded " + _teleports.size() + " teleport location templates.");
-	}
+        _log.info("TeleportLocationTable: Loaded {}  teleport location templates.", _teleports.size());
+    }
 
-    public static void reloadAll()
-    {
+    public static void reloadAll() {
         _instance = new TeleportLocationTable();
     }
 
-	public L2TeleportLocation getTemplate(int id)
-	{
-		return _teleports.get(id);
-	}
+    public L2TeleportLocation getTemplate(int id) {
+        return _teleports.get(id);
+    }
 }

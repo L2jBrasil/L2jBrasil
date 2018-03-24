@@ -22,27 +22,24 @@ import com.it.br.Config;
 import com.it.br.configuration.settings.DatabaseSettings;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
-public class L2DatabaseFactory
-{
-    static Logger _log = Logger.getLogger(L2DatabaseFactory.class.getName());
+public class L2DatabaseFactory {
+    private static Logger _log = LoggerFactory.getLogger(L2DatabaseFactory.class);
 
     private static L2DatabaseFactory _instance;
-	private final HikariDataSource _dataSource;
+    private final HikariDataSource _dataSource;
 
-	public L2DatabaseFactory() throws SQLException
-	{
-		
-		DatabaseSettings databaseSettings = getSettings(DatabaseSettings.class);
-	
-        // Hello Hikari!
+    public L2DatabaseFactory() throws SQLException {
+
+        DatabaseSettings databaseSettings = getSettings(DatabaseSettings.class);
+
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(databaseSettings.getUrl());
         config.setUsername(databaseSettings.getUsername());
@@ -57,6 +54,7 @@ public class L2DatabaseFactory
         config.addDataSourceProperty("cacheServerConfiguration", databaseSettings.isServerCacheEnabled());
         config.addDataSourceProperty("cacheResultSetMetadata", databaseSettings.isResultsetCacheEnabled());
         config.addDataSourceProperty("maintainTimeStats", databaseSettings.isMaintainTimestatsEnabled());
+        config.addDataSourceProperty("logger", "com.mysql.jdbc.log.Slf4JLogger");
 
         _dataSource = new HikariDataSource(config);
         _dataSource.setAutoCommit(databaseSettings.isAutoCommitEnabled());
@@ -67,81 +65,72 @@ public class L2DatabaseFactory
         _dataSource.setMaximumPoolSize(databaseSettings.getMaxConnections());
         _dataSource.setIdleTimeout(databaseSettings.getConnectionIdleTimeout()); // 0 = idle connections never expire
         _dataSource.setDriverClassName(databaseSettings.getDriver());
-        
-        
+
+
         // Test DB connection
-        try
-        {
+        try {
             _dataSource.getConnection().close();
-		} catch (SQLException e)
-		{
-			if (Config.DEBUG) {
-			    _log.fine("Database Connection FAILED");
-			}
-			_log.severe(e.getMessage());
-		}
-	}
-
-	public final static String prepQuerySelect(String[] fields, String tableName, String whereClause, boolean returnOnlyTopRecord)
-	{
-		String msSqlTop1 = "";
-		String mySqlTop1 = "";
-		if (returnOnlyTopRecord)
-		{
-			mySqlTop1 = " Limit 1 ";
-		}
-		String query = "SELECT " + msSqlTop1 + safetyString(fields) + " FROM " + tableName + " WHERE " + whereClause + mySqlTop1;
-		return query;
-	}
-
-    public void shutdown()
-    {
-        try
-        {
-			_dataSource.close();
+        } catch (SQLException e) {
+            if (Config.DEBUG) {
+                _log.error("Database Connection FAILED");
+            }
+            _log.error(e.getMessage(), e);
         }
-        catch
-        (Exception e) {_log.log(Level.INFO, "", e);}
+    }
+
+    public final static String prepQuerySelect(String[] fields, String tableName, String whereClause, boolean returnOnlyTopRecord) {
+        String msSqlTop1 = "";
+        String mySqlTop1 = "";
+        if (returnOnlyTopRecord) {
+            mySqlTop1 = " Limit 1 ";
+        }
+        String query = "SELECT " + msSqlTop1 + safetyString(fields) + " FROM " + tableName + " WHERE " + whereClause + mySqlTop1;
+        return query;
+    }
+
+    public void shutdown() {
+        try {
+            _dataSource.close();
+        } catch (Exception e) {
+            _log.info(e.getMessage(), e);
+        }
 
     }
-    public final static String safetyString(String[] whatToCheck)
-    {
+
+    public final static String safetyString(String[] whatToCheck) {
         // NOTE: Use brace as a safty percaution just incase name is a reserved word
         String braceLeft = "`";
         String braceRight = "`";
 
         String result = "";
-        for(String word : whatToCheck)
-        {
-            if(result != "") result += ", ";
+        for (String word : whatToCheck) {
+            if (result != "") result += ", ";
             result += braceLeft + word + braceRight;
         }
         return result;
     }
-	public static L2DatabaseFactory getInstance() throws SQLException
-	{
-		if (_instance == null)
-		{
-			_instance = new L2DatabaseFactory();
-		}
-		return _instance;
-	}
-	public Connection getConnection() //throws SQLException
-	{
-		Connection con=null;
 
-		while(con==null)
-		{
-			try
-			{
-				con= _dataSource.getConnection();
-			}catch (SQLException e)
-			{
-				_log.warning("L2DatabaseFactory: getConnection() failed, trying again "+e);
-			}
-		}
-		return con;
-	}
+    public static L2DatabaseFactory getInstance() throws SQLException {
+        if (_instance == null) {
+            _instance = new L2DatabaseFactory();
+        }
+        return _instance;
+    }
 
-	public static void close(Connection conn){}
+    public Connection getConnection() //throws SQLException
+    {
+        Connection con = null;
+
+        while (con == null) {
+            try {
+                con = _dataSource.getConnection();
+            } catch (SQLException e) {
+                _log.warn("L2DatabaseFactory: getConnection() failed, trying again", e);
+            }
+        }
+        return con;
+    }
+
+    public static void close(Connection conn) {
+    }
 }

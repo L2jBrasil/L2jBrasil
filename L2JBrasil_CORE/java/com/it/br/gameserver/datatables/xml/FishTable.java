@@ -12,6 +12,18 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.FishData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,162 +31,124 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+public class FishTable {
+    private static final Logger _log = LoggerFactory.getLogger(SkillTreeTable.class);
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+    static class instance {
+        static final FishTable _instance = new FishTable();
+    }
 
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.FishData;
+    private static List<FishData> _fishsNormal, _fishsEasy, _fishsHard;
 
-public class FishTable
-{
-	private static final Log _log = LogFactory.getLog(SkillTreeTable.class.getName());
+    public static FishTable getInstance() {
+        return instance._instance;
+    }
 
-	static class instance
-	{
-		static final FishTable _instance = new FishTable();
-	}
+    public FishTable() {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+        int count = 0;
+        ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/fish.xml");
+        if (!f.exists()) {
+            _log.warn("fish.xml could not be loaded: file {} not found", f.getAbsolutePath());
+            return;
+        }
+        try {
+            _fishsEasy = new ArrayList<>();
+            _fishsNormal = new ArrayList<>();
+            _fishsHard = new ArrayList<>();
+            FishData fish;
 
-	private static List<FishData> _fishsNormal, _fishsEasy, _fishsHard;
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("fish")) {
+                            int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
+                            int lvl = Integer.valueOf(d.getAttributes().getNamedItem("level").getNodeValue());
+                            String name = String.valueOf(d.getAttributes().getNamedItem("name").getNodeValue());
+                            int hp = Integer.valueOf(d.getAttributes().getNamedItem("hp").getNodeValue());
+                            int hpreg = Integer.valueOf(d.getAttributes().getNamedItem("hpregen").getNodeValue());
+                            int type = Integer.valueOf(d.getAttributes().getNamedItem("fish_type").getNodeValue());
+                            int group = Integer.valueOf(d.getAttributes().getNamedItem("fish_group").getNodeValue());
+                            int fish_guts = Integer.valueOf(d.getAttributes().getNamedItem("fish_guts").getNodeValue());
+                            int guts_check_time = Integer.valueOf(d.getAttributes().getNamedItem("guts_check_time").getNodeValue());
+                            int wait_time = Integer.valueOf(d.getAttributes().getNamedItem("wait_time").getNodeValue());
+                            int combat_time = Integer.valueOf(d.getAttributes().getNamedItem("combat_time").getNodeValue());
 
-	public static FishTable getInstance()
-	{
-		return instance._instance;
-	}
+                            fish = new FishData(id, lvl, name, hp, hpreg, type, group, fish_guts, guts_check_time, wait_time, combat_time);
+                            switch (fish.getGroup()) {
+                                case 0:
+                                    _fishsEasy.add(fish);
+                                    break;
+                                case 1:
+                                    _fishsNormal.add(fish);
+                                    break;
+                                case 2:
+                                    _fishsHard.add(fish);
+                            }
+                        }
 
-	public FishTable()
-	{
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		int count = 0;
-		ServerSettings serverSettings = Configurator.getSettings(ServerSettings.class);
-		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/fish.xml");
-		if(!f.exists())
-		{
-			_log.warn("fish.xml could not be loaded: file not found");
-			return;
-		}
-		try
-		{
-			_fishsEasy = new ArrayList<>();
-			_fishsNormal = new ArrayList<>();
-			_fishsHard = new ArrayList<>();
-			FishData fish;
+                        count = _fishsEasy.size() + _fishsNormal.size() + _fishsHard.size();
+                    }
+                }
+            }
+        } catch (SAXException e) {
+            _log.error("Error while creating table", e);
+        } catch (IOException e) {
+            _log.error("Error while creating table", e);
+        } catch (ParserConfigurationException e) {
+            _log.error("Error while creating table", e);
+        }
 
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("fish"))
-						{
-							int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
-							int lvl = Integer.valueOf(d.getAttributes().getNamedItem("level").getNodeValue());
-							String name = String.valueOf(d.getAttributes().getNamedItem("name").getNodeValue());
-							int hp = Integer.valueOf(d.getAttributes().getNamedItem("hp").getNodeValue());
-							int hpreg = Integer.valueOf(d.getAttributes().getNamedItem("hpregen").getNodeValue());
-							int type = Integer.valueOf(d.getAttributes().getNamedItem("fish_type").getNodeValue());
-							int group = Integer.valueOf(d.getAttributes().getNamedItem("fish_group").getNodeValue());
-							int fish_guts = Integer.valueOf(d.getAttributes().getNamedItem("fish_guts").getNodeValue());
-							int guts_check_time = Integer.valueOf(d.getAttributes().getNamedItem("guts_check_time").getNodeValue());
-							int wait_time = Integer.valueOf(d.getAttributes().getNamedItem("wait_time").getNodeValue());
-							int combat_time = Integer.valueOf(d.getAttributes().getNamedItem("combat_time").getNodeValue());
+        _log.info("FishTable: Loaded {} easy fishes.", _fishsEasy.size());
+        _log.info("FishTable: Loaded {} normal fishes.", _fishsNormal.size());
+        _log.info("FishTable: Loaded {} hard fishes.", _fishsHard.size());
+        _log.info("FishTable: Loaded {} fishes.", count);
+    }
 
-							fish = new FishData(id, lvl, name, hp, hpreg, type, group, fish_guts, guts_check_time, wait_time, combat_time);
-							switch(fish.getGroup())
-							{
-								case 0:
-									_fishsEasy.add(fish);
-									break;
-								case 1:
-									_fishsNormal.add(fish);
-									break;
-								case 2:
-									_fishsHard.add(fish);
-							}
-						}
+    public List<FishData> getfish(int lvl, int type, int group) {
+        List<FishData> result = new ArrayList<>();
+        List<FishData> _Fishs = null;
 
-						count = _fishsEasy.size() + _fishsNormal.size() + _fishsHard.size();
-					}
-				}
-			}
-		}
-		catch(SAXException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(IOException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(ParserConfigurationException e)
-		{
-			_log.error("Error while creating table", e);
-		}
+        switch (group) {
+            case 0:
+                _Fishs = _fishsEasy;
+                break;
+            case 1:
+                _Fishs = _fishsNormal;
+                break;
+            case 2:
+                _Fishs = _fishsHard;
+        }
 
-		_log.info("FishTable: Loaded " + _fishsEasy.size() + " easy fishes.");
-		_log.info("FishTable: Loaded " + _fishsNormal.size() + " normal fishes.");
-		_log.info("FishTable: Loaded " + _fishsHard.size() + " hard fishes.");
-		_log.info("FishTable: Loaded " + count + " fishes.");
-	}
+        if (_Fishs == null) {
+            _log.warn("Fish are not defined!");
+            return null;
+        }
 
-	public List<FishData> getfish(int lvl, int type, int group)
-	{
-		List<FishData> result = new ArrayList<>();
-		List<FishData> _Fishs = null;
+        for (FishData f : _Fishs) {
+            if (f.getLevel() != lvl) {
+                continue;
+            }
 
-		switch(group)
-		{
-			case 0:
-				_Fishs = _fishsEasy;
-				break;
-			case 1:
-				_Fishs = _fishsNormal;
-				break;
-			case 2:
-				_Fishs = _fishsHard;
-		}
+            if (f.getType() != type) {
+                continue;
+            }
 
-		if(_Fishs == null)
-		{
-			_log.warn("Fish are not defined!");
-			return null;
-		}
+            result.add(f);
+        }
 
-		for(FishData f : _Fishs)
-		{
-			if(f.getLevel() != lvl)
-			{
-				continue;
-			}
+        if (result.size() == 0) {
+            _log.warn("Can't Find Any Fish!? - Lvl: {} Type: {}", lvl, type);
+        }
 
-			if(f.getType() != type)
-			{
-				continue;
-			}
+        _Fishs = null;
 
-			result.add(f);
-		}
-
-		if(result.size() == 0)
-		{
-			_log.warn("Can't Find Any Fish!? - Lvl: " + lvl + " Type: " + type);
-		}
-
-		_Fishs = null;
-
-		return result;
-	}
+        return result;
+    }
 }

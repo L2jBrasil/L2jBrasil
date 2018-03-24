@@ -24,8 +24,8 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
@@ -34,94 +34,75 @@ import org.xml.sax.SAXException;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.model.L2SummonItem;
 
-public class SummonItemsData
-{
-	private static final Log _log = LogFactory.getLog(SummonItemsData.class.getName());
+public class SummonItemsData {
+    private static final Logger _log = LoggerFactory.getLogger(SummonItemsData.class);
 
-	private Map<Integer, L2SummonItem> _summonitems;
+    private Map<Integer, L2SummonItem> _summonitems;
 
-	private static SummonItemsData _instance;
+    private static SummonItemsData _instance;
 
-	public static SummonItemsData getInstance()
-	{
-		if(_instance == null)
-		{
-			_instance = new SummonItemsData();
-		}
+    public static SummonItemsData getInstance() {
+        if (_instance == null) {
+            _instance = new SummonItemsData();
+        }
 
-		return _instance;
-	}
+        return _instance;
+    }
 
-	public SummonItemsData()
-	{
-		_summonitems = new HashMap<>();
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		ServerSettings serverSettings = getSettings(ServerSettings.class);
-		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/summon_items.xml");
-		if(!f.exists())
-		{
-			_log.warn("summon_items.xml could not be loaded: file not found");
-			return;
-		}
-		int itemID = 0, npcID = 0;
-		byte summonType = 0;
-		try
-		{
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("summon_item"))
-						{
-							itemID = Integer.valueOf(d.getAttributes().getNamedItem("itemID").getNodeValue());
-							npcID = Integer.valueOf(d.getAttributes().getNamedItem("npcID").getNodeValue());
-							summonType = Byte.valueOf(d.getAttributes().getNamedItem("summonType").getNodeValue());
-							L2SummonItem summonitem = new L2SummonItem(itemID, npcID, summonType);
-							_summonitems.put(itemID, summonitem);
-						}
-					}
-				}
-			}
-		}
-		catch(SAXException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(IOException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(ParserConfigurationException e)
-		{
-			_log.error("Error while creating table", e);
-		}
+    public SummonItemsData() {
+        _summonitems = new HashMap<>();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+        ServerSettings serverSettings = getSettings(ServerSettings.class);
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/summon_items.xml");
+        if (!f.exists()) {
+            _log.warn("Could not be loaded: file {} not found", f.getAbsolutePath());
+            return;
+        }
+        int itemID = 0, npcID = 0;
+        byte summonType = 0;
+        try {
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("summon_item")) {
+                            itemID = Integer.valueOf(d.getAttributes().getNamedItem("itemID").getNodeValue());
+                            npcID = Integer.valueOf(d.getAttributes().getNamedItem("npcID").getNodeValue());
+                            summonType = Byte.valueOf(d.getAttributes().getNamedItem("summonType").getNodeValue());
+                            L2SummonItem summonitem = new L2SummonItem(itemID, npcID, summonType);
+                            _summonitems.put(itemID, summonitem);
+                        }
+                    }
+                }
+            }
+        } catch (SAXException e) {
+            _log.error("Error while creating table", e);
+        } catch (IOException e) {
+            _log.error("Error while creating table", e);
+        } catch (ParserConfigurationException e) {
+            _log.error("Error while creating table", e);
+        }
 
-		_log.info("Summon: Loaded " + _summonitems.size() + " summon items.");
-	}
+        _log.info("Summon: Loaded {} summon items.", _summonitems.size());
+    }
 
-	public L2SummonItem getSummonItem(int itemId)
-	{
-		return _summonitems.get(itemId);
-	}
+    public L2SummonItem getSummonItem(int itemId) {
+        return _summonitems.get(itemId);
+    }
 
-	public int[] itemIDs()
-	{
-		int size = _summonitems.size();
-		int[] result = new int[size];
-		int i = 0;
+    public int[] itemIDs() {
+        int size = _summonitems.size();
+        int[] result = new int[size];
+        int i = 0;
 
-		for(L2SummonItem si : _summonitems.values())
-		{
-			result[i] = si.getItemId();
-			i++;
-		}
-		return result;
-	}
+        for (L2SummonItem si : _summonitems.values()) {
+            result[i] = si.getItemId();
+            i++;
+        }
+        return result;
+    }
 }

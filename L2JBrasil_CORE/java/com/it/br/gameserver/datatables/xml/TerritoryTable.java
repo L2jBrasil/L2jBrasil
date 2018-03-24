@@ -24,8 +24,9 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
@@ -35,94 +36,75 @@ import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.model.L2Territory;
 
-public class TerritoryTable
-{
-	private static final Log _log = LogFactory.getLog(TradeController.class.getName());
+public class TerritoryTable {
+    private static final Logger _log = LoggerFactory.getLogger(TradeController.class);
 
-	private static final TerritoryTable _instance = new TerritoryTable();
-	private static Map<String, L2Territory> _territory;
+    private static final TerritoryTable _instance = new TerritoryTable();
+    private static Map<String, L2Territory> _territory;
 
-	public static TerritoryTable getInstance()
-	{
-		return _instance;
-	}
+    public static TerritoryTable getInstance() {
+        return _instance;
+    }
 
-	private TerritoryTable()
-	{
-		_territory = new HashMap<String, L2Territory>();
-		// load all data at server start
-		reload_data();
-	}
+    private TerritoryTable() {
+        _territory = new HashMap<String, L2Territory>();
+        // load all data at server start
+        reload_data();
+    }
 
-	public int[] getRandomPoint(int terr)
-	{
-		return _territory.get(terr).getRandomPoint();
-	}
+    public int[] getRandomPoint(int terr) {
+        return _territory.get(terr).getRandomPoint();
+    }
 
-	public int getProcMax(int terr)
-	{
-		return _territory.get(terr).getProcMax();
-	}
+    public int getProcMax(int terr) {
+        return _territory.get(terr).getProcMax();
+    }
 
-	public void reload_data()
-	{
-		_territory.clear();
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		ServerSettings serverSettings = getSettings(ServerSettings.class);
-		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/location.xml");
-		if(!f.exists())
-		{
-			_log.warn("location.xml could not be loaded: file not found");
-			return;
-		}
-		try
-		{
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("loc"))
-						{
-							String terr = "sql_terr_" + String.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
-							int loc_x = Integer.valueOf(d.getAttributes().getNamedItem("x").getNodeValue());
-							int loc_y = Integer.valueOf(d.getAttributes().getNamedItem("y").getNodeValue());
-							int loc_zmin = Integer.valueOf(d.getAttributes().getNamedItem("Zmin").getNodeValue());
-							int loc_zmax = Integer.valueOf(d.getAttributes().getNamedItem("Zmax").getNodeValue());
-							int proc = Integer.valueOf(d.getAttributes().getNamedItem("proc").getNodeValue());
+    public void reload_data() {
+        _territory.clear();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+        ServerSettings serverSettings = getSettings(ServerSettings.class);
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/location.xml");
+        if (!f.exists()) {
+            _log.warn("Could not be loaded: file {} not found", f.getAbsolutePath());
+            return;
+        }
+        try {
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("loc")) {
+                            String terr = "sql_terr_" + String.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
+                            int loc_x = Integer.valueOf(d.getAttributes().getNamedItem("x").getNodeValue());
+                            int loc_y = Integer.valueOf(d.getAttributes().getNamedItem("y").getNodeValue());
+                            int loc_zmin = Integer.valueOf(d.getAttributes().getNamedItem("Zmin").getNodeValue());
+                            int loc_zmax = Integer.valueOf(d.getAttributes().getNamedItem("Zmax").getNodeValue());
+                            int proc = Integer.valueOf(d.getAttributes().getNamedItem("proc").getNodeValue());
 
-							if(_territory.get(terr) == null)
-							{
-								L2Territory t = new L2Territory();
-								_territory.put(terr, t);
-							}
-							_territory.get(terr).add(loc_x, loc_y, loc_zmin, loc_zmax, proc);
+                            if (_territory.get(terr) == null) {
+                                L2Territory t = new L2Territory();
+                                _territory.put(terr, t);
+                            }
+                            _territory.get(terr).add(loc_x, loc_y, loc_zmin, loc_zmax, proc);
 
-							terr = null;
-						}
-					}
-				}
-			}
-		}
-		catch(SAXException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(IOException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(ParserConfigurationException e)
-		{
-			_log.error("Error while creating table", e);
-		}
+                            terr = null;
+                        }
+                    }
+                }
+            }
+        } catch (SAXException e) {
+            _log.error("Error while creating table", e);
+        } catch (IOException e) {
+            _log.error("Error while creating table", e);
+        } catch (ParserConfigurationException e) {
+            _log.error("Error while creating table", e);
+        }
 
-		_log.info("TerritoryTable: Loaded " + _territory.size() + " locations");
-	}
+        _log.info("TerritoryTable: Loaded {} locations", _territory.size());
+    }
 }

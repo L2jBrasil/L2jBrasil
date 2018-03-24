@@ -3,14 +3,13 @@ package com.it.br.configuration.settings;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.it.br.configuration.L2Properties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EventSettings implements Settings {
 	
-	private static final Log _log = LogFactory.getLog(EventSettings.class);
+	private static final Logger _log = LoggerFactory.getLogger(EventSettings.class);
 
 	private boolean tvTEventEnabled;
 	private List<String> tvTEventInterval;

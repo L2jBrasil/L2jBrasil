@@ -21,9 +21,6 @@ package com.it.br.gameserver.model;
 
 import java.util.concurrent.Future;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -31,95 +28,97 @@ import com.it.br.gameserver.skills.effects.EffectForce;
 
 /**
  * @author kombat
- *
  */
-public class ForceBuff
-{
-	static final Log _log = LogFactory.getLog(ForceBuff.class.getName());
+public class ForceBuff {
 
-	protected L2PcInstance _caster;
-	private L2PcInstance _target;
-	private L2Skill _skill;
-	private L2Skill _force;
-	@SuppressWarnings("rawtypes")
-	private Future _task;
-	private boolean _applied;
+    protected L2PcInstance _caster;
+    private L2PcInstance _target;
+    private L2Skill _skill;
+    private L2Skill _force;
+    @SuppressWarnings("rawtypes")
+    private Future _task;
+    private boolean _applied;
 
-	public L2PcInstance getCaster() { return _caster; }
-	public L2PcInstance getTarget() { return _target; }
-	public L2Skill getSkill() { return _skill; }
-	public L2Skill getForce() { return _force; }
-	@SuppressWarnings("rawtypes")
-	protected void setTask(Future task) { _task = task; }
-	protected void setApplied(boolean applied) { _applied = applied; }
+    public L2PcInstance getCaster() {
+        return _caster;
+    }
 
-	public ForceBuff(L2PcInstance caster, L2PcInstance target, L2Skill skill)
-	{
-		_caster = caster;
-		_target = target;
-		_skill = skill;
-		_force = SkillTable.getInstance().getInfo(skill.getForceId(), 1);
-		_applied = false;
+    public L2PcInstance getTarget() {
+        return _target;
+    }
 
-		Runnable r = new Runnable()
-		{
-		
-			public void run()
-			{
-				setApplied(true);
-				setTask(null);
+    public L2Skill getSkill() {
+        return _skill;
+    }
 
-				int forceId = getForce().getId();
-				boolean create = true;
-				L2Effect[] effects = getTarget().getAllEffects();
-				if (effects != null)
-				{
-					for(L2Effect e : effects)
-					{
-						if (e.getSkill().getId() == forceId)
-						{
-							EffectForce ef = (EffectForce)e;
-							if(ef.forces < 3)
-								ef.increaseForce();
-							create = false;
-							break;
-						}
-					}
-				}
-				if(create)
-				{
-					getForce().getEffects(_caster, getTarget());
-				}
-			}
-		};
-		setTask(ThreadPoolManager.getInstance().scheduleGeneral(r, 2000));
-	}
+    public L2Skill getForce() {
+        return _force;
+    }
 
-	public void delete()
-	{
-		if (_task != null)
-		{
-			_task.cancel(false);
-			_task = null;
-		}
+    @SuppressWarnings("rawtypes")
+    protected void setTask(Future task) {
+        _task = task;
+    }
 
-		_caster.setForceBuff(null);
+    protected void setApplied(boolean applied) {
+        _applied = applied;
+    }
 
-		if(!_applied) return;
+    public ForceBuff(L2PcInstance caster, L2PcInstance target, L2Skill skill) {
+        _caster = caster;
+        _target = target;
+        _skill = skill;
+        _force = SkillTable.getInstance().getInfo(skill.getForceId(), 1);
+        _applied = false;
 
-		int toDeleteId = getForce().getId();
+        Runnable r = new Runnable() {
 
-		L2Effect[] effects = _target.getAllEffects();
-		if (effects != null)
-		{
-			for(L2Effect e : effects)
-			{
-				if (e.getSkill().getId() == toDeleteId && (e instanceof EffectForce))
-				{
-					((EffectForce)e).decreaseForce();
-					break;
-				}
-			}
-		}
-	}
+            public void run() {
+                setApplied(true);
+                setTask(null);
+
+                int forceId = getForce().getId();
+                boolean create = true;
+                L2Effect[] effects = getTarget().getAllEffects();
+                if (effects != null) {
+                    for (L2Effect e : effects) {
+                        if (e.getSkill().getId() == forceId) {
+                            EffectForce ef = (EffectForce) e;
+                            if (ef.forces < 3)
+                                ef.increaseForce();
+                            create = false;
+                            break;
+                        }
+                    }
+                }
+                if (create) {
+                    getForce().getEffects(_caster, getTarget());
+                }
+            }
+        };
+        setTask(ThreadPoolManager.getInstance().scheduleGeneral(r, 2000));
+    }
+
+    public void delete() {
+        if (_task != null) {
+            _task.cancel(false);
+            _task = null;
+        }
+
+        _caster.setForceBuff(null);
+
+        if (!_applied) return;
+
+        int toDeleteId = getForce().getId();
+
+        L2Effect[] effects = _target.getAllEffects();
+        if (effects != null) {
+            for (L2Effect e : effects) {
+                if (e.getSkill().getId() == toDeleteId && (e instanceof EffectForce)) {
+                    ((EffectForce) e).decreaseForce();
+                    break;
+                }
+            }
+        }
+    }
 }

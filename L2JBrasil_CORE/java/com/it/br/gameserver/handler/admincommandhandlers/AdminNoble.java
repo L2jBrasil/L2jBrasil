@@ -22,8 +22,8 @@ import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,138 +36,125 @@ import java.util.StringTokenizer;
 /**
  * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
-public class AdminNoble implements IAdminCommandHandler
-{
-    private final static Log _log = LogFactory.getLog(AdminNoble.class.getName());
+public class AdminNoble implements IAdminCommandHandler {
+    private final static Logger _log = LoggerFactory.getLogger(AdminNoble.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
-    private boolean checkPermission(String command, L2PcInstance activeChar)
-    {
+    private boolean checkPermission(String command, L2PcInstance activeChar) {
         if (!Config.ALT_PRIVILEGES_ADMIN)
-            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM()))
-            {
+            if (!(checkLevel(command, activeChar.getAccessLevel()) && activeChar.isGM())) {
                 activeChar.sendMessage("E necessario ter Access Level " + admin.get(command) + " para usar o comando : " + command);
                 return true;
             }
         return false;
     }
 
-    private boolean checkLevel(String command, int level)
-    {
+    private boolean checkLevel(String command, int level) {
         Integer requiredAcess = admin.get(command);
         return (level >= requiredAcess);
     }
 
-    public AdminNoble()
-    {
+    public AdminNoble() {
         admin.put("admin_setnoble", Config.admin_setnoble);
     }
 
-    public Set<String> getAdminCommandList()
-    {
+    public Set<String> getAdminCommandList() {
         return admin.keySet();
     }
 
-    public boolean useAdminCommand(String command, L2PcInstance activeChar)
-    {
+    public boolean useAdminCommand(String command, L2PcInstance activeChar) {
         StringTokenizer st = new StringTokenizer(command);
         String commandName = st.nextToken();
 
-        if(checkPermission(commandName, activeChar)) return false;
+        if (checkPermission(commandName, activeChar)) return false;
 
-		if (command.startsWith("admin_setnoble"))
-		{
-			L2Object target = activeChar.getTarget();
-			L2PcInstance player = null;
-			SystemMessage sm = new SystemMessage(SystemMessageId.S1_S2);
-			if (target instanceof L2PcInstance)
-			{
-				player = (L2PcInstance)target;
-			} else
-			{
-				player = activeChar;
-			}
+        if (command.startsWith("admin_setnoble")) {
+            L2Object target = activeChar.getTarget();
+            L2PcInstance player = null;
+            SystemMessage sm = new SystemMessage(SystemMessageId.S1_S2);
+            if (target instanceof L2PcInstance) {
+                player = (L2PcInstance) target;
+            } else {
+                player = activeChar;
+            }
 
-			if (player.isNoble())
-			{
-				player.setNoble(false);
-				sm.addString("You are no longer a server noble.");
-				GmListTable.broadcastMessageToGMs("GM "+activeChar.getName()+" removed noble stat of player"+ target.getName());
-				Connection connection = null;
-				try
-				{
-					connection = L2DatabaseFactory.getInstance().getConnection();
+            if (player.isNoble()) {
+                player.setNoble(false);
+                sm.addString("You are no longer a server noble.");
+                GmListTable.broadcastMessageToGMs("GM " + activeChar.getName() + " removed noble stat of player" + target.getName());
+                Connection connection = null;
+                try {
+                    connection = L2DatabaseFactory.getInstance().getConnection();
 
-					PreparedStatement statement = connection.prepareStatement("SELECT obj_id FROM characters where char_name=?");
-					statement.setString(1,target.getName());
-					ResultSet rset = statement.executeQuery();
-					int objId = 0;
-					if (rset.next())
-					{
-						objId = rset.getInt(1);
-					}
-					rset.close();
-					statement.close();
+                    PreparedStatement statement = connection.prepareStatement("SELECT obj_id FROM characters where char_name=?");
+                    statement.setString(1, target.getName());
+                    ResultSet rset = statement.executeQuery();
+                    int objId = 0;
+                    if (rset.next()) {
+                        objId = rset.getInt(1);
+                    }
+                    rset.close();
+                    statement.close();
 
-					if (objId == 0) {connection.close(); return false;}
+                    if (objId == 0) {
+                        connection.close();
+                        return false;
+                    }
 
-					statement = connection.prepareStatement("UPDATE characters SET nobless=0 WHERE obj_id=?");
-					statement.setInt(1, objId);
-					statement.execute();
-					statement.close();
-					connection.close();
-				}
-				catch (Exception e)
-				{
-					_log.warn("could not set noble stats of char:", e);
-				}
-				finally
-				{
-					try { connection.close(); } catch (Exception e) {}
-				}
-			}
-			else
-			{
-				player.setNoble(true);
-				sm.addString("You are now a server noble, congratulations!");
-				GmListTable.broadcastMessageToGMs("GM "+activeChar.getName()+" has given noble stat for player "+target.getName()+".");
-				Connection connection = null;
-				try
-				{
-					connection = L2DatabaseFactory.getInstance().getConnection();
+                    statement = connection.prepareStatement("UPDATE characters SET nobless=0 WHERE obj_id=?");
+                    statement.setInt(1, objId);
+                    statement.execute();
+                    statement.close();
+                    connection.close();
+                } catch (Exception e) {
+                    _log.warn("could not set noble stats of char:", e);
+                } finally {
+                    try {
+                        connection.close();
+                    } catch (Exception e) {
+                    }
+                }
+            } else {
+                player.setNoble(true);
+                sm.addString("You are now a server noble, congratulations!");
+                GmListTable.broadcastMessageToGMs("GM " + activeChar.getName() + " has given noble stat for player " + target.getName() + ".");
+                Connection connection = null;
+                try {
+                    connection = L2DatabaseFactory.getInstance().getConnection();
 
-					PreparedStatement statement = connection.prepareStatement("SELECT obj_id FROM characters where char_name=?");
-					statement.setString(1,target.getName());
-					ResultSet rset = statement.executeQuery();
-					int objId = 0;
-					if (rset.next())
-					{
-						objId = rset.getInt(1);
-					}
-					rset.close();
-					statement.close();
+                    PreparedStatement statement = connection.prepareStatement("SELECT obj_id FROM characters where char_name=?");
+                    statement.setString(1, target.getName());
+                    ResultSet rset = statement.executeQuery();
+                    int objId = 0;
+                    if (rset.next()) {
+                        objId = rset.getInt(1);
+                    }
+                    rset.close();
+                    statement.close();
 
-					if (objId == 0) {connection.close(); return false;}
+                    if (objId == 0) {
+                        connection.close();
+                        return false;
+                    }
 
-					statement = connection.prepareStatement("UPDATE characters SET nobless=1 WHERE obj_id=?");
-					statement.setInt(1, objId);
-					statement.execute();
-					statement.close();
-					connection.close();
-				}
-				catch (Exception e)
-				{
-					_log.warn("could not set noble stats of char:", e);
-				}
-				finally
-				{
-					try { connection.close(); } catch (Exception e) {}
-				}
+                    statement = connection.prepareStatement("UPDATE characters SET nobless=1 WHERE obj_id=?");
+                    statement.setInt(1, objId);
+                    statement.execute();
+                    statement.close();
+                    connection.close();
+                } catch (Exception e) {
+                    _log.warn("could not set noble stats of char:", e);
+                } finally {
+                    try {
+                        connection.close();
+                    } catch (Exception e) {
+                    }
+                }
 
-			}
-			player.sendPacket(sm);
-			player.broadcastUserInfo();
-		}
-		return false;
-	}
+            }
+            player.sendPacket(sm);
+            player.broadcastUserInfo();
+        }
+        return false;
+    }
 }
