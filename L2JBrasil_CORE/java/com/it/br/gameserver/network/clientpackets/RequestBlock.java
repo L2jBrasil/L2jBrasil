@@ -26,7 +26,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestBlock extends L2GameClientPacket
 {
    private static final String _C__A0_REQUESTBLOCK = "[C] A0 RequestBlock";
-   //private static Logger _log = Logger.getLogger(L2PcInstance.class.getName());
+   //private static Logger _log = LoggerFactory.getLogger(L2PcInstance.class);
 
    private final static int BLOCK = 0;
    private final static int UNBLOCK = 1;

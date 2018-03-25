@@ -28,7 +28,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestStopPledgeWar extends L2GameClientPacket
 {
 	private static final String _C__4F_REQUESTSTOPPLEDGEWAR = "[C] 4F RequestStopPledgeWar";
-	//private static Logger _log = Logger.getLogger(RequestStopPledgeWar.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestStopPledgeWar.class);
 
 	private String _pledgeName;
 

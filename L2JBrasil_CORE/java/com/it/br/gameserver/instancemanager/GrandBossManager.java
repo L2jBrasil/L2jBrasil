@@ -21,13 +21,14 @@ import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.it.br.gameserver.model.zone.type.L2BossZone;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.L2FastList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.logging.Logger;
 
 /**
  * 
@@ -60,7 +61,7 @@ public class GrandBossManager
      * for AI scripts to utilize as needed. 
     */
 
-    private static Logger _log = Logger.getLogger(GrandBossManager.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(GrandBossManager.class);
     private static GrandBossManager _instance;
     protected static Map<Integer, L2GrandBossInstance> _bosses;
     protected static Map<Integer, StatsSet> _storedInfo;
@@ -120,14 +121,14 @@ public class GrandBossManager
                 info = null;
             }
 
-            _log.info("GrandBossManager: Loaded " + _storedInfo.size() + " Instances");
+            _log.info("GrandBossManager: Loaded {} instances", _storedInfo.size());
 
             rset.close();
             statement.close();
         }
         catch (SQLException e)
         {
-            _log.warning("GrandBossManager: Could not load grandboss_data table");
+            _log.warn("GrandBossManager: Could not load grandboss_data table");
         }
         catch (Exception e) {e.printStackTrace();}
         finally
@@ -147,7 +148,7 @@ public class GrandBossManager
 
         if (_zones == null)
         {
-            _log.warning("GrandBossManager: Could not read Grand Boss zone data");
+            _log.warn("GrandBossManager: Could not read Grand Boss zone data");
             return;
         }
         
@@ -174,11 +175,11 @@ public class GrandBossManager
             rset.close();
             statement.close();
 
-            _log.info("GrandBossManager: Initialized " + _zones.size() + " Grand Boss Zones");
+            _log.info("GrandBossManager: Initialized {} Grand Boss Zones", _zones.size());
         }
         catch (SQLException e)
         {
-            _log.warning("GrandBossManager: Could not load grandboss_list table");
+            _log.warn("GrandBossManager: Could not load grandboss_list table");
         }
         catch (Exception e) {e.printStackTrace();}
         finally
@@ -285,10 +286,15 @@ public class GrandBossManager
             statement.executeUpdate();
             statement.close();
         }
-        catch (SQLException e){ _log.warning("GrandBossManager: Couldnt empty grandboss_list table");}
+        catch (SQLException e){
+            _log.warn("GrandBossManager: Couldn't empty grandboss_list table");
+        }
         finally
         {
-            try {con.close();} catch(Exception e) {e.printStackTrace();}
+            try {con.close();}
+            catch(Exception e) {
+                _log.warn(e.getMessage(), e);
+            }
         }
 
         for (L2BossZone zone : _zones)
@@ -312,7 +318,9 @@ public class GrandBossManager
                     statement.close();
                 }
             }
-            catch (SQLException e){ _log.warning("GrandBossManager: Couldnt update grandboss_list table");}
+            catch (SQLException e){
+                _log.warn("GrandBossManager: Couldnt update grandboss_list table");
+            }
             finally
             {
                 try {con.close();} catch(Exception e) {e.printStackTrace();}
@@ -348,10 +356,14 @@ public class GrandBossManager
                 statement.executeUpdate();
                 statement.close();
             }
-            catch (SQLException e){ _log.warning("GrandBossManager: Couldnt update grandboss_data table");}
+            catch (SQLException e){
+                _log.warn("GrandBossManager: Couldnt update grandboss_data table");}
             finally
             {
-                try {con.close();} catch(Exception e) {e.printStackTrace();}
+                try {con.close();}
+                catch(Exception e) {
+                    _log.warn(e.getMessage(), e);
+                }
             }
         }
     }

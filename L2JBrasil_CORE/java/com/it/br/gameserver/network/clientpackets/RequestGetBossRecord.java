@@ -18,15 +18,15 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.Map;
-
 import com.it.br.gameserver.instancemanager.RaidBossPointsManager;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.ExGetBossRecord;
 
+import java.util.Map;
+
 public class RequestGetBossRecord extends L2GameClientPacket
 {
-	//protected static final Logger _log = Logger.getLogger(RequestGetBossRecord.class.getName());
+	//protected static final Logger _log = LoggerFactory.getLogger(RequestGetBossRecord.class);
     private static final String _C__D0_18_REQUESTGETBOSSRECORD = "[C] D0:18 RequestGetBossRecord";
     private int _bossId;
 

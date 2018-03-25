@@ -21,6 +21,8 @@ import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.xmlfactory.XMLDocumentFactory;
 import com.it.br.loginserver.gameserverpackets.ServerStatus;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -37,7 +39,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
 
 /**
  *
@@ -45,7 +46,7 @@ import java.util.logging.Logger;
  */
 public class GameServerTable
 {
-	private static Logger _log = Logger.getLogger(GameServerTable.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(GameServerTable.class);
 	private static GameServerTable _instance;
 
 	// Server Names Config
@@ -121,7 +122,7 @@ public class GameServerTable
         }
         catch (Exception e)
         {
-            _log.warning("GameServerTable: servername.xml could not be loaded.");
+            _log.warn("GameServerTable: servername.xml could not be loaded.");
         }
     }
 
@@ -215,7 +216,7 @@ public class GameServerTable
 		}
 		catch (SQLException e)
 		{
-			_log.warning("SQL error while saving gameserver: "+e);
+			_log.warn("SQL error while saving gameserver: "+e);
 		}
 		finally
 		{

@@ -17,8 +17,6 @@
  */
 package com.it.br.gameserver.model.actor.knownlist;
 
-import java.util.Collection;
-
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.ai.L2CharacterAI;
 import com.it.br.gameserver.model.L2Attackable;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
+
+import java.util.Collection;
 
 public class AttackableKnownList extends NpcKnownList
 {

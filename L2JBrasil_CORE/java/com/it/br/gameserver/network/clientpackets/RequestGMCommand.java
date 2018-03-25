@@ -23,12 +23,7 @@ import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.serverpackets.GMViewCharacterInfo;
-import com.it.br.gameserver.network.serverpackets.GMViewItemList;
-import com.it.br.gameserver.network.serverpackets.GMViewPledgeInfo;
-import com.it.br.gameserver.network.serverpackets.GMViewQuestList;
-import com.it.br.gameserver.network.serverpackets.GMViewSkillInfo;
-import com.it.br.gameserver.network.serverpackets.GMViewWarehouseWithdrawList;
+import com.it.br.gameserver.network.serverpackets.*;
 
 /**
  * This class ...

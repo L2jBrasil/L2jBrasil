@@ -18,19 +18,6 @@
  */
 package com.it.br.gameserver.communitybbs.Manager;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.GameServer;
@@ -43,10 +30,17 @@ import com.it.br.gameserver.network.clientpackets.Say2;
 import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.gameserver.network.serverpackets.ShowBoard;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class RegionBBSManager extends BaseBBSManager
 {
-	private static Logger _logChat = Logger.getLogger("chat");
+	private static Logger _logChat = LoggerFactory.getLogger("chat");
 	/* (non-Javadoc)
 	 * @see com.it.br.gameserver.communitybbs.Manager.BaseBBSManager#parsecmd(java.lang.String, com.it.br.gameserver.model.actor.instance.L2PcInstance)
 	 */
@@ -219,10 +213,7 @@ public class RegionBBSManager extends BaseBBSManager
 
                 if (Config.LOG_CHAT)
             	{
-            		LogRecord record = new LogRecord(Level.INFO, ar3);
-            		record.setLoggerName("chat");
-            		record.setParameters(new Object[]{"TELL", "[" + activeChar.getName() + " to "+receiver.getName()+"]"});
-            		_logChat.log(record);
+            		_logChat.info(ar3, "TELL", "[" + activeChar.getName() + " to "+receiver.getName()+"]");
 				}
             	CreatureSay cs = new CreatureSay(activeChar.getObjectId(), Say2.TELL, activeChar.getName(), ar3);
             	if (receiver != null &&

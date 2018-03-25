@@ -18,9 +18,9 @@
  */
 package com.it.br.loginserver.loginserverpackets;
 
-import java.io.IOException;
-
 import com.it.br.loginserver.serverpackets.ServerBasePacket;
+
+import java.io.IOException;
 
 /**
  * @author -Wooden-

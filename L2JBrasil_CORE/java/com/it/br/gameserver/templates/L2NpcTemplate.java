@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.templates;
 
-import java.util.*;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.model.L2DropCategory;
 import com.it.br.gameserver.model.L2DropData;
 import com.it.br.gameserver.model.L2MinionData;
@@ -28,6 +25,10 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.skills.Stats;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
 
 /**
  * This cl contains all generic data of a L2Spawn object.<BR><BR>
@@ -48,7 +49,7 @@ import com.it.br.gameserver.skills.Stats;
  */
 public final class L2NpcTemplate extends L2CharTemplate
 {
-	protected static final Logger _log = Logger.getLogger(Quest.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(Quest.class);
 
 	public final int     npcId;
     public final int     idTemplate;
@@ -313,7 +314,7 @@ public final class L2NpcTemplate extends L2CharTemplate
 				if (_quests[0].getName().equals(q.getName()))
 					_quests[0] = q;
 				else 
-					_log.warning("Quest event not allowed in multiple quests.  Skipped addition of Event Type \""+EventType+"\" for NPC \""+name +"\" and quest \""+q.getName()+"\".");
+					_log.warn("Quest event not allowed in multiple quests.  Skipped addition of Event Type \""+EventType+"\" for NPC \""+name +"\" and quest \""+q.getName()+"\".");
 			}
 			else
 			{

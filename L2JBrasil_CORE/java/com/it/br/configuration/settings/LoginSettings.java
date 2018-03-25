@@ -1,15 +1,16 @@
 package com.it.br.configuration.settings;
 
+import com.it.br.configuration.L2Properties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Logger;
-
-import com.it.br.configuration.L2Properties;
 
 
 public class LoginSettings implements Settings{
 
-	private static final Logger logger = Logger.getLogger(LoginSettings.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(LoginSettings.class);
 
 	private File datapackDirectory;
 	private int triesBeforeBan;
@@ -49,8 +50,8 @@ public class LoginSettings implements Settings{
 		try {
 			datapackDirectory = new File(datapackPath).getCanonicalFile();
 		} catch (IOException e) {
-			logger.warning("Error defining Datapack directory " + datapackPath);
-			logger.warning(e.getMessage());
+			logger.warn("Error defining Datapack directory " + datapackPath);
+			logger.warn(e.getMessage());
 			setDefaultDatapackDirectory();
 		}
 	}
@@ -60,7 +61,7 @@ public class LoginSettings implements Settings{
 			datapackDirectory = new File(".").getCanonicalFile();
 			logger.info("Setting default datapack directory: " + datapackDirectory.getAbsolutePath());
 		} catch (IOException e1) {
-			logger.severe(e1.getMessage());
+			logger.error(e1.getMessage());
 		}
 	}
 	

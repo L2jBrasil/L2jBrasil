@@ -17,12 +17,12 @@
  */
 package com.it.br.gameserver.model.zone.type;
 
-import java.util.Collection;
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.zone.L2ZoneType;
+
+import java.util.Collection;
+import java.util.concurrent.Future;
 
 public class L2DamageZone extends L2ZoneType
 {

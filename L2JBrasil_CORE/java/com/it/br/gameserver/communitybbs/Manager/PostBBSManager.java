@@ -18,15 +18,15 @@
  */
 package com.it.br.gameserver.communitybbs.Manager;
 
-import java.text.DateFormat;
-import java.util.*;
-
 import com.it.br.gameserver.communitybbs.BB.Forum;
 import com.it.br.gameserver.communitybbs.BB.Post;
 import com.it.br.gameserver.communitybbs.BB.Post.CPost;
 import com.it.br.gameserver.communitybbs.BB.Topic;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.ShowBoard;
+
+import java.text.DateFormat;
+import java.util.*;
 
 public class PostBBSManager extends BaseBBSManager
 {

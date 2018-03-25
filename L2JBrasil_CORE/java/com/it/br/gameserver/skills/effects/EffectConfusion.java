@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.skills.effects;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.model.L2Character;
@@ -28,6 +25,9 @@ import com.it.br.gameserver.model.L2Effect;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.skills.Env;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**

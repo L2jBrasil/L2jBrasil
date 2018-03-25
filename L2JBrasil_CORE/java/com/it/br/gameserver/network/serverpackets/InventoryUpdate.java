@@ -18,13 +18,14 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.ItemInfo;
 import com.it.br.gameserver.model.L2ItemInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -54,7 +55,7 @@ import com.it.br.gameserver.model.L2ItemInstance;
 
 public class InventoryUpdate extends L2GameServerPacket
 {
-	private static Logger _log = Logger.getLogger(InventoryUpdate.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(InventoryUpdate.class);
 	private static final String _S__37_INVENTORYUPDATE = "[S] 27 InventoryUpdate";
 
     private List<ItemInfo> _items;
@@ -90,7 +91,7 @@ public class InventoryUpdate extends L2GameServerPacket
 	{
 		for (ItemInfo item : _items)
 		{
-			_log.fine("oid:" + Integer.toHexString(item.getObjectId()) +
+			_log.debug("oid:" + Integer.toHexString(item.getObjectId()) +
 					" item:" + item.getItem().getName()+" last change:" + item.getChange());
 		}
 	}

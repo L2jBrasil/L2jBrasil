@@ -25,19 +25,20 @@
 
 package com.it.br.gameserver.lib;
 
+import com.it.br.Config;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 public class Log
 {
-	private static final Logger _log = Logger.getLogger(Log.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(Log.class);
 
 	public static final void add(String text, String cat)
 	{
@@ -45,7 +46,7 @@ public class Log
         /*              Logger _log = logs.get(cat); 
 		if(_log == null)
 		{
-			_log = Logger.getLogger(cat);
+			_log = LoggerFactory.getLogger(cat);
 			logs.put(cat, _log);
 		}*/
 
@@ -67,7 +68,7 @@ public class Log
 		}
 		catch (IOException e)
 		{
-			_log.warning("saving chat log failed: " + e);
+			_log.warn("saving chat log failed: " + e);
 			e.printStackTrace();
 		}
 
@@ -93,7 +94,7 @@ public class Log
         }
         catch (IOException e)
         {
-            _log.warning("saving actions log failed: " + e);
+            _log.warn("saving actions log failed: " + e);
             e.printStackTrace();
         }
         finally

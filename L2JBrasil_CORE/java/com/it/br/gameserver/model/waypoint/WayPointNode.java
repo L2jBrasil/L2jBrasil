@@ -28,8 +28,6 @@
  */
 package com.it.br.gameserver.model.waypoint;
 
-import java.util.*;
-
 import com.it.br.Config;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.L2Character;
@@ -37,6 +35,8 @@ import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
 import com.it.br.util.Point3D;
+
+import java.util.*;
 
 /**
  * This class ...

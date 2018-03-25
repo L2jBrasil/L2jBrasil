@@ -25,10 +25,11 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
 import com.it.br.gameserver.network.serverpackets.StatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * This class ...
@@ -37,7 +38,7 @@ import java.util.logging.Logger;
  */
 public class L2TradeList
 {
-    private static Logger _log = Logger.getLogger(L2TradeList.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(L2TradeList.class);
 
 	private List<L2ItemInstance> _items;
 	private int _listId;
@@ -301,7 +302,7 @@ public class L2TradeList
 
             if(playerItem == null)
             {
-                _log.warning("L2TradeList: PlayersInv.destroyItem returned NULL!");
+                _log.warn("L2TradeList: PlayersInv.destroyItem returned NULL!");
                 continue;
             }
 
@@ -454,7 +455,7 @@ public class L2TradeList
 		        }
                 if (buyerItem.getCount() > Integer.MAX_VALUE / buyerItem.getOwnersPrice())
                 {
-                    _log.warning("Integer Overflow on Cost. Possible Exploit attempt between "+buyer.getName()+" and "+seller.getName()+".");
+                    _log.warn("Integer Overflow on Cost. Possible Exploit attempt between "+buyer.getName()+" and "+seller.getName()+".");
                     return;
                 }
                 //int cost = amount * buyerItem.getOwnersPrice();

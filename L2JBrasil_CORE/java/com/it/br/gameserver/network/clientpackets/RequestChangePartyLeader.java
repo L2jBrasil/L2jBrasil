@@ -28,7 +28,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 public final class RequestChangePartyLeader extends L2GameClientPacket{
 
 	private static final String _C__EE_REQUESTCHANGEPARTYLEADER = "[C] EE RequestChangePartyLeader";
-	//private static Logger _log = Logger.getLogger(RequestJoinParty.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestJoinParty.class);
 
 	private String _name;
 

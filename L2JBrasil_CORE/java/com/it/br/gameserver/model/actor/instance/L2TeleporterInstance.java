@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.Shutdown;
 import com.it.br.gameserver.datatables.xml.TeleportLocationTable;
@@ -34,6 +32,8 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
+import java.util.StringTokenizer;
+
 /**
  * @author NightMarez
  * @version $Revision: 1.3.2.2.2.5 $ $Date: 2005/03/27 15:29:32 $
@@ -41,7 +41,7 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
  */
 public final class L2TeleporterInstance extends L2FolkInstance
 {
-    //private static Logger _log = Logger.getLogger(L2TeleporterInstance.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(L2TeleporterInstance.class);
 
     private static final int COND_ALL_FALSE = 0;
     private static final int COND_BUSY_BECAUSE_OF_SIEGE = 1;
@@ -253,20 +253,20 @@ public final class L2TeleporterInstance extends L2FolkInstance
         	else if (!list.getIsForNoble() && (Config.ALT_GAME_FREE_TELEPORT || player.reduceAdena("Teleport", list.getPrice(), this, true)))
         	{
         		if (Config.DEBUG)
-        			_log.fine("Teleporting player " + player.getName() + " to new location: "
+        			_log.debug("Teleporting player " + player.getName() + " to new location: "
         					+ list.getLocX() + ":" + list.getLocY() + ":" + list.getLocZ());
         		player.teleToLocation(list.getLocX(), list.getLocY(), list.getLocZ(), true);
         	}
         	else if(list.getIsForNoble() && (Config.ALT_GAME_FREE_TELEPORT || player.destroyItemByItemId("Noble Teleport", 6651, list.getPrice(), this, true)))
         	{
         		if (Config.DEBUG)
-        			_log.fine("Teleporting player " + player.getName() + " to new location: " + list.getLocX() + ":" + list.getLocY() + ":" + list.getLocZ());
+        			_log.debug("Teleporting player " + player.getName() + " to new location: " + list.getLocX() + ":" + list.getLocY() + ":" + list.getLocZ());
         		player.teleToLocation(list.getLocX(), list.getLocY(), list.getLocZ(), true);
         	}
         }
         else
         {
-        	_log.warning("No teleport destination with id:" + val);
+        	_log.warn("No teleport destination with id:" + val);
         }
         player.sendPacket(new ActionFailed());
     }

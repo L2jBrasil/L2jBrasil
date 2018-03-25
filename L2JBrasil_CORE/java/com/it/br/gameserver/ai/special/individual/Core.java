@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Announcements;
@@ -36,6 +31,11 @@ import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.gameserver.network.serverpackets.PlaySound;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @reworked *slayer
@@ -61,7 +61,7 @@ public class Core extends Quest implements Runnable
 
 	List<L2Attackable> Minions = new ArrayList<>();
 	private Integer status;
-	//private static final Logger _log = Logger.getLogger(Core.class.getName());
+	//private static final Logger _log = LoggerFactory.getLogger(Core.class);
 
 	public Core(int id, String name, String descr)
 	{
@@ -143,7 +143,7 @@ public class Core extends Quest implements Runnable
 		}
 		else if(status == null)
 		{
-			_log.warning("GrandBoss with Id "+ CORE +" has not valid status into GrandBossManager");
+			_log.warn("GrandBoss with Id "+ CORE +" has not valid status into GrandBossManager");
 		}
 		else if(event.equalsIgnoreCase("spawn_minion") && status == ALIVE)
 		{

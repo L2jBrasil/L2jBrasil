@@ -20,6 +20,8 @@ package com.it.br.gameserver.instancemanager;
 
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,8 +29,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
   * @author Kerberos
@@ -36,7 +36,7 @@ import java.util.logging.Logger;
 
 public class RaidBossPointsManager
 {
-	private final static Logger _log = Logger.getLogger(RaidBossPointsManager.class.getName());
+	private final static Logger _log = LoggerFactory.getLogger(RaidBossPointsManager.class);
 	protected static Map<Integer, Map<Integer, Integer>> _list;
 	
 	private static final Comparator<Map.Entry<Integer, Integer>> _comparator = new Comparator<Map.Entry<Integer, Integer>>()
@@ -93,11 +93,11 @@ public class RaidBossPointsManager
 		}
 		catch (SQLException e)
 		{
-			_log.warning("RaidPointsManager: Couldnt load raid points ");
+			_log.warn("RaidPointsManager: Couldnt load raid points ");
 		}
 		catch (Exception e)
 		{
-			_log.warning(e.getMessage());
+			_log.warn(e.getMessage());
 		}
 		finally
 		{
@@ -122,7 +122,7 @@ public class RaidBossPointsManager
         }
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING, "could not update char raid points:", e);
+			_log.warn( "could not update char raid points:", e);
         }
 		finally
 		{
@@ -192,7 +192,7 @@ public class RaidBossPointsManager
         }
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING, "could not clean raid points: ", e);
+			_log.warn( "could not clean raid points: ", e);
         }
 		finally
 		{

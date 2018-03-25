@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.StringTokenizer;
-
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
@@ -30,6 +28,8 @@ import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.ValidateLocation;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.util.StringTokenizer;
 
 /**
  * This class ...
@@ -55,11 +55,11 @@ public class L2DoormenInstance extends L2FolkInstance
 
     public final ClanHall getClanHall()
     {
-        //_log.warning(this.getName()+" searching ch");
+        //_log.warn(this.getName()+" searching ch");
         if (_clanHall == null)
             _clanHall = ClanHallManager.getInstance().getNearbyClanHall(getX(), getY(), 500);
         //if (_ClanHall != null)
-        //    _log.warning(this.getName()+" found ch "+_ClanHall.getName());
+        //    _log.warn(this.getName()+" found ch "+_ClanHall.getName());
         return _clanHall;
     }
 

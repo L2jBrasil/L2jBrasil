@@ -18,7 +18,8 @@
  */
 package com.it.br.gameserver.ai2;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -27,7 +28,7 @@ import java.util.logging.Logger;
  */
 public abstract class EventHandler
 {
-	protected static final Logger _log = Logger.getLogger(EventHandler.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(EventHandler.class);
 	abstract AiEventType getEvenType();
 
 	/**

@@ -18,14 +18,14 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.instancemanager.QuestManager;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.network.serverpackets.QuestList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -35,7 +35,7 @@ import com.it.br.gameserver.network.serverpackets.QuestList;
 public final class RequestQuestAbort extends L2GameClientPacket
 {
 	private static final String _C__64_REQUESTQUESTABORT = "[C] 64 RequestQuestAbort";
-	private static Logger _log = Logger.getLogger(RequestQuestAbort.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestQuestAbort.class);
 
 	private int _questId;
 
@@ -70,7 +70,7 @@ public final class RequestQuestAbort extends L2GameClientPacket
             }
         } else
         {
-            if (Config.DEBUG) _log.warning("Quest (id='"+_questId+"') not found.");
+            if (Config.DEBUG) _log.warn("Quest (id='"+_questId+"') not found.");
         }
 	}
 

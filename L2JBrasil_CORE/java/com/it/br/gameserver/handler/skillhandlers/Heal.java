@@ -20,12 +20,8 @@ package com.it.br.gameserver.handler.skillhandlers;
 
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.handler.SkillHandler;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
-import com.it.br.gameserver.model.L2Summon;
 import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
 import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -43,7 +39,7 @@ import com.it.br.gameserver.skills.Stats;
 public class Heal implements ISkillHandler
 {
 	// all the items ids that this handler knowns
-	//private static Logger _log = Logger.getLogger(Heal.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(Heal.class);
 
 	/* (non-Javadoc)
 	 * @see com.it.br.gameserver.handler.IItemHandler#useItem(com.it.br.gameserver.model.L2PcInstance, com.it.br.gameserver.model.L2ItemInstance)

@@ -18,33 +18,22 @@
  */
 package com.it.br;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.LineNumberReader;
-import java.io.OutputStream;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
-
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.util.FloodProtectorConfig;
 import com.it.br.gameserver.util.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class contains global server configuration.<br>
@@ -57,7 +46,7 @@ import com.it.br.gameserver.util.StringUtil;
  */
 public final class Config
 {
-    protected static final Logger _log = Logger.getLogger(Config.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(Config.class);
 
     /* Properties Files Definitions */
 
@@ -2361,7 +2350,7 @@ public final class Config
 	    }
 	    catch (Exception e)
 	    {
-	    	_log.warning("Could not load extensions file (" + EXTENSIONS_FILE + ").");
+	    	_log.warn("Could not load extensions file ( {} ). ", EXTENSIONS_FILE);
 	    }
 	}
 
@@ -3131,7 +3120,7 @@ public final class Config
 	    }
 	    catch (Exception e)
 	    {
-	    	_log.warning("Could not load extensions file (" + SCRIPTING_FILE + ").");
+	    	_log.warn("Could not load extensions file ( {} ).", SCRIPTING_FILE);
 	    }
     }
 
@@ -3155,7 +3144,7 @@ public final class Config
 	    }
 	    catch (Exception e)
 	    {
-	        _log.warning("Could not load HexID file (" + HEXID_FILE + "). Hopefully login will give us one.");
+	        _log.warn("Could not load HexID file ( {} ). Hopefully login will give us one.",  HEXID_FILE);
 	    }
     }
     public static boolean RESERVE_HOST_ON_LOGIN = false;
@@ -3419,7 +3408,7 @@ public final class Config
         }
         catch (Exception e)
         {
-            _log.warning("Failed to save hex id to "+fileName+" File.");
+            _log.warn("Failed to save hex id to {} File.", fileName);
             e.printStackTrace();
         }
     }
@@ -3449,7 +3438,7 @@ public final class Config
 		}
 		else
 		{
-			_log.warning("Can't load config: server mode isn't set");
+			_log.warn("Can't load config: server mode isn't set");
 		}
 	}
 }

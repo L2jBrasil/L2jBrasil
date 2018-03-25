@@ -18,11 +18,9 @@
  */
 package com.it.br.gameserver.model.base;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
-import com.it.br.configuration.settings.ServerSettings;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * Character Sub-Class Definition

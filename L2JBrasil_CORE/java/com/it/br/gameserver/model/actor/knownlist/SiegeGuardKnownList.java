@@ -61,7 +61,7 @@ public class SiegeGuardKnownList extends AttackableKnownList
             // Check if player is not the defender
             if (player != null && (player.getClan() == null || getActiveChar().getCastle().getSiege().getAttackerClan(player.getClan()) != null))
             {
-                //if (Config.DEBUG) _log.fine(getObjectId()+": PK "+player.getObjectId()+" entered scan range");
+                //if (Config.DEBUG) _log.debug(getObjectId()+": PK "+player.getObjectId()+" entered scan range");
                 if (getActiveChar().getAI().getIntention() == CtrlIntention.AI_INTENTION_IDLE)
                     getActiveChar().getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE, null);//(L2Character)object);
             }

@@ -44,7 +44,7 @@ import static com.it.br.configuration.Configurator.getSettings;
 public final class Logout extends L2GameClientPacket
 {
 	private static final String _C__09_LOGOUT = "[C] 09 Logout";
-	//private static Logger _log = Logger.getLogger(Logout.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(Logout.class);
 
 	@Override
 	protected void readImpl()
@@ -71,7 +71,7 @@ public final class Logout extends L2GameClientPacket
 		if(AttackStanceTaskManager.getInstance().getAttackStanceTask(player) && !(player.isGM() && Config.GM_RESTART_FIGHTING))
 		{
 			if (Config.DEBUG) 
-				_log.fine("Player " + player.getName() + " tried to logout while fighting");
+				_log.debug("Player " + player.getName() + " tried to logout while fighting");
 			player.sendPacket(new SystemMessage(SystemMessageId.CANT_LOGOUT_WHILE_FIGHTING));
 			player.sendPacket(new ActionFailed());
 			return;
@@ -201,7 +201,7 @@ public final class Logout extends L2GameClientPacket
 			statement.close();
 		}
 		catch (Exception e) {
-			_log.warning("could not restore friend data:"+e);
+			_log.warn("could not restore friend data:"+e);
 		}
 		finally {
 			try {con.close();} catch (Exception e){}

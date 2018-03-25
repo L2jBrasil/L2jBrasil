@@ -2,6 +2,8 @@ package com.it.br.gameserver.database.dao;
 
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,14 +13,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
  * @version 3.0.4
  */
 public class SevenSignsDao {
-    private static final Logger _log = Logger.getLogger(SevenSignsDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(SevenSignsDao.class);
 
     private static String LOAD = "SELECT festivalId, cabal, cycle, date, score, members FROM seven_signs_festival";
 
@@ -44,7 +45,7 @@ public class SevenSignsDao {
         }
         catch (SQLException e)
         {
-            _log.warning( SevenSignsDao.class.getName() + ": Exception: load(): " + e.getMessage());
+            _log.warn( SevenSignsDao.class.getName() + ": Exception: load(): " + e.getMessage());
             e.printStackTrace();
         }
         return map;
@@ -73,7 +74,7 @@ public class SevenSignsDao {
             }
             catch (SQLException e)
             {
-                _log.warning( SevenSignsDao.class.getName() + ": Exception: selectCycle(): " + e.getMessage());
+                _log.warn( SevenSignsDao.class.getName() + ": Exception: selectCycle(): " + e.getMessage());
                 e.printStackTrace();
             }
         }

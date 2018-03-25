@@ -36,7 +36,7 @@ import com.it.br.gameserver.skills.Stats;
 
 public class ManaHeal implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(ManaHeal.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(ManaHeal.class);
 
 	/* (non-Javadoc)
 	 * @see com.it.br.gameserver.handler.IItemHandler#useItem(com.it.br.gameserver.model.L2PcInstance, com.it.br.gameserver.model.L2ItemInstance)

@@ -17,17 +17,19 @@
  */
 package com.it.br.loginserver.crypt;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigInteger;
 import java.security.KeyPair;
 import java.security.interfaces.RSAPublicKey;
-import java.util.logging.Logger;
 
 /**
  *
  */
 public class ScrambledKeyPair
 {
-	private static Logger _log = Logger.getLogger(ScrambledKeyPair.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(ScrambledKeyPair.class);
 	public KeyPair _pair;
 	public byte[] _scrambledModulus;
 
@@ -69,7 +71,7 @@ public class ScrambledKeyPair
 		{
 			scrambledMod[0x40 + i] = (byte) (scrambledMod[0x40 + i] ^ scrambledMod[i]);
 		}
-		_log.fine("Modulus was scrambled");
+		_log.debug("Modulus was scrambled");
 
 		return scrambledMod;
 	}

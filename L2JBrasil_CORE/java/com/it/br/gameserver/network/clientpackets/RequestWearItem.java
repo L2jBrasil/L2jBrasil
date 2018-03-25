@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.List;
-import java.util.concurrent.Future;
-import java.util.logging.Level;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.TradeController;
@@ -41,10 +37,13 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.util.Util;
 
+import java.util.List;
+import java.util.concurrent.Future;
+
 public final class RequestWearItem extends L2GameClientPacket
 {
     private static final String _C__C6_REQUESTWEARITEM = "[C] C6 RequestWearItem";
-    //protected static final Logger _log = Logger.getLogger(RequestWearItem.class.getName());
+    //protected static final Logger _log = LoggerFactory.getLogger(RequestWearItem.class);
 
     protected Future<?> _removeWearItemsTask;
 
@@ -74,7 +73,7 @@ public final class RequestWearItem extends L2GameClientPacket
             	_activeChar.destroyWearedItems("Wear", null, true);
 
             } catch (Throwable e){
-                _log.log(Level.SEVERE, "", e);
+                _log.error( "", e);
             }
         }
     }

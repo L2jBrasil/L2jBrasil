@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.ArrayList;
-
 import com.it.br.gameserver.model.L2Attackable;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2World;
+
+import java.util.ArrayList;
 
 /**
  *

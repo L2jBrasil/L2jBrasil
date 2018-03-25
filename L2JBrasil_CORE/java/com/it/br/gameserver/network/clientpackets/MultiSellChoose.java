@@ -30,24 +30,20 @@ import com.it.br.gameserver.model.PcInventory;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2Armor;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2Weapon;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class MultiSellChoose extends L2GameClientPacket
 {
 	private static final String _C__A7_MULTISELLCHOOSE = "[C] A7 MultiSellChoose";
-	//private static Logger _log = Logger.getLogger(MultiSellChoose.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(MultiSellChoose.class);
 	private int _listId;
 	private int _entryId;
 	private int _amount;
@@ -284,12 +280,12 @@ public class MultiSellChoose extends L2GameClientPacket
 				// this is a cheat, transaction will be aborted and if any items already tanken will not be returned back to inventory!
 				if (itemToTake == null)
 				{ 
-					_log.severe("Character: " + player.getName() + " is trying to cheat in multisell, merchatnt id:" + merchant.getNpcId());
+					_log.error("Character: " + player.getName() + " is trying to cheat in multisell, merchatnt id:" + merchant.getNpcId());
 					return;
 				}
 				if (itemToTake.isWear())
 				{
-					_log.severe("Character: " + player.getName() + " is trying to cheat in multisell with weared item");
+					_log.error("Character: " + player.getName() + " is trying to cheat in multisell with weared item");
                     return;
 				}
 				if (Config.ALT_BLACKSMITH_USE_RECIPES || !e.getMantainIngredient())

@@ -28,7 +28,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 public class RequestPrivateStoreQuitBuy extends L2GameClientPacket
 {
 	private static final String _C__93_REQUESTPRIVATESTOREQUITBUY = "[C] 93 RequestPrivateStoreQuitBuy";
-	//private static Logger _log = Logger.getLogger(RequestPrivateStoreQuitBuy.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestPrivateStoreQuitBuy.class);
 
 
 	@Override

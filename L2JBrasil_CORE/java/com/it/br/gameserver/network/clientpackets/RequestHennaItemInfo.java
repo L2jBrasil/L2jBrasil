@@ -32,7 +32,7 @@ import com.it.br.gameserver.templates.L2Henna;
 public final class RequestHennaItemInfo extends L2GameClientPacket
 {
 	private static final String _C__BB_RequestHennaItemInfo = "[C] bb RequestHennaItemInfo";
-	//private static Logger _log = Logger.getLogger(RequestHennaItemInfo.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestHennaItemInfo.class);
 	private int _symbolId;
 	// format  cd
 

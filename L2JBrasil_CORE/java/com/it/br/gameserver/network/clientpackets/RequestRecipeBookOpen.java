@@ -18,15 +18,15 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.RecipeController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class RequestRecipeBookOpen extends L2GameClientPacket
 {
     private static final String _C__AC_REQUESTRECIPEBOOKOPEN = "[C] AC RequestRecipeBookOpen";
-	private static Logger _log = Logger.getLogger(RequestRecipeBookOpen.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestRecipeBookOpen.class);
 
     private boolean _isDwarvenCraft;
 

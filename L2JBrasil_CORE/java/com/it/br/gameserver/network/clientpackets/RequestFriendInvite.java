@@ -29,12 +29,11 @@ import com.it.br.gameserver.util.Util;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.logging.Level;
 
 public final class RequestFriendInvite extends L2GameClientPacket
 {
 	private static final String _C__5E_REQUESTFRIENDINVITE = "[C] 5E RequestFriendInvite";
-	//private static Logger _log = Logger.getLogger(RequestFriendInvite.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestFriendInvite.class);
 	private String _name;
 
 
@@ -113,7 +112,7 @@ public final class RequestFriendInvite extends L2GameClientPacket
 		}
 		catch (Exception e)
 		{
-		    _log.log(Level.WARNING, "could not add friend objectid: ", e);
+		    _log.warn( "could not add friend objectid: ", e);
 		}
 		finally
 		{

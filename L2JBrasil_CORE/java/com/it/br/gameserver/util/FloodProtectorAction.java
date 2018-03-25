@@ -12,13 +12,13 @@
  */
 package com.it.br.gameserver.util;
 
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.L2GameClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Flood protector implementation.
@@ -31,7 +31,7 @@ public final class FloodProtectorAction
         /**
          * Logger
          */
-        private static final Logger _log = Logger.getLogger(FloodProtectorAction.class.getName());
+        private static final Logger _log = LoggerFactory.getLogger(FloodProtectorAction.class);
         /**
          * Client for this instance of flood protector.
          */
@@ -87,7 +87,7 @@ public final class FloodProtectorAction
                 
                 if (curTick < _nextGameTick || _punishmentInProgress)
                 {
-                        if (_config.LOG_FLOODING && !_logged && _log.isLoggable(Level.WARNING))
+                        if (_config.LOG_FLOODING && !_logged && _log.isWarnEnabled())
                         {
                                 log(" called command ", command, " ~", String.valueOf((_config.FLOOD_PROTECTION_INTERVAL - (_nextGameTick - curTick)) * GameTimeController.MILLIS_IN_TICK), " ms after previous command");
                                 _logged = true;
@@ -120,7 +120,7 @@ public final class FloodProtectorAction
                 
                 if (_count.get() > 0)
                 {
-                        if (_config.LOG_FLOODING && _log.isLoggable(Level.WARNING))
+                        if (_config.LOG_FLOODING && _log.isWarnEnabled())
                         {
                                 log(" issued ", String.valueOf(_count), " extra requests within ~", String.valueOf(_config.FLOOD_PROTECTION_INTERVAL * GameTimeController.MILLIS_IN_TICK), " ms");
                         }
@@ -143,7 +143,7 @@ public final class FloodProtectorAction
                 else
                         _client.closeNow();
 
-                if (_log.isLoggable(Level.WARNING))
+                if (_log.isWarnEnabled())
                 {
                         log("kicked for flooding");
                 }
@@ -158,7 +158,7 @@ public final class FloodProtectorAction
                 {
                         _client.getActiveChar().setPunishLevel(L2PcInstance.PunishLevel.ACC, _config.PUNISHMENT_TIME);
 
-                        if (_log.isLoggable(Level.WARNING))
+                        if (_log.isWarnEnabled())
                         {
                                 log(" banned for flooding ", _config.PUNISHMENT_TIME <= 0 ? "forever" : "for " + _config.PUNISHMENT_TIME + " mins");
                         }
@@ -178,7 +178,7 @@ public final class FloodProtectorAction
                 {
                         _client.getActiveChar().setPunishLevel(L2PcInstance.PunishLevel.JAIL, _config.PUNISHMENT_TIME);
                         
-                        if (_log.isLoggable(Level.WARNING))
+                        if (_log.isWarnEnabled())
                         {
                                 log(" jailed for flooding ", _config.PUNISHMENT_TIME <= 0 ? "forever" : "for " + _config.PUNISHMENT_TIME + " mins");
                         }
@@ -220,6 +220,6 @@ public final class FloodProtectorAction
                 }
 
                 StringUtil.append(output, lines);
-                _log.warning(output.toString());
+                _log.warn(output.toString());
         }
 }

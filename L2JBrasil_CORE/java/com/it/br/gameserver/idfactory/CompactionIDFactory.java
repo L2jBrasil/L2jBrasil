@@ -30,12 +30,13 @@ package com.it.br.gameserver.idfactory;
 
 import com.it.br.Config;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 /**
  * This class ...
@@ -45,7 +46,7 @@ import java.util.logging.Logger;
 
 public class CompactionIDFactory extends IdFactory
 {
-    private static Logger _log = Logger.getLogger(CompactionIDFactory.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(CompactionIDFactory.class);
     private int _curOID;
     private int _freeSize;
 
@@ -66,13 +67,13 @@ public class CompactionIDFactory extends IdFactory
                 N = insertUntil(tmp_obj_ids, idx, N, con);
             }
             _curOID++;
-            _log.config("IdFactory: Next usable Object ID is: " + _curOID);
+            _log.info("IdFactory: Next usable Object ID is: " + _curOID);
             _initialized = true;
         }
         catch (Exception e1)
         {
             e1.printStackTrace();
-            _log.severe("ID Factory could not be initialized correctly:" + e1);
+            _log.error("ID Factory could not be initialized correctly:" + e1);
         }
     }
 
@@ -97,7 +98,7 @@ public class CompactionIDFactory extends IdFactory
             while (rs.next())
             {
                 int badId = rs.getInt(1);
-                _log.severe("Bad ID " + badId + " in DB found by: " + check);
+                _log.error("Bad ID " + badId + " in DB found by: " + check);
                 throw new RuntimeException();
             }
             rs.close();

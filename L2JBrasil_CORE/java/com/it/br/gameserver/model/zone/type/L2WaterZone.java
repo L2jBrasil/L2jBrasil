@@ -14,13 +14,13 @@
  */
 package com.it.br.gameserver.model.zone.type;
 
-import java.util.Collection;
-
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.zone.L2ZoneType;
 import com.it.br.gameserver.network.serverpackets.NpcInfo;
+
+import java.util.Collection;
 
 public class L2WaterZone extends L2ZoneType
 {

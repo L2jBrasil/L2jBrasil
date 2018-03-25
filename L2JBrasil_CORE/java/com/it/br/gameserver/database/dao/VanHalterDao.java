@@ -4,20 +4,21 @@ import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
  * @version 3.0.4
  */
 public class VanHalterDao {
-    private static Logger _log = Logger.getLogger(VanHalterDao.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(VanHalterDao.class);
     private static String LOAD_FROM_VAN_HALTER_SPAWNLIST_BETWEEN_ID = "SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist WHERE npc_templateid BETWEEN ? AND ? ORDER BY id";
     private static String LOAD_FROM_VAN_HALTER_SPAWNLIST_BY_ID = "SELECT id, count, npc_templateid, locx, locy, locz, heading, respawn_delay FROM vanhalter_spawnlist WHERE npc_templateid = ? ORDER BY id";
 
@@ -55,14 +56,14 @@ public class VanHalterDao {
                 }
                 else
                 {
-                    _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListBetweenIds: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
+                    _log.warn(VanHalterDao.class.getName() + ".loadFromSpawnListBetweenIds: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
                 }
             }
 
         }
         catch(Exception e)
         {
-            _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListBetweenIds(): Spawn Royals could not be initialized: " + e);
+            _log.warn(VanHalterDao.class.getName() + ".loadFromSpawnListBetweenIds(): Spawn Royals could not be initialized: " + e);
             e.printStackTrace();
         }
         return list;
@@ -96,11 +97,11 @@ public class VanHalterDao {
                     spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
                 }
                 else {
-                    _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListById(int id): Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
+                    _log.warn(VanHalterDao.class.getName() + ".loadFromSpawnListById(int id): Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
                 }
             }
         } catch (Exception e) {
-            _log.warning(VanHalterDao.class.getName() + ".loadFromSpawnListById(int id): Spawn could not be initialized: " + e);
+            _log.warn(VanHalterDao.class.getName() + ".loadFromSpawnListById(int id): Spawn could not be initialized: " + e);
             e.printStackTrace();
         }
         return spawnDat;

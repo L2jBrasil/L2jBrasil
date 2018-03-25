@@ -111,5 +111,6 @@
     <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
     <orderEntry type="library" name="logback" level="project" />
     <orderEntry type="library" name="slf4j" level="project" />
+    <orderEntry type="module" module-name="L2JBrasil_MMOCore" />
   </component>
 </module>

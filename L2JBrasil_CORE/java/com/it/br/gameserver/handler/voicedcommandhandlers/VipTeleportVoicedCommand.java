@@ -20,15 +20,15 @@
 
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
-
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class VipTeleportVoicedCommand implements IVoicedCommandHandler
 {

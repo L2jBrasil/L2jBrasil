@@ -35,17 +35,14 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
 import com.it.br.gameserver.skills.SkillsEngine;
 import com.it.br.gameserver.templates.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
 
 /**
  * This class ...
@@ -54,8 +51,8 @@ import java.util.logging.Logger;
  */
 public class ItemTable
 {
-    private static Logger _log = Logger.getLogger(ItemTable.class.getName());
-	private static Logger _logItems = Logger.getLogger("item");
+    private static Logger _log = LoggerFactory.getLogger(ItemTable.class);
+	private static Logger _logItems = LoggerFactory.getLogger("item");
 
     private static final Map<String, Integer> _materials = new HashMap<>();
 
@@ -225,19 +222,19 @@ public class ItemTable
 		{
             _armors.put(armor.getItemId(), armor);
 		}
-        _log.config("ItemTable: Loaded " + _armors.size() + " Armors.");
+        _log.info("ItemTable: Loaded " + _armors.size() + " Armors.");
 
         for (L2EtcItem item : SkillsEngine.getInstance().loadItems(itemData))
 		{
             _etcItems.put(item.getItemId(), item);
 		}
-        _log.config("ItemTable: Loaded " + _etcItems.size() + " Items.");
+        _log.info("ItemTable: Loaded " + _etcItems.size() + " Items.");
 
         for (L2Weapon weapon : SkillsEngine.getInstance().loadWeapons(weaponData))
 		{
             _weapons.put(weapon.getItemId(), weapon);
 		}
-        _log.config("ItemTable: Loaded " + _weapons.size() + " Weapons.");
+        _log.info("ItemTable: Loaded " + _weapons.size() + " Weapons.");
 
 		buildFastLookupTable();
 	}
@@ -331,7 +328,7 @@ public class ItemTable
 		}
 
 		// Create a FastLookUp Table called _allTemplates of size : value of the highest item ID
-		if (Config.DEBUG) _log.fine("highest item id used:" + highestId);
+		if (Config.DEBUG) _log.debug("highest item id used:" + highestId);
 		_allTemplates = new L2Item[highestId +1];
 
 		// Insert armor item in Fast Look Up Table
@@ -423,7 +420,7 @@ public class ItemTable
             item.setItemLootShedule(itemLootShedule);
         }
 
-		if (Config.DEBUG) _log.fine("ItemTable: Item created  oid:" + item.getObjectId()+ " itemid:" + itemId);
+		if (Config.DEBUG) _log.debug("ItemTable: Item created  oid:" + item.getObjectId()+ " itemid:" + itemId);
 
 		// Add the L2ItemInstance object to _allObjects of L2world
 		L2World.getInstance().storeObject(item);
@@ -431,12 +428,8 @@ public class ItemTable
 		// Set Item parameters
 		if (item.isStackable() && count > 1) item.setCount(count);
 
-		if (Config.LOG_ITEMS)
-		{
-			LogRecord record = new LogRecord(Level.INFO, "CREATE:" + process);
-			record.setLoggerName("item");
-			record.setParameters(new Object[]{item, actor, reference});
-			_logItems.log(record);
+		if (Config.LOG_ITEMS)  {
+			_logItems.info("CREATE: {} {} {} {}", process, item, actor, reference);
 		}
 
 		return item;
@@ -471,7 +464,7 @@ public class ItemTable
 
 		if (temp.getItem() == null)
 		{
-			_log.warning("ItemTable: Item Template missing for Id: "+ itemId);
+			_log.warn("ItemTable: Item Template missing for Id: "+ itemId);
 		}
 
 		return temp;
@@ -504,10 +497,7 @@ public class ItemTable
 
 			if (Config.LOG_ITEMS)
 			{
-				LogRecord record = new LogRecord(Level.INFO, "DELETE:" + process);
-				record.setLoggerName("item");
-				record.setParameters(new Object[]{item, actor, reference});
-				_logItems.log(record);
+				_logItems.info("CREATE: {} {} {} {}", process, item, actor, reference);
 			}
 
 			// if it's a pet control item, delete the pet as well

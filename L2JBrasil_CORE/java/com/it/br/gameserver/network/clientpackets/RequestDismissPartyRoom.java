@@ -20,7 +20,7 @@ package com.it.br.gameserver.network.clientpackets;
 
 public class RequestDismissPartyRoom extends L2GameClientPacket
 {
-	//private static Logger _log = Logger.getLogger(RequestDismissPartyRoom.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestDismissPartyRoom.class);
 	private static final String _C__D0_02_REQUESTDISMISSPARTYROOM = "[C] D0:02 RequestDismissPartyRoom";
 	private int _data1;
 	private int _data2;

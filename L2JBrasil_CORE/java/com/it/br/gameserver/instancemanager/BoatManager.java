@@ -18,16 +18,6 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.LineNumberReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.ServerSettings;
@@ -35,13 +25,20 @@ import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.actor.instance.L2BoatInstance;
 import com.it.br.gameserver.templates.L2CharTemplate;
 import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 
 
 
 public class BoatManager
 {
-	private static final Logger _log = Logger.getLogger(BoatManager.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(BoatManager.class);
 
     // =========================================================
 	private static BoatManager _instance;
@@ -103,12 +100,12 @@ public class BoatManager
 		catch (FileNotFoundException e)
 		{
 			_initialized = false;
-			_log.warning("boat.csv is missing in data folder");
+			_log.warn("boat.csv is missing in data folder");
 		}
 		catch (Exception e)
 		{
 			_initialized = false;
-			_log.warning("error while creating boat table " + e);
+			_log.warn("error while creating boat table " + e);
 			e.printStackTrace();
 		}
 		finally

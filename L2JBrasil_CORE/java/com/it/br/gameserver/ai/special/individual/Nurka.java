@@ -1,13 +1,13 @@
 package com.it.br.gameserver.ai.special.individual;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.instancemanager.clanhallsiege.FortResistSiege;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.model.quest.State;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Nurka extends Quest implements Runnable
 {

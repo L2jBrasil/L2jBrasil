@@ -7,12 +7,13 @@ import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.templates.L2EtcItemType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class ItemsOnGroundDao {
 
-    private static final Logger _log = Logger.getLogger(ItemsOnGroundDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(ItemsOnGroundDao.class);
     private static final String UPDATE_ITEMS_MISC_ONLY = "UPDATE itemsonground SET drop_time=? WHERE drop_time=-1 AND equipable=0";
     private static final String UPDATE_ITEMS_ALL = "UPDATE itemsonground SET drop_time=? WHERE drop_time=-1";
     private static final String SELECT_ITEMS_GROUND = "SELECT object_id, item_id, count, enchant_level, x, y, z, drop_time, equipable FROM itemsonground";
@@ -39,7 +40,7 @@ public class ItemsOnGroundDao {
         }
         catch (SQLException e)
         {
-            _log.warning(ItemsOnGroundDao.class.getName() + " : error while updating table ItemsOnGround " + e);
+            _log.warn(ItemsOnGroundDao.class.getName() + " : error while updating table ItemsOnGround " + e);
             e.printStackTrace();
         }
     }
@@ -93,7 +94,7 @@ public class ItemsOnGroundDao {
         }
         catch (SQLException e)
         {
-            _log.warning(ItemsOnGroundDao.class.getName() + " : error while select table ItemsOnGround " + e);
+            _log.warn(ItemsOnGroundDao.class.getName() + " : error while select table ItemsOnGround " + e);
             e.printStackTrace();
         }
     }
@@ -106,7 +107,7 @@ public class ItemsOnGroundDao {
         }
         catch (SQLException e)
         {
-            _log.warning(ItemsOnGroundDao.class.getName() + " : error while cleaning table ItemsOnGround using DELETE " + e);
+            _log.warn(ItemsOnGroundDao.class.getName() + " : error while cleaning table ItemsOnGround using DELETE " + e);
             e.printStackTrace();
         }
     }
@@ -135,7 +136,7 @@ public class ItemsOnGroundDao {
         }
         catch (SQLException e)
         {
-            _log.warning(ItemsOnGroundDao.class.getName() + " : error while inserting into table ItemsOnGround " + e);
+            _log.warn(ItemsOnGroundDao.class.getName() + " : error while inserting into table ItemsOnGround " + e);
             e.printStackTrace();
         }
     }

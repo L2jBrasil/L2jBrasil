@@ -20,15 +20,10 @@ package com.it.br.gameserver.datatables;
 
 
 import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.database.dao.PetsDao;
-import com.it.br.gameserver.datatables.xml.L2PetDataTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -37,7 +32,7 @@ import static com.it.br.configuration.Configurator.getSettings;
 
 public class PetNameTable
 {
-	private static Logger _log = Logger.getLogger(PetNameTable.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(PetNameTable.class);
 
 	private static PetNameTable _instance;
 
@@ -68,7 +63,7 @@ public class PetNameTable
         }
         catch (PatternSyntaxException e) // case of illegal pattern
         {
-        	_log.warning("ERROR : Pet name pattern of config is wrong!");
+        	_log.warn("ERROR : Pet name pattern of config is wrong!");
             pattern = Pattern.compile(".*");
         }
         Matcher regexp = pattern.matcher(name);

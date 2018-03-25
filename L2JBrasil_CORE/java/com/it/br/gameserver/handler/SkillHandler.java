@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.handler;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 import com.it.br.gameserver.handler.skillhandlers.*;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2Skill.SkillType;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 public class SkillHandler
 {

@@ -18,16 +18,16 @@
  */
 package com.it.br.gameserver.model.Olympiad;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.util.L2FastList;
 import com.it.br.util.Rnd;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 class OlympiadManager extends Olympiad implements Runnable
 {

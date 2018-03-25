@@ -17,13 +17,13 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Logger;
-
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.network.L2GameClient;
 import com.l2jserver.mmocore.network.SendablePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  *
@@ -31,7 +31,7 @@ import com.l2jserver.mmocore.network.SendablePacket;
  */
 public abstract class L2GameServerPacket extends SendablePacket<L2GameClient>
 {
-	private static final Logger _log = Logger.getLogger(L2GameServerPacket.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(L2GameServerPacket.class);
 
 	/**
 	 * @see com.l2jserver.mmocore.network.SendablePacket#write()
@@ -50,7 +50,7 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient>
 			if (!serverSettings.isDebugPacketEnabled())
 				return;
 			
-			_log.severe("Client: "+getClient().toString()+" - Failed writing: "+getType());
+			_log.error("Client: "+getClient().toString()+" - Failed writing: "+getType());
 			t.printStackTrace();
 		}
 	}

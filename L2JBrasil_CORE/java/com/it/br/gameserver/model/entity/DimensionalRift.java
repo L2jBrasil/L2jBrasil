@@ -18,17 +18,17 @@
  */
 package com.it.br.gameserver.model.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import com.it.br.Config;
 import com.it.br.gameserver.instancemanager.DimensionalRiftManager;
 import com.it.br.gameserver.model.L2Party;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
 * Thanks to L2Fortress and balancer.ru - kombat

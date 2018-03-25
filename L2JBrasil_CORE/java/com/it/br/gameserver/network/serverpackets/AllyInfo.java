@@ -29,7 +29,7 @@ import com.it.br.gameserver.network.SystemMessageId;
  */
 public class AllyInfo extends L2GameServerPacket
 {
-	//private static Logger _log = Logger.getLogger(AllyInfo.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(AllyInfo.class);
 	private static final String _S__B5_ALLYINFO = "[S] 7a AllyInfo";
 	private static L2PcInstance _cha ;
 

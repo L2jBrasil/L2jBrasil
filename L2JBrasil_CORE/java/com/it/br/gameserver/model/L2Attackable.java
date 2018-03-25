@@ -18,14 +18,6 @@
  */
 package com.it.br.gameserver.model;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.ItemsAutoDestroy;
@@ -38,18 +30,7 @@ import com.it.br.gameserver.datatables.EventDroplist;
 import com.it.br.gameserver.datatables.EventDroplist.DateDrop;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
-import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
-import com.it.br.gameserver.model.actor.instance.L2MinionInstance;
-import com.it.br.gameserver.model.actor.instance.L2MonsterInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PetInstance;
-import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
-import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
-import com.it.br.gameserver.model.actor.instance.L2SiegeGuardInstance;
-import com.it.br.gameserver.model.actor.instance.L2SummonInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.model.actor.knownlist.AttackableKnownList;
 import com.it.br.gameserver.model.base.SoulCrystal;
 import com.it.br.gameserver.model.quest.Quest;
@@ -63,6 +44,13 @@ import com.it.br.gameserver.templates.L2EtcItemType;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class L2Attackable extends L2NpcInstance
 {
@@ -435,7 +423,7 @@ public class L2Attackable extends L2NpcInstance
                 levelSoulCrystals(killer);
             }
         }
-        catch (Exception e) { _log.log(Level.SEVERE, "", e); }
+        catch (Exception e) { _log.error( "", e); }
 
         // Notify the Quest Engine of the L2Attackable death if necessary
         try 
@@ -449,7 +437,7 @@ public class L2Attackable extends L2NpcInstance
             			quest.notifyKill(this, player, killer instanceof L2Summon);
             }
         }
-        catch (Exception e) { _log.log(Level.SEVERE, "", e); }
+        catch (Exception e) { _log.error( "", e); }
         setChampion(false);
         L2JModsSettings l2jModsSettings = getSettings(L2JModsSettings.class);
         if (l2jModsSettings.isChampionEnabled())
@@ -759,7 +747,7 @@ public class L2Attackable extends L2NpcInstance
         }
         catch (Exception e)
         {
-        	_log.log(Level.SEVERE, "", e);
+        	_log.error( "", e);
         }
     }
 
@@ -784,7 +772,7 @@ public class L2Attackable extends L2NpcInstance
 						for (Quest quest: getTemplate().getEventQuests(Quest.QuestEventType.ON_ATTACK))
 					quest.notifyAttack(this, player, damage, attacker instanceof L2Summon);
 			}
-			catch (Exception e) { _log.log(Level.SEVERE, "", e); 
+			catch (Exception e) { _log.error( "", e);
 			}
     	}		
         addDamageHate(attacker, damage, damage);
@@ -1037,7 +1025,7 @@ public class L2Attackable extends L2NpcInstance
 				itemCount *= l2jModsSettings.getChampionAdenasRewards();
 
          if (itemCount > 0) return new RewardItem(drop.getItemId(), itemCount);
-         else if (itemCount == 0 && Config.DEBUG) _log.fine("Roll produced 0 items to drop...");
+         else if (itemCount == 0 && Config.DEBUG) _log.debug("Roll produced 0 items to drop...");
 
          return null;
 	 }
@@ -1159,7 +1147,7 @@ public class L2Attackable extends L2NpcInstance
                       itemCount = 1; 
               if (itemCount > 0)
                   return new RewardItem(drop.getItemId(), itemCount);
-              else if (itemCount == 0 && Config.DEBUG) _log.fine("Roll produced 0 items to drop...");
+              else if (itemCount == 0 && Config.DEBUG) _log.debug("Roll produced 0 items to drop...");
         }
         return null;
 
@@ -1185,7 +1173,7 @@ public class L2Attackable extends L2NpcInstance
 
 
          if (itemCount > 0) return new RewardItem(drop.getItemId(), itemCount);
-         else if (itemCount == 0 && Config.DEBUG) _log.fine("Roll produced 0 items to drop...");
+         else if (itemCount == 0 && Config.DEBUG) _log.debug("Roll produced 0 items to drop...");
 
          return null;
          */
@@ -1268,7 +1256,7 @@ public class L2Attackable extends L2NpcInstance
 	    	        	 item = calculateRewardItem(player, drop, levelModifier, true);
 	    	        	 if (item == null) continue;
 
-	    	        	 if (Config.DEBUG) _log.fine("Item id to spoil: " + item.getItemId() + " amount: " + item.getCount());
+	    	        	 if (Config.DEBUG) _log.debug("Item id to spoil: " + item.getItemId() + " amount: " + item.getCount());
 	    	        	 sweepList.add(item);
 	    	         }
 
@@ -1294,7 +1282,7 @@ public class L2Attackable extends L2NpcInstance
 
     			 if (item != null)
     			 {
-    				 if (Config.DEBUG) _log.fine("Item id to drop: " + item.getItemId() + " amount: " + item.getCount());
+    				 if (Config.DEBUG) _log.debug("Item id to drop: " + item.getItemId() + " amount: " + item.getCount());
 
 					 // Check if the autoLoot mode is active
     				 if (Config.AUTO_LOOT_RAIDS && !Config.NO_AUTO_LOOT_LIST.contains(this.getNpcId()) && isRaid()) 
@@ -1917,7 +1905,7 @@ public class L2Attackable extends L2NpcInstance
                             }
                             catch (NumberFormatException nfe)
                             {
-                                _log.log(Level.WARNING, "An attempt to identify a soul crystal failed, " +
+                                _log.warn( "An attempt to identify a soul crystal failed, " +
                                                         "verify the names have not changed in etcitem "  +
                                                         "table.", nfe);
 

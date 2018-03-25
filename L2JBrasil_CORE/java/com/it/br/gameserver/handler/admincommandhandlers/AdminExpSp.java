@@ -28,12 +28,13 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.util.IllegalPlayerAction;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Logger;
 /**
  * This class handles following admin commands:
  * <li> add_exp_sp_to_character <i>shows menu for add or remove</i>
@@ -43,7 +44,7 @@ import java.util.logging.Logger;
  */
 public class AdminExpSp implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminExpSp.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminExpSp.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -183,7 +184,7 @@ public class AdminExpSp implements IAdminCommandHandler
              //Warn the GM about his inmediate ban. 
              player.sendMessage("You tried to edit "+player.getName()+" by "+expval+" exp points and "+spval+". You both be banned now."); 
                  Util.handleIllegalPlayerAction(activeChar,"El GM "+activeChar.getName()+" ha editado a alguien. BAN!!", IllegalPlayerAction.PUNISH_KICKBAN); 
-             _log.severe("GM "+activeChar.getName()+" tried to edit "+player.getName()+". They both have been Banned."); 
+             _log.error("GM "+activeChar.getName()+" tried to edit "+player.getName()+". They both have been Banned.");
              } 
 			if(expval != 0 || spval != 0)
 			{
@@ -193,7 +194,7 @@ public class AdminExpSp implements IAdminCommandHandler
 				//Admin information
 				activeChar.sendMessage("Added "+expval+" xp and "+spval+" sp to "+player.getName()+".");
 				if (Config.DEBUG)
-					_log.fine("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") added "+expval+
+					_log.debug("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") added "+expval+
 							" xp and "+spval+" sp to "+player.getObjectId()+".");
 			}
 		}
@@ -239,7 +240,7 @@ public class AdminExpSp implements IAdminCommandHandler
 				//Admin information
 				activeChar.sendMessage("Removed "+expval+" xp and "+spval+" sp from "+player.getName()+".");
 				if (Config.DEBUG)
-					_log.fine("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") removed "+expval+
+					_log.debug("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") removed "+expval+
 							" xp and "+spval+" sp from "+player.getObjectId()+".");
 			}
 		}

@@ -9,6 +9,8 @@ import com.it.br.loginserver.GameServerTable.GameServerInfo;
 import com.it.br.loginserver.crypt.ScrambledKeyPair;
 import com.it.br.util.Rnd;
 import com.it.br.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.crypto.Cipher;
 import java.net.InetAddress;
@@ -23,7 +25,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
@@ -34,7 +35,7 @@ import static com.it.br.configuration.Configurator.getSettings;
  */
 public class LoginController
 {
-	protected static final Logger _log = Logger.getLogger(LoginController.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(LoginController.class);
 
 	private static LoginController _instance;
 
@@ -383,7 +384,7 @@ public class LoginController
 				}
 				catch (Exception e)
 				{
-					_log.warning("Could not set lastServer: "+e);
+					_log.warn("Could not set lastServer: "+e);
 				}
 				finally
 				{
@@ -414,7 +415,7 @@ public class LoginController
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not set accessLevel: "+e);
+			_log.warn("Could not set accessLevel: "+e);
 		}
 		finally
 		{
@@ -451,7 +452,7 @@ public class LoginController
 		}
 		catch (Exception e)
 		{
-			_log.warning("could not check gm state:" + e);
+			_log.warn("could not check gm state:" + e);
 			ok = false;
 		}
 		finally
@@ -511,7 +512,7 @@ public class LoginController
 				access = rset.getInt("access_level");
 				lastServer = rset.getInt("lastServer");
 				if (lastServer <= 0) lastServer = 1; // minServerId is 1 in Interlude
-				if (Config.DEBUG) _log.fine("account exists");
+				if (Config.DEBUG) _log.debug("account exists");
 			}
 			rset.close();
 			statement.close();
@@ -537,10 +538,10 @@ public class LoginController
 						return true;
 
 					}
-					_log.warning("Invalid username creation/use attempt: " + user);
+					_log.warn("Invalid username creation/use attempt: " + user);
 					return false;
 				}
-				_log.warning("account missing for user " + user);
+				_log.warn("account missing for user " + user);
 				return false;
 			}
 			else
@@ -578,7 +579,7 @@ public class LoginController
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not check password:" + e);
+			_log.warn("Could not check password:" + e);
 			ok = false;
 		}
 		finally
@@ -648,7 +649,7 @@ public class LoginController
 		{
 			// digest algo not found ??
 			// out of bounds should not be possible
-			_log.warning("could not check ban state:" + e);
+			_log.warn("could not check ban state:" + e);
 			ok = false;
 		}
 		finally

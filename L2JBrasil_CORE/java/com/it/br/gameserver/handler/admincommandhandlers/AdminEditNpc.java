@@ -29,20 +29,21 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.logging.Logger;
 
 /**
  * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminEditNpc implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminEditChar.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminEditChar.class);
     private final static int PAGE_LIMIT = 7;
     private static Map<String, Integer> admin = new HashMap<>();
 
@@ -220,7 +221,7 @@ public class AdminEditNpc implements IAdminCommandHandler
 					}
 					catch(Exception e)
 					{
-						_log.warning("admin_edit_skill_npc parements error: " + command);
+						_log.warn("admin_edit_skill_npc parements error: " + command);
 					}
 				}
 				else
@@ -267,7 +268,7 @@ public class AdminEditNpc implements IAdminCommandHandler
 					}
 					catch(Exception e)
 					{
-						_log.warning("admin_add_skill_npc parements error: " + command);
+						_log.warn("admin_add_skill_npc parements error: " + command);
 					}
 				}
 				else
@@ -336,7 +337,7 @@ public class AdminEditNpc implements IAdminCommandHandler
 					}
 					catch (Exception e)
 					{
-						_log.fine("admin_edit_drop parements error: " + command);
+						_log.debug("admin_edit_drop parements error: " + command);
 					}
 				}
 				else
@@ -386,7 +387,7 @@ public class AdminEditNpc implements IAdminCommandHandler
 					}
 					catch (Exception e)
 					{
-						_log.fine("admin_add_drop parements error: " + command);
+						_log.debug("admin_add_drop parements error: " + command);
 					}
 				}
 				else
@@ -963,7 +964,7 @@ public class AdminEditNpc implements IAdminCommandHandler
 		}
 		catch (Exception e)
 		{
-			_log.warning("Error saving new npc value: " + e);
+			_log.warn("Error saving new npc value: " + e);
 		}
 
 		NpcDao.updateNpc(newNpcData);

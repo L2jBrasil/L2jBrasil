@@ -1,7 +1,5 @@
 package com.it.br.gameserver.handler.itemhandlers;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -11,6 +9,8 @@ import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @author Stefoulis15

@@ -14,7 +14,6 @@
  */
 package com.it.br.gameserver.model.entity.event;
 
-import com.it.br.Config;
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Summon;
@@ -23,10 +22,10 @@ import com.it.br.gameserver.model.entity.Duel;
 import com.it.br.util.Rnd;
 import com.it.br.util.Util;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class TvTEventTeleporter implements Runnable
 {

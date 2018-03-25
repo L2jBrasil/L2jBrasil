@@ -34,7 +34,7 @@ import com.it.br.util.Rnd;
 
 public class Unlock implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(Unlock.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(Unlock.class);
 	private static final SkillType[] SKILL_IDS = {SkillType.UNLOCK};
 
 

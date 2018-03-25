@@ -24,6 +24,8 @@ import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.io.filters.BmpFilter;
 import com.it.br.gameserver.io.filters.OldPledgeFilter;
 import com.it.br.gameserver.model.L2Clan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.sql.Connection;
@@ -31,15 +33,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Layane
  */
 public class CrestCache
 {
-	private static final Logger _log = Logger.getLogger(CrestCache.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(CrestCache.class);
 	
 	private final static List<CrestData> cache = new ArrayList<>();
 	
@@ -108,7 +108,7 @@ public class CrestCache
 			}
 			catch (Exception e)
 			{
-				_log.log(Level.WARNING, "Problem with loading crest bmp file: " + file, e);
+				_log.warn( "Problem with loading crest bmp file: " + file, e);
 			}
 		}
 		
@@ -146,7 +146,7 @@ public class CrestCache
 				}
 				catch (SQLException e)
 				{
-					_log.log(Level.WARNING, "Could not update the crest id:", e);
+					_log.warn( "Could not update the crest id:", e);
 				}
 				
 				clan.setCrestId(newId);
@@ -184,7 +184,7 @@ public class CrestCache
 		
 		File crestFile = new File(CRESTS_DIR + crestDirPrefix + id + ".bmp");
 		if (!crestFile.delete())
-			_log.log(Level.WARNING, "CrestCache: Failed to delete " + crestDirPrefix + id + ".bmp");
+			_log.warn( "CrestCache: Failed to delete " + crestDirPrefix + id + ".bmp");
 	}
 	
 	public static boolean saveCrest(CrestType crestType, int newId, byte[] data)
@@ -200,7 +200,7 @@ public class CrestCache
 		}
 		catch (IOException e)
 		{
-			_log.log(Level.INFO, "Error saving pledge crest" + crestFile + ":", e);
+			_log.info( "Error saving pledge crest" + crestFile + ":", e);
 			return false;
 		}
 	}

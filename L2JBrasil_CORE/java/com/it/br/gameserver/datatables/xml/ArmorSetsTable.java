@@ -12,6 +12,18 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.L2ArmorSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,23 +31,9 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.L2ArmorSet;
-
 public class ArmorSetsTable
 {
-	private static final Log _log = LogFactory.getLog(ArmorSetsTable.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(ArmorSetsTable.class);
 
 	private static ArmorSetsTable _instance;
 
@@ -66,7 +64,7 @@ public class ArmorSetsTable
 		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/armorsets.xml");
 		if(!f.exists())
 		{
-			_log.warn("armorsets.xml could not be loaded: file not found");
+			_log.warn("Could not be loaded: file {} not found ", f.getAbsolutePath());
 			return;
 		}
 		try
@@ -113,7 +111,7 @@ public class ArmorSetsTable
 			_log.error("Error while creating table", e);
 		}
 
-		_log.info("ArmorSetsTable: Loaded " + _armorSets.size() + " armor sets.");
+		_log.info("ArmorSetsTable: Loaded {} armor sets ", _armorSets.size());
 	}
 
 	public boolean setExists(int chestId)

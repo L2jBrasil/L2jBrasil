@@ -18,45 +18,10 @@
  */
 package com.it.br.gameserver.handler;
 
+import com.it.br.gameserver.handler.itemhandlers.*;
+
 import java.util.Map;
 import java.util.TreeMap;
-
-import com.it.br.gameserver.handler.itemhandlers.BeastSoulShot;
-import com.it.br.gameserver.handler.itemhandlers.BeastSpice;
-import com.it.br.gameserver.handler.itemhandlers.BeastSpiritShot;
-import com.it.br.gameserver.handler.itemhandlers.BlessedSpiritShot;
-import com.it.br.gameserver.handler.itemhandlers.Book;
-import com.it.br.gameserver.handler.itemhandlers.CharChangePotions;
-import com.it.br.gameserver.handler.itemhandlers.ChestKey;
-import com.it.br.gameserver.handler.itemhandlers.ChristmasTree;
-import com.it.br.gameserver.handler.itemhandlers.CrystalCarol;
-import com.it.br.gameserver.handler.itemhandlers.EnchantScrolls;
-import com.it.br.gameserver.handler.itemhandlers.EnergyStone;
-import com.it.br.gameserver.handler.itemhandlers.ExtractableItems;
-import com.it.br.gameserver.handler.itemhandlers.Firework;
-import com.it.br.gameserver.handler.itemhandlers.FishShots;
-import com.it.br.gameserver.handler.itemhandlers.Harvester;
-import com.it.br.gameserver.handler.itemhandlers.HeroCustomItem;
-import com.it.br.gameserver.handler.itemhandlers.Maps;
-import com.it.br.gameserver.handler.itemhandlers.MercTicket;
-import com.it.br.gameserver.handler.itemhandlers.MysteryPotion;
-import com.it.br.gameserver.handler.itemhandlers.NobleCustomItem;
-import com.it.br.gameserver.handler.itemhandlers.OfflineCustomItem;
-import com.it.br.gameserver.handler.itemhandlers.PaganKeys;
-import com.it.br.gameserver.handler.itemhandlers.Potions;
-import com.it.br.gameserver.handler.itemhandlers.Recipes;
-import com.it.br.gameserver.handler.itemhandlers.Remedy;
-import com.it.br.gameserver.handler.itemhandlers.RollingDice;
-import com.it.br.gameserver.handler.itemhandlers.ScrollOfEscape;
-import com.it.br.gameserver.handler.itemhandlers.ScrollOfResurrection;
-import com.it.br.gameserver.handler.itemhandlers.Scrolls;
-import com.it.br.gameserver.handler.itemhandlers.Seed;
-import com.it.br.gameserver.handler.itemhandlers.SevenSignsRecord;
-import com.it.br.gameserver.handler.itemhandlers.SoulCrystals;
-import com.it.br.gameserver.handler.itemhandlers.SoulShots;
-import com.it.br.gameserver.handler.itemhandlers.SpecialXMas;
-import com.it.br.gameserver.handler.itemhandlers.SpiritShot;
-import com.it.br.gameserver.handler.itemhandlers.SummonItems;
 
 public class ItemHandler
 {

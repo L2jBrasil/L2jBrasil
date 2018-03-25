@@ -18,9 +18,9 @@
  */
 package com.it.br.loginserver.serverpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Fromat: d
@@ -28,7 +28,7 @@ import com.it.br.Config;
  */
 public final class GGAuth extends L2LoginServerPacket
 {
-    static final Logger _log = Logger.getLogger(GGAuth.class.getName());
+    static final Logger _log = LoggerFactory.getLogger(GGAuth.class);
     public static final int SKIP_GG_AUTH_REQUEST = 0x0b;
 
     private int _response;
@@ -38,7 +38,7 @@ public final class GGAuth extends L2LoginServerPacket
     	_response = response;
         if (Config.DEBUG)
         {
-            _log.warning("Reason Hex: "+(Integer.toHexString(response)));
+            _log.warn("Reason Hex: "+(Integer.toHexString(response)));
         }
     }
 

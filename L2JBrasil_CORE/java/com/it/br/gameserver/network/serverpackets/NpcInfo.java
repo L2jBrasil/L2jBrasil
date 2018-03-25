@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
@@ -32,6 +30,8 @@ import com.it.br.gameserver.model.actor.instance.L2MonsterInstance;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 import com.it.br.gameserver.model.zone.type.L2TownZone;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class NpcInfo extends L2GameServerPacket
 {

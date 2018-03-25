@@ -17,16 +17,17 @@
  */
 package com.it.br.loginserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.NetworkSettings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.configuration.settings.NetworkSettings;
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  *
@@ -34,7 +35,7 @@ import com.it.br.configuration.settings.NetworkSettings;
  */
 public class GameServerListener extends FloodProtectedListener
 {
-	private static Logger _log = Logger.getLogger(GameServerListener.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(GameServerListener.class);
 	private static List<GameServerThread> _gameServers = new ArrayList<>();
 
 	public GameServerListener() throws IOException

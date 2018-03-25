@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -28,13 +26,10 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2SkillLearn;
 import com.it.br.gameserver.model.L2TradeList;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.AquireSkillList;
-import com.it.br.gameserver.network.serverpackets.BuyList;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SellList;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.util.StringTokenizer;
 
 public class L2FishermanInstance extends L2FolkInstance
 {
@@ -66,7 +61,7 @@ public class L2FishermanInstance extends L2FolkInstance
         double taxRate = 0;
         if (getIsInTown()) taxRate = getCastle().getTaxRate();
         player.tempInvetoryDisable();
-        if (Config.DEBUG) _log.fine("Showing buylist");
+        if (Config.DEBUG) _log.debug("Showing buylist");
         L2TradeList list = TradeController.getInstance().getBuyList(val);
 
         if (list != null && list.getNpcId().equals(String.valueOf(getNpcId())))
@@ -76,9 +71,9 @@ public class L2FishermanInstance extends L2FolkInstance
         }
         else
         {
-            _log.warning("possible client hacker: " + player.getName()
+            _log.warn("possible client hacker: " + player.getName()
                 + " attempting to buy from GM shop! < Ban him!");
-            _log.warning("buylist id:" + val);
+            _log.warn("buylist id:" + val);
         }
 
         player.sendPacket(new ActionFailed());
@@ -86,11 +81,11 @@ public class L2FishermanInstance extends L2FolkInstance
 
 	private void showSellWindow(L2PcInstance player)
     {
-        if (Config.DEBUG) _log.fine("Showing selllist");
+        if (Config.DEBUG) _log.debug("Showing selllist");
 
         player.sendPacket(new SellList(player));
 
-        if (Config.DEBUG) _log.fine("Showing sell window");
+        if (Config.DEBUG) _log.debug("Showing sell window");
 
         player.sendPacket(new ActionFailed());
     }

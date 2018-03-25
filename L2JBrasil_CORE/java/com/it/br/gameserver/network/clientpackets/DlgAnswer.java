@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.network.SystemMessageId;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @author Dezmond_snz
@@ -31,7 +31,7 @@ import com.it.br.gameserver.network.SystemMessageId;
 public final class DlgAnswer extends L2GameClientPacket
 {
 	private static final String _C__C5_DLGANSWER = "[C] C5 DlgAnswer";
-	//private static Logger _log = Logger.getLogger(DlgAnswer.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(DlgAnswer.class);
 	private int _messageId;
 	private int _answer, _unk;
 
@@ -47,7 +47,7 @@ public final class DlgAnswer extends L2GameClientPacket
 	public void runImpl()
 	{
 		if (Config.DEBUG)
-			_log.fine(getType()+": Answer acepted. Message ID "+_messageId+", asnwer "+_answer+", unknown field "+_unk);
+			_log.debug(getType()+": Answer acepted. Message ID "+_messageId+", asnwer "+_answer+", unknown field "+_unk);
 		if (_messageId == SystemMessageId.RESSURECTION_REQUEST.getId())
 			getClient().getActiveChar().reviveAnswer(_answer);
 		else if (_messageId==614 && getSettings(L2JModsSettings.class).isWeddingEnabled())

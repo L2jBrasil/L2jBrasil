@@ -17,12 +17,12 @@
  */
 package com.it.br.util;
 
+import com.it.br.gameserver.model.L2Object;
+
 import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-
-import com.it.br.gameserver.model.L2Object;
 /**
  *
  * @author  dishkols

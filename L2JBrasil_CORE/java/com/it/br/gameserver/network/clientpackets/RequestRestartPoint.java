@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Logger;
-
-import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
@@ -39,11 +34,15 @@ import com.it.br.gameserver.network.serverpackets.Revive;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.util.IllegalPlayerAction;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public final class RequestRestartPoint extends L2GameClientPacket
 {
 	private static final String _C__6d_REQUESTRESTARTPOINT = "[C] 6d RequestRestartPoint";
-	private static Logger _log = Logger.getLogger(RequestRestartPoint.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestRestartPoint.class);
 
 	protected int     _requestedPointType;
 	protected boolean _continuation;
@@ -171,7 +170,7 @@ public final class RequestRestartPoint extends L2GameClientPacket
 				activeChar.setIsPendingRevive(true);
 				activeChar.teleToLocation(loc, true);
 			} catch (Throwable e) {
-				//_log.log(Level.SEVERE, "", e);
+				//_log.error( "", e);
 			}
 		}
 	}
@@ -200,7 +199,7 @@ public final class RequestRestartPoint extends L2GameClientPacket
 		}
 		else if (!activeChar.isAlikeDead())
 		{
-			_log.warning("Living player ["+activeChar.getName()+"] called RestartPointPacket due to her/his alikedead mode! Ban this player!");
+			_log.warn("Living player ["+activeChar.getName()+"] called RestartPointPacket due to her/his alikedead mode! Ban this player!");
 			return;
 		}
 

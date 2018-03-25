@@ -18,22 +18,22 @@
  */
 package com.it.br.gameserver;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
-
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class GmListTable
 {
-	private static Logger _log = Logger.getLogger(GmListTable.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(GmListTable.class);
 	private static GmListTable _instance;
 	/** Set(L2PcInstance>) containing all the GM in game */
     protected Map<L2PcInstance, Boolean> _gmList;
@@ -84,13 +84,13 @@ public class GmListTable
 	 */
 	public void addGm(L2PcInstance player, boolean hidden)
 	{
-		if (Config.DEBUG) _log.fine("added gm: "+player.getName());
+		if (Config.DEBUG) _log.debug("added gm: "+player.getName());
 		_gmList.put(player,hidden);
 	}
 
 	public void deleteGm(L2PcInstance player)
 	{
-		if (Config.DEBUG) _log.fine("deleted gm: "+player.getName());
+		if (Config.DEBUG) _log.debug("deleted gm: "+player.getName());
 		
 		_gmList.remove(player);
 	}

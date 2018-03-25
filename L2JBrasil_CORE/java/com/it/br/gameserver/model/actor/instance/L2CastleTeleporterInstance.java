@@ -24,8 +24,6 @@ package com.it.br.gameserver.model.actor.instance;
  *
  */
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.xml.TeleportLocationTable;
 import com.it.br.gameserver.model.L2CharPosition;
@@ -34,9 +32,11 @@ import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
+import java.util.StringTokenizer;
+
 public final class L2CastleTeleporterInstance extends L2FolkInstance
 {
-	//private static Logger _log = Logger.getLogger(L2TeleporterInstance.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(L2TeleporterInstance.class);
 
 	private static final int COND_ALL_FALSE = 0;
 	private static final int COND_BUSY_BECAUSE_OF_SIEGE = 1;
@@ -139,7 +139,7 @@ public final class L2CastleTeleporterInstance extends L2FolkInstance
 			if(player.reduceAdena("Teleport", list.getPrice(), player.getLastFolkNPC(), true))
 			{
 				if (Config.DEBUG)
-					_log.fine("Teleporting player "+player.getName()+" to new location: "+list.getLocX()+":"+list.getLocY()+":"+list.getLocZ());
+					_log.debug("Teleporting player "+player.getName()+" to new location: "+list.getLocX()+":"+list.getLocY()+":"+list.getLocZ());
 
 				// teleport
 				player.teleToLocation(list.getLocX(), list.getLocY(), list.getLocZ(), true);
@@ -148,7 +148,7 @@ public final class L2CastleTeleporterInstance extends L2FolkInstance
 		}
 		else
 		{
-			_log.warning("No teleport destination with id:" +val);
+			_log.warn("No teleport destination with id:" +val);
 		}
 		player.sendPacket( new ActionFailed() );
 	}

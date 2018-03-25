@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.skillhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author evill33t
@@ -34,7 +34,7 @@ import com.it.br.util.Rnd;
  */
 public class SummonTreasureKey implements ISkillHandler
 {
-    static Logger _log = Logger.getLogger(SummonTreasureKey.class.getName());
+    static Logger _log = LoggerFactory.getLogger(SummonTreasureKey.class);
     private static final SkillType[] SKILL_IDS = {SkillType.SUMMON_TREASURE_KEY};
 
 
@@ -76,7 +76,7 @@ public class SummonTreasureKey implements ISkillHandler
         }
         catch (Exception e)
         {
-            _log.warning("Error using skill summon Treasure Key:" + e);
+            _log.warn("Error using skill summon Treasure Key:" + e);
         }
     }
 

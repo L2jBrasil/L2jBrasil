@@ -17,14 +17,14 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.Map;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ai.L2CharacterAI;
 import com.it.br.gameserver.ai.L2NpcWalkerAI;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.util.Map;
 
 /**
  * This class manages some npcs can walk in the city. <br>

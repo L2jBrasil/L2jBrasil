@@ -17,10 +17,9 @@
  */
 package com.it.br.gameserver.taskmanager.tasks;
 
-import org.python.util.PythonInterpreter;
-
 import com.it.br.gameserver.taskmanager.Task;
 import com.it.br.gameserver.taskmanager.TaskManager.ExecutedTask;
+import org.python.util.PythonInterpreter;
 
 /**
  * @author Layane

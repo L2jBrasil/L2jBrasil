@@ -18,14 +18,14 @@
  */
 package com.it.br.loginserver.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.configuration.settings.LoginSettings;
 import com.it.br.loginserver.LoginController;
 import com.it.br.loginserver.SessionKey;
 import com.it.br.loginserver.serverpackets.LoginFail.LoginFailReason;
 import com.it.br.loginserver.serverpackets.PlayFail.PlayFailReason;
 import com.it.br.loginserver.serverpackets.PlayOk;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * Fromat is ddc

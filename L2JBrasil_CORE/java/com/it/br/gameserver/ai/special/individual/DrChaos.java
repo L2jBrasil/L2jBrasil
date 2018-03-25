@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
-import java.util.Map;
-
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.model.L2CharPosition;
@@ -31,6 +29,8 @@ import com.it.br.gameserver.network.serverpackets.NpcSay;
 import com.it.br.gameserver.network.serverpackets.PlaySound;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
 import com.it.br.gameserver.network.serverpackets.SpecialCamera;
+
+import java.util.Map;
 
 public class DrChaos extends Quest
 {

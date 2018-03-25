@@ -31,7 +31,7 @@ public final class RequestSiegeAttackerList extends L2GameClientPacket
 {
 
     private static final String _C__A2_RequestSiegeAttackerList = "[C] a2 RequestSiegeAttackerList";
-    //private static Logger _log = Logger.getLogger(RequestJoinParty.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestJoinParty.class);
 
     private int _castleId;
 

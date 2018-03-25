@@ -31,7 +31,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestReplyStopPledgeWar extends L2GameClientPacket
 {
     private static final String _C__50_REQUESTREPLYSTOPPLEDGEWAR = "[C] 50 RequestReplyStopPledgeWar";
-    //private static Logger _log = Logger.getLogger(RequestReplyStopPledgeWar.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestReplyStopPledgeWar.class);
 
     private int _answer;
 

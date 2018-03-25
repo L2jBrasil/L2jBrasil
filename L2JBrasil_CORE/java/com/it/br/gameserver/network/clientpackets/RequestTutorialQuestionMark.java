@@ -19,7 +19,7 @@ import com.it.br.gameserver.model.quest.QuestState;
 
 public class RequestTutorialQuestionMark extends L2GameClientPacket
 {
-	//     private static Logger _log = Logger.getLogger(RequestTutorialQuestionMark.class.getName());
+	//     private static Logger _log = LoggerFactory.getLogger(RequestTutorialQuestionMark.class);
 	int _number = 0;
 
 

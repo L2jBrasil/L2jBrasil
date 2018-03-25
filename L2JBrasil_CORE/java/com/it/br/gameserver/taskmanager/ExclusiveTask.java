@@ -17,9 +17,9 @@
  */
 package com.it.br.gameserver.taskmanager;
 
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
+
+import java.util.concurrent.Future;
 
 /**
  * @author NB4L1

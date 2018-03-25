@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.datatables;
 
+import com.it.br.gameserver.script.DateRange;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import com.it.br.gameserver.script.DateRange;
 
 /**
  * This class manage drop of Special Events created by GM for a defined period.
@@ -34,7 +34,7 @@ import com.it.br.gameserver.script.DateRange;
 public class EventDroplist
 {
 
-    //private static Logger _log = Logger.getLogger(EventDroplist.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(EventDroplist.class);
 
 	private static EventDroplist _instance;
 

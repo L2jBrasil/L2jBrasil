@@ -17,9 +17,9 @@
  */
 package com.it.br.loginserver.crypt;
 
-import java.io.IOException;
-
 import com.it.br.util.Rnd;
+
+import java.io.IOException;
 
 /**
  *

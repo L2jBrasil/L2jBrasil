@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.templates;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Effect;
@@ -30,6 +27,9 @@ import com.it.br.gameserver.skills.Env;
 import com.it.br.gameserver.skills.effects.EffectTemplate;
 import com.it.br.gameserver.skills.funcs.Func;
 import com.it.br.gameserver.skills.funcs.FuncTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class contains all informations concerning the item (weapon, armor, etc).<BR>

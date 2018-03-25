@@ -17,13 +17,13 @@
  */
 package com.it.br.gameserver.pathfinding;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.pathfinding.geonodes.GeoPathFinding;
 import com.it.br.gameserver.pathfinding.utils.BinaryNodeHeap;
 import com.it.br.gameserver.pathfinding.utils.FastNodeList;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *

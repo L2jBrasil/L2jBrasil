@@ -17,22 +17,19 @@
  */
 package com.it.br.gameserver.pathfinding.geonodes;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.LineNumberReader;
-import java.io.RandomAccessFile;
+import com.it.br.Config;
+import com.it.br.gameserver.pathfinding.AbstractNodeLoc;
+import com.it.br.gameserver.pathfinding.Node;
+import com.it.br.gameserver.pathfinding.PathFinding;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.*;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.gameserver.pathfinding.AbstractNodeLoc;
-import com.it.br.gameserver.pathfinding.Node;
-import com.it.br.gameserver.pathfinding.PathFinding;
 
 /**
  *
@@ -40,7 +37,7 @@ import com.it.br.gameserver.pathfinding.PathFinding;
  */
 public class GeoPathFinding extends PathFinding
 {
-	private static Logger _log = Logger.getLogger(GeoPathFinding.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(GeoPathFinding.class);
 	private static GeoPathFinding _instance;
 	private static Map<Short, ByteBuffer> _pathNodes = new HashMap<>();
 	private static Map<Short, IntBuffer> _pathNodesIndex = new HashMap<>();
@@ -183,7 +180,7 @@ public class GeoPathFinding extends PathFinding
 		idx += layer*10+1;//byte + layer*10byte
 		if (nodes < layer)
 		{
-			_log.warning("SmthWrong!");
+			_log.warn("SmthWrong!");
 		}
 		short node_z = pn.getShort(idx);
 		idx += 2;
@@ -284,7 +281,7 @@ public class GeoPathFinding extends PathFinding
 		} catch (Exception e)
 		{
 			e.printStackTrace();
-			_log.warning("Failed to Load PathNode File: "+fname+"\n");
+			_log.warn("Failed to Load PathNode File: "+fname+"\n");
 	    }
 
 	}

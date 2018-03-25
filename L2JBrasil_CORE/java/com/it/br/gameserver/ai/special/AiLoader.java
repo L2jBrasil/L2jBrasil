@@ -18,37 +18,11 @@
  */
 package com.it.br.gameserver.ai.special;
 
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.ai.special.group.AncientEgg;
-import com.it.br.gameserver.ai.special.group.CatsEyeBandit;
-import com.it.br.gameserver.ai.special.group.Chests;
-import com.it.br.gameserver.ai.special.group.DeluLizardmanSpecialAgent;
-import com.it.br.gameserver.ai.special.group.DeluLizardmanSpecialCommander;
-import com.it.br.gameserver.ai.special.group.FeedableBeasts;
-import com.it.br.gameserver.ai.special.group.KarulBugBear;
-import com.it.br.gameserver.ai.special.group.Monastery;
-import com.it.br.gameserver.ai.special.group.OlMahumGeneral;
-import com.it.br.gameserver.ai.special.group.RetreatOnAttack;
-import com.it.br.gameserver.ai.special.group.ScarletStokateNoble;
-import com.it.br.gameserver.ai.special.group.Splendor;
-import com.it.br.gameserver.ai.special.group.TimakOrcOverlord;
-import com.it.br.gameserver.ai.special.group.TimakOrcTroopLeader;
-import com.it.br.gameserver.ai.special.group.TurekOrcFootman;
-import com.it.br.gameserver.ai.special.group.TurekOrcSupplier;
-import com.it.br.gameserver.ai.special.group.TurekOrcWarlord;
-import com.it.br.gameserver.ai.special.individual.Antharas;
-import com.it.br.gameserver.ai.special.individual.Baium;
-import com.it.br.gameserver.ai.special.individual.Core;
-import com.it.br.gameserver.ai.special.individual.Frintezza;
-import com.it.br.gameserver.ai.special.individual.Gordon;
-import com.it.br.gameserver.ai.special.individual.Nurka;
-import com.it.br.gameserver.ai.special.individual.Orfen;
-import com.it.br.gameserver.ai.special.individual.QueenAnt;
-import com.it.br.gameserver.ai.special.individual.Valakas;
-import com.it.br.gameserver.ai.special.individual.VanHalter;
-import com.it.br.gameserver.ai.special.individual.Zaken;
+import com.it.br.gameserver.ai.special.group.*;
+import com.it.br.gameserver.ai.special.individual.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author qwerty
@@ -57,7 +31,7 @@ import com.it.br.gameserver.ai.special.individual.Zaken;
 
 public class AiLoader
 {
-	private static final Logger _log = Logger.getLogger(AiLoader.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(AiLoader.class);
 	public static void init()
 	{
 

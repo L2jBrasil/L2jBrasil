@@ -38,6 +38,8 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.network.serverpackets.UserInfo;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,12 +49,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 
 public class Hero
 {
-    private static Logger _log = Logger.getLogger(Hero.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(Hero.class);
 
     private static Hero _instance;
     private static final String GET_HEROES = "SELECT * FROM heroes WHERE played = 1";
@@ -218,7 +219,7 @@ public class Hero
             con2.close();
         } catch(SQLException e)
         {
-        	_log.warning("Hero System: Couldnt load Heroes");
+        	_log.warn("Hero System: Couldnt load Heroes");
         	if (Config.DEBUG) e.printStackTrace();
         }
 
@@ -407,7 +408,7 @@ public class Hero
             	}
             	catch (Exception e)
             	{
-            		_log.warning("could not get clan name of " + name + ": "+e);
+            		_log.warn("could not get clan name of " + name + ": "+e);
             	}
             	finally
             	{
@@ -504,7 +505,7 @@ public class Hero
         }
         catch(SQLException e)
         {
-            _log.warning("Hero System: Couldnt update Heroes");
+            _log.warn("Hero System: Couldnt update Heroes");
             if (Config.DEBUG) e.printStackTrace();
         }
         finally

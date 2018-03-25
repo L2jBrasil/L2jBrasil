@@ -14,8 +14,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.instancemanager.FourSepulchersManager;
@@ -24,6 +22,8 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.network.serverpackets.NpcSay;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.util.concurrent.Future;
 
 /**
  * @author sandman

@@ -1,17 +1,5 @@
 package com.it.br.gameserver;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.LineNumberReader;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.cache.HtmCache;
@@ -23,10 +11,18 @@ import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.script.DateRange;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class Announcements
 {
-	private static Logger _log = Logger.getLogger(Announcements.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(Announcements.class);
 	private static Announcements _instance;
 	private List<String> _announcements = new ArrayList<>();
 	private List<List<Object>> _eventAnnouncements = new ArrayList<>();
@@ -57,7 +53,7 @@ public class Announcements
 		}
 		else
 		{
-			_log.config("data/announcements.txt doesn't exist");
+			_log.info("data/announcements.txt doesn't exist");
 		}
 	}
 
@@ -153,11 +149,11 @@ public class Announcements
 					i++;
 				}
 			}
-			_log.config("Announcements: Loaded " + i + " Announcements.");
+			_log.info("Announcements: Loaded " + i + " Announcements.");
 		}
 		catch (IOException e1)
 		{
-			_log.log(Level.SEVERE, "Error reading announcements", e1);
+			_log.error( "Error reading announcements", e1);
 		}
 		finally
 		{
@@ -188,7 +184,7 @@ public class Announcements
 		}
 		catch (IOException e)
 		{
-			_log.warning("saving the announcements file has failed: " + e);
+			_log.warn("saving the announcements file has failed: " + e);
 		}
 	}
 

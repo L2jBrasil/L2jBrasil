@@ -30,7 +30,7 @@ import java.sql.PreparedStatement;
 public final class RequestAnswerFriendInvite extends L2GameClientPacket
 {
 	private static final String _C__5F_REQUESTANSWERFRIENDINVITE = "[C] 5F RequestAnswerFriendInvite";
-	//private static Logger _log = Logger.getLogger(RequestAnswerFriendInvite.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestAnswerFriendInvite.class);
 
 	private int _response;
 
@@ -85,7 +85,7 @@ public final class RequestAnswerFriendInvite extends L2GameClientPacket
         		}
         		catch (Exception e)
         		{
-        		    _log.warning("could not add friend objectid: "+ e);
+        		    _log.warn("could not add friend objectid: "+ e);
         		}
         		finally
         		{

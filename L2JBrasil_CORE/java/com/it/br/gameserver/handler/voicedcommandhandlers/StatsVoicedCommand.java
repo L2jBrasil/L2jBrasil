@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import java.util.Iterator;
-
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
+
+import java.util.Iterator;
 
 public class StatsVoicedCommand implements IVoicedCommandHandler
 {

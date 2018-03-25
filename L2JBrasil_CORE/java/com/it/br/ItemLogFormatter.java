@@ -18,12 +18,12 @@
  */
 package com.it.br;
 
+import com.it.br.gameserver.model.L2ItemInstance;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-
-import com.it.br.gameserver.model.L2ItemInstance;
 
 public class ItemLogFormatter extends Formatter
 {

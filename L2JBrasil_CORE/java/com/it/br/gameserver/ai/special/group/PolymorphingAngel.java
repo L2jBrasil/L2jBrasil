@@ -14,13 +14,13 @@
  */
 package com.it.br.gameserver.ai.special.group;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.it.br.gameserver.ai.L2AttackableAIScript;
 import com.it.br.gameserver.model.L2Attackable;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Angel spawns... When one of the angels in the keys dies, the other angel will spawn.

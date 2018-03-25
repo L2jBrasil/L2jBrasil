@@ -24,6 +24,8 @@ import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.loginserver.GameServerTable;
 import com.it.br.loginserver.L2LoginServer;
 import com.it.br.loginserver.LoginController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -36,14 +38,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
 
 public class LoginStatusThread extends Thread
 {
-	private static final Logger _log = Logger.getLogger(LoginStatusThread.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(LoginStatusThread.class);
 
 	private Socket                  _cSocket;
 
@@ -266,7 +267,7 @@ public class LoginStatusThread extends Thread
 						_usrCommand = _usrCommand.substring(8);
 						if (LoginController.getInstance().removeBanForAddress(_usrCommand))
 						{
-							_log.warning("IP removed via TELNET by host: " + _cSocket.getInetAddress().getHostAddress());
+							_log.warn("IP removed via TELNET by host: " + _cSocket.getInetAddress().getHostAddress());
 							_print.println("The IP " + _usrCommand + " has been removed from the hack protection list!");
 						}
 						else

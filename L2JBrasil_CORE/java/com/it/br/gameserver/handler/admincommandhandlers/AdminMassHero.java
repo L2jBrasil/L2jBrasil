@@ -23,19 +23,20 @@ import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Logger;
 
 /**
  * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminMassHero implements IAdminCommandHandler
 {
-    protected static final Logger _log = Logger.getLogger(AdminMassHero.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(AdminMassHero.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)

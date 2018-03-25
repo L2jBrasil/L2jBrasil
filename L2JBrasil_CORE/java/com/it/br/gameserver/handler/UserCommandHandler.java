@@ -18,16 +18,17 @@
  */
 package com.it.br.gameserver.handler;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.usercommandhandlers.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserCommandHandler
 {
-	private static Logger _log = Logger.getLogger(UserCommandHandler.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(UserCommandHandler.class);
 	private static UserCommandHandler _instance;
 	private Map<Integer, IUserCommandHandler> _datatable;
 
@@ -62,14 +63,14 @@ public class UserCommandHandler
 		int[] ids = handler.getUserCommandList();
 		for (int i = 0; i < ids.length; i++)
 		{
-			if (Config.DEBUG) _log.fine("Adding handler for user command "+ids[i]);
+			if (Config.DEBUG) _log.debug("Adding handler for user command "+ids[i]);
 			_datatable.put(new Integer(ids[i]), handler);
 		}
 	}
 
 	public IUserCommandHandler getUserCommandHandler(int userCommand)
 	{
-		if (Config.DEBUG) _log.fine("getting handler for user command: "+userCommand);
+		if (Config.DEBUG) _log.debug("getting handler for user command: "+userCommand);
 		return _datatable.get(new Integer(userCommand));
 	}
 

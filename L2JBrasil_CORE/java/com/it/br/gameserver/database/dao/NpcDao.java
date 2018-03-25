@@ -10,16 +10,17 @@ import com.it.br.gameserver.skills.BaseStats;
 import com.it.br.gameserver.skills.Stats;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class NpcDao {
-    private static final Logger _log = Logger.getLogger(NpcDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(NpcDao.class);
 
     private static final String LOAD = "SELECT " + L2DatabaseFactory.safetyString(new String[] {"id", "idTemplate", "name", "serverSideName", "title", "serverSideTitle", "class", "collision_radius", "collision_height", "level", "sex", "type", "attackrange", "hp", "mp", "hpreg", "mpreg", "str", "con", "dex", "int", "wit", "men", "exp", "sp", "patk", "pdef", "matk", "mdef", "atkspd", "aggro", "matkspd", "rhand", "lhand", "armor", "walkspd", "runspd", "faction_id", "faction_range", "isUndead", "absorb_level", "absorb_type"}) + " FROM npc";
     private static final String LOAD_SKILLS = "SELECT " + L2DatabaseFactory.safetyString(new String[] {  "npcid", "skillid", "level" }) + " FROM npcskills";
@@ -36,7 +37,7 @@ public class NpcDao {
             fillNpcTable(npcData);
             npcData.close();
         } catch (SQLException e) {
-            _log.warning(NpcDao.class.getName() + ": Exception: load(): " + e.getMessage());
+            _log.warn(NpcDao.class.getName() + ": Exception: load(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -49,7 +50,7 @@ public class NpcDao {
             fillNpcTable(npcData);
             npcData.close();
         } catch (SQLException e) {
-            _log.warning(NpcDao.class.getName() + ": Exception: loadById(): " + e.getMessage());
+            _log.warn(NpcDao.class.getName() + ": Exception: loadById(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -88,7 +89,7 @@ public class NpcDao {
 
             npcskills.close();
         } catch (SQLException e) {
-            _log.warning(NpcDao.class.getName() + ": Exception: loadSKills(): " + e.getMessage());
+            _log.warn(NpcDao.class.getName() + ": Exception: loadSKills(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -101,7 +102,7 @@ public class NpcDao {
             npcData.close();
 
         } catch (SQLException e) {
-            _log.warning(NpcDao.class.getName() + ": Exception: loadCustomNpcs(): " + e.getMessage());
+            _log.warn(NpcDao.class.getName() + ": Exception: loadCustomNpcs(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -114,7 +115,7 @@ public class NpcDao {
             _log.info("CustomDropList : Added " + count + " custom droplist");
             dropData.close();
         } catch (SQLException e) {
-            _log.warning(NpcDao.class.getName() + ": Exception: loadCustomDropList(): " + e.getMessage());
+            _log.warn(NpcDao.class.getName() + ": Exception: loadCustomDropList(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -127,7 +128,7 @@ public class NpcDao {
             _log.info("DropList : Added " + count + " droplist");
             dropData.close();
         } catch (SQLException e) {
-            _log.warning(NpcDao.class.getName() + ": Exception: loadDropList(): " + e.getMessage());
+            _log.warn(NpcDao.class.getName() + ": Exception: loadDropList(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -160,7 +161,7 @@ public class NpcDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(NpcDao.class.getName() + ": Exception: saveNpc(): " + e.getMessage());
+            _log.warn(NpcDao.class.getName() + ": Exception: saveNpc(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -257,7 +258,7 @@ public class NpcDao {
             npcDat = NpcTable.getInstance().getNpcsMap().get(mobId);
             if (npcDat == null)
             {
-                _log.warning("NPCTable: DROPLIST No npc correlating with id : " + mobId);
+                _log.warn("NPCTable: DROPLIST No npc correlating with id : " + mobId);
                 continue;
             }
             dropDat = new L2DropData();

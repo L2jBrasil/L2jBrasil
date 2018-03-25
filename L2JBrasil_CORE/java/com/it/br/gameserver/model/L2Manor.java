@@ -17,23 +17,20 @@
  */
 package com.it.br.gameserver.model;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.LineNumberReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.templates.L2Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Service class for manor
@@ -42,7 +39,7 @@ import com.it.br.gameserver.templates.L2Item;
 
 public class L2Manor
 {
-	private static Logger _log = Logger.getLogger(L2Manor.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(L2Manor.class);
     private static L2Manor _instance;
 
     private static Map<Integer,SeedData> _seeds;

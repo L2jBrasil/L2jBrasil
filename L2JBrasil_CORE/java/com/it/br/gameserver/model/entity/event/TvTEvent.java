@@ -14,15 +14,6 @@
  */
 package com.it.br.gameserver.model.entity.event;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.OlympiadSettings;
@@ -33,29 +24,25 @@ import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.DoorTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.L2Summon;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.PcInventory;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PetInstance;
-import com.it.br.gameserver.model.actor.instance.L2SummonInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.clientpackets.Say2;
-import com.it.br.gameserver.network.serverpackets.CreatureSay;
-import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.StringUtil;
 import com.it.br.util.Rnd;
 import com.it.br.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @author FBIagent
@@ -70,7 +57,7 @@ public class TvTEvent
 		INACTIVE,INACTIVATING,PARTICIPATING,STARTING,STARTED,REWARDING
 	}
 
-	protected static final Logger _log = Logger.getLogger(TvTEvent.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(TvTEvent.class);
 	/** html path **/
 	private static final String htmlPath = "data/html/mods/";
 	/**	The teams of the TvTEvent<br> */
@@ -115,7 +102,7 @@ public class TvTEvent
 
 		if (tmpl == null)
 		{
-			_log.log(Level.WARNING, "TvTEventEngine[TvTEvent.startParticipation()]: L2NpcTemplate is a NullPointer -> Invalid npc id in configs?");
+			_log.warn( "TvTEventEngine[TvTEvent.startParticipation()]: L2NpcTemplate is a NullPointer -> Invalid npc id in configs?");
 			return false;
 		}
 
@@ -150,7 +137,7 @@ public class TvTEvent
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING, "TvTEventEngine[TvTEvent.startParticipation()]: exception: exception: " + e.getMessage(), e);
+			_log.warn( "TvTEventEngine[TvTEvent.startParticipation()]: exception: exception: " + e.getMessage(), e);
 			return false;
 		}
 		setState(EventState.PARTICIPATING);

@@ -18,12 +18,13 @@
  package com.it.br.gameserver.instancemanager;
 
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
-import java.util.logging.Logger;
 
 /**
  *
@@ -33,7 +34,7 @@ import java.util.logging.Logger;
  
 public abstract class ClanHallSiege
 {
-	private static final Logger _log = Logger.getLogger(ClanHallSiege.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(ClanHallSiege.class);
 	private Calendar _siegeDate;
 	public Calendar _siegeEndDate;	
 	private boolean	_inProgress = false;	
@@ -61,7 +62,7 @@ public abstract class ClanHallSiege
 		}
 		catch (Exception e)
 		{
-			_log.warning("Exception: can't get clanhall siege date: " + e);
+			_log.warn("Exception: can't get clanhall siege date: " + e);
 		}
 		finally
 		{
@@ -100,7 +101,7 @@ public abstract class ClanHallSiege
 			}
 			catch (Exception e)
 			{
-				_log.warning("Exception: can't save clanhall siege date: " + e);
+				_log.warn("Exception: can't save clanhall siege date: " + e);
 			}
 			finally
 			{

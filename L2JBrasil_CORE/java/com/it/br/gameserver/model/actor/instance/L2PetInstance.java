@@ -23,7 +23,6 @@ import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.database.dao.PetsDao;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
-import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
 import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
 import com.it.br.gameserver.model.*;
@@ -34,12 +33,10 @@ import com.it.br.gameserver.taskmanager.DecayTaskManager;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.L2Weapon;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.concurrent.Future;
-import java.util.logging.Logger;
 
 /**
  *
@@ -49,7 +46,7 @@ import java.util.logging.Logger;
  */
 public class L2PetInstance extends L2Summon
 {
-	protected static final Logger _logPet = Logger.getLogger(L2PetInstance.class.getName());
+	protected static final Logger _logPet = LoggerFactory.getLogger(L2PetInstance.class);
 
     //private byte _pvpFlag;
 	private int _curFed;
@@ -144,7 +141,7 @@ public class L2PetInstance extends L2Summon
             catch (Throwable e)
             {
             	if (Config.DEBUG)
-            		_logPet.warning("Pet [#"+getObjectId()+"] a feed task error has occurred: "+e);
+            		_logPet.warn("Pet [#"+getObjectId()+"] a feed task error has occurred: "+e);
             }
         }
     }
@@ -229,7 +226,7 @@ public class L2PetInstance extends L2Summon
 		}
         else
         {
-    		if (Config.DEBUG) _logPet.fine("new target selected:"+getObjectId());
+    		if (Config.DEBUG) _logPet.debug("new target selected:"+getObjectId());
     		player.setTarget(this);
     		MyTargetSelected my = new MyTargetSelected(getObjectId(), player.getLevel() - getLevel());
     		player.sendPacket(my);
@@ -391,14 +388,14 @@ public class L2PetInstance extends L2Summon
 		StopMove sm = new StopMove(getObjectId(), getX(), getY(), getZ(), getHeading());
 
 		if (Config.DEBUG)
-			_logPet.fine("Pet pickup pos: "+ object.getX() + " "+object.getY()+ " "+object.getZ() );
+			_logPet.debug("Pet pickup pos: "+ object.getX() + " "+object.getY()+ " "+object.getZ() );
 
 		broadcastPacket(sm);
 
 		if (!(object instanceof L2ItemInstance))
 		{
 			// dont try to pickup anything that is not an item :)
-			_logPet.warning("trying to pickup wrong target."+object);
+			_logPet.warn("trying to pickup wrong target."+object);
 			getOwner().sendPacket(new ActionFailed());
 			return;
 		}
@@ -610,7 +607,7 @@ public class L2PetInstance extends L2Summon
 		}
 		catch(Exception e)
 		{
-			_logPet.warning("Give all items error " + e);
+			_logPet.warn("Give all items error " + e);
 		}
 	}
 
@@ -627,7 +624,7 @@ public class L2PetInstance extends L2Summon
 		}
 		catch (Exception e)
         {
-            _logPet.warning("Error while giving item to owner: " + e);
+            _logPet.warn("Error while giving item to owner: " + e);
         }
 	}
 
@@ -663,7 +660,7 @@ public class L2PetInstance extends L2Summon
 			PetsDao.delete(removedItem);
 		}
 		catch (Exception e){
-			_logPet.warning("Error while destroying control item: " + e);
+			_logPet.warn("Error while destroying control item: " + e);
 		}
 	}
 
@@ -679,7 +676,7 @@ public class L2PetInstance extends L2Summon
 		}
 		catch(Exception e)
 		{
-			_logPet.warning("Pet Drop Error: " + e);
+			_logPet.warn("Pet Drop Error: " + e);
 		}
 	}
 
@@ -689,7 +686,7 @@ public class L2PetInstance extends L2Summon
 
 		if (dropit != null)
 		{
-			_logPet.finer("Item id to drop: "+dropit.getItemId()+" amount: "+dropit.getCount());
+			_logPet.debug("Item id to drop: "+dropit.getItemId()+" amount: "+dropit.getCount());
 			dropit.dropMe(this, getX(), getY(), getZ()+100);
 		}
 	}
@@ -747,7 +744,7 @@ public class L2PetInstance extends L2Summon
 		{
 			_feedTask.cancel(false);
 			_feedTask = null;
-			if (Config.DEBUG) _logPet.fine("Pet [#"+getObjectId()+"] feed task stop");
+			if (Config.DEBUG) _logPet.debug("Pet [#"+getObjectId()+"] feed task stop");
 		}
 	}
 

@@ -17,13 +17,15 @@
  */
 package com.it.br.gameserver.lib;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 @Deprecated
 public class memcache
 {
-	private static Logger _log = Logger.getLogger(memcache.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(memcache.class);
 	private HashMap<Integer,String> _hms;
 	private HashMap<Integer,Integer> _hmi;
 	private HashMap<Integer,Long> _lastAccess;
@@ -62,7 +64,7 @@ public class memcache
 	public void set(String type, String key, int value)
 	{
 		int hash = (type+"->"+key).hashCode();
-//	    _log.fine("Set memcache "+type+"("+key+")["+hash+"] to "+value);
+//	    _log.debug("Set memcache "+type+"("+key+")["+hash+"] to "+value);
 		_hmi.put(hash, value);
 		_lastAccess.put(hash, System.currentTimeMillis());
 		checkExpired();
@@ -77,7 +79,7 @@ public class memcache
 			_lastAccess.put(hash, System.currentTimeMillis());
 
 		checkExpired();
-	    _log.fine("Check exists memcache "+type+"("+key+")["+hash+"] is "+exists);
+	    _log.debug("Check exists memcache "+type+"("+key+")["+hash+"] is "+exists);
 		return exists;
 	}
 
@@ -87,7 +89,7 @@ public class memcache
 		int hash = (type+"->"+key).hashCode();
 		_lastAccess.put(hash, System.currentTimeMillis());
 		checkExpired();
-	    _log.fine("Get memcache "+type+"("+key+")["+hash+"] = "+_hmi.get(hash));
+	    _log.debug("Get memcache "+type+"("+key+")["+hash+"] = "+_hmi.get(hash));
 		return _hmi.get(hash);
 	}
 }

@@ -18,13 +18,6 @@
  */
 package com.it.br.gameserver.ai;
 
-import static com.it.br.configuration.Configurator.getSettings;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
-
-import java.util.concurrent.Future;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.GameTimeController;
@@ -32,31 +25,17 @@ import com.it.br.gameserver.GeoData;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.xml.TerritoryTable;
 import com.it.br.gameserver.instancemanager.DimensionalRiftManager;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2CharPosition;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2Summon;
-import com.it.br.gameserver.model.actor.instance.L2ChestInstance;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2FestivalMonsterInstance;
-import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
-import com.it.br.gameserver.model.actor.instance.L2FriendlyMobInstance;
-import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
-import com.it.br.gameserver.model.actor.instance.L2GuardInstance;
-import com.it.br.gameserver.model.actor.instance.L2MinionInstance;
-import com.it.br.gameserver.model.actor.instance.L2MonsterInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PenaltyMonsterInstance;
-import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
-import com.it.br.gameserver.model.actor.instance.L2RiftInvaderInstance;
+import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.templates.L2Weapon;
 import com.it.br.gameserver.templates.L2WeaponType;
 import com.it.br.util.Rnd;
+
+import java.util.concurrent.Future;
+
+import static com.it.br.configuration.Configurator.getSettings;
+import static com.it.br.gameserver.ai.CtrlIntention.*;
 
 /**
  * This class manages AI of L2Attackable.<BR>
@@ -65,7 +44,7 @@ import com.it.br.util.Rnd;
 public class L2AttackableAI extends L2CharacterAI implements Runnable
 {
 
-	//protected static final Logger _log = Logger.getLogger(L2AttackableAI.class.getName());
+	//protected static final Logger _log = LoggerFactory.getLogger(L2AttackableAI.class);
 
 	private static final int RANDOM_WALK_RATE = 30; // confirmed
 	// private static final int MAX_DRIFT_RANGE = 300;
@@ -541,7 +520,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
                 	npc.setisReturningToSpawnPoint(false);
             }
 
-			//_log.config("Curent pos ("+getX()+", "+getY()+"), moving to ("+x1+", "+y1+").");
+			//_log.info("Curent pos ("+getX()+", "+getY()+"), moving to ("+x1+", "+y1+").");
 			// Move the actor to Location (x,y,z) server side AND client side by sending Server->Client packet CharMoveToLocation (broadcast)
 		}
 
@@ -666,7 +645,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 		}
 		catch(NullPointerException e)
 		{
-			//_log.warning("AttackableAI: Attack target is NULL.");
+			//_log.warn("AttackableAI: Attack target is NULL.");
 			setIntention(AI_INTENTION_ACTIVE);
 			return;
 		}

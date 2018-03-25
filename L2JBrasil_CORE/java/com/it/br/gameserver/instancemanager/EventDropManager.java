@@ -1,14 +1,14 @@
 package com.it.br.gameserver.instancemanager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.zone.L2ZoneType;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *

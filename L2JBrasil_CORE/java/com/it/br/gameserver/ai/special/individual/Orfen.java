@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.Announcements;
@@ -33,6 +31,8 @@ import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.network.serverpackets.PlaySound;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.Rnd;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @reworked *slayer

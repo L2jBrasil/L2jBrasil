@@ -15,17 +15,9 @@
  */
 package com.it.br.gameserver.ai.special.group;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SkillTable;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2Summon;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -35,6 +27,10 @@ import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 public class Monastery extends Quest implements Runnable

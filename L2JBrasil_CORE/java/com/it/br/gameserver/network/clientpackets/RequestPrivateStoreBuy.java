@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.ItemRequest;
 import com.it.br.gameserver.model.L2Object;
@@ -31,6 +29,8 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -41,7 +41,7 @@ public final class RequestPrivateStoreBuy extends L2GameClientPacket
 {
 //	private static final String _C__79_SENDPRIVATESTOREBUYLIST = "[C] 79 SendPrivateStoreBuyList";
 	private static final String _C__79_REQUESTPRIVATESTOREBUY = "[C] 79 RequestPrivateStoreBuy";
-	private static Logger _log = Logger.getLogger(RequestPrivateStoreBuy.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestPrivateStoreBuy.class);
 
 	private int _storePlayerId;
 	private int _count;
@@ -155,7 +155,7 @@ public final class RequestPrivateStoreBuy extends L2GameClientPacket
         if (!storeList.PrivateStoreBuy(player, _items, (int) priceTotal))
         {
             sendPacket(new ActionFailed());
-            _log.warning("PrivateStore buy has failed due to invalid list or request. Player: " + player.getName() + ", Private store of: " + storePlayer.getName());
+            _log.warn("PrivateStore buy has failed due to invalid list or request. Player: " + player.getName() + ", Private store of: " + storePlayer.getName());
             return;
         }
 

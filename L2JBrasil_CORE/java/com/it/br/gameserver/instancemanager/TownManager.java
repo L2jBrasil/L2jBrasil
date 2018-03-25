@@ -17,18 +17,19 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.model.zone.type.L2TownZone;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TownManager
 {
-    private static final Logger _log = Logger.getLogger(TownManager.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(TownManager.class);
 
     // =========================================================
     private static TownManager _instance;

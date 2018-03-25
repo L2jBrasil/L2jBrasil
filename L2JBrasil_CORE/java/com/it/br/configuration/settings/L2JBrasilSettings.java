@@ -1,9 +1,9 @@
 package com.it.br.configuration.settings;
 
+import com.it.br.configuration.L2Properties;
+
 import java.util.List;
 import java.util.Map;
-
-import com.it.br.configuration.L2Properties;
 
 public class L2JBrasilSettings implements Settings {
 	

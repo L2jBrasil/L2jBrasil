@@ -31,7 +31,6 @@ import com.it.br.gameserver.network.serverpackets.AllyCrest;
 public final class RequestAllyCrest extends L2GameClientPacket
 {
 	private static final String _C__88_REQUESTALLYCREST = "[C] 88 RequestAllyCrest";
-	//private static Logger _log = Logger.getLogger(RequestAllyCrest.class.getName());
 
 	private int _crestId;
 	/**
@@ -50,7 +49,7 @@ public final class RequestAllyCrest extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		if (Config.DEBUG) _log.fine("allycrestid " + _crestId + " requested");
+		if (Config.DEBUG) _log.debug("allycrestid " + _crestId + " requested");
 
         byte[] data = CrestCache.getCrest(CrestType.ALLY, _crestId);
 
@@ -61,7 +60,7 @@ public final class RequestAllyCrest extends L2GameClientPacket
 		}
 		else
 		{
-			if (Config.DEBUG) _log.fine("allycrest is missing:" + _crestId);
+			if (Config.DEBUG) _log.debug("allycrest is missing:" + _crestId);
 		}
 	}
 

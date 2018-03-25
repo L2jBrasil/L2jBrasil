@@ -18,13 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.nio.BufferUnderflowException;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.handler.ChatHandler;
@@ -37,12 +30,20 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance.PunishLevel;
 import com.it.br.gameserver.network.SystemChatChannelId;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.BufferUnderflowException;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public final class Say2 extends L2GameClientPacket
 {
 	private static final String _C__38_SAY2 = "[C] 38 Say2";
-	private static Logger _log = Logger.getLogger(Say2.class.getName());
-	private static Logger _logChat = Logger.getLogger("chat");
+	private static Logger _log = LoggerFactory.getLogger(Say2.class);
+	private static Logger _logChat = LoggerFactory.getLogger("chat");
 
 	public final static int ALL = 0;
 	public final static int SHOUT = 1; //!
@@ -103,7 +104,7 @@ public final class Say2 extends L2GameClientPacket
 
 		if(_type < 0 || _type >= CHAT_NAMES.length)
 		{
-			_log.warning("Say2: Invalid type: "+_type);
+			_log.warn("Say2: Invalid type: "+_type);
 			return;
 		}
 		L2PcInstance activeChar = getClient().getActiveChar();
@@ -120,7 +121,7 @@ public final class Say2 extends L2GameClientPacket
 				|| _type2Check == SystemChatChannelId.CHAT_CUSTOM
 				|| (_type2Check == SystemChatChannelId.CHAT_GM_PET && !activeChar.isGM()))
 		{
-		   _log.warning("[Anti-PHX Announce] Illegal Chat channel was used by character: [" + activeChar.getName() + "]");
+		   _log.warn("[Anti-PHX Announce] Illegal Chat channel was used by character: [" + activeChar.getName() + "]");
 		   return;
 		}	
 		if (_text.length() >= 100)
@@ -130,7 +131,7 @@ public final class Say2 extends L2GameClientPacket
         }
 		if (activeChar == null)
 		{
-			_log.warning("[Say2.java] Active Character is null.");
+			_log.warn("[Say2.java] Active Character is null.");
 			return;
 		}
 		if (activeChar.isOffline())
@@ -140,7 +141,7 @@ public final class Say2 extends L2GameClientPacket
 		}
 		if (_text.isEmpty())
 		{
-			_log.warning(activeChar.getName() + ": sending empty text. Possible packet hack!");
+			_log.warn(activeChar.getName() + ": sending empty text. Possible packet hack!");
 			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 			activeChar.logout();
 			return;
@@ -186,11 +187,9 @@ public final class Say2 extends L2GameClientPacket
 			record.setLoggerName("chat");
 			
 			if (_type == TELL)
-				record.setParameters(new Object[]{CHAT_NAMES[_type], "[" + activeChar.getName() + " to "+_target+"]"});
+				_logChat.info(_text, CHAT_NAMES[_type], "[" + activeChar.getName() + " to "+_target+"]");
 			else
-				record.setParameters(new Object[]{CHAT_NAMES[_type], "[" + activeChar.getName() + "]"});
-			
-			_logChat.log(record);
+				_logChat.info(_text, CHAT_NAMES[_type], "[" + activeChar.getName() + "]");
 		}
 		
 		if (_type == PETITION_PLAYER && activeChar.isGM())

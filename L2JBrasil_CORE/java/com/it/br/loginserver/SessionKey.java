@@ -18,9 +18,9 @@
  */
 package com.it.br.loginserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.configuration.settings.LoginSettings;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * <p>This class is used to represent session keys used by the client to authenticate in the gameserver</p>

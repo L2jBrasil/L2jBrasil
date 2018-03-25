@@ -31,16 +31,17 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
-import java.util.logging.Logger;
 
 /**
  * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $
  */
 public class AdminTeleport implements IAdminCommandHandler
 {
-    private static final Logger _log = Logger.getLogger(AdminTeleport.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(AdminTeleport.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -453,7 +454,7 @@ public class AdminTeleport implements IAdminCommandHandler
             if (template1 == null)
             {
                 activeChar.sendMessage("Incorrect monster template.");
-                _log.warning("ERROR: NPC " + target.getObjectId() + " has a 'null' template.");
+                _log.warn("ERROR: NPC " + target.getObjectId() + " has a 'null' template.");
                 return;
             }
 
@@ -461,7 +462,7 @@ public class AdminTeleport implements IAdminCommandHandler
             if (spawn == null)
             {
                 activeChar.sendMessage("Incorrect monster spawn.");
-                _log.warning("ERROR: NPC " + target.getObjectId() + " has a 'null' spawn.");
+                _log.warn("ERROR: NPC " + target.getObjectId() + " has a 'null' spawn.");
                 return;
             }
             int respawnTime = spawn.getRespawnDelay();
@@ -489,8 +490,8 @@ public class AdminTeleport implements IAdminCommandHandler
 
                 if (Config.DEBUG)
                 {
-                    _log.fine("Spawn at X="+spawn.getLocx()+" Y="+spawn.getLocy()+" Z="+spawn.getLocz());
-                    _log.warning("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") moved NPC " + target.getObjectId());
+                    _log.debug("Spawn at X="+spawn.getLocx()+" Y="+spawn.getLocy()+" Z="+spawn.getLocz());
+                    _log.warn("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") moved NPC " + target.getObjectId());
                 }
             }
             catch (Exception e)

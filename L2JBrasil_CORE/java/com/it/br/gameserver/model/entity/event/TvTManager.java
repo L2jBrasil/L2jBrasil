@@ -14,20 +14,21 @@
  */
 package com.it.br.gameserver.model.entity.event;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.Calendar;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
-
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Calendar;
+import java.util.concurrent.ScheduledFuture;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class TvTManager
 {
-	protected static final Logger _log = Logger.getLogger(TvTManager.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(TvTManager.class);
 
 	/** Task for event cycles<br> */
 	private TvTStartTask _task;
@@ -92,7 +93,7 @@ public class TvTManager
 		}
 		catch (Exception e)
 		{
-			_log.warning("TvTEventEngine[TvTManager.scheduleEventStart()]: Error figuring out a start time. Check TvTEventInterval in config file.");
+			_log.warn("TvTEventEngine[TvTManager.scheduleEventStart()]: Error figuring out a start time. Check TvTEventInterval in config file.");
 		}
 	}
 
@@ -104,7 +105,7 @@ public class TvTManager
 		if (!TvTEvent.startParticipation())
 		{
 			Announcements.getInstance().gameAnnounceToAll("TvT Event: Event was cancelled.");
-			_log.warning("TvTEventEngine[TvTManager.run()]: Error spawning event npc for participation.");
+			_log.warn("TvTEventEngine[TvTManager.run()]: Error spawning event npc for participation.");
 
 			this.scheduleEventStart();
 		}

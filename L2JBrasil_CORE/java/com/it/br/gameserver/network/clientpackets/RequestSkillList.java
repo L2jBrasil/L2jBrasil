@@ -28,7 +28,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 public final class RequestSkillList extends L2GameClientPacket
 {
 	private static final String _C__3F_REQUESTSKILLLIST = "[C] 3F RequestSkillList";
-	//private static Logger _log = Logger.getLogger(RequestSkillList.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestSkillList.class);
     @SuppressWarnings("unused")
 	private int _unk1;
     @SuppressWarnings("unused")

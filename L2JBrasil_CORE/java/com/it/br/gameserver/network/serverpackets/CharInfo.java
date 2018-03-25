@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.model.Inventory;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 0000: 03 32 15 00 00 44 fe 00 00 80 f1 ff ff 00 00 00    .2...D..........<p>
@@ -53,7 +53,7 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
  */
 public class CharInfo extends L2GameServerPacket
 {
-	private static final Logger _log = Logger.getLogger(CharInfo.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(CharInfo.class);
 
 	private static final String _S__03_CHARINFO = "[S] 03 CharInfo";
 	private L2PcInstance _activeChar;
@@ -177,7 +177,7 @@ public class CharInfo extends L2GameServerPacket
 				writeC(0);  // C2
 			} else
 			{
-				_log.warning("Character "+_activeChar.getName()+" ("+_activeChar.getObjectId()+") morphed in a Npc ("+_activeChar.getPoly().getPolyId()+") w/o template.");
+				_log.warn("Character "+_activeChar.getName()+" ("+_activeChar.getObjectId()+") morphed in a Npc ("+_activeChar.getPoly().getPolyId()+") w/o template.");
 			}
 		}
 		else

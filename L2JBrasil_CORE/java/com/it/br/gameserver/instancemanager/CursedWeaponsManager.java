@@ -25,6 +25,8 @@ import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -39,12 +41,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class CursedWeaponsManager
 {
-	private static final Logger _log = Logger.getLogger(CursedWeaponsManager.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(CursedWeaponsManager.class);
 
 	private static CursedWeaponsManager _instance;
 
@@ -158,7 +158,7 @@ public class CursedWeaponsManager
         }
         catch (Exception e)
         {
-            _log.log(Level.SEVERE, "Error parsing cursed weapons file.", e);
+            _log.error( "Error parsing cursed weapons file.", e);
 
             if (Config.DEBUG)
         		System.out.println("ERROR");
@@ -206,7 +206,7 @@ public class CursedWeaponsManager
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not restore CursedWeapons data: " + e);
+			_log.warn("Could not restore CursedWeapons data: " + e);
 
 	    	if (Config.DEBUG)
 	    		System.out.println("ERROR");
@@ -261,7 +261,7 @@ public class CursedWeaponsManager
 						statement.setInt(2, itemId);
 						if (statement.executeUpdate() != 1)
 						{
-							_log.warning("Error while deleting cursed weapon "+itemId+" from userId "+playerId);
+							_log.warn("Error while deleting cursed weapon "+itemId+" from userId "+playerId);
 						}
 						statement.close();
 
@@ -272,7 +272,7 @@ public class CursedWeaponsManager
 		    			statement.setInt(3, playerId);
 		    			if (statement.executeUpdate() != 1)
 		    			{
-		    				_log.warning("Error while updating karma & pkkills for userId "+cw.getPlayerId());
+		    				_log.warn("Error while updating karma & pkkills for userId "+cw.getPlayerId());
 		    			}
 
 		    			removeFromDb(itemId);
@@ -287,7 +287,7 @@ public class CursedWeaponsManager
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not check CursedWeapons data: " + e);
+			_log.warn("Could not check CursedWeapons data: " + e);
 
 	    	if (Config.DEBUG)
 	    		System.out.println("ERROR");
@@ -421,7 +421,7 @@ public class CursedWeaponsManager
         }
         catch (SQLException e)
         {
-        	_log.severe("CursedWeaponsManager: Failed to remove data: " + e);
+        	_log.error("CursedWeaponsManager: Failed to remove data: " + e);
         }
         finally
         {

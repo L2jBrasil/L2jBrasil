@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.*;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
@@ -32,6 +29,13 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.taskmanager.DecayTaskManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * This class handles following admin commands:
@@ -41,7 +45,7 @@ import com.it.br.gameserver.taskmanager.DecayTaskManager;
  */
 public class AdminRes implements IAdminCommandHandler
 {
-	private static Logger _log = Logger.getLogger(AdminRes.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(AdminRes.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -139,7 +143,7 @@ public class AdminRes implements IAdminCommandHandler
 		doResurrect((L2Character)obj);
 
 		if (Config.DEBUG)
-			_log.fine("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") resurrected character "+ obj.getObjectId());
+			_log.debug("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") resurrected character "+ obj.getObjectId());
 	}
 
 	private void handleNonPlayerRes(L2PcInstance activeChar)

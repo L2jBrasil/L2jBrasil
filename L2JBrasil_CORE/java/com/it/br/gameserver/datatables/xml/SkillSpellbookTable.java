@@ -12,8 +12,18 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.L2Skill;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,121 +31,88 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import static com.it.br.configuration.Configurator.getSettings;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+public class SkillSpellbookTable {
+    private static final Logger _log = LoggerFactory.getLogger(SkillSpellbookTable.class);
 
-import com.it.br.Config;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.L2Skill;
+    private static SkillSpellbookTable _instance;
 
-public class SkillSpellbookTable
-{
-	private static final Log _log = LogFactory.getLog(SkillSpellbookTable.class.getName());
+    private static Map<Integer, Integer> _skillSpellbooks;
 
-	private static SkillSpellbookTable _instance;
+    public static SkillSpellbookTable getInstance() {
+        if (_instance == null) {
+            _instance = new SkillSpellbookTable();
+        }
 
-	private static Map<Integer, Integer> _skillSpellbooks;
+        return _instance;
+    }
 
-	public static SkillSpellbookTable getInstance()
-	{
-		if(_instance == null)
-		{
-			_instance = new SkillSpellbookTable();
-		}
+    private SkillSpellbookTable() {
+        if (!Config.SP_BOOK_NEEDED)
+            return;
 
-		return _instance;
-	}
+        _skillSpellbooks = new HashMap<>();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+        ServerSettings serverSettings = getSettings(ServerSettings.class);
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/spellbooks.xml");
+        if (!f.exists()) {
+            _log.warn("skill_spellbooks.xml could not be loaded: file {} not found", f.getAbsolutePath());
+            return;
+        }
+        try {
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("book")) {
+                            _skillSpellbooks.put(Integer.valueOf(d.getAttributes().getNamedItem("skill_id").getNodeValue()), Integer.valueOf(d.getAttributes().getNamedItem("item_id").getNodeValue()));
+                        }
+                    }
+                }
+            }
+        } catch (SAXException e) {
+            _log.error("Error while creating table", e);
+        } catch (IOException e) {
+            _log.error("Error while creating table", e);
+        } catch (ParserConfigurationException e) {
+            _log.error("Error while creating table", e);
+        }
 
-	private SkillSpellbookTable()
-	{
-		if (!Config.SP_BOOK_NEEDED)
-			return;
-		
-		_skillSpellbooks = new HashMap<>();
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		ServerSettings serverSettings = getSettings(ServerSettings.class);
-		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/spellbooks.xml");
-		if(!f.exists())
-		{
-			_log.warn("skill_spellbooks.xml could not be loaded: file not found");
-			return;
-		}
-		try
-		{
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("book"))
-						{
-							_skillSpellbooks.put(Integer.valueOf(d.getAttributes().getNamedItem("skill_id").getNodeValue()), Integer.valueOf(d.getAttributes().getNamedItem("item_id").getNodeValue()));
-						}
-					}
-				}
-			}
-		}
-		catch(SAXException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(IOException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(ParserConfigurationException e)
-		{
-			_log.error("Error while creating table", e);
-		}
+        _log.info("SkillSpellbookTable: Loaded {} spellbooks", _skillSpellbooks.size());
+    }
 
-		_log.info("SkillSpellbookTable: Loaded " + _skillSpellbooks.size() + " spellbooks.");
-	}
+    public int getBookForSkill(int skillId, int level) {
+        if (skillId == L2Skill.SKILL_DIVINE_INSPIRATION && level != -1) {
+            switch (level) {
+                case 1:
+                    return 8618; // Ancient Book - Divine Inspiration (Modern Language Version)
+                case 2:
+                    return 8619; // Ancient Book - Divine Inspiration (Original Language Version)
+                case 3:
+                    return 8620; // Ancient Book - Divine Inspiration (Manuscript)
+                case 4:
+                    return 8621; // Ancient Book - Divine Inspiration (Original Version)
+                default:
+                    return -1;
+            }
+        }
 
-	public int getBookForSkill(int skillId, int level)
-	{
-		if (skillId == L2Skill.SKILL_DIVINE_INSPIRATION && level != -1)
-		{
-			switch (level)
-			{
-				case 1:
-					return 8618; // Ancient Book - Divine Inspiration (Modern Language Version)
-				case 2:
-					return 8619; // Ancient Book - Divine Inspiration (Original Language Version)
-				case 3:
-					return 8620; // Ancient Book - Divine Inspiration (Manuscript)
-				case 4:
-					return 8621; // Ancient Book - Divine Inspiration (Original Version)
-				default:
-					return -1;
-			}
-		}
+        if (!_skillSpellbooks.containsKey(skillId))
+            return -1;
 
-		if(!_skillSpellbooks.containsKey(skillId))
-			return -1;
+        return _skillSpellbooks.get(skillId);
+    }
 
-		return _skillSpellbooks.get(skillId);
-	}
+    public int getBookForSkill(L2Skill skill) {
+        return getBookForSkill(skill.getId(), -1);
+    }
 
-	public int getBookForSkill(L2Skill skill)
-	{
-		return getBookForSkill(skill.getId(), -1);
-	}
-
-	public int getBookForSkill(L2Skill skill, int level)
-	{
-		return getBookForSkill(skill.getId(), level);
-	}
+    public int getBookForSkill(L2Skill skill, int level) {
+        return getBookForSkill(skill.getId(), level);
+    }
 }

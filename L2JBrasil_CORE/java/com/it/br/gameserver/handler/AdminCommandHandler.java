@@ -18,26 +18,27 @@
  */
 package com.it.br.gameserver.handler;
 
+import com.it.br.Config;
+import com.it.br.gameserver.handler.admincommandhandlers.*;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.gameserver.handler.admincommandhandlers.*;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 public class AdminCommandHandler
 {
-	private static Logger _log = Logger.getLogger(AdminCommandHandler.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(AdminCommandHandler.class);
 	private static AdminCommandHandler _instance;
 	private Map<String, IAdminCommandHandler> _datatable;
 
     @SuppressWarnings("unused")
-	private static Logger _priviLog = Logger.getLogger("AltPrivilegesAdmin");
+	private static Logger _priviLog = LoggerFactory.getLogger("AltPrivilegesAdmin");
     private static Map<String,Integer> _privileges;
 
 	public static AdminCommandHandler getInstance()
@@ -118,14 +119,14 @@ public class AdminCommandHandler
         registerAdminCommandHandler(new AdminNoble());
         registerAdminCommandHandler(new AdminRecallAll());
         registerAdminCommandHandler(new AdminDebug());
-		_log.config("AdminCommandHandler: Loading " + _datatable.size() + " handlers.");
+		_log.info("AdminCommandHandler: Loading " + _datatable.size() + " handlers.");
 	}
 
 	public void registerAdminCommandHandler(IAdminCommandHandler handler)
 	{
         Set<String> ids = handler.getAdminCommandList();
         ids.forEach(id -> {
-            if (Config.DEBUG) _log.fine("adicionando handler para o comando " +id);
+            if (Config.DEBUG) _log.debug("adicionando handler para o comando " +id);
             _datatable.put(id, handler);
         });
 	}
@@ -138,7 +139,7 @@ public class AdminCommandHandler
 			command = adminCommand.substring(0, adminCommand.indexOf(" "));
 		}
 		if (Config.DEBUG)
-			_log.fine("Handler obtained: "+command+ " -> "+(_datatable.get(command) != null));
+			_log.debug("Handler obtained: "+command+ " -> "+(_datatable.get(command) != null));
 		return _datatable.get(command);
 	}
 
@@ -197,7 +198,7 @@ public class AdminCommandHandler
             {
                 if (Config.ALT_PRIVILEGES_SECURE_CHECK)
                 {
-                    _log.fine("Command executed!!");
+                    _log.debug("Command executed!!");
                     return false;
                 }
                 requireLevel = Config.ALT_PRIVILEGES_DEFAULT_LEVEL;
@@ -211,7 +212,7 @@ public class AdminCommandHandler
 
         if (player.getAccessLevel() < requireLevel)
         {
-            _log.warning("<GM>" + player.getName() + ": needs: '" + command +"'");
+            _log.warn("<GM>" + player.getName() + ": needs: '" + command +"'");
             return false;
         }
         return true;

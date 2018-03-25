@@ -17,17 +17,17 @@
  */
 package com.it.br.gameserver;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.model.ItemContainer;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.entity.Castle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CastleUpdater implements Runnable
 {
-	protected static Logger _log = Logger.getLogger(CastleUpdater.class.getName());
+	protected static Logger _log = LoggerFactory.getLogger(CastleUpdater.class);
 	private L2Clan _clan;
 	private int _runCount = 0;
 

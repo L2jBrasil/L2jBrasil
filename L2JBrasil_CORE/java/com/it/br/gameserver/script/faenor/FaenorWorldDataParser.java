@@ -18,18 +18,18 @@
  */
 package com.it.br.gameserver.script.faenor;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
-import org.apache.bsf.BSFManager;
-import org.w3c.dom.Node;
-
 import com.it.br.Config;
 import com.it.br.gameserver.script.IntList;
 import com.it.br.gameserver.script.Parser;
 import com.it.br.gameserver.script.ParserFactory;
 import com.it.br.gameserver.script.ScriptEngine;
+import org.apache.bsf.BSFManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Node;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Luis Arias
@@ -37,7 +37,7 @@ import com.it.br.gameserver.script.ScriptEngine;
  */
 public class FaenorWorldDataParser extends FaenorParser
 {
-    static Logger _log = Logger.getLogger(FaenorWorldDataParser.class.getName());
+    static Logger _log = LoggerFactory.getLogger(FaenorWorldDataParser.class);
     //Script Types
     private final static String PET_DATA = "PetData";
 
@@ -93,7 +93,7 @@ public class FaenorWorldDataParser extends FaenorParser
         catch (Exception e)
         {
             petData.petId = -1;
-            _log.warning("Error in pet Data parser.");
+            _log.warn("Error in pet Data parser.");
             e.printStackTrace();
         }
     }

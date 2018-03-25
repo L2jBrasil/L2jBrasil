@@ -20,11 +20,7 @@ package com.it.br.gameserver.handler.skillhandlers;
 
 import com.it.br.Config;
 import com.it.br.gameserver.handler.ISkillHandler;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
@@ -40,7 +36,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public class Sweep implements ISkillHandler
 {
-    //private static Logger _log = Logger.getLogger(Sweep.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(Sweep.class);
 	private static final SkillType[] SKILL_IDS = {SkillType.SWEEP};
 
 

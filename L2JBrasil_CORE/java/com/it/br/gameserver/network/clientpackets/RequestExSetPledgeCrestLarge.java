@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Level;
-
 import com.it.br.gameserver.cache.CrestCache;
 import com.it.br.gameserver.cache.CrestCache.CrestType;
 import com.it.br.gameserver.idfactory.IdFactory;
@@ -30,7 +28,7 @@ import com.it.br.gameserver.network.SystemMessageId;
 public final class RequestExSetPledgeCrestLarge extends L2GameClientPacket
 {
 	private static final String _C__D0_11_REQUESTEXSETPLEDGECRESTLARGE = "[C] D0:11 RequestExSetPledgeCrestLarge";
-	//static Logger _log = Logger.getLogger(RequestExSetPledgeCrestLarge.class.getName());
+	//static Logger _log = LoggerFactory.getLogger(RequestExSetPledgeCrestLarge.class);
 	private int _size;
 	private byte[] _data;
 
@@ -100,7 +98,7 @@ public final class RequestExSetPledgeCrestLarge extends L2GameClientPacket
 				crestLargeId = IdFactory.getInstance().getNextId();
 				if (!CrestCache.saveCrest(CrestType.PLEDGE_LARGE, crestLargeId, _data))
 				{
-					_log.log(Level.INFO, "Error saving large crest for clan " + clan.getName() + " [" + clan.getClanId() + "]");
+					_log.info( "Error saving large crest for clan " + clan.getName() + " [" + clan.getClanId() + "]");
 					return;
 				}
 				

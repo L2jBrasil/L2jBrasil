@@ -27,17 +27,17 @@ import com.it.br.gameserver.instancemanager.ClanHallManager;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Auction
 {
-    protected static final Logger _log = Logger.getLogger(Auction.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(Auction.class);
 	private int _id								= 0;
 	private int _adenaId						= 57;
 	private long _endDate;
@@ -257,7 +257,7 @@ public class Auction
         }
         catch (Exception e)
         {
-        	 _log.log(Level.SEVERE, "Exception: Auction.updateInDB(L2PcInstance bidder, int bid): " + e.getMessage());
+        	 _log.error( "Exception: Auction.updateInDB(L2PcInstance bidder, int bid): " + e.getMessage());
             e.printStackTrace();
         }
 	}

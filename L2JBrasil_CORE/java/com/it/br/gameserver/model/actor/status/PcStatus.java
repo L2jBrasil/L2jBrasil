@@ -127,14 +127,14 @@ public class PcStatus extends PlayableStatus
             SystemMessage smsg = new SystemMessage(SystemMessageId.S1_HIT_YOU_S2_DMG);
 
             if (Config.DEBUG)
-                _log.fine("Attacker:" + attacker.getName());
+                _log.debug("Attacker:" + attacker.getName());
 
             if (attacker instanceof L2NpcInstance)
             {
                 int mobId = ((L2NpcInstance)attacker).getTemplate().idTemplate;
 
                 if (Config.DEBUG)
-                    _log.fine("mob id:" + mobId);
+                    _log.debug("mob id:" + mobId);
 
                 smsg.addNpcName(mobId);
             }

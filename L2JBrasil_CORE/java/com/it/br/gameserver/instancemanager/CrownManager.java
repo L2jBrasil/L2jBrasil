@@ -14,8 +14,6 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import com.it.br.gameserver.datatables.sql.CrownTable;
 import com.it.br.gameserver.model.L2Clan;
@@ -28,113 +26,92 @@ import com.it.br.gameserver.model.entity.Castle;
  * @author evill33t
  * Reworked by NB4L1
  */
-public class CrownManager
-{
-	private static final Log	_log	= LogFactory.getLog(CrownManager.class.getName());
-	private static CrownManager	_instance;
+public class CrownManager {
+    private static CrownManager _instance;
 
-	public static final CrownManager getInstance()
-	{
-		if (_instance == null)
-			_instance = new CrownManager();
-		return _instance;
-	}
+    public static final CrownManager getInstance() {
+        if (_instance == null)
+            _instance = new CrownManager();
+        return _instance;
+    }
 
-	public CrownManager()
-	{
-	}
+    public CrownManager() {
+    }
 
-	public void checkCrowns(L2Clan clan)
-	{
-		if (clan == null)
-			return;
+    public void checkCrowns(L2Clan clan) {
+        if (clan == null)
+            return;
 
-		for (L2ClanMember member : clan.getMembers())
-		{
-			if (member != null && member.isOnline() && member.getPlayerInstance() != null)
-			{
-				checkCrowns(member.getPlayerInstance());
-			}
-		}
-	}
+        for (L2ClanMember member : clan.getMembers()) {
+            if (member != null && member.isOnline() && member.getPlayerInstance() != null) {
+                checkCrowns(member.getPlayerInstance());
+            }
+        }
+    }
 
-	public void checkCrowns(L2PcInstance activeChar)
-	{
-		if (activeChar == null)
-			return;
+    public void checkCrowns(L2PcInstance activeChar) {
+        if (activeChar == null)
+            return;
 
-		boolean isLeader = false;
-		int crownId = -1;
+        boolean isLeader = false;
+        int crownId = -1;
 
-		L2Clan activeCharClan = activeChar.getClan();
-		//L2EMU_EDIT_BEGIN
-		L2ClanMember activeCharClanLeader;
-		if (activeCharClan != null)
-			activeCharClanLeader = activeChar.getClan().getLeader();
-		else
-			activeCharClanLeader = null;
-		//L2EMU_EDIT_END
-		if (activeCharClan != null)
-		{
-			Castle activeCharCastle = CastleManager.getInstance().getCastleByOwner(activeCharClan);
+        L2Clan activeCharClan = activeChar.getClan();
+        //L2EMU_EDIT_BEGIN
+        L2ClanMember activeCharClanLeader;
+        if (activeCharClan != null)
+            activeCharClanLeader = activeChar.getClan().getLeader();
+        else
+            activeCharClanLeader = null;
+        //L2EMU_EDIT_END
+        if (activeCharClan != null) {
+            Castle activeCharCastle = CastleManager.getInstance().getCastleByOwner(activeCharClan);
 
-			if (activeCharCastle != null)
-			{
-				crownId = CrownTable.getCrownId(activeCharCastle.getCastleId());
-			}
+            if (activeCharCastle != null) {
+                crownId = CrownTable.getCrownId(activeCharCastle.getCastleId());
+            }
 
-			//L2EMU_EDIT
-			if (activeCharClanLeader != null && activeCharClanLeader.getObjectId() == activeChar.getObjectId())
-			//L2EMU_EDIT
-			{
-				isLeader = true;
-			}
-		}
+            //L2EMU_EDIT
+            if (activeCharClanLeader != null && activeCharClanLeader.getObjectId() == activeChar.getObjectId())
+            //L2EMU_EDIT
+            {
+                isLeader = true;
+            }
+        }
 
-		if (crownId > 0)
-		{
-			if (isLeader && activeChar.getInventory().getItemByItemId(6841) == null)
-			{
-				activeChar.addItem("Crown", 6841, 1, activeChar, true);
-				activeChar.getInventory().updateDatabase();
-			}
+        if (crownId > 0) {
+            if (isLeader && activeChar.getInventory().getItemByItemId(6841) == null) {
+                activeChar.addItem("Crown", 6841, 1, activeChar, true);
+                activeChar.getInventory().updateDatabase();
+            }
 
-			if (activeChar.getInventory().getItemByItemId(crownId) == null)
-			{
-				activeChar.addItem("Crown", crownId, 1, activeChar, true);
-				activeChar.getInventory().updateDatabase();
-			}
-		}
+            if (activeChar.getInventory().getItemByItemId(crownId) == null) {
+                activeChar.addItem("Crown", crownId, 1, activeChar, true);
+                activeChar.getInventory().updateDatabase();
+            }
+        }
 
-		boolean alreadyFoundCirclet = false;
-		boolean alreadyFoundCrown = false;
-		for (L2ItemInstance item : activeChar.getInventory().getItems())
-		{
-			if (CrownTable.getCrownList().contains(item.getItemId()))
-			{
-				if (crownId > 0)
-				{
-					if (item.getItemId() == crownId)
-					{
-						if (!alreadyFoundCirclet)
-						{
-							alreadyFoundCirclet = true;
-							continue;
-						}
-					}
-					else if (item.getItemId() == 6841 && isLeader)
-					{
-						if (!alreadyFoundCrown)
-						{
-							alreadyFoundCrown = true;
-							continue;
-						}
-					}
-				}
+        boolean alreadyFoundCirclet = false;
+        boolean alreadyFoundCrown = false;
+        for (L2ItemInstance item : activeChar.getInventory().getItems()) {
+            if (CrownTable.getCrownList().contains(item.getItemId())) {
+                if (crownId > 0) {
+                    if (item.getItemId() == crownId) {
+                        if (!alreadyFoundCirclet) {
+                            alreadyFoundCirclet = true;
+                            continue;
+                        }
+                    } else if (item.getItemId() == 6841 && isLeader) {
+                        if (!alreadyFoundCrown) {
+                            alreadyFoundCrown = true;
+                            continue;
+                        }
+                    }
+                }
 
-				activeChar.destroyItem("Removing Crown", item, activeChar, true);
-				activeChar.getInventory().updateDatabase();
-			}
-		}
-	}
+                activeChar.destroyItem("Removing Crown", item, activeChar, true);
+                activeChar.getInventory().updateDatabase();
+            }
+        }
+    }
 }

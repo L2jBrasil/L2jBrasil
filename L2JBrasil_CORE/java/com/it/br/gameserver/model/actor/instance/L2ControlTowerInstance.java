@@ -17,9 +17,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.GeoData;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.model.L2Character;
@@ -29,6 +26,9 @@ import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
 import com.it.br.gameserver.network.serverpackets.StatusUpdate;
 import com.it.br.gameserver.network.serverpackets.ValidateLocation;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class L2ControlTowerInstance extends L2NpcInstance {
 

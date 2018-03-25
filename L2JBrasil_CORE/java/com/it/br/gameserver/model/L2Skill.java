@@ -18,15 +18,6 @@
  */
 package com.it.br.gameserver.model;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.GeoData;
@@ -34,14 +25,7 @@ import com.it.br.gameserver.datatables.HeroSkillTable;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.SkillTreeTable;
 import com.it.br.gameserver.instancemanager.CoupleManager;
-import com.it.br.gameserver.model.actor.instance.L2ArtefactInstance;
-import com.it.br.gameserver.model.actor.instance.L2ChestInstance;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PetInstance;
-import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
-import com.it.br.gameserver.model.actor.instance.L2SummonInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.model.entity.Couple;
 import com.it.br.gameserver.network.SystemMessageId;
@@ -55,19 +39,19 @@ import com.it.br.gameserver.skills.effects.EffectCharge;
 import com.it.br.gameserver.skills.effects.EffectTemplate;
 import com.it.br.gameserver.skills.funcs.Func;
 import com.it.br.gameserver.skills.funcs.FuncTemplate;
-import com.it.br.gameserver.skills.l2skills.L2SkillCharge;
-import com.it.br.gameserver.skills.l2skills.L2SkillChargeDmg;
-import com.it.br.gameserver.skills.l2skills.L2SkillChargeEffect;
-import com.it.br.gameserver.skills.l2skills.L2SkillCreateItem;
-import com.it.br.gameserver.skills.l2skills.L2SkillDefault;
-import com.it.br.gameserver.skills.l2skills.L2SkillDrain;
-import com.it.br.gameserver.skills.l2skills.L2SkillSeed;
-import com.it.br.gameserver.skills.l2skills.L2SkillSignet;
-import com.it.br.gameserver.skills.l2skills.L2SkillSignetCasttime;
-import com.it.br.gameserver.skills.l2skills.L2SkillSummon;
+import com.it.br.gameserver.skills.l2skills.*;
 import com.it.br.gameserver.templates.L2WeaponType;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class...
@@ -76,7 +60,7 @@ import com.it.br.gameserver.util.Util;
  */
 public abstract class L2Skill implements IChanceSkillTrigger
 {
-    protected static final Logger _log = Logger.getLogger(L2Skill.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(L2Skill.class);
 
     public static final int SKILL_CUBIC_MASTERY = 143;
     public static final int SKILL_LUCKY = 194;
@@ -585,7 +569,7 @@ public abstract class L2Skill implements IChanceSkillTrigger
                 }
                 catch (Throwable t)
                 {
-                    _log.log(Level.SEVERE, "Bad class " + cls + " to learn skill", t);
+                    _log.error( "Bad class " + cls + " to learn skill", t);
                 }
             }
         }
@@ -608,7 +592,7 @@ public abstract class L2Skill implements IChanceSkillTrigger
                 }
                 catch (Throwable t)
                 {
-                    _log.log(Level.SEVERE, "Bad teacher id " + npcid + " to teach skill", t);
+                    _log.error( "Bad teacher id " + npcid + " to teach skill", t);
                 }
             }
         }

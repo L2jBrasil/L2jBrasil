@@ -25,11 +25,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2WarehouseInstance;
 import com.it.br.gameserver.model.base.Race;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.EnchantResult;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2WeaponType;
 import com.it.br.gameserver.util.IllegalPlayerAction;
@@ -37,7 +33,7 @@ import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
 
 public final class RequestEnchantItem extends L2GameClientPacket {
-	//protected static final Logger _log = Logger.getLogger(RequestEnchantItem.class.getName());
+	//protected static final Logger _log = LoggerFactory.getLogger(RequestEnchantItem.class);
 	private static final String _C__58_REQUESTENCHANTITEM = "[C] 58 RequestEnchantItem";
 	private static final int[] ENCHANT_SCROLLS = { 729, 730, 947, 948, 951,	952, 955, 956, 959, 960 };
 	private static final int[] CRYSTAL_SCROLLS = { 731, 732, 949, 950, 953, 954, 957, 958, 961, 962 };

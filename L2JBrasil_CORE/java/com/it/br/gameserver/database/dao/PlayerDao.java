@@ -15,12 +15,13 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.base.SubClass;
 import com.it.br.gameserver.templates.L2Henna;
 import com.it.br.gameserver.templates.L2PcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
@@ -28,7 +29,7 @@ import java.util.logging.Logger;
  */
 public class PlayerDao
 {
-    private static final Logger _log = Logger.getLogger(PlayerDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(PlayerDao.class);
 
     private static final String RESTORE_SKILLS_FOR_CHAR = "SELECT skill_id,skill_level FROM character_skills WHERE char_obj_id=? AND class_index=?";
     private static final String RESTORE_SKILLS_FOR_CHAR_ALT_SUBCLASS = "SELECT skill_id,skill_level FROM character_skills WHERE char_obj_id=? ORDER BY (skill_level+0)";
@@ -80,7 +81,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": could not update char recommendations:"+e);
+            _log.warn(PlayerDao.class.getName() + ": could not update char recommendations:"+e);
         }
     }
 
@@ -98,7 +99,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": could not set char online status:"+e);
+            _log.warn(PlayerDao.class.getName() + ": could not set char online status:"+e);
         }
     }
 
@@ -113,7 +114,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": could not set char isIn7sDungeon status:"+e);
+            _log.warn(PlayerDao.class.getName() + ": could not set char isIn7sDungeon status:"+e);
         }
     }
 
@@ -193,7 +194,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.severe(PlayerDao.class.getName() + ": Could not insert char data: " + e);
+            _log.error(PlayerDao.class.getName() + ": Could not insert char data: " + e);
             return false;
         }
         return true;
@@ -302,7 +303,7 @@ public class PlayerDao
                     // a possible restart-while-modifysubclass cheat has been attempted.
                     // Switching to use base class
                     player.setClassId(player.getBaseClass());
-                    _log.warning("Player "+player.getName()+" reverted to base class. Possibly has tried a relogin exploit while subclassing.");
+                    _log.warn("Player "+player.getName()+" reverted to base class. Possibly has tried a relogin exploit while subclassing.");
                 }
                 else player.setActiveClass(activeClassId);
                 player.setApprentice(rset.getInt("apprentice"));
@@ -391,7 +392,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not restore classes for " + player.getName() + ": " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not restore classes for " + player.getName() + ": " + e);
             e.printStackTrace();
         }
         return true;
@@ -432,7 +433,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not store recipe book data: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not store recipe book data: " + e);
         }
     }
 
@@ -456,7 +457,7 @@ public class PlayerDao
 
         }
         catch (SQLException e) {
-            _log.warning(PlayerDao.class.getName() + ": Could not restore recipe book data:" + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not restore recipe book data:" + e);
         }
     }
 
@@ -554,7 +555,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not store char base data: "+ e);
+            _log.warn(PlayerDao.class.getName() + ": Could not store char base data: "+ e);
         }
     }
 
@@ -583,7 +584,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not store sub class data for " + player.getName() + ": "+ e);
+            _log.warn(PlayerDao.class.getName() + ": Could not store sub class data for " + player.getName() + ": "+ e);
         }
     }
 
@@ -598,7 +599,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not Delete skills effect data: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not Delete skills effect data: " + e);
         }
     }
 
@@ -629,7 +630,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not add skills effect data: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not add skills effect data: " + e);
         }
     }
 
@@ -651,7 +652,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not add skills 2 effect data: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not add skills 2 effect data: " + e);
         }
     }
 
@@ -671,7 +672,7 @@ public class PlayerDao
             }
             catch(SQLException e)
             {
-                _log.warning(PlayerDao.class.getName() + ": Error could not delete skill: " + e);
+                _log.warn(PlayerDao.class.getName() + ": Error could not delete skill: " + e);
             }
         }
     }
@@ -691,7 +692,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Error could not delete skill: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Error could not delete skill: " + e);
         }
     }
 
@@ -710,7 +711,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Error could not delete skill: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Error could not delete skill: " + e);
         }
     }
 
@@ -743,7 +744,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not restore character skills: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not restore character skills: " + e);
         }
     }
 
@@ -776,7 +777,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not restore character skills: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not restore character skills: " + e);
         }
     }
 
@@ -857,7 +858,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not restore active effect data: " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not restore active effect data: " + e);
         }
     }
 
@@ -896,7 +897,7 @@ public class PlayerDao
 
 
         } catch (SQLException e) {
-            _log.warning(PlayerDao.class.getName() + ": Could not restore henna : " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not restore henna : " + e);
             e.printStackTrace();
         }
     }
@@ -916,7 +917,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not restore recommendations : " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not restore recommendations : " + e);
             e.printStackTrace();
         }
     }
@@ -933,7 +934,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not remove Char Henna  : " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not remove Char Henna  : " + e);
             e.printStackTrace();
         }
     }
@@ -951,7 +952,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not save Char Henna  : " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not save Char Henna  : " + e);
             e.printStackTrace();
         }
     }
@@ -971,7 +972,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not add character sub class for " + player.getName() + ": " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not add character sub class for " + player.getName() + ": " + e);
         }
     }
 
@@ -986,7 +987,7 @@ public class PlayerDao
         }
         catch (SQLException e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not remove Char Henna  : " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not remove Char Henna  : " + e);
             e.printStackTrace();
         }
     }
@@ -1002,7 +1003,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not remove character shortcuts for " + player.getName() + ": " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not remove character shortcuts for " + player.getName() + ": " + e);
         }
     }
 
@@ -1017,7 +1018,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not remove character skills for " + player.getName() + ": " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not remove character skills for " + player.getName() + ": " + e);
         }
     }
 
@@ -1032,7 +1033,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not remove character Sub Classes for " + player.getName() + ": " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not remove character Sub Classes for " + player.getName() + ": " + e);
         }
     }
 
@@ -1046,7 +1047,7 @@ public class PlayerDao
         }
         catch (Exception e)
         {
-            _log.warning(PlayerDao.class.getName() + ": Could not remove character Recommends for " + player.getName() + ": " + e);
+            _log.warn(PlayerDao.class.getName() + ": Could not remove character Recommends for " + player.getName() + ": " + e);
         }
     }
 }

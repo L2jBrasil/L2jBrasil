@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
@@ -33,17 +29,17 @@ import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2WarehouseInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2EtcItemType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public final class SendWareHouseDepositList extends L2GameClientPacket
 {
 	private static final String _C__31_SENDWAREHOUSEDEPOSITLIST = "[C] 31 SendWareHouseDepositList";
-	private static Logger _log = Logger.getLogger(SendWareHouseDepositList.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(SendWareHouseDepositList.class);
 
 	private int _count;
 	private int[] _items;
@@ -149,7 +145,7 @@ public final class SendWareHouseDepositList extends L2GameClientPacket
 			L2ItemInstance item = player.checkItemManipulation(objectId, count, "deposit");
             if (item == null)
             {
-            	_log.warning("Error depositing a warehouse object for char "+player.getName()+" (validity check)");
+            	_log.warn("Error depositing a warehouse object for char "+player.getName()+" (validity check)");
             	_items[i * 2 + 0] = 0;
             	_items[i * 2 + 1] = 0;
             	continue;
@@ -189,7 +185,7 @@ public final class SendWareHouseDepositList extends L2GameClientPacket
 			L2ItemInstance oldItem = player.getInventory().getItemByObjectId(objectId);
             if (oldItem == null)
             {
-                _log.warning("Error depositing a warehouse object for char "+player.getName()+" (olditem == null)");
+                _log.warn("Error depositing a warehouse object for char "+player.getName()+" (olditem == null)");
                 continue;
             }
 
@@ -200,14 +196,14 @@ public final class SendWareHouseDepositList extends L2GameClientPacket
             
             if (CursedWeaponsManager.getInstance().isCursed(itemId))
             {
-            	_log.warning(player.getName()+" try to deposit Cursed Weapon on wherehouse.");
+            	_log.warn(player.getName()+" try to deposit Cursed Weapon on wherehouse.");
             	continue;
             }
             
 			L2ItemInstance newItem = player.getInventory().transferItem("Warehouse", objectId, count, warehouse, player, player.getLastFolkNPC());
             if (newItem == null)
             {
-            	_log.warning("Error depositing a warehouse object for char "+player.getName()+" (newitem == null)");
+            	_log.warn("Error depositing a warehouse object for char "+player.getName()+" (newitem == null)");
             	continue;
             }
 

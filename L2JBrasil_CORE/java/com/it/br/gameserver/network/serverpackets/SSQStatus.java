@@ -18,14 +18,14 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Seven Signs Record Update
@@ -45,7 +45,7 @@ import com.it.br.gameserver.templates.StatsSet;
  */
 public class SSQStatus extends L2GameServerPacket
 {
-    private static Logger _log = Logger.getLogger(SSQStatus.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(SSQStatus.class);
 
     private static final String _S__F5_SSQStatus = "[S] F5 RecordUpdate";
     private L2PcInstance _activevChar;

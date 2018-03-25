@@ -17,8 +17,6 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -29,6 +27,8 @@ import com.it.br.gameserver.network.serverpackets.ExFishingStartCombat;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+
+import java.util.concurrent.Future;
 
 public class L2Fishing implements Runnable
 {

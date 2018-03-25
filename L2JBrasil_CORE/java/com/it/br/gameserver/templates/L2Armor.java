@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.templates;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -28,6 +25,9 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.skills.Env;
 import com.it.br.gameserver.skills.funcs.Func;
 import com.it.br.gameserver.skills.funcs.FuncTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is dedicated to the management of armors.

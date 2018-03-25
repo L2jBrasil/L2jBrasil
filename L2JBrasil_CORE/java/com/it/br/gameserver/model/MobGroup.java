@@ -17,9 +17,6 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.ai.L2ControllableMobAI;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
@@ -27,6 +24,9 @@ import com.it.br.gameserver.model.actor.instance.L2ControllableMobInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author littlecrow

@@ -29,13 +29,14 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2SiegeGuardInstance;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 
 /**
@@ -55,7 +56,7 @@ import java.util.logging.Logger;
  */
 public class MercTicketManager
 {
-    protected static final Logger _log = Logger.getLogger(CastleManager.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(CastleManager.class);
 
     // =========================================================
     private static MercTicketManager _instance;

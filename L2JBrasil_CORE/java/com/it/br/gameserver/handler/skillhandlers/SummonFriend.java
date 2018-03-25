@@ -36,7 +36,7 @@ import com.it.br.gameserver.util.Util;
 
 public class SummonFriend implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(SummonFriend.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(SummonFriend.class);
 	private static final SkillType[] SKILL_IDS = {SkillType.SUMMON_FRIEND};
 
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Object[] targets)

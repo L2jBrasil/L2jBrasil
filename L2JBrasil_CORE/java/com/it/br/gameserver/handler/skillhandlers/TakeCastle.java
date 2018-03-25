@@ -33,7 +33,7 @@ import com.it.br.gameserver.util.Util;
 
 public class TakeCastle implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(TakeCastle.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(TakeCastle.class);
 	private static final SkillType[] SKILL_IDS = { SkillType.TAKECASTLE };
 
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Object[] targets)

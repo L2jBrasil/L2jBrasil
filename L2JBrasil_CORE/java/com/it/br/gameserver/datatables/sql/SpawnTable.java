@@ -26,6 +26,8 @@ import com.it.br.gameserver.instancemanager.DayNightSpawnManager;
 import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,7 +35,6 @@ import java.sql.ResultSet;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
@@ -45,7 +46,7 @@ import static com.it.br.configuration.Configurator.getSettings;
  */
 public class SpawnTable
 {
-	private static Logger _log = Logger.getLogger(SpawnTable.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(SpawnTable.class);
 	
 	private Map<Integer, L2Spawn> _spawntable = new ConcurrentHashMap<>();
 	private int _npcSpawnCount;
@@ -140,7 +141,7 @@ public class SpawnTable
 				}
 				else
 				{
-					_log.warning("SpawnTable: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
+					_log.warn("SpawnTable: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 				}
 			}
 			rset.close();
@@ -149,10 +150,10 @@ public class SpawnTable
 		catch (Exception e)
 		{
 			// problem with initializing spawn, go to next one
-			_log.warning("SpawnTable: Spawn could not be initialized: " + e);
+			_log.warn("SpawnTable: Spawn could not be initialized: " + e);
 		}
 
-		_log.config("SpawnTable: Loaded " + _spawntable.size() + " Npc Spawn Locations.");
+		_log.info("SpawnTable: Loaded " + _spawntable.size() + " Npc Spawn Locations.");
 		
 		if (l2jBrasilSettings.isGmSpawnOnCustomEnabled())
 		{
@@ -225,7 +226,7 @@ public class SpawnTable
 					}
 					else
 					{
-						_log.warning("CustomSpawnTable: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
+						_log.warn("CustomSpawnTable: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 					}
 				}
 				rset.close();
@@ -234,15 +235,15 @@ public class SpawnTable
 			catch (Exception e)
 			{
 				// problem with initializing spawn, go to next one
-				_log.warning("CustomSpawnTable: Spawn could not be initialized: " + e);
+				_log.warn("CustomSpawnTable: Spawn could not be initialized: " + e);
 			}
 
-			_log.config("CustomSpawnTable: Loaded " + _customSpawnCount + " Npc Spawn Locations.");
+			_log.info("CustomSpawnTable: Loaded " + _customSpawnCount + " Npc Spawn Locations.");
 			
 		}
 		
 		if (Config.DEBUG)
-			_log.fine("SpawnTable: Spawning completed, total number of NPCs in the world: " + (_npcSpawnCount + _customSpawnCount));
+			_log.debug("SpawnTable: Spawning completed, total number of NPCs in the world: " + (_npcSpawnCount + _customSpawnCount));
 		
 	}
 	
@@ -284,7 +285,7 @@ public class SpawnTable
 			catch (Exception e)
 			{
 				// problem with storing spawn
-				_log.warning("SpawnTable: Could not store spawn in the DB:" + e);
+				_log.warn("SpawnTable: Could not store spawn in the DB:" + e);
 			}
 		}
 	}
@@ -310,7 +311,7 @@ public class SpawnTable
 				catch (Exception e)
 				{
 					// problem with inserting nospawn
-					_log.warning("SpawnTable: Spawn " + spawn.getId() + " could not be insert into DB: " + e);
+					_log.warn("SpawnTable: Spawn " + spawn.getId() + " could not be insert into DB: " + e);
 				}
 			}
 			else
@@ -326,7 +327,7 @@ public class SpawnTable
 				catch (Exception e)
 				{
 					// problem with deleting spawn
-					_log.warning("SpawnTable: Spawn " + spawn.getId() + " could not be removed from DB: " + e);
+					_log.warn("SpawnTable: Spawn " + spawn.getId() + " could not be removed from DB: " + e);
 				}
 			}
 		}

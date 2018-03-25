@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.model.quest;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.cache.HtmCache;
@@ -34,25 +30,21 @@ import com.it.br.gameserver.model.actor.instance.L2MonsterInstance;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ExShowQuestMark;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.PlaySound;
-import com.it.br.gameserver.network.serverpackets.QuestList;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.TutorialCloseHtml;
-import com.it.br.gameserver.network.serverpackets.TutorialEnableClientEvent;
-import com.it.br.gameserver.network.serverpackets.TutorialShowHtml;
-import com.it.br.gameserver.network.serverpackets.TutorialShowQuestionMark;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.skills.Stats;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Luis Arias
  */
 public final class QuestState
 {
-	protected static final Logger _log = Logger.getLogger(Quest.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(Quest.class);
 
 	/** Quest associated to the QuestState */
 	private final String _questName;
@@ -249,7 +241,7 @@ public final class QuestState
 	        }
 	        catch (Exception e)
 	        {
-	            _log.finer(getPlayer().getName()+", "+getQuestName()+" cond ["+val+"] is not an integer.  Value stored, but no packet was sent: " + e);
+	            _log.debug(getPlayer().getName()+", "+getQuestName()+" cond ["+val+"] is not an integer.  Value stored, but no packet was sent: " + e);
 	        }
 		}
 
@@ -403,7 +395,7 @@ public final class QuestState
         }
         catch (Exception e)
         {
-            _log.finer(getPlayer().getName()+": variable "+var+" isn't an integer: " + varint + e);
+            _log.debug(getPlayer().getName()+": variable "+var+" isn't an integer: " + varint + e);
 //	    if (Config.AUTODELETE_INVALID_QUEST_DATA)
 //		exitQuest(true);
         }

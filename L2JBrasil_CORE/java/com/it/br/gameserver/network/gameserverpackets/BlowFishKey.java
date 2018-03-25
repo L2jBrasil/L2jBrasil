@@ -18,12 +18,13 @@
  */
 package com.it.br.gameserver.network.gameserverpackets;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.crypto.Cipher;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.interfaces.RSAPublicKey;
-import java.util.logging.Logger;
-
-import javax.crypto.Cipher;
 
 /**
  * @author -Wooden-
@@ -31,7 +32,7 @@ import javax.crypto.Cipher;
  */
 public class BlowFishKey extends GameServerBasePacket
 {
-	private static Logger _log = Logger.getLogger(BlowFishKey.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(BlowFishKey.class);
 	/**
 	 * @param blowfishKey
 	 * @param publicKey
@@ -48,7 +49,7 @@ public class BlowFishKey extends GameServerBasePacket
 		}
 		catch(GeneralSecurityException e)
 		{
-			_log.severe("Error While encrypting blowfish key for transmision (Crypt error)");
+			_log.error("Error While encrypting blowfish key for transmision (Crypt error)");
 			e.printStackTrace();
 		}
 		writeD(encrypted.length);

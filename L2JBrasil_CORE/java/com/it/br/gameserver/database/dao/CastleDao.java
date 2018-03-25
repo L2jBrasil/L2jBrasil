@@ -11,6 +11,8 @@ import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,14 +21,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
  * @version 3.0.4
  */
 public class CastleDao {
-    private static final Logger _log = Logger.getLogger(CastleDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(CastleDao.class);
 
     private static final String SELECT_ID = "SELECT id FROM castle ORDER BY id";
     private static final String SELECT_BY_ID = "SELECT * FROM castle WHERE id = ?";
@@ -59,7 +60,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: load(): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: load(): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -106,7 +107,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: loadById(Castle castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: loadById(Castle castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -144,7 +145,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: loadDoor(Castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: loadDoor(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -163,7 +164,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: loadDoorUpgrade(Castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: loadDoorUpgrade(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -178,7 +179,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: loadDoorUpgrade(Castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: loadDoorUpgrade(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -196,7 +197,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: insertDoorUpgrade(int doorId, int hp, int pDef, int mDef): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: insertDoorUpgrade(int doorId, int hp, int pDef, int mDef): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -217,7 +218,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: updateClanOwner(Castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: updateClanOwner(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -232,7 +233,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: updateTaxPercent(castleId, value): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: updateTaxPercent(castleId, value): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -247,7 +248,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: updateTreasuryTax(int trerasury, int castleId): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: updateTreasuryTax(int trerasury, int castleId): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -262,7 +263,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: updateShowNpcCrest(Castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: updateShowNpcCrest(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -280,7 +281,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: removeMerc(int npcId, int x, int y, int z): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: removeMerc(int npcId, int x, int y, int z): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -295,7 +296,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: removeMercs(Castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: removeMercs(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -336,14 +337,14 @@ public class CastleDao {
                 }
                 else
                 {
-                    _log.warning("Missing npc data in npc table for id: " + rs.getInt("npcId"));
+                    _log.warn("Missing npc data in npc table for id: " + rs.getInt("npcId"));
                 }
             }
 
         }
         catch (Exception e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: loadSiegeGuard(Castle): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: loadSiegeGuard(Castle): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -369,7 +370,7 @@ public class CastleDao {
         }
         catch (SQLException e)
         {
-            _log.warning( CastleDao.class.getName() + ": Exception: saveSiegeGuard(Castle castle, int x, int y, int z, int heading, int npcId, int isHire): " + e.getMessage());
+            _log.warn( CastleDao.class.getName() + ": Exception: saveSiegeGuard(Castle castle, int x, int y, int z, int heading, int npcId, int isHire): " + e.getMessage());
             e.printStackTrace();
         }
     }

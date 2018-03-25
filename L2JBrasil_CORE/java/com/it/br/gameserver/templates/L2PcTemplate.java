@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.templates;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.model.base.Race;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class L2PcTemplate extends L2CharTemplate
 {

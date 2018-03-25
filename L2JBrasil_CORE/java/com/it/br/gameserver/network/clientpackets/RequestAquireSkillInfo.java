@@ -38,7 +38,7 @@ import com.it.br.gameserver.network.serverpackets.AquireSkillInfo;
 public class RequestAquireSkillInfo extends L2GameClientPacket
 {
 	private static final String _C__6B_REQUESTAQUIRESKILLINFO = "[C] 6B RequestAquireSkillInfo";
-	//private static Logger _log = Logger.getLogger(RequestAquireSkillInfo.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestAquireSkillInfo.class);
 
 	private int _id;
 	private int _level;
@@ -74,7 +74,7 @@ public class RequestAquireSkillInfo extends L2GameClientPacket
 		if (skill == null)
 		{
 			if (Config.DEBUG)
-				_log.warning("skill id " + _id + " level " + _level + " is undefined. aquireSkillInfo failed.");
+				_log.warn("skill id " + _id + " level " + _level + " is undefined. aquireSkillInfo failed.");
 			return;
 		}
 

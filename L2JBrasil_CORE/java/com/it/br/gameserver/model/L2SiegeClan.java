@@ -18,10 +18,10 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 
 public class L2SiegeClan
 {

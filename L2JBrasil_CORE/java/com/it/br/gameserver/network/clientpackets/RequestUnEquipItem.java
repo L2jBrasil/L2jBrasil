@@ -30,7 +30,7 @@ import com.it.br.gameserver.templates.L2Item;
 public class RequestUnEquipItem extends L2GameClientPacket
 {
 	private static final String _C__11_REQUESTUNEQUIPITEM = "[C] 11 RequestUnequipItem";
-	//private static Logger _log = Logger.getLogger(RequestUnEquipItem.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestUnEquipItem.class);
 
 	// cd
 	private int _slot;
@@ -52,7 +52,7 @@ public class RequestUnEquipItem extends L2GameClientPacket
 	protected void runImpl()
 	{
 		if (Config.DEBUG)
-                _log.fine("request unequip slot " + _slot);
+                _log.debug("request unequip slot " + _slot);
 
 		L2PcInstance activeChar = getClient().getActiveChar();
 

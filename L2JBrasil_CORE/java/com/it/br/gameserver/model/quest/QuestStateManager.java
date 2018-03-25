@@ -17,11 +17,11 @@
  */
 package com.it.br.gameserver.model.quest;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuestStateManager
 {

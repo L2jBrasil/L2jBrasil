@@ -27,7 +27,7 @@ package com.it.br.gameserver.network.clientpackets;
 public final class RequestPartyMatchConfig extends L2GameClientPacket
 {
 	private static final String _C__6F_REQUESTPARTYMATCHCONFIG = "[C] 6F RequestPartyMatchConfig";
-	//private static Logger _log = Logger.getLogger(RequestPartyMatchConfig.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestPartyMatchConfig.class);
 
 	private int _automaticRegistration;
 	private int _showLevel;
@@ -54,7 +54,7 @@ public final class RequestPartyMatchConfig extends L2GameClientPacket
 		catch (BufferUnderflowException e)
         {
             _memo                 = "";
-            _log.warning("Memo field non existant in packet. Notify devs.");
+            _log.warn("Memo field non existant in packet. Notify devs.");
             e.printStackTrace();
         }*/
 	}

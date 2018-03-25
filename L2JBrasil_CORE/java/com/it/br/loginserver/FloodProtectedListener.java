@@ -17,25 +17,26 @@
  */
 package com.it.br.loginserver;
 
+import com.it.br.Config;
+import com.it.br.configuration.settings.LoginSettings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import com.it.br.Config;
 import static com.it.br.configuration.Configurator.getSettings;
-import com.it.br.configuration.settings.LoginSettings;
 
 /**
  * @author -Wooden-
  */
 public abstract class FloodProtectedListener extends Thread
 {
-	private Logger _log = Logger.getLogger(FloodProtectedListener.class.getName());
+	private Logger _log = LoggerFactory.getLogger(FloodProtectedListener.class);
 	private Map<String, ForeignConnection> _floodProtection = new HashMap<>();
 	private String _listenIp;
 	private int _port;
@@ -85,7 +86,7 @@ public abstract class FloodProtectedListener extends Thread
 							fConnection.lastConnection = System.currentTimeMillis();
 							connection.close();
 							fConnection.connectionNumber -= 1;
-							if(!fConnection.isFlooding)_log.warning("Potential Flood from "+connection.getInetAddress().getHostAddress());
+							if(!fConnection.isFlooding)_log.warn("Potential Flood from "+connection.getInetAddress().getHostAddress());
 							fConnection.isFlooding = true;
 							continue;
 						}
@@ -113,7 +114,7 @@ public abstract class FloodProtectedListener extends Thread
 					try { _serverSocket.close();}
 					catch (IOException io)
 					{
-						_log.log(Level.INFO, "", io);
+						_log.info( "", io);
 					}
 					break;
 				}
@@ -152,7 +153,7 @@ public abstract class FloodProtectedListener extends Thread
 		}
 		else
 		{
-			_log.warning("Removing a flood protection for a GameServer that was not in the connection map??? :"+ip);
+			_log.warn("Removing a flood protection for a GameServer that was not in the connection map??? :"+ip);
 		}
 	}
 

@@ -22,17 +22,9 @@ import com.it.br.Config;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.actor.instance.L2FishermanInstance;
-import com.it.br.gameserver.model.actor.instance.L2MercManagerInstance;
-import com.it.br.gameserver.model.actor.instance.L2MerchantInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Util;
 
 /**
@@ -43,7 +35,7 @@ import com.it.br.gameserver.util.Util;
 public final class RequestSellItem extends L2GameClientPacket
 {
 	private static final String _C__1E_REQUESTSELLITEM = "[C] 1E RequestSellItem";
-	//private static Logger _log = Logger.getLogger(RequestSellItem.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestSellItem.class);
 
 	private int _listId;
 	private int _count;

@@ -18,10 +18,10 @@
  */
 package com.it.br.gameserver.ai2;
 
+import com.it.br.gameserver.datatables.xml.NpcTable;
+
 import java.util.HashSet;
 import java.util.Set;
-
-import com.it.br.gameserver.datatables.xml.NpcTable;
 
 /**
  *

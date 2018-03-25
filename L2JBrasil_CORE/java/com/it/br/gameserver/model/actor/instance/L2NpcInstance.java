@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
-
 import com.it.br.Config;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
@@ -37,20 +35,8 @@ import com.it.br.gameserver.instancemanager.DimensionalRiftManager;
 import com.it.br.gameserver.instancemanager.QuestManager;
 import com.it.br.gameserver.instancemanager.TownManager;
 import com.it.br.gameserver.instancemanager.games.Lottery;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2DropCategory;
-import com.it.br.gameserver.model.L2DropData;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Multisell;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
-import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.L2Summon;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.MobGroupTable;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
 import com.it.br.gameserver.model.actor.knownlist.NpcKnownList;
 import com.it.br.gameserver.model.actor.stat.NpcStat;
@@ -63,19 +49,7 @@ import com.it.br.gameserver.model.zone.type.L2TownZone;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.clientpackets.Say2;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ExShowVariationCancelWindow;
-import com.it.br.gameserver.network.serverpackets.ExShowVariationMakeWindow;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.NpcInfo;
-import com.it.br.gameserver.network.serverpackets.NpcSay;
-import com.it.br.gameserver.network.serverpackets.RadarControl;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.skills.Stats;
 import com.it.br.gameserver.taskmanager.DecayTaskManager;
 import com.it.br.gameserver.templates.L2HelperBuff;
@@ -87,6 +61,8 @@ import com.it.br.util.Rnd;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 /**
  * This class represents a Non-Player-Character in the world. It can be a monster or a friendly character.
  * It also uses a template to fetch some static values. The templates are hardcoded in the client, so we can rely on them.<BR><BR>
@@ -100,7 +76,7 @@ import java.util.List;
  */
 public class L2NpcInstance extends L2Character
 {
-    //private static Logger _log = Logger.getLogger(L2NpcInstance.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(L2NpcInstance.class);
 
     /** The interaction distance of the L2NpcInstance(is used as offset in MovetoLocation method) */
     public static final int INTERACTION_DISTANCE = 150;
@@ -275,7 +251,7 @@ public class L2NpcInstance extends L2Character
         
         if (template == null)
         {
-            _log.severe("No template for Npc. Please check your datapack is setup correctly.");
+            _log.error("No template for Npc. Please check your datapack is setup correctly.");
             return;
         }
 
@@ -602,7 +578,7 @@ public class L2NpcInstance extends L2Character
         // Check if the L2PcInstance already target the L2NpcInstance
         if (this != player.getTarget())
         {
-            if (Config.DEBUG) _log.fine("new target selected:"+getObjectId());
+            if (Config.DEBUG) _log.debug("new target selected:"+getObjectId());
 
             // Set the target of the L2PcInstance player
             player.setTarget(this);
@@ -1298,9 +1274,9 @@ public class L2NpcInstance extends L2Character
 			content = HtmCache.getInstance().getHtm(path); // TODO path for quests html
 			if (Config.DEBUG)
 				if (content != null)
-					_log.fine("Showing quest window for quest " + questId + " html path: " + path);
+					_log.debug("Showing quest window for quest " + questId + " html path: " + path);
 				else
-					_log.fine("File not exists for quest " + questId + " html path: " + path);
+					_log.debug("File not exists for quest " + questId + " html path: " + path);
         }
         // Send a Server->Client packet NpcHtmlMessage to the L2PcInstance in order to display the message of the L2NpcInstance
         if (content != null)
@@ -2231,10 +2207,10 @@ public class L2NpcInstance extends L2Character
     	if (getWorldRegion() != null) getWorldRegion().removeFromZones(this);
         //FIXME this is just a temp hack, we should find a better solution
         
-        try { decayMe(); } catch (Throwable t) {_log.severe("deletedMe(): " + t); }
+        try { decayMe(); } catch (Throwable t) {_log.error("deletedMe(): " + t); }
         
         // Remove all L2Object from _knownObjects and _knownPlayer of the L2Character then cancel Attak or Cast and notify AI
-        try { getKnownList().removeAllKnownObjects(); } catch (Throwable t) {_log.severe("deletedMe(): " + t); }
+        try { getKnownList().removeAllKnownObjects(); } catch (Throwable t) {_log.error("deletedMe(): " + t); }
         
         // Remove L2Object object from _allObjects of L2World
         L2World.getInstance().removeObject(this);

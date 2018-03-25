@@ -4,6 +4,8 @@
 package com.it.br.gameserver.xmlfactory;
 
 import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -11,14 +13,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author nBd
  */
 public final class XMLParser {
-    private static Logger _log = Logger.getLogger(XMLParser.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(XMLParser.class);
 
     private final File _file;
     private final List<StatsSet> _sets;
@@ -32,7 +32,7 @@ public final class XMLParser {
 
     public List<StatsSet> parseDocument() {
         if (_file == null) {
-            _log.log(Level.WARNING, "XMLParser: Couldn't find the XML File!");
+            _log.warn( "XMLParser: Couldn't find the XML File!");
             return null;
         }
         parse();
@@ -48,14 +48,14 @@ public final class XMLParser {
             factory.setIgnoringComments(true);
             doc = factory.newDocumentBuilder().parse(_file);
         } catch (Exception e) {
-            _log.log(Level.SEVERE, "XMLParser: Error loading file " + _file, e);
+            _log.error( "XMLParser: Error loading file " + _file, e);
             return null;
         }
 
         try {
             parseDocument(doc);
         } catch (Exception e) {
-            _log.log(Level.SEVERE, "XMLParser: Error in file " + _file, e);
+            _log.error( "XMLParser: Error in file " + _file, e);
             return null;
         }
         return doc;

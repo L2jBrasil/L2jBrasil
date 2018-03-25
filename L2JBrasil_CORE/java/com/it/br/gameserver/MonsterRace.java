@@ -18,13 +18,13 @@
  */
 package com.it.br.gameserver;
 
-import java.lang.reflect.Constructor;
-
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+
+import java.lang.reflect.Constructor;
 
 public class MonsterRace
 {

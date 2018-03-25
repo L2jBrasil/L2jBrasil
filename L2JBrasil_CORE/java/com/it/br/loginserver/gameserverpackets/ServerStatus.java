@@ -18,11 +18,11 @@
  */
 package com.it.br.loginserver.gameserverpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.loginserver.GameServerTable;
 import com.it.br.loginserver.GameServerTable.GameServerInfo;
 import com.it.br.loginserver.clientpackets.ClientBasePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author -Wooden-
@@ -30,7 +30,7 @@ import com.it.br.loginserver.clientpackets.ClientBasePacket;
  */
 public class ServerStatus extends ClientBasePacket
 {
-	protected static Logger _log = Logger.getLogger(ServerStatus.class.getName());
+	protected static Logger _log = LoggerFactory.getLogger(ServerStatus.class);
 	public static final String [] STATUS_STRING = {"Auto", "Good", "Normal", "Full", "Down", "Gm Only"};
 	public static final int SERVER_LIST_STATUS = 0x01;
 	public static final int SERVER_LIST_CLOCK = 0x02;

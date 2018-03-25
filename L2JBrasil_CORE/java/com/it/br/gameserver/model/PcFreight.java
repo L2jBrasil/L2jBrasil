@@ -17,15 +17,15 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.model.L2ItemInstance.ItemLocation;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PcFreight extends ItemContainer
 {
-    //private static final Logger _log = Logger.getLogger(PcFreight.class.getName());
+    //private static final Logger _log = LoggerFactory.getLogger(PcFreight.class);
 
     private L2PcInstance _owner;    // This is the L2PcInstance that owns this Freight;
     private int _activeLocationId;

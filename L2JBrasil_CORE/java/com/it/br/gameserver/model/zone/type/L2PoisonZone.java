@@ -18,8 +18,6 @@
 
 package com.it.br.gameserver.model.zone.type;
 
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2Character;
@@ -29,6 +27,8 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 import com.it.br.gameserver.model.zone.L2ZoneType;
 import com.it.br.util.Rnd;
+
+import java.util.concurrent.Future;
 
 public class L2PoisonZone extends L2ZoneType
 {

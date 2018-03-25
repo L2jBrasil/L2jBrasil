@@ -3,6 +3,8 @@ package com.it.br.gameserver.database.dao;
 import com.it.br.Config;
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.L2Clan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,14 +14,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
  * @version 3.0.4
  */
 public class ClanDao {
-    private static final Logger _log = Logger.getLogger(ClanDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(ClanDao.class);
 
     private static final String SELECT_ID = "SELECT clan_id FROM clan_data";
     private static final String DELETE_CLAN_DATA = "DELETE FROM clan_data WHERE clan_id=?";
@@ -49,7 +50,7 @@ public class ClanDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: load(): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: load(): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -70,7 +71,7 @@ public class ClanDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: getClanIdByCastleId(): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: getClanIdByCastleId(): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -89,7 +90,7 @@ public class ClanDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: storeWars(int clanId1, int clanId2): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: storeWars(int clanId1, int clanId2): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -129,11 +130,11 @@ public class ClanDao {
                 CastleDao.updateTaxPercent(castleId, 0);
             }
 
-            if (Config.DEBUG) _log.fine("Clan " + clan.getName() + "removed in db, clan id: " + clan.getClanId());
+            if (Config.DEBUG) _log.debug("Clan " + clan.getName() + "removed in db, clan id: " + clan.getClanId());
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: delete(L2Clan): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: delete(L2Clan): " + e.getMessage());
         }
     }
 
@@ -145,11 +146,11 @@ public class ClanDao {
             st.setInt(1, clan2.getClanId());
             st.execute();
 
-            if (Config.DEBUG) _log.fine("Clan " + clan1.getName() + " and " + clan2.getName() + " removed in table \"clan_wars\"");
+            if (Config.DEBUG) _log.debug("Clan " + clan1.getName() + " and " + clan2.getName() + " removed in table \"clan_wars\"");
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: deleteWars(L2Clan1, L2Clan2): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: deleteWars(L2Clan1, L2Clan2): " + e.getMessage());
         }
     }
 
@@ -171,7 +172,7 @@ public class ClanDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: restoreWars(): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: restoreWars(): " + e.getMessage());
         }
         return listWars;
     }
@@ -191,7 +192,7 @@ public class ClanDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: getClanName(String partyMemberName): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: getClanName(String partyMemberName): " + e.getMessage());
         }
         return clanName;
     }

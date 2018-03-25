@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.communitybbs.Manager;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.ShowBoard;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BaseBBSManager
 {

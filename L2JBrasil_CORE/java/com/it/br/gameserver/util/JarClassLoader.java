@@ -19,12 +19,13 @@
 
 package com.it.br.gameserver.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -36,7 +37,7 @@ import java.util.zip.ZipFile;
  */
 public class JarClassLoader extends ClassLoader
 {
-	private static Logger _log = Logger.getLogger(JarClassLoader.class.getCanonicalName());
+	private static Logger _log = LoggerFactory.getLogger(JarClassLoader.class.getCanonicalName());
 	HashSet<String> _jars = new HashSet<String>();
 
 	public void addJarFile(String filename)
@@ -84,7 +85,7 @@ public class JarClassLoader extends ClassLoader
 			}
 			catch(IOException e)
 			{
-				_log.log(Level.WARNING, jarFile + ":" + e.toString(), e);
+				_log.warn( jarFile + ":" + e.toString(), e);
 				continue;
 			}
 		}

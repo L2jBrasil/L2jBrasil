@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -36,6 +33,9 @@ import com.it.br.gameserver.skills.Stats;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class ...
  *
@@ -46,7 +46,7 @@ public class L2Party
 {
 	private static final double[] BONUS_EXP_SP = {1, 1.30, 1.39, 1.50, 1.54, 1.58, 1.63, 1.67, 1.71};
 
-	//private static Logger _log = Logger.getLogger(L2Party.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(L2Party.class);
 
 	private List<L2PcInstance> _members = null;
         private int _pendingInvitation = 0;       // Number of players that already have been invited (but not replied yet)

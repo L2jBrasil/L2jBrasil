@@ -18,16 +18,16 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.AdminForgePacket;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * This class handles commands for gm to forge packets

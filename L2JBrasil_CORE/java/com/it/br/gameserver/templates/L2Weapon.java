@@ -18,20 +18,11 @@
  */
 package com.it.br.gameserver.templates;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.handler.SkillHandler;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -40,6 +31,11 @@ import com.it.br.gameserver.skills.Env;
 import com.it.br.gameserver.skills.conditions.ConditionGameChance;
 import com.it.br.gameserver.skills.funcs.Func;
 import com.it.br.gameserver.skills.funcs.FuncTemplate;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * This class is dedicated to the management of weapons.

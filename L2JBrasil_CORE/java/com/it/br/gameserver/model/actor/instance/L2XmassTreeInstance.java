@@ -17,8 +17,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.concurrent.ScheduledFuture;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2Character;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Drunkard Zabb0x

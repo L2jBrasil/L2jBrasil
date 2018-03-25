@@ -26,13 +26,14 @@ import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.logging.Logger;
 
 public class Lottery
 {
@@ -40,7 +41,7 @@ public class Lottery
     public static final long MINUTE = 60000;
 
     private static Lottery _instance;
-    protected static final Logger _log = Logger.getLogger(Lottery.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(Lottery.class);
 
     private static final String INSERT_LOTTERY = "INSERT INTO games(id, idnr, enddate, prize, newprize) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE_PRICE = "UPDATE games SET prize=?, newprize=? WHERE id = 1 AND idnr = ?";
@@ -105,7 +106,7 @@ public class Lottery
         }
         catch (SQLException e)
         {
-            _log.warning("Lottery: Could not increase current lottery prize: " + e);
+            _log.warn("Lottery: Could not increase current lottery prize: " + e);
         }
         finally
         {
@@ -191,7 +192,7 @@ public class Lottery
             }
             catch (SQLException e)
             {
-                _log.warning("Lottery: Could not restore lottery data: " + e);
+                _log.warn("Lottery: Could not restore lottery data: " + e);
             }
             finally
             {
@@ -244,7 +245,7 @@ public class Lottery
             }
             catch (SQLException e)
             {
-                _log.warning("Lottery: Could not store new lottery data: " + e);
+                _log.warn("Lottery: Could not store new lottery data: " + e);
             }
             finally
             {
@@ -363,7 +364,7 @@ public class Lottery
             }
             catch (SQLException e)
             {
-                _log.warning("Lottery: Could restore lottery data: " + e);
+                _log.warn("Lottery: Could restore lottery data: " + e);
             }
             finally
             {
@@ -428,7 +429,7 @@ public class Lottery
             }
             catch (SQLException e)
             {
-                _log.warning("Lottery: Could not store finished lottery data: " + e);
+                _log.warn("Lottery: Could not store finished lottery data: " + e);
             }
             finally
             {
@@ -541,7 +542,7 @@ public class Lottery
                         res[1] = 200;
                 }
 
-                if (Config.DEBUG) _log.warning("count: " + count + ", id: " + id + ", enchant: " + enchant + ", type2: " + type2);
+                if (Config.DEBUG) _log.warn("count: " + count + ", id: " + id + ", enchant: " + enchant + ", type2: " + type2);
             }
 
             rset.close();
@@ -549,7 +550,7 @@ public class Lottery
         }
         catch (SQLException e)
         {
-            _log.warning("Lottery: Could not check lottery ticket #" + id + ": " + e);
+            _log.warn("Lottery: Could not check lottery ticket #" + id + ": " + e);
         }
         finally
         {

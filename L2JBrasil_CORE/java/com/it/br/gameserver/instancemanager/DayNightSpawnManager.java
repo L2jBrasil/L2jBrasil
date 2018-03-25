@@ -18,16 +18,17 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * This class ...
@@ -38,7 +39,7 @@ import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
 
 public class DayNightSpawnManager {
 
-    private static Logger _log = Logger.getLogger(DayNightSpawnManager.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(DayNightSpawnManager.class);
 
     private static DayNightSpawnManager _instance;
     private static List<L2Spawn> _dayCreatures;
@@ -66,7 +67,7 @@ public class DayNightSpawnManager {
     {
         if (_dayCreatures.contains(spawnDat))
         {
-            _log.warning("DayNightSpawnManager: Spawn already added into day map");
+            _log.warn("DayNightSpawnManager: Spawn already added into day map");
             return;
         }
         else
@@ -77,7 +78,7 @@ public class DayNightSpawnManager {
     {
         if (_nightCreatures.contains(spawnDat))
         {
-            _log.warning("DayNightSpawnManager: Spawn already added into night map");
+            _log.warn("DayNightSpawnManager: Spawn already added into night map");
             return;
         }
         else
@@ -150,7 +151,7 @@ public class DayNightSpawnManager {
                 specialNightBoss(1);
                 break;
                 default:
-                    _log.warning("DayNightSpawnManager: Wrong mode sent");
+                    _log.warn("DayNightSpawnManager: Wrong mode sent");
                 break;
         }
     }

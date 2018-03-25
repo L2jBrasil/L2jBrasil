@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.Shutdown;
 import com.it.br.gameserver.model.L2World;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.model.TradeList;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -36,7 +36,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class TradeDone extends L2GameClientPacket
 {
 	private static final String _C__17_TRADEDONE = "[C] 17 TradeDone";
-	private static Logger _log = Logger.getLogger(TradeDone.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(TradeDone.class);
 	private int _response;
 
 
@@ -70,7 +70,7 @@ public final class TradeDone extends L2GameClientPacket
 		{
 			if (Config.DEBUG)
 			{
-				_log.warning("player.getTradeList == null in " + getType() + " for player " + player.getName());
+				_log.warn("player.getTradeList == null in " + getType() + " for player " + player.getName());
 			}
 			return;
 		}

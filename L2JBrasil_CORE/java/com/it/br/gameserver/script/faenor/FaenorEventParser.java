@@ -18,17 +18,13 @@
  */
 package com.it.br.gameserver.script.faenor;
 
-import java.util.Date;
-import java.util.logging.Logger;
-
+import com.it.br.gameserver.script.*;
 import org.apache.bsf.BSFManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;
 
-import com.it.br.gameserver.script.DateRange;
-import com.it.br.gameserver.script.IntList;
-import com.it.br.gameserver.script.Parser;
-import com.it.br.gameserver.script.ParserFactory;
-import com.it.br.gameserver.script.ScriptEngine;
+import java.util.Date;
 
 /**
  * @author Luis Arias
@@ -36,7 +32,7 @@ import com.it.br.gameserver.script.ScriptEngine;
  */
 public class FaenorEventParser extends FaenorParser
 {
-    static Logger _log = Logger.getLogger(FaenorEventParser.class.getName());
+    static Logger _log = LoggerFactory.getLogger(FaenorEventParser.class);
     private DateRange _eventDates = null;
 
 
@@ -45,14 +41,14 @@ public class FaenorEventParser extends FaenorParser
     {
         String ID = attribute(eventNode, "ID");
 
-        if (DEBUG) _log.fine("Parsing Event \""+ID+"\"");
+        if (DEBUG) _log.debug("Parsing Event \""+ID+"\"");
 
         _eventDates = DateRange.parse(attribute(eventNode, "Active"), DATE_FORMAT);
 
         Date currentDate = new Date();
         if (_eventDates.getEndDate().before(currentDate))
         {
-            _log.warning("Event ID: (" + ID + ") has passed... Ignored.");
+            _log.warn("Event ID: (" + ID + ") has passed... Ignored.");
             return;
         }
 
@@ -71,7 +67,7 @@ public class FaenorEventParser extends FaenorParser
 
     private void parseEventMessage(Node sysMsg)
     {
-        if (DEBUG) _log.fine("Parsing Event Message.");
+        if (DEBUG) _log.debug("Parsing Event Message.");
 
         try
         {
@@ -85,14 +81,14 @@ public class FaenorEventParser extends FaenorParser
         }
         catch (Exception e)
         {
-            _log.warning("Error in event parser.");
+            _log.warn("Error in event parser.");
             e.printStackTrace();
         }
     }
 
     private void parseEventDropList(Node dropList)
     {
-        if (DEBUG) _log.fine("Parsing Droplist.");
+        if (DEBUG) _log.debug("Parsing Droplist.");
 
         for (Node node = dropList.getFirstChild(); node != null; node = node.getNextSibling()) {
             if (isNodeName(node, "AllDrop"))
@@ -104,7 +100,7 @@ public class FaenorEventParser extends FaenorParser
 
     private void parseEventDrop(Node drop)
     {
-        if (DEBUG) _log.fine("Parsing Drop.");
+        if (DEBUG) _log.debug("Parsing Drop.");
 
         try
         {

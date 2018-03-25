@@ -33,7 +33,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestAutoSoulShot extends L2GameClientPacket
 {
     private static final String _C__CF_REQUESTAUTOSOULSHOT = "[C] CF RequestAutoSoulShot";
-    //private static Logger _log = Logger.getLogger(RequestAutoSoulShot.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestAutoSoulShot.class);
 
     // format  cd
     private int _itemId;
@@ -61,7 +61,7 @@ public final class RequestAutoSoulShot extends L2GameClientPacket
                 !activeChar.isDead())
         {
             if (Config.DEBUG)
-                _log.fine("AutoSoulShot:" + _itemId);
+                _log.debug("AutoSoulShot:" + _itemId);
 
             L2ItemInstance item = activeChar.getInventory().getItemByItemId(_itemId);
 

@@ -30,7 +30,7 @@ import java.sql.ResultSet;
 
 public final class RequestFriendList extends L2GameClientPacket
 {
-	//private static Logger _log = Logger.getLogger(RequestFriendList.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestFriendList.class);
 	private static final String _C__60_REQUESTFRIENDLIST = "[C] 60 RequestFriendList";
 
 
@@ -92,7 +92,7 @@ public final class RequestFriendList extends L2GameClientPacket
 			statement.close();
 		}
 		catch (Exception e) {
-			_log.warning("Error in /friendlist for " + activeChar + ": " + e);
+			_log.warn("Error in /friendlist for " + activeChar + ": " + e);
 		}
 		finally	{
 			try {con.close();} catch (Exception e) {}

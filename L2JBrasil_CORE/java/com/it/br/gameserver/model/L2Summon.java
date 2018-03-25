@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.Collection;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GeoData;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -36,21 +34,16 @@ import com.it.br.gameserver.model.actor.stat.SummonStat;
 import com.it.br.gameserver.model.actor.status.SummonStatus;
 import com.it.br.gameserver.model.base.Experience;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcInfo;
-import com.it.br.gameserver.network.serverpackets.PetDelete;
-import com.it.br.gameserver.network.serverpackets.PetStatusShow;
-import com.it.br.gameserver.network.serverpackets.PetStatusUpdate;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.taskmanager.DecayTaskManager;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.L2Weapon;
 
+import java.util.Collection;
+
 public abstract class L2Summon extends L2PlayableInstance
 {
-    //private static Logger _log = Logger.getLogger(L2Summon.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(L2Summon.class);
 
 	protected int _pkKills;
     @SuppressWarnings("unused")
@@ -178,7 +171,7 @@ public abstract class L2Summon extends L2PlayableInstance
         }
         else if (player.getTarget() != this)
         {
-            if (Config.DEBUG) _log.fine("new target selected:"+getObjectId());
+            if (Config.DEBUG) _log.debug("new target selected:"+getObjectId());
             player.setTarget(this);
             MyTargetSelected my = new MyTargetSelected(getObjectId(), player.getLevel() - getLevel());
             player.sendPacket(my);

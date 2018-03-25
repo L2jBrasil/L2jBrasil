@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.idfactory.IdFactory;
@@ -32,6 +28,11 @@ import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Petition Manager
@@ -41,7 +42,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public final class PetitionManager
 {
-	protected static final Logger _log = Logger.getLogger(PetitionManager.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(PetitionManager.class);
 	private static PetitionManager _instance;
 
 	private Map<Integer, Petition> _pendingPetitions;
@@ -104,7 +105,7 @@ public final class PetitionManager
 			_id = IdFactory.getInstance().getNextId();
 			if(petitionType >= PetitionType.values().length)
 			{
-				_log.warning("PetitionManager:Petition : invalid petition type (received type was +1) : "+ petitionType);
+				_log.warn("PetitionManager:Petition : invalid petition type (received type was +1) : "+ petitionType);
 			}
 			_type = PetitionType.values()[petitionType];
 			_content = petitionText;

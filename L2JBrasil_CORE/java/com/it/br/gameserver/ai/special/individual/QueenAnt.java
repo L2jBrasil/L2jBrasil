@@ -14,16 +14,13 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.instancemanager.GrandBossManager;
 import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
+import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.model.zone.type.L2BossZone;
@@ -31,6 +28,9 @@ import com.it.br.gameserver.network.serverpackets.PlaySound;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Queen Ant AI

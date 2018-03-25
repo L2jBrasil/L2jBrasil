@@ -18,16 +18,16 @@
  */
 package com.it.br.loginserver.serverpackets;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.loginserver.GameServerTable;
 import com.it.br.loginserver.GameServerTable.GameServerInfo;
 import com.it.br.loginserver.L2LoginClient;
 import com.it.br.loginserver.gameserverpackets.ServerStatus;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ServerList

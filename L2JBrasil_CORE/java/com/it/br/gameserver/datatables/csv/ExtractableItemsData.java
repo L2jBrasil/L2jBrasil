@@ -25,15 +25,19 @@
 
 package com.it.br.gameserver.datatables.csv;
 
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.L2ExtractableItem;
+import com.it.br.gameserver.model.L2ExtractableProductItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.util.*;
 
-import com.it.br.gameserver.model.L2ExtractableItem;
-import com.it.br.gameserver.model.L2ExtractableProductItem;
-
 public class ExtractableItemsData
 {
-	//          Map<itemid, L2ExtractableItem>
+	private Logger logger = LoggerFactory.getLogger(ExtractableItemsData.class);
 	private Map<Integer, L2ExtractableItem> _items  = new HashMap<>();
 
 	private static ExtractableItemsData _instance = null;
@@ -51,14 +55,12 @@ public class ExtractableItemsData
 		_items = new HashMap<>();
 
 		Scanner s;
-
-		try
-		{
-			s = new Scanner(new File("./data/csv/extractable_items.csv"));
+        File datapack = Configurator.getSettings(ServerSettings.class).getDatapackDirectory();
+		try {
+			s = new Scanner(new File(datapack,"data/csv/extractable_items.csv"));
 		}
-		catch (Exception e)
-		{
-			System.out.println("Extractable items data: Can not find './data/csv/extractable_items.csv'");
+		catch (Exception e) {
+		    logger.warn("Can't find file {}/data/csv/extractable_items.csv", datapack.getAbsolutePath());
 			return;
 		}
 

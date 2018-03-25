@@ -18,13 +18,13 @@
  */
 package com.it.br.loginserver.gameserverpackets;
 
-import java.security.GeneralSecurityException;
-import java.security.interfaces.RSAPrivateKey;
-import java.util.logging.Logger;
+import com.it.br.loginserver.clientpackets.ClientBasePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.crypto.Cipher;
-
-import com.it.br.loginserver.clientpackets.ClientBasePacket;
+import java.security.GeneralSecurityException;
+import java.security.interfaces.RSAPrivateKey;
 
 /**
  * @author -Wooden-
@@ -33,7 +33,7 @@ import com.it.br.loginserver.clientpackets.ClientBasePacket;
 public class BlowFishKey extends ClientBasePacket
 {
 	byte[] _key;
-	protected static final Logger _log = Logger.getLogger(BlowFishKey.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(BlowFishKey.class);
 	/**
 	 * @param decrypt
 	 */
@@ -61,7 +61,7 @@ public class BlowFishKey extends ClientBasePacket
 		}
 		catch(GeneralSecurityException e)
 		{
-			_log.severe("Error While decrypting blowfish key (RSA)");
+			_log.error("Error While decrypting blowfish key (RSA)");
 			e.printStackTrace();
 		}
 		/*catch(IOException ioe)

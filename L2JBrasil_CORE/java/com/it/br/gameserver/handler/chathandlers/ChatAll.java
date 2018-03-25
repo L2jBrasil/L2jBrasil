@@ -14,20 +14,21 @@
  */
 package com.it.br.gameserver.handler.chathandlers;
 
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IChatHandler;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.handler.VoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.CreatureSay;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.StringTokenizer;
 
 public class ChatAll implements IChatHandler
 {
 	private static final int[] COMMAND_IDS = { 0 };
-	private static Logger _log = Logger.getLogger(ChatAll.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(ChatAll.class);
 
 	/**
 	 * Handle chat type 'all'
@@ -63,7 +64,7 @@ public class ChatAll implements IChatHandler
 			else
 			{
 				if (Config.DEBUG) {
-					_log.warning("No handler registered for bypass '" + command + "'");
+					_log.warn("No handler registered for bypass '" + command + "'");
 				}
 			}
 		}

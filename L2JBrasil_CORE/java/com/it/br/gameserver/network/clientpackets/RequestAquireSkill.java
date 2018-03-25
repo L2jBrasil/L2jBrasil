@@ -22,22 +22,10 @@ import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.xml.SkillSpellbookTable;
 import com.it.br.gameserver.datatables.xml.SkillTreeTable;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2PledgeSkillLearn;
-import com.it.br.gameserver.model.L2ShortCut;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2SkillLearn;
-import com.it.br.gameserver.model.actor.instance.L2FishermanInstance;
-import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2VillageMasterInstance;
+import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ExStorageMaxCount;
-import com.it.br.gameserver.network.serverpackets.PledgeSkillList;
-import com.it.br.gameserver.network.serverpackets.ShortCutRegister;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 
 /**
  * This class ...
@@ -47,7 +35,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public class RequestAquireSkill extends L2GameClientPacket
 {
 	private static final String _C__6C_REQUESTAQUIRESKILL = "[C] 6C RequestAquireSkill";
-	//private static Logger _log = Logger.getLogger(RequestAquireSkill.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger((RequestAquireSkill).class);
 	private int _id;
 	private int _level;
 	private int _skillType;
@@ -250,7 +238,7 @@ public class RequestAquireSkill extends L2GameClientPacket
             player.getClan().addNewSkill(skill);
 
             if (Config.DEBUG)
-                _log.fine("Learned pledge skill " + _id + " for " + _requiredSp + " SP.");
+                _log.debug("Learned pledge skill " + _id + " for " + _requiredSp + " SP.");
 
             SystemMessage cr = new SystemMessage(SystemMessageId.S1_DEDUCTED_FROM_CLAN_REP);
             cr.addNumber(repCost);
@@ -272,14 +260,14 @@ public class RequestAquireSkill extends L2GameClientPacket
         }
 		else
 		{
-			_log.warning("Recived Wrong Packet Data in Aquired Skill - unk1:" + _skillType);
+			_log.warn("Recived Wrong Packet Data in Aquired Skill - unk1:" + _skillType);
 			return;
 		}
 
 		player.addSkill(skill, true);
 
 		if (Config.DEBUG)
-			_log.fine("Learned skill " + _id + " for " + _requiredSp + " SP.");
+			_log.debug("Learned skill " + _id + " for " + _requiredSp + " SP.");
 
 		player.setSp(player.getSp() - _requiredSp);
 

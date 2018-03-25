@@ -39,7 +39,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public class SiegeFlag implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(SiegeFlag.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(SiegeFlag.class);
 	private static final SkillType[] SKILL_IDS = { SkillType.SIEGEFLAG };
 
 

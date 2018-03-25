@@ -76,10 +76,10 @@ public final class RequestMagicSkillUse extends L2GameClientPacket
 		// Check the validity of the skill
 		if (skill != null)
 		{
-			// _log.fine("	skill:"+skill.getName() + " level:"+skill.getLevel() + " passive:"+skill.isPassive());
-			// _log.fine("	range:"+skill.getCastRange()+" targettype:"+skill.getTargetType()+" optype:"+skill.getOperateType()+" power:"+skill.getPower());
-			// _log.fine("	reusedelay:"+skill.getReuseDelay()+" hittime:"+skill.getHitTime());
-			// _log.fine("	currentState:"+activeChar.getCurrentState());	//for debug
+			// _log.debug("	skill:"+skill.getName() + " level:"+skill.getLevel() + " passive:"+skill.isPassive());
+			// _log.debug("	range:"+skill.getCastRange()+" targettype:"+skill.getTargetType()+" optype:"+skill.getOperateType()+" power:"+skill.getPower());
+			// _log.debug("	reusedelay:"+skill.getReuseDelay()+" hittime:"+skill.getHitTime());
+			// _log.debug("	currentState:"+activeChar.getCurrentState());	//for debug
 
 			// If Alternate rule Karma punishment is set to true, forbid skill Return to player with Karma
 			if (skill.getSkillType() == L2Skill.SkillType.RECALL && !Config.ALT_GAME_KARMA_PLAYER_CAN_TELEPORT && activeChar.getKarma() > 0)
@@ -91,7 +91,7 @@ public final class RequestMagicSkillUse extends L2GameClientPacket
 		else
 		{
 			activeChar.sendPacket(new ActionFailed());
-			_log.warning("No skill found!!");
+			_log.warn("No skill found!!");
 		}
 	}
 

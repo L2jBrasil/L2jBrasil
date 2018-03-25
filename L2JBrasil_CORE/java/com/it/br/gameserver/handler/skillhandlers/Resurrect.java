@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.handler.skillhandlers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
@@ -32,6 +29,9 @@ import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.skills.Formulas;
 import com.it.br.gameserver.taskmanager.DecayTaskManager;
+
+import java.util.ArrayList;
+import java.util.List;
 /**
  * This class ...
  *
@@ -40,7 +40,7 @@ import com.it.br.gameserver.taskmanager.DecayTaskManager;
 
 public class Resurrect implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(Resurrect.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(Resurrect.class);
 
 	private static final SkillType[] SKILL_IDS = {SkillType.RESURRECT};
 

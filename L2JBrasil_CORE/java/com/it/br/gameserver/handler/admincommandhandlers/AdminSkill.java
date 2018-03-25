@@ -31,12 +31,13 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.PledgeSkillList;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands:
@@ -57,7 +58,7 @@ import java.util.logging.Logger;
 public class AdminSkill implements IAdminCommandHandler
 {
     private static L2Skill[] adminSkills;
-    private static Logger _log = Logger.getLogger(AdminSkill.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminSkill.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -419,7 +420,7 @@ public class AdminSkill implements IAdminCommandHandler
 				//Admin information
 				activeChar.sendMessage("You gave the skill "+name+" to "+player.getName()+".");
 				if (Config.DEBUG)
-					_log.fine("[GM]"+activeChar.getName()+" gave skill "+name+" to "+player.getName()+".");
+					_log.debug("[GM]"+activeChar.getName()+" gave skill "+name+" to "+player.getName()+".");
 				activeChar.sendSkillList(); 
 			}
 			else
@@ -448,7 +449,7 @@ public class AdminSkill implements IAdminCommandHandler
 			//Admin information	
 			activeChar.sendMessage("You removed the skill "+skillname+" from "+player.getName()+".");
 			if (Config.DEBUG)
-				_log.fine("[GM]"+activeChar.getName()+" removed skill "+skillname+" from "+player.getName()+".");
+				_log.debug("[GM]"+activeChar.getName()+" removed skill "+skillname+" from "+player.getName()+".");
 			activeChar.sendSkillList(); 
 		}
 		else

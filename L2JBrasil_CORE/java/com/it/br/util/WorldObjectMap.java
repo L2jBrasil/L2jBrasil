@@ -28,11 +28,11 @@
  */
 package com.it.br.util;
 
+import com.it.br.gameserver.model.L2Object;
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-import com.it.br.gameserver.model.L2Object;
 
 /**
  * This class ...

@@ -28,6 +28,8 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.EtcStatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,8 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Give / Take Status Vip to Player
@@ -54,7 +54,7 @@ import java.util.logging.Logger;
  */
 public class AdminVip implements IAdminCommandHandler
 {
-    private final static Logger _log = Logger.getLogger(AdminVip.class.getName());
+    private final static Logger _log = LoggerFactory.getLogger(AdminVip.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -214,7 +214,7 @@ public class AdminVip implements IAdminCommandHandler
 			}
 			catch (Exception e)
 			{
-				_log.log(Level.WARNING,"could not set vip stats of char:", e);
+				_log.warn("could not set vip stats of char:", e);
 			}
 			finally
 			{
@@ -253,7 +253,7 @@ public class AdminVip implements IAdminCommandHandler
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING,"could not remove vip stats of char:", e);
+			_log.warn("could not remove vip stats of char:", e);
 		}
 		finally
 		{

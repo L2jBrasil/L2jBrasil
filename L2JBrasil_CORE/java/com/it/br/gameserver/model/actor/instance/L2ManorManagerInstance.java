@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.List;
-import java.util.StringTokenizer;
-
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -30,23 +27,15 @@ import com.it.br.gameserver.instancemanager.CastleManorManager.SeedProduction;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2TradeList;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.BuyList;
-import com.it.br.gameserver.network.serverpackets.BuyListSeed;
-import com.it.br.gameserver.network.serverpackets.ExShowCropInfo;
-import com.it.br.gameserver.network.serverpackets.ExShowManorDefaultInfo;
-import com.it.br.gameserver.network.serverpackets.ExShowProcureCropDetail;
-import com.it.br.gameserver.network.serverpackets.ExShowSeedInfo;
-import com.it.br.gameserver.network.serverpackets.ExShowSellCropList;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class L2ManorManagerInstance extends L2MerchantInstance {
 
-	//private static Logger _log = Logger.getLogger(L2ManorManagerInstance.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(L2ManorManagerInstance.class);
 
     public L2ManorManagerInstance(int objectId, L2NpcTemplate template)
     {

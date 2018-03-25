@@ -32,7 +32,7 @@ import com.it.br.gameserver.templates.L2PcTemplate;
 public final class NewCharacter extends L2GameClientPacket
 {
 	private static final String _C__0E_NEWCHARACTER = "[C] 0E NewCharacter";
-	//private static Logger _log = Logger.getLogger(NewCharacter.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(NewCharacter.class);
 
 
 	@Override
@@ -44,7 +44,7 @@ public final class NewCharacter extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		if (Config.DEBUG) _log.fine("CreateNewChar");
+		if (Config.DEBUG) _log.debug("CreateNewChar");
 
 		CharTemplates ct = new CharTemplates();
 

@@ -17,15 +17,15 @@
  */
 package com.it.br.gameserver.pathfinding.worldnodes;
 
+import com.it.br.gameserver.pathfinding.AbstractNodeLoc;
+import com.it.br.gameserver.pathfinding.Node;
+import com.it.br.gameserver.pathfinding.PathFinding;
+
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.it.br.gameserver.pathfinding.AbstractNodeLoc;
-import com.it.br.gameserver.pathfinding.Node;
-import com.it.br.gameserver.pathfinding.PathFinding;
 
 /**
  *
@@ -33,7 +33,7 @@ import com.it.br.gameserver.pathfinding.PathFinding;
  */
 public class WorldPathFinding extends PathFinding
 {
-	//private static Logger _log = Logger.getLogger(WorldPathFinding.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(WorldPathFinding.class);
 	private static WorldPathFinding _instance;
     @SuppressWarnings("unused")
 	private static Map<Short, ByteBuffer> _pathNodes = new HashMap<>();

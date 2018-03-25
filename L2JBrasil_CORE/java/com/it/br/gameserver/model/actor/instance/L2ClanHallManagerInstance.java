@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.text.SimpleDateFormat;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -34,16 +31,11 @@ import com.it.br.gameserver.model.L2TeleportLocation;
 import com.it.br.gameserver.model.L2TradeList;
 import com.it.br.gameserver.model.entity.ClanHall;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.BuyList;
-import com.it.br.gameserver.network.serverpackets.ClanHallDecoration;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
-import com.it.br.gameserver.network.serverpackets.WareHouseDepositList;
-import com.it.br.gameserver.network.serverpackets.WareHouseWithdrawalList;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.text.SimpleDateFormat;
+import java.util.StringTokenizer;
 
 public class L2ClanHallManagerInstance extends L2FolkInstance
 {
@@ -190,7 +182,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
                                 if (st.countTokens() >= 1)
                                 {
                                     int fee;
-                                    if (Config.DEBUG) _log.warning("Mp editing invoked");
+                                    if (Config.DEBUG) _log.warn("Mp editing invoked");
                                     val = st.nextToken();
                                     int percent = Integer.valueOf(val);
                                     switch (percent)
@@ -249,7 +241,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
                                 if (st.countTokens() >= 1)
                                 {
                                     int fee;
-                                    if (Config.DEBUG) _log.warning("Mp editing invoked");
+                                    if (Config.DEBUG) _log.warn("Mp editing invoked");
                                     val = st.nextToken();
                                     int percent = Integer.valueOf(val);
                                     switch (percent)
@@ -284,7 +276,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
                                 if (st.countTokens() >= 1)
                                 {
                                     int fee;
-                                    if (Config.DEBUG) _log.warning("Exp editing invoked");
+                                    if (Config.DEBUG) _log.warn("Exp editing invoked");
                                     val = st.nextToken();
                                     int percent = Integer.valueOf(val);
                                     switch (percent)
@@ -369,7 +361,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
                                 		player.sendMessage("This clan Hall have no owner, you cannot change configuration");
                                 		return;
                                 	}
-                                	if (Config.DEBUG) _log.warning("Item editing invoked");
+                                	if (Config.DEBUG) _log.warn("Item editing invoked");
                                     val = st.nextToken();
                                     int fee;
                                     int lvl = Integer.valueOf(val);
@@ -399,7 +391,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
                                 if (st.countTokens() >= 1)
                                 {
                                     int fee;
-                                    if (Config.DEBUG) _log.warning("Tele editing invoked");
+                                    if (Config.DEBUG) _log.warn("Tele editing invoked");
                                     val = st.nextToken();
                                     int lvl = Integer.valueOf(val);
                                     switch (lvl)
@@ -431,7 +423,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
                                 if (st.countTokens() >= 1)
                                 {
                                     int fee;
-                                    if (Config.DEBUG) _log.warning("Support editing invoked");
+                                    if (Config.DEBUG) _log.warn("Support editing invoked");
                                     val = st.nextToken();
                                     int lvl = Integer.valueOf(val);
                                     switch (lvl)
@@ -515,7 +507,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
 	                            if (st.countTokens() >= 1)
 	                            {
 	                                int fee;
-	                                if (Config.DEBUG) _log.warning("Deco curtains editing invoked");
+	                                if (Config.DEBUG) _log.warn("Deco curtains editing invoked");
 	                                val = st.nextToken();
 	                                int lvl = Integer.valueOf(val);
 	                                switch (lvl)
@@ -540,7 +532,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
 	                            if (st.countTokens() >= 1)
 	                            {
 	                                int fee;
-	                                if (Config.DEBUG) _log.warning("Deco curtains editing invoked");
+	                                if (Config.DEBUG) _log.warn("Deco curtains editing invoked");
 	                                val = st.nextToken();
 	                                int lvl = Integer.valueOf(val);
 	                                switch (lvl)
@@ -785,13 +777,13 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
             else if(player.reduceAdena("Teleport", list.getPrice(), this, true))
             {
                 if (Config.DEBUG)
-                 _log.warning("Teleporting player "+player.getName()+" for CH to new location: "+list.getLocX()+":"+list.getLocY()+":"+list.getLocZ());
+                 _log.warn("Teleporting player "+player.getName()+" for CH to new location: "+list.getLocX()+":"+list.getLocY()+":"+list.getLocZ());
                 player.teleToLocation(list.getLocX(), list.getLocY(), list.getLocZ());
             }
         }
         else
         {
-            _log.warning("No teleport destination with id:" +val);
+            _log.warn("No teleport destination with id:" +val);
         }
         player.sendPacket( new ActionFailed() );
     }
@@ -804,7 +796,7 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
         player.tempInvetoryDisable();
 
         if (Config.DEBUG)
-        	_log.fine("Showing buylist :"+player.getName()+" List ID :"+val);
+        	_log.debug("Showing buylist :"+player.getName()+" List ID :"+val);
 
         L2TradeList list = TradeController.getInstance().getBuyList(val);
 
@@ -815,9 +807,9 @@ public class L2ClanHallManagerInstance extends L2FolkInstance
         }
         else
         {
-            _log.warning("possible client hacker: " + player.getName()
+            _log.warn("possible client hacker: " + player.getName()
                 + " attempting to buy from GM shop! < Ban him!");
-            _log.warning("buylist id:" + val);
+            _log.warn("buylist id:" + val);
         }
 
         player.sendPacket(new ActionFailed());

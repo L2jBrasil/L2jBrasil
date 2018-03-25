@@ -36,7 +36,7 @@ package com.it.br.gameserver.network.serverpackets;
 public class JoinParty extends L2GameServerPacket
 {
 	private static final String _S__4C_JOINPARTY = "[S] 3a JoinParty";
-	//private static Logger _log = Logger.getLogger(JoinParty.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(JoinParty.class);
 
 	private int _response;
 

@@ -25,13 +25,14 @@
  */
 package com.it.br.gameserver.taskmanager;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.network.serverpackets.AutoAttackStop;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class ...
@@ -41,7 +42,7 @@ import com.it.br.gameserver.network.serverpackets.AutoAttackStop;
  */
 public class AttackStanceTaskManager
 {
-    protected static final Logger _log = Logger.getLogger(AttackStanceTaskManager.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(AttackStanceTaskManager.class);
 
     protected Map<L2Character,Long> _attackStanceTasks = new ConcurrentHashMap<>();
 
@@ -102,7 +103,7 @@ public class AttackStanceTaskManager
             		}
             } catch (Throwable e) {
             	// TODO: Find out the reason for exception. Unless caught here, players remain in attack positions.
-            	_log.warning(e.toString());
+            	_log.warn(e.toString());
             }
         }
     }

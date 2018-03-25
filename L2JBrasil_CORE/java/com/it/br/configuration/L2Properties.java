@@ -6,32 +6,27 @@
  */
 package com.it.br.configuration;
 
+import com.it.br.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.it.br.util.Util;
 
 public final class L2Properties extends Properties
 {
 	private static final long serialVersionUID = -4599023842346938325L;
-	private static final Log _log = LogFactory.getLog(L2Properties.class);
+	private static final Logger _log = LoggerFactory.getLogger(L2Properties.class);
 
 	
 	public L2Properties(String filePath) {
 		try(FileReader reader = new FileReader(filePath)) {
 			load(reader);
 		} catch (IOException e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 	
@@ -49,7 +44,7 @@ public final class L2Properties extends Properties
 		try {
 			return Integer.parseInt(getProperty(key), radix);
 		} catch (Exception e) {
-			_log.warn("Error getting property " + key + ": " + e.getMessage());
+			_log.warn("Error getting property {} : {} ", key, e.getMessage());
 		}
 		return defaultValue;
 	}
@@ -84,7 +79,8 @@ public final class L2Properties extends Properties
 			int mapValue = Integer.parseInt(value[1].trim());
 			map.put(mapKey, mapValue);
 		} catch (Exception e) {
-			_log.warn("Error getting property " + key + " on entry " +  entry  + ": " + e.getMessage());
+			_log.warn("Error getting property {} on entry {}: {}", key, entry, e.getMessage());
+
 		}
 	}
 

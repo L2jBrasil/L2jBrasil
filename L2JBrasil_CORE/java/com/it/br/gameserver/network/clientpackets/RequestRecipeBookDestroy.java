@@ -25,7 +25,7 @@ import com.it.br.gameserver.network.serverpackets.RecipeBookItemList;
 public final class RequestRecipeBookDestroy extends L2GameClientPacket
 {
     private static final String _C__AC_REQUESTRECIPEBOOKDESTROY = "[C] AD RequestRecipeBookDestroy";
-    //private static Logger _log = Logger.getLogger(RequestSellItem.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestSellItem.class);
 
     private int _recipeID;
 

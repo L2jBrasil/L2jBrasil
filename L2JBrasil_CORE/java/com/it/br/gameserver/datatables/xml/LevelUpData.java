@@ -12,8 +12,18 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.L2LvlupData;
+import com.it.br.gameserver.model.base.ClassId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,125 +31,95 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import static com.it.br.configuration.Configurator.getSettings;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+public class LevelUpData {
+    private static final Logger _log = LoggerFactory.getLogger(LevelUpData.class);
 
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.L2LvlupData;
-import com.it.br.gameserver.model.base.ClassId;
+    private static final String CLASS_LVL = "class_lvl", CLASS_ID = "classid";
+    private static final String MP_MOD = "mpmod", MP_ADD = "mpadd", MP_BASE = "mpbase";
+    private static final String HP_MOD = "hpmod", HP_ADD = "hpadd", HP_BASE = "hpbase";
+    private static final String CP_MOD = "cpmod", CP_ADD = "cpadd", CP_BASE = "cpbase";
 
-public class LevelUpData
-{
-	private static final Log _log = LogFactory.getLog(LevelUpData.class.getName());
+    private static LevelUpData _instance;
 
-	private static final String CLASS_LVL = "class_lvl", CLASS_ID = "classid";
-	private static final String MP_MOD = "mpmod", MP_ADD = "mpadd", MP_BASE = "mpbase";
-	private static final String HP_MOD = "hpmod", HP_ADD = "hpadd", HP_BASE = "hpbase";
-	private static final String CP_MOD = "cpmod", CP_ADD = "cpadd", CP_BASE = "cpbase";
+    private Map<Integer, L2LvlupData> _lvlTable;
 
-	private static LevelUpData _instance;
+    public static LevelUpData getInstance() {
+        if (_instance == null) {
+            _instance = new LevelUpData();
+        }
 
-	private Map<Integer, L2LvlupData> _lvlTable;
+        return _instance;
+    }
 
-	public static LevelUpData getInstance()
-	{
-		if(_instance == null)
-		{
-			_instance = new LevelUpData();
-		}
+    private LevelUpData() {
+        _lvlTable = new HashMap<>();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+        ServerSettings serverSettings = getSettings(ServerSettings.class);
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/lvl_up_data.xml");
+        if (!f.exists()) {
+            _log.warn("Could not be loaded: file {} not found", f.getAbsolutePath());
+            return;
+        }
+        try {
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            L2LvlupData lvlDat;
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("lvlup")) {
+                            lvlDat = new L2LvlupData();
+                            int CLASS1_ID = Integer.valueOf(d.getAttributes().getNamedItem(CLASS_ID).getNodeValue());
+                            int CLASS1_LVL = Integer.valueOf(d.getAttributes().getNamedItem(CLASS_LVL).getNodeValue());
+                            float HP_BASE1 = Float.valueOf(d.getAttributes().getNamedItem(HP_BASE).getNodeValue());
+                            float HP_ADD1 = Float.valueOf(d.getAttributes().getNamedItem(HP_ADD).getNodeValue());
+                            float HP_MOD1 = Float.valueOf(d.getAttributes().getNamedItem(HP_MOD).getNodeValue());
+                            float CP_BASE1 = Float.valueOf(d.getAttributes().getNamedItem(CP_BASE).getNodeValue());
+                            float CP_ADD1 = Float.valueOf(d.getAttributes().getNamedItem(CP_ADD).getNodeValue());
+                            float CP_MOD1 = Float.valueOf(d.getAttributes().getNamedItem(CP_MOD).getNodeValue());
+                            float MP_BASE1 = Float.valueOf(d.getAttributes().getNamedItem(MP_BASE).getNodeValue());
+                            float MP_ADD1 = Float.valueOf(d.getAttributes().getNamedItem(MP_ADD).getNodeValue());
+                            float MP_MOD1 = Float.valueOf(d.getAttributes().getNamedItem(MP_MOD).getNodeValue());
 
-		return _instance;
-	}
+                            lvlDat.setClassid(CLASS1_ID);
+                            lvlDat.setClassLvl(CLASS1_LVL);
+                            lvlDat.setClassHpBase(HP_BASE1);
+                            lvlDat.setClassHpAdd(HP_ADD1);
+                            lvlDat.setClassHpModifier(HP_MOD1);
+                            lvlDat.setClassCpBase(CP_BASE1);
+                            lvlDat.setClassCpAdd(CP_ADD1);
+                            lvlDat.setClassCpModifier(CP_MOD1);
+                            lvlDat.setClassMpBase(MP_BASE1);
+                            lvlDat.setClassMpAdd(MP_ADD1);
+                            lvlDat.setClassMpModifier(MP_MOD1);
 
-	private LevelUpData()
-	{
-		_lvlTable = new HashMap<>();
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		ServerSettings serverSettings = getSettings(ServerSettings.class);
-		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/lvl_up_data.xml");
-		if(!f.exists())
-		{
-			_log.warn("lvl_up_data.xml could not be loaded: file not found");
-			return;
-		}
-		try
-		{
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			L2LvlupData lvlDat;
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("lvlup"))
-						{
-							lvlDat = new L2LvlupData();
-							int CLASS1_ID = Integer.valueOf(d.getAttributes().getNamedItem(CLASS_ID).getNodeValue());
-							int CLASS1_LVL = Integer.valueOf(d.getAttributes().getNamedItem(CLASS_LVL).getNodeValue());
-							float HP_BASE1 = Float.valueOf(d.getAttributes().getNamedItem(HP_BASE).getNodeValue());
-							float HP_ADD1 = Float.valueOf(d.getAttributes().getNamedItem(HP_ADD).getNodeValue());
-							float HP_MOD1 = Float.valueOf(d.getAttributes().getNamedItem(HP_MOD).getNodeValue());
-							float CP_BASE1 = Float.valueOf(d.getAttributes().getNamedItem(CP_BASE).getNodeValue());
-							float CP_ADD1 = Float.valueOf(d.getAttributes().getNamedItem(CP_ADD).getNodeValue());
-							float CP_MOD1 = Float.valueOf(d.getAttributes().getNamedItem(CP_MOD).getNodeValue());
-							float MP_BASE1 = Float.valueOf(d.getAttributes().getNamedItem(MP_BASE).getNodeValue());
-							float MP_ADD1 = Float.valueOf(d.getAttributes().getNamedItem(MP_ADD).getNodeValue());
-							float MP_MOD1 = Float.valueOf(d.getAttributes().getNamedItem(MP_MOD).getNodeValue());
+                            _lvlTable.put(new Integer(lvlDat.getClassid()), lvlDat);
+                        }
+                    }
+                }
+            }
+            lvlDat = null;
 
-							lvlDat.setClassid(CLASS1_ID);
-							lvlDat.setClassLvl(CLASS1_LVL);
-							lvlDat.setClassHpBase(HP_BASE1);
-							lvlDat.setClassHpAdd(HP_ADD1);
-							lvlDat.setClassHpModifier(HP_MOD1);
-							lvlDat.setClassCpBase(CP_BASE1);
-							lvlDat.setClassCpAdd(CP_ADD1);
-							lvlDat.setClassCpModifier(CP_MOD1);
-							lvlDat.setClassMpBase(MP_BASE1);
-							lvlDat.setClassMpAdd(MP_ADD1);
-							lvlDat.setClassMpModifier(MP_MOD1);
+            _log.info("LevelUpData: Loaded {} character level up templates.", _lvlTable.size());
+        } catch (SAXException e) {
+            _log.error("Error while creating table", e);
+        } catch (IOException e) {
+            _log.error("Error while creating table", e);
+        } catch (ParserConfigurationException e) {
+            _log.error("Error while creating table", e);
+        }
+    }
 
-							_lvlTable.put(new Integer(lvlDat.getClassid()), lvlDat);
-						}
-					}
-				}
-			}
-			lvlDat = null;
+    public L2LvlupData getTemplate(int classId) {
+        return _lvlTable.get(classId);
+    }
 
-			_log.info("LevelUpData: Loaded " + _lvlTable.size() + " character level up templates.");
-		}
-		catch(SAXException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(IOException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-		catch(ParserConfigurationException e)
-		{
-			_log.error("Error while creating table", e);
-		}
-	}
-
-	public L2LvlupData getTemplate(int classId)
-	{
-		return _lvlTable.get(classId);
-	}
-
-	public L2LvlupData getTemplate(ClassId classId)
-	{
-		return _lvlTable.get(classId.getId());
-	}
+    public L2LvlupData getTemplate(ClassId classId) {
+        return _lvlTable.get(classId.getId());
+    }
 }

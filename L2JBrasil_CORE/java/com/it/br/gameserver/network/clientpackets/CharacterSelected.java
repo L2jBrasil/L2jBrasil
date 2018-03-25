@@ -32,7 +32,7 @@ import com.it.br.gameserver.network.serverpackets.CharSelected;
 public class CharacterSelected extends L2GameClientPacket
 {
 	private static final String _C__0D_CHARACTERSELECTED = "[C] 0D CharacterSelected";
-	//private static Logger _log = Logger.getLogger(CharacterSelected.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(CharacterSelected.class);
 
 	// cd
 	private int _charSlot;
@@ -81,14 +81,14 @@ public class CharacterSelected extends L2GameClientPacket
 					// The L2PcInstance must be created here, so that it can be attached to the L2GameClient
 					if (Config.DEBUG)
 					{
-						_log.fine("selected slot:" + _charSlot);
+						_log.debug("selected slot:" + _charSlot);
 					}
 
 					//load up character from disk
 					L2PcInstance cha = getClient().loadCharFromDisk(_charSlot);
 					if (cha == null)
 					{
-						_log.severe("Character could not be loaded (slot:"+_charSlot+")");
+						_log.error("Character could not be loaded (slot:"+_charSlot+")");
 						sendPacket(new ActionFailed());
 						return;
 					}
@@ -167,10 +167,10 @@ public class CharacterSelected extends L2GameClientPacket
 						(int) (time + diff - System.currentTimeMillis());
 						if (wait > 0)
 						{
-							if (Config.DEBUG) _log.fine("waiting"+ wait);
+							if (Config.DEBUG) _log.debug("waiting"+ wait);
 							Thread.sleep(wait);
 						}
-						if (Config.DEBUG) _log.fine("sending:"+ time);
+						if (Config.DEBUG) _log.debug("sending:"+ time);
 						byte[] data = bais.toByteArray();
 						if (data.length != 0)
 						{
@@ -178,7 +178,7 @@ public class CharacterSelected extends L2GameClientPacket
 						}
 						else
 						{
-							if (Config.DEBUG) _log.fine("skipping broken data");
+							if (Config.DEBUG) _log.debug("skipping broken data");
 						}
 
 					}
@@ -196,7 +196,7 @@ public class CharacterSelected extends L2GameClientPacket
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.SEVERE, "Error:", e);
+			_log.error( "Error:", e);
 		}
 	}
 	 */
