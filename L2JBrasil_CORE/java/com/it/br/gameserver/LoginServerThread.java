@@ -18,7 +18,22 @@
  */
 package com.it.br.gameserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.L2World;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.L2GameClient;
+import com.it.br.gameserver.network.L2GameClient.GameClientState;
+import com.it.br.gameserver.network.gameserverpackets.*;
+import com.it.br.gameserver.network.loginserverpackets.*;
+import com.it.br.gameserver.network.serverpackets.AuthLoginFail;
+import com.it.br.gameserver.network.serverpackets.CharSelectInfo;
+import com.it.br.loginserver.crypt.NewCrypt;
+import com.it.br.util.Rnd;
+import com.it.br.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -36,37 +51,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.L2World;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.L2GameClient;
-import com.it.br.gameserver.network.L2GameClient.GameClientState;
-import com.it.br.gameserver.network.gameserverpackets.AuthRequest;
-import com.it.br.gameserver.network.gameserverpackets.BlowFishKey;
-import com.it.br.gameserver.network.gameserverpackets.ChangeAccessLevel;
-import com.it.br.gameserver.network.gameserverpackets.GameServerBasePacket;
-import com.it.br.gameserver.network.gameserverpackets.PlayerAuthRequest;
-import com.it.br.gameserver.network.gameserverpackets.PlayerInGame;
-import com.it.br.gameserver.network.gameserverpackets.PlayerLogout;
-import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
-import com.it.br.gameserver.network.loginserverpackets.AuthResponse;
-import com.it.br.gameserver.network.loginserverpackets.InitLS;
-import com.it.br.gameserver.network.loginserverpackets.KickPlayer;
-import com.it.br.gameserver.network.loginserverpackets.LoginServerFail;
-import com.it.br.gameserver.network.loginserverpackets.PlayerAuthResponse;
-import com.it.br.gameserver.network.serverpackets.AuthLoginFail;
-import com.it.br.gameserver.network.serverpackets.CharSelectInfo;
-import com.it.br.loginserver.crypt.NewCrypt;
-import com.it.br.util.Rnd;
-import com.it.br.util.Util;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class LoginServerThread extends Thread
 {
-	protected static final Logger _log = Logger.getLogger(LoginServerThread.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(LoginServerThread.class);
 
 	/** The LoginServerThread singleton */
 	private static LoginServerThread	_instance;
@@ -169,7 +159,7 @@ public class LoginServerThread extends Thread
 
 					if (lengthHi < 0 )
 					{
-						_log.finer("LoginServerThread: Login terminated the connection.");
+						_log.debug("LoginServerThread: Login terminated the connection.");
 						break;
 					}
 
@@ -187,7 +177,7 @@ public class LoginServerThread extends Thread
 
 					if (receivedBytes != length-2)
 					{
-						_log.warning("Incomplete Packet is sent to the server, closing connection.(LS)");
+						_log.warn("Incomplete Packet is sent to the server, closing connection.(LS)");
 						break;
 					}
 
@@ -199,12 +189,12 @@ public class LoginServerThread extends Thread
 
 					if (!checksumOk)
 					{
-						_log.warning("Incorrect packet checksum, ignoring packet (LS)");
+						_log.warn("Incorrect packet checksum, ignoring packet (LS)");
 						break;
 					}
 
 					if (Config.DEBUG)
-						_log.warning("[C]\n"+Util.printData(decrypt));
+						_log.warn("[C]\n"+Util.printData(decrypt));
 
 					int packetType = decrypt[0]&0xff;
 					switch (packetType)
@@ -215,7 +205,7 @@ public class LoginServerThread extends Thread
 						if(init.getRevision() != REVISION)
 						{
 							//TODO: revision mismatch
-							_log.warning("/!\\ Revision mismatch between LS and GS /!\\");
+							_log.warn("/!\\ Revision mismatch between LS and GS /!\\");
 							break;
 						}
 						try
@@ -229,7 +219,7 @@ public class LoginServerThread extends Thread
 
 						catch (GeneralSecurityException e)
 						{
-							_log.warning("Troubles while init the public key send by login");
+							_log.warn("Troubles while init the public key send by login");
 							break;
 						}
 						//send the blowfish key through the rsa encryption
@@ -328,7 +318,7 @@ public class LoginServerThread extends Thread
 							}
 							else
 							{
-								_log.warning("session key is not correct. closing connection");
+								_log.warn("session key is not correct. closing connection");
 								wcToRemove.gameClient.getConnection().sendPacket(new AuthLoginFail(1));
 								wcToRemove.gameClient.closeNow();
 							}
@@ -382,7 +372,7 @@ public class LoginServerThread extends Thread
 		}
 		catch (IOException e)
 		{
-			_log.warning("Error while sending player auth request");
+			_log.warn("Error while sending player auth request");
 			if (Config.DEBUG) e.printStackTrace();
 		}
 	}
@@ -413,7 +403,7 @@ public class LoginServerThread extends Thread
 		}
 		catch (IOException e)
 		{
-			_log.warning("Error while sending logout packet to login");
+			_log.warn("Error while sending logout packet to login");
 			if (Config.DEBUG) e.printStackTrace();
 		}
                 finally
@@ -459,7 +449,7 @@ public class LoginServerThread extends Thread
 	{
 		byte [] array = new byte[size];
 		Rnd.nextBytes(array);
-		if (Config.DEBUG)_log.fine("Generated random String:  \""+array+"\"");
+		if (Config.DEBUG)_log.debug("Generated random String:  \""+array+"\"");
 		return array;
 	}
 
@@ -471,7 +461,7 @@ public class LoginServerThread extends Thread
 	{
 		byte[] data = sl.getContent();
 		NewCrypt.appendChecksum(data);
-		if (Config.DEBUG) _log.finest("[S]\n"+Util.printData(data));
+		if (Config.DEBUG) _log.trace("[S]\n"+Util.printData(data));
 		data = _blowfish.crypt(data);
 
 		int len = data.length+2;

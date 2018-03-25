@@ -34,7 +34,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestRecipeShopListSet extends L2GameClientPacket
 {
 	private static final String _C__B2_RequestRecipeShopListSet = "[C] b2 RequestRecipeShopListSet";
-	//private static Logger _log = Logger.getLogger(RequestRecipeShopListSet.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestRecipeShopListSet.class);
 
 	private int _count;
 	private int[] _items; // count*2

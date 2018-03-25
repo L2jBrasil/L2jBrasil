@@ -17,9 +17,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.TradeController;
@@ -32,19 +29,12 @@ import com.it.br.gameserver.model.L2TradeList;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.PcInventory;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.BuyList;
-import com.it.br.gameserver.network.serverpackets.ExShowCropInfo;
-import com.it.br.gameserver.network.serverpackets.ExShowCropSetting;
-import com.it.br.gameserver.network.serverpackets.ExShowManorDefaultInfo;
-import com.it.br.gameserver.network.serverpackets.ExShowSeedInfo;
-import com.it.br.gameserver.network.serverpackets.ExShowSeedSetting;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Util;
+
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
 
 /**
  * Castle Chamberlains implementation
@@ -56,7 +46,7 @@ import com.it.br.gameserver.util.Util;
  */
 public class L2CastleChamberlainInstance extends L2FolkInstance
 {
-//    private static Logger _log = Logger.getLogger(L2CastleChamberlainInstance.class.getName());
+//    private static Logger _log = LoggerFactory.getLogger(L2CastleChamberlainInstance.class);
 
 	protected static final int COND_ALL_FALSE = 0;
 	protected static final int COND_BUSY_BECAUSE_OF_SIEGE = 1;
@@ -215,7 +205,7 @@ public class L2CastleChamberlainInstance extends L2FolkInstance
 				if (val == "") return;
 				player.tempInvetoryDisable();
 
-				if (Config.DEBUG) _log.fine("Showing chamberlain buylist");
+				if (Config.DEBUG) _log.debug("Showing chamberlain buylist");
 
 				int buy;
 				{
@@ -239,9 +229,9 @@ public class L2CastleChamberlainInstance extends L2FolkInstance
 				}
 				else
 				{
-					_log.warning("player: " + player.getName()
+					_log.warn("player: " + player.getName()
 							+ " attempting to buy from chamberlain that don't have buylist!");
-					_log.warning("buylist id:" + buy);
+					_log.warn("buylist id:" + buy);
 				}
 				player.sendPacket(new ActionFailed());
 			}

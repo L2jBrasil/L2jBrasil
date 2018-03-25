@@ -18,23 +18,20 @@
  */
 package com.it.br.gameserver.skills;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.Item;
+import com.it.br.gameserver.datatables.sql.SkillTable;
+import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.templates.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.Item;
-import com.it.br.gameserver.datatables.sql.SkillTable;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.templates.L2Armor;
-import com.it.br.gameserver.templates.L2EtcItem;
-import com.it.br.gameserver.templates.L2EtcItemType;
-import com.it.br.gameserver.templates.L2Item;
-import com.it.br.gameserver.templates.L2Weapon;
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @author mkizub
@@ -44,7 +41,7 @@ import com.it.br.gameserver.templates.L2Weapon;
  */
 public class SkillsEngine 
 {
-    protected static final Logger _log = Logger.getLogger(SkillsEngine.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(SkillsEngine.class);
 
 	private static final SkillsEngine _instance = new SkillsEngine();
 
@@ -73,7 +70,7 @@ public class SkillsEngine
 		File dir = new File(datapack, dirname);
 		if (!dir.exists())
 		{
-			_log.config("Dir "+dir.getAbsolutePath()+" not exists");
+			_log.info("Dir "+dir.getAbsolutePath()+" not exists");
 			return;
 		}
 		File[] files = dir.listFiles();
@@ -92,7 +89,7 @@ public class SkillsEngine
 	{
 		if (file == null)
 		{
-			_log.config("Skill file not found.");
+			_log.info("Skill file not found.");
 			return null;
 		}
 		DocumentSkill doc = new DocumentSkill(file);
@@ -114,7 +111,7 @@ public class SkillsEngine
 				count++;
             }
 		}
-		_log.config("SkillsEngine: Loaded "+count+" Skill templates from XML files.");
+		_log.info("SkillsEngine: Loaded "+count+" Skill templates from XML files.");
 	}
 
     public List<L2Armor> loadArmors(Map<Integer, Item> armorData)

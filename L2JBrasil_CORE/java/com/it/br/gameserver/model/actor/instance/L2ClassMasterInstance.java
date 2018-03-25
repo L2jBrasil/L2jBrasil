@@ -26,11 +26,7 @@ import com.it.br.gameserver.model.base.ClassLevel;
 import com.it.br.gameserver.model.base.PlayerClass;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
 /**
@@ -40,7 +36,7 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
  */
 public final class L2ClassMasterInstance extends L2FolkInstance
 {
-	//private static Logger _log = Logger.getLogger(L2ClassMasterInstance.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(L2ClassMasterInstance.class);
 	private static final int[] SECOND_CLASS_IDS = {2,3,5,6,9,8,12,13,14,16,17,20,21,23,24,27,28,30,33,34,36,37,40,41,43,46,48,51,52,55,57};
 
 	/**
@@ -77,7 +73,7 @@ public final class L2ClassMasterInstance extends L2FolkInstance
 			}
 
 			if (Config.DEBUG)
-				_log.fine("ClassMaster activated");
+				_log.debug("ClassMaster activated");
 
 			ClassId classId = player.getClassId();
 
@@ -472,7 +468,7 @@ public final class L2ClassMasterInstance extends L2FolkInstance
 
 	private void changeClass(L2PcInstance player, int val)
 	{
-		if (Config.DEBUG) _log.fine("Changing class to ClassId:"+val);
+		if (Config.DEBUG) _log.debug("Changing class to ClassId:"+val);
         player.setClassId(val);
 
         if (player.isSubClassActive())

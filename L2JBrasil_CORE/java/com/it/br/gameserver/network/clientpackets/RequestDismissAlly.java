@@ -30,7 +30,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestDismissAlly extends L2GameClientPacket
 {
 	private static final String _C__86_REQUESTDISMISSALLY = "[C] 86 RequestDismissAlly";
-	//static Logger _log = Logger.getLogger(RequestDismissAlly.class.getName());
+	//static Logger _log = LoggerFactory.getLogger(RequestDismissAlly.class);
 
 
 	@Override

@@ -18,10 +18,10 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.Vector;
-
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.network.SystemMessageId;
+
+import java.util.Vector;
 
 /**
  * This class ...

@@ -19,19 +19,9 @@
 package com.it.br.gameserver.handler.admincommandhandlers;
 
 import com.it.br.Config;
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.NetworkSettings;
 import com.it.br.gameserver.GmListTable;
-import com.it.br.gameserver.cache.HtmCache;
-import com.it.br.gameserver.datatables.sql.ItemTable;
-import com.it.br.gameserver.datatables.sql.SkillTable;
-import com.it.br.gameserver.datatables.xml.NpcTable;
-import com.it.br.gameserver.datatables.xml.NpcWalkerRoutesTable;
-import com.it.br.gameserver.datatables.xml.TeleportLocationTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
-import com.it.br.gameserver.instancemanager.Manager;
 import com.it.br.gameserver.model.GMAudit;
-import com.it.br.gameserver.model.L2Multisell;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;

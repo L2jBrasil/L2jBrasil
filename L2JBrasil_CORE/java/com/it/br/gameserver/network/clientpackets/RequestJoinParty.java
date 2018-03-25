@@ -160,7 +160,7 @@ public final class RequestJoinParty extends L2GameClientPacket
 		 	requestor.getParty().increasePendingInvitationNumber();
 
 		    if (Config.DEBUG)
-		        _log.fine("sent out a party invitation to:"+target.getName());
+		        _log.debug("sent out a party invitation to:"+target.getName());
 
 		    msg = new SystemMessage(SystemMessageId.YOU_INVITED_S1_TO_PARTY);
 		    msg.addString(target.getName());
@@ -172,7 +172,7 @@ public final class RequestJoinParty extends L2GameClientPacket
 		    requestor.sendPacket(msg);
 
 		    if (Config.DEBUG)
-		        _log.warning(requestor.getName() + " ja recebeu um convite de party");
+		        _log.warn(requestor.getName() + " ja recebeu um convite de party");
 		}
 		msg = null;
 	}
@@ -197,7 +197,7 @@ public final class RequestJoinParty extends L2GameClientPacket
 		    requestor.getParty().increasePendingInvitationNumber();
 
 		    if (Config.DEBUG)
-		        _log.fine("sent out a party invitation to:"+target.getName());
+		        _log.debug("sent out a party invitation to:"+target.getName());
 
 		    msg = new SystemMessage(SystemMessageId.YOU_INVITED_S1_TO_PARTY);
 		    msg.addString(target.getName());
@@ -210,7 +210,7 @@ public final class RequestJoinParty extends L2GameClientPacket
 		    requestor.sendPacket(msg);
 
 		    if (Config.DEBUG)
-		        _log.warning(requestor.getName() + " ja recebeu um convite de party");
+		        _log.warn(requestor.getName() + " ja recebeu um convite de party");
 		}
 	}
 

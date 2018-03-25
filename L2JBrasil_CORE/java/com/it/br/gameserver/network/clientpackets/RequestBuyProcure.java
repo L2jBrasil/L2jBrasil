@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
@@ -37,6 +34,9 @@ import com.it.br.gameserver.network.serverpackets.StatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.util.Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class RequestBuyProcure extends L2GameClientPacket {

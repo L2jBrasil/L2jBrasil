@@ -18,14 +18,14 @@
  */
 package com.it.br.gameserver.handler.skillhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author _drunk_
@@ -35,7 +35,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
  */
 public class BeastFeed implements ISkillHandler
 {
-    private static Logger _log = Logger.getLogger(BeastFeed.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(BeastFeed.class);
     private static final SkillType[] SKILL_IDS = {SkillType.BEAST_FEED};
 
 
@@ -51,7 +51,7 @@ public class BeastFeed implements ISkillHandler
             return;
         }
 
-        _log.fine("Beast Feed casting succeded.");
+        _log.debug("Beast Feed casting succeded.");
 
         // This is just a dummy skill handler for the golden food and crystal food skills,
         // since the AI responce onSkillUse handles the rest.

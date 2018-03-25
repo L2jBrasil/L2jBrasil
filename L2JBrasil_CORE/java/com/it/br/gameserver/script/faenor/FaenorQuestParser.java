@@ -18,12 +18,11 @@
  */
 package com.it.br.gameserver.script.faenor;
 
-import org.apache.bsf.BSFManager;
-import org.w3c.dom.Node;
-
 import com.it.br.gameserver.script.Parser;
 import com.it.br.gameserver.script.ParserFactory;
 import com.it.br.gameserver.script.ScriptEngine;
+import org.apache.bsf.BSFManager;
+import org.w3c.dom.Node;
 
 /**
  * @author Luis Arias

@@ -41,6 +41,8 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,14 +53,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 import static com.it.br.util.Util.minutesToMiliseconds;
 
 public class SevenSignsFestival implements SpawnListener
 {
-    protected static final Logger _log = Logger.getLogger(SevenSignsFestival.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(SevenSignsFestival.class);
     private static SevenSignsFestival _instance;
 
 
@@ -1071,7 +1072,7 @@ public class SevenSignsFestival implements SpawnListener
 	            SevenSigns.getInstance().saveSevenSignsData(null, true);
         }
         catch (SQLException e) {
-            _log.severe("SevenSignsFestival: Failed to save configuration: " + e);
+            _log.error("SevenSignsFestival: Failed to save configuration: " + e);
         }
     }
 
@@ -1678,7 +1679,7 @@ public class SevenSignsFestival implements SpawnListener
         if (npcId == 31127)
         {
             if (Config.DEBUG)
-                _log.config("SevenSignsFestival: Instance found for NPC ID 31127 (" + npc.getObjectId() + ").");
+                _log.info("SevenSignsFestival: Instance found for NPC ID 31127 (" + npc.getObjectId() + ").");
 
             _dawnChatGuide = npc;
         }
@@ -1686,7 +1687,7 @@ public class SevenSignsFestival implements SpawnListener
         if (npcId == 31137)
         {
             if (Config.DEBUG)
-                _log.config("SevenSignsFestival: Instance found for NPC ID 31137 (" + npc.getObjectId() + ").");
+                _log.info("SevenSignsFestival: Instance found for NPC ID 31137 (" + npc.getObjectId() + ").");
 
             _duskChatGuide = npc;
         }
@@ -2049,11 +2050,11 @@ public class SevenSignsFestival implements SpawnListener
                 _witchInst = npcSpawn.doSpawn();
 
                 if (Config.DEBUG)
-                    _log.fine("SevenSignsFestival: Spawned the Festival Witch " + npcSpawn.getNpcid() + " at " + _witchSpawn._x + " " + _witchSpawn._y + " " + _witchSpawn._z);
+                    _log.debug("SevenSignsFestival: Spawned the Festival Witch " + npcSpawn.getNpcid() + " at " + _witchSpawn._x + " " + _witchSpawn._y + " " + _witchSpawn._z);
             }
             catch (Exception e)
             {
-                _log.warning("SevenSignsFestival: Error while spawning Festival Witch ID " + _witchSpawn._npcId + ": " + e);
+                _log.warn("SevenSignsFestival: Error while spawning Festival Witch ID " + _witchSpawn._npcId + ": " + e);
             }
 
             // Make it appear as though the Witch has apparated there.
@@ -2202,11 +2203,11 @@ public class SevenSignsFestival implements SpawnListener
                     _npcInsts.add(festivalMob);
 
                     if (Config.DEBUG)
-                        _log.fine("SevenSignsFestival: Spawned NPC ID " + currSpawn._npcId + " at " + currSpawn._x + " " + currSpawn._y + " " + currSpawn._z);
+                        _log.debug("SevenSignsFestival: Spawned NPC ID " + currSpawn._npcId + " at " + currSpawn._x + " " + currSpawn._y + " " + currSpawn._z);
                 }
                 catch (Exception e)
                 {
-                    _log.warning("SevenSignsFestival: Error while spawning NPC ID " + currSpawn._npcId + ": " + e);
+                    _log.warn("SevenSignsFestival: Error while spawning NPC ID " + currSpawn._npcId + ": " + e);
                 }
             }
         }

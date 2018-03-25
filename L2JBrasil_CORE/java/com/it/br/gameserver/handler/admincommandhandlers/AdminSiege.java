@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -38,6 +33,11 @@ import com.it.br.gameserver.model.zone.type.L2ClanHallZone;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * This class handles all siege commands:

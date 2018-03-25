@@ -17,31 +17,28 @@
  */
 package com.it.br.gameserver;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.it.br.Config;
+public class L2JBrasil {
+    private static final Logger _log = LoggerFactory.getLogger("echo");
 
-public class L2JBrasil
-{
-	private static final Logger _log = Logger.getLogger(GameServer.class.getName());
-
-	public static void L2JBrasilInfo()
-	{
-	    System.out.println("");
-	    System.out.println("                   L2JBrasil Interlude Project since 2011");
-	    System.out.println("");
-	    System.out.println("          Thanks to everyone who helped with the project L2JBrasil");
-	    System.out.println("                            L2JBrasil Gameserver");
-	    System.out.println("");
-	    _log.info("    ___     _______ ________    ____   _____            ______`---`___ ");
-	    _log.info("   |   |   |       |        |  |    ` |     `  .------.`      |___|   |");
-	    _log.info("   |.  |   |___|   |__   .__|__|     `|      `|.  _ . |  _____|.  |.  |");
-	    _log.info("   |.  |___ /  ___/   |  |  -  |.    /|.    / |: |_|: |  |____..  |.  |___ ");
-	    _log.info("   |:  |   |:  |___ __.  |`----|::   `|    `  |:  _ : |_____  |:  |:  |   |");
-	    _log.info("   |::.. . |::.. . |::.. |     |:::.  |  |`.`..::| |::|`----` |:  |::.. . |");
-	    _log.info("   `-------`-------`-----      `------`--` ---`--` `--`-------`---`-------`");
-	    _log.info("-------------------------------------------------------------------------------");
-	    _log.info("             More Info: www.l2jbrasil.com best forum for L2J");
-	    _log.info("-------------------------------------------------------------------------------");
-	}
+    public static void L2JBrasilInfo() {
+        _log.info("");
+        _log.info("                   L2JBrasil Interlude Project since 2011");
+        _log.info("");
+        _log.info("          Thanks to everyone who helped with the project L2JBrasil");
+        _log.info("                            L2JBrasil Gameserver");
+        _log.info("");
+        _log.info("    ___     _______ ________    ____   _____            ______`---`___ ");
+        _log.info("   |   |   |       |        |  |    ` |     `  .------.`      |___|   |");
+        _log.info("   |.  |   |___|   |__   .__|__|     `|      `|.  _ . |  _____|.  |.  |");
+        _log.info("   |.  |___ /  ___/   |  |  -  |.    /|.    / |: |_|: |  |____..  |.  |___ ");
+        _log.info("   |:  |   |:  |___ __.  |`----|::   `|    `  |:  _ : |_____  |:  |:  |   |");
+        _log.info("   |::.. . |::.. . |::.. |     |:::.  |  |`.`..::| |::|`----` |:  |::.. . |");
+        _log.info("   `-------`-------`-----      `------`--` ---`--` `--`-------`---`-------`");
+        _log.info("-------------------------------------------------------------------------------");
+        _log.info("             More Info: www.l2jbrasil.com best forum for L2J");
+        _log.info("-------------------------------------------------------------------------------");
+    }
 }

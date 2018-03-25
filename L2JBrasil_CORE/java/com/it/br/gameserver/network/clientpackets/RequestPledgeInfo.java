@@ -18,13 +18,13 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.PledgeInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -35,7 +35,7 @@ public final class RequestPledgeInfo extends L2GameClientPacket
 {
 	private static final String _C__66_REQUESTPLEDGEINFO = "[C] 66 RequestPledgeInfo";
 
-	private static Logger _log = Logger.getLogger(RequestPledgeInfo.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestPledgeInfo.class);
 
 	private int _clanId;
 
@@ -51,13 +51,13 @@ public final class RequestPledgeInfo extends L2GameClientPacket
 	protected void runImpl()
 	{
 		if (Config.DEBUG)
-			_log.fine("infos for clan " + _clanId + " requested");
+			_log.debug("infos for clan " + _clanId + " requested");
 
 		L2PcInstance activeChar = getClient().getActiveChar();
 		L2Clan clan = ClanTable.getInstance().getClan(_clanId);
 		if (clan == null)
 		{
-			_log.warning("Clan data for clanId " + _clanId + " is missing");
+			_log.warn("Clan data for clanId " + _clanId + " is missing");
 			return; // we have no clan data ?!? should not happen
 		}
 

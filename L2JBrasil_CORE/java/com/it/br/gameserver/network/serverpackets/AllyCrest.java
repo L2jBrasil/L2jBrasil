@@ -37,7 +37,7 @@ package com.it.br.gameserver.network.serverpackets;
 public class AllyCrest extends L2GameServerPacket
 {
 	private static final String _S__C7_ALLYCREST = "[S] ae AllyCrest";
-    //private static Logger _log = Logger.getLogger(AllyCrest.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(AllyCrest.class);
 	private int _crestId;
 	private int _crestSize;
 	private byte[] _data;

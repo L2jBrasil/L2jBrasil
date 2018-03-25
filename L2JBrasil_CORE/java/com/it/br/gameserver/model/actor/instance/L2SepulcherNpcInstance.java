@@ -14,11 +14,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Future;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -27,16 +22,15 @@ import com.it.br.gameserver.instancemanager.FourSepulchersManager;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.quest.Quest;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.CreatureSay;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.Future;
 
 /**
  * @author sandman
@@ -351,7 +345,7 @@ public class L2SepulcherNpcInstance extends L2NpcInstance
 			}
 			catch (Exception e)
 			{
-				_log.warning(e.getMessage());
+				_log.warn(e.getMessage());
 			}
 		}
 	}

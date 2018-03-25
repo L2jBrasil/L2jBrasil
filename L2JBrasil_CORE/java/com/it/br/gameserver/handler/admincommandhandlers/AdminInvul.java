@@ -23,12 +23,13 @@ import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands:
@@ -38,7 +39,7 @@ import java.util.logging.Logger;
  */
 public class AdminInvul implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminInvul.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminInvul.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -95,13 +96,13 @@ public class AdminInvul implements IAdminCommandHandler
         	activeChar.setIsInvul(false);
         	text = activeChar.getName() + " is now mortal";
         	if (Config.DEBUG)
-        		_log.fine("GM: Gm removed invul mode from character "+activeChar.getName()+"("+activeChar.getObjectId()+")");
+        		_log.debug("GM: Gm removed invul mode from character "+activeChar.getName()+"("+activeChar.getObjectId()+")");
 		} else
 		{
 			activeChar.setIsInvul(true);
 			text = activeChar.getName() + " is now invulnerable";
 			if (Config.DEBUG)
-				_log.fine("GM: Gm activated invul mode for character "+activeChar.getName()+"("+activeChar.getObjectId()+")");
+				_log.debug("GM: Gm activated invul mode for character "+activeChar.getName()+"("+activeChar.getObjectId()+")");
 		}
     	activeChar.sendMessage(text);
 	}

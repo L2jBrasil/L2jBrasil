@@ -17,8 +17,6 @@
  */
 package com.it.br.gameserver.taskmanager.tasks;
 
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.UserInfo;
@@ -26,6 +24,8 @@ import com.it.br.gameserver.taskmanager.Task;
 import com.it.br.gameserver.taskmanager.TaskManager;
 import com.it.br.gameserver.taskmanager.TaskManager.ExecutedTask;
 import com.it.br.gameserver.taskmanager.TaskTypes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Layane
@@ -33,7 +33,7 @@ import com.it.br.gameserver.taskmanager.TaskTypes;
  */
 public class TaskRecom extends Task
 {
-    private static final Logger _log = Logger.getLogger(TaskRecom.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(TaskRecom.class);
     private static final String NAME = "sp_recommendations";
 
     /* (non-Javadoc)
@@ -58,7 +58,7 @@ public class TaskRecom extends Task
             player.restartRecom();
             player.sendPacket(new UserInfo(player));
         }
-        _log.config("Recommendation Global Task: launched.");
+        _log.info("Recommendation Global Task: launched.");
     }
 
 

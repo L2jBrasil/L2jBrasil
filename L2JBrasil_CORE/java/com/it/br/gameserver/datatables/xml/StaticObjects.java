@@ -14,110 +14,92 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.idfactory.IdFactory;
+import com.it.br.gameserver.model.actor.instance.L2StaticObjectInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.logging.Logger;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import static com.it.br.configuration.Configurator.getSettings;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+public class StaticObjects {
+    private static Logger _log = LoggerFactory.getLogger(StaticObjects.class);
 
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.idfactory.IdFactory;
-import com.it.br.gameserver.model.actor.instance.L2StaticObjectInstance;
-
-public class StaticObjects
-{
-    private static Logger _log = Logger.getLogger(StaticObjects.class.getName());
-    
     private static StaticObjects _instance;
     private ConcurrentMap<Integer, L2StaticObjectInstance> _staticObjects;
-    
-    public static StaticObjects getInstance()
-	{
-		if(_instance == null)
-		{
-			_instance = new StaticObjects();
-		}
 
-		return _instance;
-	}
+    public static StaticObjects getInstance() {
+        if (_instance == null) {
+            _instance = new StaticObjects();
+        }
 
-    public StaticObjects()
-	{
-		_staticObjects = new ConcurrentHashMap<Integer, L2StaticObjectInstance>();
-		parseData();
-		_log.info("StaticObject: Loaded " + _staticObjects.size() + " static object templates.");
-	}
-    
-    public void parseData()
-    {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
+        return _instance;
+    }
 
-		ServerSettings serverSettings = getSettings(ServerSettings.class);
-		File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/static_objects.xml");
-		if(!f.exists())
-		{
-			_log.warning("armorsets.xml could not be loaded: file not found");
-			return;
-		}
-   		try
- 		{
-   			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			for(Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if(n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for(Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if(d.getNodeName().equalsIgnoreCase("staticobject"))
-						{
-							int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
-							int x = Integer.valueOf(d.getAttributes().getNamedItem("x").getNodeValue());
-							int y = Integer.valueOf(d.getAttributes().getNamedItem("y").getNodeValue());
-							int z = Integer.valueOf(d.getAttributes().getNamedItem("z").getNodeValue());
-							int type = Integer.valueOf(d.getAttributes().getNamedItem("type").getNodeValue());
-							String texture = String.valueOf(d.getAttributes().getNamedItem("texture").getNodeValue());
-							int map_x = Integer.valueOf(d.getAttributes().getNamedItem("map_x").getNodeValue());
-							int map_y = Integer.valueOf(d.getAttributes().getNamedItem("map_y").getNodeValue());
+    public StaticObjects() {
+        _staticObjects = new ConcurrentHashMap<Integer, L2StaticObjectInstance>();
+        parseData();
+        _log.info("StaticObject: Loaded {} static object templates", _staticObjects.size());
+    }
 
-							L2StaticObjectInstance obj = new L2StaticObjectInstance(IdFactory.getInstance().getNextId());
-							obj.setType(type);
-							obj.setStaticObjectId(id);
-							obj.setXYZ(x, y, z);
-							obj.setMap(texture, map_x, map_y);
-							obj.spawnMe();
-							_staticObjects.put(obj.getStaticObjectId(), obj);
-						}
-					}
-				}
-			}
- 		}
-        catch(SAXException e)
-		{
-			_log.warning("error while creating StaticObjects table" + e);
-		}
-		catch(IOException e)
-		{
-			_log.warning("error while creating StaticObjects table" + e);
-		}
-		catch(ParserConfigurationException e)
-		{
-			_log.warning("error while creating StaticObjects table" + e);
-		}
+    public void parseData() {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setIgnoringComments(true);
+
+        ServerSettings serverSettings = getSettings(ServerSettings.class);
+        File f = new File(serverSettings.getDatapackDirectory() + "/data/xml/static_objects.xml");
+        if (!f.exists()) {
+            _log.warn("armorsets.xml could not be loaded: file {} not found", f.getAbsolutePath());
+            return;
+        }
+        try {
+            InputSource in = new InputSource(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            in.setEncoding("UTF-8");
+            Document doc = factory.newDocumentBuilder().parse(in);
+            for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling()) {
+                if (n.getNodeName().equalsIgnoreCase("list")) {
+                    for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling()) {
+                        if (d.getNodeName().equalsIgnoreCase("staticobject")) {
+                            int id = Integer.valueOf(d.getAttributes().getNamedItem("id").getNodeValue());
+                            int x = Integer.valueOf(d.getAttributes().getNamedItem("x").getNodeValue());
+                            int y = Integer.valueOf(d.getAttributes().getNamedItem("y").getNodeValue());
+                            int z = Integer.valueOf(d.getAttributes().getNamedItem("z").getNodeValue());
+                            int type = Integer.valueOf(d.getAttributes().getNamedItem("type").getNodeValue());
+                            String texture = String.valueOf(d.getAttributes().getNamedItem("texture").getNodeValue());
+                            int map_x = Integer.valueOf(d.getAttributes().getNamedItem("map_x").getNodeValue());
+                            int map_y = Integer.valueOf(d.getAttributes().getNamedItem("map_y").getNodeValue());
+
+                            L2StaticObjectInstance obj = new L2StaticObjectInstance(IdFactory.getInstance().getNextId());
+                            obj.setType(type);
+                            obj.setStaticObjectId(id);
+                            obj.setXYZ(x, y, z);
+                            obj.setMap(texture, map_x, map_y);
+                            obj.spawnMe();
+                            _staticObjects.put(obj.getStaticObjectId(), obj);
+                        }
+                    }
+                }
+            }
+        } catch (SAXException e) {
+            _log.warn("error while creating StaticObjects table", e);
+        } catch (IOException e) {
+            _log.warn("error while creating StaticObjects table", e);
+        } catch (ParserConfigurationException e) {
+            _log.warn("error while creating StaticObjects table", e);
+        }
     }
 }

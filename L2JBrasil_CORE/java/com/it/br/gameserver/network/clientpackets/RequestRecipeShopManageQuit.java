@@ -28,7 +28,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 public final class RequestRecipeShopManageQuit extends L2GameClientPacket
 {
 	private static final String _C__B3_RequestRecipeShopManageQuit = "[C] b2 RequestRecipeShopManageQuit";
-	//private static Logger _log = Logger.getLogger(RequestRecipeShopManageQuit.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestRecipeShopManageQuit.class);
 
 
 	@Override

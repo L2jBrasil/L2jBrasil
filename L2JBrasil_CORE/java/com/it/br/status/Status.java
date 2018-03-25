@@ -17,7 +17,9 @@
  */
 package com.it.br.status;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Server;
+import com.it.br.configuration.settings.NetworkSettings;
+import com.it.br.util.Rnd;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -25,9 +27,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.it.br.Server;
-import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.util.Rnd;
+import static com.it.br.configuration.Configurator.getSettings;
 
 
 public class Status extends Thread

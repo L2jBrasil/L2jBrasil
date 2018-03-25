@@ -25,11 +25,7 @@ import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.PcInventory;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.util.IllegalPlayerAction;
 import com.it.br.gameserver.util.Util;
@@ -37,7 +33,7 @@ import com.it.br.gameserver.util.Util;
 public final class RequestCrystallizeItem extends L2GameClientPacket
 {
 	private static final String _C__72_REQUESTDCRYSTALLIZEITEM = "[C] 72 RequestCrystallizeItem";
-	//private static Logger _log = Logger.getLogger(RequestCrystallizeItem.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestCrystallizeItem.class);
 
 	private int _objectId;
 	private int _count;
@@ -58,7 +54,7 @@ public final class RequestCrystallizeItem extends L2GameClientPacket
 
 		if (activeChar == null)
 		{
-			_log.fine("RequestCrystalizeItem: activeChar was null");
+			_log.debug("RequestCrystalizeItem: activeChar was null");
 			return;
 		}
 
@@ -122,7 +118,7 @@ public final class RequestCrystallizeItem extends L2GameClientPacket
 				|| (itemToRemove.getItem().getCrystalCount() <= 0)
 				|| (itemToRemove.getItem().getCrystalType() == L2Item.CRYSTAL_NONE))
 		{
-			_log.warning("" + activeChar.getObjectId()
+			_log.warn("" + activeChar.getObjectId()
 					+ " tried to crystallize "
 					+ itemToRemove.getItem().getItemId());
 			return;

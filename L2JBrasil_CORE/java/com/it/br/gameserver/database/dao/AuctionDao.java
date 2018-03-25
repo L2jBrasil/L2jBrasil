@@ -4,6 +4,8 @@ import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Auction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class AuctionDao
 {
-    private static final Logger _log = Logger.getLogger(AuctionDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(AuctionDao.class);
 
     private static final String SELECT_AUCTIONS_ORDER_BY_ID = "SELECT id FROM auction ORDER BY id";
     private static final String SELECT_ALL_AUCTIONS         = "SELECT * FROM auction WHERE id = ?";
@@ -99,7 +100,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: load(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: load(Auction): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -117,7 +118,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: loadOrderById(): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: loadOrderById(): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -143,7 +144,7 @@ public class AuctionDao
         }
         catch (Exception e)
         {
-            _log.warning(AuctionDao.class.getName() + ".: Exception: loadBid(Auction): " + e.getMessage());
+            _log.warn(AuctionDao.class.getName() + ".: Exception: loadBid(Auction): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -160,7 +161,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: saveAuctionDate(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: saveAuctionDate(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -180,7 +181,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: updateBidder(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: updateBidder(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -201,7 +202,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: addBidder(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: addBidder(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -216,7 +217,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: removeBid(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: removeBid(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -231,7 +232,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: deleteAuction(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: deleteAuction(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -247,7 +248,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: deleteBid(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: deleteBid(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -274,7 +275,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: insertAuction(Auction): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: insertAuction(Auction): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -290,7 +291,7 @@ public class AuctionDao
         }
         catch (SQLException e)
         {
-            _log.warning( AuctionDao.class.getName() + ": Exception: insertByValues(int arrayPos): " + e.getMessage());
+            _log.warn( AuctionDao.class.getName() + ": Exception: insertByValues(int arrayPos): " + e.getMessage());
             e.printStackTrace();
         }
     }

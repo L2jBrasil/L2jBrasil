@@ -14,8 +14,6 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
-import java.util.Collection;
-
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.model.L2Attackable;
@@ -24,6 +22,8 @@ import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.quest.Quest;
+
+import java.util.Collection;
 
 /**
  * Gordon AI

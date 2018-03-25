@@ -31,6 +31,8 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SignsSky;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.StatsSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,13 +41,12 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
 public class SevenSigns
 {
-    protected static final Logger _log = Logger.getLogger(SevenSigns.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(SevenSigns.class);
 	private static SevenSigns _instance;
 
 	// Basic Seven Signs Constants \\
@@ -138,7 +139,7 @@ public class SevenSigns
 		}
 		catch (Exception e)
 		{
-			_log.severe("SevenSigns: Failed to load configuration: " + e);
+			_log.error("SevenSigns: Failed to load configuration: " + e);
 		}
 
 		_log.info("SevenSigns: Currently in the " + getCurrentPeriodName() + " period!");
@@ -687,7 +688,7 @@ public class SevenSigns
     	}
     	catch (SQLException e)
     	{
-    		_log.severe("SevenSigns: Unable to load Seven Signs data from database: " + e);
+    		_log.error("SevenSigns: Unable to load Seven Signs data from database: " + e);
     	}
 
 		// Festival data is loaded now after the Seven Signs engine data.
@@ -783,7 +784,7 @@ public class SevenSigns
 		}
 		catch (SQLException e)
 		{
-			_log.severe("SevenSigns: Unable to save data to database: " + e);
+			_log.error("SevenSigns: Unable to save data to database: " + e);
 		}
 	}
 
@@ -881,7 +882,7 @@ public class SevenSigns
 			}
 			catch (SQLException e)
 			{
-				_log.severe("SevenSigns: Failed to save data: " + e);
+				_log.error("SevenSigns: Failed to save data: " + e);
 			}
 		}
 

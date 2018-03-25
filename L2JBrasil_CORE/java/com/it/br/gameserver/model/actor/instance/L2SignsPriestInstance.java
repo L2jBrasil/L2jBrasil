@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.SevenSigns;
@@ -36,6 +32,10 @@ import com.it.br.gameserver.network.serverpackets.StatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
+import java.util.StringTokenizer;
+
+import static com.it.br.configuration.Configurator.getSettings;
+
 /**
  * Dawn/Dusk Seven Signs Priest Instance
  *
@@ -43,7 +43,7 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
  */
 public class L2SignsPriestInstance extends L2FolkInstance
 {
-    //private static Logger _log = Logger.getLogger(L2SignsPriestInstance.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(L2SignsPriestInstance.class);
 
     public L2SignsPriestInstance(int objectId, L2NpcTemplate template)
     {
@@ -99,7 +99,7 @@ public class L2SignsPriestInstance extends L2FolkInstance
                     	}
                     	catch (Exception e3)
                     	{
-                    		_log.warning("Failed to retrieve cabal from bypass command. NpcId: " + getNpcId() + "; Command: " + command);
+                    		_log.warn("Failed to retrieve cabal from bypass command. NpcId: " + getNpcId() + "; Command: " + command);
                     	}
                     }
                 }
@@ -408,7 +408,7 @@ public class L2SignsPriestInstance extends L2FolkInstance
                     }
                     catch (Exception e)
                     {
-                        _log.warning("SevenSigns: Error occurred while teleporting player: " + e);
+                        _log.warn("SevenSigns: Error occurred while teleporting player: " + e);
                     }
                     break;
                 case 17: // Exchange Seal Stones for Ancient Adena (Type Choice) - SevenSigns 17 x
@@ -459,7 +459,7 @@ public class L2SignsPriestInstance extends L2FolkInstance
                     }
                     else
                     {
-                        _log.warning("Problem with HTML text " + SevenSigns.SEVEN_SIGNS_HTML_PATH
+                        _log.warn("Problem with HTML text " + SevenSigns.SEVEN_SIGNS_HTML_PATH
                             + "signs_17.htm: " + path);
                     }
                     break;

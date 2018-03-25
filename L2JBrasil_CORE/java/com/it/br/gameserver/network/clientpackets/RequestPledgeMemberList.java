@@ -30,7 +30,7 @@ import com.it.br.gameserver.network.serverpackets.PledgeShowMemberListAll;
 public final class RequestPledgeMemberList extends L2GameClientPacket
 {
 	private static final String _C__3C_REQUESTPLEDGEMEMBERLIST = "[C] 3C RequestPledgeMemberList";
-	//private static Logger _log = Logger.getLogger(RequestPledgeMemberList.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestPledgeMemberList.class);
 
 
 	@Override

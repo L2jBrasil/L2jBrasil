@@ -20,6 +20,8 @@ package com.it.br.gameserver.taskmanager;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.taskmanager.tasks.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +30,6 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.*;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
 
 import static com.it.br.gameserver.taskmanager.TaskTypes.*;
 
@@ -38,7 +39,7 @@ import static com.it.br.gameserver.taskmanager.TaskTypes.*;
  */
 public final class TaskManager
 {
-    protected static final Logger _log = Logger.getLogger(TaskManager.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(TaskManager.class);
     private static TaskManager _instance;
 
     protected static final String[] SQL_STATEMENTS = {
@@ -89,7 +90,7 @@ public final class TaskManager
             }
             catch (SQLException e)
             {
-                _log.warning("cannot updated the Global Task " + id + ": " + e.getMessage());
+                _log.warn("cannot updated the Global Task " + id + ": " + e.getMessage());
             }
             finally
             {
@@ -220,7 +221,7 @@ public final class TaskManager
             }
             catch (Exception e)
             {
-                _log.severe("error while loading Global Task table " + e);
+                _log.error("error while loading Global Task table " + e);
                 e.printStackTrace();
             }
 
@@ -294,7 +295,7 @@ public final class TaskManager
 
             if (hour.length != 3)
             {
-                _log.warning("Task " + task.getId() + " has incorrect parameters");
+                _log.warn("Task " + task.getId() + " has incorrect parameters");
                 return false;
             }
 
@@ -310,7 +311,7 @@ public final class TaskManager
             }
             catch (Exception e)
             {
-                _log.warning("Bad parameter on task " + task.getId() + ": " + e.getMessage());
+                _log.warn("Bad parameter on task " + task.getId() + ": " + e.getMessage());
                 return false;
             }
 
@@ -366,7 +367,7 @@ public final class TaskManager
         }
         catch (SQLException e)
         {
-            _log.warning("cannot add the unique task: " + e.getMessage());
+            _log.warn("cannot add the unique task: " + e.getMessage());
         }
         finally
         {
@@ -410,7 +411,7 @@ public final class TaskManager
         }
         catch (SQLException e)
         {
-            _log.warning("cannot add the task:  " + e.getMessage());
+            _log.warn("cannot add the task:  " + e.getMessage());
         }
         finally
         {

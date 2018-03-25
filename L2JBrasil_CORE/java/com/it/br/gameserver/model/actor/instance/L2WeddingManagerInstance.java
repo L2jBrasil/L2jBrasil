@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.Announcements;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -30,12 +28,10 @@ import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.entity.Couple;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class L2WeddingManagerInstance extends L2NpcInstance
 {

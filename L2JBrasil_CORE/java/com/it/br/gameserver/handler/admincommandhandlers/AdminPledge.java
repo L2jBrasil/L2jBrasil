@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.*;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -31,6 +29,8 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.GMViewPledgeInfo;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.network.serverpackets.UserInfo;
+
+import java.util.*;
 
 /**
  * <B>Pledge Manipulation:</B><BR>

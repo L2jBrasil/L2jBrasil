@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.model.TradeList;
@@ -31,6 +29,8 @@ import com.it.br.gameserver.network.serverpackets.PrivateStoreMsgSell;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.util.Util;
 
+import static com.it.br.configuration.Configurator.getSettings;
+
 /**
  * This class ...
  *
@@ -39,7 +39,7 @@ import com.it.br.gameserver.util.Util;
 public class SetPrivateStoreListSell extends L2GameClientPacket
 {
 	private static final String _C__74_SETPRIVATESTORELISTSELL = "[C] 74 SetPrivateStoreListSell";
-	//private static Logger _log = Logger.getLogger(SetPrivateStoreListSell.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(SetPrivateStoreListSell.class);
 
 	private int _count;
 	private boolean _packageSale;

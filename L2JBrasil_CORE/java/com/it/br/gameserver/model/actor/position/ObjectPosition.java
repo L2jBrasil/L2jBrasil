@@ -17,8 +17,6 @@
  */
 package com.it.br.gameserver.model.actor.position;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
@@ -26,10 +24,12 @@ import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.L2WorldRegion;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.util.Point3D;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ObjectPosition
 {
-    private static final Logger _log = Logger.getLogger(ObjectPosition.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(ObjectPosition.class);
 
     // =========================================================
     // Data Field
@@ -70,7 +70,7 @@ public class ObjectPosition
         }
         catch (Exception e)
         {
-            _log.warning("Object Id at bad coords: (x: " + getX() + ", y: " + getY() + ", z: " + getZ() + ").");
+            _log.warn("Object Id at bad coords: (x: " + getX() + ", y: " + getY() + ", z: " + getZ() + ").");
             if (getActiveObject() instanceof L2Character)
                 getActiveObject().decayMe();
             else if (getActiveObject() instanceof L2PcInstance)

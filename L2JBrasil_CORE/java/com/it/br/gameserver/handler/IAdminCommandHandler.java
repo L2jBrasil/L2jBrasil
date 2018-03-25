@@ -18,11 +18,8 @@
  */
 package com.it.br.gameserver.handler;
 
-import com.it.br.Config;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
 /**

@@ -14,26 +14,17 @@
  */
 package com.it.br.gameserver.handler;
 
+import com.it.br.Config;
+import com.it.br.gameserver.handler.chathandlers.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.gameserver.handler.chathandlers.ChatAll;
-import com.it.br.gameserver.handler.chathandlers.ChatAlliance;
-import com.it.br.gameserver.handler.chathandlers.ChatClan;
-import com.it.br.gameserver.handler.chathandlers.ChatHeroVoice;
-import com.it.br.gameserver.handler.chathandlers.ChatParty;
-import com.it.br.gameserver.handler.chathandlers.ChatPartyRoomAll;
-import com.it.br.gameserver.handler.chathandlers.ChatPartyRoomCommander;
-import com.it.br.gameserver.handler.chathandlers.ChatPetition;
-import com.it.br.gameserver.handler.chathandlers.ChatShout;
-import com.it.br.gameserver.handler.chathandlers.ChatTell;
-import com.it.br.gameserver.handler.chathandlers.ChatTrade;
 
 public class ChatHandler
 {
-	private static Logger _log = Logger.getLogger(ChatHandler.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(ChatHandler.class);
 	private Map<Integer, IChatHandler> _datatable;
 
 	public static ChatHandler getInstance()
@@ -62,7 +53,7 @@ public class ChatHandler
 		int[] ids = handler.getChatTypeList();
 		for (int id : ids) {
 			if (Config.DEBUG) {
-				_log.fine("Adding handler for chat type " + id);
+				_log.debug("Adding handler for chat type " + id);
 			}
 			_datatable.put(id, handler);
 		}

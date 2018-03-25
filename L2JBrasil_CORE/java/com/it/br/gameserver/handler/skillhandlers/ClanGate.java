@@ -22,11 +22,7 @@ import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.GrandBossManager;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
@@ -35,7 +31,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
 public class ClanGate implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(Recall.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(Recall.class);
 	private static final SkillType[] SKILL_IDS = { SkillType.CLAN_GATE };
 
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Object targets[])

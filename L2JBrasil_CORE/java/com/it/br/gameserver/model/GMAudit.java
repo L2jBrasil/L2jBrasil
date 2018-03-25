@@ -18,15 +18,15 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
 
 public class GMAudit {
-	private static final Logger _log = Logger.getLogger("gmaudit");
+	private static final Logger _log = LoggerFactory.getLogger("gmaudit");
 
 	public static void auditGMAction(String gmName, String action, String target, String params){
 		if (Config.GMAUDIT){
@@ -35,7 +35,7 @@ public class GMAudit {
             formatter = new SimpleDateFormat("dd/MM/yyyy H:mm:ss");
             today = formatter.format(new Date());
 
-			_log.log(Level.INFO, today + ">" + gmName + ">" + action + ">" +target + ">" + params);
+			_log.info( today + ">" + gmName + ">" + action + ">" +target + ">" + params);
 		}
 	}
 }

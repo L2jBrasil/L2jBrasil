@@ -20,15 +20,16 @@ package com.it.br.gameserver.communitybbs.BB;
 
 import com.it.br.gameserver.communitybbs.Manager.TopicBBSManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.logging.Logger;
 
 public class Topic
 {
 
-	private static Logger _log = Logger.getLogger(Topic.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(Topic.class);
 	public static final int MORMAL = 0;
 	public static final int MEMO = 1;
 
@@ -83,7 +84,7 @@ public class Topic
 		}
 		catch (Exception e)
 		{
-			_log.warning("error while saving new Topic to db " + e);
+			_log.warn("error while saving new Topic to db " + e);
 		}
 	}
 

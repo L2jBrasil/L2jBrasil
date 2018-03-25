@@ -3,6 +3,8 @@ package com.it.br.gameserver.database.dao;
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2BoxInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,10 +14,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
 
 public class BoxesDao {
-    private static final Logger _log = Logger.getLogger(BoxesDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(BoxesDao.class);
 
     private static String GET_BOX_ACcESS = "SELECT spawn, charname FROM boxaccess WHERE charname=? AND spawn=?";
     private static String INSERT_GRANT = "INSERT INTO boxaccess (charname,spawn) VALUES(?,?)";
@@ -36,7 +37,7 @@ public class BoxesDao {
         }
         catch (SQLException e)
         {
-            _log.warning( BoxesDao.class.getName() + ": Exception: hasAccess(String player, L2Spawn spawn): " + e.getMessage());
+            _log.warn( BoxesDao.class.getName() + ": Exception: hasAccess(String player, L2Spawn spawn): " + e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -57,7 +58,7 @@ public class BoxesDao {
         }
         catch (SQLException e)
         {
-            _log.warning( BoxesDao.class.getName() + ": Exception: getAccess(L2Spawn spawn): " + e.getMessage());
+            _log.warn( BoxesDao.class.getName() + ": Exception: getAccess(L2Spawn spawn): " + e.getMessage());
             e.printStackTrace();
         }
         return list;
@@ -75,13 +76,13 @@ public class BoxesDao {
             ResultSet rs = st.executeQuery();
             while (rs.next())
             {
-                _log.fine("found: itemid="+rs.getInt("itemid")+", count="+rs.getInt("count"));
+                _log.debug("found: itemid="+rs.getInt("itemid")+", count="+rs.getInt("count"));
                 list.add(box.new L2BoxItem(rs.getInt("itemid"),rs.getInt("count"),rs.getString("name"),rs.getInt("id"),rs.getInt("enchant")));
             }
         }
         catch (SQLException e)
         {
-            _log.warning( BoxesDao.class.getName() + ": Exception: getAccess(L2Spawn spawn): " + e.getMessage());
+            _log.warn( BoxesDao.class.getName() + ": Exception: getAccess(L2Spawn spawn): " + e.getMessage());
             e.printStackTrace();
         }
         return list;

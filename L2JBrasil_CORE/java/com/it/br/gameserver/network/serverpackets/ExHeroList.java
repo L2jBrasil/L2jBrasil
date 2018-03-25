@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.Map;
-
 import com.it.br.gameserver.model.Olympiad.Olympiad;
 import com.it.br.gameserver.model.entity.Hero;
 import com.it.br.gameserver.templates.StatsSet;
+
+import java.util.Map;
 
 /**
  * Format: (ch) d [SdSdSdd]

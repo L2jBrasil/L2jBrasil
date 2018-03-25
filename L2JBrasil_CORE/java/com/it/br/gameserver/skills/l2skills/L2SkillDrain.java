@@ -17,12 +17,7 @@
  */
 package com.it.br.gameserver.skills.l2skills;
 
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2Summon;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.StatusUpdate;

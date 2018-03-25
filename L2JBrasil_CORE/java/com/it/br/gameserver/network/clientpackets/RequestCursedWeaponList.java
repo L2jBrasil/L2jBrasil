@@ -17,12 +17,12 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.network.serverpackets.ExCursedWeaponList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Format: (ch)

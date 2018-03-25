@@ -31,7 +31,7 @@ import com.it.br.gameserver.network.L2GameClient;
 public final class AuthLogin extends L2GameClientPacket
 {
 	private static final String _C__08_AUTHLOGIN = "[C] 08 AuthLogin";
-	//private static Logger _log = Logger.getLogger(AuthLogin.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(AuthLogin.class);
 
 	// loginName + keys must match what the loginserver used.
 	private String _loginName;

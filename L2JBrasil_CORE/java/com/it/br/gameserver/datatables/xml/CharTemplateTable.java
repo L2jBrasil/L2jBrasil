@@ -19,7 +19,6 @@ import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.templates.L2PcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;

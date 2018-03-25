@@ -18,14 +18,6 @@
  */
 package com.it.br.loginserver.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.net.InetAddress;
-import java.security.GeneralSecurityException;
-import java.util.logging.Logger;
-
-import javax.crypto.Cipher;
-
 import com.it.br.configuration.settings.LoginSettings;
 import com.it.br.loginserver.GameServerTable.GameServerInfo;
 import com.it.br.loginserver.HackingException;
@@ -38,6 +30,14 @@ import com.it.br.loginserver.serverpackets.AccountKicked.AccountKickedReason;
 import com.it.br.loginserver.serverpackets.LoginFail.LoginFailReason;
 import com.it.br.loginserver.serverpackets.LoginOk;
 import com.it.br.loginserver.serverpackets.ServerList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.crypto.Cipher;
+import java.net.InetAddress;
+import java.security.GeneralSecurityException;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * Format: x
@@ -46,7 +46,7 @@ import com.it.br.loginserver.serverpackets.ServerList;
  */
 public class RequestAuthLogin extends L2LoginClientPacket
 {
-	private static Logger _log = Logger.getLogger(RequestAuthLogin.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestAuthLogin.class);
 	private byte[] _raw = new byte[128];
 
 	private String _user;

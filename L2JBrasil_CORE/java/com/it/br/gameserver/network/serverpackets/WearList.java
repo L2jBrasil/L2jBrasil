@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2TradeList;
 import com.it.br.gameserver.templates.L2Item;
+
+import java.util.List;
 
 public class WearList extends L2GameServerPacket
 {

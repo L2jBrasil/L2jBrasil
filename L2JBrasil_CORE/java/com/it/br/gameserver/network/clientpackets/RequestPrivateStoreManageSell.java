@@ -27,7 +27,7 @@ import com.it.br.gameserver.util.Util;
 public final class RequestPrivateStoreManageSell extends L2GameClientPacket
 {
 	private static final String _C__73_REQUESTPRIVATESTOREMANAGESELL = "[C] 73 RequestPrivateStoreManageSell";
-	//private static Logger _log = Logger.getLogger(RequestPrivateStoreManage.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestPrivateStoreManage.class);
 
 	@Override
 	protected void readImpl(){}
@@ -42,7 +42,7 @@ public final class RequestPrivateStoreManageSell extends L2GameClientPacket
 		if(!player.isVisible() || player.isLocked())
 		{
 			Util.handleIllegalPlayerAction(player, "Player " + player.getName() + " try exploit at login with privatestore!", Config.DEFAULT_PUNISH);
-			_log.warning("Player " + player.getName() + " try exploit at login with privatestore!");
+			_log.warn("Player " + player.getName() + " try exploit at login with privatestore!");
 			return;
 		}
 

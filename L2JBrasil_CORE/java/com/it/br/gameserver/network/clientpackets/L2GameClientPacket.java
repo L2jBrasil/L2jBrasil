@@ -17,16 +17,16 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Logger;
-
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 import com.l2jserver.mmocore.network.ReceivablePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * Packets received by the game server from clients
@@ -34,7 +34,7 @@ import com.l2jserver.mmocore.network.ReceivablePacket;
  */
 public abstract class L2GameClientPacket extends ReceivablePacket<L2GameClient>
 {
-	protected static final Logger _log = Logger.getLogger(L2GameClientPacket.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(L2GameClientPacket.class);
 
 	@Override
 	protected boolean read()
@@ -51,7 +51,7 @@ public abstract class L2GameClientPacket extends ReceivablePacket<L2GameClient>
 			if (!serverSettings.isDebugPacketEnabled())
 				return false;
 			
-			 _log.severe("Client: "+getClient().toString()+" - Failed reading: "+getType());
+			 _log.error("Client: "+getClient().toString()+" - Failed reading: "+getType());
 			 t.printStackTrace(); 
 		}
 		return false;
@@ -96,7 +96,7 @@ public abstract class L2GameClientPacket extends ReceivablePacket<L2GameClient>
 		}
 		catch (Throwable t)
 		{
-			_log.severe("Client: "+getClient().toString()+" - Failed running: "+getType());
+			_log.error("Client: "+getClient().toString()+" - Failed running: "+getType());
 			t.printStackTrace();
 		}
 	}

@@ -18,10 +18,10 @@
  */
 package com.it.br.loginserver.gameserverpackets;
 
+import com.it.br.loginserver.clientpackets.ClientBasePacket;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.it.br.loginserver.clientpackets.ClientBasePacket;
 
 /**
  * @author -Wooden-

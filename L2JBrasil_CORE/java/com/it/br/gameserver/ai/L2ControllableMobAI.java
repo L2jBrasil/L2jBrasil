@@ -18,26 +18,17 @@
  */
 package com.it.br.gameserver.ai;
 
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
+import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.model.L2Character.AIAccessor;
+import com.it.br.gameserver.model.actor.instance.*;
+import com.it.br.gameserver.util.Util;
+import com.it.br.util.Rnd;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Character.AIAccessor;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.MobGroup;
-import com.it.br.gameserver.model.MobGroupTable;
-import com.it.br.gameserver.model.actor.instance.L2ControllableMobInstance;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.util.Util;
-import com.it.br.util.Rnd;
+import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
+import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
 
 /**
  * @author littlecrow AI for controllable mobs
@@ -149,7 +140,7 @@ public class L2ControllableMobAI extends L2AttackableAI
 		}
 		catch(NullPointerException e)
 		{
-			_log.warning("Encountered Null Value.");
+			_log.warn("Encountered Null Value.");
 			e.printStackTrace();
 			return;
 		}
@@ -217,7 +208,7 @@ public class L2ControllableMobAI extends L2AttackableAI
 		}
 		catch(NullPointerException e)
 		{
-			_log.warning("Encountered Null Value.");
+			_log.warn("Encountered Null Value.");
 			e.printStackTrace();
 			return;
 		}
@@ -274,7 +265,7 @@ public class L2ControllableMobAI extends L2AttackableAI
 		}
 		catch(NullPointerException e)
 		{
-			_log.warning("Encountered Null Value.");
+			_log.warn("Encountered Null Value.");
 			e.printStackTrace();
 			return;
 		}
@@ -366,7 +357,7 @@ public class L2ControllableMobAI extends L2AttackableAI
 			}
 			catch(NullPointerException e)
 			{
-				_log.warning("Encountered Null Value.");
+				_log.warn("Encountered Null Value.");
 				e.printStackTrace();
 				return;
 			}

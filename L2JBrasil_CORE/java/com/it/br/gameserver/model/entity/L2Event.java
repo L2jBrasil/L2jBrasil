@@ -18,15 +18,6 @@
  */
 package com.it.br.gameserver.model.entity;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.model.L2Spawn;
@@ -38,6 +29,11 @@ import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.EventData;
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * This class ...

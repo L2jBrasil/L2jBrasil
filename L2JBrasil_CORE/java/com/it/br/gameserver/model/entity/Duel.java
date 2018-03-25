@@ -18,14 +18,6 @@
  */
 package com.it.br.gameserver.model.entity;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -34,19 +26,20 @@ import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Effect;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ExDuelEnd;
-import com.it.br.gameserver.network.serverpackets.ExDuelReady;
-import com.it.br.gameserver.network.serverpackets.ExDuelStart;
-import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
-import com.it.br.gameserver.network.serverpackets.PlaySound;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 
 public class Duel
 {
-	protected static final Logger _log = Logger.getLogger(Duel.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(Duel.class);
 
     public static final int DUELSTATE_NODUEL		= 0;
     public static final int DUELSTATE_DUELLING		= 1;
@@ -915,7 +908,7 @@ public class Duel
 		}
 		else
 		{
-			if (player != _playerA && player != _playerB) _log.warning("Error in onPlayerDefeat(): player is not part of this 1vs1 duel");
+			if (player != _playerA && player != _playerB) _log.warn("Error in onPlayerDefeat(): player is not part of this 1vs1 duel");
 
 			if (_playerA == player) _playerB.setDuelState(DUELSTATE_WINNER);
 			else _playerA.setDuelState(DUELSTATE_WINNER);

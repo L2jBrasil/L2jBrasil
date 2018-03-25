@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.skills.funcs;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
 import com.it.br.gameserver.skills.Env;
 import com.it.br.gameserver.skills.Stats;
 import com.it.br.gameserver.skills.conditions.Condition;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author mkizub

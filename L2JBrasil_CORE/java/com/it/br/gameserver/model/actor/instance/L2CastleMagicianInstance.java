@@ -14,9 +14,9 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
+import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Effect.EffectType;
-import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;

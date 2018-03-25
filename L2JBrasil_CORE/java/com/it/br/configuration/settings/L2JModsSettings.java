@@ -1,8 +1,8 @@
 package com.it.br.configuration.settings;
 
-import java.util.List;
-
 import com.it.br.configuration.L2Properties;
+
+import java.util.List;
 
 public class L2JModsSettings implements Settings {
 

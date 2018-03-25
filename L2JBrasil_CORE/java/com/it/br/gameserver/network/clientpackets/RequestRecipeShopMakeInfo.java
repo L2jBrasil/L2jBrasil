@@ -29,7 +29,7 @@ import com.it.br.gameserver.network.serverpackets.RecipeShopItemInfo;
 public final class RequestRecipeShopMakeInfo extends L2GameClientPacket
 {
     private static final String _C__B5_RequestRecipeShopMakeInfo = "[C] b5 RequestRecipeShopMakeInfo";
-    //private static Logger _log = Logger.getLogger(RequestRecipeShopMakeInfo.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestRecipeShopMakeInfo.class);
 
     private int _playerObjectId;
     private int _recipeId;

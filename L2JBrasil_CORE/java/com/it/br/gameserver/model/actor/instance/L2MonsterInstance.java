@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ScheduledFuture;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Attackable;
 import com.it.br.gameserver.model.L2Character;
@@ -29,6 +25,10 @@ import com.it.br.gameserver.model.actor.knownlist.MonsterKnownList;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.MinionList;
 import com.it.br.util.Rnd;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * This class manages all Monsters.
@@ -42,7 +42,7 @@ import com.it.br.util.Rnd;
  */
 public class L2MonsterInstance extends L2Attackable
 {
-	//private static Logger _log = Logger.getLogger(L2MonsterInstance.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(L2MonsterInstance.class);
 
     protected final MinionList _minionList;
 

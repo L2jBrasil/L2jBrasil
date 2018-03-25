@@ -1,8 +1,8 @@
 package com.it.br.gameserver.script;
 
-import java.util.Hashtable;
-
 import com.it.br.gameserver.script.faenor.FaenorInterface;
+
+import java.util.Hashtable;
 
 
 

@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -29,6 +25,11 @@ import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 import com.it.br.util.L2ObjectMap;
 import com.it.br.util.Point3D;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class ...
@@ -37,7 +38,7 @@ import com.it.br.util.Point3D;
  */
 public final class L2World
 {
-    private static Logger _log = Logger.getLogger(L2World.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(L2World.class);
 
     /*
      * biteshift, defines number of regions
@@ -110,7 +111,7 @@ public final class L2World
     	if(_allObjects.get(object.getObjectId()) != null)
     	{
     		if (Config.DEBUG)
-    			_log.warning("[L2World] objectId "+object.getObjectId()+" already exist in OID map!");
+    			_log.warn("[L2World] objectId "+object.getObjectId()+" already exist in OID map!");
     		return;
     	}
 
@@ -358,7 +359,7 @@ public final class L2World
 				/*
 				if ((Config.OFFLINE_TRADE_ENABLE || Config.OFFLINE_CRAFT_ENABLE) && tmp.isOffline())
 				{
-					_log.warning("Offline: Duplicate character!? Closing offline character (" + tmp.getName() + ")");
+					_log.warn("Offline: Duplicate character!? Closing offline character (" + tmp.getName() + ")");
 					
 					tmp.store(); // Store character and items
 					tmp.logout();
@@ -372,7 +373,7 @@ public final class L2World
 				}
 				else
 				{
-					_log.warning("EnterWorld: Duplicate character!? Closing both characters (" + player.getName() + ")");
+					_log.warn("EnterWorld: Duplicate character!? Closing both characters (" + player.getName() + ")");
 					L2GameClient client = player.getClient();
 					
 					player.store(); // Store character
@@ -402,7 +403,7 @@ public final class L2World
 			// in a circular area of 2000 units
 			List<L2Object> visibles = getVisibleObjects(object, 2000);
 			if (Config.DEBUG)
-				_log.finest("objects in range:" + visibles.size());
+				_log.trace("objects in range:" + visibles.size());
 			
 			// tell the player about the surroundings
 			// Go through the visible objects contained in the circular area
@@ -429,7 +430,7 @@ public final class L2World
 				//L2PcInstance tmp = _allPlayers.get(player.getName().toLowerCase());
 				if(tmp != null)
 				{
-					_log.warning("Teleporting: Duplicate character!? Closing both characters (" + player.getName() + ")");
+					_log.warn("Teleporting: Duplicate character!? Closing both characters (" + player.getName() + ")");
 					player.closeNetConnection();
 					tmp.closeNetConnection();
 					return;
@@ -450,7 +451,7 @@ public final class L2World
 		List<L2Object> visibles = getVisibleObjects(object, 2000);
 		if(Config.DEBUG)
 		{
-			_log.finest("objects in range:" + visibles.size());
+			_log.trace("objects in range:" + visibles.size());
 		}
 
 		// tell the player about the surroundings
@@ -848,7 +849,7 @@ public final class L2World
      */
     private void initRegions()
     {
-        _log.config("L2World: Setting up World Regions");
+        _log.info("L2World: Setting up World Regions");
 
         _worldRegions = new L2WorldRegion[REGIONS_X+1][REGIONS_Y+1];
 
@@ -877,7 +878,7 @@ public final class L2World
             }
         }
 
-        _log.config("L2World: ("+REGIONS_X+" by "+REGIONS_Y+") World Region Grid set up.");
+        _log.info("L2World: ("+REGIONS_X+" by "+REGIONS_Y+") World Region Grid set up.");
 
     }
 

@@ -30,7 +30,7 @@ import com.it.br.gameserver.network.serverpackets.SiegeDefenderList;
 public final class RequestSiegeDefenderList extends L2GameClientPacket
 {
     private static final String _C__a3_RequestSiegeDefenderList = "[C] a3 RequestSiegeDefenderList";
-    //private static Logger _log = Logger.getLogger(RequestJoinParty.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestJoinParty.class);
 
     private int _castleId;
 

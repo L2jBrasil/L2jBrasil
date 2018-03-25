@@ -30,7 +30,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public final class RequestExOustFromMPCC extends L2GameClientPacket
 {
-	//private static Logger _log = Logger.getLogger(RequestExOustFromMPCC.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestExOustFromMPCC.class);
 	private static final String _C__D0_0F_REQUESTEXOUSTFROMMPCC = "[C] D0:0F RequestExOustFromMPCC";
 	private String _name;
 

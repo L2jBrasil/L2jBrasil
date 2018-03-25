@@ -25,12 +25,12 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.skills.Stats;
 import com.it.br.gameserver.skills.funcs.FuncAdd;
 import com.it.br.gameserver.skills.funcs.LambdaConst;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Used to store an augmentation and its boni
@@ -39,7 +39,7 @@ import java.util.logging.Logger;
  */
 public final class L2Augmentation
 {
-	private static final Logger _log = Logger.getLogger(L2Augmentation.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(L2Augmentation.class);
 
 	private L2ItemInstance _item;
 	private int _effectsId = 0;
@@ -133,7 +133,7 @@ public final class L2Augmentation
 			statement.executeUpdate();
 			statement.close();
 		} catch (Exception e) {
-			_log.log(Level.SEVERE, "Could not save augmentation for item: "+_item.getObjectId()+" from DB:", e);
+			_log.error( "Could not save augmentation for item: "+_item.getObjectId()+" from DB:", e);
 		} finally {
 			try { con.close(); } catch (Exception e) {}
 		}
@@ -153,7 +153,7 @@ public final class L2Augmentation
 			statement.executeUpdate();
 			statement.close();
 		} catch (Exception e) {
-			_log.log(Level.SEVERE, "Could not delete augmentation for item: "+_item.getObjectId()+" from DB:", e);
+			_log.error( "Could not delete augmentation for item: "+_item.getObjectId()+" from DB:", e);
 		} finally 
                 {
 			try { con.close(); } catch (Exception e) {}

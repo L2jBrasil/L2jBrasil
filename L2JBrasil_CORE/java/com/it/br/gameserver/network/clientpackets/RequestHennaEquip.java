@@ -18,8 +18,8 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import com.it.br.gameserver.datatables.xml.HennaTable;
 import com.it.br.gameserver.datatables.HennaTreeTable;
+import com.it.br.gameserver.datatables.xml.HennaTable;
 import com.it.br.gameserver.model.L2HennaInstance;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -34,7 +34,7 @@ import com.it.br.gameserver.util.Util;
 public final class RequestHennaEquip extends L2GameClientPacket
 {
 	private static final String _C__BC_RequestHennaEquip = "[C] bc RequestHennaEquip";
-	//private static Logger _log = Logger.getLogger(RequestHennaEquip.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestHennaEquip.class);
 	private int _symbolId;
 
 

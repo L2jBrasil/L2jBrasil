@@ -17,12 +17,6 @@
  */
 package com.it.br.loginserver;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.nio.ByteBuffer;
-import java.security.interfaces.RSAPrivateKey;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.loginserver.crypt.LoginCrypt;
 import com.it.br.loginserver.crypt.ScrambledKeyPair;
@@ -35,6 +29,13 @@ import com.it.br.util.Rnd;
 import com.l2jserver.mmocore.network.MMOClient;
 import com.l2jserver.mmocore.network.MMOConnection;
 import com.l2jserver.mmocore.network.SendablePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.nio.ByteBuffer;
+import java.security.interfaces.RSAPrivateKey;
 
 /**
  * Represents a client connected into the LoginServer
@@ -43,7 +44,7 @@ import com.l2jserver.mmocore.network.SendablePacket;
  */
 public final class L2LoginClient extends MMOClient<MMOConnection<L2LoginClient>>
 {
-	private static Logger _log = Logger.getLogger(L2LoginClient.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(L2LoginClient.class);
 
 	public static enum LoginClientState { CONNECTED, AUTHED_GG, AUTHED_LOGIN};
 
@@ -114,7 +115,7 @@ public final class L2LoginClient extends MMOClient<MMOConnection<L2LoginClient>>
 		{
 			byte[] dump = new byte[size];
 			System.arraycopy(buf.array(), buf.position(), dump, 0, size);
-			_log.warning("Wrong checksum from client: "+toString());
+			_log.warn("Wrong checksum from client: "+toString());
 			super.getConnection().close((SendablePacket<L2LoginClient>)null);
 		}
 

@@ -24,13 +24,14 @@ import com.it.br.gameserver.model.Inventory;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.L2GameClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * This class ...
@@ -42,7 +43,7 @@ public class CharSelectInfo extends L2GameServerPacket
 	// d SdSddddddddddffddddddddddddddddddddddddddddddddddddddddddddddffd
 	private static final String _S__1F_CHARSELECTINFO = "[S] 1F CharSelectInfo";
 
-	private static Logger _log = Logger.getLogger(CharSelectInfo.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(CharSelectInfo.class);
 
 	private String _loginName;
 
@@ -226,7 +227,7 @@ public class CharSelectInfo extends L2GameServerPacket
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not restore char info: " + e);
+			_log.warn("Could not restore char info: " + e);
 		}
 		finally
 		{
@@ -261,7 +262,7 @@ public class CharSelectInfo extends L2GameServerPacket
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not restore char subclass info: " + e);
+			_log.warn("Could not restore char subclass info: " + e);
 		}
 		finally
 		{
@@ -346,7 +347,7 @@ public class CharSelectInfo extends L2GameServerPacket
 			}
 			catch (Exception e)
 			{
-				_log.warning("Could not restore augmentation info: " + e);
+				_log.warn("Could not restore augmentation info: " + e);
 			}
 			finally { try { con.close(); } catch (Exception e) {} }
 		}

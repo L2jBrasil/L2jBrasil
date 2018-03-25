@@ -17,17 +17,6 @@
  */
 package com.it.br.gameserver.model;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import com.it.br.configuration.Configurator;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -36,6 +25,15 @@ import com.it.br.gameserver.network.serverpackets.MultiSellList;
 import com.it.br.gameserver.templates.L2Armor;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2Weapon;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Multisell list manager
@@ -43,7 +41,7 @@ import com.it.br.gameserver.templates.L2Weapon;
  */
 public class L2Multisell
 {
-    private static Logger _log = Logger.getLogger(L2Multisell.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(L2Multisell.class);
     private List<MultiSellListContainer> _entries = new ArrayList<>();
     private static L2Multisell _instance = new L2Multisell();
 
@@ -57,7 +55,7 @@ public class L2Multisell
             }
         }
 
-        _log.warning("[L2Multisell] can't find list with id: " + id);
+        _log.warn("[L2Multisell] can't find list with id: " + id);
         return null;
     }
 
@@ -468,7 +466,7 @@ public class L2Multisell
         File dir = new File(serverSettings.getDatapackDirectory(), "data/" + dirname);
         if (!dir.exists())
         {
-            _log.config("Dir " + dir.getAbsolutePath() + " not exists");
+            _log.info("Dir " + dir.getAbsolutePath() + " not exists");
             return;
         }
         File[] files = dir.listFiles();
@@ -498,7 +496,7 @@ public class L2Multisell
             }
             catch (Exception e)
             {
-                _log.log(Level.SEVERE, "Error loading file " + f, e);
+                _log.error( "Error loading file " + f, e);
             }
             try
             {
@@ -508,7 +506,7 @@ public class L2Multisell
             }
             catch (Exception e)
             {
-                _log.log(Level.SEVERE, "Error in file " + f, e);
+                _log.error( "Error in file " + f, e);
             }
         }
     }

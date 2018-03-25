@@ -34,7 +34,7 @@ public final class RequestJoinAlly extends L2GameClientPacket
 {
 
 	private static final String _C__82_REQUESTJOINALLY = "[C] 82 RequestJoinAlly";
-	//private static Logger _log = Logger.getLogger(RequestJoinAlly.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestJoinAlly.class);
 
 	private int _id;
 

@@ -18,15 +18,15 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.serverpackets.ManagePledgePower;
+ import com.it.br.gameserver.model.L2Clan;
+ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+ import com.it.br.gameserver.network.serverpackets.ManagePledgePower;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
 
 public final class RequestPledgePower extends L2GameClientPacket
 {
-    static Logger _log = Logger.getLogger(ManagePledgePower.class.getName());
+    static Logger _log = LoggerFactory.getLogger(ManagePledgePower.class);
     private static final String _C__C0_REQUESTPLEDGEPOWER = "[C] C0 RequestPledgePower";
     private int _rank;
     private int _action;

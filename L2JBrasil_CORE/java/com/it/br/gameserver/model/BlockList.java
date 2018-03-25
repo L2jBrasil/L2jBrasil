@@ -28,12 +28,12 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * This class ...

@@ -14,13 +14,6 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.Collections;
-import java.util.Map;
-import java.util.WeakHashMap;
-import java.util.logging.Logger;
-
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -28,13 +21,21 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SetupGauge;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
 import com.it.br.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Collections;
+import java.util.Map;
+import java.util.WeakHashMap;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @author *Slayer
  */
 public final class AwayManager
 {
-	protected static final Logger _log = Logger.getLogger(AwayManager.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(AwayManager.class);
 	private static AwayManager _instance;
 	public Map<L2PcInstance, RestoreData> _awayPlayers;
 

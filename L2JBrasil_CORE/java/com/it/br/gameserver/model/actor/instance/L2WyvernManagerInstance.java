@@ -20,12 +20,7 @@ package com.it.br.gameserver.model.actor.instance;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.Ride;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
 public class L2WyvernManagerInstance extends L2CastleChamberlainInstance

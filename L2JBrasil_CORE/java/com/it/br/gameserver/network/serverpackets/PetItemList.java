@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PetInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -31,7 +31,7 @@ import com.it.br.gameserver.model.actor.instance.L2PetInstance;
  */
 public class PetItemList extends L2GameServerPacket
 {
-	private static Logger _log = Logger.getLogger(PetItemList.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(PetItemList.class);
 	private static final String _S__cb_PETITEMLIST = "[S] b2  PetItemList";
 	private L2PetInstance _activeChar;
 
@@ -43,7 +43,7 @@ public class PetItemList extends L2GameServerPacket
 			L2ItemInstance[] items = _activeChar.getInventory().getItems();
 			for (L2ItemInstance temp : items)
 			{
-				_log.fine("item:" + temp.getItem().getName() +
+				_log.debug("item:" + temp.getItem().getName() +
 						" type1:" + temp.getItem().getType1() + " type2:" + temp.getItem().getType2());
 			}
 		}

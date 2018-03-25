@@ -64,7 +64,7 @@ import static com.it.br.configuration.Configurator.getSettings;
 public class EnterWorld extends L2GameClientPacket
 {
 	private static final String _C__03_ENTERWORLD = "[C] 03 EnterWorld";
-	//private static Logger _log = Logger.getLogger(EnterWorld.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(EnterWorld.class);
 	public TaskPriority getPriority() { return TaskPriority.PR_URGENT; }
 	long _daysleft;
 	SimpleDateFormat df = new SimpleDateFormat("dd MM yyyy");
@@ -80,13 +80,13 @@ public class EnterWorld extends L2GameClientPacket
 		L2PcInstance activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 		{
-			_log.warning("EnterWorld failed! activeChar is null...");
+			_log.warn("EnterWorld failed! activeChar is null...");
 			getClient().closeNow();
 		    return;
 		}
 		if (!activeChar.isAttackable())
 		{
-			_log.warning("EnterWorld failed! activeChar is not Attackable...");
+			_log.warn("EnterWorld failed! activeChar is not Attackable...");
 			getClient().closeNow();
 		    return;
 		}
@@ -96,7 +96,7 @@ public class EnterWorld extends L2GameClientPacket
 		if (L2World.getInstance().findObject(activeChar.getObjectId()) != null)
 		{
 			if(Config.DEBUG)
-				_log.warning("User already exist in OID map! User "+activeChar.getName()+" is character clone");
+				_log.warn("User already exist in OID map! User "+activeChar.getName()+" is character clone");
 			// check for over enchant
 			for (L2ItemInstance i : activeChar.getInventory().getItems())
 			{
@@ -251,7 +251,7 @@ public class EnterWorld extends L2GameClientPacket
 
         if(!activeChar.isGM() && (activeChar.getName().length() < 3 || activeChar.getName().length() > 16 || !Util.isAlphaNumeric(activeChar.getName()) || !isValidName(activeChar.getName())))
         {
-            _log.warning((new StringBuilder()).append("Charname: ").append(activeChar.getName()).append(" is invalid. EnterWorld failed.").toString());
+            _log.warn((new StringBuilder()).append("Charname: ").append(activeChar.getName()).append(" is invalid. EnterWorld failed.").toString());
             getClient().closeNow();
             return;
         }
@@ -646,7 +646,7 @@ public class EnterWorld extends L2GameClientPacket
         }
 		catch (Exception e) 
 		{
-            _log.warning("could not restore friend data:"+e);
+            _log.warn("could not restore friend data:"+e);
         }
 		finally 
 		{
@@ -837,7 +837,7 @@ public class EnterWorld extends L2GameClientPacket
         }
         catch(PatternSyntaxException e)
         {
-            _log.warning("ERROR : Character name pattern of config is wrong!");
+            _log.warn("ERROR : Character name pattern of config is wrong!");
             pattern = Pattern.compile(".*");
         }
         Matcher regexp = pattern.matcher(test);

@@ -31,14 +31,14 @@ import com.it.br.gameserver.model.TradeList.TradeItem;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.L2GameClient.GameClientState;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
@@ -47,7 +47,7 @@ import static com.it.br.configuration.Configurator.getSettings;
  * @version 3.0.4
  */
 public class OfflineTradeDao {
-    private static Logger _log = Logger.getLogger(OfflineTradeDao.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(OfflineTradeDao.class);
 
     private static final String SAVE_OFFLINE_STATUS = "INSERT INTO character_offline_trade (`charId`,`time`,`type`,`title`) VALUES (?,?,?,?)";
     private static final String SAVE_ITEMS = "INSERT INTO character_offline_trade_items (`charId`,`item`,`count`,`price`,`enchant`) VALUES (?,?,?,?,?)";
@@ -142,7 +142,7 @@ public class OfflineTradeDao {
             }
             _log.info("Offline traders stored.");
         } catch (SQLException e) {
-            _log.warning(OfflineTradeDao.class.getName() + ": Exception: storeOffliners(): " + e.getMessage());
+            _log.warn(OfflineTradeDao.class.getName() + ": Exception: storeOffliners(): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -234,7 +234,7 @@ public class OfflineTradeDao {
                 } catch (Exception e) {
                     if (Config.DEBUG) e.printStackTrace();
 
-                    _log.log(Level.WARNING, "OfflineTradersTable[loadOffliners()]: Error loading trader: ", e);
+                    _log.warn( "OfflineTradersTable[loadOffliners()]: Error loading trader: ", e);
                     if (player != null) player.logout();
                 }
             }
@@ -244,7 +244,7 @@ public class OfflineTradeDao {
         } catch (Exception e) {
             if (Config.DEBUG) e.printStackTrace();
 
-            _log.log(Level.WARNING, "OfflineTradersTable[loadOffliners()]: Error while loading offline traders: ", e);
+            _log.warn( "OfflineTradersTable[loadOffliners()]: Error while loading offline traders: ", e);
         }
     }
 
@@ -330,13 +330,13 @@ public class OfflineTradeDao {
                 } catch (Exception e) {
                     if (Config.DEBUG) e.printStackTrace();
 
-                    _log.log(Level.WARNING, "OfflineTradersTable[storeOffliner()]: Error while saving offline trader: " + pc.getObjectId() + " " + e, e);
+                    _log.warn( "OfflineTradersTable[storeOffliner()]: Error while saving offline trader: " + pc.getObjectId() + " " + e, e);
                 }
             }
             String text = "Offline trader " + pc.getName() + " stored.";
             Log.add(text, "Offline_trader");
         } catch (SQLException e) {
-            _log.warning(OfflineTradeDao.class.getName() + ": Exception: storeOffliner(): " + e.getMessage());
+            _log.warn(OfflineTradeDao.class.getName() + ": Exception: storeOffliner(): " + e.getMessage());
             e.printStackTrace();
         }
     }

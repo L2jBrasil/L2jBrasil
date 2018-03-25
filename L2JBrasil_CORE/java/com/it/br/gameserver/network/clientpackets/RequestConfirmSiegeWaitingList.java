@@ -33,7 +33,7 @@ import com.it.br.gameserver.network.serverpackets.SiegeDefenderList;
 public final class RequestConfirmSiegeWaitingList extends L2GameClientPacket
 {
     private static final String _C__A5_RequestConfirmSiegeWaitingList = "[C] a5 RequestConfirmSiegeWaitingList";
-    //private static Logger _log = Logger.getLogger(RequestConfirmSiegeWaitingList.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestConfirmSiegeWaitingList.class);
 
     private int _approved;
     private int _castleId;

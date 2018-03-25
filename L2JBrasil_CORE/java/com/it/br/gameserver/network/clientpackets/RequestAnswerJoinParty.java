@@ -36,7 +36,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestAnswerJoinParty extends L2GameClientPacket
 {
 	private static final String _C__2A_REQUESTANSWERPARTY = "[C] 2A RequestAnswerJoinParty";
-	//private static Logger _log = Logger.getLogger(RequestAnswerJoinParty.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestAnswerJoinParty.class);
 
 	private int _response;
 

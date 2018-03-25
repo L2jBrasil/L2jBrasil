@@ -25,16 +25,17 @@
 
 package com.it.br.gameserver.model;
 
-import java.awt.Polygon;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GeoData;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.awt.*;
 
 public class L2Territory
 {
-	private static Logger _log = Logger.getLogger(L2Territory.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(L2Territory.class);
 
 	protected class Point
 	{
@@ -166,7 +167,7 @@ public class L2Territory
 
 			if(i == 40)
 			{
-				_log.warning("Heavy territory: " + this + ", need manual correction");
+				_log.warn("Heavy territory: " + this + ", need manual correction");
 			}
 
 			if(poly.contains(p[0], p[1]))
@@ -219,7 +220,7 @@ public class L2Territory
 				return p;
 			}
 		}
-		_log.warning("Can't make point for " + this);
+		_log.warn("Can't make point for " + this);
 		return p;
 	}
 

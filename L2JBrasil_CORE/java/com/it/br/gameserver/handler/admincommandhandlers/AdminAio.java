@@ -28,6 +28,8 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.EtcStatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,8 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Give / Take Status Aio to Player
@@ -54,7 +54,7 @@ import java.util.logging.Logger;
  */
 public class AdminAio implements IAdminCommandHandler
 {
-    private final static Logger _log = Logger.getLogger(AdminAio.class.getName());
+    private final static Logger _log = LoggerFactory.getLogger(AdminAio.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     public AdminAio()
@@ -231,7 +231,7 @@ public class AdminAio implements IAdminCommandHandler
 			}
 			catch (Exception e)
 			{
-				_log.log(Level.WARNING,"could not set Aio stats to char:", e);
+				_log.warn("could not set Aio stats to char:", e);
 			}
 			finally
 			{
@@ -277,7 +277,7 @@ public class AdminAio implements IAdminCommandHandler
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING,"could not remove Aio stats of char:", e);
+			_log.warn("could not remove Aio stats of char:", e);
 		}
 		finally
 		{

@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 import com.it.br.gameserver.model.actor.instance.L2SummonInstance;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class ...

@@ -57,7 +57,7 @@ public class L2BoxInstance extends L2NpcInstance {
 		}
 	}
 
-    //private static Logger _log = Logger.getLogger(L2BoxInstance.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(L2BoxInstance.class);
 	private static final int MAX_ITEMS_PER_PAGE = 25;
     private static final String VARIABLE_PREFIX = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
@@ -156,7 +156,7 @@ public class L2BoxInstance extends L2NpcInstance {
 		}
 		button += "\">";
 		content += "</table><br>"+button+"</body></html>";
-		_log.fine("setHtml("+content+"); items="+nitems);
+		_log.debug("setHtml("+content+"); items="+nitems);
 		html.setHtml(content);
 		player.sendPacket(html);
 		player.sendPacket(new ActionFailed());
@@ -205,7 +205,7 @@ public class L2BoxInstance extends L2NpcInstance {
 		}
 		button += "\">";
 		content += "</table><br>"+button+"</body></html>";
-		_log.fine("setHtml("+content+"); items="+nitems);
+		_log.debug("setHtml("+content+"); items="+nitems);
 		html.setHtml(content);
 		player.sendPacket(html);
 
@@ -242,7 +242,7 @@ public class L2BoxInstance extends L2NpcInstance {
 			}
 			catch (Exception e)
 			{
-				_log.fine("putInBox "+command+" failed: "+e);
+				_log.debug("putInBox "+command+" failed: "+e);
 			}
 		}
 	}
@@ -334,7 +334,7 @@ public class L2BoxInstance extends L2NpcInstance {
 			}
 			catch (Exception e)
 			{
-				_log.fine("takeOutBox "+command+" failed: "+e);
+				_log.debug("takeOutBox "+command+" failed: "+e);
 			}
 		}
 	}

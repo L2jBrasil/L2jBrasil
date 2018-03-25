@@ -15,13 +15,13 @@
 
 package com.it.br.util;
 
+import com.l2jserver.mmocore.network.IAcceptFilter;
+
 import java.net.InetAddress;
 import java.nio.channels.SocketChannel;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
-
-import com.l2jserver.mmocore.network.IAcceptFilter;
 
 /**
  * Formatted Forsaiken's IPv4 filter [DrHouse]

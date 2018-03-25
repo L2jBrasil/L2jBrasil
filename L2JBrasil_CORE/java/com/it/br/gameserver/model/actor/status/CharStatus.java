@@ -17,12 +17,6 @@
  */
 package com.it.br.gameserver.model.actor.status;
 
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.Future;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
@@ -38,10 +32,16 @@ import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.skills.Formulas;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.Future;
 
 public class CharStatus
 {
-    protected static final Logger _log = Logger.getLogger(CharStatus.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(CharStatus.class);
 
     // =========================================================
     // Data Field
@@ -211,7 +211,7 @@ public class CharStatus
 
             // first die (and calculate rewards), if currentHp < 0,
             // then overhit may be calculated
-            if (Config.DEBUG) _log.fine("char is dead.");
+            if (Config.DEBUG) _log.debug("char is dead.");
 
             // Start the doDie process
             getActiveChar().doDie(attacker);
@@ -276,7 +276,7 @@ public class CharStatus
     {
         if (_regTask == null && !getActiveChar().isDead())
         {
-            if (Config.DEBUG) _log.fine("HP/MP/CP regen started");
+            if (Config.DEBUG) _log.debug("HP/MP/CP regen started");
 
             // Get the Regeneration periode
             int period = Formulas.getInstance().getRegeneratePeriod(getActiveChar());
@@ -298,7 +298,7 @@ public class CharStatus
     {
         if (_regTask != null)
         {
-            if (Config.DEBUG) _log.fine("HP/MP/CP regen stop");
+            if (Config.DEBUG) _log.debug("HP/MP/CP regen stop");
 
             // Stop the HP/MP/CP Regeneration task
             _regTask.cancel(false);
@@ -490,7 +490,7 @@ public class CharStatus
                 else
                     getActiveChar().broadcastStatusUpdate(); //send the StatusUpdate packet
             }
-            catch (Throwable e) { _log.log(Level.SEVERE, "", e); }
+            catch (Throwable e) { _log.error( "", e); }
         }
     }
 }

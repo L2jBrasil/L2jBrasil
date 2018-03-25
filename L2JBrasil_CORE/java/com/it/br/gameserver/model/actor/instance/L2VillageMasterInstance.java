@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.Iterator;
-import java.util.Set;
-
 import com.it.br.Config;
 import com.it.br.gameserver.Shutdown;
 import com.it.br.gameserver.datatables.sql.ClanTable;
@@ -28,33 +25,20 @@ import com.it.br.gameserver.datatables.xml.CharTemplateTable;
 import com.it.br.gameserver.datatables.xml.SkillTreeTable;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.SiegeManager;
-import com.it.br.gameserver.model.Inventory;
-import com.it.br.gameserver.model.L2Clan;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Clan.SubPledge;
-import com.it.br.gameserver.model.L2ClanMember;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2PledgeSkillLearn;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
-import com.it.br.gameserver.model.base.ClassId;
-import com.it.br.gameserver.model.base.ClassType;
-import com.it.br.gameserver.model.base.PlayerClass;
-import com.it.br.gameserver.model.base.PlayerRace;
-import com.it.br.gameserver.model.base.SubClass;
+import com.it.br.gameserver.model.base.*;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.model.quest.QuestState;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.AquireSkillList;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.PledgeReceiveSubPledgeCreated;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.UserInfo;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Util;
+
+import java.util.Iterator;
+import java.util.Set;
 
 public final class L2VillageMasterInstance extends L2FolkInstance
 {
@@ -644,7 +628,7 @@ public final class L2VillageMasterInstance extends L2FolkInstance
 	public void dissolveClan(L2PcInstance player, int clanId)
 	{
 		if (Config.DEBUG)
-		_log.fine(player.getObjectId() + "(" + player.getName() + ") requested dissolve a clan from " + getObjectId() + "(" + getName() + ")");
+		_log.debug(player.getObjectId() + "(" + player.getName() + ") requested dissolve a clan from " + getObjectId() + "(" + getName() + ")");
 		if (!player.isClanLeader())
 		{
 			player.sendPacket(new SystemMessage(SystemMessageId.YOU_ARE_NOT_AUTHORIZED_TO_DO_THAT));
@@ -717,7 +701,7 @@ public final class L2VillageMasterInstance extends L2FolkInstance
 	public void recoverClan(L2PcInstance player, int clanId)
 	{
 		if (Config.DEBUG)
-		_log.fine(player.getObjectId() + "(" + player.getName() + ") requested recover a clan from " + getObjectId() + "(" + getName() + ")");
+		_log.debug(player.getObjectId() + "(" + player.getName() + ") requested recover a clan from " + getObjectId() + "(" + getName() + ")");
 		if (!player.isClanLeader())
 		{
 			player.sendPacket(new SystemMessage(SystemMessageId.YOU_ARE_NOT_AUTHORIZED_TO_DO_THAT));
@@ -731,7 +715,7 @@ public final class L2VillageMasterInstance extends L2FolkInstance
 	public void changeClanLeader(L2PcInstance player, String target)
 	{
 		if (Config.DEBUG)
-		_log.fine(player.getObjectId() + "(" + player.getName() + ") requested change a clan leader from " + getObjectId() + "(" + getName() + ")");
+		_log.debug(player.getObjectId() + "(" + player.getName() + ") requested change a clan leader from " + getObjectId() + "(" + getName() + ")");
 		if (player.isFlying() || player.isMounted() || player.isRiding())
         {
         	player.sendMessage("You can not give your Clan while you are Mounted!");
@@ -767,7 +751,7 @@ public final class L2VillageMasterInstance extends L2FolkInstance
 	public void createSubPledge(L2PcInstance player, String clanName, String leaderName, int pledgeType, int minClanLvl)
 	{
 		// if (Config.DEBUG)
-		_log.fine(player.getObjectId() + "(" + player.getName() + ") requested sub clan creation from " + getObjectId() + "(" + getName() + ")");
+		_log.debug(player.getObjectId() + "(" + player.getName() + ") requested sub clan creation from " + getObjectId() + "(" + getName() + ")");
 		if (!player.isClanLeader())
 		{
 			player.sendPacket(new SystemMessage(SystemMessageId.YOU_ARE_NOT_AUTHORIZED_TO_DO_THAT));
@@ -977,7 +961,7 @@ public final class L2VillageMasterInstance extends L2FolkInstance
         } 
         catch(Throwable t) 
         { 
-            _log.warning("could not find sub unit leader name for sub unit: "+subUnitName+" in clan "+player.getClan()); 
+            _log.warn("could not find sub unit leader name for sub unit: "+subUnitName+" in clan "+player.getClan());
             return; 
         }
 		if (Config.DEBUG)
@@ -1135,7 +1119,7 @@ public final class L2VillageMasterInstance extends L2FolkInstance
 	{
 
 		if (Config.DEBUG)
-			_log.fine("PledgeSkillList activated on: " + getObjectId());
+			_log.debug("PledgeSkillList activated on: " + getObjectId());
 		if (player.getClan() == null)
 			return;
 

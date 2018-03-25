@@ -20,15 +20,16 @@ package com.it.br.gameserver.instancemanager;
 
 import com.it.br.gameserver.database.dao.AuctionDao;
 import com.it.br.gameserver.model.entity.Auction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class AuctionManager
 {
-    protected static final Logger _log = Logger.getLogger(AuctionManager.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(AuctionManager.class);
     private static AuctionManager _instance;
     private List<Auction> _auctions;
 		 private static final int[] ItemInitDataId =
@@ -95,7 +96,7 @@ public class AuctionManager
         	if(ItemInitDataId[i] == id)
         		break;
         if(i>=ItemInitDataId.length){
-        	_log.warning("Clan Hall auction not found for Id :"+id);
+        	_log.warn("Clan Hall auction not found for Id :"+id);
         	return;
         }
         AuctionDao.insertByValues(i);

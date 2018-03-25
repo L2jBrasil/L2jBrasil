@@ -17,10 +17,10 @@
  */
 package com.it.br.gameserver.model;
 
+import com.it.br.gameserver.model.actor.instance.L2ControllableMobInstance;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import com.it.br.gameserver.model.actor.instance.L2ControllableMobInstance;
 
 /**
  * @author littlecrow

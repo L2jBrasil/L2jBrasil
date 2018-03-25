@@ -17,9 +17,6 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2RaidBossInstance;
@@ -27,6 +24,9 @@ import com.it.br.gameserver.network.serverpackets.ExCloseMPCC;
 import com.it.br.gameserver.network.serverpackets.ExOpenMPCC;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *

@@ -14,20 +14,18 @@
  */
 package com.it.br.gameserver.skills;
 
-import java.io.File;
-import java.util.NoSuchElementException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.L2Character;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.L2Character;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.util.NoSuchElementException;
 
 public enum BaseStats
 {
@@ -39,7 +37,7 @@ public enum BaseStats
 	MEN(new MEN()),
 	NULL(new NULL());
 
-	protected static final Logger _log = Logger.getLogger(BaseStats.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(BaseStats.class);
 
 	public static final int MAX_STAT_VALUE = 100;
 
@@ -159,7 +157,7 @@ public enum BaseStats
 			}
 			catch (Exception e)
 			{
-				_log.log(Level.WARNING, "[BaseStats] Could not parse file: " + e.getMessage(), e);
+				_log.warn( "[BaseStats] Could not parse file: " + e.getMessage(), e);
 			}
 
 			String statName;
@@ -185,7 +183,7 @@ public enum BaseStats
 								}
 								catch (Exception e)
 								{
-									_log.severe("[BaseStats] Invalid stats value: "+value.getNodeValue()+", skipping");
+									_log.error("[BaseStats] Invalid stats value: "+value.getNodeValue()+", skipping");
 									continue;
 								}
 
@@ -202,7 +200,7 @@ public enum BaseStats
 								else if ("MEN".equalsIgnoreCase(statName))
 									MENbonus[val] = bonus;
 								else
-									_log.severe("[BaseStats] Invalid stats name: "+statName+", skipping");
+									_log.error("[BaseStats] Invalid stats name: "+statName+", skipping");
 							}
 						}
 					}

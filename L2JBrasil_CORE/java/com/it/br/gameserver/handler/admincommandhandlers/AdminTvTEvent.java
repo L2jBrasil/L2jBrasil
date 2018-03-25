@@ -28,12 +28,12 @@ import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.model.entity.event.TvTEventTeleporter;
 import com.it.br.gameserver.model.entity.event.TvTManager;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @version $Revision: 3.0.3 $ $Date: 2017/11/09 $

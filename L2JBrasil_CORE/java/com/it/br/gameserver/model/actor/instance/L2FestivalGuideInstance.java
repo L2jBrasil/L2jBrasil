@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.Calendar;
-import java.util.List;
-
 import com.it.br.configuration.settings.SevensignsSettings;
 import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
@@ -34,6 +29,11 @@ import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
+
+import java.util.Calendar;
+import java.util.List;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * Festival of Darkness Guide (Seven Signs)

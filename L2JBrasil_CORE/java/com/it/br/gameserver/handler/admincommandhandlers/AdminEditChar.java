@@ -33,11 +33,12 @@ import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.*;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
@@ -66,7 +67,7 @@ import static com.it.br.configuration.Configurator.getSettings;
  */
 public class AdminEditChar implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminEditChar.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminEditChar.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -604,14 +605,14 @@ public class AdminEditChar implements IAdminCommandHandler
 			//Admin information
 			activeChar.sendMessage("Successfully Changed karma for "+player.getName()+" from (" + oldKarma + ") to (" + newKarma + ").");
 			if (Config.DEBUG)
-				_log.fine("[SET KARMA] [GM]"+activeChar.getName()+" Changed karma for "+player.getName()+" from (" + oldKarma + ") to (" + newKarma + ").");
+				_log.debug("[SET KARMA] [GM]"+activeChar.getName()+" Changed karma for "+player.getName()+" from (" + oldKarma + ") to (" + newKarma + ").");
 		}
 		else
 		{
 			// tell admin of mistake
 			activeChar.sendMessage("You must enter a value for karma greater than or equal to 0.");
 			if (Config.DEBUG)
-				_log.fine("[SET KARMA] ERROR: [GM]"+activeChar.getName()+" entered an incorrect value for new karma: " + newKarma + " for "+player.getName()+".");
+				_log.debug("[SET KARMA] ERROR: [GM]"+activeChar.getName()+" entered an incorrect value for new karma: " + newKarma + " for "+player.getName()+".");
 		}
 	}
 
@@ -671,7 +672,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		player.sendMessage("Changed stats of " + player.getName() + "." + "  HP: " + hpval + "  MP: " + mpval + "  CP: " + cpval + "  PvP: " + pvpflagval + " / " + pvpkillsval );
 
 		if (Config.DEBUG)
-			_log.fine("[GM]"+activeChar.getName()+" changed stats of "+player.getName()+". " + " HP: "+hpval+" MP: "+mpval+" CP: " + cpval + " PvP: "+pvpflagval+" / "+pvpkillsval);
+			_log.debug("[GM]"+activeChar.getName()+" changed stats of "+player.getName()+". " + " HP: "+hpval+" MP: "+mpval+" CP: " + cpval + " PvP: "+pvpflagval+" / "+pvpkillsval);
 
 		showCharacterInfo(activeChar, null); //Back to start
 

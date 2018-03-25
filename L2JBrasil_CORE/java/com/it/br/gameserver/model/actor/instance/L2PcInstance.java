@@ -76,7 +76,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
@@ -135,7 +134,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		return _recomChars;
 	}
 
-	//private static Logger _log = Logger.getLogger(L2PcInstance.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(L2PcInstance.class);
 
 	public class AIAccessor extends L2Character.AIAccessor
 	{
@@ -616,7 +615,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			}
 			catch (Throwable t)
 			{
-				_log.log(Level.WARNING, "", t);
+				_log.warn( "", t);
 			}
 		}
 	}
@@ -1093,7 +1092,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		else if(_commonRecipeBook.containsKey(recipeId))
 			_commonRecipeBook.remove(recipeId);
 		else
-			_log.warning("Attempted to remove unknown RecipeList: "+recipeId);
+			_log.warn("Attempted to remove unknown RecipeList: "+recipeId);
 
 		L2ShortCut[] allShortCuts = getAllShortCuts();
 
@@ -1334,7 +1333,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		if (content != null)
 		{
 			if (Config.DEBUG)
-				_log.fine("Showing quest window for quest "+questId+" state "+stateId+" html path: " + path);
+				_log.debug("Showing quest window for quest "+questId+" state "+stateId+" html path: " + path);
 
 			NpcHtmlMessage npcReply = new NpcHtmlMessage(5);
 			npcReply.setHtml(content);
@@ -2067,7 +2066,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			L2Skill skill = SkillTable.getInstance().getInfo(194, 1);
 			skill = removeSkill(skill);
 
-			if (Config.DEBUG && skill != null) _log.fine("removed skill 'Lucky' from "+getName());
+			if (Config.DEBUG && skill != null) _log.debug("removed skill 'Lucky' from "+getName());
 		}
 
 		// Calculate the current higher Expertise of the L2PcInstance
@@ -2084,12 +2083,12 @@ public final class L2PcInstance extends L2PlayableInstance
 			addSkill(skill, true);
 
 			if (Config.DEBUG)
-				_log.fine("awarded "+getName()+" with new expertise.");
+				_log.debug("awarded "+getName()+" with new expertise.");
 		}
 		else
 		{
 			if (Config.DEBUG)
-				_log.fine("No skills awarded at lvl: "+lvl);
+				_log.debug("No skills awarded at lvl: "+lvl);
 		}
 
 		//Active skill dwarven craft
@@ -2817,7 +2816,7 @@ public final class L2PcInstance extends L2PlayableInstance
 					L2ItemInstance herb = new L2ItemInstance(_charId, itemId);
 	                IItemHandler handler = ItemHandler.getInstance().getItemHandler(herb.getItemId());
 	                if (handler == null)
-	                    _log.warning("No item handler registered for Herb - item ID " + herb.getItemId() + ".");
+	                    _log.warn("No item handler registered for Herb - item ID " + herb.getItemId() + ".");
 	                else
 	                {
 	                    handler.useItem(this, herb);
@@ -3093,7 +3092,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 				if (_inventory.destroyItem(process, item, this, reference) == null)
 				{
-					_log.warning("Player " + getName() + " can't destroy weared item: " + item.getName() + "[ " + item.getObjectId() + " ]");
+					_log.warn("Player " + getName() + " can't destroy weared item: " + item.getName() + "[ " + item.getObjectId() + " ]");
 					continue;
 				}
 
@@ -3336,7 +3335,7 @@ public final class L2PcInstance extends L2PlayableInstance
         //TODO: if we remove objects that are not visisble from the L2World, we'll have to remove this check
 		if (L2World.getInstance().findObject(objectId) == null)
 		{
-			_log.finest(getObjectId()+": player tried to " + action + " item not available in L2World");
+			_log.trace(getObjectId()+": player tried to " + action + " item not available in L2World");
 			return null;
 		}
 
@@ -3344,19 +3343,19 @@ public final class L2PcInstance extends L2PlayableInstance
 
 		if (item == null || item.getOwnerId() != getObjectId())
 		{
-			_log.finest(getObjectId()+": player tried to " + action + " item he is not owner of");
+			_log.trace(getObjectId()+": player tried to " + action + " item he is not owner of");
 			return null;
 		}
 
 		if (count < 0 || (count > 1 && !item.isStackable()))
 		{
-			_log.finest(getObjectId()+": player tried to " + action + " item with invalid count: "+ count);
+			_log.trace(getObjectId()+": player tried to " + action + " item with invalid count: "+ count);
 			return null;
 		}
 
 		if (count > item.getCount())
 		{
-			_log.finest(getObjectId()+": player tried to " + action + " more items than he owns");
+			_log.trace(getObjectId()+": player tried to " + action + " more items than he owns");
 			return null;
 		}
 
@@ -3364,7 +3363,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		if (getPet() != null && getPet().getControlItemId() == objectId || getMountObjectID() == objectId)
 		{
 			if (Config.DEBUG)
-				_log.finest(getObjectId()+": player tried to " + action + " item controling pet");
+				_log.trace(getObjectId()+": player tried to " + action + " item controling pet");
 
 			return null;
 		}
@@ -3372,7 +3371,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		if (getActiveEnchantItem() != null && getActiveEnchantItem().getObjectId() == objectId)
 		{
 			if (Config.DEBUG)
-				_log.finest(getObjectId()+":player tried to " + action + " an enchant scroll he was using");
+				_log.trace(getObjectId()+":player tried to " + action + " an enchant scroll he was using");
 
 			return null;
 		}
@@ -3712,7 +3711,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		if (isInParty() && (needCpUpdate(352) || super.needHpUpdate(352) || needMpUpdate(352)))
 		{
 			if (Config.DEBUG)
-				_log.fine("Send status for party window of " + getObjectId() + "(" + getName() + ") to his party. CP: " + getCurrentCp() + " HP: " + getCurrentHp() + " MP: " + getCurrentMp());
+				_log.debug("Send status for party window of " + getObjectId() + "(" + getName() + ") to his party. CP: " + getCurrentCp() + " HP: " + getCurrentHp() + " MP: " + getCurrentMp());
 			// Send the Server->Client packet PartySmallWindowUpdate with current HP, MP and Level to all other L2PcInstance of the Party
 			PartySmallWindowUpdate update = new PartySmallWindowUpdate(this);
 			getParty().broadcastToPartyMembers(this, update);
@@ -3728,7 +3727,7 @@ public final class L2PcInstance extends L2PlayableInstance
 					if (player.getOlympiadGameId() == getOlympiadGameId() && player.isOlympiadStart())
 					{
 						if (Config.DEBUG)
-							_log.fine("Send status for Olympia window of " + getObjectId() + "(" + getName() + ") to "
+							_log.debug("Send status for Olympia window of " + getObjectId() + "(" + getName() + ") to "
 								+ player.getObjectId() + "(" + player.getName()
 								+ "). CP: " + getCurrentCp()
 								+ " HP: " + getCurrentHp()
@@ -3822,7 +3821,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 		// Send a Server->Client packet CharInfo to all L2PcInstance in _KnownPlayers of the L2PcInstance
 		if (Config.DEBUG)
-            _log.fine("players to notify:" + getKnownList().getKnownPlayers().size() + " packet: [S] 03 CharInfo");
+            _log.debug("players to notify:" + getKnownList().getKnownPlayers().size() + " packet: [S] 03 CharInfo");
 
 		Broadcast.toKnownPlayers(this, new CharInfo(this));
 	}
@@ -3834,7 +3833,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 		// Send a Server->Client packet TitleUpdate to all L2PcInstance in _KnownPlayers of the L2PcInstance
 		if (Config.DEBUG)
-            _log.fine("players to notify:" + getKnownList().getKnownPlayers().size() + " packet: [S] cc TitleUpdate");
+            _log.debug("players to notify:" + getKnownList().getKnownPlayers().size() + " packet: [S] cc TitleUpdate");
 
 		Broadcast.toKnownPlayers(this, new TitleUpdate(this));
 	}
@@ -3984,7 +3983,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		if (!(object instanceof L2ItemInstance))
 		{
 			// dont try to pickup anything that is not an item :)
-			_log.warning("trying to pickup wrong target."+getTarget());
+			_log.warn("trying to pickup wrong target."+getTarget());
 			return;
 		}
 
@@ -3996,7 +3995,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		// Send a Server->Client packet StopMove to this L2PcInstance
 		StopMove sm = new StopMove(getObjectId(), getX(), getY(), getZ(), getHeading());
 		if (Config.DEBUG)
-			_log.fine("pickup pos: "+ target.getX() + " "+target.getY()+ " "+target.getZ() );
+			_log.debug("pickup pos: "+ target.getX() + " "+target.getY()+ " "+target.getZ() );
 		sendPacket(sm);
 
 		synchronized (target)
@@ -4066,7 +4065,7 @@ public final class L2PcInstance extends L2PlayableInstance
         {
 			IItemHandler handler = ItemHandler.getInstance().getItemHandler(target.getItemId());
 			if (handler == null)
-				_log.fine("No item handler registered for item ID " + target.getItemId() + ".");
+				_log.debug("No item handler registered for item ID " + target.getItemId() + ".");
 			else
 				handler.useItem(this, target);
 			ItemTable.getInstance().destroyItem("Consume", target, this, null);
@@ -4614,9 +4613,9 @@ public final class L2PcInstance extends L2PlayableInstance
 						dropItem("DieDrop", itemDrop, killer, true);
 
 						if (isKarmaDrop)
-							_log.warning(getName() + " has karma and dropped id = " + itemDrop.getItemId() + ", count = " + itemDrop.getCount());
+							_log.warn(getName() + " has karma and dropped id = " + itemDrop.getItemId() + ", count = " + itemDrop.getCount());
 						else
-							_log.warning(getName() + " dropped id = " + itemDrop.getItemId() + ", count = " + itemDrop.getCount());
+							_log.warn(getName() + " dropped id = " + itemDrop.getItemId() + ", count = " + itemDrop.getCount());
 
 						if (++dropCount >= dropLimit)
 						break;
@@ -4958,7 +4957,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		setCharmOfCourage(false);
 
         if (Config.DEBUG)
-            _log.fine(getName() + " died and lost " + lostExp + " experience.");
+            _log.debug(getName() + " died and lost " + lostExp + " experience.");
 
 		// Set the new Experience value of the L2PcInstance
 		getStat().addExp(-lostExp);
@@ -5411,7 +5410,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		L2ItemInstance arrows = getInventory().destroyItem("Consume", getInventory().getPaperdollObjectId(Inventory.PAPERDOLL_LHAND), 1, this, null);
 
 		if (Config.DEBUG)
-			_log.fine("arrow count:" + (arrows==null? 0 : arrows.getCount()));
+			_log.debug("arrow count:" + (arrows==null? 0 : arrows.getCount()));
 
 		if (arrows == null || arrows.getCount() == 0)
 		{
@@ -5419,7 +5418,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			_arrowItem = null;
 
 			if (Config.DEBUG)
-				_log.fine("removed arrows count");
+				_log.debug("removed arrows count");
 			sendPacket(new ItemList(this,false));
 		}
 		else
@@ -5838,7 +5837,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Exception e)
 		{
-			_log.severe("Could not restore char data: " + e);
+			_log.error("Could not restore char data: " + e);
 		}
 		return player;
 	}
@@ -5946,7 +5945,7 @@ public final class L2PcInstance extends L2PlayableInstance
             PlayerDao.restoreRecipeBook(this);
 		}
 		catch (Exception e) {
-			_log.warning("Could not restore recipe book data:" + e);
+			_log.warn("Could not restore recipe book data:" + e);
 		}
 	}
 
@@ -6024,7 +6023,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			}
 			ReuseTimeStamps.clear();
 		}
-		catch (Exception e) { _log.warning("Could not store char effect data: "+ e); }
+		catch (Exception e) { _log.warn("Could not store char effect data: "+ e); }
 	}
 
 	public int ChatFilterCount = 0;
@@ -6176,7 +6175,7 @@ public final class L2PcInstance extends L2PlayableInstance
         } else if (newSkill != null) {
             PlayerDao.addNewSkill(this, newSkill, classIndex);
         } else {
-            _log.warning("could not store new skill. its NULL");
+            _log.warn("could not store new skill. its NULL");
         }
     }
 
@@ -6200,7 +6199,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not restore character skills: " + e);
+			_log.warn("Could not restore character skills: " + e);
 		}
 	}
 
@@ -6225,7 +6224,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Exception e)
         {
-			_log.warning("Could not restore active effect data: " + e);
+			_log.warn("Could not restore active effect data: " + e);
 		}
 
 		updateEffectIcons();
@@ -6245,7 +6244,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Exception e)
 		{
-			_log.warning("could not restore henna: "+e);
+			_log.warn("could not restore henna: "+e);
 		}
 
 		// Calculate Henna modifiers of this L2PcInstance
@@ -6263,7 +6262,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Exception e)
 		{
-			_log.warning("could not restore recommendations: "+e);
+			_log.warn("could not restore recommendations: "+e);
 		}
 	}
 
@@ -7634,7 +7633,7 @@ public final class L2PcInstance extends L2PlayableInstance
 	{
 		if(!_observerMode)
 		{
-			_log.warning("Player " + L2PcInstance.this.getName() + " request leave observer mode when he not use it!");
+			_log.warn("Player " + L2PcInstance.this.getName() + " request leave observer mode when he not use it!");
 			Util.handleIllegalPlayerAction(L2PcInstance.this, "Warning!! Character " + L2PcInstance.this.getName() + " tried to cheat in observer mode.", Config.DEFAULT_PUNISH);
 		}
 		setTarget(null);
@@ -8343,7 +8342,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 		if (t == null)
 		{
-			_log.severe("Missing template for classId: "+classId);
+			_log.error("Missing template for classId: "+classId);
 			throw new Error();
 		}
 
@@ -9041,14 +9040,14 @@ public final class L2PcInstance extends L2PlayableInstance
 	{
 		if (bypass == null) return;
 		_validBypass.add(bypass);
-		//_log.warning("[BypassAdd]"+getName()+" '"+bypass+"'");
+		//_log.warn("[BypassAdd]"+getName()+" '"+bypass+"'");
 	}
 
 	public synchronized void addBypass2(String bypass)
 	{
 		if (bypass == null) return;
 		_validBypass2.add(bypass);
-		//_log.warning("[BypassAdd]"+getName()+" '"+bypass+"'");
+		//_log.warn("[BypassAdd]"+getName()+" '"+bypass+"'");
 	}
 
 	public synchronized boolean validateBypass(String cmd)
@@ -9061,7 +9060,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		    if (bp == null)
 		    	continue;
 
-			//_log.warning("[BypassValidation]"+getName()+" '"+bp+"'");
+			//_log.warn("[BypassValidation]"+getName()+" '"+bp+"'");
 			if (bp.equals(cmd))
 				return true;
 		}
@@ -9071,11 +9070,11 @@ public final class L2PcInstance extends L2PlayableInstance
 		    if (bp == null)
 		    	continue;
 
-			//_log.warning("[BypassValidation]"+getName()+" '"+bp+"'");
+			//_log.warn("[BypassValidation]"+getName()+" '"+bp+"'");
 			if (cmd.startsWith(bp))
 				return true;
 		}
-		_log.warning("[L2PcInstance] player ["+getName()+"] sent invalid bypass '"+cmd+"', ban this player!");
+		_log.warn("[L2PcInstance] player ["+getName()+"] sent invalid bypass '"+cmd+"', ban this player!");
 		return false;
 	}
 
@@ -9085,7 +9084,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 		if (item == null || item.getOwnerId() != getObjectId())
 		{
-			_log.finest(getObjectId()+": player tried to " + action + " item he is not owner of");
+			_log.trace(getObjectId()+": player tried to " + action + " item he is not owner of");
 			return false;
 		}
 
@@ -9093,14 +9092,14 @@ public final class L2PcInstance extends L2PlayableInstance
 		if (getPet() != null && getPet().getControlItemId() == objectId || getMountObjectID() == objectId)
 		{
 			if (Config.DEBUG)
-				_log.finest(getObjectId()+": player tried to " + action + " item controling pet");
+				_log.trace(getObjectId()+": player tried to " + action + " item controling pet");
 			return false;
 		}
 
 		if(getActiveEnchantItem() != null && getActiveEnchantItem().getObjectId() == objectId)
 		{
 			if (Config.DEBUG)
-				_log.finest(getObjectId()+":player tried to " + action + " an enchant scroll he was using");
+				_log.trace(getObjectId()+":player tried to " + action + " an enchant scroll he was using");
 
 			return false;
 		}
@@ -9147,12 +9146,12 @@ public final class L2PcInstance extends L2PlayableInstance
 		{
 		    if (bp == null) continue;
 
-			//_log.warning("[LinkValidation]"+getName()+" '"+bp+"'");
+			//_log.warn("[LinkValidation]"+getName()+" '"+bp+"'");
 			if (bp.equals(cmd))
 				return true;
 		}
 
-		_log.warning("[L2PcInstance] player ["+getName()+"] sent invalid link '"+cmd+"', ban this player!");
+		_log.warn("[L2PcInstance] player ["+getName()+"] sent invalid link '"+cmd+"', ban this player!");
 		for (String bp : _validLink)
 			_log.info("Possible link: '"+bp+"'");
 		return false;
@@ -9167,7 +9166,7 @@ public final class L2PcInstance extends L2PlayableInstance
 	{
 		if (link == null) return;
 		_validLink.add(link);
-		//_log.warning("[LinkAdd]"+getName()+" '"+link+"'");
+		//_log.warn("[LinkAdd]"+getName()+" '"+link+"'");
 	}
 
 	/**
@@ -9245,7 +9244,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// Stop the HP/MP/CP Regeneration task (scheduled tasks)
@@ -9255,7 +9254,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// Stop crafting, if in progress
@@ -9265,7 +9264,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// Cancel Attak or Cast
@@ -9277,7 +9276,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		if (getWorldRegion() != null)
@@ -9295,7 +9294,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch(Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// Remove the L2PcInstance from the world
@@ -9306,7 +9305,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// If a Party is in progress, leave it
@@ -9317,7 +9316,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// If the L2PcInstance has Pet, unsummon it
@@ -9329,7 +9328,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			}
 			catch (Throwable t)
 			{
-				_log.log(Level.SEVERE, "deleteMe()", t);
+				_log.error( "deleteMe()", t);
 			}// returns pet to control item
 		}
 
@@ -9347,7 +9346,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			}
 			catch(Throwable t)
 			{
-				_log.log(Level.SEVERE, "deleteMe()", t);
+				_log.error( "deleteMe()", t);
 			}
 		}
 
@@ -9371,7 +9370,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			}
 			catch (Throwable t)
 			{
-				_log.log(Level.SEVERE, "deleteMe()", t);
+				_log.error( "deleteMe()", t);
 			}
 		}
 
@@ -9382,7 +9381,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", e);
+			_log.error( "deleteMe()", e);
 		}
 
 		// Update database with items in its inventory and remove them from the world
@@ -9392,7 +9391,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch(Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// Update database with items in its warehouse and remove them from the world
@@ -9402,7 +9401,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch(Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		if(Config.WAREHOUSE_CACHE)
@@ -9415,7 +9414,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch(Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// Remove all L2Object from _knownObjects and _knownPlayer of the L2Character then cancel Attak or Cast and notify AI
@@ -9425,7 +9424,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 		catch(Throwable t)
 		{
-			_log.log(Level.SEVERE, "deleteMe()", t);
+			_log.error( "deleteMe()", t);
 		}
 
 		// Close the connection with the client
@@ -10568,7 +10567,7 @@ public final class L2PcInstance extends L2PlayableInstance
 				{
 					removeSkill(skill);
 					sendMessage("Skill: " + skill.getName() + " removed and GM informed!");
-					_log.warning("Cheater! - Character " + getName() + " of Account " + getAccountName() + " VIP status : got skill " + skill.getName() + " removed!");
+					_log.warn("Cheater! - Character " + getName() + " of Account " + getAccountName() + " VIP status : got skill " + skill.getName() + " removed!");
 				}
 			}
 		}

@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.ai.L2CharacterAI;
@@ -28,13 +26,11 @@ import com.it.br.gameserver.model.L2Attackable;
 import com.it.br.gameserver.model.L2CharPosition;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.actor.knownlist.SiegeGuardKnownList;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.SocialAction;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class represents all guards in the world. It inherits all methods from
@@ -45,7 +41,7 @@ import com.it.br.util.Rnd;
 public final class L2SiegeGuardInstance extends L2Attackable
 {
     @SuppressWarnings("hiding")
-	private static Logger _log = Logger.getLogger(L2GuardInstance.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(L2GuardInstance.class);
 
     private int _homeX;
     private int _homeY;
@@ -109,7 +105,7 @@ public final class L2SiegeGuardInstance extends L2Attackable
         _homeZ = getZ();
 
         if (Config.DEBUG)
-            _log.finer(getObjectId()+": Home location set to"+
+            _log.debug(getObjectId()+": Home location set to"+
                     " X:" + _homeX + " Y:" + _homeY + " Z:" + _homeZ);
     }
 
@@ -133,7 +129,7 @@ public final class L2SiegeGuardInstance extends L2Attackable
     {
         if (!isInsideRadius(_homeX, _homeY, 40, false))
         {
-            if (Config.DEBUG) _log.fine(getObjectId()+": moving home");
+            if (Config.DEBUG) _log.debug(getObjectId()+": moving home");
             setisReturningToSpawnPoint(true);    
             clearAggroList();
             
@@ -156,7 +152,7 @@ public final class L2SiegeGuardInstance extends L2Attackable
 		// Check if the L2PcInstance already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			if (Config.DEBUG) _log.fine("new target selected:"+getObjectId());
+			if (Config.DEBUG) _log.debug("new target selected:"+getObjectId());
 
 			// Set the target of the L2PcInstance player
 			player.setTarget(this);

@@ -28,12 +28,12 @@
  */
 package com.it.br.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
 
 public class Util
 {
-	private final static Logger _log = LoggerFactory.getLogger(Util.class);
+	private final static Logger _log = LoggerFactory.getLogger("echo");
 
 	public static boolean isInternalIP(String ipAddress)
     {
@@ -153,9 +153,10 @@ public class Util
 			return;
 		}
 		int i;
-		for (i = 0; i < maxlength - slen; i++)
-			s = "=" + s;
-		System.out.println(s);
+		for (i = 0; i < maxlength - slen; i++) {
+            s = "=" + s;
+        }
+		_log.info(s);
 	}
 
 	/**

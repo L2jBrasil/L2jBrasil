@@ -37,7 +37,7 @@ package com.it.br.gameserver.network.serverpackets;
 public class AskJoinFriend extends L2GameServerPacket
 {
 	private static final String _S__7d_ASKJoinFriend_0X7d = "[S] 7d AskJoinFriend 0x7d";
-	//private static Logger _log = Logger.getLogger(AskJoinFriend.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(AskJoinFriend.class);
 
 	private String _requestorName;
 	//private int _itemDistribution;

@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Level;
-
 import com.it.br.gameserver.cache.CrestCache;
 import com.it.br.gameserver.cache.CrestCache.CrestType;
 import com.it.br.gameserver.idfactory.IdFactory;
@@ -97,7 +95,7 @@ public final class RequestSetPledgeCrest extends L2GameClientPacket
 				crestId = IdFactory.getInstance().getNextId();
 				if (!CrestCache.saveCrest(CrestType.PLEDGE, crestId, _data))
 				{
-					_log.log(Level.INFO, "Error saving crest for clan " + clan.getName() + " [" + clan.getClanId() + "]");
+					_log.info( "Error saving crest for clan " + clan.getName() + " [" + clan.getClanId() + "]");
 					return;
 				}
 				updated = true;

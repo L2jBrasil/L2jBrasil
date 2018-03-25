@@ -17,14 +17,14 @@
  */
 package com.it.br.gameserver.model;
 
-import java.lang.reflect.Constructor;
-
 import com.it.br.Config;
 import com.it.br.gameserver.Territory;
 import com.it.br.gameserver.idfactory.IdFactory;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+
+import java.lang.reflect.Constructor;
 
 /**
  * @author littlecrow
@@ -94,7 +94,7 @@ public class L2GroupSpawn extends L2Spawn
 			mob.onSpawn();
 
 			if (Config.DEBUG)
-				_log.finest("spawned Mob ID: "+_template.npcId+" ,at: "
+				_log.trace("spawned Mob ID: "+_template.npcId+" ,at: "
 						+mob.getX()+" x, "+mob.getY()+" y, "+mob.getZ()+" z");
 
 			return mob;
@@ -102,7 +102,7 @@ public class L2GroupSpawn extends L2Spawn
 		}
 		catch (Exception e)
 		{
-			_log.warning("NPC class not found: " + e);
+			_log.warn("NPC class not found: " + e);
 			return null;
 		}
 	}

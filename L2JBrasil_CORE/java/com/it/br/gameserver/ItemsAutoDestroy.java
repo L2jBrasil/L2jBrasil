@@ -18,19 +18,20 @@
  */
 package com.it.br.gameserver;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.instancemanager.ItemsOnGroundManager;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.templates.L2EtcItemType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemsAutoDestroy
 {
-	protected static final Logger _log = Logger.getLogger("ItemsAutoDestroy");
+	protected static final Logger _log = LoggerFactory.getLogger("ItemsAutoDestroy");
 	private static ItemsAutoDestroy _instance;
 	protected List<L2ItemInstance> _items = null;
 	protected static long _sleep;

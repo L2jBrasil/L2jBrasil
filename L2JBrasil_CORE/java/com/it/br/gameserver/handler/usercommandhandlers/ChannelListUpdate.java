@@ -19,7 +19,6 @@ package com.it.br.gameserver.handler.usercommandhandlers;
 
 import com.it.br.gameserver.handler.IUserCommandHandler;
 import com.it.br.gameserver.model.L2CommandChannel;
-import com.it.br.gameserver.model.L2Party;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.ExMultiPartyCommandChannelInfo;
 

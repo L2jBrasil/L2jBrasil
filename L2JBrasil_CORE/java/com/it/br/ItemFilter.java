@@ -18,10 +18,10 @@
  */
 package com.it.br;
 
+import com.it.br.gameserver.model.L2ItemInstance;
+
 import java.util.logging.Filter;
 import java.util.logging.LogRecord;
-
-import com.it.br.gameserver.model.L2ItemInstance;
 
 /**
  * @author Advi

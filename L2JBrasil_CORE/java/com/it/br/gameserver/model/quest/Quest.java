@@ -35,6 +35,8 @@ import com.it.br.gameserver.scripting.ManagedScript;
 import com.it.br.gameserver.scripting.ScriptManager;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -43,8 +45,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Luis Arias
@@ -52,7 +52,7 @@ import java.util.logging.Logger;
  */
 public class Quest extends ManagedScript
 {
-	protected static final Logger _log = Logger.getLogger(Quest.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(Quest.class);
 
 	/** HashMap containing events from String value of the event */
 	private static Map<String, Quest> _allEventsS = new HashMap<>();
@@ -437,7 +437,7 @@ public class Quest extends ManagedScript
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING, "", e);
+			_log.warn( "", e);
 			return true;
 		}
 		return false;
@@ -829,7 +829,7 @@ public class Quest extends ManagedScript
 	 */
 	private boolean showError(L2PcInstance player, Throwable t) 
 	{
-		_log.log(Level.WARNING, this.getScriptFile().getAbsolutePath(), t);
+		_log.warn( this.getScriptFile().getAbsolutePath(), t);
 		if (player.isGM())
 		{
 			StringWriter sw = new StringWriter();
@@ -904,7 +904,7 @@ public class Quest extends ManagedScript
 				Quest q = QuestManager.getInstance().getQuest(questId);
 				if(q == null)
 				{
-					_log.finer("Unknown quest " + questId + " for player " + player.getName());
+					_log.debug("Unknown quest " + questId + " for player " + player.getName());
 					if (Config.AUTODELETE_INVALID_QUEST_DATA)
 					{
 						invalidQuestData.setInt(1, player.getObjectId());
@@ -917,7 +917,7 @@ public class Quest extends ManagedScript
 				State state = q._states.get(stateId);
 				if(state == null)
 				{
-					_log.finer("Unknown quest " + questId + " for player " + player.getName());
+					_log.debug("Unknown quest " + questId + " for player " + player.getName());
 					if (Config.AUTODELETE_INVALID_QUEST_DATA)
 					{
 						invalidQuestData.setInt(1, player.getObjectId());
@@ -945,7 +945,7 @@ public class Quest extends ManagedScript
 				QuestState qs = player.getQuestState(questId);
 				if (qs == null)
 				{
-					_log.finer("Lost variable " + var + " in quest " + questId + " for player " + player.getName());
+					_log.debug("Lost variable " + var + " in quest " + questId + " for player " + player.getName());
 					if (Config.AUTODELETE_INVALID_QUEST_DATA)
 					{
 						invalidQuestDataVar.setInt(1, player.getObjectId());
@@ -964,7 +964,7 @@ public class Quest extends ManagedScript
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING, "could not insert char quest:", e);
+			_log.warn( "could not insert char quest:", e);
 		}
 		finally
 		{
@@ -999,7 +999,7 @@ public class Quest extends ManagedScript
             statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not insert global quest variable:", e);
+			_log.warn( "could not insert global quest variable:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }				
@@ -1031,7 +1031,7 @@ public class Quest extends ManagedScript
 			rs.close();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not load global quest variable:", e);
+			_log.warn( "could not load global quest variable:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }	
@@ -1055,7 +1055,7 @@ public class Quest extends ManagedScript
             statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not delete global quest variable:", e);
+			_log.warn( "could not delete global quest variable:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }	
@@ -1076,7 +1076,7 @@ public class Quest extends ManagedScript
             statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not delete global quest variables:", e);
+			_log.warn( "could not delete global quest variables:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }	
@@ -1102,7 +1102,7 @@ public class Quest extends ManagedScript
 	    statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not insert char quest:", e);
+			_log.warn( "could not insert char quest:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }
@@ -1136,7 +1136,7 @@ public class Quest extends ManagedScript
 			statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not update char quest:", e);
+			_log.warn( "could not update char quest:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }
@@ -1160,7 +1160,7 @@ public class Quest extends ManagedScript
 	    statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not delete char quest:", e);
+			_log.warn( "could not delete char quest:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }
@@ -1182,7 +1182,7 @@ public class Quest extends ManagedScript
 			statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
-			_log.log(Level.WARNING, "could not delete char quest:", e);
+			_log.warn( "could not delete char quest:", e);
         } finally {
             try { con.close(); } catch (Exception e) {}
         }
@@ -1680,7 +1680,7 @@ public class Quest extends ManagedScript
                 // default spawn location, which is at the player's loc.
                 if ((x == 0) && (y == 0))
                 {
-                	_log.log(Level.SEVERE, "Failed to adjust bad locks for quest spawn!  Spawn aborted!");
+                	_log.error( "Failed to adjust bad locks for quest spawn!  Spawn aborted!");
                 	return null;
                 }
                 if (randomOffset)
@@ -1713,7 +1713,7 @@ public class Quest extends ManagedScript
         }
         catch (Exception e1)
         {
-        	_log.warning("Could not spawn Npc " + npcId);
+        	_log.warn("Could not spawn Npc " + npcId);
         }
           
         return null;

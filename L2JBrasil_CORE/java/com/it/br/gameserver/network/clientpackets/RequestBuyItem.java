@@ -18,29 +18,19 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.List;
-
 import com.it.br.Config;
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2TradeList;
-import com.it.br.gameserver.model.actor.instance.L2CastleChamberlainInstance;
-import com.it.br.gameserver.model.actor.instance.L2ClanHallManagerInstance;
-import com.it.br.gameserver.model.actor.instance.L2FishermanInstance;
-import com.it.br.gameserver.model.actor.instance.L2MercManagerInstance;
-import com.it.br.gameserver.model.actor.instance.L2MerchantInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.util.Util;
+
+import java.util.List;
 
 /**
  * This class ...
@@ -50,7 +40,7 @@ import com.it.br.gameserver.util.Util;
 public final class RequestBuyItem extends L2GameClientPacket
 {
 	private static final String _C__1F_REQUESTBUYITEM = "[C] 1F RequestBuyItem";
-	//private static Logger _log = Logger.getLogger(RequestBuyItem.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestBuyItem.class);
 
 	private int _listId;
 	private int _count;
@@ -234,7 +224,7 @@ public final class RequestBuyItem extends L2GameClientPacket
 */
 			if (price < 0)
 			{
-				_log.warning("ERROR, no price found .. wrong buylist ??");
+				_log.warn("ERROR, no price found .. wrong buylist ??");
                 sendPacket(new ActionFailed());
                 return;
 			}

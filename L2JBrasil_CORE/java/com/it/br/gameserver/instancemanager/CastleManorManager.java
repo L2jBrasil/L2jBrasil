@@ -27,12 +27,13 @@ import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
 
 /**
  * Class For Castle Manor Manager Load manor data from DB Update/Reload/Delete
@@ -41,7 +42,7 @@ import java.util.logging.Logger;
  */
 
 public class CastleManorManager {
-	protected static Logger _log = Logger.getLogger(CastleManorManager.class.getName());
+	protected static Logger _log = LoggerFactory.getLogger(CastleManorManager.class);
 
 	private static CastleManorManager _instance;
 

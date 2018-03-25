@@ -3,6 +3,8 @@ package com.it.br.gameserver.database.dao;
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.instancemanager.CastleManorManager;
 import com.it.br.gameserver.model.entity.Castle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,10 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class CastleManorDao {
-    private static final Logger _log = Logger.getLogger(CastleManorDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(CastleManorDao.class);
 
     private static final String DELETE_PRODUCTION = "DELETE FROM castle_manor_production WHERE castle_id=?;";
     private static final String DELETE_PRODUCTION_PERIOD = "DELETE FROM castle_manor_production WHERE castle_id=? AND period=?;";
@@ -79,7 +80,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: saveSeed(Castle): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: saveSeed(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -119,7 +120,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: saveSeed(Castle, period): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: saveSeed(Castle, period): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -177,7 +178,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: saveCrop(Castle): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: saveCrop(Castle): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -218,7 +219,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: saveCrop(Castle, period): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: saveCrop(Castle, period): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -235,7 +236,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: updateCrop(Castle, cropId, amount, period): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: updateCrop(Castle, cropId, amount, period): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -252,7 +253,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: updateSeed(Castle, seedId, amount, period): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: updateSeed(Castle, seedId, amount, period): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -281,7 +282,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: loadProduction(Castle, CastleManorManager): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: loadProduction(Castle, CastleManorManager): " + e.getMessage());
             e.printStackTrace();
         }
         list.add(production);
@@ -313,7 +314,7 @@ public class CastleManorDao {
         }
         catch (SQLException e)
         {
-            _log.warning( ClanDao.class.getName() + ": Exception: loadProcure(Castle, CastleManorManager): " + e.getMessage());
+            _log.warn( ClanDao.class.getName() + ": Exception: loadProcure(Castle, CastleManorManager): " + e.getMessage());
             e.printStackTrace();
         }
         list.add(procure);

@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.templates.L2Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 5e
@@ -58,7 +58,7 @@ import com.it.br.gameserver.templates.L2Item;
 public class EquipUpdate extends L2GameServerPacket
 {
 	private static final String _S__5E_EQUIPUPDATE = "[S] 4b EquipUpdate";
-	private static Logger _log = Logger.getLogger(EquipUpdate.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(EquipUpdate.class);
 
 	private L2ItemInstance _item;
 	private int _change;
@@ -127,7 +127,7 @@ public class EquipUpdate extends L2GameServerPacket
 				break;
 		}
 
-		if (Config.DEBUG) _log.fine("body:" +bodypart);
+		if (Config.DEBUG) _log.debug("body:" +bodypart);
 		writeD(bodypart);
 	}
 

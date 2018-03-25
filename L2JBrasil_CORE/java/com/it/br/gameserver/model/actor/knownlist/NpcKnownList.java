@@ -19,11 +19,7 @@ package com.it.br.gameserver.model.actor.knownlist;
 
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.actor.instance.L2CabaleBufferInstance;
-import com.it.br.gameserver.model.actor.instance.L2FestivalGuideInstance;
-import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 
 public class NpcKnownList extends CharKnownList
 {

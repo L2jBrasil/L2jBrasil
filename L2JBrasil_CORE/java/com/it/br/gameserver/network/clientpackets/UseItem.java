@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.Arrays;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
@@ -30,27 +25,25 @@ import com.it.br.gameserver.handler.IItemHandler;
 import com.it.br.gameserver.handler.ItemHandler;
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
-import com.it.br.gameserver.model.Inventory;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.ShowCalculator;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2ArmorType;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2Weapon;
 import com.it.br.gameserver.templates.L2WeaponType;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public final class UseItem extends L2GameClientPacket
 {
-	private static Logger _log = Logger.getLogger(UseItem.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(UseItem.class);
 	private static final String _C__14_USEITEM = "[C] 14 UseItem";
 	private int _objectId;
 
@@ -309,7 +302,7 @@ public final class UseItem extends L2GameClientPacket
 		}
 
 		if (Config.DEBUG)
-			_log.finest(activeChar.getObjectId() + ": use item " + _objectId);
+			_log.trace(activeChar.getObjectId() + ": use item " + _objectId);
 
 		if (item.isEquipable())
 		{
@@ -607,7 +600,7 @@ public final class UseItem extends L2GameClientPacket
 		{
 			L2Weapon weaponItem = activeChar.getActiveWeaponItem();
 			int itemid = item.getItemId();
-                //_log.finest("item not equipable id:"+ item.getItemId());
+                //_log.trace("item not equipable id:"+ item.getItemId());
 			if (itemid == 4393)
 				activeChar.sendPacket(new ShowCalculator(4393));
                 
@@ -625,7 +618,7 @@ public final class UseItem extends L2GameClientPacket
 			{
 				IItemHandler handler = ItemHandler.getInstance().getItemHandler(item.getItemId());
 				if (handler == null)
-					_log.warning("No item handler registered for item ID " + item.getItemId() + ".");
+					_log.warn("No item handler registered for item ID " + item.getItemId() + ".");
 				else
 					handler.useItem(activeChar, item);
 			}

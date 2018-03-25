@@ -23,7 +23,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 public final class RequestReplySurrenderPledgeWar extends L2GameClientPacket
 {
     private static final String _C__52_REQUESTREPLYSURRENDERPLEDGEWAR = "[C] 52 RequestReplySurrenderPledgeWar";
-    //private static Logger _log = Logger.getLogger(RequestReplySurrenderPledgeWar.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(RequestReplySurrenderPledgeWar.class);
 
     private int _answer;
 

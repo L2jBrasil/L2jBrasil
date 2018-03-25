@@ -1,14 +1,14 @@
 package com.it.br.gameserver.model.entity;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Logger;
-
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @Rewarked *Slayer
@@ -16,7 +16,7 @@ import com.it.br.util.Rnd;
 
 public class PcPoint implements Runnable
 {
-	Logger _log = Logger.getLogger(PcPoint.class.getName());
+	Logger _log = LoggerFactory.getLogger(PcPoint.class);
 	private static PcPoint _instance;
 
 	public static PcPoint getInstance()

@@ -40,7 +40,7 @@ import com.it.br.util.Rnd;
 public final class RequestExEnchantSkill extends L2GameClientPacket
 {
 	private static final String _C__D0_07_REQUESTEXENCHANTSKILL = "[C] D0:07 RequestExEnchantSkill";
-	//private static Logger _log = Logger.getLogger(RequestAquireSkill.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestAquireSkill.class);
 	private int _skillId;
 	private int _skillLvl;
 
@@ -138,7 +138,7 @@ public final class RequestExEnchantSkill extends L2GameClientPacket
         	player.addSkill(skill, true);
 
         	if (Config.DEBUG)
-        		_log.fine("Learned skill " + _skillId + " for " + _requiredSp + " SP.");
+        		_log.debug("Learned skill " + _skillId + " for " + _requiredSp + " SP.");
 
         	player.getStat().removeExpAndSp(_requiredExp, _requiredSp);
 

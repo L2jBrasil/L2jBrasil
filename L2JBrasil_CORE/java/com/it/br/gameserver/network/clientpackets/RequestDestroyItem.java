@@ -19,7 +19,6 @@
 package com.it.br.gameserver.network.clientpackets;
 
 import com.it.br.Config;
-import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.database.dao.PetsDao;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 import com.it.br.gameserver.instancemanager.CursedWeaponsManager;
@@ -30,14 +29,10 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Util;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.logging.Level;
-
 public final class RequestDestroyItem extends L2GameClientPacket
 {
 	private static final String _C__59_REQUESTDESTROYITEM = "[C] 59 RequestDestroyItem";
-	//private static Logger _log = Logger.getLogger(RequestDestroyItem.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestDestroyItem.class);
 
 	private int _objectId;
 	private int _count;

@@ -18,13 +18,15 @@
  */
 package com.it.br.gameserver.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Closeable;
 import java.sql.Connection;
-import java.util.logging.Logger;
 
 public final class CloseUtil 
 {
-	private final static Logger _log = Logger.getLogger(CloseUtil.class.getName());
+	private final static Logger _log = LoggerFactory.getLogger(CloseUtil.class);
 	public static void close(Connection con)
 	{
 		if(con != null) try
@@ -35,7 +37,7 @@ public final class CloseUtil
 		catch(Throwable e)
 		{
 			e.printStackTrace();
-			_log.severe(e.getMessage());
+			_log.error(e.getMessage());
 		}
 	}
 
@@ -49,7 +51,7 @@ public final class CloseUtil
 		catch(Throwable e)
 		{
 			e.printStackTrace();
-			_log.severe(e.getMessage());
+			_log.error(e.getMessage());
 		}
 	}
 }

@@ -28,10 +28,10 @@
  */
 package com.it.br.util;
 
-import java.util.Iterator;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2Object;
+
+import java.util.Iterator;
 
 /**
  * This class ...

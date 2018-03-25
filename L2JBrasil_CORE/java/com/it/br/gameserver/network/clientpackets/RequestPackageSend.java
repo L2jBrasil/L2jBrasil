@@ -17,10 +17,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.ItemContainer;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -35,6 +31,11 @@ import com.it.br.gameserver.network.serverpackets.ItemList;
 import com.it.br.gameserver.network.serverpackets.StatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2EtcItemType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -43,7 +44,7 @@ import com.it.br.gameserver.templates.L2EtcItemType;
 public final class RequestPackageSend extends L2GameClientPacket
 {
 	private static final String _C_9F_REQUESTPACKAGESEND = "[C] 9F RequestPackageSend";
-	private static Logger _log = Logger.getLogger(RequestPackageSend.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestPackageSend.class);
 	private List<Item> _items = new ArrayList<>();
 	private int _objectID;
 	private int _count;
@@ -138,14 +139,14 @@ public final class RequestPackageSend extends L2GameClientPacket
 			L2ItemInstance item = player.checkItemManipulation(objectId, count, "deposit");
             if (item == null)
             {
-            	_log.warning("Error depositing a warehouse object for char "+player.getName()+" (validity check)");
+            	_log.warn("Error depositing a warehouse object for char "+player.getName()+" (validity check)");
             	i.id = 0;
             	i.count = 0;
             	continue;
             }
             if(item.isAugmented())
 			{
-				_log.warning("Error depositing a warehouse object for char "+player.getName()+" (item is augmented)");
+				_log.warn("Error depositing a warehouse object for char "+player.getName()+" (item is augmented)");
 				return;
 			}
             if (!item.isTradeable() || item.getItemType() == L2EtcItemType.QUEST) return;
@@ -183,7 +184,7 @@ public final class RequestPackageSend extends L2GameClientPacket
 			L2ItemInstance oldItem = player.getInventory().getItemByObjectId(objectId);
             if (oldItem == null)
             {
-                _log.warning("Error depositing a warehouse object for char "+player.getName()+" (olditem == null)");
+                _log.warn("Error depositing a warehouse object for char "+player.getName()+" (olditem == null)");
                 continue;
             }
 
@@ -195,7 +196,7 @@ public final class RequestPackageSend extends L2GameClientPacket
 			L2ItemInstance newItem = player.getInventory().transferItem("Warehouse", objectId, count, warehouse, player, player.getLastFolkNPC());
             if (newItem == null)
             {
-            	_log.warning("Error depositing a warehouse object for char "+player.getName()+" (newitem == null)");
+            	_log.warn("Error depositing a warehouse object for char "+player.getName()+" (newitem == null)");
             	continue;
             }
 

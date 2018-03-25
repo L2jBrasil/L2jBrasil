@@ -18,9 +18,9 @@
  */
 package com.it.br.gameserver.network.gameserverpackets;
 
-import java.io.IOException;
-
 import com.it.br.gameserver.LoginServerThread.SessionKey;
+
+import java.io.IOException;
 
 /**
  * @author -Wooden-

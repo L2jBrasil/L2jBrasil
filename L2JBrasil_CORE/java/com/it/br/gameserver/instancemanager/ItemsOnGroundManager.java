@@ -22,10 +22,11 @@ import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.database.dao.ItemsOnGroundDao;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Object;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * This class manage all items on ground
@@ -37,7 +38,7 @@ import java.util.logging.Logger;
  */
 public class ItemsOnGroundManager
 {
-    static final Logger _log = Logger.getLogger(ItemsOnGroundManager.class.getName());
+    static final Logger _log = LoggerFactory.getLogger(ItemsOnGroundManager.class);
     private static ItemsOnGroundManager _instance;
 
     public static List<L2ItemInstance> getItems() {
@@ -124,7 +125,7 @@ public class ItemsOnGroundManager
 
             if (_items.isEmpty()) {
                 if (Config.DEBUG)
-                    _log.warning("ItemsOnGroundManager: nothing to save...");
+                    _log.warn("ItemsOnGroundManager: nothing to save...");
                 return;
             }
 
@@ -136,7 +137,7 @@ public class ItemsOnGroundManager
                 ItemsOnGroundDao.insert(item);
             }
             if (Config.DEBUG)
-                _log.warning("ItemsOnGroundManager: " + _items.size() + " items on ground saved");
+                _log.warn("ItemsOnGroundManager: " + _items.size() + " items on ground saved");
         }
     }
 }

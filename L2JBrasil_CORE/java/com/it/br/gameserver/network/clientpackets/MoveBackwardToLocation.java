@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.nio.BufferUnderflowException;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.TaskPriority;
@@ -35,9 +31,13 @@ import com.it.br.gameserver.templates.L2WeaponType;
 import com.it.br.gameserver.util.IllegalPlayerAction;
 import com.it.br.gameserver.util.Util;
 
+import java.nio.BufferUnderflowException;
+
+import static com.it.br.configuration.Configurator.getSettings;
+
 public class MoveBackwardToLocation extends L2GameClientPacket
 {
-	//private static Logger _log = Logger.getLogger(MoveBackwardToLocation.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(MoveBackwardToLocation.class);
 
 	private int _targetX,_targetY,_targetZ;
 

@@ -33,7 +33,7 @@ import com.it.br.gameserver.network.serverpackets.PartyMemberPosition;
 public final class CannotMoveAnymore extends L2GameClientPacket
 {
 	private static final String _C__36_STOPMOVE = "[C] 36 CannotMoveAnymore";
-	//private static Logger _log = Logger.getLogger(CannotMoveAnymore.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(CannotMoveAnymore.class);
 
 	private int _x;
 	private int _y;
@@ -59,7 +59,7 @@ public final class CannotMoveAnymore extends L2GameClientPacket
 			return;
 
 		if (Config.DEBUG)
-			_log.fine("client: x:" + _x + " y:" + _y + " z:" + _z + " server x:" + player.getX() + " y:" + player.getY() + " z:" + player.getZ());
+			_log.debug("client: x:" + _x + " y:" + _y + " z:" + _z + " server x:" + player.getX() + " y:" + player.getY() + " z:" + player.getZ());
 		if (player.getAI() != null)
 		{
 			player.getAI().notifyEvent(CtrlEvent.EVT_ARRIVED_BLOCKED,new L2CharPosition(_x, _y, _z, _heading));
@@ -70,7 +70,7 @@ public final class CannotMoveAnymore extends L2GameClientPacket
 		// player.stopMove();
 		//
 		// if (Config.DEBUG)
-		// _log.fine("client: x:"+_x+" y:"+_y+" z:"+_z+
+		// _log.debug("client: x:"+_x+" y:"+_y+" z:"+_z+
 		// " server x:"+player.getX()+" y:"+player.getZ()+" z:"+player.getZ());
 		// StopMove smwl = new StopMove(player);
 		// getClient().getActiveChar().sendPacket(smwl);

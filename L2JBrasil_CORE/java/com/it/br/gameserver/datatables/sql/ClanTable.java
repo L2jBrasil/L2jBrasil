@@ -30,15 +30,16 @@ import com.it.br.gameserver.model.entity.Siege;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class ClanTable
 {
-	private static Logger _log = Logger.getLogger(ClanTable.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(ClanTable.class);
 	private static ClanTable _instance;
 	private Map<Integer, L2Clan> _clans;
 
@@ -73,7 +74,7 @@ public class ClanTable
 					scheduleRemoveClan(clan.getClanId());
 		});
 
-		_log.config("Restored "+ clans.size() +" clans from the database.");
+		_log.info("Restored "+ clans.size() +" clans from the database.");
 		restorewars();
 	}
 
@@ -113,7 +114,7 @@ public class ClanTable
     		return null;
 
         if (Config.DEBUG)
-            _log.fine(player.getObjectId() + "(" + player.getName() + ") requested a clan creation.");
+            _log.debug(player.getObjectId() + "(" + player.getName() + ") requested a clan creation.");
 
         if (Config.MINIMUN_LEVEL_FOR_CREATION_CLAN > player.getLevel() && !player.isGM())
         {
@@ -167,7 +168,7 @@ public class ClanTable
 		player.setClanPrivileges(L2Clan.CP_ALL);
 
 		if (Config.DEBUG)
-			_log.fine("New clan created: "+clan.getClanId() + " " +clan.getName());
+			_log.debug("New clan created: "+clan.getClanId() + " " +clan.getName());
 
 		_clans.put(clan.getClanId(), clan);
 

@@ -18,13 +18,14 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WareHouseDepositList extends L2GameServerPacket
 {
@@ -32,7 +33,7 @@ public class WareHouseDepositList extends L2GameServerPacket
 	public static final int CLAN = 2;
 	public static final int CASTLE = 3; //not sure
 	public static final int FREIGHT = 4; //not sure
-	private static Logger _log = Logger.getLogger(WareHouseDepositList.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(WareHouseDepositList.class);
 	private static final String _S__53_WAREHOUSEDEPOSITLIST = "[S] 41 WareHouseDepositList";
 	private L2PcInstance _activeChar;
 	private int _playerAdena;
@@ -98,7 +99,7 @@ public class WareHouseDepositList extends L2GameServerPacket
         writeH(_whType);
 		writeD(_playerAdena);
 		int count = _items.size();
-		if (Config.DEBUG) _log.fine("count:"+count);
+		if (Config.DEBUG) _log.debug("count:"+count);
 		writeH(count);
 
 		for (L2ItemInstance item : _items)

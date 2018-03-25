@@ -27,16 +27,17 @@
 
 package com.it.br.gameserver;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.lib.SqlUtils;
 import com.it.br.gameserver.model.L2Territory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Territory
 {
-	private static Logger _log = Logger.getLogger(TradeController.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(TradeController.class);
 	private static final Territory _instance = new Territory();
 	private static Map<Integer,L2Territory> _territory;
 
@@ -72,7 +73,7 @@ public class Territory
 			Integer terr = row[0];
 			if(terr == null)
 			{
-				_log.warning("Null territory!");
+				_log.warn("Null territory!");
 				continue;
 			}
 

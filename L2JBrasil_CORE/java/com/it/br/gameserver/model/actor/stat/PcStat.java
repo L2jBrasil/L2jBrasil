@@ -25,16 +25,17 @@ import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 import com.it.br.gameserver.model.base.Experience;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 public class PcStat extends PlayableStat
 {
-	private static Logger _log = Logger.getLogger(L2PcInstance.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(L2PcInstance.class);
 
     // =========================================================
     // Data Field
@@ -196,7 +197,7 @@ public class PcStat extends PlayableStat
 					}
 					catch (SQLException e)
 					{
-						_log.warning("Could not check character for newbie: " + e);
+						_log.warn("Could not check character for newbie: " + e);
 					}
 					finally
 					{

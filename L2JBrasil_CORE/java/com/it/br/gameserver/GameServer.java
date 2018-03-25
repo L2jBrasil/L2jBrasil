@@ -58,20 +58,14 @@ import com.it.br.util.IPv4Filter;
 import com.it.br.util.Util;
 import com.l2jserver.mmocore.network.SelectorConfig;
 import com.l2jserver.mmocore.network.SelectorThread;
-import org.apache.logging.log4j.core.config.Configurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
@@ -95,7 +89,6 @@ public class GameServer {
 
     public GameServer() throws Exception {
 
-
         long serverLoadStart = System.currentTimeMillis();
         gameServer = this;
 
@@ -104,7 +97,9 @@ public class GameServer {
 
         ServerSettings serverSettings = getSettings(ServerSettings.class);
         File datapack = serverSettings.getDatapackDirectory();
+
         _threadpools = ThreadPoolManager.getInstance();
+
         new File(datapack, "client-ac").mkdirs();
         new File(datapack, "data/clans").mkdirs();
         new File(datapack, "data/crests").mkdirs();
@@ -136,6 +131,7 @@ public class GameServer {
         StaticObjects.getInstance();
         ExtractableItemsData.getInstance();
         FishTable.getInstance();
+
         if (Config.SAVE_DROPPED_ITEM)
             ItemsOnGroundManager.getInstance();
         if (Config.AUTODESTROY_ITEM_AFTER > 0 || Config.HERB_AUTO_DESTROY_TIME > 0)
@@ -151,6 +147,7 @@ public class GameServer {
         Util.printSection("Npc");
         if (Config.ALLOW_NPC_WALKERS)
             NpcWalkerRoutesTable.getInstance().load();
+
         NpcTable.getInstance();
 
         Util.printSection("Cache");

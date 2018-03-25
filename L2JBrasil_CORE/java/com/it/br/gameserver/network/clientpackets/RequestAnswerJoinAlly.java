@@ -36,7 +36,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestAnswerJoinAlly extends L2GameClientPacket
 {
 	private static final String _C__83_REQUESTANSWERJOINALLY = "[C] 83 RequestAnswerJoinAlly";
-	//private static Logger _log = Logger.getLogger(RequestAnswerJoinAlly.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestAnswerJoinAlly.class);
 
 	private int _response;
 

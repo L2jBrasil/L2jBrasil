@@ -17,22 +17,23 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.quest.Quest;
+import com.it.br.gameserver.scripting.L2ScriptEngineManager;
+import com.it.br.gameserver.scripting.ScriptManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.quest.Quest;
-import com.it.br.gameserver.scripting.L2ScriptEngineManager;
-import com.it.br.gameserver.scripting.ScriptManager;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class QuestManager extends ScriptManager<Quest>
 {
-    protected static final Logger _log = Logger.getLogger(QuestManager.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(QuestManager.class);
     private static QuestManager _instance;
     // Data Field
     private Map<String, Quest> _quests = new HashMap<>();
@@ -89,7 +90,7 @@ public class QuestManager extends ScriptManager<Quest>
 			QuestManager.getInstance().report();
 		}
 		catch (IOException ioe) {
-			_log.severe("Failed loading scripts.cfg, no script going to be loaded");
+			_log.error("Failed loading scripts.cfg, no script going to be loaded");
 		}
 	}
     

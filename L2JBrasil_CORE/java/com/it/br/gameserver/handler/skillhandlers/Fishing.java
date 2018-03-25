@@ -21,11 +21,7 @@ package com.it.br.gameserver.handler.skillhandlers;
 import com.it.br.Config;
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.instancemanager.FishingZoneManager;
-import com.it.br.gameserver.model.Inventory;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.zone.type.L2FishingZone;
@@ -40,7 +36,7 @@ import com.it.br.util.Rnd;
 
 public class Fishing implements ISkillHandler
 {
-    //private static Logger _log = Logger.getLogger(SiegeFlag.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(SiegeFlag.class);
 	//protected SkillType[] _skillIds = {SkillType.FISHING};
 	private static final SkillType[] SKILL_IDS = {SkillType.FISHING};
 

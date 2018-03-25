@@ -26,7 +26,7 @@ import com.it.br.gameserver.util.Util;
 public final class RequestGetItemFromPet extends L2GameClientPacket
 {
 	private static final String REQUESTGETITEMFROMPET__C__8C = "[C] 8C RequestGetItemFromPet";
-	//private static Logger _log = Logger.getLogger(RequestGetItemFromPet.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestGetItemFromPet.class);
 	private int _objectId;
 	private int _amount;
 	@SuppressWarnings("unused")
@@ -59,7 +59,7 @@ public final class RequestGetItemFromPet extends L2GameClientPacket
 
 		if (pet.transferItem("Transfer", _objectId, _amount, player.getInventory(), player, pet) == null)
 		{
-			_log.warning("Invalid item transfer request: " + pet.getName() + "(pet) --> " + player.getName());
+			_log.warn("Invalid item transfer request: " + pet.getName() + "(pet) --> " + player.getName());
 		}
 	}
 

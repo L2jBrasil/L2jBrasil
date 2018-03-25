@@ -18,16 +18,10 @@
  */
 package com.it.br.gameserver.skills.effects;
 
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
 import com.it.br.gameserver.datatables.xml.NpcTable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2Spawn;
-import com.it.br.gameserver.model.L2WorldRegion;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.zone.form.ZoneCylinder;
 import com.it.br.gameserver.model.zone.type.L2SignetZone;
@@ -37,6 +31,8 @@ import com.it.br.gameserver.skills.Env;
 import com.it.br.gameserver.skills.l2skills.L2SkillMagicOnGround;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Point3D;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -45,7 +41,7 @@ import com.it.br.util.Point3D;
 
 public class EffectSignet extends L2Effect
 {
-	static Logger _log = Logger.getLogger(EffectSignet.class.getName());
+	static Logger _log = LoggerFactory.getLogger(EffectSignet.class);
 
 	private L2Spawn _spawn;
 
@@ -104,7 +100,7 @@ public class EffectSignet extends L2Effect
 
 		if (skill == null)
 		{
-			_log.warning("EffectSignet: Could not get the tigger effect " + ((L2SkillMagicOnGround) getSkill()).triggerEffectId);
+			_log.warn("EffectSignet: Could not get the tigger effect " + ((L2SkillMagicOnGround) getSkill()).triggerEffectId);
 			onExit();
 			return false;
 		}

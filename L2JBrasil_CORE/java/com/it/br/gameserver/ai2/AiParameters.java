@@ -18,13 +18,13 @@
  */
 package com.it.br.gameserver.ai2;
 
+import com.it.br.gameserver.model.L2Character;
+import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
-
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 
 /**
  *

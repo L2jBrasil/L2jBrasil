@@ -41,13 +41,14 @@ import com.it.br.gameserver.network.serverpackets.SpecialCamera;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
 
 /**
  * This class ... control for sequence of fight against "High Priestess van Halter".
@@ -58,7 +59,7 @@ import java.util.logging.Logger;
 
 public class VanHalter extends Quest implements Runnable
 {
-	private static final Logger _log = Logger.getLogger(VanHalter.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(VanHalter.class);
 
 	// List of intruders.
 	protected Map<Integer, List<L2PcInstance>> _bleedingPlayers = new HashMap<>();
@@ -223,7 +224,7 @@ public class VanHalter extends Quest implements Runnable
 			if(Config.DEBUG)
 				e.printStackTrace();
 			
-			_log.warning("VanHalterManager : " + e.getMessage() + " :" + e);
+			_log.warn("VanHalterManager : " + e.getMessage() + " :" + e);
 		}
 
 		// Set time up.
@@ -630,7 +631,7 @@ public class VanHalter extends Quest implements Runnable
 				if(Config.DEBUG)
 					e.printStackTrace();
 				
-				_log.warning(e.getMessage() + " :" + e);
+				_log.warn(e.getMessage() + " :" + e);
 			}
 		}
 
@@ -710,7 +711,7 @@ public class VanHalter extends Quest implements Runnable
 				if(Config.DEBUG)
 					e.printStackTrace();
 				
-				_log.warning(e.getMessage() + " :" + e);
+				_log.warn(e.getMessage() + " :" + e);
 			}
 		}
 	}
@@ -728,7 +729,7 @@ public class VanHalter extends Quest implements Runnable
 				if(Config.DEBUG)
 					e.printStackTrace();
 				
-				_log.warning(e.getMessage() + " :" + e);
+				_log.warn(e.getMessage() + " :" + e);
 			}
 		}
 	}

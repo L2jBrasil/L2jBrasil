@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.model.L2ItemInstance;
@@ -36,10 +31,16 @@ import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class L2OlympiadManagerInstance extends L2FolkInstance
 {
-    private static Logger _logOlymp = Logger.getLogger(L2OlympiadManagerInstance.class.getName());
+    private static Logger _logOlymp = LoggerFactory.getLogger(L2OlympiadManagerInstance.class);
 
     private int gatePass;
 
@@ -211,7 +212,7 @@ public class L2OlympiadManagerInstance extends L2FolkInstance
                 	L2Multisell.getInstance().SeparateAndSend(102, player, false, getCastle().getTaxRate());
                     break;
                     default:
-                        _logOlymp.warning("Olympiad System: Couldnt send packet for request " + val);
+                        _logOlymp.warn("Olympiad System: Couldnt send packet for request " + val);
                     break;
 
             }
@@ -288,7 +289,7 @@ public class L2OlympiadManagerInstance extends L2FolkInstance
                     player.sendPacket(new ExHeroList());
                     break;
                     default:
-                        _logOlymp.warning("Olympiad System: Couldn't send packet for request " + val);
+                        _logOlymp.warn("Olympiad System: Couldn't send packet for request " + val);
                     break;
             }
         }

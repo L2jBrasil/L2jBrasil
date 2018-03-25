@@ -21,13 +21,14 @@ package com.it.br.gameserver.communitybbs.BB;
 
 import com.it.br.gameserver.communitybbs.Manager.PostBBSManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author Maktakien
@@ -35,7 +36,7 @@ import java.util.logging.Logger;
  */
 public class Post
 {
-	private static Logger _log = Logger.getLogger(Post.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(Post.class);
 	public class CPost
 	{
 		public int postId;
@@ -81,7 +82,7 @@ public class Post
 		}
 		catch (Exception e)
 		{
-			_log.warning("error while saving new Post to db " + e);
+			_log.warn("error while saving new Post to db " + e);
 		}
 	}
 	public Post(Topic t)
@@ -147,7 +148,7 @@ public class Post
 		}
 		catch (Exception e)
 		{
-			_log.warning("data error on Post " + t.getForumID() + "/"+t.getID()+" : " + e);
+			_log.warn("data error on Post " + t.getForumID() + "/"+t.getID()+" : " + e);
 			e.printStackTrace();
 		}
 	}
@@ -170,7 +171,7 @@ public class Post
 		}
 		catch (Exception e)
 		{
-			_log.warning("error while saving new Post to db " + e);
+			_log.warn("error while saving new Post to db " + e);
 		}
 	}
 	/**

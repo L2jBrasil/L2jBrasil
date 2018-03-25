@@ -17,10 +17,6 @@
  */
 package com.it.br.gameserver.taskmanager.tasks;
 
-import java.util.Calendar;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.instancemanager.RaidBossPointsManager;
@@ -32,10 +28,15 @@ import com.it.br.gameserver.taskmanager.Task;
 import com.it.br.gameserver.taskmanager.TaskManager;
 import com.it.br.gameserver.taskmanager.TaskManager.ExecutedTask;
 import com.it.br.gameserver.taskmanager.TaskTypes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Calendar;
+import java.util.Map;
 
 public class TaskRaidPointsReset extends Task
 {
-	private static final Logger _log	= Logger.getLogger(TaskRaidPointsReset.class.getName());
+	private static final Logger _log	= LoggerFactory.getLogger(TaskRaidPointsReset.class);
 	public static final	String	NAME	= "raid_points_reset";
 
 

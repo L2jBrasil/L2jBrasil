@@ -30,15 +30,14 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.gameserverpackets.ServerStatus;
 import com.it.br.gameserver.network.serverpackets.ServerClose;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
 public class Shutdown extends Thread
 {
-	private static Logger _log = Logger.getLogger(Shutdown.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(Shutdown.class);
 	private static Shutdown _instance;
 	private static Shutdown _counterInstance = null;
 
@@ -60,7 +59,7 @@ public class Shutdown extends Thread
     public void startTelnetShutdown(String IP, int seconds, boolean restart)
     {
         Announcements _an = Announcements.getInstance();
-        _log.warning("IP: " + IP + " issued shutdown command. " + MODE_TEXT[_shutdownMode] + " in "+seconds+ " seconds!");
+        _log.warn("IP: " + IP + " issued shutdown command. " + MODE_TEXT[_shutdownMode] + " in "+seconds+ " seconds!");
         //_an.announceToAll("Server is " + _modeText[shutdownMode] + " in "+seconds+ " seconds!");
 
         if (restart) 
@@ -99,7 +98,7 @@ public class Shutdown extends Thread
     public void telnetAbort(String IP)
     {
         Announcements _an = Announcements.getInstance();
-        _log.warning("IP: " + IP + " issued shutdown ABORT. " + MODE_TEXT[_shutdownMode] + " has been stopped!");
+        _log.warn("IP: " + IP + " issued shutdown ABORT. " + MODE_TEXT[_shutdownMode] + " has been stopped!");
         _an.announceToAll("Server aborts " + MODE_TEXT[_shutdownMode] + " and continues normal operation!");
 
         if (_counterInstance != null)
@@ -264,7 +263,7 @@ public class Shutdown extends Thread
 			// gm shutdown: send warnings and then call exit to start shutdown sequence
 			countdown();
 			// last point where logging is operational :(
-			_log.warning("GM shutdown countdown is over. " + MODE_TEXT[_shutdownMode] + " NOW!");
+			_log.warn("GM shutdown countdown is over. " + MODE_TEXT[_shutdownMode] + " NOW!");
 			switch (_shutdownMode)
 			{
 				case GM_SHUTDOWN:
@@ -289,7 +288,7 @@ public class Shutdown extends Thread
 	public void startShutdown(L2PcInstance activeChar, int seconds, boolean restart)
 	{
 		Announcements _an = Announcements.getInstance();
-		_log.warning("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") issued shutdown command. " + MODE_TEXT[_shutdownMode] + " in "+seconds+ " seconds!");
+		_log.warn("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") issued shutdown command. " + MODE_TEXT[_shutdownMode] + " in "+seconds+ " seconds!");
 
 		if (restart)
         {
@@ -329,7 +328,7 @@ public class Shutdown extends Thread
 	public void abort(L2PcInstance activeChar)
 	{
 		Announcements _an = Announcements.getInstance();
-		_log.warning("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") issued shutdown ABORT. " + MODE_TEXT[_shutdownMode] + " has been stopped!");
+		_log.warn("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") issued shutdown ABORT. " + MODE_TEXT[_shutdownMode] + " has been stopped!");
 		_an.announceToAll("Server aborts " + MODE_TEXT[_shutdownMode] + " and continues normal operation!");
 
 		if (_counterInstance != null)
@@ -427,7 +426,7 @@ public class Shutdown extends Thread
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.INFO, "", t);
+			_log.info( "", t);
 		}
 
 		// we cannt abort shutdown anymore, so i removed the "if"
@@ -506,7 +505,7 @@ public class Shutdown extends Thread
 			}
 			catch (Throwable t)	{}
 		}
-		try { Thread.sleep(1000); } catch (Throwable t) {_log.log(Level.INFO, "", t);}
+		try { Thread.sleep(1000); } catch (Throwable t) {_log.info( "", t);}
 
 		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
 		{

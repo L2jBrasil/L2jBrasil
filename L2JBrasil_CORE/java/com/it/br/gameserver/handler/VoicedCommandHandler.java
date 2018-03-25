@@ -18,22 +18,21 @@
  */
 package com.it.br.gameserver.handler;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
-
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.Config;
-
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.voicedcommandhandlers.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class VoicedCommandHandler
 {
-	private static Logger _log = Logger.getLogger(ItemHandler.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(ItemHandler.class);
 
 	private static VoicedCommandHandler _instance;
 
@@ -102,7 +101,7 @@ public class VoicedCommandHandler
 		String[] ids = handler.getVoicedCommandList();
 		for (int i = 0; i < ids.length; i++)
 		{
-			if (Config.DEBUG) _log.fine("Adicionando handler para o comando "+ids[i]);
+			if (Config.DEBUG) _log.debug("Adicionando handler para o comando "+ids[i]);
 			_datatable.put(ids[i], handler);
 		}
 	}
@@ -115,7 +114,7 @@ public class VoicedCommandHandler
 			command = voicedCommand.substring(0, voicedCommand.indexOf(" "));
 		}
 		if (Config.DEBUG)
-			_log.fine("Obter handler para o comando: " + command + " -> "+(_datatable.get(command) != null));
+			_log.debug("Obter handler para o comando: " + command + " -> "+(_datatable.get(command) != null));
 		return _datatable.get(command);
 	}
     public int size()

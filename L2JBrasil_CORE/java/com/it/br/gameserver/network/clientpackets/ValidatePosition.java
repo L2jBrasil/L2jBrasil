@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.TaskPriority;
 import com.it.br.gameserver.Universe;
@@ -28,10 +26,12 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.PartyMemberPosition;
 import com.it.br.gameserver.network.serverpackets.ValidateLocation;
 import com.it.br.gameserver.network.serverpackets.ValidateLocationInVehicle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ValidatePosition extends L2GameClientPacket
 {
-    private static Logger _log = Logger.getLogger(ValidatePosition.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(ValidatePosition.class);
     private static final String _C__48_VALIDATEPOSITION = "[C] 48 ValidatePosition";
 
     /** urgent messages, execute immediatly */
@@ -138,8 +138,8 @@ public class ValidatePosition extends L2GameClientPacket
 
             if (Config.DEBUG) 
             {
-                _log.fine("client pos: "+ _x + " "+ _y + " "+ _z +" head "+ _heading);
-                _log.fine("server pos: "+ realX + " "+realY+ " "+realZ +" head "+realHeading);
+                _log.debug("client pos: "+ _x + " "+ _y + " "+ _z +" head "+ _heading);
+                _log.debug("server pos: "+ realX + " "+realY+ " "+realZ +" head "+realHeading);
             }
 
             if (Config.ACTIVATE_POSITION_RECORDER && !activeChar.isFlying() && Universe.getInstance().shouldLog(activeChar.getObjectId()))
@@ -149,7 +149,7 @@ public class ValidatePosition extends L2GameClientPacket
             {
                 if (diffSq > 1000000) 
                 {
-                    if (Config.DEBUG) _log.fine("client/server dist diff "+ (int)Math.sqrt(diffSq));
+                    if (Config.DEBUG) _log.debug("client/server dist diff "+ (int)Math.sqrt(diffSq));
                     if (activeChar.isInBoat())
                     {
                         sendPacket(new ValidateLocationInVehicle(activeChar));

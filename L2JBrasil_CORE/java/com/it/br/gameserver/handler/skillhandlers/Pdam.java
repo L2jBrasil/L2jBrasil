@@ -18,17 +18,11 @@
  */
 package com.it.br.gameserver.handler.skillhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.lib.Log;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -39,11 +33,13 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.skills.Formulas;
 import com.it.br.gameserver.skills.effects.EffectCharge;
 import com.it.br.gameserver.templates.L2WeaponType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Pdam implements ISkillHandler
 {
     // all the items ids that this handler knowns
-    private static Logger _log = Logger.getLogger(Pdam.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(Pdam.class);
 
     private static final SkillType[] SKILL_IDS = {SkillType.PDAM,/* SkillType.CHARGEDAM */};
     public void useSkill(L2Character activeChar, L2Skill skill, L2Object[] targets)
@@ -53,7 +49,7 @@ public class Pdam implements ISkillHandler
         int damage = 0;
 
         if (Config.DEBUG)
-            if (Config.DEBUG) _log.fine("Begin Skill processing in Pdam.java " + skill.getSkillType());
+            if (Config.DEBUG) _log.debug("Begin Skill processing in Pdam.java " + skill.getSkillType());
 
         for (int index = 0; index < targets.length; index++)
         {

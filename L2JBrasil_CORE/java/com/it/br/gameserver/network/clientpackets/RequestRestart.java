@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.communitybbs.Manager.RegionBBSManager;
@@ -36,11 +34,13 @@ import com.it.br.gameserver.network.serverpackets.CharSelectInfo;
 import com.it.br.gameserver.network.serverpackets.RestartResponse;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.taskmanager.AttackStanceTaskManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class RequestRestart extends L2GameClientPacket
 {
     private static final String _C__46_REQUESTRESTART = "[C] 46 RequestRestart";
-    private static Logger _log = Logger.getLogger(RequestRestart.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(RequestRestart.class);
 
     @Override
 	protected void readImpl()
@@ -62,7 +62,7 @@ public final class RequestRestart extends L2GameClientPacket
 
 		if (player.isLocked())
 		{
-			_log.warning(player.getName() + " tried to restart during class change.");
+			_log.warn(player.getName() + " tried to restart during class change.");
 			sendPacket(RestartResponse.valueOf(false));
 			return;
 		}
@@ -138,7 +138,7 @@ public final class RequestRestart extends L2GameClientPacket
         if (AttackStanceTaskManager.getInstance().getAttackStanceTask(player) && !(player.isGM() && Config.GM_RESTART_FIGHTING))
         {
             if (Config.DEBUG)
-                _log.fine("Player " + player.getName() + " tried to logout while fighting.");
+                _log.debug("Player " + player.getName() + " tried to logout while fighting.");
 
             player.sendPacket(new SystemMessage(SystemMessageId.CANT_RESTART_WHILE_FIGHTING));
             sendPacket(RestartResponse.valueOf(false));

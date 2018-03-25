@@ -18,14 +18,15 @@
 package com.it.br.gameserver.lib;
 
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.logging.Logger;
 
 public class SqlUtils
 {
-	private static Logger _log = Logger.getLogger(SqlUtils.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(SqlUtils.class);
 
     // =========================================================
     // Data Field
@@ -60,7 +61,7 @@ public class SqlUtils
 		}
 		catch(Exception e)
 		{
-			_log.warning("Error in query '" + query + "':"+e);
+			_log.warn("Error in query '" + query + "':"+e);
 			e.printStackTrace();
 		}
 		finally
@@ -105,7 +106,7 @@ public class SqlUtils
         }
         catch(Exception e)
         {
-            _log.warning("mSGI: Error in query '" + query + "':"+e);
+            _log.warn("mSGI: Error in query '" + query + "':"+e);
             e.printStackTrace();
         }
         finally
@@ -152,7 +153,7 @@ public class SqlUtils
 		}
 		catch(Exception e)
 		{
-			_log.warning("Error in query '" + query + "':"+e);
+			_log.warn("Error in query '" + query + "':"+e);
 			e.printStackTrace();
 		}
 		finally
@@ -161,7 +162,7 @@ public class SqlUtils
 			try{ statement.close(); } catch(Exception e) {}
 		}
 
-		_log.fine("Get all rows in query '" + query + "' in " + (System.currentTimeMillis()-start) + "ms");
+		_log.debug("Get all rows in query '" + query + "' in " + (System.currentTimeMillis()-start) + "ms");
 		return res;
 	}
 }

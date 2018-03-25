@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.skills;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
@@ -29,17 +25,9 @@ import com.it.br.gameserver.SevenSigns;
 import com.it.br.gameserver.SevenSignsFestival;
 import com.it.br.gameserver.instancemanager.ClanHallManager;
 import com.it.br.gameserver.instancemanager.SiegeManager;
-import com.it.br.gameserver.model.Inventory;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2SiegeClan;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
-import com.it.br.gameserver.model.L2Summon;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PetInstance;
-import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.model.entity.ClanHall;
 import com.it.br.gameserver.model.entity.Siege;
 import com.it.br.gameserver.network.SystemMessageId;
@@ -48,13 +36,13 @@ import com.it.br.gameserver.skills.conditions.ConditionPlayerState;
 import com.it.br.gameserver.skills.conditions.ConditionPlayerState.CheckPlayerState;
 import com.it.br.gameserver.skills.conditions.ConditionUsingItemType;
 import com.it.br.gameserver.skills.funcs.Func;
-import com.it.br.gameserver.templates.L2Armor;
-import com.it.br.gameserver.templates.L2NpcTemplate;
-import com.it.br.gameserver.templates.L2PcTemplate;
-import com.it.br.gameserver.templates.L2Weapon;
-import com.it.br.gameserver.templates.L2WeaponType;
+import com.it.br.gameserver.templates.*;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * Global calculations, can be modified by server admins
@@ -63,7 +51,7 @@ public final class Formulas
 {
 
 	/** Regen Task period */
-	protected static final Logger _log = Logger.getLogger(L2Character.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(L2Character.class);
 	private static final int HP_REGENERATE_PERIOD = 3000; // 3 secs
 
 	static class FuncAddLevel3 extends Func

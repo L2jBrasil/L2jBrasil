@@ -18,42 +18,29 @@
  */
 package com.it.br.gameserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
+import com.it.br.Config;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import com.it.br.gameserver.network.SystemMessageId;
+import com.it.br.gameserver.network.serverpackets.*;
+import com.it.br.gameserver.skills.Stats;
+import com.it.br.gameserver.util.Util;
+import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import com.it.br.Config;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.Inventory;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2ManufactureItem;
-import com.it.br.gameserver.model.L2RecipeInstance;
-import com.it.br.gameserver.model.L2RecipeList;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
-import com.it.br.gameserver.network.serverpackets.RecipeBookItemList;
-import com.it.br.gameserver.network.serverpackets.RecipeItemMakeInfo;
-import com.it.br.gameserver.network.serverpackets.RecipeShopItemInfo;
-import com.it.br.gameserver.network.serverpackets.SetupGauge;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.skills.Stats;
-import com.it.br.gameserver.util.Util;
-import com.it.br.util.Rnd;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class RecipeController
 {
-	protected static final Logger _log = Logger.getLogger(RecipeController.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(RecipeController.class);
 
 	private static RecipeController _instance;
 	private Map<Integer, L2RecipeList> _lists;
@@ -84,15 +71,15 @@ public class RecipeController
 				parseList(line);
 
 			}
-			_log.config("RecipeController: Loaded " + _lists.size() + " Recipes.");
+			_log.info("RecipeController: Loaded " + _lists.size() + " Recipes.");
 		}
 		catch (Exception e)
 		{
 			if (lnr != null)
 
-				_log.log(Level.WARNING, "error while creating recipe controller in linenr: " + lnr.getLineNumber(), e);
+				_log.warn( "error while creating recipe controller in linenr: " + lnr.getLineNumber(), e);
 			else
-				_log.warning("No recipes were found in data folder");
+				_log.warn("No recipes were found in data folder");
 		}
 		finally
 		{
@@ -264,7 +251,7 @@ public class RecipeController
 			else if (recipeTypeString.equalsIgnoreCase("common")) isDwarvenRecipe = false;
 			else
 			{ //prints a helpfull message
-				_log.warning("Error parsing recipes.csv, unknown recipe type " + recipeTypeString);
+				_log.warn("Error parsing recipes.csv, unknown recipe type " + recipeTypeString);
 				return;
 			}
 
@@ -303,7 +290,7 @@ public class RecipeController
 		}
 		catch (Exception e)
 		{
-			_log.severe("Exception in RecipeController.parseList() - " + e);
+			_log.error("Exception in RecipeController.parseList() - " + e);
 		}
 	}
 
@@ -457,14 +444,14 @@ public class RecipeController
 
 			if (_player == null || _target == null)
 			{
-				_log.warning("player or target == null (disconnected?), aborting"+_target+_player);
+				_log.warn("player or target == null (disconnected?), aborting"+_target+_player);
 				abort();
 				return;
 			}
 
 			if (_player.isOnline()==0 || _target.isOnline()==0)
 			{
-				_log.warning("player or target is not online, aborting "+_target+_player);
+				_log.warn("player or target is not online, aborting "+_target+_player);
 				abort();
 				return;
 			}

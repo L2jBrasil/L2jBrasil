@@ -39,7 +39,7 @@ import com.it.br.gameserver.network.serverpackets.ExEnchantSkillInfo;
  */
 public final class RequestExEnchantSkillInfo extends L2GameClientPacket
 {
-	//private static Logger _log = Logger.getLogger(RequestAquireSkill.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestAquireSkill.class);
 	private static final String _C__D0_06_REQUESTEXENCHANTSKILLINFO = "[C] D0:06 RequestExEnchantSkillInfo";
 
 	private int _skillId;
@@ -79,7 +79,7 @@ public final class RequestExEnchantSkillInfo extends L2GameClientPacket
 
         if (skill == null || skill.getId() != _skillId)
         {
-            //_log.warning("enchant skill id " + _skillID + " level " + _skillLvl
+            //_log.warn("enchant skill id " + _skillID + " level " + _skillLvl
             //    + " is undefined. aquireEnchantSkillInfo failed.");
         	activeChar.sendMessage("This skill doesn't yet have enchant info in Datapack");
             return;

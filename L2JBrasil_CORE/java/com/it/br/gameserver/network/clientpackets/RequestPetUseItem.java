@@ -17,8 +17,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.xml.L2PetDataTable;
 import com.it.br.gameserver.handler.IItemHandler;
@@ -30,10 +28,12 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.PetInfo;
 import com.it.br.gameserver.network.serverpackets.PetItemList;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class RequestPetUseItem extends L2GameClientPacket
 {
-	private static Logger _log = Logger.getLogger(RequestPetUseItem.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestPetUseItem.class);
 	private static final String _C__8A_REQUESTPETUSEITEM = "[C] 8a RequestPetUseItem";
 
 	private int _objectId;
@@ -80,7 +80,7 @@ public final class RequestPetUseItem extends L2GameClientPacket
 		}
 
 		if (Config.DEBUG)
-            _log.finest(activeChar.getObjectId()+": pet use item " + _objectId);
+            _log.trace(activeChar.getObjectId()+": pet use item " + _objectId);
 
 		//check if the item matches the pet
 		if (item.isEquipable())
@@ -182,11 +182,11 @@ public final class RequestPetUseItem extends L2GameClientPacket
 		}
 		else
 		{
-			//_log.finest("item not equipable id:"+ item.getItemId());
+			//_log.trace("item not equipable id:"+ item.getItemId());
 		    IItemHandler handler = ItemHandler.getInstance().getItemHandler(item.getItemId());
 
 		    if (handler == null)
-		        _log.warning("no itemhandler registered for itemId:" + item.getItemId());
+		        _log.warn("no itemhandler registered for itemId:" + item.getItemId());
 		    else
 		        handler.useItem(pet, item);
 		}

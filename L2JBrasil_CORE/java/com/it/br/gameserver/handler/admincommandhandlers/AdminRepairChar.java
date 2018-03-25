@@ -23,6 +23,8 @@ import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.GMAudit;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,8 +33,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands: - delete = deletes target
@@ -41,7 +41,7 @@ import java.util.logging.Logger;
  */
 public class AdminRepairChar implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminRepairChar.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminRepairChar.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -137,7 +137,7 @@ public class AdminRepairChar implements IAdminCommandHandler
         }
         catch (Exception e)
         {
-			_log.log(Level.WARNING, "could not repair char:", e);
+			_log.warn( "could not repair char:", e);
         }
     }
 }

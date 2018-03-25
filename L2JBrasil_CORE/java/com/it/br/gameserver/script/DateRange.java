@@ -18,16 +18,17 @@
  */
 package com.it.br.gameserver.script;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class DateRange
 {
-	protected static final Logger _log = Logger.getLogger(DateRange.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(DateRange.class);
 	private Date _startDate, _endDate;
 	
 	public DateRange(Date from, Date to)
@@ -50,7 +51,7 @@ public class DateRange
 			}
 			catch (ParseException e)
 			{
-				_log.log(Level.WARNING, "Invalid Date Format.", e);
+				_log.warn( "Invalid Date Format.", e);
 			}
 		}
 		return new DateRange(null, null);

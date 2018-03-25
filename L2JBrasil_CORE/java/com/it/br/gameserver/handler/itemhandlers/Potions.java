@@ -18,12 +18,6 @@
  */
 package com.it.br.gameserver.handler.itemhandlers;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -44,6 +38,10 @@ import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.MagicSkillUser;
 import com.it.br.gameserver.network.serverpackets.StatusUpdate;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class ...
@@ -53,7 +51,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
 public class Potions implements IItemHandler
 {
-	protected static final Logger _log = Logger.getLogger(Potions.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(Potions.class);
 	private int _herbstask = 0;
 	private SystemMessage sm = null;
 
@@ -79,7 +77,7 @@ public class Potions implements IItemHandler
 			}
 			catch(Throwable t)
 			{
-				_log.log(Level.WARNING, "", t);
+				_log.warn( "", t);
 			}
 		}
 	}

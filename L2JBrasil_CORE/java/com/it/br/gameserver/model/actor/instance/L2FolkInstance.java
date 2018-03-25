@@ -25,11 +25,7 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2SkillLearn;
 import com.it.br.gameserver.model.base.ClassId;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.AquireSkillList;
-import com.it.br.gameserver.network.serverpackets.ExEnchantSkillList;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
 public class L2FolkInstance extends L2NpcInstance
@@ -57,7 +53,7 @@ public class L2FolkInstance extends L2NpcInstance
 	public void showSkillList(L2PcInstance player, ClassId classId)
 	{
 		if (Config.DEBUG)
-			_log.fine("SkillList activated on: "+getObjectId());
+			_log.debug("SkillList activated on: "+getObjectId());
 
 		int npcId = getTemplate().npcId;
 
@@ -133,7 +129,7 @@ public class L2FolkInstance extends L2NpcInstance
     public void showEnchantSkillList(L2PcInstance player, ClassId classId)
     {
         if (Config.DEBUG)
-            _log.fine("EnchantSkillList activated on: "+getObjectId());
+            _log.debug("EnchantSkillList activated on: "+getObjectId());
         int npcId = getTemplate().npcId;
 
         if (_classesToTeach == null)

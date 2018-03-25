@@ -18,14 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JModsSettings;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -37,6 +29,15 @@ import com.it.br.gameserver.model.actor.instance.L2ControllableMobInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class handles following admin commands:
@@ -50,7 +51,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public class AdminKill implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminKill.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminKill.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -176,7 +177,7 @@ public class AdminKill implements IAdminCommandHandler
 			target.reduceCurrentHp(target.getMaxHp() + 1, activeChar);
         }
 		if (Config.DEBUG)
-			_log.fine("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+")"+
+			_log.debug("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+")"+
 					" killed character "+target.getObjectId());
 	}
 }

@@ -18,10 +18,10 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 
 /**

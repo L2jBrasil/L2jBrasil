@@ -22,12 +22,13 @@ import com.it.br.Config;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Logger;
 
 /**
  * This class handles following admin commands:
@@ -37,7 +38,7 @@ import java.util.logging.Logger;
  */
 public class AdminGm implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminGm.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminGm.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -90,7 +91,7 @@ public class AdminGm implements IAdminCommandHandler
 
             activeChar.sendMessage("You no longer have GM status.");
 
-			if (Config.DEBUG) _log.fine("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") turned his GM status off");
+			if (Config.DEBUG) _log.debug("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") turned his GM status off");
 		}
         else {
             GmListTable.getInstance().addGm(activeChar, false);
@@ -98,7 +99,7 @@ public class AdminGm implements IAdminCommandHandler
 
 			activeChar.sendMessage("You now have GM status.");
 
-			if (Config.DEBUG) _log.fine("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") turned his GM status on");
+			if (Config.DEBUG) _log.debug("GM: "+activeChar.getName()+"("+activeChar.getObjectId()+") turned his GM status on");
 		}
 	}
 }

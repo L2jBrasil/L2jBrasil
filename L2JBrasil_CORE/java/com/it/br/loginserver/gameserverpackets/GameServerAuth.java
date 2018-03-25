@@ -18,9 +18,9 @@
  */
 package com.it.br.loginserver.gameserverpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.loginserver.clientpackets.ClientBasePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Format: cccddb
@@ -37,7 +37,7 @@ import com.it.br.loginserver.clientpackets.ClientBasePacket;
  */
 public class GameServerAuth extends ClientBasePacket
 {
-	protected static Logger _log = Logger.getLogger(GameServerAuth.class.getName());
+	protected static Logger _log = LoggerFactory.getLogger(GameServerAuth.class);
 	private byte[] _hexId;
 	private int _desiredId;
 	private boolean _hostReserved;

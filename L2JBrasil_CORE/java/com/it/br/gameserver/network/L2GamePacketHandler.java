@@ -17,21 +17,17 @@
  */
 package com.it.br.gameserver.network;
 
-import java.nio.ByteBuffer;
-import java.nio.channels.SocketChannel;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.network.L2GameClient.GameClientState;
 import com.it.br.gameserver.network.clientpackets.*;
-import com.l2jserver.mmocore.network.IAcceptFilter;
-import com.l2jserver.mmocore.network.IClientFactory;
-import com.l2jserver.mmocore.network.IMMOExecutor;
-import com.l2jserver.mmocore.network.IPacketHandler;
-import com.l2jserver.mmocore.network.MMOConnection;
-import com.l2jserver.mmocore.network.ReceivablePacket;
+import com.l2jserver.mmocore.network.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
+import java.util.concurrent.RejectedExecutionException;
 
 /**
  * Stateful Packet Handler<BR>
@@ -44,7 +40,7 @@ import com.l2jserver.mmocore.network.ReceivablePacket;
  */
 public final class L2GamePacketHandler implements IPacketHandler<L2GameClient>, IClientFactory<L2GameClient>, IMMOExecutor<L2GameClient>, IAcceptFilter
 {
-	private static final Logger _log = Logger.getLogger(L2GamePacketHandler.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(L2GamePacketHandler.class);
 
 	// implementation
 
@@ -653,7 +649,7 @@ public final class L2GamePacketHandler implements IPacketHandler<L2GameClient>, 
 		            	}
 		            	else
 		            	{
-		            		_log.warning("Client: "+client.toString()+" sent a 0xd0 without the second opcode.");
+		            		_log.warn("Client: "+client.toString()+" sent a 0xd0 without the second opcode.");
 		            		break;
 		            	}
 
@@ -840,7 +836,7 @@ public final class L2GamePacketHandler implements IPacketHandler<L2GameClient>, 
 			// if the server is shutdown we ignore
 			if (!ThreadPoolManager.getInstance().isShutdown())
 			{
-				_log.severe("Failed executing: "+rp.getClass().getSimpleName()+" for Client: "+rp.getClient().toString());
+				_log.error("Failed executing: "+rp.getClass().getSimpleName()+" for Client: "+rp.getClient().toString());
 			}
 		}
 	}

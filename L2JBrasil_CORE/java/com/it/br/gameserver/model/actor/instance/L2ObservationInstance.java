@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.StringTokenizer;
-
 import com.it.br.gameserver.instancemanager.SiegeManager;
 import com.it.br.gameserver.model.Olympiad.Olympiad;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
@@ -29,6 +27,8 @@ import com.it.br.gameserver.network.serverpackets.ItemList;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 
+import java.util.StringTokenizer;
+
 /**
  * @author NightMarez
  * @version $Revision: 1.3.2.2.2.5 $ $Date: 2005/03/27 15:29:32 $
@@ -36,7 +36,7 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
  */
 public final class L2ObservationInstance extends L2FolkInstance
 {
-    //private static Logger _log = Logger.getLogger(L2TeleporterInstance.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(L2TeleporterInstance.class);
 
     /**
      * @param template

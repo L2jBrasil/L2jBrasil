@@ -31,14 +31,14 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.gameserver.util.Util;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 import static com.it.br.util.Util.minutesToMiliseconds;
@@ -48,7 +48,7 @@ import static com.it.br.util.Util.minutesToMiliseconds;
  */
 public class FourSepulchersManager
 {
-	protected static final Logger _log = Logger.getLogger(FourSepulchersManager.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(FourSepulchersManager.class);
 	private static final String QUEST_ID = "620_FourGoblets";
 	private static final int ENTRANCE_PASS = 7075;
 	private static final int USED_PASS = 7261;
@@ -435,7 +435,7 @@ public class FourSepulchersManager
 					int keyNpcId = rset.getInt("key_npc_id");
 					_mysteriousBoxSpawns.put(keyNpcId, spawnDat);
 				} else
-					_log.warning("FourSepulchersManager.LoadMysteriousBox: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
+					_log.warn("FourSepulchersManager.LoadMysteriousBox: Data missing in NPC table for ID: " + rset.getInt("npc_templateid") + ".");
 			}
 			rset.close();
 			statement.close();
@@ -444,7 +444,7 @@ public class FourSepulchersManager
 		catch (Exception e)
 		{
 			// problem with initializing spawn, go to next one
-			_log.warning("FourSepulchersManager.LoadMysteriousBox: Spawn could not be initialized: " + e);
+			_log.warn("FourSepulchersManager.LoadMysteriousBox: Spawn could not be initialized: " + e);
 		}
 		finally
 		{
@@ -478,11 +478,11 @@ public class FourSepulchersManager
 					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
 					_keyBoxSpawns.put(keyNpcId, spawnDat);
 				} else
-					_log.warning("FourSepulchersManager.InitKeyBoxSpawns: Data missing in NPC table for ID: " + _keyBoxNpc.get(keyNpcId) + ".");
+					_log.warn("FourSepulchersManager.InitKeyBoxSpawns: Data missing in NPC table for ID: " + _keyBoxNpc.get(keyNpcId) + ".");
 			}
 			catch (Exception e)
 			{
-				_log.warning("FourSepulchersManager.InitKeyBoxSpawns: Spawn could not be initialized: " + e);
+				_log.warn("FourSepulchersManager.InitKeyBoxSpawns: Spawn could not be initialized: " + e);
 			}
 	}
 
@@ -523,7 +523,7 @@ public class FourSepulchersManager
 						_physicalSpawns.add(spawnDat);
 						loaded++;
 					} else
-						_log.warning("FourSepulchersManager.LoadPhysicalMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
+						_log.warn("FourSepulchersManager.LoadPhysicalMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
 				}
 				rset2.close();
 				statement2.close();
@@ -536,7 +536,7 @@ public class FourSepulchersManager
 		catch (Exception e)
 		{
 			// problem with initializing spawn, go to next one
-			_log.warning("FourSepulchersManager.LoadPhysicalMonsters: Spawn could not be initialized: " + e);
+			_log.warn("FourSepulchersManager.LoadPhysicalMonsters: Spawn could not be initialized: " + e);
 		}
 		finally
 		{
@@ -587,7 +587,7 @@ public class FourSepulchersManager
 						_magicalSpawns.add(spawnDat);
 						loaded++;
 					} else
-						_log.warning("FourSepulchersManager.LoadMagicalMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
+						_log.warn("FourSepulchersManager.LoadMagicalMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
 				}
 				rset2.close();
 				statement2.close();
@@ -600,7 +600,7 @@ public class FourSepulchersManager
 		catch (Exception e)
 		{
 			// problem with initializing spawn, go to next one
-			_log.warning("FourSepulchersManager.LoadMagicalMonsters: Spawn could not be initialized: " + e);
+			_log.warn("FourSepulchersManager.LoadMagicalMonsters: Spawn could not be initialized: " + e);
 		}
 		finally
 		{
@@ -652,7 +652,7 @@ public class FourSepulchersManager
 						_dukeFinalSpawns.add(spawnDat);
 						loaded++;
 					} else
-						_log.warning("FourSepulchersManager.LoadDukeMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
+						_log.warn("FourSepulchersManager.LoadDukeMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
 				}
 				rset2.close();
 				statement2.close();
@@ -666,7 +666,7 @@ public class FourSepulchersManager
 		catch (Exception e)
 		{
 			// problem with initializing spawn, go to next one
-			_log.warning("FourSepulchersManager.LoadDukeMonsters: Spawn could not be initialized: " + e);
+			_log.warn("FourSepulchersManager.LoadDukeMonsters: Spawn could not be initialized: " + e);
 		}
 		finally
 		{
@@ -717,7 +717,7 @@ public class FourSepulchersManager
 						_emperorsGraveSpawns.add(spawnDat);
 						loaded++;
 					} else
-						_log.warning("FourSepulchersManager.LoadEmperorsGraveMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
+						_log.warn("FourSepulchersManager.LoadEmperorsGraveMonsters: Data missing in NPC table for ID: " + rset2.getInt("npc_templateid") + ".");
 				}
 				rset2.close();
 				statement2.close();
@@ -730,7 +730,7 @@ public class FourSepulchersManager
 		catch (Exception e)
 		{
 			// problem with initializing spawn, go to next one
-			_log.warning("FourSepulchersManager.LoadEmperorsGraveMonsters: Spawn could not be initialized: " + e);
+			_log.warn("FourSepulchersManager.LoadEmperorsGraveMonsters: Spawn could not be initialized: " + e);
 		}
 		finally
 		{
@@ -769,10 +769,10 @@ public class FourSepulchersManager
 				}
 				catch (Exception e)
 				{
-					_log.log(Level.SEVERE, "Error on InitLocationShadowSpawns", e);
+					_log.error( "Error on InitLocationShadowSpawns", e);
 				}
 			else
-				_log.warning("FourSepulchersManager.InitLocationShadowSpawns: Data missing in NPC table for ID: " + _shadowSpawnLoc[locNo][i][0] + ".");
+				_log.warn("FourSepulchersManager.InitLocationShadowSpawns: Data missing in NPC table for ID: " + _shadowSpawnLoc[locNo][i][0] + ".");
 		}
 	}
 
@@ -796,11 +796,11 @@ public class FourSepulchersManager
 					SpawnTable.getInstance().addNewSpawn(spawnDat, false);
 					_executionerSpawns.put(keyNpcId, spawnDat);
 				} else
-					_log.warning("FourSepulchersManager.InitExecutionerSpawns: Data missing in NPC table for ID: " + _victim.get(keyNpcId) + ".");
+					_log.warn("FourSepulchersManager.InitExecutionerSpawns: Data missing in NPC table for ID: " + _victim.get(keyNpcId) + ".");
 			}
 			catch (Exception e)
 			{
-				_log.warning("FourSepulchersManager.InitExecutionerSpawns: Spawn could not be initialized: " + e);
+				_log.warn("FourSepulchersManager.InitExecutionerSpawns: Spawn could not be initialized: " + e);
 			}
 	}
 
@@ -829,7 +829,7 @@ public class FourSepulchersManager
 			default:
 				if (!player.isGM())
 				{
-					_log.warning("Player " + player.getName() + "(" + player.getObjectId() + ") tried to cheat in four sepulchers.");
+					_log.warn("Player " + player.getName() + "(" + player.getObjectId() + ") tried to cheat in four sepulchers.");
 					Util.handleIllegalPlayerAction(player, "Warning!! Character " + player.getName() + " tried to enter four sepulchers with invalid npc id.", Config.DEFAULT_PUNISH);
 					player.closeNetConnection(); // kick
 					return;
@@ -1069,11 +1069,11 @@ public class FourSepulchersManager
 							mob = (L2SepulcherMonsterInstance) keyBoxMobSpawn.doSpawn();
 							keyBoxMobSpawn.stopRespawn();
 						} else
-							_log.warning("FourSepulchersManager.SpawnMonster: Data missing in NPC table for ID: 18149");
+							_log.warn("FourSepulchersManager.SpawnMonster: Data missing in NPC table for ID: 18149");
 					}
 					catch (Exception e)
 					{
-						_log.warning("FourSepulchersManager.SpawnMonster: Spawn could not be initialized: " + e);
+						_log.warn("FourSepulchersManager.SpawnMonster: Spawn could not be initialized: " + e);
 					}
 					spawnedKeyBoxMob = true;
 				}
@@ -1260,7 +1260,7 @@ public class FourSepulchersManager
 			}
 			catch (Exception e)
 			{
-				_log.log(Level.SEVERE, "FourSepulchersManager: Failed deleting mob.", e);
+				_log.error( "FourSepulchersManager: Failed deleting mob.", e);
 			}
 		_allMobs.clear();
 		// _log.info("FourSepulchersManager.DeleteAllMobs: Deleted " + delCnt +
@@ -1281,7 +1281,7 @@ public class FourSepulchersManager
 			}
 			catch (Exception e)
 			{
-				_log.log(Level.SEVERE, "FourSepulchersManager: Failed closing door", e);
+				_log.error( "FourSepulchersManager: Failed closing door", e);
 			}
 	}
 
@@ -1376,12 +1376,12 @@ public class FourSepulchersManager
 			{
 				if (temp == null)
 				{
-					_log.warning("FourSepulchersManager: managerSay(): manager is null");
+					_log.warn("FourSepulchersManager: managerSay(): manager is null");
 					continue;
 				}
 				if (!(temp.getLastSpawn() instanceof L2SepulcherNpcInstance))
 				{
-					_log.warning("FourSepulchersManager: managerSay(): manager is not Sepulcher instance");
+					_log.warn("FourSepulchersManager: managerSay(): manager is not Sepulcher instance");
 					continue;
 				}
 				// hall not used right now, so its manager will not tell you
@@ -1400,12 +1400,12 @@ public class FourSepulchersManager
 			{
 				if (temp == null)
 				{
-					_log.warning("FourSepulchersManager: Something goes wrong in managerSay()...");
+					_log.warn("FourSepulchersManager: Something goes wrong in managerSay()...");
 					continue;
 				}
 				if (!(temp.getLastSpawn() instanceof L2SepulcherNpcInstance))
 				{
-					_log.warning("FourSepulchersManager: Something goes wrong in managerSay()...");
+					_log.warn("FourSepulchersManager: Something goes wrong in managerSay()...");
 					continue;
 				}
 				((L2SepulcherNpcInstance) temp.getLastSpawn()).sayInShout(msg1);

@@ -18,15 +18,15 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.Map;
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+
+import java.util.Map;
+import java.util.concurrent.Future;
 
 /**
  *

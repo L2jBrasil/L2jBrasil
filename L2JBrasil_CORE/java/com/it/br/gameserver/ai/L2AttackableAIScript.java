@@ -14,9 +14,6 @@
  */
 package com.it.br.gameserver.ai;
 
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
-import com.it.br.gameserver.ai.CtrlEvent;
-import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.instancemanager.DimensionalRiftManager;
 import com.it.br.gameserver.model.L2Attackable;
@@ -29,6 +26,8 @@ import com.it.br.gameserver.model.actor.instance.L2RiftInvaderInstance;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.model.quest.jython.QuestJython;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
 
 public class L2AttackableAIScript extends QuestJython
 {

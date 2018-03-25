@@ -18,13 +18,13 @@
  */
 package com.it.br.gameserver.communitybbs.Manager;
 
-import java.util.StringTokenizer;
-
 import com.it.br.gameserver.datatables.sql.ClanTable;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+
+import java.util.StringTokenizer;
 
 public class ClanBBSManager extends BaseBBSManager
 {

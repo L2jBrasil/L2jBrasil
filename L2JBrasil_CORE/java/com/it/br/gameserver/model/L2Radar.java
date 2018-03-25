@@ -17,10 +17,10 @@
  */
 package com.it.br.gameserver.model;
 
-import java.util.Vector;
-
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.RadarControl;
+
+import java.util.Vector;
 
 /**
  * @author dalrond

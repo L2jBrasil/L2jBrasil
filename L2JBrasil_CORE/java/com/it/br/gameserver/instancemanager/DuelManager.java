@@ -17,18 +17,19 @@
  */
 package com.it.br.gameserver.instancemanager;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.model.L2Effect;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Duel;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DuelManager
 {
-	private static final Logger _log = Logger.getLogger(DuelManager.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(DuelManager.class);
 
 	// =========================================================
 	private static DuelManager _instance;

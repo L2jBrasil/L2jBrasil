@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.ClanWarehouse;
 import com.it.br.gameserver.model.ItemContainer;
@@ -29,11 +27,9 @@ import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.InventoryUpdate;
-import com.it.br.gameserver.network.serverpackets.ItemList;
-import com.it.br.gameserver.network.serverpackets.StatusUpdate;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import com.it.br.gameserver.network.serverpackets.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -45,7 +41,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class SendWareHouseWithDrawList extends L2GameClientPacket
 {
 	private static final String _C__32_SENDWAREHOUSEWITHDRAWLIST = "[C] 32 SendWareHouseWithDrawList";
-	private static Logger _log = Logger.getLogger(SendWareHouseWithDrawList.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(SendWareHouseWithDrawList.class);
 
 	private int _count;
 	private int[] _items;
@@ -173,7 +169,7 @@ public final class SendWareHouseWithDrawList extends L2GameClientPacket
 			L2ItemInstance newItem = warehouse.transferItem("Warehouse", objectId, count, player.getInventory(), player, player.getLastFolkNPC());
             if (newItem == null)
             {
-            	_log.warning("Error withdrawing a warehouse object for char " + player.getName());
+            	_log.warn("Error withdrawing a warehouse object for char " + player.getName());
             	continue;
             }
 

@@ -8,19 +8,20 @@ import com.it.br.gameserver.model.actor.instance.L2BabyPetInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PetInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
  * @version 3.0.4
  */
 public class PetsDao {
-    private static final Logger _log = Logger.getLogger(PetsDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(PetsDao.class);
 
     private static final String DELETE = "DELETE FROM pets WHERE item_obj_id=?";
     private static final String UPDATE_OBJ_ID = "UPDATE pets SET item_obj_id = ? WHERE item_obj_id = ?";
@@ -36,7 +37,7 @@ public class PetsDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(PetsDao.class.getName() + ": Exception: delete(L2ItemInstance): " + e.getMessage());
+            _log.warn(PetsDao.class.getName() + ": Exception: delete(L2ItemInstance): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -80,7 +81,7 @@ public class PetsDao {
             statement.close();
             return pet;
         } catch (SQLException e) {
-            _log.warning(PetsDao.class.getName() + ": Exception: restore(L2ItemInstance, L2NpcTemplate, L2PcInstance): " + e.getMessage());
+            _log.warn(PetsDao.class.getName() + ": Exception: restore(L2ItemInstance, L2NpcTemplate, L2PcInstance): " + e.getMessage());
             e.printStackTrace();
             return null;
         }
@@ -110,7 +111,7 @@ public class PetsDao {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(PetsDao.class.getName() + ": Exception: insert(L2PetInstance pet): " + e.getMessage());
+            _log.warn(PetsDao.class.getName() + ": Exception: insert(L2PetInstance pet): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -123,7 +124,7 @@ public class PetsDao {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(PetsDao.class.getName() + ": Exception: updateObjId(int newObjectId, int oldObjectId): " + e.getMessage());
+            _log.warn(PetsDao.class.getName() + ": Exception: updateObjId(int newObjectId, int oldObjectId): " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -148,7 +149,7 @@ public class PetsDao {
             result = rset.next();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(PetsDao.class.getName() + ": Exception: doesPetNameExist(String name, int petNpcId): " + e.getMessage());
+            _log.warn(PetsDao.class.getName() + ": Exception: doesPetNameExist(String name, int petNpcId): " + e.getMessage());
             e.printStackTrace();
         }
         return result;

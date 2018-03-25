@@ -18,16 +18,17 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.FriendRecvMsg;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
 
 /**
  * Recieve Private (Friend) Message - 0xCC
@@ -43,7 +44,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestSendFriendMsg extends L2GameClientPacket
 {
     private static final String _C__CC_REQUESTSENDMSG = "[C] CC RequestSendMsg";
-    private static Logger _logChat = Logger.getLogger("chat");
+    private static Logger _logChat = LoggerFactory.getLogger("chat");
 
     private String _message;
     private String _reciever;
@@ -72,11 +73,7 @@ public final class RequestSendFriendMsg extends L2GameClientPacket
 
 		if (Config.LOG_CHAT)
 		{
-			LogRecord record = new LogRecord(Level.INFO, _message);
-			record.setLoggerName("chat");
-			record.setParameters(new Object[]{"PRIV_MSG", "[" + activeChar.getName() + " to "+ _reciever +"]"});
-
-			_logChat.log(record);
+			_logChat.info(_message, "PRIV_MSG", "[" + activeChar.getName() + " to "+ _reciever +"]" );
 		}
 
         FriendRecvMsg frm = new FriendRecvMsg(activeChar.getName(), _reciever, _message);

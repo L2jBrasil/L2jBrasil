@@ -18,21 +18,20 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.instancemanager.CastleManorManager.CropProcure;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class SellListProcure extends L2GameServerPacket
 {
     private static final String _S__E9_SELLLISTPROCURE = "[S] E9 SellListProcure";
-    //private static Logger _log = Logger.getLogger(SellListProcure.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(SellListProcure.class);
 
     private final L2PcInstance _activeChar;
     private int _money;

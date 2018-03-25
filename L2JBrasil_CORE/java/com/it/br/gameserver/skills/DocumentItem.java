@@ -18,24 +18,16 @@
  */
 package com.it.br.gameserver.skills;
 
+import com.it.br.gameserver.Item;
+import com.it.br.gameserver.templates.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import com.it.br.gameserver.Item;
-import com.it.br.gameserver.templates.L2Armor;
-import com.it.br.gameserver.templates.L2ArmorType;
-import com.it.br.gameserver.templates.L2EtcItem;
-import com.it.br.gameserver.templates.L2EtcItemType;
-import com.it.br.gameserver.templates.L2Item;
-import com.it.br.gameserver.templates.L2Weapon;
-import com.it.br.gameserver.templates.L2WeaponType;
-import com.it.br.gameserver.templates.StatsSet;
 
 /**
  * @author mkizub

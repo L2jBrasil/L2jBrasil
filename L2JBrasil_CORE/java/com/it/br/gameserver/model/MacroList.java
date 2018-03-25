@@ -22,13 +22,13 @@ import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.L2Macro.L2MacroCmd;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.SendMacroList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This class ...
@@ -37,7 +37,7 @@ import java.util.logging.Logger;
  */
 public class MacroList
 {
-    private static Logger _log = Logger.getLogger(MacroList.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(MacroList.class);
 
     private L2PcInstance _owner;
 	private int _revision;
@@ -141,7 +141,7 @@ public class MacroList
         }
         catch (Exception e)
         {
-			_log.log(Level.WARNING, "could not store macro:", e);
+			_log.warn( "could not store macro:", e);
         }
         finally
         {
@@ -167,7 +167,7 @@ public class MacroList
         }
         catch (Exception e)
         {
-			_log.log(Level.WARNING, "could not delete macro:", e);
+			_log.warn( "could not delete macro:", e);
         }
         finally
         {
@@ -216,7 +216,7 @@ public class MacroList
         }
         catch (Exception e)
         {
-			_log.log(Level.WARNING, "could not store shortcuts:", e);
+			_log.warn( "could not store shortcuts:", e);
         }
         finally
         {

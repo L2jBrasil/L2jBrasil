@@ -25,21 +25,21 @@ import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.L2ItemInstance.ItemLocation;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.templates.L2Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Advi
  */
 public abstract class ItemContainer
 {
-	protected static final Logger _log = Logger.getLogger(ItemContainer.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(ItemContainer.class);
 	protected final List<L2ItemInstance> _items;
 
 	protected ItemContainer()
@@ -252,7 +252,7 @@ public abstract class ItemContainer
 				L2Item template = ItemTable.getInstance().getTemplate(itemId);
 				if (template == null)
 				{
-					_log.log(Level.WARNING, (actor != null ? "[" + actor.getName() + "] " : "") + "Invalid ItemId requested: ", itemId);
+					_log.warn( (actor != null ? "[" + actor.getName() + "] " : "") + "Invalid ItemId requested: ", itemId);
 					return null;
 				}
 				item = ItemTable.getInstance().createItem(process, itemId, template.isStackable() ? count : 1, actor, reference);
@@ -567,7 +567,7 @@ public abstract class ItemContainer
 		}
 		catch (Throwable t)
 		{
-			_log.log(Level.SEVERE, "deletedMe()", t);
+			_log.error( "deletedMe()", t);
 		}
 		List<L2Object> items = new ArrayList<>();
 		_items.clear();
@@ -622,7 +622,7 @@ public abstract class ItemContainer
 		}
 		catch (Exception e)
 		{
-			_log.log(Level.WARNING, "could not restore container:", e);
+			_log.warn( "could not restore container:", e);
 		}
 		finally
 		{

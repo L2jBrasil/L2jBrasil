@@ -28,24 +28,15 @@
  */
 package com.it.br.gameserver.model.base;
 
-import static com.it.br.gameserver.model.base.ClassLevel.First;
-import static com.it.br.gameserver.model.base.ClassLevel.Fourth;
-import static com.it.br.gameserver.model.base.ClassLevel.Second;
-import static com.it.br.gameserver.model.base.ClassLevel.Third;
-import static com.it.br.gameserver.model.base.ClassType.Fighter;
-import static com.it.br.gameserver.model.base.ClassType.Mystic;
-import static com.it.br.gameserver.model.base.ClassType.Priest;
-import static com.it.br.gameserver.model.base.PlayerRace.DarkElf;
-import static com.it.br.gameserver.model.base.PlayerRace.Dwarf;
-import static com.it.br.gameserver.model.base.PlayerRace.Human;
-import static com.it.br.gameserver.model.base.PlayerRace.LightElf;
-import static com.it.br.gameserver.model.base.PlayerRace.Orc;
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Set;
 
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import static com.it.br.gameserver.model.base.ClassLevel.*;
+import static com.it.br.gameserver.model.base.ClassType.*;
+import static com.it.br.gameserver.model.base.PlayerRace.*;
 
 /**
  * This class ...

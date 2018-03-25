@@ -1,11 +1,11 @@
 package com.it.br.gameserver.handler.voicedcommandhandlers;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class ResVoicedCommand implements IVoicedCommandHandler
 {

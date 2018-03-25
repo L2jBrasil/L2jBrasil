@@ -45,7 +45,7 @@ import java.util.List;
  */
 public class AquireSkillList extends L2GameServerPacket
 {
-	//private static Logger _log = Logger.getLogger(AquireSkillList.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(AquireSkillList.class);
     public enum skillType
     {
     	Usual,

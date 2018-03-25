@@ -18,16 +18,16 @@
 
 package com.it.br.gameserver.model.zone.type;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import com.it.br.gameserver.instancemanager.CastleManager;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.model.zone.L2ZoneType;
 import com.it.br.util.Rnd;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class L2CastleTeleportZone extends L2ZoneType
 {

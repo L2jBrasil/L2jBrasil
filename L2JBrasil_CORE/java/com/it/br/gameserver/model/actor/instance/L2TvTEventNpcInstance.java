@@ -18,15 +18,14 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import com.it.br.Config;
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
 import com.it.br.gameserver.network.serverpackets.ActionFailed;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class L2TvTEventNpcInstance extends L2NpcInstance
 {

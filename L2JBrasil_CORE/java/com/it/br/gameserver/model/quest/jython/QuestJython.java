@@ -17,13 +17,12 @@
  */
 package com.it.br.gameserver.model.quest.jython;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.quest.Quest;
 import org.apache.bsf.BSFException;
 import org.apache.bsf.BSFManager;
 
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.quest.Quest;
+import static com.it.br.configuration.Configurator.getSettings;
 
 public abstract class QuestJython extends Quest
 {

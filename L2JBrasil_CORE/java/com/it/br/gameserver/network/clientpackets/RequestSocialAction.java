@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SocialAction;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -36,7 +36,7 @@ import com.it.br.gameserver.util.Util;
 public class RequestSocialAction extends L2GameClientPacket
 {
 	private static final String _C__1B_REQUESTSOCIALACTION = "[C] 1B RequestSocialAction";
-	private static Logger _log = Logger.getLogger(RequestSocialAction.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(RequestSocialAction.class);
 
 	// format  cd
 	private int _actionId;
@@ -79,7 +79,7 @@ public class RequestSocialAction extends L2GameClientPacket
 				(!activeChar.isAllSkillsDisabled() || activeChar.isInDuel()) &&
 				activeChar.getAI().getIntention()==CtrlIntention.AI_INTENTION_IDLE)
 		{
-			if (Config.DEBUG) _log.fine("Social Action:" + _actionId);
+			if (Config.DEBUG) _log.debug("Social Action:" + _actionId);
 
 			SocialAction atk = new SocialAction(activeChar.getObjectId(), _actionId);
 			activeChar.broadcastPacket(atk);

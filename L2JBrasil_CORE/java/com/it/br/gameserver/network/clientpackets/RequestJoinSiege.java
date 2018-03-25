@@ -23,7 +23,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestJoinSiege extends L2GameClientPacket
 {
 	private static final String _C__A4_RequestJoinSiege = "[C] a4 RequestJoinSiege";
-	// private static Logger _log = Logger.getLogger(RequestJoinSiege.class.getName());
+	// private static Logger _log = LoggerFactory.getLogger(RequestJoinSiege.class);
 
 	private int _castleId;
 	private int _isAttacker;

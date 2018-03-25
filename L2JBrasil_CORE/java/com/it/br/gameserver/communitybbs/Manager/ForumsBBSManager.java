@@ -21,6 +21,8 @@ package com.it.br.gameserver.communitybbs.Manager;
 import com.it.br.gameserver.communitybbs.BB.Forum;
 import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,11 +31,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class ForumsBBSManager extends BaseBBSManager
 {
-	private static Logger _log = Logger.getLogger(ForumsBBSManager.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(ForumsBBSManager.class);
 	private Map<Integer, Forum> _root;
 	private List<Forum> _table;
 	private static ForumsBBSManager _instance;
@@ -88,7 +89,7 @@ public class ForumsBBSManager extends BaseBBSManager
 		}
 		catch (Exception e)
 		{
-			_log.warning("data error on Forum (root): " + e);
+			_log.warn("data error on Forum (root): " + e);
 			e.printStackTrace();
 		}
 	}

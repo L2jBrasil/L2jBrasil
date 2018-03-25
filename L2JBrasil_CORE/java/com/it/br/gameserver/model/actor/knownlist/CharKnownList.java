@@ -17,18 +17,18 @@
  */
 package com.it.br.gameserver.model.actor.knownlist;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.actor.instance.L2MonsterInstance;
 import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.util.Util;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CharKnownList extends ObjectKnownList
 {

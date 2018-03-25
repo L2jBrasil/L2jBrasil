@@ -18,10 +18,10 @@
  */
 package com.it.br.gameserver.ai2;
 
+import com.it.br.gameserver.TaskPriority;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.it.br.gameserver.TaskPriority;
 
 /**
  *@author -Wooden-

@@ -3,9 +3,6 @@
  */
 package com.it.br.gameserver.ai.special.group;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.model.L2Attackable;
 import com.it.br.gameserver.model.L2CharPosition;
@@ -14,6 +11,9 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.quest.Quest;
 import com.it.br.gameserver.network.serverpackets.CreatureSay;
 import com.it.br.util.Rnd;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RetreatOnAttack extends Quest
 {

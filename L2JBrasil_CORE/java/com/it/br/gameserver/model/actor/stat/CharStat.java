@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.stat;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.L2JBrasilSettings;
 import com.it.br.configuration.settings.L2JModsSettings;
@@ -29,6 +27,8 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.skills.Calculator;
 import com.it.br.gameserver.skills.Env;
 import com.it.br.gameserver.skills.Stats;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class CharStat
 {

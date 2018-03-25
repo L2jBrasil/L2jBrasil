@@ -14,24 +14,9 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.CommandSettings;
-import com.it.br.configuration.settings.EventSettings;
-import com.it.br.configuration.settings.L2JBrasilSettings;
-import com.it.br.configuration.settings.L2JModsSettings;
-import com.it.br.configuration.settings.NetworkSettings;
-import com.it.br.configuration.settings.OlympiadSettings;
-import com.it.br.configuration.settings.SepulchersSettings;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.configuration.settings.SevensignsSettings;
+import com.it.br.configuration.settings.*;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.datatables.DbManager;
 import com.it.br.gameserver.datatables.sql.ItemTable;
@@ -47,6 +32,13 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.script.faenor.FaenorScriptEngine;
 import com.it.br.gameserver.scripting.CompiledScriptCache;
 import com.it.br.gameserver.scripting.L2ScriptEngineManager;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * @author Guma

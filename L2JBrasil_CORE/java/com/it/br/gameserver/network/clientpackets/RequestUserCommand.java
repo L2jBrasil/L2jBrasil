@@ -27,7 +27,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public class RequestUserCommand extends L2GameClientPacket
 {
 	private static final String _C__AA_REQUESTUSERCOMMAND = "[C] aa RequestUserCommand";
-	//static Logger _log = Logger.getLogger(RequestUserCommand.class.getName());
+	//static Logger _log = LoggerFactory.getLogger(RequestUserCommand.class);
 
 	private int _command;
 

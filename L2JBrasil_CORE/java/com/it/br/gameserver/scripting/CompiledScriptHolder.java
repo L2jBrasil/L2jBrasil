@@ -14,10 +14,9 @@
  */
 package com.it.br.gameserver.scripting;
 
+import javax.script.CompiledScript;
 import java.io.File;
 import java.io.Serializable;
-
-import javax.script.CompiledScript;
 
 /**
  * @author KenM

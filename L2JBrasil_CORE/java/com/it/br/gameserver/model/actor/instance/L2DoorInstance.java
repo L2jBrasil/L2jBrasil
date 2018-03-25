@@ -18,41 +18,33 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.ai.L2CharacterAI;
 import com.it.br.gameserver.ai.L2DoorAI;
 import com.it.br.gameserver.instancemanager.CastleManager;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Clan;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Summon;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.knownlist.DoorKnownList;
 import com.it.br.gameserver.model.actor.stat.DoorStat;
 import com.it.br.gameserver.model.actor.status.DoorStatus;
 import com.it.br.gameserver.model.entity.Castle;
 import com.it.br.gameserver.model.entity.ClanHall;
 import com.it.br.gameserver.network.L2GameClient;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.DoorStatusUpdate;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2CharTemplate;
 import com.it.br.gameserver.templates.L2Weapon;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ScheduledFuture;
 
 public class L2DoorInstance extends L2Character
 {
-	protected static final Logger log = Logger.getLogger(L2DoorInstance.class.getName());
+	protected static final Logger log = LoggerFactory.getLogger(L2DoorInstance.class);
 
 	/** The castle index in the array of L2Castle this L2NpcInstance belongs to */
 	private int _castleIndex = -2;
@@ -114,7 +106,7 @@ public class L2DoorInstance extends L2Character
 			}
 			catch(Throwable e)
 			{
-				log.log(Level.SEVERE, "", e);
+				log.error( "", e);
 			}
 		}
 	}
@@ -146,7 +138,7 @@ public class L2DoorInstance extends L2Character
 			}
 			catch(Exception e)
 			{
-				log.warning("Could not auto open/close door ID " + _doorId + " (" + _name + ")");
+				log.warn("Could not auto open/close door ID " + _doorId + " (" + _name + ")");
 			}
 		}
 	}

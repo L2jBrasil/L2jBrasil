@@ -18,18 +18,19 @@
  */
 package com.it.br.gameserver.cache;
 
+import com.it.br.Config;
+import com.it.br.configuration.Configurator;
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
-
-import com.it.br.Config;
-import com.it.br.configuration.Configurator;
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.util.Util;
 
 /**
  * @author Layane
@@ -37,7 +38,7 @@ import com.it.br.gameserver.util.Util;
  */
 public class HtmCache
 {
-    private static Logger _log = Logger.getLogger(HtmCache.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(HtmCache.class);
     private static HtmCache _instance;
 
     private Map<Integer, String> _cache;
@@ -167,7 +168,7 @@ public class HtmCache
             }
             catch (Exception e)
             {
-                _log.warning("problem with htm file " + e);
+                _log.warn("problem with htm file " + e);
             }
             finally
             {
@@ -185,7 +186,7 @@ public class HtmCache
         if (content == null)
         {
             content = "<html><body>My text is missing:<br>" + path + "</body></html>";
-            _log.warning("Cache[HTML]: Missing HTML page: " + path);
+            _log.warn("Cache[HTML]: Missing HTML page: " + path);
         }
 
         return content;

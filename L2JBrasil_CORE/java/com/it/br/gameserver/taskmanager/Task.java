@@ -17,11 +17,12 @@
  */
 package com.it.br.gameserver.taskmanager;
 
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.taskmanager.TaskManager.ExecutedTask;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.ScheduledFuture;
 
 
 /**
@@ -30,7 +31,7 @@ import com.it.br.gameserver.taskmanager.TaskManager.ExecutedTask;
  */
 public abstract class Task
 {
-    private static Logger _log = Logger.getLogger(Task.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(Task.class);
 
     public void initializate()
     {

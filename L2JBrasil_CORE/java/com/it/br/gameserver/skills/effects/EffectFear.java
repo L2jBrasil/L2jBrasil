@@ -23,12 +23,7 @@ import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.model.L2CharPosition;
 import com.it.br.gameserver.model.L2Effect;
 import com.it.br.gameserver.model.Location;
-import com.it.br.gameserver.model.actor.instance.L2CommanderInstance;
-import com.it.br.gameserver.model.actor.instance.L2FolkInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2SiegeFlagInstance;
-import com.it.br.gameserver.model.actor.instance.L2SiegeGuardInstance;
-import com.it.br.gameserver.model.actor.instance.L2SiegeSummonInstance;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.skills.Env;
 
 final class EffectFear extends L2Effect

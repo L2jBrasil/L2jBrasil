@@ -17,10 +17,6 @@
  */
 package com.it.br.loginserver;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.nio.ByteBuffer;
-
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.loginserver.L2LoginClient.LoginClientState;
 import com.it.br.loginserver.clientpackets.AuthGameGuard;
@@ -29,6 +25,10 @@ import com.it.br.loginserver.clientpackets.RequestServerList;
 import com.it.br.loginserver.clientpackets.RequestServerLogin;
 import com.l2jserver.mmocore.network.IPacketHandler;
 import com.l2jserver.mmocore.network.ReceivablePacket;
+
+import java.nio.ByteBuffer;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * Handler for packets received by Login Server

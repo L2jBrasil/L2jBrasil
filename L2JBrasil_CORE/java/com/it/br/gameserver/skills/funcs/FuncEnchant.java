@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.skills.funcs;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.configuration.settings.OlympiadSettings;
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.skills.Env;
 import com.it.br.gameserver.skills.Stats;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.gameserver.templates.L2WeaponType;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class FuncEnchant extends Func
 {

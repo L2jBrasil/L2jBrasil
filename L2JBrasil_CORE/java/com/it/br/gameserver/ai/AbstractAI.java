@@ -18,32 +18,18 @@
  */
 package com.it.br.gameserver.ai;
 
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
-
-import java.util.concurrent.Future;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.ThreadPoolManager;
-import com.it.br.gameserver.model.L2CharPosition;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.L2Summon;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.AutoAttackStart;
-import com.it.br.gameserver.network.serverpackets.AutoAttackStop;
-import com.it.br.gameserver.network.serverpackets.CharMoveToLocation;
-import com.it.br.gameserver.network.serverpackets.Die;
-import com.it.br.gameserver.network.serverpackets.MoveToLocationInVehicle;
-import com.it.br.gameserver.network.serverpackets.MoveToPawn;
-import com.it.br.gameserver.network.serverpackets.StopMove;
-import com.it.br.gameserver.network.serverpackets.StopRotation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.taskmanager.AttackStanceTaskManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.Future;
+
+import static com.it.br.gameserver.ai.CtrlIntention.*;
 
 /**
  * Mother class of all objects AI in the world.<BR>
@@ -55,7 +41,7 @@ import com.it.br.gameserver.taskmanager.AttackStanceTaskManager;
  */
 abstract class AbstractAI implements Ctrl
 {
-	protected static final Logger _log = Logger.getLogger(AbstractAI.class.getName());
+	protected static final Logger _log = LoggerFactory.getLogger(AbstractAI.class);
 
 	class FollowTask implements Runnable
 	{
@@ -91,7 +77,7 @@ abstract class AbstractAI implements Ctrl
 			}
 			catch (Throwable t)
 			{
-				_log.log(Level.WARNING, "", t);
+				_log.warn( "", t);
 			}
 		}
 	}
@@ -213,7 +199,7 @@ abstract class AbstractAI implements Ctrl
 	{
 		/*
 		 if (Config.DEBUG)
-		 _log.warning("AbstractAI: changeIntention -> " + intention + " " + arg0 + " " + arg1);
+		 _log.warn("AbstractAI: changeIntention -> " + intention + " " + arg0 + " " + arg1);
 		 */
 		_intention = intention;
 		_intentionArg0 = arg0;
@@ -267,7 +253,7 @@ abstract class AbstractAI implements Ctrl
 
 		/*
 		 if (Config.DEBUG)
-		 _log.warning("AbstractAI: setIntention -> " + intention + " " + arg0 + " " + arg1);
+		 _log.warn("AbstractAI: setIntention -> " + intention + " " + arg0 + " " + arg1);
 		 */
 
 		// Stop the follow mode if necessary
@@ -362,7 +348,7 @@ abstract class AbstractAI implements Ctrl
 
 		/*
 		 if (Config.DEBUG)
-		 _log.warning("AbstractAI: notifyEvent -> " + evt + " " + arg0 + " " + arg1);
+		 _log.warn("AbstractAI: notifyEvent -> " + evt + " " + arg0 + " " + arg1);
 		 */
 
 		switch(evt)
@@ -636,7 +622,7 @@ abstract class AbstractAI implements Ctrl
 	{
 		/*
 		 if (Config.DEBUG)
-		 _log.warning("clientStopMoving();");
+		 _log.warn("clientStopMoving();");
 		 */
 
 		// Stop movement of the L2Character

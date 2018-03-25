@@ -30,18 +30,19 @@ import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2Item;
 import com.it.br.util.Point3D;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
 public class CursedWeapon
 {
-	private static final Logger _log = Logger.getLogger(CursedWeaponsManager.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(CursedWeaponsManager.class);
 
 	private final String _name;
 	private final int _itemId;
@@ -129,7 +130,7 @@ public class CursedWeapon
 	    			statement.setInt(2, _itemId);
 	    			if (statement.executeUpdate() != 1)
 	    			{
-	    				_log.warning("Error while deleting itemId "+ _itemId +" from userId "+ _playerId);
+	    				_log.warn("Error while deleting itemId "+ _itemId +" from userId "+ _playerId);
 	    			}
 	    			statement.close();
 	    			/* Yesod: Skill is not stored into database any more.
@@ -139,7 +140,7 @@ public class CursedWeapon
 	    			statement.setInt(2, _skillId);
 	    			if (statement.executeUpdate() != 1)
 	    			{
-	    				_log.warning("Error while deleting skillId "+ _skillId +" from userId "+_playerId);
+	    				_log.warn("Error while deleting skillId "+ _skillId +" from userId "+_playerId);
 	    			}
 					*/
 	    			// Restore the karma
@@ -149,14 +150,14 @@ public class CursedWeapon
 	    			statement.setInt(3, _playerId);
 	    			if (statement.executeUpdate() != 1)
 	    			{
-	    				_log.warning("Error while updating karma & pkkills for userId "+_playerId);
+	    				_log.warn("Error while updating karma & pkkills for userId "+_playerId);
 	    			}
 
 	    			statement.close();
 	    		}
 	    		catch (Exception e)
 	    		{
-	    			_log.warning("Could not delete : " + e);
+	    			_log.warn("Could not delete : " + e);
 	    		}
 	    		finally
 	    		{
@@ -462,7 +463,7 @@ public class CursedWeapon
         }
         catch (SQLException e)
         {
-        	_log.severe("CursedWeapon: Failed to save data: " + e);
+        	_log.error("CursedWeapon: Failed to save data: " + e);
         }
         finally
         {

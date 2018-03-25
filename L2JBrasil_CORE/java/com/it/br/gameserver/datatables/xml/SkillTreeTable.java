@@ -12,30 +12,6 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import com.it.br.Config;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.L2EnchantSkillLearn;
@@ -44,6 +20,22 @@ import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2SkillLearn;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.base.ClassId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class SkillTreeTable {
     private static final Logger _log = LoggerFactory.getLogger(SkillTreeTable.class);

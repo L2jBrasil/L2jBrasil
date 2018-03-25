@@ -14,10 +14,9 @@
  */
 package com.it.br.gameserver.scripting;
 
+import javax.script.ScriptException;
 import java.io.File;
 import java.io.FileNotFoundException;
-
-import javax.script.ScriptException;
 
 /**
  * Abstract class for classes that are meant to be implemented by scripts.<BR>

@@ -33,7 +33,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 public final class RequestWithdrawalPledge extends L2GameClientPacket
 {
 	private static final String _C__26_REQUESTWITHDRAWALPLEDGE = "[C] 26 RequestWithdrawalPledge";
-	//static Logger _log = Logger.getLogger(RequestWithdrawalPledge.class.getName());
+	//static Logger _log = LoggerFactory.getLogger(RequestWithdrawalPledge.class);
 
 
 	@Override

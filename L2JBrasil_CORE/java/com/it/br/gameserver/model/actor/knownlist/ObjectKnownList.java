@@ -18,10 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.knownlist;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2World;
@@ -29,6 +25,10 @@ import com.it.br.gameserver.model.actor.instance.L2BoatInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 import com.it.br.gameserver.util.Util;
+
+import java.util.Collection;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ObjectKnownList
 {

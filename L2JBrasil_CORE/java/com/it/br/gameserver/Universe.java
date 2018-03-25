@@ -17,32 +17,18 @@
  */
 package com.it.br.gameserver;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.TreeSet;
-import java.util.logging.Logger;
-import java.util.zip.GZIPInputStream;
-
-import javax.imageio.ImageIO;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2CharPosition;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.*;
+import java.util.List;
+import java.util.zip.GZIPInputStream;
 
 public class Universe implements java.io.Serializable
 {
@@ -58,7 +44,7 @@ public class Universe implements java.io.Serializable
     public static final int MIN_Z_GRID = 60;
     public static final int MIN_GRID = 360;
     private static Universe _instance;
-    protected static final Logger _log = Logger.getLogger(Universe.class.getName());
+    protected static final Logger _log = LoggerFactory.getLogger(Universe.class);
     protected List<Coord> _coordList;
     private HashSet<Integer> _logPlayers;
     private boolean _logAll = true;
@@ -277,7 +263,7 @@ public class Universe implements java.io.Serializable
         }
         catch (Exception e)
         {
-            _log.warning("cannot create universe.png: " + e);
+            _log.warn("cannot create universe.png: " + e);
         }
     }
 

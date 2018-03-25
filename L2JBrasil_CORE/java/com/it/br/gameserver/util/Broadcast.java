@@ -28,8 +28,6 @@
  */
 package com.it.br.gameserver.util;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2World;
@@ -37,6 +35,8 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.CharInfo;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 import com.it.br.gameserver.network.serverpackets.RelationChanged;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class ...
@@ -46,7 +46,7 @@ import com.it.br.gameserver.network.serverpackets.RelationChanged;
 
 public final class Broadcast
 {
-	private static Logger _log = Logger.getLogger(Broadcast.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(Broadcast.class);
 
 	/**
 	 * Send a packet to all L2PcInstance in the _KnownPlayers of the L2Character that have the Character targetted.<BR>
@@ -64,7 +64,7 @@ public final class Broadcast
 	{
 		if(Config.DEBUG)
 		{
-			_log.fine("players to notify:" + character.getKnownList().getKnownPlayers().size() + " packet:" + mov.getType());
+			_log.debug("players to notify:" + character.getKnownList().getKnownPlayers().size() + " packet:" + mov.getType());
 		}
 
 		for(L2PcInstance player : character.getKnownList().getKnownPlayers().values())
@@ -94,7 +94,7 @@ public final class Broadcast
 	{
 		if(Config.DEBUG)
 		{
-			_log.fine("players to notify:" + character.getKnownList().getKnownPlayers().size() + " packet:" + mov.getType());
+			_log.debug("players to notify:" + character.getKnownList().getKnownPlayers().size() + " packet:" + mov.getType());
 		}
 
 		for(L2PcInstance player : character.getKnownList().getKnownPlayers().values())
@@ -206,7 +206,7 @@ public final class Broadcast
 	{
 		if(Config.DEBUG)
 		{
-			_log.fine("Players to notify: " + L2World.getInstance().getAllPlayersCount() + " (with packet " + mov.getType() + ")");
+			_log.debug("Players to notify: " + L2World.getInstance().getAllPlayersCount() + " (with packet " + mov.getType() + ")");
 		}
 
 		for(L2PcInstance onlinePlayer : L2World.getInstance().getAllPlayers())

@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
 import com.it.br.Config;
 import com.it.br.configuration.settings.ServerSettings;
 import com.it.br.gameserver.network.serverpackets.KeyPacket;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * This class ...
@@ -33,7 +33,7 @@ import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 public final class ProtocolVersion extends L2GameClientPacket
 {
 	private static final String _C__00_PROTOCOLVERSION = "[C] 00 ProtocolVersion";
-	//static Logger _log = Logger.getLogger(ProtocolVersion.class.getName());
+	//static Logger _log = LoggerFactory.getLogger(ProtocolVersion.class);
 
     private int _version;
 
@@ -61,14 +61,14 @@ public final class ProtocolVersion extends L2GameClientPacket
             _log.info("Client: "+getClient().toString()+" -> Protocol Revision: " + _version + 
             		" is invalid. Minimum is "+serverSettings.getMinProtocol()+" and Maximum is "
             		+ serverSettings.getMaxProtocol()+" are supported. Closing connection.");
-            _log.warning("Wrong Protocol Version "+_version);
+            _log.warn("Wrong Protocol Version "+_version);
             getClient().getConnection().close((L2GameServerPacket)null);
         }
         else
         {
         	if (Config.DEBUG)
         	{
-        		_log.fine("Client Protocol Revision is ok: "+_version);
+        		_log.debug("Client Protocol Revision is ok: "+_version);
         	}
 
         	KeyPacket pk = new KeyPacket(getClient().enableCrypt());

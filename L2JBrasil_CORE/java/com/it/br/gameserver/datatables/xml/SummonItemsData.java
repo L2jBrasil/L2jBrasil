@@ -12,18 +12,8 @@
  */
 package com.it.br.gameserver.datatables.xml;
 
-import static com.it.br.configuration.Configurator.getSettings;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
+import com.it.br.configuration.settings.ServerSettings;
+import com.it.br.gameserver.model.L2SummonItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -31,8 +21,16 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.it.br.configuration.settings.ServerSettings;
-import com.it.br.gameserver.model.L2SummonItem;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 public class SummonItemsData {
     private static final Logger _log = LoggerFactory.getLogger(SummonItemsData.class);

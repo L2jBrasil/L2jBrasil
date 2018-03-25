@@ -18,12 +18,12 @@
  */
 package com.it.br.gameserver.handler;
 
-import java.io.IOException;
-
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2Skill.SkillType;
+
+import java.io.IOException;
 
 /**
  * an IItemHandler implementation has to be stateless

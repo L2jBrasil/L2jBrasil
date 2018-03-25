@@ -59,10 +59,14 @@ public class NpcTable {
     }
 
     private void restoreNpcData() {
+        System.out.println("Restore NPC Data");
         try {
             NpcDao.load();
+            System.out.println("NpcDao Load");
             NpcDao.loadSKills();
+            System.out.println("NpcDao Load skill");
             NpcDao.loadCustomNpcs();
+            System.out.println("NpcDao Load custom");
             _log.info("NpcTable: Loaded {} Npc Templates.", NpcTable.getInstance().getNpcsMap().size());
 
             NpcDao.loadCustomDropList();

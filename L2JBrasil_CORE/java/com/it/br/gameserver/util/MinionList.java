@@ -28,10 +28,6 @@
  */
 package com.it.br.gameserver.util;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.xml.NpcTable;
 import com.it.br.gameserver.idfactory.IdFactory;
@@ -40,6 +36,11 @@ import com.it.br.gameserver.model.actor.instance.L2MinionInstance;
 import com.it.br.gameserver.model.actor.instance.L2MonsterInstance;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class ...
@@ -49,7 +50,7 @@ import com.it.br.util.Rnd;
 
 public class MinionList
 {
-	private static Logger _log = Logger.getLogger(L2MonsterInstance.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(L2MonsterInstance.class);
 
 	/** List containing the current spawned minions for this L2MonsterInstance */
 	private final List<L2MinionInstance> minionReferences;
@@ -268,7 +269,7 @@ public class MinionList
 
 		if(Config.DEBUG)
 		{
-			_log.fine("Spawned minion template " + minionTemplate.npcId + " with objid: " + monster.getObjectId() + " to boss " + master.getObjectId() + " ,at: " + monster.getX() + " x, " + monster.getY() + " y, " + monster.getZ() + " z");
+			_log.debug("Spawned minion template " + minionTemplate.npcId + " with objid: " + monster.getObjectId() + " to boss " + master.getObjectId() + " ,at: " + monster.getX() + " x, " + monster.getY() + " y, " + monster.getZ() + " z");
 		}
 	}
 }

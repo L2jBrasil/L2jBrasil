@@ -19,12 +19,12 @@
 
 package com.it.br.gameserver.model;
 
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.datatables.sql.SkillTable;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.skills.effects.EffectForce;
+
+import java.util.concurrent.Future;
 
 /**
  * @author kombat

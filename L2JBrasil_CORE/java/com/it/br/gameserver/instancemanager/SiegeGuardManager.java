@@ -21,15 +21,16 @@ import com.it.br.gameserver.database.dao.CastleDao;
 import com.it.br.gameserver.model.L2Spawn;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.Castle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class SiegeGuardManager 
 {
 
-	private static Logger _log = Logger.getLogger(SiegeGuardManager.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(SiegeGuardManager.class);
 
     // =========================================================
     // Data Field
@@ -112,7 +113,7 @@ public class SiegeGuardManager
         } 
         catch (Throwable t) 
         { 
-            _log.warning("Error spawning siege guards for castle " + getCastle().getName() + ":" + t.toString());}
+            _log.warn("Error spawning siege guards for castle " + getCastle().getName() + ":" + t.toString());}
     }
 
     /**

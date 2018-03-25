@@ -17,15 +17,14 @@
  */
 
 package com.it.br.gameserver.handler.voicedcommandhandlers;
- 
-import static com.it.br.configuration.Configurator.getSettings;
 
-import com.it.br.Config;
 import com.it.br.configuration.settings.CommandSettings;
 import com.it.br.configuration.settings.EventSettings;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.entity.event.TvTEvent;
+
+import static com.it.br.configuration.Configurator.getSettings;
 
 /**
  * @author Rayder

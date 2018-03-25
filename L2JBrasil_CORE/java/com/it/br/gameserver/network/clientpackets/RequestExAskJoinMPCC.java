@@ -35,7 +35,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public final class RequestExAskJoinMPCC extends L2GameClientPacket
 {
-	//private static Logger _log = Logger.getLogger(RequestExAskJoinMPCC.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(RequestExAskJoinMPCC.class);
 	private static final String _C__D0_0D_REQUESTEXASKJOINMPCC = "[C] D0:0D RequestExAskJoinMPCC";
 	private String _name;
 

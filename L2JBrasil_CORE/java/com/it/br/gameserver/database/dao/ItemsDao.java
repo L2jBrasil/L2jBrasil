@@ -5,6 +5,8 @@ import com.it.br.gameserver.database.L2DatabaseFactory;
 import com.it.br.gameserver.datatables.sql.ItemTable;
 import com.it.br.gameserver.model.L2ClanMember;
 import com.it.br.gameserver.templates.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,33 +14,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author Tayran
  * @version 3.0.4
  */
 public class ItemsDao {
-    private static final Logger _log = Logger.getLogger(ItemsDao.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(ItemsDao.class);
 
     private static String DELETE = "DELETE FROM items WHERE owner_id = ? and item_id = ?";
     /**
      * Table of SQL request in order to obtain items from tables [etcitem], [armor], [weapon]
      */
-    private static final String[] SQL_ITEM_SELECTS =
-            {
-                    "SELECT item_id, name, crystallizable, item_type, weight, consume_type, material, crystal_type, duration, price, crystal_count, sellable, dropable, destroyable, tradeable FROM etcitem",
+    private static final String[] SQL_ITEM_SELECTS = {
+        "SELECT item_id, name, crystallizable, item_type, weight, consume_type, material, crystal_type, duration, price, crystal_count, sellable, dropable, destroyable, tradeable FROM etcitem",
 
-                    "SELECT item_id, name, bodypart, crystallizable, armor_type, weight," +
-                            " material, crystal_type, avoid_modify, duration, p_def, m_def, mp_bonus," +
-                            " price, crystal_count, sellable, dropable, destroyable, tradeable, item_skill_id, item_skill_lvl FROM armor",
+        "SELECT item_id, name, bodypart, crystallizable, armor_type, weight," +
+            " material, crystal_type, avoid_modify, duration, p_def, m_def, mp_bonus," +
+            " price, crystal_count, sellable, dropable, destroyable, tradeable, item_skill_id, item_skill_lvl FROM armor",
 
-                    "SELECT item_id, name, bodypart, crystallizable, weight, soulshots, spiritshots," +
-                            " material, crystal_type, p_dam, rnd_dam, weaponType, critical, hit_modify, avoid_modify," +
-                            " shield_def, shield_def_rate, atk_speed, mp_consume, m_dam, duration, price, crystal_count," +
-                            " sellable, dropable, destroyable, tradeable, item_skill_id, item_skill_lvl,enchant4_skill_id,enchant4_skill_lvl, onCast_skill_id, onCast_skill_lvl," +
-                            " onCast_skill_chance, onCrit_skill_id, onCrit_skill_lvl, onCrit_skill_chance FROM weapon"
-            };
+        "SELECT item_id, name, bodypart, crystallizable, weight, soulshots, spiritshots," +
+            " material, crystal_type, p_dam, rnd_dam, weaponType, critical, hit_modify, avoid_modify," +
+            " shield_def, shield_def_rate, atk_speed, mp_consume, m_dam, duration, price, crystal_count," +
+            " sellable, dropable, destroyable, tradeable, item_skill_id, item_skill_lvl,enchant4_skill_id,enchant4_skill_lvl, onCast_skill_id, onCast_skill_lvl," +
+            " onCast_skill_chance, onCrit_skill_id, onCrit_skill_lvl, onCrit_skill_chance FROM weapon"
+    };
 
     public static List<Item> loadEtcItems() {
         List<Item> list = new ArrayList<>();
@@ -55,8 +55,8 @@ public class ItemsDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(ItemsDao.class.getName() + ": Exception: delete(L2PcInstance, int itemId): " + e.getMessage());
-            e.printStackTrace();
+            _log.warn("{}: Exception: delete(L2PcInstance, int itemId)",ItemsDao.class.getName());
+            _log.warn(e.getMessage(), e);
         }
         return list;
     }
@@ -76,8 +76,8 @@ public class ItemsDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(ItemsDao.class.getName() + ": Exception: delete(L2PcInstance, int itemId): " + e.getMessage());
-            e.printStackTrace();
+            _log.warn("{} : Exception: delete(L2PcInstance, int itemId)", ItemsDao.class.getName());
+            _log.warn(e.getMessage(), e);
         }
         return list;
     }
@@ -97,8 +97,8 @@ public class ItemsDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(ItemsDao.class.getName() + ": Exception: delete(L2PcInstance, int itemId): " + e.getMessage());
-            e.printStackTrace();
+            _log.warn("{}: Exception: delete(L2PcInstance, int itemId)", ItemsDao.class.getName());
+            _log.warn(e.getMessage(), e);
         }
         return list;
     }
@@ -111,8 +111,8 @@ public class ItemsDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            _log.warning(ItemsDao.class.getName() + ": Exception: delete(L2ClanMember, int itemId): " + e.getMessage());
-            e.printStackTrace();
+            _log.warn("{}: Exception: delete(L2ClanMember, int itemId)", ItemsDao.class.getName());
+            _log.warn(e.getMessage(), e);
         }
     }
 
@@ -187,7 +187,7 @@ public class ItemsDao {
                 item.set.set("bodypart", L2Item.SLOT_L_HAND);
                 break;
             default:
-                _log.fine("unknown etcitem type:" + itemType);
+                _log.debug("unknown etcitem type: {}", itemType);
                 item.type = L2EtcItemType.OTHER;
                 break;
         }

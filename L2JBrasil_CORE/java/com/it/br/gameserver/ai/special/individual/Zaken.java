@@ -14,8 +14,6 @@
  */
 package com.it.br.gameserver.ai.special.individual;
 
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GameTimeController;
 import com.it.br.gameserver.ThreadPoolManager;
@@ -35,6 +33,8 @@ import com.it.br.gameserver.model.zone.type.L2BossZone;
 import com.it.br.gameserver.network.serverpackets.PlaySound;
 import com.it.br.gameserver.templates.StatsSet;
 import com.it.br.util.Rnd;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Zaken AI
@@ -42,7 +42,7 @@ import com.it.br.util.Rnd;
  */
 public class Zaken extends Quest implements Runnable
 {
-	protected static final Logger log = Logger.getLogger(Zaken.class.getName());
+	protected static final Logger log = LoggerFactory.getLogger(Zaken.class);
 	private int _1001 = 0; // used for first cancel of QuestTimer "1001"
 	private int _ai0 = 0; // used for zaken coords updater
 	private int _ai1 = 0; // used for X coord tracking for non-random teleporting in zaken's self teleport skill
@@ -108,7 +108,7 @@ public class Zaken extends Quest implements Runnable
 									if(Config.DEBUG)
 										e.printStackTrace();
 									
-									log.warning("Cannot close door ID: 21240006 " + e);
+									log.warn("Cannot close door ID: 21240006 " + e);
 								}
 							}
 						}, 300000L);
@@ -119,7 +119,7 @@ public class Zaken extends Quest implements Runnable
 					if(Config.DEBUG)
 						e.printStackTrace();
 					
-					log.warning("Cannot open door ID: 21240006 " + e);
+					log.warn("Cannot open door ID: 21240006 " + e);
 				}
 			}
 		}, 2000L, 600000L);
@@ -165,7 +165,7 @@ public class Zaken extends Quest implements Runnable
 	{
 		if (npc == null)
 		{
-			log.warning("Zaken AI failed to load, missing Zaken in grandboss_data.sql");
+			log.warn("Zaken AI failed to load, missing Zaken in grandboss_data.sql");
 			return;
 		}
 		GrandBossManager.getInstance().addBoss(npc);
@@ -180,7 +180,7 @@ public class Zaken extends Quest implements Runnable
 		_quest2 = 3;
 		if (_Zone == null)
 		{
-			log.warning("Zaken AI failed to load, missing zone for Zaken");
+			log.warn("Zaken AI failed to load, missing zone for Zaken");
 			return;
 		}
 		if (_Zone.isInsideZone(npc))

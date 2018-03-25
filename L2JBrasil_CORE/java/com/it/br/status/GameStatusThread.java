@@ -62,7 +62,7 @@ import static com.it.br.configuration.Configurator.getSettings;
 
 public class GameStatusThread extends Thread
 {
-    //private static final Logger _log = Logger.getLogger(AdminTeleport.class.getName());
+    //private static final Logger _log = LoggerFactory.getLogger((AdminTeleport).class);
 
     private Socket                  _cSocket;
     private PrintWriter             _print;
@@ -374,7 +374,7 @@ public class GameStatusThread extends Thread
                         _usrCommand = _usrCommand.substring(8);
                         if (LoginServer.getInstance().unblockIp(_usrCommand))
                         {
-                            _log.warning("IP removed via TELNET by host: " + _csocket.getInetAddress().getHostAddress());
+                            _log.warn("IP removed via TELNET by host: " + _csocket.getInetAddress().getHostAddress());
                             _print.println("The IP " + _usrCommand + " has been removed from the hack protection list!");
                         }
                         else

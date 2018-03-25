@@ -21,6 +21,8 @@ package com.it.br.gameserver.communitybbs.BB;
 import com.it.br.gameserver.communitybbs.Manager.ForumsBBSManager;
 import com.it.br.gameserver.communitybbs.Manager.TopicBBSManager;
 import com.it.br.gameserver.database.L2DatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +31,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class Forum
 {
@@ -45,7 +46,7 @@ public class Forum
 	public static final int CLANMEMBERONLY = 2;
 	public static final int OWNERONLY = 3;
 
-	private static Logger _log = Logger.getLogger(Forum.class.getName());
+	private static Logger _log = LoggerFactory.getLogger(Forum.class);
 	private List<Forum> _children;
 	private Map<Integer,Topic> _topic;
 	private int _forumId;
@@ -119,7 +120,7 @@ public class Forum
 		}
 		catch (Exception e)
 		{
-			_log.warning("data error on Forum " + _forumId + " : " + e);
+			_log.warn("data error on Forum " + _forumId + " : " + e);
 			e.printStackTrace();
 		}
 		try(Connection con = L2DatabaseFactory.getInstance().getConnection();)
@@ -142,7 +143,7 @@ public class Forum
 		}
 		catch (Exception e)
 		{
-			_log.warning("data error on Forum " + _forumId + " : " + e);
+			_log.warn("data error on Forum " + _forumId + " : " + e);
 			e.printStackTrace();
 		}
 	}
@@ -168,7 +169,7 @@ public class Forum
 		}
 		catch (Exception e)
 		{
-			_log.warning("data error on Forum (children): " + e);
+			_log.warn("data error on Forum (children): " + e);
 			e.printStackTrace();
 		}
 	}
@@ -281,7 +282,7 @@ public class Forum
 		}
 		catch (Exception e)
 		{
-			_log.warning("error while saving new Forum to db " + e);
+			_log.warn("error while saving new Forum to db " + e);
 		}
 	}
 

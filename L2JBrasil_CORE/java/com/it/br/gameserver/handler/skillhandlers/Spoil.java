@@ -38,7 +38,7 @@ import com.it.br.gameserver.skills.Formulas;
  */
 public class Spoil implements ISkillHandler
 {
-    //private static Logger _log = Logger.getLogger(Spoil.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(Spoil.class);
 	private static final SkillType[] SKILL_IDS = {SkillType.SPOIL};
 
 

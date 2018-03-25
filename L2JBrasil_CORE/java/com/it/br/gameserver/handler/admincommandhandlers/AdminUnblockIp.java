@@ -18,17 +18,18 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * This class handles following admin commands:
@@ -40,7 +41,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
  */
 public class AdminUnblockIp implements IAdminCommandHandler
 {
-    private static final Logger _log = Logger.getLogger(AdminTeleport.class.getName());
+    private static final Logger _log = LoggerFactory.getLogger(AdminTeleport.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -105,7 +106,7 @@ public class AdminUnblockIp implements IAdminCommandHandler
     {
     	//LoginServerThread.getInstance().unBlockip(ipAddress);
         // FIXME: Need implement.
-        _log.warning("IP removed by STAFF " + activeChar.getName());
+        _log.warn("IP removed by STAFF " + activeChar.getName());
         return true;
     }
 

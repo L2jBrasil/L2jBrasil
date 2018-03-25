@@ -14,8 +14,6 @@
  */
 package com.it.br.gameserver.handler.chathandlers;
 
-import java.util.Collection;
-
 import com.it.br.Config;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
 import com.it.br.gameserver.handler.IChatHandler;
@@ -23,6 +21,8 @@ import com.it.br.gameserver.model.BlockList;
 import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.CreatureSay;
+
+import java.util.Collection;
 
 /**
  * @Reworked *Slayer

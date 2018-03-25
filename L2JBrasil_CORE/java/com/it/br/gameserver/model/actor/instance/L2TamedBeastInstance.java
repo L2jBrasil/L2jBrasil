@@ -18,11 +18,6 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
-
-import java.util.Map;
-import java.util.concurrent.Future;
-
 import com.it.br.gameserver.ThreadPoolManager;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.datatables.sql.SkillTable;
@@ -35,6 +30,11 @@ import com.it.br.gameserver.network.serverpackets.StopMove;
 import com.it.br.gameserver.templates.L2NpcTemplate;
 import com.it.br.util.Point3D;
 import com.it.br.util.Rnd;
+
+import java.util.Map;
+import java.util.concurrent.Future;
+
+import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
 
 // While a tamed beast behaves a lot like a pet (ingame) and does have
 // an owner, in all other aspects, it acts like a mob.

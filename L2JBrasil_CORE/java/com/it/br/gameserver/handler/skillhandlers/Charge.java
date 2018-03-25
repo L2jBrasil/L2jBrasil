@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.handler.skillhandlers;
 
-import java.util.logging.Logger;
-
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.L2Effect;
@@ -27,6 +25,8 @@ import com.it.br.gameserver.model.L2Object;
 import com.it.br.gameserver.model.L2Skill;
 import com.it.br.gameserver.model.L2Skill.SkillType;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * This class ...
  *
@@ -35,7 +35,7 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 public class Charge implements ISkillHandler
 {
-	static Logger _log = Logger.getLogger(Charge.class.getName());
+	static Logger _log = LoggerFactory.getLogger(Charge.class);
 
 	/* (non-Javadoc)
 	 * @see com.it.br.gameserver.handler.IItemHandler#useItem(com.it.br.gameserver.model.L2PcInstance, com.it.br.gameserver.model.L2ItemInstance)

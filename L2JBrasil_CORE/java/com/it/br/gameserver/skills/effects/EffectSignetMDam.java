@@ -23,11 +23,7 @@ package com.it.br.gameserver.skills.effects;
  */
 
 import com.it.br.gameserver.ai.CtrlEvent;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Summon;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 import com.it.br.gameserver.network.SystemMessageId;

@@ -14,25 +14,17 @@
  */
 package com.it.br.gameserver.scripting;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
+import com.it.br.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.script.Compilable;
 import javax.script.CompiledScript;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
-
-import com.it.br.Config;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Cache of Compiled Scripts
@@ -45,7 +37,7 @@ public class CompiledScriptCache implements Serializable
 	 * Version 1
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOG = Logger.getLogger(CompiledScriptCache.class.getName());
+	private static final Logger log = LoggerFactory.getLogger(CompiledScriptCache.class);
 	private Map<String, CompiledScriptHolder> _compiledScriptCache = new HashMap<>();
 	private transient boolean _modified = false;
 
@@ -57,13 +49,13 @@ public class CompiledScriptCache implements Serializable
 		if (csh != null && csh.matches(file))
 		{
 			if (Config.DEBUG)
-				LOG.fine("Reusing cached compiled script: " + file);
+				log.debug("Reusing cached compiled script: " + file);
 			return csh.getCompiledScript();
 		}
 		else
 		{
 			if (Config.DEBUG)
-				LOG.info("Compiling script: " + file);
+				log.info("Compiling script: " + file);
 			Compilable eng = (Compilable) engine;
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 			// TODO lock file

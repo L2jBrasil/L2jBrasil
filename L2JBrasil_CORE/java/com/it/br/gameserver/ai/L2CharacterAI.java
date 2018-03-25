@@ -18,28 +18,12 @@
  */
 package com.it.br.gameserver.ai;
 
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_CAST;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_INTERACT;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_MOVE_TO;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_PICK_UP;
-import static com.it.br.gameserver.ai.CtrlIntention.AI_INTENTION_REST;
-
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2CharPosition;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
-import com.it.br.gameserver.model.actor.instance.L2BoatInstance;
-import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
-import com.it.br.gameserver.model.actor.instance.L2NpcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
-import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
+import com.it.br.gameserver.model.*;
+import com.it.br.gameserver.model.actor.instance.*;
 import com.it.br.gameserver.network.serverpackets.AutoAttackStop;
 import com.it.br.gameserver.taskmanager.AttackStanceTaskManager;
+
+import static com.it.br.gameserver.ai.CtrlIntention.*;
 
 /**
  * This class manages AI of L2Character.<BR>
@@ -482,7 +466,7 @@ public class L2CharacterAI extends AbstractAI
 		setTarget(object);
 		if(object.getX() == 0 && object.getY() == 0) // TODO: Find the drop&spawn bug
 		{
-			_log.warning("Object in coords 0,0 - using a temporary fix");
+			_log.warn("Object in coords 0,0 - using a temporary fix");
 			object.setXYZ(getActor().getX(), getActor().getY(), getActor().getZ() + 5);
 		}
 
@@ -989,7 +973,7 @@ public class L2CharacterAI extends AbstractAI
 		// Get the distance between the current position of the L2Character and the target (x,y)
 		if(target == null)
 		{
-			_log.warning("maybeMoveToPawn: target == NULL!");
+			_log.warn("maybeMoveToPawn: target == NULL!");
 			return false;
 		}
 

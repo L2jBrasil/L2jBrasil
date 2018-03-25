@@ -18,9 +18,6 @@
  */
 package com.it.br.gameserver.handler.admincommandhandlers;
 
-import java.util.*;
-import java.util.logging.Logger;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GmListTable;
 import com.it.br.gameserver.datatables.sql.SpawnTable;
@@ -37,6 +34,10 @@ import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
 
 /**
  * This class handles following admin commands: - show_spawns = shows menu -
@@ -47,7 +48,7 @@ import com.it.br.gameserver.templates.L2NpcTemplate;
  */
 public class AdminSpawn implements IAdminCommandHandler
 {
-    public static Logger _log = Logger.getLogger(AdminSpawn.class.getName());
+    public static Logger _log = LoggerFactory.getLogger(AdminSpawn.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)

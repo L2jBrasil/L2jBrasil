@@ -17,13 +17,12 @@
  */
 package com.it.br.gameserver.model.zone.type;
 
-import org.w3c.dom.Node;
-
 import com.it.br.Config;
 import com.it.br.gameserver.model.L2Character;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.zone.L2ZoneType;
 import com.it.br.gameserver.util.Rnd;
+import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 import java.util.List;

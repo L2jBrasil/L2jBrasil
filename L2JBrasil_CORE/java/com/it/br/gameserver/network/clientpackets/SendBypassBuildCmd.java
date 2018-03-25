@@ -18,8 +18,6 @@
  */
 package com.it.br.gameserver.network.clientpackets;
 
-import java.util.logging.Level;
-
 import com.it.br.Config;
 import com.it.br.gameserver.handler.AdminCommandHandler;
 import com.it.br.gameserver.handler.IAdminCommandHandler;
@@ -67,7 +65,7 @@ public final class SendBypassBuildCmd extends L2GameClientPacket
 		else
 		{
 			activeChar.sendMessage("The command " + _command + " doesn't exists!");
-			_log.log(Level.WARNING, "No handler registered for admin command '" + _command + "'");
+			_log.warn( "No handler registered for admin command '" + _command + "'");
 			return;
 		}
 	}

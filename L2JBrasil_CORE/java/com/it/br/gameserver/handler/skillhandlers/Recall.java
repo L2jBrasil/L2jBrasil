@@ -34,7 +34,7 @@ import com.it.br.gameserver.network.serverpackets.SystemMessage;
 
 public class Recall implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(Recall.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(Recall.class);
 	private static final SkillType[] SKILL_IDS = { SkillType.RECALL };
 
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Object[] targets)

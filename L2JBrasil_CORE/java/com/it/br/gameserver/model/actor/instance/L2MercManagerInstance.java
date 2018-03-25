@@ -17,23 +17,19 @@
  */
 package com.it.br.gameserver.model.actor.instance;
 
-import java.util.StringTokenizer;
-
 import com.it.br.Config;
 import com.it.br.gameserver.TradeController;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.model.L2Clan;
 import com.it.br.gameserver.model.L2TradeList;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.BuyList;
-import com.it.br.gameserver.network.serverpackets.MyTargetSelected;
-import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
-import com.it.br.gameserver.network.serverpackets.ValidateLocation;
+import com.it.br.gameserver.network.serverpackets.*;
 import com.it.br.gameserver.templates.L2NpcTemplate;
+
+import java.util.StringTokenizer;
 
 public final class L2MercManagerInstance extends L2FolkInstance
 {
-    //private static Logger _log = Logger.getLogger(L2MercManagerInstance.class.getName());
+    //private static Logger _log = LoggerFactory.getLogger(L2MercManagerInstance.class);
 
     private static final int COND_ALL_FALSE = 0;
     private static final int COND_BUSY_BECAUSE_OF_SIEGE = 1;
@@ -115,7 +111,7 @@ public final class L2MercManagerInstance extends L2FolkInstance
     private void showBuyWindow(L2PcInstance player, int val)
     {
         player.tempInvetoryDisable();
-        if (Config.DEBUG) _log.fine("Showing buylist");
+        if (Config.DEBUG) _log.debug("Showing buylist");
         L2TradeList list = TradeController.getInstance().getBuyList(val);
         if ((list != null) && (list.getNpcId().equals(String.valueOf(getNpcId()))))
         {
@@ -124,9 +120,9 @@ public final class L2MercManagerInstance extends L2FolkInstance
         }
         else
         {
-            _log.warning("possible client hacker: " + player.getName()
+            _log.warn("possible client hacker: " + player.getName()
                 + " attempting to buy from GM shop! < Ban him!");
-            _log.warning("buylist id:" + val);
+            _log.warn("buylist id:" + val);
         }
     }
 

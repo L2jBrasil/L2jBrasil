@@ -14,9 +14,6 @@
  */
 package com.it.br.gameserver.model.zone.type;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.it.br.Config;
 import com.it.br.gameserver.GameServer;
 import com.it.br.gameserver.datatables.xml.MapRegionTable;
@@ -28,6 +25,9 @@ import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
 import com.it.br.gameserver.model.zone.L2ZoneType;
 import com.it.br.gameserver.network.serverpackets.L2GameServerPacket;
 import com.it.br.util.L2FastList;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class L2BossZone extends L2ZoneType
 {

@@ -27,6 +27,8 @@ import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
 import com.it.br.gameserver.network.serverpackets.SystemMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,7 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.logging.Logger;
 
 import static com.it.br.configuration.Configurator.getSettings;
 
@@ -47,7 +48,7 @@ import static com.it.br.configuration.Configurator.getSettings;
  */
 public class AdminMenu implements IAdminCommandHandler
 {
-    private static Logger _log = Logger.getLogger(AdminMenu.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(AdminMenu.class);
     private static Map<String, Integer> admin = new HashMap<>();
 
     private boolean checkPermission(String command, L2PcInstance activeChar)
@@ -330,7 +331,7 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 		catch (Exception e)
 		{
-			_log.warning("Could not set accessLevel:"+e);
+			_log.warn("Could not set accessLevel:"+e);
 			if (Config.DEBUG)
 				e.printStackTrace();
 		}

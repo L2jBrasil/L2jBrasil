@@ -18,11 +18,11 @@
  */
 package com.it.br.gameserver.network.serverpackets;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.it.br.gameserver.model.L2ItemInstance;
 import com.it.br.gameserver.model.L2TradeList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Format: c ddh[hdddhhd]

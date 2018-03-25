@@ -25,11 +25,7 @@ import com.it.br.gameserver.model.L2World;
 import com.it.br.gameserver.model.TradeList;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.SystemMessageId;
-import com.it.br.gameserver.network.serverpackets.ActionFailed;
-import com.it.br.gameserver.network.serverpackets.SystemMessage;
-import com.it.br.gameserver.network.serverpackets.TradeOtherAdd;
-import com.it.br.gameserver.network.serverpackets.TradeOwnAdd;
-import com.it.br.gameserver.network.serverpackets.TradeUpdate;
+import com.it.br.gameserver.network.serverpackets.*;
 
 /**
  * This class ...
@@ -39,7 +35,7 @@ import com.it.br.gameserver.network.serverpackets.TradeUpdate;
 public final class AddTradeItem extends L2GameClientPacket
 {
     private static final String _C__16_ADDTRADEITEM = "[C] 16 AddTradeItem";
-    //private static final Logger _log = Logger.getLogger(AddTradeItem.class.getName());
+    //private static final Logger _log = LoggerFactory.getLogger(AddTradeItem.class);
     private int _tradeId;
     private int _objectId;
     private int _count;
@@ -67,7 +63,7 @@ public final class AddTradeItem extends L2GameClientPacket
         final TradeList trade = player.getActiveTradeList();
         if (trade == null)
         {
-            _log.warning("Character: " + player.getName() + " requested item:"
+            _log.warn("Character: " + player.getName() + " requested item:"
                     + _objectId + " add without active tradelist:" + _tradeId);
             return;
         }
@@ -76,7 +72,7 @@ public final class AddTradeItem extends L2GameClientPacket
         {
             // Trade partner not found, cancel trade
             if (trade.getPartner() != null)
-            	_log.warning("Character:" + player.getName() + " requested invalid trade object: " + _objectId);
+            	_log.warn("Character:" + player.getName() + " requested invalid trade object: " + _objectId);
             SystemMessage msg = new SystemMessage(SystemMessageId.TARGET_IS_NOT_FOUND_IN_THE_GAME);
             player.sendPacket(msg);
             player.cancelActiveTrade();

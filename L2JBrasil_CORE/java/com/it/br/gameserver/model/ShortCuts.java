@@ -23,13 +23,14 @@ import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.ExAutoSoulShot;
 import com.it.br.gameserver.network.serverpackets.ShortCutInit;
 import com.it.br.gameserver.templates.L2EtcItemType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Logger;
 
 /**
  * This class ...
@@ -38,7 +39,7 @@ import java.util.logging.Logger;
  */
 public class ShortCuts
 {
-    private static Logger _log = Logger.getLogger(ShortCuts.class.getName());
+    private static Logger _log = LoggerFactory.getLogger(ShortCuts.class);
 
     private L2PcInstance _owner;
     private Map<Integer, L2ShortCut> _shortCuts = new TreeMap<Integer, L2ShortCut>();
@@ -100,7 +101,7 @@ public class ShortCuts
         }
         catch (Exception e)
         {
-			_log.warning("Could not store character shortcut: " + e);
+			_log.warn("Could not store character shortcut: " + e);
         }
         finally
         {
@@ -173,7 +174,7 @@ public class ShortCuts
         }
         catch (Exception e)
         {
-			_log.warning("Could not delete character shortcut: " + e);
+			_log.warn("Could not delete character shortcut: " + e);
         }
         finally
         {
@@ -212,7 +213,7 @@ public class ShortCuts
         }
         catch (Exception e)
         {
-			_log.warning("Could not restore character shortcuts: " + e);
+			_log.warn("Could not restore character shortcuts: " + e);
         }
         finally
         {

@@ -22,14 +22,8 @@ import com.it.br.gameserver.ai.CtrlEvent;
 import com.it.br.gameserver.ai.CtrlIntention;
 import com.it.br.gameserver.handler.ISkillHandler;
 import com.it.br.gameserver.instancemanager.DuelManager;
-import com.it.br.gameserver.model.L2Attackable;
-import com.it.br.gameserver.model.L2Character;
-import com.it.br.gameserver.model.L2Effect;
-import com.it.br.gameserver.model.L2ItemInstance;
-import com.it.br.gameserver.model.L2Object;
-import com.it.br.gameserver.model.L2Skill;
+import com.it.br.gameserver.model.*;
 import com.it.br.gameserver.model.L2Skill.SkillType;
-import com.it.br.gameserver.model.L2Summon;
 import com.it.br.gameserver.model.actor.instance.L2DoorInstance;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.model.actor.instance.L2PlayableInstance;
@@ -46,7 +40,7 @@ import com.it.br.gameserver.skills.Stats;
 
 public class Continuous implements ISkillHandler
 {
-	//private static Logger _log = Logger.getLogger(Continuous.class.getName());
+	//private static Logger _log = LoggerFactory.getLogger(Continuous.class);
 
 	private static final SkillType[] SKILL_IDS = 
 	{

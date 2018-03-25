@@ -14,10 +14,10 @@
  */
 package com.it.br.gameserver.model.entity.event;
 
+import com.it.br.gameserver.model.actor.instance.L2PcInstance;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 
 public class TvTEventTeam
 {

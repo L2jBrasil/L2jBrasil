@@ -19,11 +19,7 @@
 package com.it.br.gameserver.communitybbs;
 
 import com.it.br.Config;
-import com.it.br.gameserver.communitybbs.Manager.ClanBBSManager;
-import com.it.br.gameserver.communitybbs.Manager.PostBBSManager;
-import com.it.br.gameserver.communitybbs.Manager.RegionBBSManager;
-import com.it.br.gameserver.communitybbs.Manager.TopBBSManager;
-import com.it.br.gameserver.communitybbs.Manager.TopicBBSManager;
+import com.it.br.gameserver.communitybbs.Manager.*;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.L2GameClient;
 import com.it.br.gameserver.network.SystemMessageId;

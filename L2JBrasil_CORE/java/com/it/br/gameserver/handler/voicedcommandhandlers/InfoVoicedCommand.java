@@ -16,14 +16,14 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 package com.it.br.gameserver.handler.voicedcommandhandlers;
- 
-import java.util.logging.Logger;
 
 import com.it.br.gameserver.GameServer;
 import com.it.br.gameserver.cache.HtmCache;
 import com.it.br.gameserver.handler.IVoicedCommandHandler;
 import com.it.br.gameserver.model.actor.instance.L2PcInstance;
 import com.it.br.gameserver.network.serverpackets.NpcHtmlMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
  
 /**
  * @author Rayder
@@ -33,7 +33,7 @@ public class InfoVoicedCommand implements IVoicedCommandHandler
 {
 	private static final String[] VOICED_COMMANDS = {"info"};
 
-	private static final Logger _log = Logger.getLogger(GameServer.class.getName());
+	private static final Logger _log = LoggerFactory.getLogger(GameServer.class);
 
 
 	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)

@@ -22,13 +22,14 @@ import com.it.br.gameserver.model.zone.type.L2CastleTeleportZone;
 import com.it.br.gameserver.model.zone.type.L2CastleZone;
 import com.it.br.gameserver.model.zone.type.L2SiegeZone;
 import com.it.br.gameserver.network.serverpackets.PledgeShowInfoUpdate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
-import java.util.logging.Logger;
 
 public class Castle
 {
-    protected static Logger _log = Logger.getLogger(Castle.class.getName());
+    protected static Logger _log = LoggerFactory.getLogger(Castle.class);
 
     // =========================================================
     // Data Field
